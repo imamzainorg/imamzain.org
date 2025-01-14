@@ -9,16 +9,7 @@ import {
 } from "@/components/ui/carousel"
 import Image from "next/image"
 import Link from "next/link"
-type Book = {
-	id: number
-	title: string
-	slug: string
-	author: string
-	publisher: string
-	pages: number
-	views: number
-	image: string
-}
+import { Book } from "@/lib/definitions"
 
 export function HighlightCarousel({ publications }: { publications: Book[] }) {
 	const previousRef = useRef<HTMLButtonElement>(null)
@@ -54,7 +45,7 @@ export function HighlightCarousel({ publications }: { publications: Book[] }) {
 										width={200}
 										height={200}
 										className="object-center w-auto h-4/6"
-										alt={publication.image}
+										alt={publication.title}
 									/>
 								</div>
 							</div>

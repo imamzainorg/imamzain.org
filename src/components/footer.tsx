@@ -47,9 +47,7 @@ export default function Footer() {
 					<div className="flex justify-center">
 						<div className="w-1/4">
 							<Image
-								src={
-									"/images/institution-logo-vertical-white.svg"
-								}
+								src={"/images/logo-vertical-white.svg"}
 								width={250}
 								height={250}
 								alt="Logo"
@@ -454,7 +452,7 @@ export default function Footer() {
 				<div className="w-2/3 mx-auto">
 					<Link href="/">
 						<Image
-							src="/images/institution-logo-horizontal-white.svg"
+							src="/images/logo-horizontal-white.svg"
 							width={50}
 							height={50}
 							className="w-full"

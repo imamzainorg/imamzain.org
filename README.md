@@ -43,7 +43,7 @@ To get a local copy up and running, follow these steps:
 
 To start the development server, run:
 ```sh
-npm start
+npm run dev
 ```
 
 Open your browser and visit `http://localhost:3000` to view the website.

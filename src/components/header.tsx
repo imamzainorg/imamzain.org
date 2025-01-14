@@ -50,7 +50,7 @@ export default function TopImage() {
 			>
 				<Link href="/">
 					<Image
-						src="/images/institution-logo-horizontal-white.svg"
+						src="/images/logo-horizontal-white.svg"
 						width={50}
 						height={50}
 						className="w-32 sm:w-40 xl:w-52"

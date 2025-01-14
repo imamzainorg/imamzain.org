@@ -7,12 +7,12 @@ import {
 	TimeIcon,
 	VideoRecordingIcon,
 } from "@/assets/icons/reusable"
-import SectionTitle from "@/components/section" 
+import SectionTitle from "@/components/section"
 import SectionCta from "@/components/section-cta"
 export default function Videos() {
-  return (
-    <> 
-    			<div className="w-4/5 mx-auto flex flex-col gap-4">
+	return (
+		<>
+			<div className="w-4/5 mx-auto flex flex-col gap-4">
 				<div className="w-full flex items-center justify-between my-8">
 					<SectionTitle title="المرئيات" />
 					<Link
@@ -36,7 +36,7 @@ export default function Videos() {
 							className="relative w-full h-[200px] rounded-xl overflow-clip flex flex-col shadow-xl"
 						>
 							<Image
-								src="/images/alqibla-gate.jpg"
+								src="/images/placeholder.jpg"
 								width={300}
 								height={300}
 								alt="media pic"
@@ -90,6 +90,6 @@ export default function Videos() {
 					/>
 				</div>
 			</div>
-    </>
-  );
+		</>
+	)
 }
