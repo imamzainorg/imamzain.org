@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import localFont from "next/font/local"
 
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import "./globals.css"
 import { Toaster } from "sonner"
@@ -79,7 +80,13 @@ export default function RootLayout({
 				className={`${imamzainfont.className}  bg-[url('/shapes/bg.svg')]`}
 			>
 				{children}
-				<Analytics />
+
+				{/* vercel metrics */}
+				<>
+					<Analytics />
+					<SpeedInsights />
+				</>
+
 				<Toaster />
 			</body>
 		</html>
