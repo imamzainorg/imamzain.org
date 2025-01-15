@@ -8,7 +8,15 @@ export default {
 		"./src/app/**/*.{js,ts,jsx,tsx,mdx}",
 	],
 	theme: {
-		
+		container: {
+			padding: {
+				DEFAULT: '1rem',
+				sm: '1rem',
+				lg: '4rem',
+				xl: '5rem',
+				'2xl': '6rem',
+			},
+		},
 		extend: {
 			screens:{
 				'xxs': "280px",

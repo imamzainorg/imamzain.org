@@ -31,7 +31,7 @@ const links = [
 	{ label: "الوسائط", href: "/coming-soon" },
 ]
 
-export default function TopImage() {
+export default function Header() {
 	const path = usePathname()
 	const [isMenuVisible, setIsMenuVisible] = useState(false)
 
