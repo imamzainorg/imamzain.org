@@ -34,6 +34,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.5.1",
+    "framer-motion": "^11.18.0",
     "i18n-iso-countries": "^7.13.0",
     "libphonenumber-js": "^1.11.16",
     "lucide-react": "^0.468.0",
