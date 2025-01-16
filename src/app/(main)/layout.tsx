@@ -1,5 +1,6 @@
-import Header from "@/components/header"
-import Footer from "@/components/footer"
+import Layouts from "@/layouts"
+import React from "react";
+
 
 export default function MainLayout({
 	children,
@@ -8,9 +9,9 @@ export default function MainLayout({
 }>) {
 	return (
 		<>
-			<Header />
+			<Layouts >
 			{children}
-			<Footer />
+			</Layouts >
 		</>
 	)
 }

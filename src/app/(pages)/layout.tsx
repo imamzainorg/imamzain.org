@@ -1,16 +1,17 @@
-import Header from "@/components/header"
-import Footer from "@/components/footer"
+import Layouts from "@/layouts"
+import React from "react";
+
 
 export default function MainLayout({
-	children,
-}: Readonly<{
-	children: React.ReactNode
+                                       children,
+                                   }: Readonly<{
+    children: React.ReactNode
 }>) {
-	return (
-		<>
-			<Header />
-			{children}
-			<Footer />
-		</>
-	)
+    return (
+        <>
+            <Layouts>
+                {children}
+            </Layouts>
+        </>
+    )
 }
