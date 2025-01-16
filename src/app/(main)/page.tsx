@@ -1,4 +1,4 @@
-import TopImage from "@/components/header"
+
 import Gallery from "../(pages)/gallery/page"
 import Imamzain from "./imamzain"
 import InstitutionMessage from "./institution-message"
@@ -8,6 +8,7 @@ import Publications from "./publications"
 import RightsMessage from "./rights-message"
 import Services from "./services"
 import Videos from "./videos"
+import TopImage from "./top-image";
 
 export default function page() {
 	return (
