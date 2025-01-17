@@ -12,8 +12,8 @@ import SectionCta from "@/components/section-cta"
 export default function Videos() {
 	return (
 		<>
-			<div className="w-4/5 mx-auto flex flex-col gap-4">
-				<div className="w-full flex items-center justify-between my-8">
+			<div className="container flex flex-col gap-12 py-20">
+				<div className="w-full flex items-center justify-between ">
 					<SectionTitle title="المرئيات" />
 					<Link
 						href="/gallery"

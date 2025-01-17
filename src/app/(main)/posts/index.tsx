@@ -11,8 +11,8 @@ import { newsPosts } from "@/lib/data"
 export default function Posts() {
   return (
     <>
-			<div className="flex flex-col items-center">
-				<div className="w-11/12 mx-auto flex items-center justify-between my-8">
+			<div className="container py-20 flex flex-col items-center gap-6">
+				<div className=" w-full flex items-center justify-between my-8">
 					<SectionTitle title="الأخبار" />
 					<Link
 						href="/news"
@@ -27,7 +27,7 @@ export default function Posts() {
 						/>
 					</Link>
 				</div>
-				<div className="grid grid-cols-2 lg:grid-cols-4 gap-3 xl:gap-8">
+				<div className="flex flex-wrap justify-between w-full gap-y-4">
 					{newsPosts.slice(0, 4).map((item, idx) => {
 						const responsiveSize =
 							"w-[150px] h-[280px] sm:w-[250px] sm:h-[400px] md:w-[240px] md:h-[400px] xl:w-[250px] xl:h-[450px] 2xl:w-[300px] 2xl:h-[550px]"

@@ -12,7 +12,7 @@ import TopImage from "./top-image";
 
 export default function page() {
 	return (
-		<>
+		<div className={`pb-64`}>
 			<TopImage />
 			<InstitutionMessage />
 			<Posts />
@@ -22,7 +22,7 @@ export default function page() {
 			<Publications />
 			<Gallery />
 			<Videos />
-			<Live />
-		</>
+			{/*<Live />*/}
+		</div>
 	)
 }

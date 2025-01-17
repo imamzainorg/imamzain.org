@@ -8,7 +8,10 @@ import "@/style/globals.css"
 import {Toaster} from "sonner"
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import { config } from "@fortawesome/fontawesome-svg-core";
+import {config} from "@fortawesome/fontawesome-svg-core";
+import {LanguagesProvider} from "@/context/language-context";
+import {HeroUIProvider} from "@heroui/system";
+
 config.autoAddCss = false;
 
 const imamzainfont = localFont({
@@ -83,10 +86,16 @@ export default function RootLayout({
         <body
             className={`${imamzainfont.className}  bg-[url('/shapes/bg.svg')]`}
         >
-        {children}
+        <HeroUIProvider>
+            <LanguagesProvider>
+                {children}
+                <Toaster/>
+            </LanguagesProvider>
+        </HeroUIProvider>
+
         <Analytics/>
         <SpeedInsights/>
-        <Toaster/>
+
         </body>
         </html>
     )

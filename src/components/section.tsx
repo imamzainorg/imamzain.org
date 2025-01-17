@@ -11,8 +11,8 @@ export default function Section({
 	dark?: boolean
 }) {
 	return (
-		<div className="w-full my-8">
-			<div className="w-full flex items-center sm:items-start gap-2 md:gap-4 p-2 sm:p-4">
+		<div className="w-full  ">
+			<div className="w-full flex items-center sm:items-start gap-2 md:gap-4    ">
 				<Image
 					src={"/shapes/title-icon.svg"}
 					width={150}
