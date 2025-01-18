@@ -7,9 +7,18 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import "@/style/globals.css"
 import { Toaster } from "sonner"
 
+<<<<<<< HEAD
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import { config } from "@fortawesome/fontawesome-svg-core"
 config.autoAddCss = false
+=======
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import {config} from "@fortawesome/fontawesome-svg-core";
+import {LanguagesProvider} from "@/context/language-context";
+import {HeroUIProvider} from "@heroui/system";
+
+config.autoAddCss = false;
+>>>>>>> d54d0540694eb40f867b1629180a3db19911118a
 
 const imamzainfont = localFont({
 	src: [
@@ -78,6 +87,7 @@ export default function RootLayout({
 }: Readonly<{
 	children: React.ReactNode
 }>) {
+<<<<<<< HEAD
 	return (
 		<html lang="ar" dir="rtl">
 			<body
@@ -90,4 +100,24 @@ export default function RootLayout({
 			</body>
 		</html>
 	)
+=======
+    return (
+        <html lang="ar" dir="rtl">
+        <body
+            className={`${imamzainfont.className}  bg-[url('/shapes/bg.svg')]`}
+        >
+        <HeroUIProvider>
+            <LanguagesProvider>
+                {children}
+                <Toaster/>
+            </LanguagesProvider>
+        </HeroUIProvider>
+
+        <Analytics/>
+        <SpeedInsights/>
+
+        </body>
+        </html>
+    )
+>>>>>>> d54d0540694eb40f867b1629180a3db19911118a
 }
