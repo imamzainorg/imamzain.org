@@ -3,5 +3,9 @@ export default function MainLayout({
 }: Readonly<{
 	children: React.ReactNode
 }>) {
-	return <>{children}</>
+	return (
+		<div className="container mt-52 sm:mt-32 lg:mt-40 xl:mt-40">
+			{children}
+		</div>
+	)
 }

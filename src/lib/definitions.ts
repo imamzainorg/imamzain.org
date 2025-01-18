@@ -1,13 +1,16 @@
-export type BookCategory = "دراسات دينية" | "سيرة ذاتية"
 export type Book = {
 	id: number
-	title: string
 	slug: string
+
+	title: string
 	author: string
-	category: BookCategory
-	publisher: string
+	otherNames: string[]
+	printHouse: string
+	printDate: Date
+	language: string
 	pages: number
-	summary: string
+	parts: number
+
 	views: number
 	image: string
 	pdf: string

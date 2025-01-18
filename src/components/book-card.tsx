@@ -38,7 +38,7 @@ export default function BookCard({
 					{publication.author}
 				</span>
 				<span className="text-xs sm:text-lg lg:text-sm font-light">
-					الناشر: {publication.publisher}
+					الناشر: {publication.printHouse}
 				</span>
 				<div className="flex justify-between w-11/12 mt-2 text-[10px] sm:text-base lg:text-xs font-light tracking-wide text-gray-600">
 					<span>{publication.pages} صفحة</span>
