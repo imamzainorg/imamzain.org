@@ -25,7 +25,7 @@ export default async function Page({
 	}
 
 	return (
-		<div className="space-y-10">
+		<div className="space-y-10 my-8">
 			<Breadcrumbs
 				links={[
 					{ name: "الرئيسية", url: "/" },
@@ -54,9 +54,9 @@ export default async function Page({
 					</div>
 				</div>
 
-				<div className="text-center -translate-y-10 !mt-8 grid grid-cols-1 sm:grid-cols-2 space-y-4">
+				<div className="text-center -translate-y-10 !mt-8 sm:grid sm:grid-cols-2 space-y-4">
 					<p>شخصيات اخرى</p>
-					<span className="font-light">
+					<span className="font-extralight text-slate-500">
 						{publication.otherNames[0]
 							? publication.otherNames.map((name) => (
 									<div key={name}>{name}</div>
@@ -65,21 +65,29 @@ export default async function Page({
 					</span>
 
 					<p>المطبعة</p>
-					<span className="font-light">{publication.printHouse}</span>
+					<span className="font-extralight text-slate-500">
+						{publication.printHouse}
+					</span>
 
 					<p>تاريخ الطبع</p>
-					<span className="font-light">
+					<span className="font-extralight text-slate-500">
 						{publication.printDate.toISOString().split("T")[0]}
 					</span>
 
 					<p>اللغة</p>
-					<span className="font-light">{publication.language}</span>
+					<span className="font-extralight text-slate-500">
+						{publication.language}
+					</span>
 
 					<p>عدد الصفحات</p>
-					<span className="font-light">{publication.pages}</span>
+					<span className="font-extralight text-slate-500">
+						{publication.pages}
+					</span>
 
 					<p>عدد الاجزاء</p>
-					<span className="font-light">{publication.parts}</span>
+					<span className="font-extralight text-slate-500">
+						{publication.parts}
+					</span>
 				</div>
 			</div>
 
