@@ -1,31 +1,32 @@
-import {heroui} from '@heroui/theme';
+import { heroui } from "@heroui/theme"
 import type { Config } from "tailwindcss"
-
+import formsPlugin from "@tailwindcss/forms"
+import containerQueries from "@tailwindcss/container-queries"
 export default {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/layouts/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-	  "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@heroui/theme/dist/components/(accordion|divider).js"
-  ],
+	content: [
+		"./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+		"./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+		"./src/layouts/**/*.{js,ts,jsx,tsx,mdx}",
+		"./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+		"./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
+		"./node_modules/@heroui/theme/dist/components/(accordion|divider).js",
+	],
 	theme: {
 		container: {
 			padding: {
-				DEFAULT: '1rem',
-				sm: '1rem',
-				lg: '4rem',
-				xl: '5rem',
-				'2xl': '6rem',
+				DEFAULT: "1rem",
+				sm: "1rem",
+				lg: "4rem",
+				xl: "5rem",
+				"2xl": "6rem",
 			},
 		},
 		extend: {
-			screens:{
-				'xxs': "280px",
-				'xs':'500px',
-				's':'380px',
-				'xmd':'900px',
+			screens: {
+				xxs: "280px",
+				xs: "500px",
+				s: "380px",
+				xmd: "900px",
 			},
 			colors: {
 				primary: "#006654",
@@ -34,5 +35,5 @@ export default {
 			},
 		},
 	},
-  plugins: [require("@tailwindcss/forms"),require("@tailwindcss/container-queries"),heroui()],
+	plugins: [formsPlugin, containerQueries, heroui()],
 } satisfies Config

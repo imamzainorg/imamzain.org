@@ -1,6 +1,5 @@
 import Link from "next/link"
 
-import Dropdown from "@/components/ui/dropdown"
 import Image from "next/image"
 import {
 	InstagramIcon,
@@ -10,27 +9,17 @@ import {
 	TwitterIcon,
 } from "@/assets/icons/reusable"
 
-import {
-	Accordion,
-	AccordionContent,
-	AccordionItem,
-	AccordionTrigger,
-} from "@/components/ui/accordion"
+import { Accordion, AccordionItem } from "@heroui/accordion"
+import DropdownLang from "@/layouts/dropdown-lang"
 
 export default function Footer() {
-	const languages = [
-		{ name: "العربية", link: "#" },
-		{ name: "English", link: "#" },
-		{ name: "فارسى", link: "#" },
-		{ name: "اردو", link: "#" },
-	]
 	return (
 		<>
 			{/* old nav  - big screen */}
 			<div className="hidden xl:block bg-primary rounded-t-[60px] p-10 text-white/90 -mt-14">
 				<div className="flex flex-col gap-16">
 					<div className="flex justify-between">
-						<Dropdown text={languages[0].name} items={languages} />
+						<DropdownLang />
 						<div className="flex justify-end gap-2">
 							{bigNavSocials.map((social, index) => (
 								<Link
@@ -425,26 +414,20 @@ export default function Footer() {
 				</div>
 				<div className="flex flex-col gap-2">
 					{links.map((link, index) => (
-						<Accordion
-							key={index}
-							type="single"
-							collapsible
-							className="w-full"
-						>
+						<Accordion key={index} className="w-full">
 							<AccordionItem
 								value={link.label}
-								className="border-none"
+								className="border-none text-base"
+								aria-label={link.label}
+								title={link.label}
 							>
-								<AccordionTrigger className="text-base">
-									{link.label}
-								</AccordionTrigger>
-								<AccordionContent className="flex flex-col gap-3 mr-4">
+								<div className="flex flex-col gap-3 mr-4">
 									{link.sublinks.map((link, index) => (
 										<Link href={link.href} key={index}>
 											{link.label}
 										</Link>
 									))}
-								</AccordionContent>
+								</div>
 							</AccordionItem>
 						</Accordion>
 					))}
