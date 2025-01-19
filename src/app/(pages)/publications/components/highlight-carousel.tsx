@@ -50,6 +50,7 @@ export function HighlightCarousel({ publications }: { publications: Book[] }) {
 										width={200}
 										height={200}
 										className="object-center w-auto h-4/6"
+										priority
 										alt={publication.title}
 									/>
 								</div>
