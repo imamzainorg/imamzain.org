@@ -1,4 +1,3 @@
-import Gallery from "../(pages)/gallery/page"
 import Imamzain from "./imamzain"
 import InstitutionMessage from "./institution-message"
 import Live from "./live"
@@ -8,10 +7,11 @@ import RightsMessage from "./rights-message"
 import Services from "./services"
 import Videos from "./videos"
 import TopImage from "./top-image"
+import GallerySection from "./gallery"
 
 export default function page() {
 	return (
-		<div className={`pb-64`}>
+		<div className={`pb-32`}>
 			<TopImage />
 			<InstitutionMessage />
 			<Posts />
@@ -19,7 +19,7 @@ export default function page() {
 			<RightsMessage />
 			<Services />
 			<Publications />
-			<Gallery />
+			<GallerySection />
 			<Videos />
 			<Live />
 		</div>

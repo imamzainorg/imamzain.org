@@ -3,10 +3,10 @@ import SectionTitle from "@/components/section"
 export default function Services() {
 	return (
 		<>
-			<div className="relative text-white flex flex-col items-center  space-y-2">
+			<div className="relative text-white flex flex-col items-center space-y-2">
 				<div className="absolute h-full w-full bg-dark-background -z-10" />
 
-				<div className="container  flex flex-col items-center py-12  ">
+				<div className="container flex flex-col items-center py-12">
 					<SectionTitle title="الخدمات" dark />
 					<div className="flex justify-between flex-col lg:flex-row items-center gap-4">
 						<div className="w-1/2 ">
