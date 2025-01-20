@@ -84,7 +84,7 @@ export default function RootLayout({
 	return (
 		<html lang="ar" dir="rtl">
 			<body
-				className={`${imamzainfont.className}  bg-[url('/shapes/bg.svg')]`}
+				className={`${imamzainfont.className} bg-[url('/shapes/bg.svg')] bg-[length:500px] lg:bg-[length:70%] bg-repeat`}
 			>
 				<HeroUIProvider>
 					<LanguagesProvider>

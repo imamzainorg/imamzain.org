@@ -9,10 +9,10 @@ export default function Breadcrumbs({
 	className?: string
 }) {
 	return (
-		<div className="mt-28 sm:mt-32 lg:mt-40 xl:mt-40">
+		<div className="pt-20 sm:pt-32 lg:pt-40 xl:pt-40">
 			<div
 				className={cn(
-					"flex text-base sm:text-lg lg:text-2xl text-gray-700 my-6",
+					"flex text-sm sm:text-lg lg:text-2xl text-gray-700 my-6",
 					className,
 				)}
 			>

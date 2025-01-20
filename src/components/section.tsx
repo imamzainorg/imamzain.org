@@ -11,18 +11,18 @@ export default function Section({
 	dark?: boolean
 }) {
 	return (
-		<div className="w-full  ">
-			<div className="w-full flex items-center sm:items-start gap-2 md:gap-4    ">
+		<div className="w-full space-y-6 !my-8">
+			<div className="w-full flex items-center sm:items-center gap-2 md:gap-4">
 				<Image
 					src={"/shapes/title-icon.svg"}
 					width={150}
 					height={150}
 					alt="title icon"
-					className="w-3 sm:w-6 lg:w-8 xl:w-10"
+					className="w-2 sm:w-6 lg:w-5 xl:w-6"
 				/>
 				<h1
 					className={cn(
-						"text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-primary",
+						"text-lg md:text-xl lg:text-2xl xl:text-3xl font-extrabold text-primary",
 						dark && "text-white",
 					)}
 				>
@@ -31,7 +31,7 @@ export default function Section({
 			</div>
 			{text && (
 				<div className="w-11/12 mx-auto space-y-2">
-					<p className="w-11/12 mx-auto mb-5 text-lg sm:text-lg md:text-xl lg:text-2xl leading-normal sm:leading-loose text-justify">
+					<p className="mb-5 text-lg sm:text-lg md:text-xl leading-normal sm:!leading-relaxed tracking-tight text-justify">
 						{text}
 					</p>
 				</div>

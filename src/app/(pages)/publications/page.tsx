@@ -3,6 +3,7 @@ import SectionTitle from "@/components/section"
 import { HighlightCarousel } from "./components/highlight-carousel"
 import Breadcrumbs from "@/components/breadcrumb"
 import { publications } from "@/lib/data"
+import Section from "@/components/section"
 
 export default async function page() {
 	// TODO build api endpoint to fetch publications
@@ -27,17 +28,18 @@ export default async function page() {
 
 			{/* brief about our publications */}
 			<div className="w-full my-8">
-				<SectionTitle title="نبذة عن اصدارات المؤسسة" />
-				<div className="w-11/12 mx-auto space-y-2">
-					<p className="w-11/12 mx-auto text-sm sm:text-lg lg:text-2xl leading-5 sm:leading-10 tracking-normal text-justify mb-5">
-						يعد تراث الامام السجاد عليه السلام من الكنوز المعرفية
+				<Section
+					title="نبذة عن اصدارات المؤسسة"
+					text="	يعد تراث الامام السجاد عليه السلام من الكنوز المعرفية
 						الإلهية التي لم تستوف البحوث والدراسات غور مكنوناته, من
 						حيث الدراسة والتحليل والتوثيق , اذ يمثل مصدرا غنيا
 						بالمعارف والأفكار والنظريات التربوية لهذا ارتات المؤسسة
 						القيام بالتحقيق والتاليف وإتاحة الفرصة امام الباحثين
 						الذين يتسمون بالأصالة والابداع والجدة لدراسة وتحليل تراث
 						الامام والاسهام في عملية البناء التربوي
-					</p>
+					"
+				/>
+				<div className="w-11/12 mx-auto space-y-2">
 					<div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
 						{publications.map((publication) => (
 							<BookCard
