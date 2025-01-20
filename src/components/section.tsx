@@ -30,8 +30,8 @@ export default function Section({
 				</h1>
 			</div>
 			{text && (
-				<div className="w-11/12 mx-auto space-y-2">
-					<p className="w-11/12 mx-auto mb-5 text-lg sm:text-lg md:text-xl lg:text-2xl leading-normal sm:leading-loose text-justify">
+				<div className="w-11/12 mx-auto space-y-2  ">
+					<p className="w-11/12 mx-auto mb-5 text-lg sm:text-lg md:text-xl lg:text-2xl leading-loose sm:!leading-loose text-justify  ">
 						{text}
 					</p>
 				</div>

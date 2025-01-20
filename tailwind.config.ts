@@ -22,6 +22,7 @@ export default {
 			},
 		},
 		extend: {
+
 			screens: {
 				xxs: "280px",
 				xs: "500px",
