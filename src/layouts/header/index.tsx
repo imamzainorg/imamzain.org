@@ -182,7 +182,6 @@ export default function Header() {
 								</Link>
 							))}
 						</nav>
-
 						<button
 							className="lg:hidden"
 							onClick={toggleMenu}
