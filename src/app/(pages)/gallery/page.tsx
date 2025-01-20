@@ -7,7 +7,7 @@ import SwiperCarousel from "./_component/swiper-carousel"
 export default async function Gallery() {
 	return (
 		<div className="bg-dark-background bg-[url('/shapes/bg.svg')]">
-			<div className="w-11/12 space-y-20 mx-auto py-28 sm:yt-32 lg:py-40 xl:py-48">
+			<div className=" container py-20 sm:yt-32 lg:py-40 xl:py-48">
 				<Breadcrumbs
 					className="text-white"
 					links={[

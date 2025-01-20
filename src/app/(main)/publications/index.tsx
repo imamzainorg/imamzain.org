@@ -1,18 +1,15 @@
- 
 import Link from "next/link"
 
-import {
-	ChevronRightArrowIcon, 
-} from "@/assets/icons/reusable"
-import SectionTitle from "@/components/section" 
-import { publications } from "@/lib/data";
-import { HighlightCarousel } from "@/app/(pages)/publications/components/highlight-carousel";
+import { ChevronRightArrowIcon } from "@/assets/icons/reusable"
+import SectionTitle from "@/components/section"
+import { publications } from "@/lib/data"
+import { HighlightCarousel } from "@/app/(pages)/publications/components/highlight-carousel"
 
 export default function Publications() {
-  return (
-    <> 
-    			<div className="flex flex-col items-center">
-				<div className="w-11/12 mx-auto flex items-center justify-between my-8">
+	return (
+		<>
+			<div className="container w-full flex flex-col items-center !my-8">
+				<div className=" flex w-full items-center justify-between my-8">
 					<SectionTitle title="الأصدارات" />
 					<Link
 						href="/publications"
@@ -31,7 +28,6 @@ export default function Publications() {
 					<HighlightCarousel publications={publications} />
 				</div>
 			</div>
-
-    </>
-  );
+		</>
+	)
 }

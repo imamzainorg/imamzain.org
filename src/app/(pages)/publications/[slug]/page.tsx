@@ -1,15 +1,9 @@
-import BookCard from "@/components/book-card"
 import Breadcrumbs from "@/components/breadcrumb"
-import {
-	Carousel,
-	CarouselContent,
-	CarouselItem,
-} from "@/components/ui/carousel"
-import { DownloadIcon, ShareIcon } from "lucide-react"
-import Image from "next/image"
 import { redirect } from "next/navigation"
 import { publications } from "@/lib/data"
 import { Book } from "@/lib/definitions"
+import Image from "next/image"
+import BookCard from "@/components/book-card"
 
 export default async function Page({
 	params,
@@ -22,115 +16,98 @@ export default async function Page({
 	// const publication = await fetch(`https://api.imamzain.org/publications/${slug}`)
 
 	// mimic the data recieved from fetch(`https://api.imamzain.org/publications/${slug}`)
-	const publication: Book | null =
-		publications.find((book) => book.slug === slug) || null
+	const publication: Book | undefined = publications.find(
+		(book) => book.slug === slug,
+	)
 
 	if (!publication) {
 		return redirect("/404")
 	}
 
 	return (
-		<div className="w-11/12 mx-auto my-5">
+		<div className="space-y-10 my-8">
 			<Breadcrumbs
 				links={[
 					{ name: "الرئيسية", url: "/" },
 					{ name: "الأصدارات", url: "/publications" },
-					{ name: publication.title, url: "/publications" },
+					{ name: "كتاب", url: "#" },
 				]}
 			/>
-			<div className="flex flex-col justify-center items-center">
-				{/* book info container */}
-				<div className="relative my-40 flex flex-col justify-center max-w-screen-xl w-full gap-10 rounded-lg bg-gray-50 shadow-md pt-52">
-					{/* image and main info container */}
-					<div className="absolute -top-44 flex w-full justify-center gap-20 items-center">
-						{/* image container */}
-						<div className="overflow-hidden drop-shadow-sm flex md:justify-center">
-							<Image
-								width={600}
-								height={600}
-								className="w-60 object-cover rounded-xl border-opacity-45 border-2 border-gray-200 "
-								src={publication.image}
-								alt={publication.title}
-							/>
-						</div>
-						<div className=" flex flex-col gap-10">
-							<div>
-								<h1 className="text-2xl font-bold mb-4">
-									{publication.title}
-								</h1>
-								<p className="text-xl font-semibold text-gray-400">
-									تأليف {publication.author}
-								</p>
-							</div>
-							<div className="pb-4 w-full border-b-2 border-slate-300 flex justify-between">
-								<button className="bg-primary text-md p-5 rounded-full flex gap-4 items-center duration-300">
-									<p>قم بتنزيل الكتاب</p>
-									<DownloadIcon />
-								</button>
-								<button>
-									<ShareIcon />
-								</button>
-							</div>
-						</div>
-					</div>
-					<div className="w-3/4 mx-auto flex justify-start gap-10 pb-10 border-b-2 border-slate-300">
-						<div className="w-1/3">
-							<ul>
-								<li>
-									<p className="text-2xl font-semibold my-2">
-										تفاصيل الكتاب
-									</p>
-									<ul className="list-disc mr-10 text-md">
-										<li>
-											<div className="flex gap-x-2">
-												<div>عدد الصفحات:</div>
-												<div>
-													{publication.pages || 0}
-												</div>
-											</div>
-										</li>
-										<li>
-											<div className="flex gap-x-2">
-												<div>دار النشر:</div>
-												<div>
-													{publication.publisher ||
-														""}
-												</div>
-											</div>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-						<div className="w-1/2">
-							<h2 className="text-2xl font-semibold">الوصف</h2>
-							<p className="text-gray-600 mr-10 text-lg text-justify">
-								{publication.summary}
-							</p>
-						</div>
+			{/* الكتاب المقصود */}
+			<div className="bg-white/20 border border-primary/30 shadow-xl shadow-primary/20 rounded-3xl flex flex-col p-2 !mt-20 sm:!mt-40">
+				<div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 lg:gap-20 items-center">
+					<Image
+						src={publication.image}
+						width={350}
+						height={200}
+						alt={publication.slug}
+						className="w-40 sm:w-60 h-auto rounded-xl -translate-y-16 sm:-translate-y-28"
+					/>
+					<div className="space-y-2 text-center sm:text-right -translate-y-10 sm:-translate-y-28 lg:-translate-y-24 w-1/2">
+						<p className="text-lg sm:text-2xl lg:text-4xl font-semibold">
+							{publication.title}
+						</p>
+						<p className="text-sm sm:text-lg lg:text-2xl text-gray-500">
+							{publication.author}
+						</p>
 					</div>
 				</div>
-				<div className="w-full border">
-					<div className="w-1/2 rounded-full h-0.5 mx-auto bg-primary" />
-					<h2 className="text-3xl font-semibold text-center my-10">
-						كتب ذات صلة
-					</h2>
-					<Carousel
-						opts={{ startIndex: publications.length - 1 }}
-						className="w-2/3 mx-auto"
-					>
-						<CarouselContent className="flex-row-reverse">
-							{publications.map((book, index) => (
-								<CarouselItem
-									key={index}
-									className="md:basis-1/4"
-								>
-									<BookCard publication={book} />
-								</CarouselItem>
-							))}
-						</CarouselContent>
-					</Carousel>
+
+				<div className="w-5/6 lg:w-3/6 mx-auto text-center sm:text-right sm:text-xl lg:text-2xl -translate-y-10 !mt-8 sm:grid sm:grid-cols-10 sm:items-center space-y-4 sm:!-mt-8">
+					<p className="col-span-3">شخصيات اخرى</p>
+					<span className="hidden sm:block col-span-1">:</span>
+					<span className="font-extralight text-slate-500 col-span-6">
+						{publication.otherNames[0]
+							? publication.otherNames.map((name) => (
+									<div key={name}>{name}</div>
+							  ))
+							: "لا يوجد"}
+					</span>
+
+					<p className="col-span-3">المطبعة</p>
+					<span className="hidden sm:block col-span-1">:</span>
+					<span className="font-extralight text-slate-500 col-span-6">
+						{publication.printHouse}
+					</span>
+
+					<p className="col-span-3">تاريخ الطبع</p>
+					<span className="hidden sm:block col-span-1">:</span>
+					<span className="font-extralight text-slate-500 col-span-6">
+						{publication.printDate.toISOString().split("T")[0]}{" "}
+					</span>
+
+					<p className="col-span-3">اللغة</p>
+					<span className="hidden sm:block col-span-1">:</span>
+					<span className="font-extralight text-slate-500 col-span-6">
+						{publication.language}
+					</span>
+
+					<p className="col-span-3">عدد الصفحات</p>
+					<span className="hidden sm:block col-span-1">:</span>
+					<span className="font-extralight text-slate-500 col-span-6">
+						{publication.pages}
+					</span>
+
+					<p className="col-span-3">عدد الاجزاء</p>
+					<span className="hidden sm:block col-span-1">:</span>
+					<span className="font-extralight text-slate-500 col-span-6">
+						{publication.parts}
+					</span>
 				</div>
+			</div>
+
+			{/* كتب ذات صلة */}
+			<h2 className="text-center font-semibold border-t border-b p-4 sm:text-2xl xl:text-4xl">
+				كتب ذات صلة
+			</h2>
+			<div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
+				{publications.slice(0, 2).map((publication) => (
+					<BookCard
+						key={publication.id}
+						publication={publication}
+						downloadable
+					/>
+				))}
 			</div>
 		</div>
 	)

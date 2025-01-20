@@ -42,7 +42,7 @@ export default function SwiperCarousel({ images }: { images: string[] }) {
 								slidesPerView: 2,
 							},
 							360: {
-								slidesPerView: 1.5,
+								slidesPerView: 3,
 							},
 						}}
 						modules={[EffectCoverflow, Pagination, Navigation]}
@@ -56,7 +56,7 @@ export default function SwiperCarousel({ images }: { images: string[] }) {
 										alt={`Image ${index}`}
 										width={500}
 										height={500}
-										className="rounded-lg object-cover shadow-lg 2xl:h-fit"
+										className="rounded-lg object-cover aspect-square shadow-lg 2xl:h-fit"
 									/>
 								</div>
 							</SwiperSlide>

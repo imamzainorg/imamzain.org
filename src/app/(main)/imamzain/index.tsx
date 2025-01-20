@@ -5,8 +5,8 @@ export default function Imamzain() {
     <>
       <div className="bg-[url('/images/albaqi.jpg')] bg-cover">
         <div className="bg-secondary/80 text-white">
-          <div className="w-4/5 mx-auto flex flex-col gap-4 py-4 sm:py-8">
-            <h1 className="text-3xl text-center md:text-right md:text-4xl text-primary font-bold">
+          <div className="container flex flex-col gap-12 py-24 max-sm:py-8">
+            <h1 className="text-3xl text-center md:text-right md:text-4xl text-primary font-bold  ">
               الإمام زين العابدين
             </h1>
             <p className="font-light text-lg md:text-2xl lg:text-2xl leading-7 md:leading-9 lg:leading-10 text-justify tracking-tighter">

@@ -9,7 +9,7 @@ export default async function page() {
 	// const publications = await fetch("https://api.imamzain.org/publications")
 
 	return (
-		<div className="w-11/12 lg:w-9/12 mx-auto mt-28 sm:mt-32 lg:mt-40 xl:mt-48">
+		<div className="">
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
@@ -21,9 +21,7 @@ export default async function page() {
 			<div className="w-full">
 				<SectionTitle title="الأصدارات" />
 				<div className="w-11/12 mx-auto my-8">
-					<HighlightCarousel
-						publications={publications.slice(0, 3)}
-					/>
+					<HighlightCarousel publications={publications} />
 				</div>
 			</div>
 
