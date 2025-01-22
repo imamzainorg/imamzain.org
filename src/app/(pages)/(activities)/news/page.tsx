@@ -17,7 +17,6 @@ export default async function page() {
 
 	return (
 		<div className="">
-			{/* page heading */}
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
@@ -25,13 +24,13 @@ export default async function page() {
 				]}
 			/>
 			{/* latest posts */}
-			<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+			<div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
 				{latestData.map((post) =>
 					latestData.indexOf(post) === 0 ? (
 						<Link
 							href={`/news/${post.slug}`}
 							key={post.id}
-							className="space-y-4"
+							className="space-y-4 lg:col"
 						>
 							<div className="relative">
 								<div className="absolute w-5 h-5 -bottom-2 right-5 bg-[url('/shapes/indicator.svg')] rotate-90 bg-no-repeat"></div>

@@ -18,8 +18,8 @@ export default function visionandgoals() {
 				className="flex justify-center items-center shadow-xl "
 			>
 				<Image
-					src="/images/about-vision.jpg.JPG"
-					className="w-full rounded-xl aspect-[16/6] object-cover"
+					src="/images/about-vision.JPG"
+					className="w-full rounded-xl aspect-[16/6] object-cover object-[center_-80px]"
 					width={800}
 					height={500}
 					alt="logo"

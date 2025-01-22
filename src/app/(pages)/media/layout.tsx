@@ -3,5 +3,9 @@ export default function MediaLayout({
 }: Readonly<{
 	children: React.ReactNode
 }>) {
-	return <div className="container">{children}</div>
+	return (
+		<div className="bg-dark-background bg-[url('/shapes/bg.svg')] h-fit pb-2">
+			<div className="container">{children}</div>
+		</div>
+	)
 }

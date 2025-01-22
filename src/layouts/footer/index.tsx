@@ -114,10 +114,10 @@ const bigNavSocials = [
 
 export default function Footer() {
 	return (
-		<div className="bg-primary text-white rounded-t-[2rem]">
+		<div className="bg-primary text-white rounded-t-[2rem] !-mt-8">
 			{/* Big screen */}
-			<div className="container max-lg:hidden py-10    ">
-				<div className="flex justify-between  pb-10">
+			<div className="container max-lg:hidden py-10">
+				<div className="flex justify-between pb-10">
 					<DropdownLang broad />
 					<SocialLinks size={"2x"} />
 				</div>

@@ -1,11 +1,10 @@
 import Breadcrumbs from "@/components/breadcrumb"
 import Section from "@/components/section"
 import Image from "next/image"
-import Link from "next/link"
 
 export default function About() {
 	return (
-		<div className="space-y-10">
+		<div className="!space-y-12">
 			{/* Breadcrumb */}
 			<Breadcrumbs
 				links={[
@@ -13,59 +12,33 @@ export default function About() {
 					{ name: "حول المؤسسة", url: "/about" },
 				]}
 			/>
-			<div className="xl:w-11/12  mx-auto ">
-				<div className="flex justify-center items-center  ">
+			<div className="!mb-8 lg:space-y-20">
+				<div className="">
 					<Image
 						src="/images/about-landing.jpg"
-						className="w-full rounded-xl aspect-[16/6] object-cover"
+						className="w-11/12 rounded-xl aspect-[16/6] object-cover"
 						width={800}
 						height={500}
 						alt="logo"
 					/>
-				</div>
-				<div className="w-full">
 					<Section
 						title="رؤية المؤسسة"
 						text="انطلاقاً من العمق الديني والعلمي والاجتماعي لأهل بيت النبوة وأنوار الهداية الإلهية (عليهم السلام جميعاً) ، وسعياً الى تعريف المجتمع الإنساني بمآثر العترة الطاهرة لنبي الرحمة (صلى الله عليه وعليهم أجمعين) ، وإظهاراً لمظلومية الأئمة الطاهرين وخصوصاً أئمة البقيع (علهم السلام)، وما مورس في حقهم من إجحاف وتنكر وتغييب والحال أنهم أهل المدينة وسادتها وهم ورثة جدهم النبي الاكرم نسباً وعلماً ومكانةً وسؤدداً فلقد اهتم المؤمنون جزاهم الله خيراً قديماً وحديثاً بمحاولات كثيرة لنشر فكر أئمة البقيع وفقههم والعمل على إلفات الإنظار الى سمو مرتبتهم (عليهم السلام) وجلالة قدرهم في الإسلام فجزى الله العاملين كل خير."
+						moreButton="/about/vision-and-goals#vision"
 					/>
-					<div className="w-full flex justify-end">
-						<Link
-							href=" /about/vision-and-goals#vision "
-							className="text-xl hover:underline"
-						>
-							المزيد
-						</Link>
-					</div>
-					<div className="mt-10 w-full  flex items-center justify-center   md:hidden h-auto">
-						<Image
-							src="/images/about-vision.jpg"
-							className="rounded-[25px]  object w-3/4"
-							width={800}
-							height={500}
-							alt="logo"
-						/>
-					</div>
 				</div>
-				<div className="flex flex-row">
-					<div className="md:w-1/2">
+				<div className="flex gap-8">
+					<div className="w-full md:w-1/2">
 						<Section
 							title="رسالة المؤسسة"
-							text=" تحفيز الباحثين والمحققين لإثراء الجانب العلمي والفكري والثقافي المرتبط بالإمام السجاد (عليه السلام) ,وإشاعة روح التخلق بأخلاقه والالتزام بمبادئه بين أبنائنا في المؤسسات العلمية والنخبوية عبر أعمال وفعاليات علمية وفنية .
-              "
+							text="تحفيز الباحثين والمحققين لإثراء الجانب العلمي والفكري والثقافي المرتبط بالإمام السجاد (عليه السلام) وإشاعة روح التخلق بأخلاقه والالتزام بمبادئه بين أبنائنا في المؤسسات العلمية والنخبوية عبر أعمال وفعاليات علمية وفنية والهدف من عمل المؤسسة هو تسليط الضوء على ما لم يظهر من آثار الإمام السجاد (عليه السلام)."
+							moreButton="/about/vision-and-goals#message"
 						/>
-						<div className="w-full flex justify-end">
-							<Link
-								href=" /about/vision-and-goals#message "
-								className="text-xl hover:underline"
-							>
-								المزيد
-							</Link>
-						</div>
 					</div>
-					<div className="md:flex w-1/2 hidden h-auto p-12 xl:p-14 mt-5">
+					<div className="hidden md:flex items-center w-1/2 h-auto">
 						<Image
 							src="/images/about-vision.jpg"
-							className="rounded-[50px] bg-black object"
+							className="rounded-[30px] bg-black"
 							width={800}
 							height={500}
 							alt="logo"
@@ -86,15 +59,34 @@ export default function About() {
 						</p>
 					</div>
 				</div>
-				<div className="mt-24 grid">
+				<div className="">
 					<Section title="معلومات الإتصال" />
-					<div className="bg-slate-500/25 p-6 rounded-[30px] grid">
-						<label className="m-2 text-lg xs:text-xl md:text-2xl">
-							رقم الهاتف : 07829439996
-						</label>
-						<label className="m-2 text-lg xs:text-xl md:text-2xl">
-							الإيميل : info@imamzain.org
-						</label>
+					<div className="bg-slate-500/25 p-6 rounded-xl">
+						{[
+							{
+								label: "رقم الهاتف",
+								value: "(+964) 782 943 9996",
+								dir: "ltr",
+							},
+							{
+								label: "الايميل",
+								value: "info@imamzain.org",
+								dir: "ltr",
+							},
+						].map((item, index) => (
+							<div
+								key={index}
+								className="text-xs min-[400px]:text-sm sm:text-lg md:text-xl w-full flex"
+							>
+								<p className="w-3/12 sm:w-2/12 text-nowrap">
+									{item.label}
+								</p>
+								<p className="w-1/12">:</p>
+								<p className="w-7/12 text-right" dir={item.dir}>
+									{item.value}
+								</p>
+							</div>
+						))}
 					</div>
 				</div>
 			</div>
