@@ -5,7 +5,7 @@ export default function MediaLayout({
 }>) {
 	return (
 		<div className="bg-dark-background bg-[url('/shapes/bg.svg')] h-fit pb-2">
-			<div className="container">{children}</div>
+			<div className="">{children}</div>
 		</div>
 	)
 }
