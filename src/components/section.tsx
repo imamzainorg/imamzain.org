@@ -26,7 +26,7 @@ export default function Section({
 				/>
 				<h1
 					className={cn(
-						"text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-primary",
+						"text-lg md:text-xl lg:text-2xl xl:text-3xl font-extrabold text-primary",
 						dark && "text-white",
 					)}
 				>

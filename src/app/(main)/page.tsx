@@ -11,7 +11,7 @@ import GallerySection from "./gallery"
 
 export default function page() {
 	return (
-		<div className={`pb-32`}>
+		<div className={`mb-16`}>
 			<TopImage />
 			<InstitutionMessage />
 			<Posts />

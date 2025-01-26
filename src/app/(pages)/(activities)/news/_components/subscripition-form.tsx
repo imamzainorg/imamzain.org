@@ -40,21 +40,21 @@ const SubscriptionForm = () => {
 	return (
 		<form
 			onSubmit={handleSubmit}
-			className="w-full flex flex-col gap-4 mt-8 sm:space-y-5"
+			className="w-full flex flex-col gap-4 mt-8 sm:space-y-1"
 		>
 			<input
 				type="email"
 				id="email"
 				name="email"
 				value={email}
-				className="rounded-md w-3/4 min-[420px]:w-2/4 md:w-1/2 lg:w-	/4 mx-auto text-xs md:text-xl px-4 py-2 text-black"
+				className="rounded-md w-4/6 sm:w-5/6 mx-auto text-xs md:text-sm px-4 py-2 text-black"
 				placeholder="البريد الالكتروني"
 				onChange={(e) => setEmail(e.target.value)}
 				required
 			/>
 			<button
 				type="submit"
-				className="bg-secondary px-4 py-1 md:px-8 md:py-2 w-fit mx-auto rounded-md text-sm md:text-xl"
+				className="bg-secondary px-4 py-1 md:px-8 md:py-2 w-fit mx-auto rounded-md text-sm"
 			>
 				اشترك الان
 			</button>
