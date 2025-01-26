@@ -46,7 +46,7 @@ export default async function page() {
 								<h2 className="font-bold text-base">
 									{post.title}
 								</h2>
-								<p className="font-light text-sm">
+								<p className="font-light text-sm inline">
 									{post.summary}
 								</p>
 								<p className="font-extralight text-xs">
