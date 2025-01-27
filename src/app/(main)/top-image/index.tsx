@@ -1,5 +1,4 @@
 import Image from "next/image";
-import landing from  "../../../../public/images/about-landing.jpg"
 export default function TopImage() {
     return (
         <>
