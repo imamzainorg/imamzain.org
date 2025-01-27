@@ -1,4 +1,4 @@
-export default function ActivitiesLayout({
+export default function libraryLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode
