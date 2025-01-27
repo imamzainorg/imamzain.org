@@ -15,9 +15,10 @@ export default function media() {
     <div className="space-y-10 container">
       <Breadcrumbs
         className="text-white"
+        dotColor="bg-secondary"
         links={[
           { name: "الصفحة الرئيسية", url: "/" },
-          { name: "المرئيات", url: "#" },
+          { name: "المرئيات", url: "#" }
         ]}
       />
 

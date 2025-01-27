@@ -174,7 +174,7 @@ export default function visionandgoals() {
 						الجهات المستهدفة
 					</h2>
 				</div>
-				<div className="w-11/12 mx-auto space-y-2  ">
+				<div className="w-11/12 mx-auto space-y-2 pb-8 ">
 					<p className="w-11/12 mx-auto  text-md sm:text-lg md:text-lg lg:text-xl leading-loose sm:!leading-loose text-justify  ">
 						طلبة العلوم الدينية.
 						<br />
