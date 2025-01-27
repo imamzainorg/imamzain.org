@@ -8,7 +8,7 @@ import PostCard from "./_components/news-card"
 
 export default async function Page() {
 	// Mock data fetching
-	const latestData = await newsPosts.slice(0, 4)
+	const latestData = await newsPosts.slice(0, 5)
 	const mostReadData = await newsPosts.slice(0, 3)
 	const meetingsData = await newsPosts.slice(0, 4)
 
@@ -26,7 +26,7 @@ export default async function Page() {
 				<Link
 					href={`/news/${latestData[0].slug}`}
 					key={latestData[0].id}
-					className="lg:w-1/2 space-y-6"
+					className="lg:w-7/12 space-y-6"
 				>
 					<div className="relative">
 						<div className="absolute w-7 h-7 -bottom-2.5 right-6 bg-[url('/shapes/newsIndicator.svg')] rotate-180 bg-no-repeat"></div>
@@ -50,10 +50,15 @@ export default async function Page() {
 						</p>
 					</div>
 				</Link>
-				<div className="flex flex-col gap-4 lg:w-1/2">
-					{latestData.slice(1).map((post) => (
-						<PostCard key={post.id} {...post} />
-					))}
+				<div className="lg:w-4/12">
+					<h2 className="text-primary font-bold text-center lg:text-left p-4 mb-2 sm:text-xl xl:text-2xl">
+						آخر الاخبار
+					</h2>
+					<div className="grid lg:grid-rows-4 gap-4">
+						{latestData.slice(1).map((post) => (
+							<PostCard key={post.id} {...post} />
+						))}
+					</div>
 				</div>
 			</div>
 
@@ -67,7 +72,8 @@ export default async function Page() {
 						))}
 					</div>
 					<div className="w-5/12 flex flex-col items-center gap-x-8 lg:flex-row">
-						<div className="w-[300px] h-[300px] lg:w-[360px] xl:w-[500px] lg:h-[360px] xl:h-[500px] bg-[url('/shapes/ziara-bg.svg')] bg-container rotate-180 bg-center bg-no-repeat flex justify-center items-center text-white">
+						<div className="w-[300px] h-[300px] lg:w-[360px] xl:w-[500px] lg:h-[360px] xl:h-[500px] bg-[url('/shapes/ziara-bg.svg')] bg-container rotate-180 bg-center bg-no-repeat flex justify-center items-center text-white relative isolate">
+							<div className="absolute w-full h-full bg-[url('/shapes/bg.svg')]" />
 							<div className="rotate-180 text-center w-full">
 								<span className="md:text-xl font-semibold tracking-wide">
 									اشترك في

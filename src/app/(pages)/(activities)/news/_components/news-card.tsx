@@ -19,7 +19,7 @@ export default function PostCard(post: Post) {
 					</p>
 				</div>
 				<div className="w-2/6 h-5/6 relative">
-					<div className="absolute rotate-90 w-3 h-3 lg:w-5 lg:h-5 bottom-3 lg:bottom-4 -right-1.5 lg:-right-2 bg-[url('/shapes/newsIndicator.svg')] bg-no-repeat"></div>
+					<div className="absolute rotate-90 w-3 h-3 xl:w-5 xl:h-5 bottom-3 -right-1.5 xl:bottom-4 xl:-right-2 bg-[url('/shapes/newsIndicator.svg')] bg-no-repeat"></div>
 					<Image
 						src={post.image}
 						width={500}
