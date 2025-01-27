@@ -1,3 +1,5 @@
+
+import Gallery from "../(pages)/gallery/page"
 import Imamzain from "./imamzain"
 import InstitutionMessage from "./institution-message"
 import Live from "./live"

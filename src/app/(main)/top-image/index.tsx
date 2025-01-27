@@ -1,12 +1,14 @@
 import Image from "next/image";
+import landing from "../../../../public/images/albaqi.jpg"
+
 export default function TopImage() {
     return (
         <>
             <div
-                className="relative w-full h-[100vh] overflow-hidden"
+                className="relative w-full h-[96vh] max-lg:h-[91vh] bg-[#006654] overflow-hidden"
                 style={{
-                    WebkitMaskImage: `url('/images/masks.png')`,
-                    maskImage: `url('/images/masks.png')`,
+                    WebkitMaskImage: `url('/images/landing-mask.svg')`,
+                    maskImage: `url('/images/landing-mask.svg')`,
                     WebkitMaskRepeat: 'no-repeat',
                     maskRepeat: 'no-repeat',
                     WebkitMaskSize: '100%',
@@ -15,19 +17,46 @@ export default function TopImage() {
                     maskPosition: 'bottom',
                 }}
             >
-                {/* Next.js 13+ usage with the `fill` prop */}
-                <Image
-                    src="/images/landing.jpg"
-                    alt="Some image"
-                    fill
-                    className="object-cover"
-                    /*
-                      object-cover  => preserves aspect ratio, crops if needed
-                      object-contain => preserves aspect ratio, leaves blank space if it doesn’t fill
-                      object-fill   => stretches the image to exactly fill the box (aspect ratio may be lost)
-                    */
-                />
+                <div
+                    className="relative w-full h-[95vh] max-lg:h-[90vh] bg-[#006654]  overflow-hidden"
+                    style={{
+                        WebkitMaskImage: `url('/images/landing-mask.svg')`,
+                        maskImage: `url('/images/landing-mask.svg')`,
+                        WebkitMaskRepeat: 'no-repeat',
+                        maskRepeat: 'no-repeat',
+                        WebkitMaskSize: '100%',
+                        maskSize: '100%',
+                        WebkitMaskPosition: 'bottom',
+                        maskPosition: 'bottom',
+                    }}
+                >
+                    <div className='absolute top-0 right-0 w-full h-full bg-amber-500 z-20'
+                         style={{
+                             background: `linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 55%, rgba(255,255,255,0) 100%)`,
+                         }}
+                    />
+                    <div
+                        className='absolute flex flex-col justify-center gap-4 items-center bottom-0 right-0 w-full h-1/2   z-30'>
+                        <h1 className='font-bold text-2xl text-white  '>
+                            عن الإمام زين العابدين (ع):
+                        </h1>
+                        <p className=' text-3xl text-white  '>
+                            اعلم أنك إن تكن ذنبا في الخير خير لك من أن تكون رأسا في الشر.
+                        </p>
+                    </div>
+                    <Image
+                        src={landing}
+                        alt="Some image"
+                        fill
+                        className="object-cover  "
+                        style={{
+                            objectPosition: 'top',
+                        }}
+                    />
+
+                </div>
             </div>
+
         </>
     );
 
