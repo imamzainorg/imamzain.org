@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils"
-import { ChevronLeft } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -35,17 +34,11 @@ export default function Section({
 			</div>
 			{text && (
 				<div className="w-11/12 mx-auto sm:text-lg md:text-xl xl:text-xl">
-					<p className="text-lg leading-relaxed !tracking-tight text-justify ">
+					<p className="text-lg leading-relaxed !tracking-tight text-justify inline">
 						{text}
 						{moreButton && (
-							<Link href={moreButton} className="text-primary">
-								<div className="flex justify-end items-center gap-4 group">
-									المزيد
-									<ChevronLeft
-										className="translate-x-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 duration-150"
-										size={14}
-									/>
-								</div>
+							<Link href={moreButton} className="text-primary font-semibold mr-2 hover:underline">
+								المزيد...
 							</Link>
 						)}
 					</p>
