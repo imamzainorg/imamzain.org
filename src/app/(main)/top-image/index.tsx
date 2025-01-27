@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
-import landing from "../../../../public/images/albaqi.jpg"
+import { motion } from "framer-motion";
+import landing from "../../../../public/images/albaqi.jpg";
 
 export default function TopImage() {
     return (
@@ -18,7 +21,7 @@ export default function TopImage() {
                 }}
             >
                 <div
-                    className="relative w-full h-[95vh] max-lg:h-[90vh] bg-[#006654]  overflow-hidden"
+                    className="relative w-full h-[95vh] max-lg:h-[90vh] bg-[#006654] overflow-hidden"
                     style={{
                         WebkitMaskImage: `url('/images/landing-mask.svg')`,
                         maskImage: `url('/images/landing-mask.svg')`,
@@ -30,34 +33,46 @@ export default function TopImage() {
                         maskPosition: 'bottom',
                     }}
                 >
-                    <div className='absolute top-0 right-0 w-full h-full bg-amber-500 z-20'
-                         style={{
-                             background: `linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 55%, rgba(255,255,255,0) 100%)`,
-                         }}
+                    <div
+                        className="absolute top-0 right-0 w-full h-full bg-amber-500 z-20"
+                        style={{
+                            background: `linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 55%, rgba(255,255,255,0) 100%)`,
+                        }}
                     />
                     <div
-                        className='absolute flex flex-col justify-center gap-4 items-center bottom-0 right-0 w-full h-1/2   z-30'>
-                        <h1 className='font-bold text-2xl text-white  '>
-                            عن الإمام زين العابدين (ع):
-                        </h1>
-                        <p className=' text-3xl text-white  '>
-                            اعلم أنك إن تكن ذنبا في الخير خير لك من أن تكون رأسا في الشر.
-                        </p>
+                        className="absolute flex flex-col justify-center gap-4 items-center bottom-0 right-0 w-full h-1/2 z-30">
+                        <motion.div
+                            initial={{opacity: 0, y: 50}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{
+                                duration: 1.5,
+                                ease: "easeOut",
+                                delay: 0.5,
+                            }}
+                            className="text-3xl text-white text-center"
+                        >
+                            <h1 className="font-bold text-2xl text-white">
+                                عن الإمام زين العابدين (ع):
+                            </h1>
+                            <p
+                                className="text-3xl text-white text-center"
+                            >
+                                اعلم أنك إن تكن ذنبا في الخير خير لك من أن تكون رأسا في الشر.
+                            </p>
+                        </motion.div>
+
                     </div>
                     <Image
                         src={landing}
                         alt="Some image"
                         fill
-                        className="object-cover  "
+                        className="object-cover"
                         style={{
-                            objectPosition: 'top',
+                            objectPosition: "top",
                         }}
                     />
-
                 </div>
             </div>
-
         </>
     );
-
 }

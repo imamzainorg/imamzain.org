@@ -30,28 +30,20 @@ const bigNavSocials  = [
 
 // 5. TopBar component
 export default function TopBar() {
-    // We'll type the return of usePathname (string or null).
-    const path = usePathname() ?? "";
 
-    // Cast or type your custom hook return to match the interface we created
+    const path = usePathname()  ;
+
     const { isScrolled, isSmallScreen, isScrollDown } = useWindowEvents()  ;
 
-    // 6. State for the language dropdown
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    // 7. Language context
-    //    If your context is typed, it should automatically infer these. If not, you can define an interface.
     const {   setLanguage, languages } = useLanguages()  ;
-
-    // 8. Handler to update the language
     const handleLanguageChange = (language: string) => {
         setLanguage(language);
         setIsOpen(false);
     };
 
     const closeMenu = () => setIsOpen(false);
-
-    // 9. Close dropdown if clicking outside .dropdown-lang
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (!(event.target as HTMLElement).closest(".dropdown-lang")) {
@@ -64,6 +56,19 @@ export default function TopBar() {
         };
     }, []);
 
+    const [prayerTimes, setPrayerTimes] = useState({ fajir: "", date: "" });
+
+    useEffect(() => {
+        async function fetchPrayerTimes() {
+            const res = await fetch(
+                "https://hq.alkafeel.net/Api/init/init.php?timezone=+3&long=44&lati=32&v=jsonPrayerTimes"
+            );
+            const data = await res.json();
+            setPrayerTimes({ fajir: data.fajir, date: data.date });
+        }
+
+        fetchPrayerTimes();
+    }, []);
     return (
         <>
             <div
@@ -72,11 +77,11 @@ export default function TopBar() {
                 }`}
             >
                 <div className="container">
-                    <div className="flex justify-between items-center">
-                        <div className="flex items-center gap-8">
+                    <div className="flex justify-between items-center py-1">
+                        <div className="flex items-center gap-2">
                             <FontAwesomeIcon icon={faCalendar} color={`${!isScrolled ?"#ffffff": "#bb9661"}`} />
-                            <p>
-
+                            <p className={`text-sm  p-0 mt-1 ${!isScrolled ?"text-[#ffffff]": "text-[#bb9661]"}`}>
+                                {prayerTimes && prayerTimes.date}
                             </p>
                         </div>
                         <div className="flex justify-between items-center gap-1">
@@ -106,12 +111,12 @@ export default function TopBar() {
                                             className={`${
                                                 isScrolled || path !== "/" ? "text-primary" : "text-white"
                                             }`}
-                                            size="lg"
+                                            size="sm"
                                         />
                                     </button>
 
                                     {isOpen && (
-                                        <div className="absolute top-5 left-5 bg-white rounded-lg w-fit z-50 flex flex-col text-gray-800 shadow-xl translate-y-2 animate-dropdown transition-all duration-300">
+                                        <div className="absolute top-5 -right-8 bg-white rounded-lg w-fit z-50 flex flex-col text-gray-800 shadow-xl translate-y-2 animate-dropdown transition-all duration-300">
                                             {languages.map((language, index) => (
                                                 <div
                                                     key={index}

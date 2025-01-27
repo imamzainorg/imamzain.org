@@ -119,7 +119,7 @@ export default function Footer() {
 			<div className="container max-lg:hidden py-10">
 				<div className="flex justify-between pb-10">
 					<DropdownLang broad />
-					<SocialLinks size={"2x"} />
+					<SocialLinks size={"lg"} />
 				</div>
 
 				<div className="flex justify-between gap-20 max-md:p-10 py-8  ">

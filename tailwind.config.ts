@@ -31,6 +31,7 @@ export default {
 			},
 			colors: {
 				primary: "#006654",
+				s: "rgba(0,138,117,0.99)",
 				secondary: "#bb9661",
 				"dark-background": "rgb(37,52,63)",
 			},
