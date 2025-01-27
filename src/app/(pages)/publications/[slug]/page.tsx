@@ -30,7 +30,7 @@ export default async function Page({
 				links={[
 					{ name: "الرئيسية", url: "/" },
 					{ name: "الأصدارات", url: "/publications" },
-					{ name: "كتاب", url: "#" },
+					{ name: slug, url: "#" },
 				]}
 			/>
 			{/* الكتاب المقصود */}
