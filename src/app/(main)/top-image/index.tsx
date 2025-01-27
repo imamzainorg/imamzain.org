@@ -17,7 +17,7 @@ export default function TopImage() {
             >
                 {/* Next.js 13+ usage with the `fill` prop */}
                 <Image
-                    src="/images/about-landing.jpg"
+                    src="/images/landing.jpg"
                     alt="Some image"
                     fill
                     className="object-cover"
