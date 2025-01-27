@@ -9,5 +9,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-	matcher: ["/imamzain", "/conferences"],
+	matcher: ["/imamzain", "/conferences", "/media"],
 }
