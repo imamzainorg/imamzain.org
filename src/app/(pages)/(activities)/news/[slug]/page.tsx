@@ -5,35 +5,7 @@ import PostCard from "../_components/news-card"
 
 import { FacebookIcon, TwitterIcon } from "@/assets/icons/reusable"
 import Link from "next/link"
-import { Metadata } from "next"
 import NewsShare from "../_components/news-share"
-
-export async function generateMetadata({
-	params,
-}: {
-	params: { slug: string }
-}): Promise<Metadata> {
-	const postSlug = await params.slug
-
-	// mimic the data recieved from fetch(https://api.imamzain.org/news/{slug})
-	const post = newsPosts.filter((item) => item.slug === postSlug)[0]
-
-	return {
-		title: post.title,
-		description: post.summary,
-		openGraph: {
-			title: post.title,
-			description: post.summary,
-			url: `https://www.imamzain.org/news/${postSlug}`,
-			images: [
-				{
-					url: post.image,
-					alt: post.title,
-				},
-			],
-		},
-	}
-}
 
 export default async function page({
 	params,
