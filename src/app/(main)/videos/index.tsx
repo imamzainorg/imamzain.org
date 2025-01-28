@@ -9,25 +9,19 @@ import {
 } from "@/assets/icons/reusable"
 import SectionTitle from "@/components/section"
 import SectionCta from "@/components/section-cta"
+import HeaderSections from "@/components/header-sections";
 export default function Videos() {
 	return (
 		<>
 			<div className="container flex flex-col gap-12 py-20">
-				<div className="w-full flex items-center justify-between ">
-					<SectionTitle title="المرئيات" />
-					<Link
-						href="/gallery"
-						className="flex font-semibold gap-2 text-white items-center py-1 px-2 rounded-lg bg-primary text-xs sm:text-sm"
-					>
-						<p className="text-nowrap">المزيد</p>
-						<ChevronRightArrowIcon
-							className="rotate-180 p-1.5 sm:p-1"
-							stroke="#ffffff"
-							strokeWidth={0.5}
-							fill="#ffffff"
-						/>
-					</Link>
-				</div>
+				<HeaderSections
+					title={'المرئيات'}
+					moreButton={{
+						label: 'المزيد',
+						href: '/videos',
+					}}
+				/>
+
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-8">
 					{Array.from({ length: 2 }).map((_, index) => (
 						<Link

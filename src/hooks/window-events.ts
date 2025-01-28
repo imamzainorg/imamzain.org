@@ -12,7 +12,7 @@ export default function useWindowEvents() {
     // const [screenSize, setScreenSize] = useState<ScreenSize>({ width: window.innerWidth, height: window.innerHeight });
     const prevScrollY = useRef<number>(0);
 
-    const isSmallScreen = useMediaQuery({ maxWidth: 1024 });
+    const isSmallScreen = useMediaQuery({ maxWidth: 1023 });
 
     useEffect(() => {
         const handleScroll = () => {

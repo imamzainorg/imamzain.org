@@ -2,12 +2,17 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faGlobe } from "@fortawesome/free-solid-svg-icons";
-import {useLanguages} from "@/context/language-context";
+import { useLanguages } from "@/context/language-context";
 
-export default function DropdownLang({broad} : { broad?: boolean }) {
+export default function DropdownLang({ broad }: { broad?: boolean }) {
     const [isOpen, setIsOpen] = useState(false);
+    const [isHydrated, setIsHydrated] = useState(false); // Ensure hydration consistency
     const { currentLanguage, setLanguage, languages } = useLanguages();
 
+    // Ensure hydration matches between server and client
+    useEffect(() => {
+        setIsHydrated(true);
+    }, []);
 
     const handleLanguageChange = (language: string) => {
         setLanguage(language);
@@ -27,10 +32,14 @@ export default function DropdownLang({broad} : { broad?: boolean }) {
         };
     }, []);
 
+    if (!isHydrated) return null; // Avoid rendering until hydration is complete
+
     return (
-        <div className="relative  cursor-pointer py-1 dropdown-lang  ">
+        <div className="relative cursor-pointer py-1 dropdown-lang">
             <button
-                className={`flex items-center justify-between bg-white rounded-full  px-1  border shadow ${broad ? "h-7" : ""} `}
+                className={`flex items-center justify-between bg-white rounded-full px-1 border shadow ${
+                    broad ? "h-7" : ""
+                }`}
                 onClick={() => setIsOpen((prev) => !prev)}
             >
                 <FontAwesomeIcon icon={faGlobe} className="px-3" color="#000000" size="xs" />
@@ -38,18 +47,22 @@ export default function DropdownLang({broad} : { broad?: boolean }) {
                 <FontAwesomeIcon icon={faChevronDown} className="px-3" color="#000000" size="xs" />
             </button>
             {isOpen && (
-                <div    className="absolute top-5 left-4 bg-white rounded-lg w-fit z-50 flex flex-col text-gray-800 shadow-xl translate-y-2 animate-dropdown transition-all duration-300">
+                <div
+                    className="absolute top-5 left-4 bg-white rounded-lg w-fit z-50 flex flex-col text-gray-800 shadow-xl translate-y-2 animate-dropdown transition-all duration-300"
+                >
                     {languages.map((language, index) => (
                         <div
                             key={index}
-                            className="  w-full h-full"
+                            className="w-full h-full"
                             onClick={() => handleLanguageChange(language.code)}
                         >
-                           <p
-                           className={' font-semibold text-gray-500 text-sm  w-full h-full rounded-lg   cursor-pointer py- px-4   hover:bg-gray-300  '}
-                           >
-                               {language.name}
-                           </p>
+                            <p
+                                className={
+                                    "font-semibold text-gray-500 text-sm w-full h-full rounded-lg cursor-pointer py-2 px-4 hover:bg-gray-300"
+                                }
+                            >
+                                {language.name}
+                            </p>
                         </div>
                     ))}
                 </div>
