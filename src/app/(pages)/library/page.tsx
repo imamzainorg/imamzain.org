@@ -20,16 +20,16 @@ export default function page() {
 					<div className="w-full ">
 						<SectionTitle title="قائمة الكتب" />
 					</div>
-					<div className=" flex gap-2 items-center justify-end ">
-						<span className=" text-[0.7rem]">الترتيب حسب:</span>
+					<div className="flex justify-center items-center text-nowrap ">
+						<span className=" text-sm">الترتيب حسب </span>
 						<select
 							id="sorting"
-							className=" flex-wrap md:flex-nowrap w-full md:w-1/2 text-sm border-none bg-transparent focus:border-none active:border-none"
+							className="  border-none bg-transparent focus:border-none active:border-none"
 						>
-							<option className=" w-1/2  text-[0.7rem]" value="latest" defaultChecked>
+							<option className=" w-1/2  text-sm md:text-md xl:text-xl 2xl:text-2xl" value="latest" defaultChecked>
 								الأحدث
 							</option>
-							<option className="w-1/2  text-[0.7rem]" value="common">الأكثر شيوعا</option>
+							<option className="w-1/2  text-sm md:text-md xl:text-xl 2xl:text-2xl" value="common">الأكثر شيوعا</option>
 						</select>
 					</div>
 				</div>
