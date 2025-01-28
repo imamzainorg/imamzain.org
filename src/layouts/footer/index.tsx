@@ -11,7 +11,7 @@ import {
 import { SizeProp } from "@fortawesome/fontawesome-svg-core"
 import DropdownLang from "@/layouts/dropdown-lang"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Accordion, AccordionItem } from "@heroui/accordion"
+import { Accordion, AccordionItem } from "@heroui/react"
 
 interface Sublink {
 	label: string

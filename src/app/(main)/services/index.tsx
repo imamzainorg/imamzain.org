@@ -1,3 +1,4 @@
+
 import ZiaraForm from "@/components/ziara-form"
 import SectionTitle from "@/components/section"
 export default function Services() {
@@ -8,9 +9,9 @@ export default function Services() {
 
 				<div className="container flex flex-col items-center py-12">
 					<SectionTitle title="الخدمات" dark />
-					<div className="flex justify-between flex-col lg:flex-row items-center gap-4">
-						<div className="w-1/2 ">
-							<h2 className="text-xl sm:text-4xl xl:text-6xl font-bold text-start pb-10 leading-10">
+					<div className="flex justify-between flex-col lg:flex-row items-center gap-4 md:h-[340px] xl:h-[450px]">
+						<div className="w-1/2 flex justify-center flex-col h-full">
+							<h2 className="text-xl sm:text-2xl xl:text-5xl font-bold text-start pb-10 leading-10 ">
 								زيارة الامام زين العابدين وأئمة البقيع عليهم
 								السلام
 							</h2>
@@ -20,7 +21,7 @@ export default function Services() {
 								المطهر.
 							</p>
 						</div>
-						<div className="w-[300px] h-[300px] md:w-[520px] md:h-[500px] xl:w-[800px] xl:h-[600px] flex md:flex-col items-center justify-center bg-[url('/shapes/ziara-bg.svg')] bg-center bg-no-repeat">
+						<div className="w-1/2 h-full  flex md:flex-col items-center justify-center bg-[url('/shapes/ziara-bg.svg')] bg-center bg-no-repeat  ">
 							<ZiaraForm />
 						</div>
 					</div>

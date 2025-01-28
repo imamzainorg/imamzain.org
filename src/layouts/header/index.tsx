@@ -271,8 +271,8 @@ export default function Header() {
 										</Link>
 									) : (
 										<span className="text-xl text-white">
-                      {link.label}
-                    </span>
+									  {link.label}
+									</span>
 									)}
 
 									{/* Show expand toggle if subLinks exist */}
