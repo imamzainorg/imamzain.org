@@ -9,7 +9,6 @@ export default {
     "./src/layouts/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@heroui/theme/dist/components/(accordion|divider).js",
   ],
   theme: {
     container: {
@@ -36,5 +35,5 @@ export default {
     },
   },
   darkMode: "class",
-  plugins: [formsPlugin, containerQueries, heroui()],
+  plugins: [ heroui()],
 } satisfies Config;

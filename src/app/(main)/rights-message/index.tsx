@@ -1,11 +1,9 @@
 "use client"
-import SectionCta from "@/components/section-cta"
-import SectionTitle from "@/components/section"
 import HeaderSections from "@/components/header-sections";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 export default function RightsMessage() {
     const lineVariants = {
-        hidden: { opacity: 0, x: -40 },
+        hidden: { opacity: 0,  x: -40 },
         visible: {
             opacity: 1,
             x: 0,
@@ -41,18 +39,7 @@ export default function RightsMessage() {
                     بالغة به حد الامن والسلم المجتمعي والحياة الكريمة لو تمت مراعاتها
                     وتطبيقها.
                 </motion.p>
-                {/*<SectionCta*/}
-                {/*    links={[*/}
-                {/*        {*/}
-                {/*            label: "حياته الكريمة",*/}
-                {/*            href: "/coming-soon",*/}
-                {/*        },*/}
-                {/*        {*/}
-                {/*            label: "تراث الإمام",*/}
-                {/*            href: "/coming-soon",*/}
-                {/*        },*/}
-                {/*    ]}*/}
-                {/*/>*/}
+
             </div>
         </>
     );

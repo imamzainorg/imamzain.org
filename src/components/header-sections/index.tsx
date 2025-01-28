@@ -5,13 +5,14 @@ import {ChevronRightArrowIcon} from "@/assets/icons/reusable";
 
 interface SectionProps {
     title: string;
+    dark?: boolean;
     moreButton?: {
         label: string;
         href: string;
     };
 }
 
-export default function HeaderSections({title, moreButton,}: SectionProps) {
+export default function HeaderSections({title, moreButton, dark}: SectionProps) {
     return (
         <div className="w-full     flex justify-between items-center">
             <div className="w-full flex items-center sm:items-center gap-2 md:gap-4">
@@ -23,7 +24,7 @@ export default function HeaderSections({title, moreButton,}: SectionProps) {
                     className="w-3 sm:w-4 xl:w-5"
                 />
                 <h1
-                    className={"mt-2 text-lg md:text-xl lg:text-2xl xl:text-3xl font-extrabold text-primary"}
+                    className={`mt-2 text-lg md:text-xl lg:text-2xl xl:text-3xl font-extrabold text-primary ${dark && "text-white"}`}
                 >
                     {title}
                 </h1>

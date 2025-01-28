@@ -1,6 +1,6 @@
 "use client"
 import SectionCta from "@/components/section-cta";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 export default function Imamzain() {
   const lineVariants = {
     hidden: { opacity: 0, x: -40 },

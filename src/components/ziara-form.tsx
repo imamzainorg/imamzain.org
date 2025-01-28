@@ -1,98 +1,87 @@
-"use client"
-import {
-	DropdownArrowIcon,
-	MobileIcon,
-	PersonIcon,
-} from "@/assets/icons/reusable"
-import { registerLocale } from "i18n-iso-countries"
-import arCountries from "i18n-iso-countries/langs/ar.json"
-import { toast } from "sonner"
-import {Autocomplete, AutocompleteItem, Button, Input} from "@heroui/react";
-registerLocale(arCountries)
+"use client";
+import { toast } from "sonner";
+import { Autocomplete, AutocompleteItem, Button, Input } from "@heroui/react";
+import { Globe } from "lucide-react";
+import { PersonIcon, MobileIcon } from "@/assets/icons/reusable";
 
-export default function ziaraForm() {
+export default function ZiaraForm() {
 	return (
-		<div className="flex flex-col items-center h-full justify-center w-full  ">
-			<div className="w-1/2 flex flex-col items-center gap-4   pt-10">
+		<div className="flex flex-col items-center justify-center w-full">
+			<div className=" flex flex-col items-center gap-4  pt-20    py-6
+			 w-[70%] sm:w-[50%] md:w-[35%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%]
+			">
 				<Input
-					// label={"الزيارة نيابة عن"}
-					size={'lg'}
-					className={'border-none w-full'}
+					size={"lg"}
+					className="border-none w-full"
 					labelPlacement="inside"
 					name="username"
 					placeholder="الزيارة نيابة عن"
 					classNames={{
-						base : '',
-						input: 'border-none focus:ring-0'
+						base: "",
+						input: "border-none focus:ring-0",
 					}}
 					startContent={
-						<MobileIcon
+						<PersonIcon
 							stroke="#bb9661"
-							fill="none"
-							strokeWidth={1.5}
+							fill="#bb9661"
+							strokeWidth={0.1}
 						/>
 					}
 					type="text"
 				/>
+
+				{/* Input for Phone */}
 				<Input
-					// label={"رقم الهاتف"}
-					size={'lg'}
-					className={'border-none w-full'}
+					size={"lg"}
+					className="border-none w-full"
 					labelPlacement="inside"
-					name="username"
+					name="phone"
 					placeholder="رقم الهاتف"
 					classNames={{
-						base : '',
-						input: 'border-none focus:ring-0'
+						base: "",
+						input: "border-none focus:ring-0",
 					}}
 					startContent={
-						<MobileIcon
-							stroke="#bb9661"
-							fill="none"
-							strokeWidth={1.5}
-						/>
+						<MobileIcon stroke="#bb9661" fill="none" strokeWidth={1.5} />
 					}
 					type="text"
 				/>
+
+				{/* Dropdown for Countries */}
 				<CountriesDropdown />
+
+				{/* Submit Button */}
 				<Button
 					onClick={() => toast("تم ادراج اسمك في قائمة الزائرين")}
-					className="w-1/2 text-white rounded-md bg-secondary px-2 !py-4 mt-4 font-bold text-xs md:text-2xl"
+					className="text-white rounded-md bg-secondary p-4 md:p-6 mt-2 font-bold text-xs md:text-lg"
 				>
 					التسجيل
 				</Button>
 			</div>
 		</div>
-	)
+	);
 }
+
 function CountriesDropdown() {
-      const animals = [
-        {label: "العراق", key: "cat" },
-        {label: "ايران", key: "dog" },
-        {label: "السعودية", key: "lion" },
-        {label: "البحرين", key: "tiger" },
-        {label: "الكويت", key: "giraffe" },
-		  {label: "تركيا", key: "elephant"  },
-    ];
+	const countries = [
+		{ label: "العراق", key: "iraq" },
+		{ label: "ايران", key: "iran" },
+		{ label: "السعودية", key: "ksa" },
+		{ label: "البحرين", key: "bahrain" },
+		{ label: "الكويت", key: "kuwait" },
+		{ label: "تركيا", key: "turkey" },
+	];
+
 	return (
-
-			<Autocomplete
-				startContent={
-					<MobileIcon
-						stroke="#bb9661"
-						fill="none"
-						strokeWidth={1.5}
-					/>
-				}
-                className="w-full"
-				placeholder="البلد"
-				size={'lg'}
-				// label="البلد"
-			>
-				{animals.map((animal) => (
-					<AutocompleteItem key={animal.key}>{animal.label}</AutocompleteItem>
-				))}
-			</Autocomplete>
-
+		<Autocomplete
+			startContent={<Globe stroke="#bb9661" fill="none" strokeWidth={2} />}
+			className="w-full"
+			placeholder="البلد"
+			size={"lg"}
+		>
+			{countries.map((country) => (
+				<AutocompleteItem key={country.key}>{country.label}</AutocompleteItem>
+			))}
+		</Autocomplete>
 	);
 }
