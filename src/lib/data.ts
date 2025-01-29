@@ -1,5 +1,4 @@
 import { Book, Post } from "./definitions";
-
 export const publications: Book[] = [
   {
     id: 1,
@@ -104,6 +103,7 @@ export const publications: Book[] = [
     pdf: "/books/سيرة الامام السجاد.pdf",
   },
 ];
+
 
 export const libraryBooks: Book[] = [
   {
