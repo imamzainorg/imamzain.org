@@ -1,4 +1,4 @@
-import type {Metadata} from "next"
+ import type {Metadata} from "next"
 import localFont from "next/font/local"
 
 import {Analytics} from "@vercel/analytics/next"
@@ -83,7 +83,7 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html lang="ar" dir="rtl">
+        <html lang="ar" dir="rtl" suppressHydrationWarning={true}>
         <body
             className={`${imamzainfont.className} bg-[url('/shapes/bg.svg')] bg-[length:500px] lg:bg-[length:70%] bg-repeat`}
         >

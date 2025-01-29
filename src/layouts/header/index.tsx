@@ -119,17 +119,17 @@ export default function Header() {
 	}
 
 	return (
-		<motion.div className="text-white" suppressHydrationWarning>
+		<motion.div className="text-white" >
 			{/* Header */}
 			<motion.div
 				variants={navbarVariants}
 				initial="visible"
 				animate={ 	isSmallScreen ? "visible" 	: isScrollDown 	? "visible" : "hidden"}
-				className={`fixed top-0 left-0 w-full h-fit flex flex-col justify-between lg:justify-around items-center z-50 text-white transition-all duration-300   
+				className={`fixed top-0 left-0 w-full h-fit flex flex-col justify-between lg:justify-around items-center z-50 text-white transition-all duration-300  
           ${
 					isScrolled || path !== "/"
 						? "rounded-b-2xl "
-						: "bg-gradient-to-b from-black/50 to-transparent"
+						: "bg-gradient-to-b from-black/70 to-transparent"
 				}`}
 			>
 				{/* Top Bar */}

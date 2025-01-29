@@ -35,7 +35,7 @@ export default function Videos() {
 							key={index}
 							href="gallery"
 							className={`relative w-full h-full rounded-xl overflow-hidden flex flex-col shadow-xl
-        ${index === 0 && 'row-span-2 lg:row-span-2 col-span-1 lg:col-span-2'}`}
+       						 ${index === 0 && 'row-span-2 lg:row-span-2 col-span-1 lg:col-span-2'}`}
 						>
 							<Image
 								src="/images/placeholder.jpg"

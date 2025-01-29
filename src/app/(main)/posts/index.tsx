@@ -24,11 +24,8 @@ export default function Posts() {
                             initial={{ flex: 1 }}
                             animate={{ flex: 1 }}
                             whileHover={{ flex: 2 }}
-                            className={`relative  bg- w-full h-[60vh] rounded-lg`}
+                            className={`relative  w-full max-md:w-[32rem] h-[30rem] rounded-lg`}
                         >
-
-
-
                             <motion.div
                                 className={`absolute rounded-3xl inset-0 bg-cover bg-center w-full h-full`}
                                 style={{
@@ -61,7 +58,6 @@ export default function Posts() {
                                     </div>
                                 </Link>
                             </motion.div>
-
                         </motion.div>
                     );
                 })}
