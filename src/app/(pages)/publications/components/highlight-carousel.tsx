@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Book } from "@/lib/definitions"
 import { cn } from "@/lib/utils"
-import { AnimatePresence, motion } from "motion/react"
+import { AnimatePresence, motion } from "framer-motion"
 
 export function HighlightCarousel({ publications }: { publications: Book[] }) {
 	const [publication, setPublication] = useState(publications[0])

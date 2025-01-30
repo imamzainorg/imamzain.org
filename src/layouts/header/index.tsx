@@ -17,7 +17,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons"
 import DropdownLang from "@/layouts/dropdown-lang"
-import { motion } from "motion/react"
+import { motion } from "framer-motion"
 import useWindowEvents from "@/hooks/window-events"
 import TopBar from "@/layouts/header/top-bar"
 
@@ -125,7 +125,7 @@ export default function Header() {
 				variants={navbarVariants}
 				initial="visible"
 				animate={ 	isSmallScreen ? "visible" 	: isScrollDown 	? "visible" : "hidden"}
-				className={`fixed top-0 left-0 w-full h-fit flex flex-col justify-between lg:justify-around items-center z-50 text-white transition-all duration-300 
+				className={`fixed top-0 left-0 w-full h-fit flex flex-col justify-between lg:justify-around items-center z-50 text-white transition-all duration-300   
           ${
 					isScrolled || path !== "/"
 						? "rounded-b-2xl "
@@ -137,7 +137,7 @@ export default function Header() {
 
 				{/* Navbar */}
 				<div
-					className={` w-full py-3 rounded-b-[2rem] ${ isScrolled || path !== "/" ? `bg-primary ${isMenuVisible ? "" : "shadow-xl"}` : "" }`} 	>
+					className={` w-full py-3 rounded-b-[2rem] ${ isScrolled || path !== "/" ? `bg-primary ${isMenuVisible ? "" : "shadow-2xl"}` : "" }`} 	>
 					<div className="container flex justify-between gap-4">
 						<Link href="/">
 							<Image
@@ -216,7 +216,7 @@ export default function Header() {
 															<Link
 																key={subIndex}
 																href={subLink.href}
-																className="pr-2 py-2 hover:bg-primary/80 transition group-hover:block text-gray-700"
+																className="pr-2 py-2 hover:bg-gray-300 transition group-hover:block text-gray-700"
 															>
 																{subLink.label}
 															</Link>
@@ -271,8 +271,8 @@ export default function Header() {
 										</Link>
 									) : (
 										<span className="text-xl text-white">
-                      {link.label}
-                    </span>
+									  {link.label}
+									</span>
 									)}
 
 									{/* Show expand toggle if subLinks exist */}

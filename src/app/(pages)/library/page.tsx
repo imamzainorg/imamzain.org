@@ -1,3 +1,4 @@
+"use client"
 import BooklibraryCard from "./components/book-library-card"
 import Breadcrumbs from "@/components/breadcrumb"
 import SectionTitle from "@/components/section"

@@ -1,11 +1,12 @@
+
+
+"use client"
+
 import BooklibraryCard from "../components/book-library-card";
 import OneBook from "../componentsbook/book";
 import Breadcrumbs from "@/components/breadcrumb";
-import SectionTitle from "@/components/section";
-import { ChevronDown, SearchIcon } from "lucide-react";
-import Image from "next/image";
+
 import { libraryBooks } from "@/lib/data";
-import { publications } from "@/lib/data";
 
 
 export default function pagep() {
