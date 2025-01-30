@@ -49,14 +49,12 @@ export default function TopImage() {
                                 ease: "easeOut",
                                 delay: 0.5,
                             }}
-                            className="text-3xl text-white text-center"
+                            className="text-3xl text-white text-center px-12 md:px-0"
                         >
-                            <h1 className="font-bold text-2xl text-white">
+                            <h1 className="font-bold text-xl lg:text-2xl text-white">
                                 عن الإمام زين العابدين (ع):
                             </h1>
-                            <p
-                                className="text-3xl text-white text-center"
-                            >
+                            <p  className="text-xl lg:text-2xl 2xl:text-3xl text-white text-center" >
                                 اعلم أنك إن تكن ذنبا في الخير خير لك من أن تكون رأسا في الشر.
                             </p>
                         </motion.div>

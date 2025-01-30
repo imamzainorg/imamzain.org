@@ -1,9 +1,10 @@
 "use client"
 
 import Image from "next/image"
-
+import { useState, useRef } from "react"
 import { Swiper as SwiperComponent, SwiperSlide } from "swiper/react"
 import { EffectCoverflow, Pagination, Navigation } from "swiper/modules"
+
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
@@ -12,65 +13,83 @@ import "swiper/css/effect-coverflow"
 import styles from "./styles.module.css"
 
 export default function SwiperCarousel({ images }: { images: string[] }) {
+	// Swiper reference
+	const swiperRef = useRef<any>(null)
+	const [swiperInstance, setSwiperInstance] = useState<any>(null)
+
+	const handleNext = () => {
+		if (swiperInstance) swiperInstance.slideNext()
+	}
+
+
+	const handlePrev = () => {
+		if (swiperInstance) swiperInstance.slidePrev()
+	}
+
 	return (
-		<div className="relative">
-			<section className="flex justify-center items-center">
-				<div className="2xl:h-full w-full pl-4 pr-4 md:pr-8 md:pl-8 md:w-4/3 xmd:w-3/4 2xl:w-4/3 flex justify-center items-center">
+		<div  className="relative">
+
+
 					<SwiperComponent
+						ref={swiperRef}
+						onSwiper={setSwiperInstance} // Save Swiper instance
 						dir="ltr"
+						loop={true} // ENABLE INFINITE LOOP
 						effect="coverflow"
 						grabCursor={true}
 						coverflowEffect={{
 							rotate: 0,
-							stretch: 10,
+							stretch: 0,
 							depth: 100,
-							modifier: 1,
+							modifier: 2.5,
 						}}
-						pagination={{
-							clickable: true,
-							type: "custom",
-						}}
-						navigation={{
-							nextEl: ".swiper-button-next",
-							prevEl: ".swiper-button-prev",
-						}}
+
 						breakpoints={{
-							900: {
+							1022: {
 								slidesPerView: 3,
 							},
-							800: {
-								slidesPerView: 2,
+							768: {
+								slidesPerView: 3,
 							},
 							360: {
-								slidesPerView: 3,
+								slidesPerView: 1,
 							},
 						}}
 						modules={[EffectCoverflow, Pagination, Navigation]}
-						className={`swiper-container ${styles.secondaryColor}`}
+						className={`swiper-container h-72  pl-4 pr-4 md:pr-8 md:pl-8 w-full md:w-[90%] xmd:w-3/4    2xl:w-[90%]  flex justify-center items-center ${styles.secondaryColor}`}
 					>
-						{images.slice(5).map((src, index) => (
-							<SwiperSlide key={index}>
-								<div className="flex justify-center items-center">
+						{images.map((src, index) => (
+							<SwiperSlide key={index} className={"h-full w-full  "}>
+								<div className="flex justify-center items-center w-full h-full rounded-2xl bg-secondary">
 									<Image
 										src={src}
 										alt={`Image ${index}`}
-										width={500}
-										height={500}
-										className="rounded-lg object-cover aspect-square shadow-lg 2xl:h-fit"
+										fill
+										className="rounded-2xl object-cover shadow-lg w-full  h-full  "
 									/>
+
+									{/*<Image*/}
+									{/*	src={src}*/}
+									{/*	alt={`Image ${index}`}*/}
+									{/*	width={1000}*/}
+									{/*	height={1000}*/}
+									{/*	className="rounded-lg object-cover aspect-square shadow-lg 2xl:h-fit"*/}
+									{/*/>*/}
 								</div>
 							</SwiperSlide>
 						))}
 					</SwiperComponent>
-				</div>
-			</section>
-			<div className="absolute top-1/2 left-0 right-0 transform xmd:ml-32 xmd:mr-32 xl:ml-48 xl:mr-48 2xl:mr-68 2xl:ml-68 -translate-y-1/2 flex justify-between px-4">
+
+
+			<div className="absolute max-md:hidden top-1/2 left-0 right-0 transform -translate-y-1/2 flex justify-between px-4">
 				<div
+					onClick={handlePrev}
 					className={`swiper-button-prev ${styles.secondaryColor}`}
 				/>
 
 				<div
-					className={`swiper-button-next ${styles.secondaryColor}`}
+					onClick={handleNext}
+					className={`swiper-button-next  ${styles.secondaryColor}`}
 				/>
 			</div>
 		</div>

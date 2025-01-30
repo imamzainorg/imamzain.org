@@ -59,7 +59,7 @@ export default function About() {
 						</p>
 					</div>
 				</div>
-				<div className="p-10">
+				<div className="">
 					<Section title="معلومات الإتصال" />
 					<div className="bg-slate-500/25 p-6 rounded-xl">
 						{[

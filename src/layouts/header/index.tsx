@@ -16,7 +16,8 @@ import {
 	faFacebook,
 } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons"
-import { motion } from "motion/react"
+import DropdownLang from "@/layouts/dropdown-lang"
+import { motion } from "framer-motion"
 import useWindowEvents from "@/hooks/window-events"
 import TopBar from "@/layouts/header/top-bar"
 
@@ -118,7 +119,7 @@ export default function Header() {
 	}
 
 	return (
-		<motion.div className="text-white" suppressHydrationWarning>
+		<motion.div className="text-white">
 			{/* Header */}
 			<motion.div
 				variants={navbarVariants}
@@ -130,11 +131,11 @@ export default function Header() {
 							? "visible"
 							: "hidden"
 				}
-				className={`fixed top-0 left-0 w-full h-fit flex flex-col justify-between lg:justify-around items-center z-50 text-white transition-all duration-300 
+				className={`fixed top-0 left-0 w-full h-fit flex flex-col justify-between lg:justify-around items-center z-50 text-white transition-all duration-300  
           ${
 				isScrolled || path !== "/"
 					? "rounded-b-2xl "
-					: "bg-gradient-to-b from-black/50 to-transparent"
+					: "bg-gradient-to-b from-black/70 to-transparent"
 			}`}
 			>
 				{/* Top Bar */}
@@ -142,7 +143,7 @@ export default function Header() {
 
 				{/* Navbar */}
 				<div
-					className={` w-full py-3 rounded-b-[2rem] ${isScrolled || path !== "/" ? `bg-primary ${isMenuVisible ? "" : "shadow-xl"}` : ""}`}
+					className={` w-full py-3 rounded-b-[2rem] ${isScrolled || path !== "/" ? `bg-primary ${isMenuVisible ? "" : "shadow-2xl"}` : ""}`}
 				>
 					<div className="container flex justify-between gap-4">
 						<Link href="/">
@@ -232,7 +233,7 @@ export default function Header() {
 																	href={
 																		subLink.href
 																	}
-																	className="pr-2 py-2 hover:bg-primary/80 transition group-hover:block text-gray-700"
+																	className="pr-2 py-2 hover:bg-gray-300 transition group-hover:block text-gray-700"
 																>
 																	{
 																		subLink.label

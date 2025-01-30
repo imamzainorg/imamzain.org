@@ -4,7 +4,6 @@ export const publications: Book[] = [
 	{
 		id: 1,
 		slug: "al-faraid-al-tarifa",
-
 		title: "الفرائد الطريفة في شرح الصحيفة الشريفة",
 		author: "العلامة الشيخ محمد باقر المجلسي",
 		otherNames: [],
@@ -13,7 +12,6 @@ export const publications: Book[] = [
 		language: "العربية",
 		pages: 398,
 		parts: 1,
-
 		views: Math.floor(Math.random() * 100),
 		image: "/books/الفرائد الطريفة في شرح الصحيفة الشريفة.jpg",
 		pdf: "/books/الفرائد الطريفة في شرح الصحيفة الشريفة.pdf",
@@ -110,7 +108,7 @@ export const libraryBooks: Book[] = [
 		id: 1,
 		slug: "asaleeb-al-islahat-al-ijtimaieh",
 
-		title: "أساليب الإصلاحات الإجتماعية عند الإمام السجّاد (ع)",
+		title: "أساليب الإصلاحات الإجتماعية عند الإمام السجاد (عليه السلام)",
 		author: "السيد محسن الجلالي",
 		otherNames: [],
 		printHouse: "العتبة الحسينية المقدسة",
@@ -127,7 +125,7 @@ export const libraryBooks: Book[] = [
 		id: 2,
 		slug: "al-imam-al-rabie-ali-bin-al-hussein",
 
-		title: "الامام الرابع علي بن الحسين زين العابدين ع",
+		title: "الامام الرابع علي بن الحسين زين العابدين (عليه السلام)",
 		author: "لجنة التحرير في طريق الحق",
 		otherNames: [],
 		printHouse: "مؤسسة في طريق الحق",
@@ -143,8 +141,7 @@ export const libraryBooks: Book[] = [
 	{
 		id: 3,
 		slug: "al-imam-al-sajjad-wa-al-mafahim-al-tarbia",
-
-		title: "الامام السجاد ع والمفاهيم التربوية",
+		title: "الامام السجاد عليه السلام والمفاهيم التربوية",
 		author: "قسم الشؤون الفكرية",
 		otherNames: [],
 		printHouse: "العتبة الكاظمية المقدسة",
@@ -160,7 +157,6 @@ export const libraryBooks: Book[] = [
 	{
 		id: 4,
 		slug: "al-imam-al-sajjad-wa-bina-al-insan",
-
 		title: "الامام السجاد وبناء الانسان",
 		author: "عبد الله احمد اليوسف",
 		otherNames: [],
