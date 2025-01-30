@@ -1,10 +1,12 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
+"use client"
+import Link from "next/link"
+import { motion } from "framer-motion"
 
-export default function SectionCta({ links }: { links: { label: string; href: string }[] }) {
-
+export default function SectionCta({
+	links,
+}: {
+	links: { label: string; href: string }[]
+}) {
 	const containerVariants = {
 		hidden: { opacity: 0 },
 		visible: {
@@ -13,12 +15,16 @@ export default function SectionCta({ links }: { links: { label: string; href: st
 				staggerChildren: 0.3,
 			},
 		},
-	};
+	}
 
 	const itemVariants = {
 		hidden: { opacity: 0, x: -50 },
-		visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
-	};
+		visible: {
+			opacity: 1,
+			x: 0,
+			transition: { duration: 0.8, ease: "easeOut" },
+		},
+	}
 
 	return (
 		<motion.div
@@ -45,13 +51,13 @@ export default function SectionCta({ links }: { links: { label: string; href: st
 						style={{
 							WebkitMaskImage: `url('/shapes/button-bg.svg')`,
 							maskImage: `url('/shapes/button-bg.svg')`,
-							WebkitMaskRepeat: 'no-repeat',
-							maskRepeat: 'no-repeat',
-							WebkitMaskSize: 'contain',
-							maskSize: 'contain',
-							WebkitMaskPosition: 'center',
-							maskPosition: 'center',
-							minWidth: '200px',
+							WebkitMaskRepeat: "no-repeat",
+							maskRepeat: "no-repeat",
+							WebkitMaskSize: "contain",
+							maskSize: "contain",
+							WebkitMaskPosition: "center",
+							maskPosition: "center",
+							minWidth: "200px",
 						}}
 					>
 						<span className="w-2 h-2 bg-secondary rounded-full z-10" />
@@ -60,5 +66,5 @@ export default function SectionCta({ links }: { links: { label: string; href: st
 				</motion.div>
 			))}
 		</motion.div>
-	);
+	)
 }

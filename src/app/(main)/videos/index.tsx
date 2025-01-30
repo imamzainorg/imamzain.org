@@ -2,23 +2,21 @@ import Image from "next/image"
 import Link from "next/link"
 
 import {
-	ChevronRightArrowIcon,
 	PlayButtonIcon,
 	TimeIcon,
 	VideoRecordingIcon,
 } from "@/assets/icons/reusable"
-import SectionTitle from "@/components/section"
 import SectionCta from "@/components/section-cta"
-import HeaderSections from "@/components/header-sections";
+import HeaderSections from "@/components/header-sections"
 export default function Videos() {
 	return (
 		<>
 			<div className="container flex flex-col gap-12 py-20">
 				<HeaderSections
-					title={'المرئيات'}
+					title={"المرئيات"}
 					moreButton={{
-						label: 'المزيد',
-						href: '/videos',
+						label: "المزيد",
+						href: "/videos",
 					}}
 				/>
 
