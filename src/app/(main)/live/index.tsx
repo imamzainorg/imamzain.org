@@ -51,7 +51,7 @@ export default function Live() {
 					initial="hidden"
 					whileInView="visible"
 					viewport={{once: true, amount: 0.3}}
-					className="group text-center w-3/4   flex justify-end items-end">
+					className="group text-center w-3/4 max-sm:w-full   flex justify-end items-end">
 					<div className="relative w-full h-[300px] md:w-[400px] md:h-[300px] lg:w-[500px] lg:h-[350px] xl:w-[700px] xl:h-[450px] 2xl:w-[800px] 2xl:h-[550px] bg-[url('/images/placeholder.jpg')] bg-center bg-cover
 					rounded-[25px] md:rounded-[30px] lg:rounded-[70px] shadow-2xl cursor-pointer group-hover:scale-105 duration-500 overflow-hidden flex items-center justify-center">
 						<div className="absolute inset-0 bg-gradient-to-t from-[#00663055] via-transparent to-transparent" />
