@@ -16,13 +16,14 @@ export default function media() {
 			<div className="max-w-screen-2xl mx-auto relative">
 				<Image
 					src="/images/about-landing.jpg"
-					className="w-full h-96 xs:h-auto rounded-b-[40px] md:rounded-b-[60px] lg:rounded-b-[70px] xl:rounded-b-[80px]"
-					width={800}
-					height={100}
+					className="w-full h-96 xs:h-auto rounded-b-[30px] md:rounded-b-[60px] lg:rounded-b-[70px] xl:rounded-b-[80px]"
+					width={1500}
+					height={1500}
+					priority
 					alt="logo"
 				/>
 
-				<div className="absolute inset-0 container  ">
+				<div className="absolute inset-0 container">
 					<Breadcrumbs
 						className="text-white"
 						dotColor="bg-secondary"
@@ -50,7 +51,7 @@ export default function media() {
 					</button>
 				</div>
 			</div>
-			<div className="container ">
+			<div className="container">
 				<div>
 					<p className="text-white  font-bold text-center text-xl m-4 xs:text-right xs:mr-10 md:text-3xl xl:text-4xl  2xl:text-5xl mt-10">
 						{" "}
@@ -151,7 +152,7 @@ export default function media() {
 					<p className="text-white font-bold text-center text-xl m-4 xs:text-right xs:mr-10 md:text-3xl xl:text-4xl  2xl:text-5xl ">
 						المؤتمرات{" "}
 					</p>
-					<div className="!mb-8 flex justify-center items-center xs:mr-4  ">
+					<div className="flex justify-center items-center xs:mr-4  ">
 						<div className="bg-gray-500 bg-opacity-25  rounded-[25px] p-2  2xl:p-4 space-y-10 w-1/2.5 xs:w-full  ">
 							<div className="flex flex-col xs:flex-row justify-center    p-0">
 								{images.map((src, index) => (

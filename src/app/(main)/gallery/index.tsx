@@ -1,6 +1,6 @@
 import { galleryImages } from "@/lib/data"
 
-import SwiperCarousel from "@/app/(pages)/gallery/_component/swiper-carousel"
+import SwiperCarousel from "@/app/(pages)/gallery/component/swiper-carousel"
 import HeaderSections from "@/components/header-sections"
 import Image from "next/image"
 

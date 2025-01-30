@@ -29,16 +29,13 @@ const links = [
 	{
 		label: "حول المؤسسة",
 		subLinks: [
-			{ label: "عن المؤسسة عن المؤسسة  ", href: "/about" },
+			{ label: "من نحن", href: "/about" },
 			{ label: "رسالتنا", href: "/about/vision-and-goals#message" },
 		],
 	},
 	{
 		label: "الأصدارات",
-		subLinks: [
-			{ label: "الاصدار الأول", href: "/publications/1" },
-			{ label: "الاصدار الثاني", href: "/publications/2" },
-		],
+		href: "/publications",
 	},
 	{
 		label: "المكتبة التخصصية",
@@ -145,18 +142,18 @@ export default function Header() {
 					className={` w-full py-3 rounded-b-[2rem] ${isScrolled || path !== "/" ? `bg-primary ${isMenuVisible ? "" : "shadow-2xl"}` : ""}`}
 				>
 					<div className="container flex justify-between gap-4">
-						<Link href="/">
+						<Link href="/" passHref legacyBehavior>
 							<Image
 								src="/images/logo-horizontal-white.svg"
 								width={50}
 								height={50}
-								className="w-32 sm:w-40 xl:w-52"
+								className="w-32 sm:w-40 xl:w-52 cursor-pointer"
 								alt="logo"
 							/>
 						</Link>
 
 						{/* Desktop Navigation */}
-						<nav className="max-lg:hidden flex  items-center">
+						<nav className="max-lg:hidden flex items-center">
 							{links.map((link, index) => {
 								const hasSubLinks =
 									link.subLinks && link.subLinks.length > 0

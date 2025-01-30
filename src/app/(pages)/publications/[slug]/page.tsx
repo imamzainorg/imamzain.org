@@ -30,7 +30,7 @@ export default async function Page({
 				links={[
 					{ name: "الرئيسية", url: "/" },
 					{ name: "الأصدارات", url: "/publications" },
-					{ name: slug, url: "#" },
+					{ name: publication.title, url: "#" },
 				]}
 			/>
 			{/* الكتاب المقصود */}
@@ -60,7 +60,7 @@ export default async function Page({
 						{publication.otherNames[0]
 							? publication.otherNames.map((name) => (
 									<div key={name}>{name}</div>
-							  ))
+								))
 							: "لا يوجد"}
 					</span>
 

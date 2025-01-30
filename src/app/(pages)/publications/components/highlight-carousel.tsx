@@ -1,13 +1,28 @@
 "use client"
-import { useState } from "react"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Book } from "@/lib/definitions"
 import { cn } from "@/lib/utils"
 import { AnimatePresence, motion } from "framer-motion"
+import { useEffect, useState } from "react"
 
 export function HighlightCarousel({ publications }: { publications: Book[] }) {
 	const [publication, setPublication] = useState(publications[0])
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			if (publications.indexOf(publication) === publications.length - 1) {
+				setPublication(publications[0])
+			} else {
+				setPublication(
+					publications[publications.indexOf(publication) + 1],
+				)
+			}
+		}, 5000)
+
+		return () => clearInterval(interval)
+	}, [publications, publication])
 
 	return (
 		<section className="space-y-10">

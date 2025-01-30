@@ -1,10 +1,10 @@
-export default function RootLayout({
+export default function HisLifeLayout({
 	children,
 }: {
 	children: React.ReactNode
 }) {
 	return (
-		<div className="bg-yellow-50 bg-[url('/shapes/bg.svg')] bg-[length:500px] lg:bg-[length:70%] bg-repeat !pb-16">
+		<div className="bg-yellow-50 bg-pattern pb-14 -mb-24">
 			<div className="container">{children}</div>
 		</div>
 	)

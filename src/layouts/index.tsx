@@ -5,7 +5,7 @@ export default function Layouts({ children }: { children: React.ReactNode }) {
 	return (
 		<>
 			<Header />
-			{children}
+			<div className="pb-16">{children}</div>
 			<Footer />
 		</>
 	)

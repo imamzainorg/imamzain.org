@@ -1,6 +1,4 @@
 import Layouts from "@/layouts"
-import React from "react";
-
 
 export default function Layout({
 	children,
@@ -9,13 +7,7 @@ export default function Layout({
 }>) {
 	return (
 		<>
-
-				<Layouts >
-
-					{children}
-				</Layouts >
-
-
+			<Layouts>{children}</Layouts>
 		</>
 	)
 }
