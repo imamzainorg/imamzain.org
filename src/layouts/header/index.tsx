@@ -16,7 +16,6 @@ import {
 	faFacebook,
 } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons"
-import DropdownLang from "@/layouts/dropdown-lang"
 import { motion } from "framer-motion"
 import useWindowEvents from "@/hooks/window-events"
 import TopBar from "@/layouts/header/top-bar"
@@ -31,7 +30,7 @@ const links = [
 		label: "حول المؤسسة",
 		subLinks: [
 			{ label: "عن المؤسسة عن المؤسسة  ", href: "/about" },
-			{ label: "رسالتنا", href: "/coming-soon" },
+			{ label: "رسالتنا", href: "/about/vision-and-goals#message" },
 		],
 	},
 	{

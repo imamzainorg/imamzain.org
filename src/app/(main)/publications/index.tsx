@@ -1,9 +1,7 @@
 "use client"
-import Link from "next/link"
 import { publications } from "@/lib/data"
 import HeaderSections from "@/components/header-sections"
 import Image from "next/image"
-import landing from "../../../../public/images/albaqi.jpg"
 
 import { motion } from "framer-motion"
 export default function Publications() {
@@ -45,7 +43,7 @@ export default function Publications() {
 								// background: 'linear-gradient(0deg, rgba(0,94,78,0.927608543417367) 0%, rgba(160,189,184,0) 64%, rgba(229,229,229,0) 100%)'
 							}}
 						>
-							<div className="relative flex justify-center items-center w-44 h-60  mx-auto    ">
+							<div className="relative flex justify-center items-center w-44 h-60 mx-auto">
 								<motion.div
 									variants={{
 										hidden: {
@@ -64,13 +62,13 @@ export default function Publications() {
 									initial="hidden"
 									whileInView="visible"
 									viewport={{ once: true, amount: 0.3 }}
-									className="absolute right-0 -bottom-0 w-32 h-32 "
+									className="absolute right-0 -bottom-0 w-32 h-32"
 								>
 									<Image
 										src={"/shapes/book_icon.svg"}
 										alt="Some image"
 										fill
-										className=" absolute object-contain "
+										className="absolute object-contain"
 									/>
 								</motion.div>
 								<motion.div
@@ -91,13 +89,13 @@ export default function Publications() {
 									initial="hidden"
 									whileInView="visible"
 									viewport={{ once: true, amount: 0.3 }}
-									className="absolute -left-0 top-10 w-[7.5rem] h-[11.5rem]  "
+									className="absolute -left-0 top-10 w-[7.5rem] h-[11.5rem]"
 								>
 									<Image
 										src={book.image}
 										alt="Some image"
 										fill
-										className=" absolute object-center   "
+										className="absolute object-center"
 									/>
 								</motion.div>
 								<motion.div
@@ -118,17 +116,17 @@ export default function Publications() {
 									initial="hidden"
 									whileInView="visible"
 									viewport={{ once: true, amount: 0.3 }}
-									className="absolute top-2 left-11 w-[7.5rem] h-[11.5rem] "
+									className="absolute top-2 left-11 w-[7.5rem] h-[11.5rem]"
 								>
 									<Image
 										src={book.image}
 										alt="Some image"
 										fill
-										className=" absolute object-center   "
+										className="absolute object-center"
 									/>
 								</motion.div>
 							</div>
-							<div className="w-full flex flex-col gap-4 justify-between h-[5rem] rounded-2xl py-3 px-3   items-center   ">
+							<div className="w-full flex flex-col gap-4 justify-between h-[5rem] rounded-2xl py-3 px-3 items-center">
 								<h1 className="text-sm text-center w-full font-semibold truncate">
 									{book.title}
 								</h1>
