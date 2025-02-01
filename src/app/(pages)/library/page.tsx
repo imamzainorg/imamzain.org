@@ -38,7 +38,7 @@ export default function page() {
 					<div className="col-span-1 w-full md:col-span-3 md:w-1/2 relative lg:mb-4">
 						<input
 							type="text"
-							className="w-full rounded-xl  md:text-sm lg:text-lg  bg-transparent border-primary"
+							className="w-full rounded-xl md:text-sm lg:text-lg p-1 bg-transparent border border-primary"
 							placeholder="البحث عن عناوين الكتب"
 						/>
 						<div className="absolute text-primary left-0 top-0 pl-3 h-full flex justify-center items-center gap-4">
@@ -47,13 +47,13 @@ export default function page() {
 						</div>
 					</div>
 					<div className="col-span-1">
-						<span className="font-semibold my-2">
+						<span className="font-semibold my-2 ">
 							مواضيع المكتبة
 						</span>
 						<div className="col-span-3 relative w-full">
 							<input
 								type="text"
-								className="w-full rounded-xl md:text-sm lg:text-lg bg-transparent border-primary"
+								className="w-full rounded-xl md:text-sm p-1 lg:text-lg bg-transparent border border-primary"
 								placeholder="البحث عن مواضيع المكتبة"
 							/>
 							<div className="absolute text-primary left-0 top-0 pl-3 h-full flex justify-center items-center gap-4">
@@ -67,7 +67,7 @@ export default function page() {
 						<div className="col-span-3 relative w-full">
 							<input
 								type="text"
-								className="w-full  md:text-sm lg:text-lg  rounded-xl bg-transparent border-primary"
+								className="w-full  md:text-sm lg:text-lg p-1 rounded-xl bg-transparent border border-primary"
 								placeholder="البحث عن المؤلف"
 							/>
 							<div className="absolute text-primary left-0 top-0 pl-3 h-full flex justify-center items-center gap-4">
@@ -81,7 +81,7 @@ export default function page() {
 						<div className="col-span-3 relative w-full">
 							<input
 								type="text"
-								className="w-full  md:text-sm lg:text-lg  rounded-xl bg-transparent border-primary"
+								className="w-full  md:text-sm lg:text-lg  p-1  rounded-xl bg-transparent border border-primary"
 								placeholder="البحث عن دور النشر"
 							/>
 							<div className="absolute text-primary left-0 top-0 pl-3 h-full flex justify-center items-center gap-4">
