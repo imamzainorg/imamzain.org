@@ -47,7 +47,6 @@ export default function TopImage() {
                             transition={{
                                 duration: 1.5,
                                 ease: "easeOut",
-                                delay: 0.5,
                             }}
                             className="text-3xl text-white text-center px-12 md:px-0"
                         >
