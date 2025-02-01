@@ -20,8 +20,9 @@ export default function visionandgoals() {
 				<Image
 					src="/images/about-vision.JPG"
 					className="w-full rounded-xl aspect-[16/6] object-cover object-[center_-80px]"
-					width={800}
-					height={500}
+					width={1500}
+					height={1500}
+					priority
 					alt="logo"
 				/>
 			</div>

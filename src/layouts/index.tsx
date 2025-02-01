@@ -1,19 +1,12 @@
-import React, { ReactNode } from "react"
 import Header from "./header"
 import Footer from "./footer"
 
-type ContainerProps = {
-	children: ReactNode
-}
-
-const Layouts: React.FC<ContainerProps> = ({ children }) => {
+export default function Layouts({ children }: { children: React.ReactNode }) {
 	return (
 		<>
 			<Header />
-			{children}
+			<div className="pb-16">{children}</div>
 			<Footer />
 		</>
 	)
 }
-
-export default Layouts

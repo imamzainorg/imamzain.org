@@ -17,8 +17,9 @@ export default function About() {
 					<Image
 						src="/images/about-landing.jpg"
 						className="w-11/12 rounded-xl aspect-[16/6] object-cover"
-						width={800}
-						height={500}
+						width={1500}
+						height={1500}
+						priority
 						alt="logo"
 					/>
 					<Section

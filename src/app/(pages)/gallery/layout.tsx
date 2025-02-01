@@ -1,4 +1,4 @@
-export default function MediaLayout({
+export default function galleryLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode

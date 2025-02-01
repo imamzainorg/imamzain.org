@@ -1,5 +1,3 @@
-
-import Gallery from "../(pages)/gallery/page"
 import Imamzain from "./imamzain"
 import InstitutionMessage from "./institution-message"
 import Live from "./live"
@@ -13,7 +11,7 @@ import GallerySection from "./gallery"
 
 export default function page() {
 	return (
-		<div className={`mb-16`}>
+		<div>
 			<TopImage />
 			<InstitutionMessage />
 			<Posts />

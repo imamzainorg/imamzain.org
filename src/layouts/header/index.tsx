@@ -16,7 +16,6 @@ import {
 	faFacebook,
 } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons"
-import DropdownLang from "@/layouts/dropdown-lang"
 import { motion } from "framer-motion"
 import useWindowEvents from "@/hooks/window-events"
 import TopBar from "@/layouts/header/top-bar"
@@ -25,21 +24,18 @@ import TopBar from "@/layouts/header/top-bar"
 const links = [
 	{
 		label: "سيرة الأمام زين العابدين (ع)",
-		href: "/coming-soon",
+		href: "/his-life",
 	},
 	{
 		label: "حول المؤسسة",
 		subLinks: [
-			{ label: "عن المؤسسة عن المؤسسة  ", href: "/about" },
-			{ label: "رسالتنا", href: "/coming-soon" },
+			{ label: "من نحن", href: "/about" },
+			{ label: "رسالتنا", href: "/about/vision-and-goals#message" },
 		],
 	},
 	{
 		label: "الأصدارات",
-		subLinks: [
-			{ label: "الاصدار الأول", href: "/publications/1" },
-			{ label: "الاصدار الثاني", href: "/publications/2" },
-		],
+		href: "/publications",
 	},
 	{
 		label: "المكتبة التخصصية",
@@ -55,7 +51,7 @@ const links = [
 	},
 	{
 		label: "الوسائط",
-		href: "/coming-soon",
+		href: "/media",
 	},
 ]
 
@@ -119,43 +115,53 @@ export default function Header() {
 	}
 
 	return (
-		<motion.div className="text-white" suppressHydrationWarning>
+		<motion.div className="text-white">
 			{/* Header */}
 			<motion.div
 				variants={navbarVariants}
 				initial="visible"
-				animate={ 	isSmallScreen ? "visible" 	: isScrollDown 	? "visible" : "hidden"}
-				className={`fixed top-0 left-0 w-full h-fit flex flex-col justify-between lg:justify-around items-center z-50 text-white transition-all duration-300   
+				animate={
+					isSmallScreen
+						? "visible"
+						: isScrollDown
+							? "visible"
+							: "hidden"
+				}
+				className={`fixed top-0 left-0 w-full h-fit flex flex-col justify-between lg:justify-around items-center z-50 text-white transition-all duration-300  
           ${
-					isScrolled || path !== "/"
-						? "rounded-b-2xl "
-						: "bg-gradient-to-b from-black/50 to-transparent"
-				}`}
+				isScrolled || path !== "/"
+					? "rounded-b-2xl "
+					: "bg-gradient-to-b from-black/70 to-transparent"
+			}`}
 			>
 				{/* Top Bar */}
 				<TopBar />
 
 				{/* Navbar */}
 				<div
-					className={` w-full py-3 rounded-b-[2rem] ${ isScrolled || path !== "/" ? `bg-primary ${isMenuVisible ? "" : "shadow-2xl"}` : "" }`} 	>
+					className={` w-full py-3 rounded-b-[2rem] ${isScrolled || path !== "/" ? `bg-primary ${isMenuVisible ? "" : "shadow-2xl"}` : ""}`}
+				>
 					<div className="container flex justify-between gap-4">
-						<Link href="/">
+						<Link href="/" passHref legacyBehavior>
 							<Image
 								src="/images/logo-horizontal-white.svg"
 								width={50}
 								height={50}
-								className="w-32 sm:w-40 xl:w-52"
+								className="w-32 sm:w-40 xl:w-52 cursor-pointer"
 								alt="logo"
 							/>
 						</Link>
 
 						{/* Desktop Navigation */}
-						<nav className="max-lg:hidden flex  items-center">
+						<nav className="max-lg:hidden flex items-center">
 							{links.map((link, index) => {
-								const hasSubLinks = link.subLinks && link.subLinks.length > 0
+								const hasSubLinks =
+									link.subLinks && link.subLinks.length > 0
 								return (
-									<div key={index} className="relative group py-1 px-2 z-10 cursor-pointer">
-
+									<div
+										key={index}
+										className="relative group py-1 px-2 z-10 cursor-pointer"
+									>
 										<div
 											className={`
 												absolute
@@ -163,7 +169,7 @@ export default function Header() {
 												top-0
 												right-0
 												px-2 
-												${isScrolled ? 'bg-[rgba(0,138,117,0.99)]' : 'bg-[rgba(0,102,84,0.82)]'}
+												${isScrolled ? "bg-[rgba(0,138,117,0.99)]" : "bg-[rgba(0,102,84,0.82)]"}
 												h-full
 												w-full
 												-z-10
@@ -192,8 +198,7 @@ export default function Header() {
 											</Link>
 										) : (
 											<>
-												<div
-													className="flex items-center gap-2 text-xs xl:text-base hover:text-gray-200 transition ">
+												<div className="flex items-center gap-2 text-xs xl:text-base hover:text-gray-200 transition ">
 													<Image
 														src="/shapes/nav-menu-icon.svg"
 														width={50}
@@ -212,15 +217,26 @@ export default function Header() {
 													  group-hover:block z-20
 													"
 													>
-														{link.subLinks.map((subLink, subIndex) => (
-															<Link
-																key={subIndex}
-																href={subLink.href}
-																className="pr-2 py-2 hover:bg-gray-300 transition group-hover:block text-gray-700"
-															>
-																{subLink.label}
-															</Link>
-														))}
+														{link.subLinks.map(
+															(
+																subLink,
+																subIndex,
+															) => (
+																<Link
+																	key={
+																		subIndex
+																	}
+																	href={
+																		subLink.href
+																	}
+																	className="pr-2 py-2 hover:bg-gray-300 transition group-hover:block text-gray-700"
+																>
+																	{
+																		subLink.label
+																	}
+																</Link>
+															),
+														)}
 													</div>
 												)}
 											</>
@@ -234,10 +250,12 @@ export default function Header() {
 						<button
 							className="lg:hidden"
 							onClick={toggleMenu}
-							aria-label={isMenuVisible ? "Close Menu" : "Open Menu"}
+							aria-label={
+								isMenuVisible ? "Close Menu" : "Open Menu"
+							}
 						>
 							{!isMenuVisible ? (
-								<MenuIcon stroke={"#ffffff"}/>
+								<MenuIcon stroke={"#ffffff"} />
 							) : (
 								<XIcon stroke={"#ffffff"} />
 							)}
@@ -254,7 +272,8 @@ export default function Header() {
 			>
 				<div className="flex flex-col justify-center gap-6 items-center mt-10 h-2/3 px-4">
 					{links.map((link, index) => {
-						const hasSubLinks = link.subLinks && link.subLinks.length > 0
+						const hasSubLinks =
+							link.subLinks && link.subLinks.length > 0
 						const isOpen = expandedIndex === index
 
 						return (
@@ -264,15 +283,17 @@ export default function Header() {
 									{link.href ? (
 										<Link
 											href={link.href}
-											onClick={() => setIsMenuVisible(false)}
+											onClick={() =>
+												setIsMenuVisible(false)
+											}
 											className="text-xl text-white hover:text-gray-200 transition"
 										>
 											{link.label}
 										</Link>
 									) : (
 										<span className="text-xl text-white">
-									  {link.label}
-									</span>
+											{link.label}
+										</span>
 									)}
 
 									{/* Show expand toggle if subLinks exist */}
@@ -293,18 +314,20 @@ export default function Header() {
                       ${isOpen ? "max-h-96 mt-2" : "max-h-0"}
                     `}
 									>
-										{link.subLinks.map((subLink, subIndex) => (
-											<Link
-												key={subIndex}
-												href={subLink.href}
-												onClick={() => {
-													setIsMenuVisible(false)
-												}}
-												className="block pl-6 py-2 text-white/90 hover:text-gray-200"
-											>
-												{subLink.label}
-											</Link>
-										))}
+										{link.subLinks.map(
+											(subLink, subIndex) => (
+												<Link
+													key={subIndex}
+													href={subLink.href}
+													onClick={() => {
+														setIsMenuVisible(false)
+													}}
+													className="block pl-6 py-2 text-white/90 hover:text-gray-200"
+												>
+													{subLink.label}
+												</Link>
+											),
+										)}
 									</div>
 								)}
 							</div>
@@ -325,13 +348,17 @@ export default function Header() {
 									href={item.href}
 									className="p-2"
 								>
-									<FontAwesomeIcon icon={item.icon} size={"2x"} />
+									<FontAwesomeIcon
+										icon={item.icon}
+										size={"2x"}
+									/>
 								</Link>
 							))}
 						</div>
 					</div>
 					<p className="text-xs sm:text-sm md:text-base lg:text-xl text-gray-300 my-4 p-2">
-						جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (ع) &copy; 1824
+						جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (ع) &copy;
+						1824
 					</p>
 				</div>
 			</nav>

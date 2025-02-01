@@ -3,5 +3,5 @@ export default function ActivitiesLayout({
 }: Readonly<{
 	children: React.ReactNode
 }>) {
-	return <div className="container !mb-16">{children}</div>
+	return <div className="container">{children}</div>
 }
