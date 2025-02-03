@@ -22,7 +22,7 @@ export default function ComingSoon() {
 					<div className="w-full flex justify-center sm:justify-center">
 						<Image
 							className="w-80 p-2 drop-shadow-xl shadow-white"
-							src="/images/institution-logo-vertical-white.svg"
+							src="/images/logo-vertical-white.svg"
 							priority
 							alt="logo"
 							width={300}

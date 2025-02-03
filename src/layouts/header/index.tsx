@@ -30,7 +30,7 @@ const links = [
 		label: "حول المؤسسة",
 		subLinks: [
 			{ label: "من نحن", href: "/about" },
-			{ label: "رسالتنا", href: "/about/vision-and-goals#message" },
+			{ label: "رؤية واهداف المؤسسة", href: "/about/vision-and-goals" },
 		],
 	},
 	{
@@ -39,7 +39,14 @@ const links = [
 	},
 	{
 		label: "المكتبة التخصصية",
-		href: "/library",
+		subLinks: [
+			{ label: "ما كتب عن الإمام زين العابدين", href: "/library" },
+			{
+				label: "الصحيفة السجادية",
+				href: "/library/al-sahifa-al-sajjadiyya",
+			},
+			{ label: "رسالة الحقوق", href: "/library/treatise-of-rights" },
+		],
 	},
 	{
 		label: "النشاطات",
@@ -51,7 +58,11 @@ const links = [
 	},
 	{
 		label: "الوسائط",
-		href: "/media",
+		subLinks: [
+			{ label: "الصوتيات", href: "/media/audios" },
+			{ label: "المرئيات", href: "/media/videos" },
+			{ label: "معرض الصور", href: "/media/images" },
+		],
 	},
 ]
 

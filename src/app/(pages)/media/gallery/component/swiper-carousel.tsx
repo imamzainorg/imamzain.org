@@ -14,7 +14,7 @@ import "swiper/css/navigation"
 import "swiper/css/pagination"
 import "swiper/css/effect-coverflow"
 
-import styles from "./styles.module.css"
+import styles from "../styles.module.css"
 import { Swiper } from "swiper/types"
 
 export default function SwiperCarousel({ images }: { images: string[] }) {

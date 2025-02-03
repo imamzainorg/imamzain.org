@@ -120,7 +120,7 @@ const Arrow = ({ className }: { className: string }) => (
 
 export default function notFound() {
 	return (
-		<div className="w-full h-screen flex flex-col items-center justify-center">
+		<div className="w-full h-screen flex flex-col items-center justify-center z-50">
 			<Page404Icon />
 			<div className="flex flex-col items-center justify-center">
 				<p className="text-3xl md:text-4xl lg:text-5xl text-gray-800 mt-12">

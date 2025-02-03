@@ -43,17 +43,17 @@ export default function media() {
 						الأجواء الروحانية والنفحات الايمانية من البقيع الغرقد
 					</p>
 
-					<button className=" bg-secondary  rounded-[200px]  h-6 w-16 ml-2  text-xs md:text-sm md:h-8 md:w-20 xmd:mr-4 lg:text-lg lg:h-10 lg:w-24 xl:text-xl xl:h-12 xl:w-28 ">
+					<button className=" bg-secondary rounded-[200px]  h-6 w-16 ml-2  text-xs md:text-sm md:h-8 md:w-20 xmd:mr-4 lg:text-lg lg:h-10 lg:w-24 xl:text-xl xl:h-12 xl:w-28 ">
 						مشاهدة
 					</button>
-					<button className="bg-secondary  rounded-[200px]   h-6 w-16  m-2 mb-6 text-xs md:text-sm md:h-8 md:w-20 lg:text-lg lg:h-10 lg:w-24 xl:text-xl xl:h-12 xl:w-28  ">
+					<button className="bg-secondary rounded-[200px]   h-6 w-16  m-2 mb-6 text-xs md:text-sm md:h-8 md:w-20 lg:text-lg lg:h-10 lg:w-24 xl:text-xl xl:h-12 xl:w-28  ">
 						اشتراك
 					</button>
 				</div>
 			</div>
 			<div className="container">
 				<div>
-					<p className="text-white  font-bold text-center text-xl m-4 xs:text-right xs:mr-10 md:text-3xl xl:text-4xl  2xl:text-5xl mt-10">
+					<p className="text-white font-bold text-center text-xl m-4 xs:text-right xs:mr-10 md:text-3xl xl:text-4xl  2xl:text-5xl mt-10">
 						{" "}
 						المحاضرات{" "}
 					</p>

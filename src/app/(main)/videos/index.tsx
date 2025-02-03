@@ -43,7 +43,7 @@ export default function Videos() {
 					{Array.from({ length: 7 }).map((_, index) => (
 						<Link
 							key={index}
-							href="/media"
+							href={`/media`}
 							className={`
        						 ${index === 0 && "row-span-1 lg:row-span-2 col-span-1 lg:col-span-2"}`}
 						>
@@ -120,12 +120,12 @@ export default function Videos() {
 				<div className="hidden md:block">
 					<SectionCta
 						links={[
-							{ label: "محاضرات", href: "/gallery" },
-							{ label: "ندوات", href: "/gallery" },
-							{ label: "مناسبات", href: "/gall ery" },
-							{ label: "مؤتمرات", href: "/gallery" },
-							{ label: "برامج", href: "/gallery" },
-							{ label: "زيارات", href: "/gallery" },
+							{ label: "محاضرات", href: "/media" },
+							{ label: "ندوات", href: "/media" },
+							{ label: "مناسبات", href: "/media" },
+							{ label: "مؤتمرات", href: "/media" },
+							{ label: "برامج", href: "/media" },
+							{ label: "زيارات", href: "/media" },
 						]}
 					/>
 				</div>
