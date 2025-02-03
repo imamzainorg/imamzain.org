@@ -18,7 +18,7 @@ export default function OBook({
   return (
     <div className="flex flex-col ">
      <div>
-      <h3 className="text-[0.6rem] text-primary font-bold mt-4 xs:text-sm">
+      <h3 className="text-[0.6rem] text-left text-primary font-bold mt-4 xs:text-sm md:text-xl lg:text-base">
         مواضيع ذات صلة
       </h3>
      <div className=" bg-secondary bg-opacity-10 rounded-xl m-2 ">

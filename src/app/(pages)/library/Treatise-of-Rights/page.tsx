@@ -6,7 +6,7 @@ import Breadcrumbs from "@/components/breadcrumb";
 import OBook from "../componentstowbooks/book2";
 import { libraryBooks } from "@/lib/data";
 
-export default function pagep() {
+export default function treatiseofRights() {
   return (
     <div className="">
       <div className="m-10">
@@ -35,15 +35,15 @@ export default function pagep() {
           ))}
         </div>
         <div className="flex flex-col md:flex-row mx-auto justify-center items-center gap-4 my-8">
-          <div className="w-52 h-40 bg-[url('/shapes/button-bg.svg')] bg-contain bg-center bg-no-repeat flex justify-center items-center  text-white">
+          <div className="w-52 h-10 md:h-40 bg-[url('/shapes/button-bg.svg')] bg-contain bg-center bg-no-repeat flex justify-center items-center  text-white">
             الصحيفة السجادية
           </div>
           <div className="w-1 h-1 bg-secondary rounded-full" />
-          <div className="w-52 h-40 bg-[url('/shapes/button-bg.svg')] bg-contain bg-center bg-no-repeat flex justify-center items-center text-white">
+          <div className="w-52 h-10 md:h-40 bg-[url('/shapes/button-bg.svg')] bg-contain bg-center bg-no-repeat flex justify-center items-center text-white">
             ماكتب عن الامام
           </div>
           <div className="w-1 h-1 bg-secondary rounded-full" />
-          <div className="w-52 h-40 bg-[url('/shapes/button-bg.svg')] bg-contain bg-center bg-no-repeat flex justify-center items-center text-white">
+          <div className="w-52 h-10 md:h-40 bg-[url('/shapes/button-bg.svg')] bg-contain bg-center bg-no-repeat flex justify-center items-center text-white">
             رسالة الحقوق
           </div>
         </div>
