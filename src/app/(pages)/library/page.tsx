@@ -12,7 +12,7 @@ export default function page() {
 				<Breadcrumbs
 					links={[
 						{ name: "الصفحة الرئيسية", url: "/" },
-						{ name: "المكتبة", url: "#" },
+						{ name: "المكتبة", url: "/library" },
 						{ name: "ما كتب عن الامام", url: "#" },
 					]}
 				/>
@@ -24,12 +24,21 @@ export default function page() {
 						<span className=" text-sm">الترتيب حسب </span>
 						<select
 							id="sorting"
-							className="  border-none bg-transparent focus:border-none active:border-none"
+							className="border-none bg-transparent focus:border-none active:border-none"
 						>
-							<option className=" w-1/2  text-sm md:text-md xl:text-xl 2xl:text-2xl" value="latest" defaultChecked>
+							<option
+								className=" w-1/2 text-sm md:text-md xl:text-xl 2xl:text-2xl"
+								value="latest"
+								defaultChecked
+							>
 								الأحدث
 							</option>
-							<option className="w-1/2  text-sm md:text-md xl:text-xl 2xl:text-2xl" value="common">الأكثر شيوعا</option>
+							<option
+								className="w-1/2 text-sm md:text-md xl:text-xl 2xl:text-2xl"
+								value="common"
+							>
+								الأكثر شيوعا
+							</option>
 						</select>
 					</div>
 				</div>

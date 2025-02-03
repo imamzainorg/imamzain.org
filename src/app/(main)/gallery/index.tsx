@@ -4,7 +4,7 @@ import { galleryImages } from "@/lib/data"
 import HeaderSections from "@/components/header-sections"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import SwiperCarousel from "@/app/(pages)/media/gallery/component/swiper-carousel"
+import SwiperCarousel from "@/app/(pages)/media/images/component/swiper-carousel"
 export default function GallerySection() {
 	return (
 		<div className="relative">
@@ -14,7 +14,7 @@ export default function GallerySection() {
 					title={"معرض الصور"}
 					moreButton={{
 						label: "المزيد",
-						href: "/media/gallery",
+						href: "/media/images",
 					}}
 					dark
 				/>

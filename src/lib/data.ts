@@ -369,7 +369,9 @@ export const newsPosts: Post[] = [
 	},
 ]
 
-export const galleryImages = Array(20).fill("/images/albaqi.jpg")
+export const galleryImages = Array.from({ length: 10 }).map(
+	(i, idx) => (i = `/gallery/image (${idx + 1}).JPG`),
+)
 
 export const ImamLifeSection = [
 	{

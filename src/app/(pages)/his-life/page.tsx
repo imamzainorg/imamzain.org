@@ -4,13 +4,14 @@ import { ImamLifeSection } from "@/lib/data"
 
 export default function Page() {
 	return (
-		<div>
+		<div className="">
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
 					{ name: "سيرة الإمام", url: "#" },
 				]}
 			/>
+
 			<div className="w-11/12 mx-auto p-6 ">
 				<div className="mb-20 space-y-10">
 					<h2 className=" text-green-900 text-3xl font-bold mb-4">
