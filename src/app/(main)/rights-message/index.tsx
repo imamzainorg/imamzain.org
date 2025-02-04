@@ -1,5 +1,6 @@
 "use client"
 import HeaderSections from "@/components/header-sections"
+import SectionCta from "@/components/section-cta"
 import { motion } from "framer-motion"
 export default function RightsMessage() {
 	const lineVariants = {
@@ -37,6 +38,14 @@ export default function RightsMessage() {
 					مكونات المجتمع الانساني بالغة به حد الامن والسلم المجتمعي
 					والحياة الكريمة لو تمت مراعاتها وتطبيقها.
 				</motion.p>
+				<SectionCta
+					links={[
+						{
+							label: "تصفح رسالة الحقوق",
+							href: "/library/treatise-of-rights",
+						},
+					]}
+				/>
 			</div>
 		</>
 	)

@@ -100,8 +100,8 @@ export default async function Page() {
 						<div className="absolute rotate-180 lg:rotate-90 w-7 h-7 -bottom-2 right-5 lg:bottom-5 lg:-right-3 bg-[url('/shapes/newsIndicator.svg')] bg-no-repeat"></div>
 						<Image
 							src={meetingsData[meetingsData.length - 1].image}
-							width={200}
-							height={200}
+							width={1500}
+							height={1500}
 							alt={meetingsData[meetingsData.length - 1].slug}
 							className="w-full h-full rounded-xl"
 						/>

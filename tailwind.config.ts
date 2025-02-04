@@ -25,6 +25,21 @@ export default {
 				s: "380px",
 				xmd: "900px",
 			},
+			keyframes: {
+				fadeInUp: {
+					"0%": {
+						opacity: "0",
+						transform: "translateY(20px)",
+					},
+					"100%": {
+						opacity: "1",
+						transform: "translateY(0)",
+					},
+				},
+			},
+			animation: {
+				"fade-in-up": "fadeInUp 0.5s ease-in-out",
+			},
 			colors: {
 				primary: "#006654",
 				secondary: "#bb9661",
