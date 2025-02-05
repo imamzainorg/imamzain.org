@@ -1,8 +1,8 @@
 "use client";
 import { toast } from "sonner";
 import { Autocomplete, AutocompleteItem, Button, Input } from "@heroui/react";
-import { Globe, MailOpen, TextIcon } from "lucide-react";
-import MessageIcon, { PersonIcon, MobileIcon } from "@/assets/icons/reusable";
+import { Globe, MailOpen } from "lucide-react";
+import MessageIcon, { PersonIcon } from "@/assets/icons/reusable";
 import Breadcrumbs from "@/components/breadcrumb";
 import Section from "@/components/section";
 
