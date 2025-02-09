@@ -65,7 +65,7 @@ export default function SwiperCarousel({ images }: { images: string[] }) {
 								src={src}
 								alt={`Image ${index}`}
 								fill
-								className="rounded-2xl object-cover shadow-lg w-full h-full"
+								className="rounded-2xl  hover:border-secondary-100 hover:border object-cover shadow-lg w-full h-full"
 							/>
 						</div>
 					</SwiperSlide>
