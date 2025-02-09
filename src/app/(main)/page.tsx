@@ -8,6 +8,7 @@ import Services from "./services"
 import Videos from "./videos"
 import TopImage from "./top-image"
 import GallerySection from "./gallery"
+import Application from "@/app/(main)/application";
 
 export default function page() {
 	return (
@@ -21,6 +22,7 @@ export default function page() {
 			<Publications />
 			<GallerySection />
 			<Videos />
+			<Application />
 			<Live />
 		</div>
 	)

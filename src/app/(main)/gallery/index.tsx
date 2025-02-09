@@ -4,11 +4,15 @@ import { galleryImages } from "@/lib/data"
 import HeaderSections from "@/components/header-sections"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import SwiperCarousel from "@/app/(pages)/media/images/component/swiper-carousel"
+import SwiperCarousel from "@/components/swiper-carousel";
+
 export default function GallerySection() {
 	return (
 		<div className="relative">
-			<div className="absolute h-full w-full bg-dark-background -z-10" />
+			<div className="absolute h-full w-full bg-dark-background -z-10"/>
+			<div className="absolute w-screen h-full -z-10" style={{
+				background: 'radial-gradient(circle, rgba(0,0,0,0.9304096638655462) 20%, rgba(0,0,0,0.7399334733893557) 38%, rgba(0,0,0,0.4962359943977591) 58%, rgba(229,229,229,0) 100%)'
+			}}/>
 			<div className="container py-10 sm:py-20 space-y-8">
 				<HeaderSections
 					title={"معرض الصور"}
@@ -18,9 +22,11 @@ export default function GallerySection() {
 					}}
 					dark
 				/>
-				<SwiperCarousel images={galleryImages} />
-				<div className="mt-8 p-4 rounded-3xl grid grid-cols-2 md:grid-cols-3 xmd:grid-cols-5 gap-4 grid-rows-1 bg-gray-600/35">
-					{Array.from({ length: 5 }).map((_, index) => (
+
+				<SwiperCarousel images={galleryImages}/>
+				<div
+					className="mt-8 p-4 rounded-3xl grid grid-cols-2 md:grid-cols-3 xmd:grid-cols-5 gap-4 grid-rows-1 bg-gray-600/35">
+					{Array.from({length: 5}).map((_, index) => (
 						<div
 							key={index}
 							className="relative rounded-2xl overflow-hidden h-40"
@@ -34,11 +40,11 @@ export default function GallerySection() {
 							/>
 
 							<motion.div
-								initial={{ x: 0, y: 15, opacity: 0 }}
+								initial={{x: 0, y: 15, opacity: 0}}
 								whileHover={{
 									y: 0,
 									opacity: 1,
-									transition: { duration: 0.3 },
+									transition: {duration: 0.3},
 								}}
 								className="absolute top-0 right-0 w-full font-semibold text-sm flex flex-col justify-end h-full   "
 								style={{

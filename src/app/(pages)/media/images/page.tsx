@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { galleryImages } from "@/lib/data"
 import Breadcrumbs from "@/components/breadcrumb"
-import SwiperCarousel from "./component/swiper-carousel"
+import SwiperCarousel from "@/components/swiper-carousel";
 
 export default async function Gallery() {
 	return (
