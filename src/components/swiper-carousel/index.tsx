@@ -95,8 +95,6 @@ export default function SwiperCarousel({ images }: { images: string[] }) {
             max-lg:hidden
 
             ">
-
-
                 <div
                     onClick={handlePrev}
                     className={`swiper-button-prev ${styles.secondaryColor}`}
