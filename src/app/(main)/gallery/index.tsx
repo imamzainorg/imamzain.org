@@ -20,16 +20,16 @@ export default function GallerySection() {
 				/>
 				<SwiperCarousel images={galleryImages} />
 				<div className="mt-8 p-4 rounded-3xl grid grid-cols-2 md:grid-cols-3 xmd:grid-cols-5 gap-4 grid-rows-1 bg-gray-600/35">
-					{Array.from({ length: 5 }).map((_, index) => (
+					{galleryImages.slice(0, 5).map((img, index) => (
 						<div
 							key={index}
 							className="relative rounded-2xl overflow-hidden h-40"
 						>
 							<Image
-								src={"/images/albaqi.jpg"}
+								src={img}
 								width={300}
 								height={200}
-								className="w-full object-cover aspect-[20/16]  "
+								className="w-full object-cover aspect-[20/16]"
 								alt={`Image ${index}`}
 							/>
 
@@ -47,7 +47,7 @@ export default function GallerySection() {
 								}}
 							>
 								<div className="font-semibold text-lg p-4 text-white">
-									صور المؤسسه
+									قسم {index + 1}
 								</div>
 							</motion.div>
 						</div>

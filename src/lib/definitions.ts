@@ -33,3 +33,14 @@ export type Post = {
 	last_update: Date
 	category: PostCategory
 }
+
+export interface YouTubeVideo {
+	videoId: string
+	title: string
+}
+
+export interface YouTubePlaylist {
+	playlistId: string
+	title: string
+	videos: YouTubeVideo[]
+}
