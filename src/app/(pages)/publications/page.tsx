@@ -43,6 +43,7 @@ export default async function page() {
 					<div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
 						{publications.map((publication) => (
 							<BookCard
+								route="/publications"
 								key={publication.id}
 								publication={publication}
 								downloadable
