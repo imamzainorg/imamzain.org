@@ -20,9 +20,9 @@ export default function page() {
 			<RightsMessage />
 			<Services />
 			<Publications />
+			<Application />
 			<GallerySection />
 			<Videos />
-			<Application />
 			<Live />
 		</div>
 	)

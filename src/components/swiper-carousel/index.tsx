@@ -83,7 +83,7 @@ export default function SwiperCarousel({ images }: { images: string[] }) {
                             <ImageView
                                 src={src}
                                 alt={`Image ${index}`}
-                                className="rounded-2xl object-cover shadow-lg w-full h-full border border-secondary"
+                                className="rounded-2xl object-cover shadow-lg w-full h-full  "
                                 view
                             />
                         </div>

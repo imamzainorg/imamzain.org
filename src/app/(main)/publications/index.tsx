@@ -32,7 +32,7 @@ export default function Publications() {
 	}
 
 	return (
-		<div className="container w-full flex flex-col items-center py-20">
+		<div className="container w-full flex flex-col items-center pt-20">
 			<div className="flex w-full items-center justify-between my-8">
 				<HeaderSections
 					title={"الأصدارات"}
