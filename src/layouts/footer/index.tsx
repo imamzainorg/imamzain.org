@@ -31,7 +31,7 @@ const links: LinkSection[] = [
 			{ label: "الولادة المباركة", href: "/coming-soon" },
 			{ label: "صور", href: "/coming-soon" },
 			{ label: "الإمام في الأدب", href: "/coming-soon" },
-			{ label: "رابطة الإمام (ع)", href: "/coming-soon" },
+			{ label: "رابطة الإمام (عليه السلام)", href: "/coming-soon" },
 			{ label: "أشبال", href: "/coming-soon" },
 			{ label: "شباب", href: "/coming-soon" },
 		],
@@ -160,8 +160,8 @@ export default function Footer() {
 				</div>
 				<div className="flex justify-end  ">
 					<p className="text-sm text-white/40 mt-10">
-						جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (ع) &copy;
-						1824
+						جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه السلام) &copy;
+						2024
 					</p>
 				</div>
 			</div>
@@ -212,8 +212,8 @@ export default function Footer() {
 					/>
 				</div>
 				<p className="text-center text-sm text-white/40">
-					جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (ع) &copy;
-					1824
+					جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه السلام) &copy;
+					2025
 				</p>
 			</div>
 		</div>

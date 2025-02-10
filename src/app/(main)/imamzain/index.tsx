@@ -19,7 +19,7 @@ export default function Imamzain() {
 				<div className="bg-secondary/80 text-white">
 					<motion.div className="container flex flex-col gap-12 py-20 max-sm:py-8 overflow-hidden w-fit h-fit">
 						<h1 className="text-3xl text-center md:text-right md:text-4xl text-primary font-bold  ">
-							الإمام زين العابدين
+							الإمام زين العابدين (عليه السلام)
 						</h1>
 						<motion.p
 							className="font-light text-lg md:text-2xl lg:text-2xl leading-7 md:leading-9 lg:leading-10 text-justify tracking-tighter"
