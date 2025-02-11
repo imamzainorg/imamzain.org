@@ -153,7 +153,7 @@ export default function Header() {
 					className={` w-full py-3 rounded-b-[2rem] ${isScrolled || path !== "/" ? `bg-primary ${isMenuVisible ? "" : "shadow-2xl"}` : ""}`}
 				>
 					<div className="container flex justify-between gap-4">
-						<Link href="/" passHref legacyBehavior>
+						<Link href={"/"} passHref legacyBehavior>
 							<Image
 								src="/images/logo-horizontal-white.svg"
 								width={50}

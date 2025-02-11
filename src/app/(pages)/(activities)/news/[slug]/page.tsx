@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Breadcrumbs from "@/components/breadcrumb"
-import { newsPosts } from "@/lib/data"
+import { newsPosts } from "@/data/posts"
 import PostCard from "../_components/news-card"
 
 import { FacebookIcon, TwitterIcon } from "@/assets/icons/reusable"

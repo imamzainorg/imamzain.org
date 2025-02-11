@@ -17,6 +17,10 @@ export type Book = {
 }
 
 export type PostCategory = "مؤتمرات" | "اخبار" | "لقاءات" | "ندوات"
+interface Attachment {
+	id: number;
+	pash: string;
+  }
 export type Post = {
 	id: number
 	slug: string
@@ -32,6 +36,7 @@ export type Post = {
 	date: Date
 	last_update: Date
 	category: PostCategory
+	attachments?: Attachment[]
 }
 
 export interface YouTubeVideo {

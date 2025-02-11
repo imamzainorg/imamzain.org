@@ -33,8 +33,6 @@ export default function ImageView({
 					className={`${view ? "absolute top-0 left-0 w-full h-full bg-none cursor-pointer" : "hidden"} `}
 					onClick={onOpen}
 				>
-					{" "}
-					()
 				</div>
 			</div>
 
