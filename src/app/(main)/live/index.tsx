@@ -4,7 +4,7 @@ import {motion} from "framer-motion"
 export default function Live() {
 	return (
 		<>
-			<div className="container my-10 flex flex-col justify-between md:flex-row items-center gap-4 md:gap-8 xl:gap-16 ">
+			<div className="container my-10 flex flex-col justify-between md:flex-row items-center gap-4 md:gap-8 xl:gap-16 py-20">
 				<motion.div
 					variants={{
 						hidden: {

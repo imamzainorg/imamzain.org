@@ -19,7 +19,7 @@ export default function Imamzain() {
 				<div className="bg-secondary/80 text-white">
 					<motion.div className="container flex flex-col gap-12 py-20 max-sm:py-8 overflow-hidden w-fit h-fit">
 						<h1 className="text-3xl text-center md:text-right md:text-4xl text-primary font-bold  ">
-							الإمام زين العابدين
+							الإمام زين العابدين (عليه السلام)
 						</h1>
 						<motion.p
 							className="font-light text-lg md:text-2xl lg:text-2xl leading-7 md:leading-9 lg:leading-10 text-justify tracking-tighter"
@@ -34,11 +34,11 @@ export default function Imamzain() {
 							اليوم الخامس من شهر شعبان من سنة 37 أو 38 للهجرة وجه
 							نَوْرَانِيٌّ هادئْ ، يحمل سماتٍ من نور الله ، وملامح
 							ضاربةٌ في العراقة من أبيه الحسين إلى جده إبراهيم «
-							عليهم السلام » ، ومن أمه شهزنان بنت يزدجرد إلى أعلى
-							أعراق الفرس وقدم الإسلام الأصيل للأمة، مقابل الإسلام
-							الأموي المشوه وعاصر خلال حياته عدداً من الخلفاء
-							الأمويين، أولهم &quot;يزيد بن معاوية&quot; لعنة الله
-							عليه، وآخرهم &quot;الوليد بن عبد الملك بن
+							عليهم السلام » ، ومن أمه شاه زنان بنت يزدجرد إلى
+							أعلى أعراق الفرس وقدم الإسلام الأصيل للأمة، مقابل
+							الإسلام الأموي المشوه وعاصر خلال حياته عدداً من
+							الخلفاء الأمويين، أولهم &quot;يزيد بن معاوية&quot;
+							لعنة الله عليه، وآخرهم &quot;الوليد بن عبد الملك بن
 							مروان&quot; ورحل عن هذه الدنيا في سنة 95 للهجرة بعد
 							حياة حافلة بالبذل والعطاء في سبيل إعلاء شأن الرسالة
 							وخدمة الأمة الإسلامية.

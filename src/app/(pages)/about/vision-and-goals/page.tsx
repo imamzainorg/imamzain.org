@@ -18,7 +18,7 @@ export default function visionandgoals() {
 				className="flex justify-center items-center shadow-xl "
 			>
 				<Image
-					src="/images/about-vision.JPG"
+					src="/images/about-vision.jpg"
 					className="w-full rounded-xl aspect-[16/6] object-cover object-[center_-80px]"
 					width={1500}
 					height={1500}

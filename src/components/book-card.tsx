@@ -4,15 +4,17 @@ import Image from "next/image"
 import Link from "next/link"
 
 export default function BookCard({
+	route = "",
 	publication,
 	downloadable = false,
 }: {
+	route: string
 	publication: Book
 	downloadable?: boolean
 }) {
 	return (
 		<Link
-			href={`/publications/${publication.slug}`}
+			href={`${route}/${publication.slug}`}
 			key={publication.id}
 			className="flex items-center gap-4 py-4 lg:py-8 group"
 		>

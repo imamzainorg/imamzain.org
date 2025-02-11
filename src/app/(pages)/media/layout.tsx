@@ -4,7 +4,7 @@ export default function MediaLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<div className="bg-dark-background bg-pattern pb-14 -mb-24">
+		<div className="bg-dark-background bg-pattern pb-12 -mb-24">
 			{children}
 		</div>
 	)

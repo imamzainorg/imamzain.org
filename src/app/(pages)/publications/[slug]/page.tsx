@@ -9,23 +9,23 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default async function Page({
-  params,
+	params,
 }: {
-  params: Promise<{ slug: string }>;
+	params: Promise<{ slug: string }>
 }) {
-  const slug = (await params).slug;
+	const slug = (await params).slug
 
-  // TODO build api endpoint to fetch publication by slug
-  // const publication = await fetch(`https://api.imamzain.org/publications/${slug}`)
+	// TODO build api endpoint to fetch publication by slug
+	// const publication = await fetch(`https://api.imamzain.org/publications/${slug}`)
 
-  // mimic the data recieved from fetch(`https://api.imamzain.org/publications/${slug}`)
-  const publication: Book | undefined = publications.find(
-    (book) => book.slug === slug
-  );
+	// mimic the data recieved from fetch(`https://api.imamzain.org/publications/${slug}`)
+	const publication: Book | undefined = publications.find(
+		(book) => book.slug === slug,
+	)
 
-  if (!publication) {
-    return redirect("/404");
-  }
+	if (!publication) {
+		return redirect("/404")
+	}
 
   return (
     <div className="space-y-10 my-8">
@@ -89,60 +89,65 @@ export default async function Page({
                   : "لا يوجد"}
               </span>
 
-              <p className=" mt-4">المطبعة</p>
+							<p className=" mt-4">المطبعة</p>
 
-              <span className="font-extralight text-slate-500 sm:m-5  ">
-                {publication.printHouse}
-              </span>
+							<span className="font-extralight text-slate-500 sm:m-5  ">
+								{publication.printHouse}
+							</span>
 
-              <p className="mt-4">تاريخ الطبع</p>
+							<p className="mt-4">تاريخ الطبع</p>
 
-              <span className="font-extralight text-slate-500 sm:m-5">
-                {publication.printDate.toISOString().split("T")[0]}{" "}
-              </span>
+							<span className="font-extralight text-slate-500 sm:m-5">
+								{
+									publication.printDate
+										.toISOString()
+										.split("T")[0]
+								}{" "}
+							</span>
 
-              <p className="mt-4">اللغة</p>
+							<p className="mt-4">اللغة</p>
 
-              <span className="font-extralight text-slate-500 sm:m-5">
-                {publication.language}
-              </span>
+							<span className="font-extralight text-slate-500 sm:m-5">
+								{publication.language}
+							</span>
 
-              <p className="mt-4">عدد الصفحات</p>
+							<p className="mt-4">عدد الصفحات</p>
 
-              <span className="font-extralight text-slate-500 sm:m-5">
-                {publication.pages}
-              </span>
+							<span className="font-extralight text-slate-500 sm:m-5">
+								{publication.pages}
+							</span>
 
-              <p className="mt-4">عدد الاجزاء</p>
+							<p className="mt-4">عدد الاجزاء</p>
 
-              <span className="font-extralight text-slate-500 sm:m-5">
-                {publication.parts}
-              </span>
-            </div>
-            <div className=" sm:w-3/4 p-4 sm:m-2 border-t-1 sm:relative sm:-top-8 sm:border-none mx-auto w-full text-sm lg:text-lg xl:text-xl pt-2 sm:pt-0 ">
-              الوصف
-              <br />
-              <span className="relative right-4 text-slate-500 ">
-                الوصف الاجزاء يوجدب صلة الطبع اللغة الوصف
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+							<span className="font-extralight text-slate-500 sm:m-5">
+								{publication.parts}
+							</span>
+						</div>
+						<div className=" sm:w-3/4 p-4 sm:m-2 border-t-1 sm:relative sm:-top-8 sm:border-none mx-auto w-full text-sm lg:text-lg xl:text-xl pt-2 sm:pt-0 ">
+							الوصف
+							<br />
+							<span className="relative right-4 text-slate-500 ">
+								الوصف الاجزاء يوجدب صلة الطبع اللغة الوصف
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
 
-      {/* كتب ذات صلة */}
-      <h2 className="text-center font-semibold border-t border-b p-4 sm:text-2xl xl:text-4xl">
-        كتب ذات صلة
-      </h2>
-      <div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
-        {publications.slice(0, 2).map((publication) => (
-          <BookCard
-            key={publication.id}
-            publication={publication}
-            downloadable
-          />
-        ))}
-      </div>
-    </div>
-  );
+			{/* كتب ذات صلة */}
+			<h2 className="text-center font-semibold border-t border-b p-4 sm:text-2xl xl:text-4xl">
+				كتب ذات صلة
+			</h2>
+			<div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
+				{publications.slice(0, 2).map((publication) => (
+					<BookCard
+						route="/publications"
+						key={publication.id}
+						publication={publication}
+						downloadable
+					/>
+				))}
+			</div>
+		</div>
+	)
 }
