@@ -4,7 +4,10 @@ import { publications } from "@/lib/data";
 import { Book } from "@/lib/definitions";
 import Image from "next/image";
 import BookCard from "@/components/book-card";
-import { MailOpen, Share2, Share2Icon } from "lucide-react";
+import { Share2Icon, ShoppingBagIcon, ShoppingCartIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+
 export default async function Page({
   params,
 }: {
@@ -54,15 +57,23 @@ export default async function Page({
                 </p>
               </div>
               <div className="  flex flex-row justify-between  items-center w-full sm:relative sm:-top-20 xl:-top-36  p-1 ">
-                
                 <button className="bg-primary text-[10px] whitespace-pre p-4 sm:text-[14px] md:text-lg xl:text-xl   rounded-[30px] text-white  ">
-                إبدأ بالقراءة    ⟵ </button>
+                  إبدأ بالقراءة ⟵{" "}
+                </button>
                 <Share2Icon
                   stroke="#006654"
                   fill="none"
-                  strokeWidth={1.5}
-                  className=" relative right-12 sm:right-14 w-1/2 md:right-20 "
-                />
+                  strokeWidth={2.5}
+                  className=" relative right-12 sm:right-14 w-1/2 md:right-20 xl:right-32"
+                />{" "}
+                <Link href={`/publications/${slug}/components`}>
+                  <ShoppingCartIcon
+                    stroke="#006654"
+                    fill="none"
+                    strokeWidth={2.5}
+                    className=" relative  md:right-9"
+                  ></ShoppingCartIcon>
+                </Link>
               </div>
               <hr className="sm:relative sm:-top-16 xl:-top-32 " />
             </div>

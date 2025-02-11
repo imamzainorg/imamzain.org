@@ -55,7 +55,7 @@ export default function SwiperCarousel({ images }: { images: string[] }) {
 						slidesPerView: 1,
 					},
 				}}
-				modules={[EffectCoverflow, Pagination, Navigation]}
+				modules={[ Pagination, Navigation]}
 				className={`swiper-container h-72 pl-4 pr-4 md:pr-8 md:pl-8 w-full md:w-[90%] xmd:w-3/4 2xl:w-[90%] flex justify-center items-center ${styles.secondaryColor}`}
 			>
 				{images.map((src, index) => (
