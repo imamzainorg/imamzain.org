@@ -1,7 +1,5 @@
 "use client"
-
 import {motion} from "framer-motion";
-
 import Image from "next/image";
 import Link from "next/link";
 import ImageView from "@/components/image-view";
@@ -14,71 +12,56 @@ export default function Application() {
             x: 0,
             transition: {duration: 1, ease: "easeOut"},
         },
-    }
+    };
+
     const containerVariants = {
-        hidden: {opacity: 0, x: 100}, // Start off-screen to the right
+        hidden: {opacity: 0, x: 100},
         visible: {
             opacity: 1,
-            x: 0, // Settle in place
-            transition: {
-                duration: 1, // Duration of the animation
-                ease: "easeOut", // Smooth easing
-            },
+            x: 0,
+            transition: {duration: 1, ease: "easeOut"},
         },
     };
 
     return (
-
-        <div className={"container py-32"}>
+        <div className="container py-10 lg:py-20">
             <div
-                className="bg-white rounded-2xl flex justify-between items-center p-10 py-14 h-[500px] 
-
-                      shadow-[0px_0px_2.7px_-10px_rgba(0,0,0,0.034),0px_0px_6.9px_-10px_rgba(0,0,0,0.049),0px_0px_14.2px_-10px_rgba(0,0,0,0.061),0px_0px_29.2px_-10px_rgba(0,0,0,0.076),0px_0px_80px_-10px_rgba(0,0,0,0.11)]
-                      "
-            >
+                className="bg-white rounded-2xl flex flex-col lg:flex-row justify-between items-center gap-10 p-6 py-20 lg:p-10 lg:py-14
+               shadow-[0px_0px_2.7px_-10px_rgba(0,0,0,0.034),0px_0px_6.9px_-10px_rgba(0,0,0,0.049),0px_0px_14.2px_-10px_rgba(0,0,0,0.061),0px_0px_29.2px_-10px_rgba(0,0,0,0.076),0px_0px_80px_-10px_rgba(0,0,0,0.11)]
+                ">
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
-                    whileInView="visible"
-                    viewport={{once: true, amount: 0.3}}
-                    className="  flex justify-between  flex-col
-				                w-[60%]  lg:w-1/2
-							    h-fit lg:h-full
-							    gap-4 lg:gap-8 xl:gap-14
-                              max-lg:text-gray-900
-
-							 ">
-
-                    <p className="text-2xl sm:text-2xl xl:text-5xl font-bold text-start text-primary
-                            !leading-[30px] lg:!leading-[70px]
-                            max-lg:text-center
-                            ">
+                    animate="visible"
+                    className="w-full lg:w-1/2 flex flex-col gap-4 lg:gap-8 xl:gap-14 max-lg:text-center"
+                >
+                    <p className="text-4xl xl:text-5xl font-bold text-center lg:text-start text-primary leading-tight lg:leading-normal">
                         تطبيق أنوار سجادية
                     </p>
-                    <p className="  text-lg font-semibold
-                    sm:text-2xl xl:text-3xl  max-lg:text-center
-                            !leading-[30px] lg:!leading-[50px]
-                            ">
+                    <p className="text-lg sm:text-xl xl:text-2xl font-semibold max-lg:text-center leading-tight lg:leading-normal">
                         الموسوعة المتكاملة عن الإمام زين العابدين(عليه السلام)
                     </p>
-                    <div className="flex justify-start gap-10">
+                    <div className="flex justify-center lg:justify-start gap-4 lg:gap-10">
                         <div>
                             <Link
-                                href={'https://apps.apple.com/ru/app/%D8%A3%D9%86%D9%88%D8%A7%D8%B1-%D8%B3%D8%AC%D8%A7%D8%AF%D9%8A%D8%A9/id6503963375?l=en-GB'}
-                                className="relative w-full h-full"
+                                href="https://apps.apple.com/ru/app/%D8%A3%D9%86%D9%88%D8%A7%D8%B1-%D8%B3%D8%AC%D8%A7%D8%AF%D9%8A%D8%A9/id6503963375?l=en-GB"
                                 target="_blank"
                             >
-                                <ImageView src={'/application/app-store.svg'} className={'w-52 h-28'}/>
+                                <ImageView
+                                    src="/application/app-store.svg"
+                                    className="w-28 h-16 lg:w-40 lg:h-24"
+                                />
                             </Link>
                         </div>
-
                         <div>
                             <Link
-                                href={'https://play.google.com/store/apps/details?id=org.masaha.anwarsajjad&pli=1'}
-                                className="relative w-full h-full"
+                                href="https://play.google.com/store/apps/details?id=org.masaha.anwarsajjad&pli=1"
                                 target="_blank"
                             >
-                               <ImageView src={'/application/google-play.svg'} className={'w-52 h-28'}/>
+                                <ImageView
+                                    src="/application/google-play.svg"
+                                    className="w-28 h-16 lg:w-40 lg:h-24"
+                                />
                             </Link>
                         </div>
                     </div>
@@ -114,6 +97,5 @@ export default function Application() {
                 </div>
             </div>
         </div>
-
-    )
+    );
 }
