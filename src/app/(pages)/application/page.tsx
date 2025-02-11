@@ -26,6 +26,7 @@ const MainSection = () => {
 		},
 	}
 
+	
 	return (
 		<div className="relative top-0 h-[50rem] lg:h-[40rem] w-full">
 			<div className="absolute top-0 right-0  w-full h-full -z-20">
