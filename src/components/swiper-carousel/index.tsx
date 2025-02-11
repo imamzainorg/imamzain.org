@@ -68,16 +68,11 @@ export default function SwiperCarousel({ images }: { images: string[] }) {
 						slidesPerView: 1,
 					},
 				}}
-<<<<<<< HEAD:src/app/(pages)/media/images/component/swiper-carousel.tsx
-				modules={[ Pagination, Navigation]}
-				className={`swiper-container h-72 pl-4 pr-4 md:pr-8 md:pl-8 w-full md:w-[90%] xmd:w-3/4 2xl:w-[90%] flex justify-center items-center ${styles.secondaryColor}`}
-=======
 				modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
 				className={`swiper-container  pl-4 pr-4 md:pr-8 md:pl-8  flex justify-center items-center ${styles.secondaryColor}
                h-[18rem] lg:h-[20rem]
                w-full md:w-[90%]  
                 `}
->>>>>>> 7e3eb2d414c8070b0c34f7f7bf184761b5415436:src/components/swiper-carousel/index.tsx
 			>
 				{images.map((src, index) => (
 					<SwiperSlide
