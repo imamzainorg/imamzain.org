@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import {motion} from "framer-motion";
-import {  Button, Input , Textarea } from "@heroui/react";
+import {  Button, Input  } from "@heroui/react";
 import { PersonIcon, MobileIcon } from "@/assets/icons/reusable";
 import { toast } from "sonner";
 import CountriesDropdown from "@/components/countries-input";
