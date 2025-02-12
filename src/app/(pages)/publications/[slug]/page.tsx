@@ -4,8 +4,7 @@ import { publications } from "@/lib/data";
 import { Book } from "@/lib/definitions";
 import Image from "next/image";
 import BookCard from "@/components/book-card";
-import { Share2Icon, ShoppingBagIcon, ShoppingCartIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { Share2Icon,  ShoppingCartIcon } from "lucide-react";
 import Link from "next/link";
 
 export default async function Page({

@@ -3,7 +3,7 @@ import Image from "next/image"
 import SubscriptionForm from "./_components/subscripition-form"
 import SectionTitle from "@/components/section"
 import Breadcrumbs from "@/components/breadcrumb"
-import { newsPosts } from "@/lib/data"
+import { newsPosts } from "@/data/posts"
 import PostCard from "./_components/news-card"
 
 export default async function Page() {

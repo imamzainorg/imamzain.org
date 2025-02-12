@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import HeaderSections from "@/components/header-sections"
-import { newsPosts } from "@/lib/data"
+import { newsPosts } from "@/data/posts"
 
 export default function Posts() {
 	return (
