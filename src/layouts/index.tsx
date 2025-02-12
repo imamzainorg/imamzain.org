@@ -5,7 +5,7 @@ export default function Layouts({ children }: { children: React.ReactNode }) {
 	return (
 		<>
 			<Header />
-			<div className="pb-16">{children}</div>
+			<div className="pb-16 min-h-screen">{children}</div>
 			<Footer />
 		</>
 	)

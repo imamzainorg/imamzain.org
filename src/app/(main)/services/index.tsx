@@ -1,7 +1,70 @@
 "use client";
-import ZiaraForm from "@/components/ziara-form";
+
 import Image from "next/image";
 import {motion} from "framer-motion";
+import {  Button, Input , Textarea } from "@heroui/react";
+import { PersonIcon, MobileIcon } from "@/assets/icons/reusable";
+import { toast } from "sonner";
+import CountriesDropdown from "@/components/countries-input";
+
+
+const ZiaraForm =()=> {
+    return (
+        <div className="flex flex-col items-center justify-center w-full">
+            <div className=" flex flex-col items-center gap-4  pt-20    py-6
+			 w-[70%] sm:w-[50%] md:w-[35%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%]
+			">
+                <Input
+                    size={"lg"}
+                    className="border-none w-full"
+                    labelPlacement="inside"
+                    name="username"
+                    placeholder="الزيارة نيابة عن"
+                    classNames={{
+                        base: "",
+                        input: "border-none focus:ring-0",
+                    }}
+                    startContent={
+                        <PersonIcon
+                            stroke="#bb9661"
+                            fill="#bb9661"
+                            strokeWidth={0.1}
+                        />
+                    }
+                    type="text"
+                />
+
+                {/* Input for Phone */}
+                <Input
+                    size={"lg"}
+                    className="border-none w-full"
+                    labelPlacement="inside"
+                    name="phone"
+                    placeholder="رقم الهاتف"
+                    classNames={{
+                        base: "",
+                        input: "border-none focus:ring-0",
+                    }}
+                    startContent={
+                        <MobileIcon stroke="#bb9661" fill="none" strokeWidth={1.5} />
+                    }
+                    type="text"
+                />
+
+                {/* Dropdown for Countries */}
+                <CountriesDropdown />
+
+                {/* Submit Button */}
+                <Button
+                    onClick={() => toast("تم ادراج اسمك في قائمة الزائرين")}
+                    className="text-white rounded-md bg-secondary p-4 md:p-6 mt-2 font-bold text-xs md:text-lg"
+                >
+                    التسجيل
+                </Button>
+            </div>
+        </div>
+    );
+}
 
 export default function Services() {
     // Animation variants for the motion.div
