@@ -9,6 +9,7 @@ interface ImageViewProps {
 	className?: string
 	alt?: string
 	view?: boolean
+	showBrackets?: boolean;
 }
 
 export default function ImageView({
@@ -16,6 +17,7 @@ export default function ImageView({
 	className,
 	alt,
 	view,
+	showBrackets = false,
 }: ImageViewProps) {
 	const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure()
 
@@ -34,7 +36,7 @@ export default function ImageView({
 					onClick={onOpen}
 				>
 					{" "}
-					()
+					{showBrackets && "()"}
 				</div>
 			</div>
 

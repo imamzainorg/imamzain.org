@@ -86,6 +86,7 @@ export default function SwiperCarousel({ images }: { images: string[] }) {
 								alt={`Image ${index}`}
 								className="rounded-2xl object-cover shadow-lg w-full h-full  "
 								view
+								showBrackets={true}
 							/>
 						</div>
 					</SwiperSlide>
