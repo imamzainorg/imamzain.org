@@ -70,7 +70,7 @@ export default async function Page({
                     stroke="#006654"
                     fill="none"
                     strokeWidth={2.5}
-                    className=" relative  md:right-9"
+                    className=" relative w-7 h-7 md:right-9"
                   ></ShoppingCartIcon>
                 </Link>
               </div>
