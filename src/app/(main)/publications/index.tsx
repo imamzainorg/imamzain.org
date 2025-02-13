@@ -1,12 +1,15 @@
 "use client"
-
-import { publications } from "@/lib/data"
 import HeaderSections from "@/components/header-sections"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { Book } from "@/types/book"
 
-export default function Publications() {
+export default function Publications({
+	publications,
+}: {
+	publications: Book[]
+}) {
 	// Parent Variants: Handle scaling on hover
 	const parentVariants = {
 		rest: { scale: 1 },

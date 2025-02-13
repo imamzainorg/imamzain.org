@@ -1,13 +1,13 @@
-"use client"
-
 import BooklibraryCard from "../components/book-library-card"
 import Breadcrumbs from "@/components/breadcrumb"
 import RelatedBooks from "../components/related-books"
-import { libraryBooks } from "@/lib/data"
 import ShowcaseSection from "../components/showcase-section"
 import SectionCta from "@/components/section-cta"
+import { dataFetcher } from "@/lib/dataFetcher"
+import { Book } from "@/types/book"
 
-export default function Page() {
+export default async function Page() {
+	const libraryBooks = await dataFetcher<Book[]>("library.json")
 	return (
 		<div className="">
 			<div className="m-10">

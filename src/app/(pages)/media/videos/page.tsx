@@ -1,12 +1,12 @@
-"use client"
-
 import Image from "next/image"
 import Breadcrumbs from "@/components/breadcrumb"
-import { playlists } from "@/lib/data"
+import { YouTubePlaylist } from "@/types/youtubeData"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { dataFetcher } from "@/lib/dataFetcher"
 
-export default function media() {
+export default async function Page() {
+	const playlists = await dataFetcher<YouTubePlaylist[]>("youtube.json")
+
 	return (
 		<div className="">
 			<div className="max-w-screen-2xl mx-auto relative">
@@ -77,25 +77,11 @@ export default function media() {
 													height={300}
 													className="w-full rounded-[15px] md:rounded-[30px] object-cover"
 												/>
-												<motion.div
-													initial={{
-														x: 0,
-														y: 15,
-														opacity: 0,
-													}}
-													whileHover={{
-														y: 0,
-														opacity: 1,
-														transition: {
-															duration: 0.3,
-														},
-													}}
-													className="absolute  rounded-[15px] md:rounded-[30px] top-0 right-0 w-full font-semibold text-sm flex justify-center items-center h-full bg-gradient-to-t from-black via-black/50 to-transparent"
-												>
+												<div className="absolute rounded-[15px] md:rounded-[30px] top-0 right-0 w-full font-semibold text-sm flex justify-center items-center h-full bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 translate-y-4 transition-opacity duration-300 hover:opacity-100 hover:translate-y-0">
 													<div className="font-semibold w-3/4 text-lg p-4 text-white">
 														{video.title}
 													</div>
-												</motion.div>
+												</div>
 											</Link>
 										))}
 								</div>

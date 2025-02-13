@@ -2,12 +2,12 @@ import BookCard from "@/components/book-card"
 import SectionTitle from "@/components/section"
 import { HighlightCarousel } from "./components/highlight-carousel"
 import Breadcrumbs from "@/components/breadcrumb"
-import { publications } from "@/lib/data"
 import Section from "@/components/section"
+import { dataFetcher } from "@/lib/dataFetcher"
+import { Book } from "@/types/book"
 
 export default async function page() {
-	// TODO build api endpoint to fetch publications
-	// const publications = await fetch("https://api.imamzain.org/publications")
+	const publications = await dataFetcher<Book[]>("publications.json")
 
 	return (
 		<div className="">

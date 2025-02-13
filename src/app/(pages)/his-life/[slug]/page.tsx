@@ -1,5 +1,6 @@
 import Breadcrumbs from "@/components/breadcrumb"
-import { ImamLifeSection } from "@/lib/data"
+import { dataFetcher } from "@/lib/dataFetcher"
+import { imamzainLife } from "@/types/imamzainLife"
 
 export default async function page({
 	params,
@@ -7,7 +8,8 @@ export default async function page({
 	params: Promise<{ slug: string }>
 }) {
 	const slug = (await params).slug
-	const section = ImamLifeSection.filter((item) => item.slug === slug)[0]
+	const imamzainLife = await dataFetcher<imamzainLife[]>("imamzain.json")
+	const section = imamzainLife.filter((item) => item.slug === slug)[0]
 
 	return (
 		<div>

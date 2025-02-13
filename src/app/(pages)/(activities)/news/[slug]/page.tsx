@@ -1,11 +1,12 @@
 import Image from "next/image"
 import Breadcrumbs from "@/components/breadcrumb"
-import { newsPosts } from "@/data/posts"
 import PostCard from "../_components/news-card"
 
 import { FacebookIcon, TwitterIcon } from "@/assets/icons/reusable"
 import Link from "next/link"
 import NewsShare from "../_components/news-share"
+import { dataFetcher } from "@/lib/dataFetcher"
+import { Post } from "@/types/post"
 
 export default async function page({
 	params,
@@ -14,10 +15,12 @@ export default async function page({
 }) {
 	const slug = (await params).slug
 
-	// mimic the data recieved from fetch(https://api.imamzain.org/news/{slug})
-	const post = await newsPosts.filter((item) => item.slug === slug)[0]
+	const data: Post[] = await dataFetcher<Post[]>("posts.json")
+
+	const post = data.filter((item: Post) => item.slug === slug)[0]
+
 	// mimic the data recieved from fetch(https://api.imamzain.org/news/{slug}/related)
-	const relatedData = await newsPosts.slice(0, 3)
+	const relatedData = data.slice(0, 3)
 
 	return (
 		<div>
@@ -38,18 +41,17 @@ export default async function page({
 				<div className="space-y-2 lg:w-7/12 relative">
 					<Image
 						src={post.image}
-						width={400}
-						height={800}
+						width={1000}
+						height={1000}
 						className="w-full rounded-xl object-cover h-full"
+						priority
 						alt={slug}
 					/>
 					<div className="w-full absolute -bottom-8 ">
 						<div className="flex justify-between items-start md:items-center lg:items-start text-slate-600 md:text-lg lg:text-base">
 							<div className="flex gap-3 items-center">
 								<div className="w-2 h-2 md:w-3 md:h-3 bg-[url('/shapes/indicator.svg')] bg-contain bg-no-repeat rotate-180" />
-								<span className="h-4">
-									{post.date.toISOString().split("T")[0]}
-								</span>
+								<span className="h-4">{post.date}</span>
 							</div>
 							<div className="flex gap-4 items-center">
 								<Link

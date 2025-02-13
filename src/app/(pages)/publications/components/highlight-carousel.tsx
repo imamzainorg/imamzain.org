@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Book } from "@/lib/definitions"
+import { Book } from "@/types/book"
 import { cn } from "@/lib/utils"
 import { AnimatePresence, motion } from "framer-motion"
 import { useEffect, useState } from "react"

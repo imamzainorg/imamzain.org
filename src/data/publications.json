@@ -1,0 +1,311 @@
+[
+    {
+        "id": 1,
+        "slug": "al-faraid-al-tarifa",
+        "title": "الفرائد الطريفة في شرح الصحيفة الشريفة",
+        "author": "العلامة الشيخ محمد باقر المجلسي",
+        "otherNames": [],
+        "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "printDate": "2024",
+        "language": "العربية",
+        "pages": 398,
+        "parts": 1,
+        "views": 96,
+        "image": "/books/الفرائد الطريفة في شرح الصحيفة الشريفة.jpg",
+        "pdf": "/books/الفرائد الطريفة في شرح الصحيفة الشريفة.pdf"
+    },
+    {
+        "id": 2,
+        "slug": "al-fawaid-al-sharifa-part-1",
+        "title": "الفوائد الشريفة في شرح الصحيفة - الجزء الاول",
+        "author": "العلامة الشيخ تقي الدين بن علي الكفعمي",
+        "otherNames": [],
+        "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "printDate": "2024",
+        "language": "العربية",
+        "pages": 463,
+        "parts": 2,
+        "views": 31,
+        "image": "/books/الفوائد الشريفة في شرح الصحيفة - الجزء الاول.jpg",
+        "pdf": "/books/الفوائد الشريفة في شرح الصحيفة - الجزء الاول.pdf"
+    },
+    {
+        "id": 6,
+        "slug": "al-fawaid-al-sharifa-part-2",
+        "title": "الفوائد الشريفة في شرح الصحيفة - الجزء الثاني",
+        "author": "العلامة الشيخ تقي الدين بن علي الكفعمي",
+        "otherNames": [],
+        "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "printDate": "2024",
+        "language": "العربية",
+        "pages": 462,
+        "parts": 2,
+        "views": 87,
+        "image": "/books/الفوائد الشريفة في شرح الصحيفة - الجزء الثاني.jpg",
+        "pdf": "/books/الفوائد الشريفة في شرح الصحيفة - الجزء الثاني.pdf"
+    },
+    {
+        "id": 3,
+        "slug": "riadh-al-salqeen",
+        "title": "فوائد رياض السالكين",
+        "author": "العلامة السيد علي خان المدني الحسيني",
+        "otherNames": [],
+        "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "printDate": "2024",
+        "language": "العربية",
+        "pages": 254,
+        "parts": 1,
+        "views": 77,
+        "image": "/books/فوائد رياض السالكين.jpg",
+        "pdf": "/books/فوائد رياض السالكين.pdf"
+    },
+    {
+        "id": 4,
+        "slug": "al-sharh-al-kabeer",
+        "title": "الشرح الكبير",
+        "author": "السيد نعمة الله الجزائرِي",
+        "otherNames": [],
+        "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "printDate": "2024",
+        "language": "العربية",
+        "pages": 526,
+        "parts": 1,
+        "views": 72,
+        "image": "/books/الشرح الكبير.jpg",
+        "pdf": "/books/الشرح الكبير.pdf"
+    },
+    {
+        "id": 5,
+        "slug": "sirah-al-imam-al-sajad",
+        "title": "سيرة الإمام السجاد",
+        "author": "الشيخ على الكوراني العاملي",
+        "otherNames": [],
+        "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "printDate": "2024",
+        "language": "العربية",
+        "pages": 589,
+        "parts": 1,
+        "views": 2,
+        "image": "/books/سيرة الامام السجاد.jpg",
+        "pdf": "/books/سيرة الامام السجاد.pdf"
+    },
+    {
+        "id": 8,
+        "slug": "foundational-intellectual-methodology-legal-dimension",
+        "title": "الاسس الفكرية والمنهجية عند الامام السجاد (عليه السلام) البعد القانوني",
+        "author": "مجموعة كتاب",
+        "otherNames": [],
+        "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "printDate": "2025",
+        "language": "العربية",
+        "pages": 589,
+        "parts": 1,
+        "views": 10,
+        "image": "/books/الاسس الفكرية والمنهجية عند الامام السجاد (عليه السلام) البعد القانوني.jpg",
+        "pdf": "/books/الاسس الفكرية والمنهجية عند الامام السجاد (عليه السلام) البعد القانوني.pdf"
+    },
+    {
+        "id": 9,
+        "slug": "foundational-intellectual-methodology-social-dimension",
+        "title": "الاسس الفكرية والمنهجية عند الامام السجاد (عليه السلام) البعد الاجتماعي",
+        "author": "مجموعة كتاب",
+        "otherNames": [],
+        "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "printDate": "2025",
+        "language": "العربية",
+        "pages": 589,
+        "parts": 1,
+        "views": 87,
+        "image": "/books/الاسس الفكرية والمنهجية عند الامام السجاد (عليه السلام) البعد الاجتماعي.jpg",
+        "pdf": "/books/الاسس الفكرية والمنهجية عند الامام السجاد (عليه السلام) البعد الاجتماعي.pdf"
+    },
+    {
+        "id": 10,
+        "slug": "building-inner-psychological-security",
+        "title": "بناء الامن النفسي الداخلي عند الامام السجاد (عليه السلام)",
+        "author": "الدكتور اسعد الامارة",
+        "otherNames": [],
+        "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "printDate": "2025",
+        "language": "العربية",
+        "pages": 589,
+        "parts": 1,
+        "views": 5,
+        "image": "/books/بناء الامن النفسي الداخلي عند الامام السجاد (عليه السلام).jpg",
+        "pdf": "/books/بناء الامن النفسي الداخلي عند الامام السجاد (عليه السلام).pdf"
+    },
+    {
+        "id": 11,
+        "slug": "emancipation-imam-sajjad-president-lincoln",
+        "title": "Emancipation of Slaves between Imam Al-Sajjad, (P.B.U.H), and President Lincoln",
+        "author": "Mundhir Kadhim Al Huraibid",
+        "otherNames": [
+            "Sajjad Jedi",
+            "Imam Zayn Al-Abidin, (P.B.U.H), Institution for research and studies."
+        ],
+        "printHouse": "Dar Alwarith for Printing and Publishing",
+        "printDate": "2025",
+        "language": "English",
+        "pages": 500,
+        "parts": 1,
+        "views": 43,
+        "image": "/books/Emancipation of Slaves between Imam Al-Sajjad, (P.B.U.H), and President Lincoln.jpg",
+        "pdf": "/books/Emancipation of Slaves between Imam Al-Sajjad, (P.B.U.H), and President Lincoln.pdf"
+    },
+    {
+        "id": 12,
+        "slug": "canticles-of-the-pious",
+        "title": "تراتيل القانتين",
+        "author": "الدكتور علي الشيخ",
+        "otherNames": [
+            "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات"
+        ],
+        "printHouse": "دار الوارث - كربلاء المقدسة",
+        "printDate": "2025",
+        "language": "العربية",
+        "pages": 500,
+        "parts": 1,
+        "views": 39,
+        "image": "/books/تراتيل القانتين.jpg",
+        "pdf": "/books/تراتيل القانتين.pdf"
+    },
+    {
+        "id": 13,
+        "slug": "thirty-lessons-from-abu-hamza",
+        "title": "ثلاثون درسا من دعاء ابي حمزة الثمالي",
+        "author": "سامر توفيق عجمي",
+        "otherNames": [
+            "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات"
+        ],
+        "printHouse": "دار الوارث - كربلاء المقدسة",
+        "printDate": "2025-",
+        "language": "العربية",
+        "pages": 500,
+        "parts": 1,
+        "views": 57,
+        "image": "/books/تراتيل القانتين.jpg",
+        "pdf": "/books/تراتيل القانتين.pdf"
+    },
+    {
+        "id": 14,
+        "slug": "first-international-scientific-conference-guide",
+        "title": "دليل المؤتمر العلمي الدولي الاول",
+        "author": "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "otherNames": [
+            "الشيخ عبد المهدي الكربلائي",
+            "الدكتور نعيم العبودي",
+            "السيد غسان الخرسان",
+            "الدكتور مازن الحسني"
+        ],
+        "printHouse": "",
+        "printDate": "2025",
+        "language": "العربية",
+        "pages": 500,
+        "parts": 1,
+        "views": 86,
+        "image": "/books/دليل المؤتمر العلمي الاول.jpg",
+        "pdf": "/books/دليل المؤتمر العلمي الاول.pdf"
+    },
+    {
+        "id": 15,
+        "slug": "insights-on-rights-treatise-part-1",
+        "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) - الجزء الاول",
+        "author": "الشيخ حسين عبد الرضا الاسدي",
+        "otherNames": [
+            "مؤسسة الامام زين العابدين (عليه السلام)"
+        ],
+        "printHouse": "دار الوارث - كربلاء المقدسة",
+        "printDate": "2025",
+        "language": "العربية",
+        "pages": 500,
+        "parts": 1,
+        "views": 48,
+        "image": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الاول.jpg",
+        "pdf": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الاول.pdf"
+    },
+    {
+        "id": 16,
+        "slug": "insights-on-rights-treatise-part-2",
+        "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) - الجزء الثاني",
+        "author": "الشيخ حسين عبد الرضا الاسدي",
+        "otherNames": [
+            "مؤسسة الامام زين العابدين (عليه السلام)"
+        ],
+        "printHouse": "دار الوارث - كربلاء المقدسة",
+        "printDate": "2025",
+        "language": "العربية",
+        "pages": 500,
+        "parts": 1,
+        "views": 57,
+        "image": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الثاني.jpg",
+        "pdf": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الثاني.pdf"
+    },
+    {
+        "id": 17,
+        "slug": "insights-on-rights-treatise-part-3",
+        "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) - الجزء الثالث",
+        "author": "الشيخ حسين عبد الرضا الاسدي",
+        "otherNames": [
+            "مؤسسة الامام زين العابدين (عليه السلام)"
+        ],
+        "printHouse": "دار الوارث - كربلاء المقدسة",
+        "printDate": "2025",
+        "language": "العربية",
+        "pages": 500,
+        "parts": 1,
+        "views": 11,
+        "image": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الثالث.jpg",
+        "pdf": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الثالث.pdf"
+    },
+    {
+        "id": 18,
+        "slug": "insights-on-rights-treatise-part-4",
+        "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) - الجزء الرابع",
+        "author": "الشيخ حسين عبد الرضا الاسدي",
+        "otherNames": [
+            "مؤسسة الامام زين العابدين (عليه السلام)"
+        ],
+        "printHouse": "دار الوارث - كربلاء المقدسة",
+        "printDate": "2025",
+        "language": "العربية",
+        "pages": 500,
+        "parts": 1,
+        "views": 14,
+        "image": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الرابع.jpg",
+        "pdf": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الرابع.pdf"
+    },
+    {
+        "id": 19,
+        "slug": "insights-on-rights-treatise-part-5",
+        "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) - الجزء الخامس",
+        "author": "الشيخ حسين عبد الرضا الاسدي",
+        "otherNames": [
+            "مؤسسة الامام زين العابدين (عليه السلام)"
+        ],
+        "printHouse": "دار الوارث - كربلاء المقدسة",
+        "printDate": "2025",
+        "language": "العربية",
+        "pages": 500,
+        "parts": 1,
+        "views": 76,
+        "image": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الخامس.jpg",
+        "pdf": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الخامس.pdf"
+    },
+    {
+        "id": 20,
+        "slug": "political-principles-of-imam-sajjad",
+        "title": "المباني السياسية الامامية عند الامام السجاد (عليه السلام)",
+        "author": "الدكتورة راغدة محمد المصري",
+        "otherNames": [
+            "مؤسسة الامام زين العابدين (عليه السلام)"
+        ],
+        "printHouse": "دار الوارث - كربلاء المقدسة",
+        "printDate": "2025",
+        "language": "العربية",
+        "pages": 500,
+        "parts": 1,
+        "views": 45,
+        "image": "/books/المباني السياسية الامامية عند الامام السجاد (عليه السلام).jpg",
+        "pdf": "/books/المباني السياسية الامامية عند الامام السجاد (عليه السلام).pdf"
+    }
+]

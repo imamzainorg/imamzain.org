@@ -1,12 +1,12 @@
-"use client"
 import BooklibraryCard from "./components/book-library-card"
 import Breadcrumbs from "@/components/breadcrumb"
 import SectionTitle from "@/components/section"
+import { dataFetcher } from "@/lib/dataFetcher"
+import { Book } from "@/types/book"
 import { ChevronDown, SearchIcon } from "lucide-react"
 
-import { libraryBooks } from "@/lib/data"
-
-export default function page() {
+export default async function page() {
+	const libraryBooks = await dataFetcher<Book[]>("library.json")
 	return (
 		<div className="">
 			<div className="m-10">
