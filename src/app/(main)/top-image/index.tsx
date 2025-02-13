@@ -16,7 +16,7 @@ export default function TopImage() {
                     maskRepeat: 'no-repeat',
                     WebkitMaskSize: '100%',
                     maskSize: '100%',
-                    WebkitMaskPosition: 'center',
+                    WebkitMaskPosition: 'bottom',
                     maskPosition: 'bottom',
                 }}
             >

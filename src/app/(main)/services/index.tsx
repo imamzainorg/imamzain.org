@@ -10,8 +10,8 @@ import CountriesDropdown from "@/components/countries-input";
 
 const ZiaraForm =()=> {
     return (
-        <div className="flex flex-col items-center justify-center w-full">
-            <div className=" flex flex-col items-center gap-4  pt-20    py-6
+        <div className="flex flex-col items-center lg:items-end justify-center w-full">
+            <div className=" flex flex-col items-center gap-4  pt-20 py-6 ml-0 lg:ml-16
 			 w-[70%] sm:w-[50%] md:w-[35%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%]
 			">
                 <Input
@@ -140,7 +140,7 @@ export default function Services() {
                             </p>
                         </motion.div>
                         <motion.div
-                            className="  flex md:flex-col items-center justify-center bg-[url('/shapes/ziara-bg.svg')] bg-center bg-no-repeat
+                            className="  flex md:flex-col items-center justify-center bg-[url('/shapes/ziara-bg.svg')] bg-center lg:bg-left bg-no-repeat
                             w-full  lg:w-1/2
                             h-96 lg:h-full
                             "
