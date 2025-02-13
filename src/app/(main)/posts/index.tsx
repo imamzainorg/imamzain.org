@@ -12,7 +12,7 @@ export default function Posts() {
 				title={"الأخبار"}
 				moreButton={{
 					label: "ارشيف الاخبار",
-					href: "/news",
+					href: "/news/archives",
 				}}
 			/>
 
