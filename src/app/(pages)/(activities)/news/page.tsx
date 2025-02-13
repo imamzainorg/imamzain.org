@@ -3,14 +3,16 @@ import Image from "next/image"
 import SubscriptionForm from "./_components/subscripition-form"
 import SectionTitle from "@/components/section"
 import Breadcrumbs from "@/components/breadcrumb"
-import { newsPosts } from "@/data/posts"
 import PostCard from "./_components/news-card"
+import { dataFetcher } from "@/lib/dataFetcher"
+import { Post } from "@/types/post"
 
 export default async function Page() {
-	// Mock data fetching
-	const latestData = await newsPosts.slice(0, 5)
-	const mostReadData = await newsPosts.slice(0, 3)
-	const meetingsData = await newsPosts.slice(0, 4)
+	const data = await dataFetcher<Post[]>("posts.json")
+
+	const latestData = data.slice(0, 5)
+	const mostReadData = data.slice(0, 3)
+	const meetingsData = data.slice(0, 4)
 
 	return (
 		<div>
@@ -46,7 +48,7 @@ export default async function Page() {
 							{latestData[0].summary}
 						</p>
 						<p className="font-extralight lg:text-sm">
-							{latestData[0].date.toISOString().split("T")[0]}
+							{latestData[0].date}
 						</p>
 					</div>
 				</Link>
@@ -114,11 +116,7 @@ export default async function Page() {
 							{meetingsData[meetingsData.length - 1].summary}
 						</p>
 						<p className="font-extralight lg:text-sm">
-							{
-								meetingsData[meetingsData.length - 1].date
-									.toISOString()
-									.split("T")[0]
-							}
+							{meetingsData[meetingsData.length - 1].date}
 						</p>
 					</div>
 				</Link>

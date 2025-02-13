@@ -10,9 +10,13 @@ import {
 import SectionCta from "@/components/section-cta"
 import HeaderSections from "@/components/header-sections"
 import { motion } from "framer-motion"
-import { playlists } from "@/lib/data"
+import { YouTubePlaylist } from "@/types/youtubeData"
 
-export default function Videos() {
+export default function Videos({
+	playlists,
+}: {
+	playlists: YouTubePlaylist[]
+}) {
 	const [videoId, setVideoId] = useState<string | null>(null)
 
 	const openModal = (videoId: string) => setVideoId(videoId)
@@ -31,7 +35,7 @@ export default function Videos() {
 					title={"المرئيات"}
 					moreButton={{
 						label: "المزيد",
-						href: "/media",
+						href: "/media/videos",
 					}}
 				/>
 

@@ -1,8 +1,10 @@
 import Breadcrumbs from "@/components/breadcrumb"
 import HisLifeAccordion from "./components/accordion"
-import { ImamLifeSection } from "@/lib/data"
+import { dataFetcher } from "@/lib/dataFetcher"
+import { imamzainLife } from "@/types/imamzainLife"
 
-export default function Page() {
+export default async function Page() {
+	const imamzainLife = await dataFetcher<imamzainLife[]>("imamzain.json")
 	return (
 		<div className="">
 			<Breadcrumbs
@@ -34,7 +36,7 @@ export default function Page() {
 					</p>
 				</div>
 				<div className="-space-y-6">
-					{ImamLifeSection.map((section) => (
+					{imamzainLife.map((section) => (
 						<HisLifeAccordion
 							key={section.title}
 							section={section}

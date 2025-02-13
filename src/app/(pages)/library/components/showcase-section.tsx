@@ -1,10 +1,10 @@
 import { DownloadIcon } from "@/assets/icons/reusable"
-import { Book } from "@/lib/definitions"
+import { Book } from "@/types/book"
 import Image from "next/image"
 import Link from "next/link"
 import RelatedBooks from "./related-books"
-import { libraryBooks } from "@/lib/data"
-export default function ShowcaseSection({
+import { dataFetcher } from "@/lib/dataFetcher"
+export default async function ShowcaseSection({
 	showcaseBooks,
 	downloadable = false,
 	route = "",
@@ -13,6 +13,8 @@ export default function ShowcaseSection({
 	downloadable?: boolean
 	route: string
 }) {
+	const libraryBooks = await dataFetcher<Book[]>("library.json")
+
 	return (
 		<div className="flex flex-row ">
 			<div className="w-full  lg:w-4/6 ">

@@ -3,16 +3,16 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import HeaderSections from "@/components/header-sections"
-import { newsPosts } from "@/data/posts"
+import { Post } from "@/types/post"
 
-export default function Posts() {
+export default function Posts({ newsPosts }: { newsPosts: Post[] }) {
 	return (
 		<div className="container py-20 flex flex-col items-center gap-6 ">
 			<HeaderSections
 				title={"الأخبار"}
 				moreButton={{
 					label: "ارشيف الاخبار",
-					href: "/news",
+					href: "/news/archives",
 				}}
 			/>
 

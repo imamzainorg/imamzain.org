@@ -1,21 +1,17 @@
 import Breadcrumbs from "@/components/breadcrumb"
 import { redirect } from "next/navigation"
-import { libraryBooks } from "@/lib/data"
-import { Book } from "@/lib/definitions"
 import Image from "next/image"
 import BookCard from "@/components/book-card"
 import { Share2Icon } from "lucide-react"
+import { dataFetcher } from "@/lib/dataFetcher"
+import { Book } from "@/types/book"
 export default async function Page({
 	params,
 }: {
 	params: Promise<{ slug: string }>
 }) {
 	const slug = (await params).slug
-
-	// TODO build api endpoint to fetch libraryBooks by slug
-	// const libraryBooks = await fetch(`https://api.imamzain.org/libraryBookss/${slug}`)
-
-	// mimic the data recieved from fetch(`https://api.imamzain.org/libraryBookss/${slug}`)
+	const libraryBooks = await dataFetcher<Book[]>("library.json")
 	const book: Book | undefined = libraryBooks.find(
 		(book) => book.slug === slug,
 	)
@@ -91,7 +87,7 @@ export default async function Page({
 							<p className="mt-4">تاريخ الطبع</p>
 
 							<span className="font-extralight text-slate-500 sm:m-5">
-								{book.printDate.toISOString().split("T")[0]}{" "}
+								{book.printDate}
 							</span>
 
 							<p className="mt-4">اللغة</p>

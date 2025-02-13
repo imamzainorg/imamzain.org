@@ -2,8 +2,9 @@ import { EyeIcon } from "lucide-react"
 import { ClockIcon } from "lucide-react"
 import Image from "next/image"
 import Breadcrumbs from "@/components/breadcrumb"
-import { playlists } from "@/lib/data"
 import Link from "next/link"
+import { dataFetcher } from "@/lib/dataFetcher"
+import { YouTubePlaylist } from "@/types/youtubeData"
 
 export default async function media({
 	params,
@@ -11,6 +12,7 @@ export default async function media({
 	params: Promise<{ slug: string }>
 }) {
 	const slug = (await params).slug
+	const playlists = await dataFetcher<YouTubePlaylist[]>("youtube.json")
 	const playlist = playlists.filter(
 		(playlist) => playlist.videos.filter((video) => video.slug === slug)[0],
 	)[0].videos

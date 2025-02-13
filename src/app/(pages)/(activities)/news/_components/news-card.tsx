@@ -1,4 +1,4 @@
-import { Post } from "@/lib/definitions"
+import { Post } from "@/types/post"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -14,9 +14,7 @@ export default function PostCard(post: Post) {
 						{post.title}
 					</h2>
 					<p className="line-clamp-2">{post.summary}</p>
-					<p className="font-extralight">
-						{post.date.toISOString().split("T")[0]}
-					</p>
+					<p className="font-extralight">{post.date}</p>
 				</div>
 				<div className="w-2/6 h-5/6 relative">
 					<div className="absolute rotate-90 w-3 h-3 xl:w-5 xl:h-5 bottom-3 -right-1.5 xl:bottom-4 xl:-right-2 bg-[url('/shapes/newsIndicator.svg')] bg-no-repeat"></div>
