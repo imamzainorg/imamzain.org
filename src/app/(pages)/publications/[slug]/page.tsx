@@ -62,7 +62,7 @@ export default async function Page({
 									strokeWidth={2.5}
 									className=" relative right-12 sm:right-14 w-1/2 md:right-20 xl:right-32"
 								/>{" "}
-								<Link href={`/publications/${slug}/components`}>
+								<Link href={`/Services/store-location`}>
 									<ShoppingCartIcon
 										stroke="#006654"
 										fill="none"
@@ -74,7 +74,7 @@ export default async function Page({
 							<hr className="sm:relative sm:-top-16 xl:-top-32 " />
 						</div>
 					</div>
-					<div className="flex flex-col sm:flex-row  ">
+					<div className="flex flex-col sm:flex-row ">
 						<div className="w-full relative -top-10  sm:text-sm md:text-lg  mx-auto text-center xl:text-xl     sm:text-start sm:pr-24 ">
 							<p className=" ">شخصيات اخرى</p>
 							<span className="font-extralight text-slate-500 sm:m-5  ">

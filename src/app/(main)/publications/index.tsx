@@ -4,13 +4,40 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { Book } from "@/types/book"
+;("use client")
 
-export default function Publications({
-	publications,
-}: {
-	publications: Book[]
-}) {
-	// Parent Variants: Handle scaling on hover
+import { useState, useEffect } from "react"
+import { publications } from "@/lib/data"
+import HeaderSections from "@/components/header-sections"
+import Image from "next/image"
+import { motion } from "framer-motion"
+import Link from "next/link"
+
+export default function Publications() {
+	const [booksToShow, setBooksToShow] = useState(10)
+
+	// Function to update the number of books based on screen width
+	const updateBooksToShow = () => {
+		const width = window.innerWidth
+		if (width >= 1280)
+			setBooksToShow(10) //   (xl+)
+		else if (width >= 1024)
+			setBooksToShow(8) //   (lg)
+		else if (width >= 768)
+			setBooksToShow(6) //   (md)
+		else if (width >= 640)
+			setBooksToShow(4) //   (sm)
+		else setBooksToShow(2) //   (xs)
+	}
+
+	// Set initial value and update on resize
+	useEffect(() => {
+		updateBooksToShow()
+		window.addEventListener("resize", updateBooksToShow)
+		return () => window.removeEventListener("resize", updateBooksToShow)
+	}, [])
+
+	// Variants for animations
 	const parentVariants = {
 		rest: { scale: 1 },
 		hover: { scale: 1.05 },
@@ -46,8 +73,8 @@ export default function Publications({
 				/>
 			</div>
 
-			<div className=" w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 gap-y-6 items-start my-8">
-				{publications.slice(0, 10).map((book) => (
+			<div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 gap-y-6 items-start my-8">
+				{publications.slice(0, booksToShow).map((book) => (
 					<Link key={book.id} href={`/publications/${book.slug}`}>
 						<motion.div
 							className="flex flex-col justify-between rounded-2xl h-full"
@@ -57,12 +84,12 @@ export default function Publications({
 							}}
 							variants={parentVariants}
 							initial="rest"
-							animate="visible" // Trigger entrance animation
-							whileHover="hover" // Trigger hover state
+							animate="visible"
+							whileHover="hover"
 							transition={{ duration: 0.3 }}
 						>
 							<div className="relative flex justify-center items-center w-44 h-60 mx-auto">
-								{/* First Child: Book Icon with Rotation */}
+								{/* Book Icon with Rotation */}
 								<motion.div
 									variants={iconVariants}
 									className="absolute right-0 bottom-0 w-32 h-32"
@@ -90,7 +117,7 @@ export default function Publications({
 									</motion.div>
 								</motion.div>
 
-								{/* Second Child: Book Image 1 */}
+								{/* Book Image 1 */}
 								<motion.div
 									variants={imageVariants}
 									initial="hidden"
@@ -105,7 +132,7 @@ export default function Publications({
 									/>
 								</motion.div>
 
-								{/* Third Child: Book Image 2 */}
+								{/* Book Image 2 */}
 								<motion.div
 									variants={imageVariants}
 									initial="hidden"

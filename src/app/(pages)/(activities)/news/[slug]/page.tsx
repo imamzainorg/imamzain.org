@@ -82,7 +82,10 @@ export default async function page({
 				{/* post content */}
 				<div className="text-xl mt-16 lg:mt-24 tracking-tight space-y-6 lg:space-y-3 lg:col-span-2 lg:order-last w-full">
 					<h1 className="">{post.body.lede}</h1>
-					<p className="">{post.body.content}</p>
+					<div
+						className="post-content leading-10"
+						dangerouslySetInnerHTML={{ __html: post.body.content }}
+					/>
 					<p className="">{post.body.tail}</p>
 				</div>
 
@@ -100,6 +103,12 @@ export default async function page({
 					</div>
 				</div>
 			</div>
+
+			{post.attachments && (
+				<div className="pt-20">
+					<SwiperGallery images={post.attachments} />
+				</div>
+			)}
 		</div>
 	)
 }
