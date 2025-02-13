@@ -35,7 +35,7 @@ export default function Videos({
 					title={"المرئيات"}
 					moreButton={{
 						label: "المزيد",
-						href: "/media",
+						href: "/media/videos",
 					}}
 				/>
 
