@@ -1,19 +1,18 @@
 "use client"
+
+import { useState, useEffect } from "react"
+
 import HeaderSections from "@/components/header-sections"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { Book } from "@/types/book"
-;("use client")
 
-import { useState, useEffect } from "react"
-import { publications } from "@/lib/data"
-import HeaderSections from "@/components/header-sections"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import Link from "next/link"
-
-export default function Publications() {
+export default function Publications({
+	publications,
+}: {
+	publications: Book[]
+}) {
 	const [booksToShow, setBooksToShow] = useState(10)
 
 	// Function to update the number of books based on screen width

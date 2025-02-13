@@ -62,7 +62,7 @@ export default async function Page({
 									strokeWidth={2.5}
 									className=" relative right-12 sm:right-14 w-1/2 md:right-20 xl:right-32"
 								/>{" "}
-								<Link href={`/Services/store-location`}>
+								<Link href={`/services/store-location`}>
 									<ShoppingCartIcon
 										stroke="#006654"
 										fill="none"

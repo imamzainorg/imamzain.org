@@ -7,6 +7,7 @@ import Link from "next/link"
 import NewsShare from "../_components/news-share"
 import { dataFetcher } from "@/lib/dataFetcher"
 import { Post } from "@/types/post"
+import SwiperGallery from "../_components/swiper-gallery"
 
 export default async function page({
 	params,
