@@ -165,7 +165,6 @@ export const newsPosts: Post[] = [
         date: new Date("2024-7-10"),
         last_update: new Date("2024-2-21"),
         category: "لقاءات",
- 
     },
     {
         id: 4,

@@ -1,6 +1,5 @@
 "use client";
 import ImageView from "@/components/image-view";
-import Image from "next/image";
 import Link from "next/link";
 import { galleryImages } from "@/lib/data";
 import Breadcrumbs from "@/components/breadcrumb";

@@ -18,12 +18,16 @@ export default {
 				"2xl": "6rem",
 			},
 		},
+
 		extend: {
 			screens: {
 				xxs: "280px",
 				xs: "500px",
 				s: "380px",
 				xmd: "900px",
+			},
+			boxShadow: {
+				custom: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)',
 			},
 			keyframes: {
 				fadeInUp: {

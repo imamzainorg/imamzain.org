@@ -100,7 +100,7 @@ export default function SwiperCarousel({ images }: { images: string[] }) {
             "
 			>
 				<div
-					onClick={handlePrev}
+					onClick={handleNext}
 					className={`swiper-button-prev ${styles.secondaryColor}`}
 				/>
 			</div>
@@ -110,7 +110,7 @@ export default function SwiperCarousel({ images }: { images: string[] }) {
             "
 			>
 				<div
-					onClick={handleNext}
+					onClick={handlePrev}
 					className={`swiper-button-next ${styles.secondaryColor}`}
 				/>
 			</div>
