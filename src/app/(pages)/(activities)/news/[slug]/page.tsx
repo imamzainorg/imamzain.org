@@ -102,10 +102,9 @@ export default async function page({
 			</div>
 
 			{post.attachments &&
-				<div className='py-20'>
+				<div className='pt-20'>
 					<SwiperGallery images={post.attachments}/>
 				</div>
-
 			}
 		</div>
 	)
