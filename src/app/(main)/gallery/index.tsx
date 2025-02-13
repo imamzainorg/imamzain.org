@@ -54,9 +54,7 @@ export default function GallerySection() {
 										"linear-gradient(0deg, rgba(0,0,0,0.8715861344537815) 0%, rgba(0,0,0,0.40940126050420167) 45%, rgba(229,229,229,0) 100%)",
 								}}
 							>
-								<div className="font-semibold text-lg p-4 text-white">
-									قسم {index + 1}
-								</div>
+								<div className="font-semibold text-lg p-4 text-white"></div>
 							</motion.div>
 						</div>
 					))}
