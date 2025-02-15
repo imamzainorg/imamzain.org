@@ -54,7 +54,7 @@ export default async function Page({
 									{publication.author}
 								</p>
 							</div>
-							<div className="  flex flex-row justify-between  items-center w-full sm:relative sm:-top-20 xl:-top-36  p-1 ">
+							<div className="flex flex-row justify-between  items-center w-full sm:relative sm:-top-20 xl:-top-36  p-1 ">
 								<Link
 									download
 									href={`${publication.pdf}`}
@@ -70,7 +70,7 @@ export default async function Page({
 									stroke="#006654"
 									className="relative right-12 sm:right-14 w-1/2 md:right-20 xl:right-32 cursor-pointer"
 								/>
-								<Link href={`/services/store-location`}>
+								<Link href={`/services/stores`}>
 									<ShoppingCartIcon
 										stroke="#006654"
 										fill="none"

@@ -36,25 +36,25 @@ export default async function Page({
 			/>
 			{/* الكتاب المقصود */}
 			<div className="pt-20 sm:pt-40">
-				<div className="border bg-gray-100  flex  border-primary/30 shadow-xl shadow-primary/20 rounded-3xl flex-col     w-full">
-					<div className="flex flex-col relative  sm:flex-row -top-24 sm:top-0     justify-center items-center ">
+				<div className="border bg-gray-100 flex border-primary/30 shadow-xl shadow-primary/20 rounded-3xl flex-col w-full">
+					<div className="flex flex-col relative sm:flex-row -top-24 sm:top-0 justify-center items-center">
 						<Image
 							src={book.image}
 							width={350}
 							height={200}
 							alt={book.slug}
-							className="w-32 sm:w-36 md:w-40 md:left-8 lg:w-44 xl:w-56 xl:left-32 xl:-top-10 md:relative lg:left-24  h-auto    rounded-xl  sm:-translate-y-28"
+							className="w-32 sm:w-36 md:w-40 md:left-8 lg:w-44 xl:w-56 xl:left-32 xl:-top-10 md:relative lg:left-24  h-auto rounded-xl sm:-translate-y-28"
 						/>
 						<div className="flex flex-col sm:p-4 lg:p-0 ">
-							<div className=" space-y-2 mt-16 sm:-mt-3 xl:mb-24 lg:pb-10 text-center sm:text-right -translate-y-10 sm:-translate-y-28  ">
+							<div className=" space-y-2 mt-16 sm:-mt-3 xl:mb-24 lg:pb-10 text-center sm:text-right -translate-y-10 sm:-translate-y-28">
 								<p className="text-lg sm:text-xl xl:text-3xl font-semibold">
 									{book.title}
 								</p>
-								<p className="text-sm sm:text-lg xl:text-xl  mr-4 text-gray-500">
+								<p className="text-sm sm:text-lg xl:text-xl mr-4 text-gray-500">
 									{book.author}
 								</p>
 							</div>
-							<div className="  flex flex-row justify-between  items-center w-full sm:relative sm:-top-20 xl:-top-36  p-1 ">
+							<div className="flex flex-row justify-between items-center w-full sm:relative sm:-top-20 xl:-top-36 p-1">
 								<Link
 									download
 									href={`${book.pdf}`}
@@ -70,7 +70,7 @@ export default async function Page({
 									stroke="#006654"
 									className="relative right-12 sm:right-14 w-1/2 md:right-20 xl:right-32 cursor-pointer"
 								/>
-								<Link href={`/services/store-location`}>
+								<Link href={`/services/stores`}>
 									<ShoppingCartIcon
 										stroke="#006654"
 										fill="none"
