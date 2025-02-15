@@ -21,7 +21,7 @@ export default async function ShowcaseSection({
 				<Link
 					href={`${route}/${showcaseBooks[0].slug}`}
 					key={showcaseBooks[0].id}
-					className="flex items-center gap-4   w-full py-4 lg:py-8 group"
+					className="flex items-center gap-4 w-full py-4 lg:py-8 group"
 				>
 					<div className="relative w-[100px] h-[100px] xs:w-[150px] xs:h-[200px] sm:w-[200px] sm:h-[250px] md:w-[250px] md:h-[300px] lg:w-[180px] lg:h-[230px] xl:w-[230px] xl:h-[280px] md:ml-8 lg:ml-2 duration-300 group-hover:drop-shadow-xl group-hover:scale-105 group-hover:-translate-y-1 flex justify-center items-center bg-[url('/shapes/book-bg.svg')] bg-no-repeat bg-center">
 						<Image
@@ -38,7 +38,7 @@ export default async function ShowcaseSection({
 						)}
 					</div>
 					<div className=" w-2/3 flex flex-col h-5/6 justify-center gap-0 sm:gap-1 md:gap-5 xmd:gap-7  lg:gap-0  relative">
-						<h2 className="text-primary text-[0.6rem] xs:text-lg sm:text-2xl xmd:text-3xl lg:text-xl xl:text-2xl 2xl:text-3xl font-bold  absolute -top-10 xs:-top-16 sm:-top-20 md:-top-28 xmd:-top-32 lg:-top-20 xl:-top-24 2xl:-top-28 ">
+						<h2 className="text-primary text-[0.6rem] xs:text-lg sm:text-2xl xmd:text-3xl lg:text-xl xl:text-2xl font-bold  absolute -top-10 xs:-top-16 sm:-top-20 md:-top-28 xmd:-top-32 lg:-top-20 xl:-top-24 2xl:-top-28 ">
 							{showcaseBooks[0].title}
 						</h2>
 
