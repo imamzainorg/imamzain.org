@@ -55,7 +55,7 @@ const links = [
 		label: "الخدمات",
 		subLinks: [
 			{ label: "اتصل بنا", href: "/services" },
-			{ label: "نقاط البيع المباشر", href: "/services/store-location" },
+			{ label: "نقاط البيع المباشر", href: "/services/stores" },
 		],
 	},
 	{
