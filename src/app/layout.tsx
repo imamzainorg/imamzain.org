@@ -86,12 +86,11 @@ export default function RootLayout({
 		<html lang="ar" dir="rtl" suppressHydrationWarning={true}>
 			<body className={`${imamzainfont.className} bg-pattern`}>
 				<Providers>
-					<LanguagesProvider>	
+					<>
+						{children}
+						<Toaster />
+					</>
 
-							{children}
-							<Toaster />
-
-					</LanguagesProvider>
 				</Providers>
 				<Analytics />
 				<SpeedInsights />

@@ -33,9 +33,9 @@ export default function Videos({
 	// Function to update the number of books based on screen width
 	const updateBooksToShow = () => {
 		const width = window.innerWidth
-		if (width >= 1280) setToShow(5)
-		else if (width >= 1024) setToShow(4)
-		else if (width >= 768) setToShow(3)
+		if (width >= 1280) setToShow(7)
+		else if (width >= 1024) setToShow(7)
+		else if (width >= 768) setToShow(4)
 		else if (width >= 640) setToShow(2)
 		else setToShow(2)
 	}
