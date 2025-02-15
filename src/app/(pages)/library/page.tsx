@@ -28,7 +28,7 @@ export default async function page() {
 							className="border-none bg-transparent focus:border-none active:border-none"
 						>
 							<option
-								className=" w-1/2 text-sm md:text-md xl:text-xl 2xl:text-2xl"
+								className="w-1/2 text-sm md:text-md xl:text-xl 2xl:text-2xl"
 								value="latest"
 								defaultChecked
 							>
@@ -111,8 +111,12 @@ export default async function page() {
 				</div>
 
 				<div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
-					{libraryBooks.map((book) => (
-						<BooklibraryCard key={book.id} publication={book} />
+					{libraryBooks.map((book: Book) => (
+						<BooklibraryCard
+							route="/library"
+							key={book.id}
+							publication={book}
+						/>
 					))}
 				</div>
 			</div>

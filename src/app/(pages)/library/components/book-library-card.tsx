@@ -6,17 +6,19 @@ import Link from "next/link"
 export default function BooklibraryCard({
 	publication,
 	downloadable = false,
+	route = "",
 }: {
 	publication: Book
 	downloadable?: boolean
+	route?: string
 }) {
 	return (
 		<Link
-			href={`/publications/${publication.slug}`}
+			href={`${route}/${publication.slug}`}
 			key={publication.id}
 			className="flex items-center gap-4 py-4 lg:py-8 group"
 		>
-			<div className=" relative w-1/3 h-full duration-300 group-hover:drop-shadow-xl group-hover:scale-105 group-hover:-translate-y-1 flex justify-center items-center bg-[url('/shapes/book-bg.svg')] bg-no-repeat bg-center">
+			<div className="relative w-1/3 h-full duration-300 group-hover:drop-shadow-xl group-hover:scale-105 group-hover:-translate-y-1 flex justify-center items-center bg-[url('/shapes/book-bg.svg')] bg-no-repeat bg-center">
 				<Image
 					src={publication.image}
 					width={200}
@@ -31,11 +33,11 @@ export default function BooklibraryCard({
 				)}
 			</div>
 			<div className=" w-2/3 flex flex-col h-5/6 justify-center gap-0 sm:gap-1 md:gap-5 xmd:gap-7  lg:gap-0  relative">
-				<h2 className="text-primary text-[0.6rem] xs:text-lg sm:text-xl lg:text-base xl:text-xl 2xl:text-2xl font-bold  absolute top-2 xs:top-1 sm:top-3 lg:top-1 2xl:top-3 ">
+				<h2 className="text-primary text-[0.6rem] xs:text-lg sm:text-xl lg:text-base xl:text-xl font-bold  absolute top-2 xs:top-1 sm:top-3 lg:top-1 2xl:top-3 ">
 					{publication.title}
 				</h2>
 
-				<span className="text-[0.5rem] xs:text-sm sm:text-lg md:text-xl lg:text-sm xl:text-lg 2xl:text-xl font-medium absolute top-10 xs:top-14 sm:top-16 lg:top-14 xl:top-16 2xl:top-20">
+				<span className="text-[0.5rem] xs:text-sm sm:text-lg md:text-xl lg:text-sm xl:text-lg font-medium absolute top-10 xs:top-14 sm:top-16 lg:top-14 xl:top-16 2xl:top-20">
 					{publication.author}
 				</span>
 				<span className="text-[8px] xs:text-[0.7rem] sm:text-md md:text-lg lg:text-[10px] xl:text-[14px] 2xl:text-base font-light absolute top-14 xs:top-20 sm:top-24 lg:top-[90px] xl:top-[120px]">

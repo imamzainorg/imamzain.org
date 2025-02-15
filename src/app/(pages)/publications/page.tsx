@@ -1,10 +1,10 @@
-import BookCard from "@/components/book-card"
 import SectionTitle from "@/components/section"
 import { HighlightCarousel } from "./components/highlight-carousel"
 import Breadcrumbs from "@/components/breadcrumb"
 import Section from "@/components/section"
 import { dataFetcher } from "@/lib/dataFetcher"
 import { Book } from "@/types/book"
+import BooklibraryCard from "../library/components/book-library-card"
 
 export default async function page() {
 	const publications = await dataFetcher<Book[]>("publications.json")
@@ -42,7 +42,7 @@ export default async function page() {
 				<div className="w-11/12 mx-auto space-y-2">
 					<div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
 						{publications.map((publication) => (
-							<BookCard
+							<BooklibraryCard
 								route="/publications"
 								key={publication.id}
 								publication={publication}

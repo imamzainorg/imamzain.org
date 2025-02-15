@@ -6,8 +6,8 @@ export default function MainLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<>
-			<Layouts>{children}</Layouts>
-		</>
+		<Layouts>
+			<div className="container">{children}</div>
+		</Layouts>
 	)
 }
