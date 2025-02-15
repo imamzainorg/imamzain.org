@@ -27,8 +27,8 @@ export default async function Page({
 					{ name: "الرئيسية", url: "/" },
 					{ name: "المكتبة التخصصية", url: "/library" },
 					{
-						name: "الصحيفة السجادية",
-						url: "/library/al-sahifa-al-sajjadiyya",
+						name: "رسالة الحقوق",
+						url: "/library/risalat-al-huqoq",
 					},
 					{ name: book.title, url: "#" },
 				]}
@@ -125,7 +125,7 @@ export default async function Page({
 			<div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
 				{libraryBooks.slice(0, 2).map((libraryBook) => (
 					<BooklibraryCard
-						route="/library/al-sahifa-al-sajjadiyya"
+						route="/library/risalat-al-huqoq"
 						key={libraryBook.id}
 						publication={libraryBook}
 						downloadable

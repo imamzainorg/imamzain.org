@@ -42,9 +42,9 @@ const links = [
 			{ label: "ما كتب عن الإمام زين العابدين", href: "/library" },
 			{
 				label: "الصحيفة السجادية",
-				href: "/library/al-sahifa-al-sajjadiyya",
+				href: "/library/al-sahifa",
 			},
-			{ label: "رسالة الحقوق", href: "/library/treatise-of-rights" },
+			{ label: "رسالة الحقوق", href: "/library/risalat-al-huqoq" },
 		],
 	},
 	{
