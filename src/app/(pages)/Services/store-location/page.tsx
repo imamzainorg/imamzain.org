@@ -1,7 +1,7 @@
 import Breadcrumbs from "@/components/breadcrumb"
 import storeLocations from "@/data/store-locations.json"
 
-export default function LocationsPage() {
+export default function Page() {
 	return (
 		<div className="">
 			<Breadcrumbs
