@@ -1,79 +1,55 @@
 import Breadcrumbs from "@/components/breadcrumb"
+import storeLocations from "@/data/store-locations.json"
 
 export default function LocationsPage() {
 	return (
-		<div className="p-8">
+		<div className="">
 			<Breadcrumbs
 				links={[
 					{ name: "الرئيسية", url: "/" },
-					{ name: "الأصدارات", url: "/publications" },
+					{ name: "الخدمات", url: "/services" },
 					{ name: "نقاط البيع المباشر", url: "#" },
 				]}
 			/>
-			<h1
-				id="Points-of-sale"
-				className="text-2xl font-bold text-center my-6"
-			>
-				نقاط البيع المباشر{" "}
+			<h1 className="text-4xl font-bold text-gray-900 my-10 text-center">
+				نقاط البيع المباشر
 			</h1>
-			<div className=" ">
-				<div className="bg-gray-100 p-4 rounded-xl shadow-md my-2">
-					<h2 className="text-lg font-semibold text-center sm:text-right">
-						النجف الاشرف
-					</h2>
-					<h4 className="text-black font-medium mr-2 mt-2">
-						المقر الرئيسي
-					</h4>
-					<p className="text-gray-800 mr-2 border-b-2 pr-2 pl-2 mb-4">
-						حي الزهراء - ملحق شارع الروان
-						<span className="">
-							{" "}
-							<br />
-							رقم الهاتف : 07829439996
-						</span>
-					</p>
-					<h4 className="text-black font-medium mr-2 mt-2">
-						معرض الكتاب الدائم
-					</h4>
-					<p className="ttext-gray-800 mr-2 border-b-2 pr-2 pl-2 mb-4">
-						العتبة الحسينية المقدسة - شارع الرسول (صلى الله عليه
-						واله وسلم)قرب فدق القاسم (عليه السلام) مقابل مكتب السيد
-						السيستاني
-						<span className="">
-							{" "}
-							<br />
-							رقم الهاتف : 07725890454
-						</span>
-					</p>
-					<h4 className="text-black font-medium mr-2 mt-2">
-						دار البذرة للطباعة والنشر
-					</h4>
-					<p className="text-gray-800 mr-2  pr-2 pl-2 mb-4">
-						امتداد شارع الرسول (صلى الله عليه واله وسلم) قرب مدرسة
-						النضال الابتدائية مقابل فندق الرسول (صلى الله عليه واله
-						وسلم) السياحي{" "}
-						<span className="">
-							<br />
-							رقم الهاتف : 07802450230 - 07601804421
-						</span>
-					</p>
-				</div>
-				<div className="bg-gray-100 p-4 rounded-xl shadow-md">
-					<h2 className="text-lg font-semibold my-2 text-center sm:text-right">
-						كربلاء المقدسة
-					</h2>
-					<h4 className="text-black font-medium mr-2 mt-2">
-						معرض الكتاب الدائم
-					</h4>
-
-					<p className="text-gray-800 mr-2  pr-2 pl-2 mb-4">
-						بين الحرمين الشريفين
-						<span className="">
-							<br />
-							رقم الهاتف : 07725108015{" "}
-						</span>
-					</p>
-				</div>
+			<div className="w-full max-w-screen-lg mx-auto space-y-12">
+				{storeLocations.map((storeLocation, index) => (
+					<div
+						key={index}
+						className="bg-white p-8 rounded-3xl shadow-lg border border-gray-200"
+					>
+						<h2 className="text-2xl font-bold text-gray-900 text-center sm:text-right mb-6">
+							{storeLocation.city}
+						</h2>
+						<div className="space-y-6">
+							{storeLocation.sellpoints.map((sellpoint) => (
+								<div
+									key={sellpoint.name}
+									className="p-4 border border-primary/30 shadow-sm rounded-xl hover:-translate-y-1 hover:-translate-x-1 hover:shadow-lg duration-150 cursor-pointer"
+								>
+									<h4 className="text-lg lg:text-xl font-semibold text-gray-800 mb-2">
+										{sellpoint.name}
+									</h4>
+									<p className="text-sm lg:text-lg text-gray-700 leading-relaxed">
+										{sellpoint.location}
+										<br />
+										<span className="font-medium text-gray-900">
+											رقم الهاتف:{" "}
+										</span>
+										<span
+											dir="ltr"
+											className="ml-2 text-gray-700"
+										>
+											{sellpoint.phone}
+										</span>
+									</p>
+								</div>
+							))}
+						</div>
+					</div>
+				))}
 			</div>
 		</div>
 	)

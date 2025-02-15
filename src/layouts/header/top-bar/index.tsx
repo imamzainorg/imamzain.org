@@ -11,13 +11,9 @@ import {
 import { faCalendar, faGlobe } from "@fortawesome/free-solid-svg-icons"
 import { usePathname } from "next/navigation"
 
-// Local imports
 import useWindowEvents from "../../../hooks/window-events"
 import { useLanguages } from "../../../context/language-context"
 
-// 1. Define the structure of each social link
-
-// 4. Social links array
 const bigNavSocials = [
 	{ href: "https://www.instagram.com/imamzainorg/", icon: faInstagram },
 	{ href: "https://www.tiktok.com/@imamzainorg", icon: faTiktok },
@@ -25,7 +21,6 @@ const bigNavSocials = [
 	{ href: "https://twitter.com/imamzainorg", icon: faTwitter },
 ]
 
-// 5. TopBar component
 export default function TopBar() {
 	const path = usePathname()
 

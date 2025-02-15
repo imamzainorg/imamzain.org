@@ -2,10 +2,12 @@ import Breadcrumbs from "@/components/breadcrumb"
 import { redirect } from "next/navigation"
 import { Book } from "@/types/book"
 import Image from "next/image"
-import BookCard from "@/components/book-card"
-import { Share2Icon, ShoppingCartIcon } from "lucide-react"
+import { ShoppingCartIcon } from "lucide-react"
 import Link from "next/link"
 import { dataFetcher } from "@/lib/dataFetcher"
+import { DownloadIcon } from "@/assets/icons/reusable"
+import NewsShare from "../../(activities)/news/_components/news-share"
+import BooklibraryCard from "../../library/components/book-library-card"
 
 export default async function Page({
 	params,
@@ -33,7 +35,7 @@ export default async function Page({
 				]}
 			/>
 			{/* الكتاب المقصود */}
-			<div className="pt-20 sm:pt-28  ">
+			<div className="pt-20 sm:pt-40">
 				<div className="border bg-gray-100  flex  border-primary/30 shadow-xl shadow-primary/20 rounded-3xl flex-col     w-full">
 					<div className="flex flex-col relative  sm:flex-row -top-24 sm:top-0     justify-center items-center ">
 						<Image
@@ -44,31 +46,37 @@ export default async function Page({
 							className="w-32 sm:w-36 md:w-40 md:left-8 lg:w-44 xl:w-56 xl:left-32 xl:-top-10 md:relative lg:left-24  h-auto    rounded-xl  sm:-translate-y-28"
 						/>
 						<div className="flex flex-col sm:p-4 lg:p-0 ">
-							<div className=" space-y-2 mt-16 sm:-mt-3 xl:mb-24  lg:pb-10 text-center sm:text-right -translate-y-10 sm:-translate-y-28  ">
-								<p className="text-lg sm:text-xl  xl:text-3xl font-semibold">
+							<div className=" space-y-2 mt-16 sm:-mt-3 xl:mb-24 lg:pb-10 text-center sm:text-right -translate-y-10 sm:-translate-y-28  ">
+								<p className="text-lg sm:text-xl xl:text-3xl font-semibold">
 									{publication.title}
 								</p>
-								<p className="text-sm sm:text-lg xl:text-xl  text-center  mr-4 text-gray-500">
+								<p className="text-sm sm:text-lg xl:text-xl  mr-4 text-gray-500">
 									{publication.author}
 								</p>
 							</div>
 							<div className="  flex flex-row justify-between  items-center w-full sm:relative sm:-top-20 xl:-top-36  p-1 ">
-								<button className="bg-primary text-[10px] whitespace-pre p-4 sm:text-[14px] md:text-lg xl:text-xl   rounded-[30px] text-white  ">
-									إبدأ بالقراءة ⟵{" "}
-								</button>
-								<Share2Icon
-									stroke="#006654"
-									fill="none"
+								<Link
+									download
+									href={`${publication.pdf}`}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="flex items-center gap-3 bg-primary text-[10px] whitespace-pre p-4 sm:text-[14px] md:text-lg xl:text-xl rounded-[30px] text-white"
+								>
+									تنزيل <DownloadIcon fill="#ffffff" />
+								</Link>
+								<NewsShare
+									slug={publication.slug}
 									strokeWidth={2.5}
-									className=" relative right-12 sm:right-14 w-1/2 md:right-20 xl:right-32"
-								/>{" "}
+									stroke="#006654"
+									className="relative right-12 sm:right-14 w-1/2 md:right-20 xl:right-32 cursor-pointer"
+								/>
 								<Link href={`/services/store-location`}>
 									<ShoppingCartIcon
 										stroke="#006654"
 										fill="none"
-										strokeWidth={2.5}
-										className=" relative w-7 h-7 md:right-9"
-									></ShoppingCartIcon>
+										strokeWidth={2}
+										className="relative w-6 h-6 md:right-9"
+									/>
 								</Link>
 							</div>
 							<hr className="sm:relative sm:-top-16 xl:-top-32 " />
@@ -125,17 +133,15 @@ export default async function Page({
 					</div>
 				</div>
 			</div>
-
-			{/* كتب ذات صلة */}
 			<h2 className="text-center font-semibold border-t border-b p-4 sm:text-2xl xl:text-4xl">
 				كتب ذات صلة
 			</h2>
 			<div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
-				{publications.slice(0, 2).map((publication) => (
-					<BookCard
+				{publications.slice(0, 2).map((libraryBook) => (
+					<BooklibraryCard
 						route="/publications"
-						key={publication.id}
-						publication={publication}
+						key={libraryBook.id}
+						publication={libraryBook}
 						downloadable
 					/>
 				))}

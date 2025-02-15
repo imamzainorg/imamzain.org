@@ -10,7 +10,7 @@ export default async function Page() {
 	const libraryBooks = await dataFetcher<Book[]>("library.json")
 	return (
 		<div className="">
-			<div className="m-10">
+			<div className="">
 				<Breadcrumbs
 					links={[
 						{ name: "الصفحة الرئيسية", url: "/" },
@@ -32,10 +32,14 @@ export default async function Page() {
 				/>
 				<div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
 					{libraryBooks.map((book) => (
-						<BooklibraryCard key={book.id} publication={book} />
+						<BooklibraryCard
+							route="/library/al-sahifa-al-sajjadiyya"
+							key={book.id}
+							publication={book}
+						/>
 					))}
 				</div>
-				<div className="lg:hidden ">
+				<div className="lg:hidden">
 					<RelatedBooks
 						route="/library/al-sahifa-al-sajjadiyya"
 						relatedBooks={libraryBooks.slice(1, 3)}

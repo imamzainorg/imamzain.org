@@ -1,10 +1,10 @@
 import Breadcrumbs from "@/components/breadcrumb"
 import { redirect } from "next/navigation"
 import Image from "next/image"
-import BookCard from "@/components/book-card"
 import { Share2Icon } from "lucide-react"
 import { dataFetcher } from "@/lib/dataFetcher"
 import { Book } from "@/types/book"
+import BooklibraryCard from "../../components/book-library-card"
 export default async function Page({
 	params,
 }: {
@@ -124,7 +124,7 @@ export default async function Page({
 			</h2>
 			<div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
 				{libraryBooks.slice(0, 2).map((libraryBook) => (
-					<BookCard
+					<BooklibraryCard
 						route="/library/treatise-of-rights"
 						key={libraryBook.id}
 						publication={libraryBook}

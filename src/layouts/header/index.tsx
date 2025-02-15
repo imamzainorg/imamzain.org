@@ -20,7 +20,6 @@ import { motion } from "framer-motion"
 import useWindowEvents from "@/hooks/window-events"
 import TopBar from "@/layouts/header/top-bar"
 
-// 1. Define links and subLinks
 const links = [
 	{
 		label: "سيرة الأمام زين العابدين (ع)",
@@ -54,7 +53,10 @@ const links = [
 	},
 	{
 		label: "الخدمات",
-		href: "/coming-soon",
+		subLinks: [
+			{ label: "اتصل بنا", href: "/services" },
+			{ label: "نقاط البيع المباشر", href: "/services/store-location" },
+		],
 	},
 	{
 		label: "الوسائط",

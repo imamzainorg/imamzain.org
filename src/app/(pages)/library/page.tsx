@@ -111,8 +111,12 @@ export default async function page() {
 				</div>
 
 				<div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
-					{libraryBooks.map((book) => (
-						<BooklibraryCard key={book.id} publication={book} />
+					{libraryBooks.map((book: Book) => (
+						<BooklibraryCard
+							route="/library"
+							key={book.id}
+							publication={book}
+						/>
 					))}
 				</div>
 			</div>
