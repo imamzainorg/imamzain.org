@@ -66,12 +66,10 @@ export default function Page() {
 						>
 							<div className="w-full lg:w-3/4 text-xs xl:text-sm flex flex-col justify-between gap-6 sm:p-3">
 								<div>
-									<h2 className="font-bold lg:line-clamp-none text-lg sm:text-xl lg:text-3xl pb-2">
+									<h2 className="font-bold lg:line-clamp-none text-lg sm:text-xl lg:text-2xl pb-2 lg:pb-4">
 										{post.title}
 									</h2>
-									<p className="line-clamp-2 text-sm sm:text-xl">
-										{post.summary}
-									</p>
+									<p className="line-clamp-2 text-sm sm:text-lg lg:text-xl">{post.summary}</p>
 								</div>
 								<p className="font-extralight">{post.date}</p>
 							</div>

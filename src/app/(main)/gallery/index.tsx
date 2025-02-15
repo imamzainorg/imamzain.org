@@ -4,8 +4,31 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import SwiperCarousel from "@/components/swiper-carousel"
 import galleryImages from "@/data/gallery.json"
+import { useEffect, useState } from "react"
 
 export default function GallerySection() {
+		const [Show, setToShow] = useState(Number || null)
+	 
+		const updateBooksToShow = () => {
+			const width = window.innerWidth
+			if (width >= 1280)
+				setToShow(5) 
+			else if (width >= 1024)
+				setToShow(3)  
+			else if (width >= 768)
+				setToShow(3)  
+			else if (width >= 640)
+				setToShow(2) 
+			else setToShow(2)  
+		}
+	
+		// Set initial value and update on resize
+		useEffect(() => {
+			updateBooksToShow()
+			window.addEventListener("resize", updateBooksToShow)
+			return () => window.removeEventListener("resize", updateBooksToShow)
+		}, [])
+
 	return (
 		<div className="relative">
 			<div className="absolute h-full w-full bg-dark-background -z-10" />
@@ -28,7 +51,7 @@ export default function GallerySection() {
 
 				<SwiperCarousel images={galleryImages} />
 				<div className="mt-8 p-4 rounded-3xl grid grid-cols-2 md:grid-cols-3 xmd:grid-cols-5 gap-4 grid-rows-1 bg-gray-600/35">
-					{galleryImages.slice(0, 5).map((img, index) => (
+					{Show && galleryImages.slice(0, Show).map((img, index) => (
 						<div
 							key={index}
 							className="relative rounded-2xl overflow-hidden h-40"

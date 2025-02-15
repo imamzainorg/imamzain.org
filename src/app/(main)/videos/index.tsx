@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 
 import {
@@ -28,6 +28,25 @@ export default function Videos({
 		hover: { scale: 1.05 },
 	}
 
+	const [Show, setToShow] = useState(Number || null)
+
+	// Function to update the number of books based on screen width
+	const updateBooksToShow = () => {
+		const width = window.innerWidth
+		if (width >= 1280) setToShow(5)
+		else if (width >= 1024) setToShow(4)
+		else if (width >= 768) setToShow(3)
+		else if (width >= 640) setToShow(2)
+		else setToShow(2)
+	}
+
+	// Set initial value and update on resize
+	useEffect(() => {
+		updateBooksToShow()
+		window.addEventListener("resize", updateBooksToShow)
+		return () => window.removeEventListener("resize", updateBooksToShow)
+	}, [])
+
 	return (
 		<>
 			<div className="container flex flex-col gap-12 py-20 ">
@@ -40,7 +59,7 @@ export default function Videos({
 				/>
 
 				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 auto-rows-[15rem] sm:auto-rows-[15rem] md:auto-rows-[17rem] lg:auto-rows-[12rem] xl:auto-rows-[13rem] gap-4">
-					{playlists.map((playlist, index) => {
+					{Show && playlists.slice(0 , Show).map((playlist, index) => {
 						return (
 							<div
 								key={index}

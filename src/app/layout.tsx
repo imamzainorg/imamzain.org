@@ -12,6 +12,7 @@ import { config } from "@fortawesome/fontawesome-svg-core"
 import { LanguagesProvider } from "@/context/language-context"
 import { Providers } from "@/app/providers"
 
+
 config.autoAddCss = false
 
 const imamzainfont = localFont({
@@ -85,9 +86,11 @@ export default function RootLayout({
 		<html lang="ar" dir="rtl" suppressHydrationWarning={true}>
 			<body className={`${imamzainfont.className} bg-pattern`}>
 				<Providers>
-					<LanguagesProvider>
-						{children}
-						<Toaster />
+					<LanguagesProvider>	
+
+							{children}
+							<Toaster />
+
 					</LanguagesProvider>
 				</Providers>
 				<Analytics />

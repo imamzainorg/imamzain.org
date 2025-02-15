@@ -36,7 +36,7 @@ export default function Publications({
 		return () => window.removeEventListener("resize", updateBooksToShow)
 	}, [])
 
-	// Variants for animations
+ 
 	const parentVariants = {
 		rest: { scale: 1 },
 		hover: { scale: 1.05 },

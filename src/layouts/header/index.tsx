@@ -18,7 +18,7 @@ import {
 import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons"
 import { motion } from "framer-motion"
 import useWindowEvents from "@/hooks/window-events"
-import TopBar from "@/layouts/header/top-bar"
+import TopBar from "@/layouts/header/top-bar" 
 
 // 1. Define links and subLinks
 const links = [
