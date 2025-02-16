@@ -13,17 +13,18 @@ export default function Page() {
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
 					{ name: "الخدمات", url: "#" },
+					{ name: "اتصل بنا", url: "#" },
 				]}
 			/>
-			<Section title="موقع المؤسسة" />
-			<div className="flex items-center justify-center max-w-screen-lg mx-auto">
+			<Section title="تواصل معنا" />
+			<div className="flex items-center justify-center max-w-screen-md mx-auto">
 				<div className=" bg-primary bg-pattern p-4 rounded-3xl w-full flex flex-col  items-center justify-center">
 					<Input
 						size={"lg"}
 						className="border-none m-4  w-11/12"
 						labelPlacement="inside"
-						name="username"
-						placeholder="الزيارة نيابة عن"
+						name="name"
+						placeholder="اسمك الثلاثي"
 						classNames={{
 							base: "",
 							input: " border-none focus:ring-0",
@@ -41,9 +42,9 @@ export default function Page() {
 					{/* Input for Phone */}
 					<Input
 						size={"lg"}
-						className="border-none    w-11/12"
+						className="border-none w-11/12"
 						labelPlacement="inside"
-						name="phone"
+						name="email"
 						placeholder="الايميل"
 						classNames={{
 							base: "",
@@ -60,11 +61,11 @@ export default function Page() {
 					/>
 					{/* Dropdown for Countries */}
 					<CountriesDropdown />
-					<div className="relative  w-11/12">
+					<div className="relative w-11/12">
 						<textarea
 							className="border w-full h-24 md:h-32   pr-10 py-3  rounded-xl focus:ring-2 focus:ring-secondary"
-							name="phone"
-							placeholder="الرسائل"
+							name="message"
+							placeholder="اكتب رسالتك"
 						></textarea>
 						<div className="absolute left top-6 mr-3 transform -translate-y-1/2 ">
 							<MessageIcon width={24} height={24} />
@@ -76,14 +77,14 @@ export default function Page() {
 						onClick={() => toast("تم ادراج اسمك في قائمة الزائرين")}
 						className="text-white rounded-md bg-secondary p-4 md:p-6 mt-2 font-bold text-xs md:text-lg"
 					>
-						التسجيل
+						ارسال
 					</Button>
 				</div>
 			</div>
+			<Section title="موقع المؤسسة" />
 			<div className="w-full mt-10">
-				<div className=" pb-6 rounded-2xl bg-opacity-25 bg-slate-400   ">
-					<div className="w-11/12 p-2 ">
-						<Section title="موقع المؤسسة" />
+				<div className="pb-6 rounded-2xl bg-opacity-25 bg-slate-400">
+					<div className="w-11/12 p-2">
 						<iframe
 							className="rounded-[30px] w-full h-1/3 md:h-60 xl:h-96 shadow-xl p-1 m-4"
 							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.679731674454!2d44.3607952!3d31.9966964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x155ed74306dd573d%3A0x16b7bd7757d9a76!2z2YXYpNiz2LPYqSDYp9mE2KfZhdin2YUg2LLZitmGINin2YTYudin2KjYr9mK2YYgKNi5KSDZhNmE2KjYrdmI2Ksg2YjYp9mE2K_Ysdin2LPYp9iq!5e0!3m2!1sen!2siq!4v1735032144406!5m2!1sen!2siq"

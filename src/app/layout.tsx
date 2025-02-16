@@ -9,9 +9,7 @@ import { Toaster } from "sonner"
 
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import { config } from "@fortawesome/fontawesome-svg-core"
-import { LanguagesProvider } from "@/context/language-context"
 import { Providers } from "@/app/providers"
-
 
 config.autoAddCss = false
 
@@ -90,7 +88,6 @@ export default function RootLayout({
 						{children}
 						<Toaster />
 					</>
-
 				</Providers>
 				<Analytics />
 				<SpeedInsights />
