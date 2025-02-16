@@ -52,7 +52,7 @@ export function HighlightCarousel({ publications }: { publications: Book[] }) {
 									{publication.author}
 								</h3>
 								<Link
-									href={`/publications/${publication.slug}`}
+									href={`/src/app/(main)/_components/publications/${publication.slug}`}
 									className="w-fit bg-primary text-xs sm:text-2xl tracking-wide font-semibold px-4 py-2 lg:px-6 lg:py-3 xl:px-8 xl:py-4 rounded-lg lg:rounded-xl"
 								>
 									اشتري الكتاب

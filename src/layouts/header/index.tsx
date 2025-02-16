@@ -18,7 +18,7 @@ import {
 import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons"
 import { motion } from "framer-motion"
 import useWindowEvents from "@/hooks/window-events"
-import TopBar from "@/layouts/header/top-bar"
+import TopBar from "@/layouts/header/top-bar" 
 
 const links = [
 	{
@@ -55,7 +55,7 @@ const links = [
 		label: "الخدمات",
 		subLinks: [
 			{ label: "اتصل بنا", href: "/services" },
-			{ label: "نقاط البيع المباشر", href: "/services/store-location" },
+			{ label: "نقاط البيع المباشر", href: "/services/stores" },
 		],
 	},
 	{
