@@ -1,4 +1,4 @@
-import BooklibraryCard from "./components/book-library-card"
+import BooklibraryCard from "./_components/book-library-card"
 import Breadcrumbs from "@/components/breadcrumb"
 import SectionTitle from "@/components/section"
 import { dataFetcher } from "@/lib/dataFetcher"

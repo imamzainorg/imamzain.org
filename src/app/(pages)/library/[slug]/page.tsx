@@ -7,7 +7,7 @@ import Link from "next/link"
 import { dataFetcher } from "@/lib/dataFetcher"
 import { DownloadIcon } from "@/assets/icons/reusable"
 import NewsShare from "../../(activities)/news/_components/news-share"
-import BooklibraryCard from "../components/book-library-card"
+import BooklibraryCard from "../_components/book-library-card"
 
 export default async function Page({
 	params,

@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/breadcrumb"
 import Section from "@/components/section"
 import { dataFetcher } from "@/lib/dataFetcher"
 import { Book } from "@/types/book"
-import BooklibraryCard from "../library/components/book-library-card"
+import BooklibraryCard from "../library/_components/book-library-card"
 
 export default async function page() {
 	const publications = await dataFetcher<Book[]>("publications.json")
