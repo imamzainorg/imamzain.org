@@ -74,7 +74,7 @@ export default function Publications({
 
 			<div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 gap-y-6 items-start my-8">
 				{publications.slice(0, booksToShow).map((book) => (
-					<Link key={book.id} href={`/publications/${book.slug}`}>
+					<Link key={book.id} href={`/src/app/(main)/_components/publications/${book.slug}`}>
 						<motion.div
 							className="flex flex-col justify-between rounded-2xl h-full"
 							style={{
