@@ -7,7 +7,7 @@ export default function MainLayout({
 }>) {
 	return (
 		<Layouts>
-			<div className="container">{children}</div>
+			<div className="container !mb-16">{children}</div>
 		</Layouts>
 	)
 }
