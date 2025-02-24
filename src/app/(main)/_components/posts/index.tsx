@@ -42,7 +42,6 @@ export default function Posts({ newsPosts }: { newsPosts: Post[] }) {
 					href: "/news/archives",
 				}}
 			/>
-
 			<div
 				className={`flex w-full h-[65rem] sm:h-full gap-4 pt-10 ${
 					isSmallScreen ? "flex-col items-center" : "flex-row justify-center"

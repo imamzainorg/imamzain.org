@@ -35,9 +35,12 @@ export default function Application() {
                     animate="visible"
                     className="w-full lg:w-1/2 flex flex-col gap-4 lg:gap-8 xl:gap-14 max-lg:text-center"
                 >
-                    <p className="text-4xl xl:text-5xl font-bold text-center lg:text-start text-primary leading-tight lg:leading-normal">
-                        تطبيق أنوار سجادية
-                    </p>
+                    <Link href={"/application"}>
+                        <p className="text-4xl xl:text-5xl font-bold text-center lg:text-start text-primary leading-tight lg:leading-normal">
+                            تطبيق أنوار سجادية
+                        </p>
+                    </Link>
+
                     <p className="text-lg sm:text-xl xl:text-2xl font-semibold max-lg:text-center leading-tight lg:leading-normal">
                         الموسوعة المتكاملة عن الإمام زين العابدين(عليه السلام)
                     </p>
@@ -66,7 +69,7 @@ export default function Application() {
                         </div>
                     </div>
                 </motion.div>
-                <div className="relative flex justify-center items-center ml-10 w-[20rem] h-[24rem]">
+                <Link href={"/application"} className="relative flex justify-center items-center ml-10 w-[20rem] h-[24rem]">
                     <motion.div
                         variants={imageVariants}
                         initial="hidden"
@@ -94,7 +97,7 @@ export default function Application() {
                             className="object-center"
                         />
                     </motion.div>
-                </div>
+                </Link>
             </div>
         </div>
     );

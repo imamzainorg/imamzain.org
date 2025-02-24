@@ -27,60 +27,37 @@ const links: LinkSection[] = [
 	{
 		label: "الإمام زين العابدين",
 		sublinks: [
-			{ label: "حياته الكريمة", href: "/coming-soon" },
-			{ label: "الولادة المباركة", href: "/coming-soon" },
-			{ label: "صور", href: "/coming-soon" },
-			{ label: "الإمام في الأدب", href: "/coming-soon" },
-			{ label: "رابطة الإمام (عليه السلام)", href: "/coming-soon" },
-			{ label: "أشبال", href: "/coming-soon" },
-			{ label: "شباب", href: "/coming-soon" },
+			{ label: "حياته الكريمة", href: "/his-life" },
+			{ label: "الولادة المباركة", href: "/his-life" },
+			{ label: "لقبه وكنايته", href: "/his-life" },
+			{ label: "معالم شخصية", href: "/his-life" },
 		],
 	},
 	{
-		label: "الأنشطة",
+		label: "الخدمات",
 		sublinks: [
-			{ label: "محافل قرآنية", href: "/news" },
-			{ label: "مؤتمرات", href: "/news" },
-			{ label: "صور", href: "/news" },
-			{ label: "لقاءات", href: "/news#meetings" },
-			{ label: "اجتماعات", href: "/news" },
+			{ label: "اتصل بنا", href: "/services" },
+			{ label: "نقاط البيع", href: "/services/stores" },
+			{ label: "تطبيق انوار سجاديه", href: "/application" },
 		],
 	},
 	{
-		label: "الأصدارات",
+		label: "المكتب التخصصيه",
 		sublinks: [
-			{ label: "كتب", href: "/publications/books" },
-			{ label: "دوريات", href: "/publications/journals" },
-			{ label: "المجلة", href: "/publications/magazine" },
+			{ label: "ما كتب عن الامام", href: "/library" },
+			{ label: "الصحيفه السجاديه", href: "/library/al-sahifa" },
+			{ label: "رساله الحقوق", href: "/library/risalat-al-huqoq" },
 		],
 	},
 	{
-		label: "المكتبة",
+		label: "الوسائط",
 		sublinks: [
-			{ label: "مطبوع عربي", href: "/library" },
-			{ label: "مطبوع - لفات اخرى", href: "/library" },
-			{ label: "مخطوط - عربي", href: "/library" },
-			{ label: "مخطوط لغات اخرى", href: "/library" },
+			{ label: "الصوتيات", href: "/coming-soon" },
+			{ label: "المرئيات", href: "/media/videos" },
+			{ label: "معرض الصور", href: "/media/images" },
 		],
 	},
-	{
-		label: "أنشطة",
-		sublinks: [
-			{ label: "الخيمة السجادية", href: "/news" },
-			{ label: "موسوعة إمام زين العابدين", href: "/news" },
-		],
-	},
-	{
-		label: "حول المؤسسة",
-		sublinks: [
-			{ label: "رؤية المؤسسة", href: "/about/vision" },
-			{ label: "اهداف المؤسسة", href: "/about/goals" },
-		],
-	},
-	{
-		label: "معلومات التواصل",
-		sublinks: [],
-	},
+
 ]
 
 const SocialLinks = ({

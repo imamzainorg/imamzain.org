@@ -1,9 +1,7 @@
-export type PostCategory = "مؤتمرات" | "اخبار" | "لقاءات" | "ندوات"
+import { Attachment } from "./attachments"
 
-interface Attachment {
-	id: number
-	path: string
-}
+export type PostCategory = "مؤتمرات" | "اخبار" | "لقاءات" | "ندوات"
+ 
 
 export type Post = {
 	id: number

@@ -1,7 +1,5 @@
 "use client"
 
-
-
 import {Autocomplete, AutocompleteItem} from "@heroui/react";
 import {Globe} from "lucide-react";
 
@@ -11,7 +9,7 @@ import ar from "i18n-iso-countries/langs/ar.json";
 
 countries.registerLocale(ar);
 
-const CountriesDropdown = () => {
+const CountriesDropdown = ({className} : {className?: string}) => {
     const countryNamesInArabic = countries.getNames("ar", { select: "official" });
     const countriesArray = Object.entries(countryNamesInArabic).map(
         ([key, label]) => ({
@@ -20,9 +18,9 @@ const CountriesDropdown = () => {
         })
     );
     return (
-        <Autocomplete
+        <Autocomplete 
             startContent={<Globe stroke="#bb9661" fill="none" strokeWidth={2} />}
-            className="w-full"
+            className={`w-full ${className}`}
             placeholder="البلد"
             size="lg"
         >
