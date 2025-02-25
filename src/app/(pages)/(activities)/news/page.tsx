@@ -27,7 +27,7 @@ export default async function Page() {
           className="p-2 rounded-lg border border-primary hover:bg-primary text-black hover:text-white duration-150"
           href="/news/archives"
         >
-          ارشيف الاخبار
+          ارشيف ا
         </Link>
       </div>
 
