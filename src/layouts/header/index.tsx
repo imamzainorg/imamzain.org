@@ -24,10 +24,13 @@ import { LogoRotate } from "@/components/logo-rotate"
 const links = [
 	{
 		label: "سيرة الأمام زين العابدين (ع)",
+		slug: "/his-life",
 		href: "/his-life",
 	},
 	{
 		label: "حول المؤسسة",
+		slug: "/about",
+		href: "#",
 		subLinks: [
 			{ label: "من نحن", href: "/about" },
 			{ label: "رؤية واهداف المؤسسة", href: "/about/vision-and-goals" },
@@ -35,10 +38,13 @@ const links = [
 	},
 	{
 		label: "الأصدارات",
+		slug: "/publications",
 		href: "/publications",
 	},
 	{
 		label: "المكتبة التخصصية",
+		slug: "/library",
+		href: "#",
 		subLinks: [
 			{ label: "ما كتب عن الإمام زين العابدين", href: "/library" },
 			{
@@ -50,10 +56,13 @@ const links = [
 	},
 	{
 		label: "النشاطات",
+		slug: "/news",
 		href: "/news",
 	},
 	{
 		label: "الخدمات",
+		slug: "/services",
+		href: "#",
 		subLinks: [
 			{ label: "اتصل بنا", href: "/services" },
 			{ label: "نقاط البيع المباشر", href: "/services/stores" },
@@ -61,6 +70,8 @@ const links = [
 	},
 	{
 		label: "الوسائط",
+		slug: "/media",
+		href: "#",
 		subLinks: [
 			{ label: "الصوتيات", href: "/media/audios" },
 			{ label: "المرئيات", href: "/media/videos" },
@@ -141,12 +152,7 @@ export default function Header() {
 							? "visible"
 							: "hidden"
 				}
-				className={`fixed top-0 left-0 w-full h-fit flex flex-col justify-between lg:justify-around items-center z-50 text-white transition-all duration-300  
-          ${
-				isScrolled || path !== "/"
-					? "rounded-b-2xl "
-					: "bg-gradient-to-b from-black/70 to-transparent"
-			}`}
+				className={`fixed top-0 left-0 w-full h-fit flex flex-col justify-between lg:justify-around items-center z-50 text-white transition-all duration-300 ${isScrolled || path !== "/" ? "rounded-b-2xl " : "bg-gradient-to-b from-black/70 to-transparent"}`}
 			>
 				{/* Top Bar */}
 				<TopBar />
@@ -156,7 +162,7 @@ export default function Header() {
 					className={` w-full py-3 rounded-b-[2rem] ${isScrolled || path !== "/" ? `bg-primary ${isMenuVisible ? "" : "shadow-2xl"}` : ""}`}
 				>
 					<div className="container flex justify-between items-center gap-4">
-						<Link href={"/"} passHref legacyBehavior>
+						<Link href="/">
 							<LogoRotate
 								className="w-32 sm:w-40 xl:w-52 h-12 lg:h-20 cursor-pointer"
 								paths={[
@@ -167,7 +173,7 @@ export default function Header() {
 						</Link>
 
 						{/* Desktop Navigation */}
-						<nav className="max-lg:hidden flex items-center">
+						<nav className="max-lg:hidden flex gap-3 items-center">
 							{links.map((link, index) => {
 								const hasSubLinks =
 									link.subLinks && link.subLinks.length > 0
@@ -177,29 +183,12 @@ export default function Header() {
 										className="relative group py-1 px-2 z-10 cursor-pointer"
 									>
 										<div
-											className={`
-												absolute
-												rounded-full
-												top-0
-												right-0
-												px-2 
-												${isScrolled ? "bg-[rgba(0,138,117,0.99)]" : "bg-[rgba(0,102,84,0.82)]"}
-												h-full
-												w-full
-												-z-10
-												scale-0
-												group-hover:scale-105
-												origin-center
-												transition-transform
-												duration-100
-												ease-in-out
-												`}
+											className={`bg-white absolute rounded-full -bottom-1 right-4 px-2 h-0.5 w-5/6 mx-auto -z-10 ${path.includes(link.slug) ? "scale-100 " : "scale-0"} group-hover:scale-100 origin-center transition-transform duration-300 ease-in-out`}
 										/>
-
-										{link.href ? (
+										<>
 											<Link
 												href={link.href}
-												className="flex items-center gap-2 text-xs xl:text-base hover:text-gray-200 transition "
+												className="group flex items-center gap-2 text-xs xl:text-base transition"
 											>
 												<Image
 													src="/shapes/nav-menu-icon.svg"
@@ -208,29 +197,11 @@ export default function Header() {
 													className="w-2"
 													alt="icon"
 												/>
-												{link.label}
+												<p>{link.label}</p>
 											</Link>
-										) : (
-											<>
-												<div className="flex items-center gap-2 text-xs xl:text-base hover:text-gray-200 transition ">
-													<Image
-														src="/shapes/nav-menu-icon.svg"
-														width={50}
-														height={50}
-														className="w-2"
-														alt="icon"
-													/>
-													{link.label}
-												</div>
-
-												{hasSubLinks && (
-													<div
-														className="
-													  absolute top-[2rem] -right-2 hidden py-2
-													   min-w-52 bg-gray-100 rounded-lg shadow-lg
-													  group-hover:block z-20
-													"
-													>
+											{hasSubLinks && (
+												<div className="absolute top-[2rem] -right-1 py-2 min-w-60 scale-0 group-hover:scale-100 translate-y-5 group-hover:-translate-y-0 opacity-0 group-hover:opacity-100 transition-transform duration-300 z-20">
+													<div className="px-4 py-8 bg-gray-100 rounded-lg shadow-lg ">
 														{link.subLinks.map(
 															(
 																subLink,
@@ -252,9 +223,9 @@ export default function Header() {
 															),
 														)}
 													</div>
-												)}
-											</>
-										)}
+												</div>
+											)}
+										</>
 									</div>
 								)
 							})}
