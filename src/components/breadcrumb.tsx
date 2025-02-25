@@ -14,7 +14,7 @@ export default function Breadcrumbs({
 		<div className="pt-[4.3rem] sm:pt-20 lg:pt-40">
 			<div
 				className={cn(
-					"flex text-xs sm:text-sm lg:text-lg my-5 sm:my-3 lg:my-5  ",
+					"flex text-xs sm:text-sm lg:text-lg mt-14",
 					className,
 				)}
 			>
