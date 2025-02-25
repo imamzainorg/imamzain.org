@@ -61,3 +61,11 @@ html {
 .bg-pattern {
 	@apply bg-[url('/shapes/bg.svg')] bg-[length:500px] lg:bg-[length:50%] bg-repeat;
 }
+
+.tooltip {
+	@apply invisible absolute rounded-xl shadow-lg p-1 bg-white text-blue-300 -mt-8;
+}
+
+.has-tooltip:hover .tooltip {
+	@apply visible z-50 text-secondary;
+}
