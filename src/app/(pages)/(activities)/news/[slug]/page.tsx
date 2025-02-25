@@ -34,12 +34,12 @@ export default async function page({
 			/>
 
 			{/* post title */}
-			<h1 className="p-2 sm:p-4 text-lg sm:text-xl md:text-2xl lg:text-4xl font-semibold mb-6">
+			<h1 className="p-2 sm:p-4 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mx-auto text-center font-semibold mb-6">
 				{post.title}
 			</h1>
 			<div className="flex gap-x-10 justify-between flex-wrap">
 				{/* post metadata */}
-				<div className="space-y-2 lg:w-7/12 relative">
+				<div className="space-y-2 lg:w-7/12 mx-auto relative">
 					<Image
 						src={post.image}
 						width={1000}

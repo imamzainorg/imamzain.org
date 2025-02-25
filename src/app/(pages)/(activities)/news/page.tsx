@@ -16,7 +16,7 @@ export default async function Page() {
 
   return (
     <div>
-      <div className="flex justify-between items-end mt-2 xl:mt-0">
+      <div className="flex justify-between items-end mt-2 xl:mt-0 xl:mb-4">
         <Breadcrumbs
           links={[
             { name: "الصفحة الرئيسية", url: "/" },
