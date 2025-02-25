@@ -61,10 +61,3 @@ html {
 .bg-pattern {
 	@apply bg-[url('/shapes/bg.svg')] bg-[length:500px] lg:bg-[length:50%] bg-repeat;
 }
-
-
-/* In your global CSS or a CSS module file */
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  color: #bb9661;
-}

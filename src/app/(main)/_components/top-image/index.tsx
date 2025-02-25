@@ -79,7 +79,6 @@ export default function TopImage() {
 						src={images[prevImageIndex]}
 						alt="Previous landing image"
 						fill
-						sizes="(max-width: 768px) 100vw , 700px"
 						className="object-cover absolute inset-0"
 						style={{ objectPosition: "top" }}
 					/>
@@ -96,7 +95,6 @@ export default function TopImage() {
 							src={images[currentImageIndex]}
 							alt="Landing image"
 							fill
-							sizes="(max-width: 768px) 100vw , 700px"
 							className="object-cover"
 							style={{ objectPosition: "top" }}
 						/>

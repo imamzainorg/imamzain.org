@@ -44,10 +44,7 @@ const links = [
 				label: "الصحيفة السجادية",
 				href: "/library/al-sahifa",
 			},
-			{
-				label: "رسالة الحقوق",
-				href: "/library/risalat-al-huqoq"
-			},
+			{ label: "رسالة الحقوق", href: "/library/risalat-al-huqoq" },
 		],
 	},
 	{
@@ -59,7 +56,6 @@ const links = [
 		subLinks: [
 			{ label: "اتصل بنا", href: "/services" },
 			{ label: "نقاط البيع المباشر", href: "/services/stores" },
-			{ label: "تطبيق أنوار سجادية", href: "/application" },
 		],
 	},
 	{

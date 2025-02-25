@@ -11,7 +11,7 @@ export default function Breadcrumbs({
 	dotColor?: string
 }) {
 	return (
-		<div className="pt-[4.3rem] sm:pt-20 lg:pt-36">
+		<div className="pt-[4.3rem] sm:pt-20 lg:pt-40">
 			<div
 				className={cn(
 					"flex text-xs sm:text-sm lg:text-lg my-5 sm:my-3 lg:my-5  ",
