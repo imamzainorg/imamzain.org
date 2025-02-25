@@ -18,7 +18,8 @@ import {
 import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons"
 import { motion } from "framer-motion"
 import useWindowEvents from "@/hooks/window-events"
-import TopBar from "@/layouts/header/top-bar" 
+import TopBar from "@/layouts/header/top-bar"
+import { LogoRotate } from "@/components/logo-rotate"
 
 const links = [
 	{
@@ -154,14 +155,14 @@ export default function Header() {
 				<div
 					className={` w-full py-3 rounded-b-[2rem] ${isScrolled || path !== "/" ? `bg-primary ${isMenuVisible ? "" : "shadow-2xl"}` : ""}`}
 				>
-					<div className="container flex justify-between gap-4">
+					<div className="container flex justify-between items-center gap-4">
 						<Link href={"/"} passHref legacyBehavior>
-							<Image
-								src="/images/logo-horizontal-white.svg"
-								width={50}
-								height={50}
-								className="w-32 sm:w-40 xl:w-52 cursor-pointer"
-								alt="logo"
+							<LogoRotate
+								className="w-32 sm:w-40 xl:w-52 h-12 lg:h-20 cursor-pointer"
+								paths={[
+									"/images/logo-horizontal-white.svg",
+									"/images/imamhussainorg-logo.svg",
+								]}
 							/>
 						</Link>
 
