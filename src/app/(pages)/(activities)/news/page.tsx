@@ -16,7 +16,7 @@ export default async function Page() {
 
   return (
     <div>
-      <div className="flex justify-between items-end">
+      <div className="flex justify-between items-end mt-2 xl:mt-0">
         <Breadcrumbs
           links={[
             { name: "الصفحة الرئيسية", url: "/" },
@@ -24,15 +24,15 @@ export default async function Page() {
           ]}
         />
         <Link
-          className="p-2 rounded-lg border border-primary hover:bg-primary text-black hover:text-white duration-150"
+          className="p-2 mb-3 md:text-sm md:mb-1 xl:pr-2 xl:relative xl:left-14  rounded-lg border text-[10px]   bg-primary hover:bg-secondary text-white hover:text-white duration-150"
           href="/news/archives"
         >
-          ارشيف ا
+          ← ارشيف الاخبار  
         </Link>
       </div>
 
       {/* Latest Posts */}
-      <div className="flex flex-col lg:flex-row gap-y-8 lg:gap-x-16">
+      <div className="flex flex-col lg:flex-row gap-y-8 lg:gap-x-16 mt-2">
         <Link
           href={`/news/${latestData[0].slug}`}
           key={latestData[0].id}
@@ -83,10 +83,10 @@ export default async function Page() {
             <div className="w-[300px] h-[300px] lg:w-[360px] xl:w-[500px] lg:h-[360px] xl:h-[500px] bg-[url('/shapes/ziara-bg.svg')] bg-container rotate-180 bg-center bg-no-repeat flex justify-center items-center text-white relative isolate">
               <div className="absolute w-full h-full bg-[url('/shapes/bg.svg')]" />
               <div className="rotate-180 text-center w-full">
-                <span className="md:text-xl font-semibold tracking-wide">
+                <span className="md:text-lg lg:text-2xl xl:text-3xl font-semibold tracking-wide">
                   اشترك في
                 </span>
-                <p className="text-lg mt-8 md:text-3xl tracking-wide font-normal">
+                <p className="text-lg mt-8 md:text-2xl lg:text-3xl tracking-wide font-normal">
                   النشرة البريدية الخاصة
                   <br /> بالأعلانات والنشاطات
                 </p>
