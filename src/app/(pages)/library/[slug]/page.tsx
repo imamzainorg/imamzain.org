@@ -127,8 +127,7 @@ export default async function Page({
 							الوصف
 							<br />
 							<span className="relative right-4 text-slate-500 ">
-								الوصف الاجزاء يوجدب صلة الطبع اللغة الوصف
-							</span>
+								الوصف الاجزاء 		</span>
 						</div>
 					</div>
 				</div>
