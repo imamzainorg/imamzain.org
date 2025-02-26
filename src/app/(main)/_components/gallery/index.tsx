@@ -5,29 +5,42 @@ import { motion } from "framer-motion"
 import SwiperCarousel from "@/components/swiper-carousel"
 import galleryImages from "@/data/gallery.json"
 import { useEffect, useState } from "react"
+import {Attachment} from "@/types/attachments";
 
 export default function GallerySection() {
-		const [Show, setToShow] = useState(Number || null)
-	 
-		const updateBooksToShow = () => {
-			const width = window.innerWidth
-			if (width >= 1280)
-				setToShow(5) 
-			else if (width >= 1024)
-				setToShow(3)  
-			else if (width >= 768)
-				setToShow(3)  
-			else if (width >= 640)
-				setToShow(2) 
-			else setToShow(2)  
-		}
-	
-		// Set initial value and update on resize
-		useEffect(() => {
-			updateBooksToShow()
-			window.addEventListener("resize", updateBooksToShow)
-			return () => window.removeEventListener("resize", updateBooksToShow)
-		}, [])
+	const [Show, setToShow] = useState(Number || null)
+
+	const [images , setImages] = useState<Attachment[]>([])
+
+	const updateBooksToShow = () => {
+		const width = window.innerWidth
+		if (width >= 1280)
+			setToShow(5)
+		else if (width >= 1024)
+			setToShow(3)
+		else if (width >= 768)
+			setToShow(3)
+		else if (width >= 640)
+			setToShow(2)
+		else setToShow(2)
+	}
+
+	useEffect(() => {
+		const newArray = galleryImages.map(item => ({
+			id: item.id,
+			path: item.image.path
+		}));
+
+		console.log(newArray);
+		setImages(newArray);
+	}, [])
+
+	// Set initial value and update on resize
+	useEffect(() => {
+		updateBooksToShow()
+		window.addEventListener("resize", updateBooksToShow)
+		return () => window.removeEventListener("resize", updateBooksToShow)
+	}, [])
 
 	return (
 		<div className="relative">
@@ -49,15 +62,15 @@ export default function GallerySection() {
 					dark
 				/>
 
-				<SwiperCarousel images={galleryImages} />
+				<SwiperCarousel images={images} />
 				<div className="mt-8 p-4 rounded-3xl grid grid-cols-2 md:grid-cols-3 xmd:grid-cols-5 gap-4 grid-rows-1 bg-gray-600/35">
-					{Show && galleryImages.slice(0, Show).map((img, index) => (
+					{Show && galleryImages.slice(0, Show).map((gallery, index) => (
 						<div
 							key={index}
 							className="relative rounded-2xl overflow-hidden h-40"
 						>
 							<Image
-								src={img}
+								src={gallery.image.path}
 								width={300}
 								height={200}
 								className="w-full object-cover aspect-[20/16]"

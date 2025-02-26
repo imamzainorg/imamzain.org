@@ -35,7 +35,7 @@ export default function Page() {
 				]}
 			/>
 
-			<div className="flex gap-2 mb-6 overflow-x-scroll pl-10 ">
+			<div className="flex gap-2 mb-6 overflow-x-scroll pl-10 lg:w-[90%] mx-auto">
 				{categories.map((cat) => (
 					<button
 						key={cat}
@@ -45,10 +45,10 @@ export default function Page() {
                          
                               text-sm 
                               ${
-									selectedCategory === cat
-										? "bg-primary text-white border-primary"
-										: "bg-white text-gray-700 border-gray-300"
-								}
+							selectedCategory === cat
+								? "bg-primary text-white border-primary"
+								: "bg-white text-gray-700 border-gray-300"
+						}
                         `}
 					>
 						{cat}
@@ -56,7 +56,7 @@ export default function Page() {
 				))}
 			</div>
 
-			<div className="grid gap-4 w-full xl:w-3/4 mx-auto">
+			<div className="grid gap-4 lg:w-[90%] mx-auto">
 				{filteredPosts.map((post) => (
 					<Link key={post.id} href={`/news/${post.slug}`}>
 						<div
@@ -66,10 +66,10 @@ export default function Page() {
 						>
 							<div className="w-full lg:w-3/4 text-xs xl:text-sm flex flex-col justify-between gap-6 sm:p-3">
 								<div>
-									<h2 className="font-bold lg:line-clamp-none text-lg sm:text-lg lg:text-xl pb-2 lg:pb-4">
+									<h2 className="font-bold lg:line-clamp-none text-lg sm:text-xl   pb-2 lg:pb-4">
 										{post.title}
 									</h2>
-									<p className="line-clamp-2 text-sm sm:text-md lg:text-lg">{post.summary}</p>
+									<p className="line-clamp-2 text-sm sm:text-lg lg:text-xl">{post.summary}</p>
 								</div>
 								<p className="font-extralight">{post.date}</p>
 							</div>

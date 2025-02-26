@@ -1,10 +1,11 @@
-"use client"
-import { toast } from "sonner"
-import { Autocomplete, AutocompleteItem, Button, Input } from "@heroui/react"
-import { Globe, MailOpen } from "lucide-react"
-import MessageIcon, { PersonIcon } from "@/assets/icons/reusable"
-import Breadcrumbs from "@/components/breadcrumb"
-import Section from "@/components/section"
+"use client";
+import { toast } from "sonner";
+import {  Button, Input } from "@heroui/react";
+import {  MailOpen } from "lucide-react";
+import MessageIcon, { PersonIcon } from "@/assets/icons/reusable";
+import Breadcrumbs from "@/components/breadcrumb";
+import Section from "@/components/section";
+import CountriesDropdown from "@/components/countries-input";
 
 export default function Page() {
 	return (
@@ -18,10 +19,10 @@ export default function Page() {
 			/>
 			<Section title="تواصل معنا" />
 			<div className="flex items-center justify-center max-w-screen-md mx-auto">
-				<div className=" bg-primary bg-pattern p-4 rounded-3xl w-full flex flex-col  items-center justify-center">
+				<div className=" bg-primary bg-pattern  p-8 rounded-3xl w-full flex flex-col  items-center justify-center gap-5">
 					<Input
 						size={"lg"}
-						className="border-none m-4  w-11/12"
+						className="border-none    w-full"
 						labelPlacement="inside"
 						name="name"
 						placeholder="اسمك الثلاثي"
@@ -30,11 +31,7 @@ export default function Page() {
 							input: " border-none focus:ring-0",
 						}}
 						startContent={
-							<PersonIcon
-								stroke="#bb9661"
-								fill="#bb9661"
-								strokeWidth={0.1}
-							/>
+							<PersonIcon stroke="#bb9661" fill="#bb9661" strokeWidth={0.1} />
 						}
 						type="text"
 					/>
@@ -42,7 +39,7 @@ export default function Page() {
 					{/* Input for Phone */}
 					<Input
 						size={"lg"}
-						className="border-none w-11/12"
+						className="border-none w-full"
 						labelPlacement="inside"
 						name="email"
 						placeholder="الايميل"
@@ -51,22 +48,18 @@ export default function Page() {
 							input: "border-none focus:ring-0",
 						}}
 						startContent={
-							<MailOpen
-								stroke="#bb9661"
-								fill="none"
-								strokeWidth={1.5}
-							/>
+							<MailOpen stroke="#bb9661" fill="none" strokeWidth={1.5} />
 						}
 						type="text"
 					/>
-					{/* Dropdown for Countries */}
-					<CountriesDropdown />
-					<div className="relative w-11/12">
-						<textarea
-							className="border w-full h-24 md:h-32   pr-10 py-3  rounded-xl focus:ring-2 focus:ring-secondary"
-							name="message"
-							placeholder="اكتب رسالتك"
-						></textarea>
+
+					<CountriesDropdown className="border-none w-full" />
+					<div className="relative w-full">
+            <textarea
+				className="border w-full h-24 md:h-32   pr-10 py-3  rounded-xl focus:ring-2 focus:ring-secondary"
+				name="message"
+				placeholder="اكتب رسالتك"
+			></textarea>
 						<div className="absolute left top-6 mr-3 transform -translate-y-1/2 ">
 							<MessageIcon width={24} height={24} />
 						</div>
@@ -103,32 +96,5 @@ export default function Page() {
 				</div>
 			</div>
 		</div>
-	)
-}
-function CountriesDropdown() {
-	const countries = [
-		{ label: "العراق", key: "iraq" },
-		{ label: "ايران", key: "iran" },
-		{ label: "السعودية", key: "ksa" },
-		{ label: "البحرين", key: "bahrain" },
-		{ label: "الكويت", key: "kuwait" },
-		{ label: "تركيا", key: "turkey" },
-	]
-
-	return (
-		<Autocomplete
-			startContent={
-				<Globe stroke="#bb9661" fill="none" strokeWidth={2} />
-			}
-			className="border-none    w-11/12 m-4"
-			placeholder="البلد"
-			size={"lg"}
-		>
-			{countries.map((country) => (
-				<AutocompleteItem key={country.key}>
-					{country.label}
-				</AutocompleteItem>
-			))}
-		</Autocomplete>
-	)
+	);
 }

@@ -69,3 +69,8 @@ html {
 .has-tooltip:hover .tooltip {
 	@apply visible z-50 text-secondary;
 }
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+	color: #bb9661;
+}

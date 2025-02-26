@@ -24,13 +24,10 @@ import { LogoRotate } from "@/components/logo-rotate"
 const links = [
 	{
 		label: "سيرة الأمام زين العابدين (ع)",
-		slug: "/his-life",
 		href: "/his-life",
 	},
 	{
 		label: "حول المؤسسة",
-		slug: "/about",
-		href: "#",
 		subLinks: [
 			{ label: "من نحن", href: "/about" },
 			{ label: "رؤية واهداف المؤسسة", href: "/about/vision-and-goals" },
@@ -38,40 +35,36 @@ const links = [
 	},
 	{
 		label: "الأصدارات",
-		slug: "/publications",
 		href: "/publications",
 	},
 	{
 		label: "المكتبة التخصصية",
-		slug: "/library",
-		href: "#",
 		subLinks: [
 			{ label: "ما كتب عن الإمام زين العابدين", href: "/library" },
 			{
 				label: "الصحيفة السجادية",
 				href: "/library/al-sahifa",
 			},
-			{ label: "رسالة الحقوق", href: "/library/risalat-al-huqoq" },
+			{
+				label: "رسالة الحقوق",
+				href: "/library/risalat-al-huqoq"
+			},
 		],
 	},
 	{
 		label: "النشاطات",
-		slug: "/news",
 		href: "/news",
 	},
 	{
 		label: "الخدمات",
-		slug: "/services",
-		href: "#",
 		subLinks: [
 			{ label: "اتصل بنا", href: "/services" },
 			{ label: "نقاط البيع المباشر", href: "/services/stores" },
+			{ label: "تطبيق أنوار سجادية", href: "/application" },
 		],
 	},
 	{
 		label: "الوسائط",
-		slug: "/media",
-		href: "#",
 		subLinks: [
 			{ label: "الصوتيات", href: "/media/audios" },
 			{ label: "المرئيات", href: "/media/videos" },
@@ -152,14 +145,18 @@ export default function Header() {
 							? "visible"
 							: "hidden"
 				}
-				className={`fixed top-0 left-0 w-full h-fit flex flex-col justify-between lg:justify-around items-center z-50 text-white transition-all duration-300 ${isScrolled || path !== "/" ? "rounded-b-2xl " : "bg-gradient-to-b from-black/70 to-transparent"}`}
+				className={`fixed top-0 left-0 w-full h-fit flex flex-col justify-between lg:justify-around items-center z-50 text-white transition-all duration-300 ${
+					isScrolled || path !== "/" ? "rounded-b-2xl " : "bg-gradient-to-b from-black/70 to-transparent"
+				}`}
 			>
 				{/* Top Bar */}
 				<TopBar />
 
 				{/* Navbar */}
 				<div
-					className={` w-full py-3 rounded-b-[2rem] ${isScrolled || path !== "/" ? `bg-primary ${isMenuVisible ? "" : "shadow-2xl"}` : ""}`}
+					className={`w-full py-3 rounded-b-[2rem] ${
+						isScrolled || path !== "/" ? `bg-primary ${isMenuVisible ? "" : "shadow-2xl"}` : ""
+					}`}
 				>
 					<div className="container flex justify-between items-center gap-4">
 						<Link href="/">
@@ -182,12 +179,17 @@ export default function Header() {
 										key={index}
 										className="relative group py-1 px-2 z-10 cursor-pointer"
 									>
+										{/* Highlight the active link if the current path includes link.href */}
 										<div
-											className={`bg-white absolute rounded-full -bottom-1 right-4 px-2 h-0.5 w-5/6 mx-auto -z-10 ${path.includes(link.slug) ? "scale-100 " : "scale-0"} group-hover:scale-100 origin-center transition-transform duration-300 ease-in-out`}
+											className={`bg-white absolute rounded-full -bottom-1 right-4 px-2 h-0.5 w-5/6 mx-auto -z-10 ${
+												link.href && path.includes(link.href)
+													? "scale-100"
+													: "scale-0"
+											} group-hover:scale-100 origin-center transition-transform duration-300 ease-in-out`}
 										/>
 										<>
 											<Link
-												href={link.href}
+												href={link.href || "#"}
 												className="group flex items-center gap-2 text-xs xl:text-base transition"
 											>
 												<Image
@@ -202,26 +204,15 @@ export default function Header() {
 											{hasSubLinks && (
 												<div className="absolute top-[2rem] -right-1 py-2 min-w-60 scale-0 group-hover:scale-100 translate-y-5 group-hover:-translate-y-0 opacity-0 group-hover:opacity-100 transition-transform duration-300 z-20">
 													<div className="px-4 py-8 bg-gray-100 rounded-lg shadow-lg ">
-														{link.subLinks.map(
-															(
-																subLink,
-																subIndex,
-															) => (
-																<Link
-																	key={
-																		subIndex
-																	}
-																	href={
-																		subLink.href
-																	}
-																	className="pr-2 py-2 hover:bg-gray-300 transition group-hover:block text-gray-700"
-																>
-																	{
-																		subLink.label
-																	}
-																</Link>
-															),
-														)}
+														{link.subLinks.map((subLink, subIndex) => (
+															<Link
+																key={subIndex}
+																href={subLink.href}
+																className="pr-2 py-2 hover:bg-gray-300 transition group-hover:block text-gray-700"
+															>
+																{subLink.label}
+															</Link>
+														))}
 													</div>
 												</div>
 											)}
@@ -235,9 +226,7 @@ export default function Header() {
 						<button
 							className="lg:hidden"
 							onClick={toggleMenu}
-							aria-label={
-								isMenuVisible ? "Close Menu" : "Open Menu"
-							}
+							aria-label={isMenuVisible ? "Close Menu" : "Open Menu"}
 						>
 							{!isMenuVisible ? (
 								<MenuIcon stroke={"#ffffff"} />
@@ -268,9 +257,7 @@ export default function Header() {
 									{link.href ? (
 										<Link
 											href={link.href}
-											onClick={() =>
-												setIsMenuVisible(false)
-											}
+											onClick={() => setIsMenuVisible(false)}
 											className="text-xl text-white hover:text-gray-200 transition"
 										>
 											{link.label}
@@ -295,24 +282,20 @@ export default function Header() {
 								{/* Mobile Submenu */}
 								{hasSubLinks && (
 									<div
-										className={`overflow-hidden transition-all 
-                      ${isOpen ? "max-h-96 mt-2" : "max-h-0"}
-                    `}
+										className={`overflow-hidden transition-all ${
+											isOpen ? "max-h-96 mt-2" : "max-h-0"
+										}`}
 									>
-										{link.subLinks.map(
-											(subLink, subIndex) => (
-												<Link
-													key={subIndex}
-													href={subLink.href}
-													onClick={() => {
-														setIsMenuVisible(false)
-													}}
-													className="block pl-6 py-2 text-white/90 hover:text-gray-200"
-												>
-													{subLink.label}
-												</Link>
-											),
-										)}
+										{link.subLinks.map((subLink, subIndex) => (
+											<Link
+												key={subIndex}
+												href={subLink.href}
+												onClick={() => setIsMenuVisible(false)}
+												className="block pl-6 py-2 text-white/90 hover:text-gray-200"
+											>
+												{subLink.label}
+											</Link>
+										))}
 									</div>
 								)}
 							</div>
@@ -322,7 +305,7 @@ export default function Header() {
 
 				{/* Socials and Footer */}
 				<div className="w-full flex flex-col text-center">
-					<p className={"py-4"}>تابعوا اخر اخبارنا عبر:</p>
+					<p className="py-4">تابعوا اخر اخبارنا عبر:</p>
 					<div className="w-1/2 mx-auto my-4">
 						<div className="flex flex-wrap justify-center items-center gap-2">
 							{socials.map((item, index) => (
@@ -333,17 +316,13 @@ export default function Header() {
 									href={item.href}
 									className="p-2"
 								>
-									<FontAwesomeIcon
-										icon={item.icon}
-										size={"2x"}
-									/>
+									<FontAwesomeIcon icon={item.icon} size={"2x"} />
 								</Link>
 							))}
 						</div>
 					</div>
 					<p className="text-xs sm:text-sm md:text-base lg:text-xl text-gray-300 my-4 p-2">
-						جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (ع) &copy;
-						1824
+						جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (ع) &copy; 1824
 					</p>
 				</div>
 			</nav>

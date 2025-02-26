@@ -1,38 +1,39 @@
-"use client"
+"use client";
 
-import { useState, useRef } from "react"
+import {useState, useRef} from "react";
 import {
 	Swiper as SwiperComponent,
 	type SwiperRef,
 	SwiperSlide,
-} from "swiper/react"
+} from "swiper/react";
 import {
 	EffectCoverflow,
 	Pagination,
 	Navigation,
 	Autoplay,
-} from "swiper/modules"
+} from "swiper/modules";
 
-import "swiper/css"
-import "swiper/css/navigation"
-import "swiper/css/pagination"
-import "swiper/css/effect-coverflow"
-import "swiper/css/autoplay"
-import styles from "@/style/swiper.module.css"
-import { Swiper } from "swiper/types"
-import ImageView from "@/components/image-view"
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-coverflow";
+import "swiper/css/autoplay";
+import styles from "@/style/swiper.module.css";
+import {Swiper} from "swiper/types";
+import ImageView from "@/components/image-view";
+import {Attachment} from "@/types/attachments";
 
-export default function SwiperCarousel({ images }: { images: string[] }) {
-	const swiperRef = useRef<SwiperRef>(null)
-	const [swiperInstance, setSwiperInstance] = useState<Swiper>()
+export default function SwiperCarousel({images}: { images: Attachment[] }) {
+	const swiperRef = useRef<SwiperRef>(null);
+	const [swiperInstance, setSwiperInstance] = useState<Swiper>();
 
 	const handleNext = () => {
-		if (swiperInstance) swiperInstance.slideNext()
-	}
+		if (swiperInstance) swiperInstance.slideNext();
+	};
 
 	const handlePrev = () => {
-		if (swiperInstance) swiperInstance.slidePrev()
-	}
+		if (swiperInstance) swiperInstance.slidePrev();
+	};
 
 	return (
 		<div className="relative ">
@@ -78,15 +79,15 @@ export default function SwiperCarousel({ images }: { images: string[] }) {
 					<SwiperSlide
 						key={index}
 						className="h-full w-full"
-						style={{ boxSizing: "content-box" }}
+						style={{boxSizing: "content-box"}}
 					>
-						<div className="flex justify-center items-center w-full h-full rounded-2xl bg-secondary shadow-2xl">
+						<div
+							className="flex justify-center items-center w-full h-full rounded-2xl bg-secondary shadow-2xl">
 							<ImageView
-								src={src}
+								images={images}
+								src={src.path}
 								alt={`Image ${index}`}
 								className="rounded-2xl object-cover shadow-lg w-full h-full  "
-								view
-								showBrackets={true}
 							/>
 						</div>
 					</SwiperSlide>
@@ -94,7 +95,7 @@ export default function SwiperCarousel({ images }: { images: string[] }) {
 			</SwiperComponent>
 
 			<div
-				className="absolute bottom-0 top-0 left-0 bg-pink-400
+				className="absolute bottom-0 top-0 left-0
             max-lg:hidden
 
             "
@@ -115,5 +116,5 @@ export default function SwiperCarousel({ images }: { images: string[] }) {
 				/>
 			</div>
 		</div>
-	)
+	);
 }
