@@ -6,7 +6,7 @@ import Breadcrumbs from "@/components/breadcrumb";
 import PostCard from "./_components/news-card";
 import { dataFetcher } from "@/lib/dataFetcher";
 import { Post } from "@/types/post";
-
+import Arrow from "@/components/Arrow"
 export default async function Page() {
   const data = await dataFetcher<Post[]>("posts.json");
 
@@ -23,12 +23,13 @@ export default async function Page() {
             { name: "الأخبار", url: "#" },
           ]}
         />
-        <Link
-          className="p-2 mb-3 md:text-sm md:mb-1 xl:pr-2 xl:relative xl:left-14  rounded-lg border text-[10px]   bg-primary hover:bg-secondary text-white hover:text-white duration-150"
-          href="/news/archives"
-        >
-          ← ارشيف الاخبار  
-        </Link>
+     
+     <Link
+					  href="/news/archives"
+					className="flex text-white p-1 md:text-sm md:mb-1 xl:pr-2 xl:relative xl:left-14   text-[10px] group items-center gap-5 bg-primary border-2 border-transparent hover:bg-secondary rounded-xl transition duration-1000"
+					>
+			ارشيف الاخبار		<Arrow className="translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 duration-300" />
+				</Link>
       </div>
 
       {/* Latest Posts */}
