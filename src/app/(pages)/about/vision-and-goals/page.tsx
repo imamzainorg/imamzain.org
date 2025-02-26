@@ -1,6 +1,5 @@
 import Breadcrumbs from "@/components/breadcrumb"
-import Image from "next/image"
-import ImageView from "@/components/image-view";
+import ImageView from "@/components/image-view"
 
 export default function visionandgoals() {
 	return (
