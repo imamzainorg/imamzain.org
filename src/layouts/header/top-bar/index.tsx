@@ -72,10 +72,10 @@ export default function TopBar() {
 						<div className="flex items-center gap-2">
 							<FontAwesomeIcon
 								icon={faCalendar}
-								color={`${!isScrolled ? "#ffffff" : "#bb9661"}`}
+								color={`${!isScrolled && path === "/"? "#ffffff" : "#bb9661"}`}
 							/>
 							<p
-								className={`text-sm  p-0 mt-1 ${!isScrolled ? "text-[#ffffff]" : "text-[#bb9661]"}`}
+								className={`text-sm  p-0 mt-1 ${!isScrolled && path === "/" ? "text-[#ffffff]" : "text-[#bb9661]"}`}
 							>
 								{prayerTimes && prayerTimes.date}
 							</p>

@@ -6,6 +6,7 @@ import SwiperCarousel from "@/components/swiper-carousel"
 import galleryImages from "@/data/gallery.json"
 import {useEffect, useState} from "react";
 import {Attachment} from "@/types/attachments";
+import SectionCta from "@/components/section-cta";
 // روابط القائمة
 const menuLinks = [
 	{ label: "...", href: "#" },
@@ -38,17 +39,14 @@ export default function Gallery() {
 			/>
 
 			{/* القائمة */}
-			<div className="h-15 w-3/4 mx-auto grid-cols-2 md:grid-cols-4 grid flex-row xl:gap-8 gap-0 justify-center items-center">
-				{menuLinks.map((item, index) => (
-					<Link
-						key={index}
-						href={item.href}
-						className="h-full bg-[url('/shapes/button-bg.svg')] bg-center bg-no-repeat flex justify-center items-center p-2 xs:p-3 sm:p-4 text-white font-bold w-4/3"
-					>
-						{item.label}
-					</Link>
-				))}
-			</div>
+			<SectionCta
+				links={[
+					{ label: "...", href: "#" },
+					{ label: "...", href: "#" },
+					{ label: "...", href: "#" },
+					{ label: "...", href: "#" },
+				]}
+			/>
 
 			{/* Swiper Carousel */}
 			<SwiperCarousel images={images} />

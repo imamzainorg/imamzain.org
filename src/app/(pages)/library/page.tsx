@@ -16,7 +16,7 @@ export default async function page() {
 					{ name: "ما كتب عن الامام", url: "#" },
 				]}
 			/>
-			<div className="md:flex md:w-full md:just-between justify-items-center my-8">
+			<div className="md:flex md:w-full md:just-between justify-items-center mb-8">
 				<div className="w-full ">
 					<SectionTitle title="قائمة الكتب" />
 				</div>

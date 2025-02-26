@@ -45,14 +45,14 @@ export function LogoRotate({
             <AnimatePresence mode="wait">
                 <motion.div
                     key={paths[index]}
-                    className={cn(className)}
+                    className={`${className} `}
                     {...motionProps}
                 >
                     <Image
                         src={paths[index]}
                         width={50}
                         height={50}
-                        className="w-auto"
+                        className={`${className}`}
                         alt="logo"
                     />
                 </motion.div>

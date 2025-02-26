@@ -8,7 +8,7 @@ export async function dataFetcher<T>(
 	isApi: boolean = false,
 ): Promise<T> {
 	if (isApi) {
-		const res = await fetch(`https://api.imamzain.com/${fileName}`)
+		const res = await fetch(`${process.env.DATA_JSON}${fileName}`)
 		if (!res.ok) {
 			throw new Error(`Failed to fetch ${fileName} from API`)
 		}

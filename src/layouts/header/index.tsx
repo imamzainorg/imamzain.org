@@ -154,7 +154,7 @@ export default function Header() {
 
 				{/* Navbar */}
 				<div
-					className={`w-full py-3 rounded-b-[2rem] ${
+					className={`w-full  -3 rounded-b-[2rem] ${
 						isScrolled || path !== "/" ? `bg-primary ${isMenuVisible ? "" : "shadow-2xl"}` : ""
 					}`}
 				>
@@ -170,7 +170,7 @@ export default function Header() {
 						</Link>
 
 						{/* Desktop Navigation */}
-						<nav className="max-lg:hidden flex gap-3 items-center">
+						<nav className="max-lg:hidden flex gap-2 items-center">
 							{links.map((link, index) => {
 								const hasSubLinks =
 									link.subLinks && link.subLinks.length > 0
@@ -199,7 +199,7 @@ export default function Header() {
 													className="w-2"
 													alt="icon"
 												/>
-												<p>{link.label}</p>
+												<p className=''>{link.label}</p>
 											</Link>
 											{hasSubLinks && (
 												<div

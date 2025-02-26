@@ -10,7 +10,7 @@ export default async function page() {
 	const publications = await dataFetcher<Book[]>("publications.json")
 
 	return (
-		<div className="">
+		<div  >
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },

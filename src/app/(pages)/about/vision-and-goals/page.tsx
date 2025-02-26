@@ -16,7 +16,7 @@ export default function visionandgoals() {
 
 			<div
 				id="vision"
-				className="flex justify-center items-center shadow-xl pt-5 lg:pt-10"
+				className="flex justify-center items-center shadow-xl  "
 			>
 				<ImageView
 					src="/images/about-vision.jpg"

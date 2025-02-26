@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export default function About() {
 	return (
-		<div className="!space-y-12">
+		<div className="container">
 			{/* Breadcrumb */}
 			<Breadcrumbs
 				links={[
@@ -12,11 +12,11 @@ export default function About() {
 					{ name: "حول المؤسسة", url: "/about" },
 				]}
 			/>
-			<div className="!mb-8 lg:space-y-20">
+			<div className=" ">
 				<div className="">
 					<Image
 						src="/images/about-landing.jpg"
-						className="w-11/12 rounded-xl aspect-[16/6] object-cover"
+						className="rounded-xl aspect-[1/1] md:aspect-[16/6] object-cover"
 						width={1500}
 						height={1500}
 						priority

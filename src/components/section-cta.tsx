@@ -28,7 +28,7 @@ export default function SectionCta({
 
 	return (
 		<motion.div
-			className="flex flex-wrap justify-center gap-4  "
+			className="flex flex-wrap justify-center gap-4  !m-0"
 			variants={containerVariants}
 			initial="hidden"
 			whileInView="visible"

@@ -10,7 +10,7 @@ export default function HisLifeAccordion({
 	section: { title: string; slug: string; content: string }
 }) {
 	return (
-		<Accordion>
+		<Accordion >
 			<AccordionItem
 				key={section.title}
 				aria-label={section.title}
