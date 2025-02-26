@@ -1,5 +1,5 @@
 import Link from "next/link"
-
+import Arrow from "@/components/Arrow"
 const Page404Icon = () => (
 	<svg
 		className="w-1/2 md:1/3 lg:w-1/4 text-blue-600"
@@ -90,33 +90,7 @@ const Page404Icon = () => (
 	</svg>
 )
 
-const Arrow = ({ className }: { className: string }) => (
-	<svg
-		width={24}
-		height={24}
-		viewBox="0 0 24 24"
-		fill={"none"}
-		className={className}
-		strokeWidth={1}
-		color={"currentColor"}
-	>
-		<g strokeWidth="0" />
-		<g
-			id="SVGRepo_tracerCarrier"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-		/>
-		<g>
-			<path
-				d="M5 12H19M5 12L11 6M5 12L11 18"
-				stroke="#000000"
-				strokeWidth="2"
-				strokeLinecap="round"
-				strokeLinejoin="round"
-			/>
-		</g>
-	</svg>
-)
+
 
 export default function notFound() {
 	return (
