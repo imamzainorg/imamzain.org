@@ -1,15 +1,21 @@
 "use client"
 
-import { useState } from "react"
+import {useRef, useState} from "react"
 import Image from "next/image"
-import { Modal, useDisclosure } from "@heroui/react"
-import { ModalBody, ModalContent } from "@heroui/modal"
-import { Attachment } from "@/types/attachments"
-import { Swiper, SwiperSlide } from "swiper/react"
+import {Modal, useDisclosure} from "@heroui/react"
+import {ModalBody, ModalContent} from "@heroui/modal"
+import {Attachment} from "@/types/attachments"
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
-import { Navigation } from "swiper/modules"
+import {Navigation} from "swiper/modules"
+import styles from "@/style/swiper.module.css";
+import {
+	Swiper as SwiperComponent,
+	type SwiperRef,
+	SwiperSlide,
+} from "swiper/react";
+import {Swiper} from "swiper/types";
 
 interface ImageViewProps {
 	images?: Attachment[]
@@ -25,8 +31,12 @@ export default function ImageView({
 									  className,
 									  alt,
 								  }: ImageViewProps) {
-	const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure()
+
+	const {isOpen, onOpen, onOpenChange, onClose} = useDisclosure()
 	const [activeIndex, setActiveIndex] = useState(0)
+
+	const swiperRef = useRef<SwiperRef>(null);
+	const [swiperInstance, setSwiperInstance] = useState<Swiper>();
 
 	// When clicking the image, determine the index of the clicked image in the images array.
 	const handleOpen = () => {
@@ -37,6 +47,13 @@ export default function ImageView({
 		onOpen()
 	}
 
+	const handleNext = () => {
+		if (swiperInstance) swiperInstance.slideNext();
+	};
+
+	const handlePrev = () => {
+		if (swiperInstance) swiperInstance.slidePrev();
+	};
 	return (
 		<>
 			<div className={`${className} relative`}>
@@ -57,35 +74,53 @@ export default function ImageView({
 			</div>
 
 			<Modal
-				className="bg-transparent "
+				backdrop={'opaque'}
+				className="bg-transparent  border-0 shadow-none"
 				hideCloseButton
 				isOpen={isOpen}
 				onOpenChange={onOpenChange}
 				onClose={onClose}
 				size="5xl"
+
 			>
 				<ModalContent>
 					<ModalBody className="p-0 gap-0">
 						<div className="w-full h-[80vh] z-0">
-							<Swiper
+							<div
+								className="  max-lg:hidden   "
+							>
+								<div
+									onClick={handleNext}
+									className={`swiper-button-prev ${styles.secondaryColor}`}
+								/>
+							</div>
+							<SwiperComponent
+								ref={swiperRef}
+								onSwiper={setSwiperInstance}
 								initialSlide={activeIndex}
-								navigation
 								modules={[Navigation]}
-								className="h-full w-full "
-
+								className="h-full w-[90%]    "
+								loop={true}
 							>
 								{images && images.map((image, index) => (
-									<SwiperSlide key={index} >
+									<SwiperSlide key={index}>
 										<Image
 											src={image.path}
 											alt={`Image-${image.path ?? index}`}
 											fill
-											className="object-contain h-full w-[130%]"
+											className="object-contain  h-full w-[130%]"
 										/>
 									</SwiperSlide>
 								))}
-							</Swiper>
-
+							</SwiperComponent>
+							<div
+								className=" w-w   z-50   max-lg:hidden   "
+							>
+								<div
+									onClick={handlePrev}
+									className={`swiper-button-next ${styles.secondaryColor}`}
+								/>
+							</div>
 						</div>
 					</ModalBody>
 				</ModalContent>

@@ -1,5 +1,6 @@
 import Breadcrumbs from "@/components/breadcrumb"
 import Image from "next/image"
+import ImageView from "@/components/image-view";
 
 export default function visionandgoals() {
 	return (
@@ -15,14 +16,11 @@ export default function visionandgoals() {
 
 			<div
 				id="vision"
-				className="flex justify-center items-center shadow-xl "
+				className="flex justify-center items-center shadow-xl pt-5 lg:pt-10"
 			>
-				<Image
+				<ImageView
 					src="/images/about-vision.jpg"
-					className="w-full rounded-xl aspect-[16/6] object-cover object-[center_-80px]"
-					width={1500}
-					height={1500}
-					priority
+					className="w-full rounded-xl aspect-[1/1] md:aspect-[16/6] object-cover object-right md:object-[center_-80px]"
 					alt="logo"
 				/>
 			</div>

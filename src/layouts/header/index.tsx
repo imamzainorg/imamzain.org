@@ -19,7 +19,7 @@ import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons"
 import { motion } from "framer-motion"
 import useWindowEvents from "@/hooks/window-events"
 import TopBar from "@/layouts/header/top-bar"
-import { LogoRotate } from "@/components/logo-rotate"
+import {LogoRotate} from "@/layouts/header/logo-rotate";
 
 const links = [
 	{
@@ -202,8 +202,9 @@ export default function Header() {
 												<p>{link.label}</p>
 											</Link>
 											{hasSubLinks && (
-												<div className="absolute top-[2rem] -right-1 py-2 min-w-60 scale-0 group-hover:scale-100 translate-y-5 group-hover:-translate-y-0 opacity-0 group-hover:opacity-100 transition-transform duration-300 z-20">
-													<div className="px-4 py-8 bg-gray-100 rounded-lg shadow-lg ">
+												<div
+													className="absolute top-[2rem] -right-1 py-2 min-w-60 transform scale-0 -translate-y-5 opacity-0 group-hover:scale-100 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 z-20">
+													<div className="px-4 py-8 bg-gray-100 rounded-lg shadow-lg">
 														{link.subLinks.map((subLink, subIndex) => (
 															<Link
 																key={subIndex}
@@ -215,6 +216,7 @@ export default function Header() {
 														))}
 													</div>
 												</div>
+
 											)}
 										</>
 									</div>
@@ -229,9 +231,9 @@ export default function Header() {
 							aria-label={isMenuVisible ? "Close Menu" : "Open Menu"}
 						>
 							{!isMenuVisible ? (
-								<MenuIcon stroke={"#ffffff"} />
+								<MenuIcon stroke={"#ffffff"}/>
 							) : (
-								<XIcon stroke={"#ffffff"} />
+								<XIcon stroke={"#ffffff"}/>
 							)}
 						</button>
 					</div>
