@@ -1,30 +1,23 @@
 "use client"
 import ImageView from "@/components/image-view"
-import Link from "next/link"
 import Breadcrumbs from "@/components/breadcrumb"
 import SwiperCarousel from "@/components/swiper-carousel"
 import galleryImages from "@/data/gallery.json"
-import {useEffect, useState} from "react";
-import {Attachment} from "@/types/attachments";
-import SectionCta from "@/components/section-cta";
+import { useEffect, useState } from "react"
+import { Attachment } from "@/types/attachments"
+import SectionCta from "@/components/section-cta"
 // روابط القائمة
-const menuLinks = [
-	{ label: "...", href: "#" },
-	{ label: "...", href: "#" },
-	{ label: "...", href: "#" },
-	{ label: "...", href: "#" },
-]
 
 export default function Gallery() {
-	const [images , setImages] = useState<Attachment[]>([])
+	const [images, setImages] = useState<Attachment[]>([])
 	useEffect(() => {
-		const newArray = galleryImages.map(item => ({
+		const newArray = galleryImages.map((item) => ({
 			id: item.id,
-			path: item.image.path
-		}));
+			path: item.image.path,
+		}))
 
-		console.log(newArray);
-		setImages(newArray);
+		console.log(newArray)
+		setImages(newArray)
 	}, [])
 	return (
 		<div className="container space-y-14">
@@ -58,8 +51,7 @@ export default function Gallery() {
 						images={images}
 						key={index}
 						src={img.image.path}
-						alt
-							={`Image ${index}`}
+						alt={`Image ${index}`}
 						className="rounded-xl hover:scale-110 fixed top-0 left-0 w-full h-[120px] bg-black   "
 					/>
 				))}
