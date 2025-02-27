@@ -7,10 +7,11 @@ import PostCard from "./_components/news-card";
 import { dataFetcher } from "@/lib/dataFetcher";
 import { Post } from "@/types/post";
 import Arrow from "@/components/Arrow"
+
+
 export default async function Page() {
   const data = await dataFetcher<Post[]>("posts.json");
-
-  const latestData = data.slice(0, 5);
+	 const latestData = data.slice(0, 5);
   const mostReadData = data.slice(0, 3);
   const meetingsData = data.slice(0, 4);
 
@@ -128,6 +129,8 @@ export default async function Page() {
           </div>
         </Link>
       </div>
+      <SectionTitle title=" اخبار العتبة الحسينية " />
+      
     </div>
   );
 }
