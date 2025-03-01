@@ -2,7 +2,6 @@ import { Attachment } from "./attachments"
 
 export type PostCategory = "مؤتمرات" | "اخبار" | "لقاءات" | "ندوات"
 
-
 export type Post = {
 	id: number
 	slug: string
