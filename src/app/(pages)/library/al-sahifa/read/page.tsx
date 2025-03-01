@@ -16,7 +16,7 @@ export default async function Page() {
 					{ name: "الصحفة الرئيسية", url: "/" },
 					{ name: "المكتبة التخصصية", url: "/library" },
 					{
-						name: "رسالة الحقوق",
+						name: "الصحيفة السجادية",
 						url: "/library/al-sahifa",
 					},
 					{
