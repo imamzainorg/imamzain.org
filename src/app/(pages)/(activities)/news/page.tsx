@@ -6,12 +6,11 @@ import Breadcrumbs from "@/components/breadcrumb";
 import PostCard from "./_components/news-card";
 import { dataFetcher } from "@/lib/dataFetcher";
 import { Post } from "@/types/post";
-import Arrow from "@/components/Arrow"
-
+import Arrow from "@/components/Arrow";
 
 export default async function Page() {
   const data = await dataFetcher<Post[]>("posts.json");
-	 const latestData = data.slice(0, 5);
+  const latestData = data.slice(0, 5);
   const mostReadData = data.slice(0, 3);
   const meetingsData = data.slice(0, 4);
 
@@ -24,13 +23,14 @@ export default async function Page() {
             { name: "الأخبار", url: "#" },
           ]}
         />
-     
-     <Link
-					  href="/news/archives"
-					className="flex text-white p-1 md:text-sm md:mb-1 xl:pr-2 xl:relative xl:left-14   text-[10px] group items-center gap-5 bg-primary border-2 border-transparent hover:bg-secondary rounded-xl transition duration-1000"
-					>
-			ارشيف الاخبار		<Arrow className="translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 duration-300" />
-				</Link>
+
+        <Link
+          href="/news/archives"
+          className="flex text-white p-1 md:text-sm md:mb-1 xl:pr-2 xl:relative xl:left-14   text-[10px] group items-center gap-5 bg-primary border-2 border-transparent hover:bg-secondary rounded-xl transition duration-1000"
+        >
+          ارشيف الاخبار{" "}
+          <Arrow className="translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 duration-300" />
+        </Link>
       </div>
 
       {/* Latest Posts */}
@@ -129,8 +129,60 @@ export default async function Page() {
           </div>
         </Link>
       </div>
-      <SectionTitle title=" اخبار العتبة الحسينية " />
-      
+      <div className="">
+       <div className= "pb-56">
+         
+      <SectionTitle title=" اخبار العتبة الحسينية "   />
+   
+       </div>
+   <div className=" flex flex-row gap-6">
+   <div className="relative w-full max-w-md mx-auto bg-primary rounded-md flex flex-col items-center p-4">
+   {/* الصورة */}
+
+      <Image
+       src={meetingsData[meetingsData.length - 1].image}
+       width={1500}
+       height={1500}
+       alt={meetingsData[meetingsData.length - 1].slug}
+       className="w-auto relative rounded-lg -top-20 max-w-full h-auto object-cover"
+     />
+   {/* النص */}
+   <div className="w-full flex items-center justify-center ">
+     <p className="text-black relative -top-20 text-lg font-semibold">نص داخل qqqqqqq qqqqqqqq qqqqqqqqqq qqqqqqqq qqqqqqq qqqqqqqqqqqqالصورة</p>
+   </div> 
+ </div>
+<div className="relative -top-32"> <div className="relative w-full max-w-md mx-auto bg-primary rounded-md flex flex-col items-center p-4">
+   {/* الصورة */}
+
+      <Image
+       src={meetingsData[meetingsData.length - 1].image}
+       width={1500}
+       height={1500}
+       alt={meetingsData[meetingsData.length - 1].slug}
+       className="w-auto relative rounded-lg -top-20 max-w-full h-auto object-cover"
+     />
+   {/* النص */}
+   <div className="w-full flex items-center justify-center ">
+     <p className="text-black relative -top-20 text-lg font-semibold">نص داخل qqqqqqq qqqqqqqq qqqqqqqqqq qqqqqqqq qqqqqqq qqqqqqqqqqqqالصورة</p>
+   </div> 
+ </div></div>
+ <div className="relative w-full max-w-md mx-auto bg-primary rounded-md flex flex-col items-center p-4">
+   {/* الصورة */}
+
+      <Image
+       src={meetingsData[meetingsData.length - 1].image}
+       width={1500}
+       height={1500}
+       alt={meetingsData[meetingsData.length - 1].slug}
+       className="w-auto relative rounded-lg -top-20 max-w-full h-auto object-cover"
+     />
+   {/* النص */}
+   <div className="w-full flex items-center justify-center ">
+     <p className="text-black relative -top-20 text-lg font-semibold">نص داخل qqqqqqq qqqqqqqq qqqqqqqqqq qqqqqqqq qqqqqqq qqqqqqqqqqqqالصورة</p>
+   </div> 
+ </div>
+   </div>
+      </div>
     </div>
   );
 }
