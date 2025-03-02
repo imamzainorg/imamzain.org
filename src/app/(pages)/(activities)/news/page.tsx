@@ -129,60 +129,7 @@ export default async function Page() {
           </div>
         </Link>
       </div>
-      <div className="">
-       <div className= "pb-56">
-         
-      <SectionTitle title=" اخبار العتبة الحسينية "   />
-   
-       </div>
-   <div className=" flex flex-row gap-6">
-   <div className="relative w-full max-w-md mx-auto bg-primary rounded-md flex flex-col items-center p-4">
-   {/* الصورة */}
-
-      <Image
-       src={meetingsData[meetingsData.length - 1].image}
-       width={1500}
-       height={1500}
-       alt={meetingsData[meetingsData.length - 1].slug}
-       className="w-auto relative rounded-lg -top-20 max-w-full h-auto object-cover"
-     />
-   {/* النص */}
-   <div className="w-full flex items-center justify-center ">
-     <p className="text-black relative -top-20 text-lg font-semibold">نص داخل qqqqqqq qqqqqqqq qqqqqqqqqq qqqqqqqq qqqqqqq qqqqqqqqqqqqالصورة</p>
-   </div> 
- </div>
-<div className="relative -top-32"> <div className="relative w-full max-w-md mx-auto bg-primary rounded-md flex flex-col items-center p-4">
-   {/* الصورة */}
-
-      <Image
-       src={meetingsData[meetingsData.length - 1].image}
-       width={1500}
-       height={1500}
-       alt={meetingsData[meetingsData.length - 1].slug}
-       className="w-auto relative rounded-lg -top-20 max-w-full h-auto object-cover"
-     />
-   {/* النص */}
-   <div className="w-full flex items-center justify-center ">
-     <p className="text-black relative -top-20 text-lg font-semibold">نص داخل qqqqqqq qqqqqqqq qqqqqqqqqq qqqqqqqq qqqqqqq qqqqqqqqqqqqالصورة</p>
-   </div> 
- </div></div>
- <div className="relative w-full max-w-md mx-auto bg-primary rounded-md flex flex-col items-center p-4">
-   {/* الصورة */}
-
-      <Image
-       src={meetingsData[meetingsData.length - 1].image}
-       width={1500}
-       height={1500}
-       alt={meetingsData[meetingsData.length - 1].slug}
-       className="w-auto relative rounded-lg -top-20 max-w-full h-auto object-cover"
-     />
-   {/* النص */}
-   <div className="w-full flex items-center justify-center ">
-     <p className="text-black relative -top-20 text-lg font-semibold">نص داخل qqqqqqq qqqqqqqq qqqqqqqqqq qqqqqqqq qqqqqqq qqqqqqqqqqqqالصورة</p>
-   </div> 
- </div>
-   </div>
-      </div>
+ 
     </div>
   );
 }
