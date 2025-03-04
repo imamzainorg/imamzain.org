@@ -7,7 +7,7 @@ import PostCard from "./_components/news-card";
 import { dataFetcher } from "@/lib/dataFetcher";
 import { Post } from "@/types/post";
 import Arrow from "@/components/Arrow";
-
+import News from "@/data/news-alataba.json";
 export default async function Page() {
   const data = await dataFetcher<Post[]>("posts.json");
   const latestData = data.slice(0, 5);
@@ -129,7 +129,56 @@ export default async function Page() {
           </div>
         </Link>
       </div>
- 
+      <SectionTitle title="  اخبار العتبة الحسينية المقدسة" />
+      <div className="flex flex-col lg:flex-row gap-y-8 lg:gap-x-16 mt-2">
+        <div className="lg:w-1/2 w-full xl:mt-4">
+          {News.group1.map((item) => (
+            <div key={item.id} className="rounded-xl ">
+              <div className="relative w-full h-full overflow-hidden rounded-xl hover:cursor-pointer  border-4 border-transparent transition-all  hover:border-secondary duration-300 ease-in-out">
+                <Image
+                  src={item.image}
+                  alt={item.description}
+                  width={1500}
+                  height={1500}
+                  className="w-full h-full object-cover  transform-origin:center duration-300 hover:scale-110"
+                />
+              </div>
+
+              {/* العنوان الرئيسي */}
+              <h2 className="xl:text-2xl text-lg pt-2 pr-3 font-bold  text-gray-900">
+                {item.title}
+              </h2>
+
+              {/* الوصف النصي */}
+              <p className="text-sm pr-3 font-medium text-gray-700  mt-2 lg:text-lg mx-auto">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="w-full lg:w-1/2 md:grid md:grid-cols-2 gap-2 p-2">
+          {News.group2.map((item) => (
+            <div key={item.id} className="rounded-xl overflow-hidden">
+              <div className="relative w-full h-auto overflow-hidden rounded-xl  hover:cursor-pointer  border-4 border-transparent transition-all hover:border-secondary duration-300 ease-in-out">
+                <Image
+                  src={item.image}
+                  alt={item.description}
+                  width={1500}
+                  height={1500}
+                  className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-110"
+                />
+              </div>
+
+              {/* النص أسفل الصورة */}
+              <p className="text-base font-semibold mt-2 p-1 pr-2">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+     
+      </div>
     </div>
   );
 }
