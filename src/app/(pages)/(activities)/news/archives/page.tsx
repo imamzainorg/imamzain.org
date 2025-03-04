@@ -7,7 +7,7 @@ import { Post } from "@/types/post"
 import { dataFetcher } from "@/lib/dataFetcher"
 
 export default function Page() {
-	const categories = ["الكل", "اخبار", "ندوات", "لقاءات", "مؤتمرات"]
+	const categories = [ "الكل", "اخبار", "ندوات", "لقاءات", "مؤتمرات", "العتبة الحسينية" ]
 	const [selectedCategory, setSelectedCategory] = useState("الكل")
 
 	const [newsPosts, setNewsPosts] = useState<Post[]>([])
