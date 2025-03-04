@@ -18,7 +18,7 @@ export default function visionandgoals() {
 				className="flex justify-center items-center shadow-xl  "
 			>
 				<ImageView
-					src="/images/about-vision.jpg"
+					src="/images/about-vision-min.jpg"
 					className="w-full rounded-xl aspect-[1/1] md:aspect-[16/6] object-cover object-right md:object-[center_-80px]"
 					alt="logo"
 				/>

@@ -1,14 +1,89 @@
+"use client"
+
 import BooklibraryCard from "./_components/book-library-card"
 import Breadcrumbs from "@/components/breadcrumb"
 import SectionTitle from "@/components/section"
 import { dataFetcher } from "@/lib/dataFetcher"
 import { Book } from "@/types/book"
-import { ChevronDown, SearchIcon } from "lucide-react"
+import { SearchIcon } from "lucide-react"
+import { useState, useEffect } from "react"
 
-export default async function page() {
-	const libraryBooks = await dataFetcher<Book[]>("library.json")
+export default function Page() {
+	const [libraryBooks, setLibraryBooks] = useState<Book[]>([])
+	const [filteredBooks, setFilteredBooks] = useState<Book[]>([])
+	const [searchTitle, setSearchTitle] = useState("")
+	const [searchAuthor, setSearchAuthor] = useState("")
+	const [searchPublisher, setSearchPublisher] = useState("")
+	const [searchTopic, setSearchTopic] = useState("")
+	const [sortOption, setSortOption] = useState("latest")
+
+	// Fetch books on mount
+	useEffect(() => {
+		const fetchBooks = async () => {
+			try {
+				const books = await dataFetcher<Book[]>("library.json")
+				setLibraryBooks(books)
+				setFilteredBooks(books)
+			} catch (error) {
+				console.error("Failed to load books:", error)
+			}
+		}
+		fetchBooks()
+	}, [])
+
+	// Filter and sort books based on user input
+	useEffect(() => {
+		let books = [...libraryBooks]
+
+		// Filter by search inputs
+		if (searchTitle) {
+			books = books.filter((book) =>
+				book.title.toLowerCase().includes(searchTitle.toLowerCase()),
+			)
+		}
+		if (searchAuthor) {
+			books = books.filter((book) =>
+				book.author.toLowerCase().includes(searchAuthor.toLowerCase()),
+			)
+		}
+		if (searchPublisher) {
+			books = books.filter((book) =>
+				book.printHouse
+					.toLowerCase()
+					.includes(searchPublisher.toLowerCase()),
+			)
+		}
+		if (searchTopic) {
+			books = books.filter((book) =>
+				book.otherNames.map((name) =>
+					name.toLowerCase().includes(searchTopic.toLowerCase()),
+				),
+			)
+		}
+
+		// Sort books
+		if (sortOption === "latest") {
+			books.sort(
+				(a, b) =>
+					new Date(b.printDate).getTime() -
+					new Date(a.printDate).getTime(),
+			)
+		} else if (sortOption === "common") {
+			books.sort((a, b) => b.views - a.views)
+		}
+
+		setFilteredBooks(books)
+	}, [
+		searchTitle,
+		searchAuthor,
+		searchPublisher,
+		searchTopic,
+		sortOption,
+		libraryBooks,
+	])
+
 	return (
-		<div className="">
+		<div>
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
@@ -25,27 +100,22 @@ export default async function page() {
 					<select
 						id="sorting"
 						className="border-none bg-transparent focus:border-none active:border-none"
+						onChange={(e) => setSortOption(e.target.value)}
 					>
-						<option
-							className="w-1/2 text-sm md:text-md xl:text-xl 2xl:text-2xl"
-							value="latest"
-							defaultChecked
-						>
+						<option value="latest" defaultChecked>
 							الأحدث
 						</option>
-						<option
-							className="w-1/2 text-sm md:text-md xl:text-xl 2xl:text-2xl"
-							value="common"
-						>
-							الأكثر شيوعا
-						</option>
+						<option value="common">الأكثر شيوعا</option>
 					</select>
 				</div>
 			</div>
+
 			<div className="grid grid-cols-1 md:grid-cols-3 gap-3">
 				<div className="col-span-1 w-full md:col-span-3 md:w-1/2 relative lg:mb-4">
 					<input
 						type="text"
+						value={searchTitle}
+						onChange={(e) => setSearchTitle(e.target.value)}
 						className="w-full rounded-xl md:text-sm lg:text-lg p-1 bg-transparent border border-primary"
 						placeholder="البحث عن عناوين الكتب"
 					/>
@@ -54,49 +124,46 @@ export default async function page() {
 						<SearchIcon size={20} strokeWidth={1.5} />
 					</div>
 				</div>
+
+				{/* Filter by Topic */}
 				<div className="col-span-1">
-					<span className="font-semibold my-2 ">مواضيع المكتبة</span>
-					<div className="col-span-3 relative w-full">
-						<input
-							type="text"
-							className="w-full rounded-xl md:text-sm p-1 lg:text-lg bg-transparent border border-primary"
-							placeholder="البحث عن مواضيع المكتبة"
-						/>
-						<div className="absolute text-primary left-0 top-0 pl-3 h-full flex justify-center items-center gap-4">
-							<div className="h-2/3 w-[1px] bg-slate-400" />
-							<ChevronDown size={20} strokeWidth={1.5} />
-						</div>
-					</div>
+					<span className="font-semibold my-2 ">
+						محققين، مددقين، الخ...
+					</span>
+					<input
+						type="text"
+						value={searchTopic}
+						onChange={(e) => setSearchTopic(e.target.value)}
+						className="w-full rounded-xl md:text-sm p-1 lg:text-lg bg-transparent border border-primary"
+						placeholder="البحث عن اي اسم"
+					/>
 				</div>
+
+				{/* Filter by Author */}
 				<div className="col-span-1">
 					<span className="font-semibold my-2">المؤلف</span>
-					<div className="col-span-3 relative w-full">
-						<input
-							type="text"
-							className="w-full  md:text-sm lg:text-lg p-1 rounded-xl bg-transparent border border-primary"
-							placeholder="البحث عن المؤلف"
-						/>
-						<div className="absolute text-primary left-0 top-0 pl-3 h-full flex justify-center items-center gap-4">
-							<div className="h-2/3 w-[1px] bg-slate-400" />
-							<ChevronDown size={20} strokeWidth={1.5} />
-						</div>
-					</div>
+					<input
+						type="text"
+						value={searchAuthor}
+						onChange={(e) => setSearchAuthor(e.target.value)}
+						className="w-full md:text-sm lg:text-lg p-1 rounded-xl bg-transparent border border-primary"
+						placeholder="البحث عن المؤلف"
+					/>
 				</div>
+
+				{/* Filter by Publisher */}
 				<div className="col-span-1">
 					<span className="font-semibold my-2">الناشر</span>
-					<div className="col-span-3 relative w-full">
-						<input
-							type="text"
-							className="w-full  md:text-sm lg:text-lg  p-1  rounded-xl bg-transparent border border-primary"
-							placeholder="البحث عن دور النشر"
-						/>
-						<div className="absolute text-primary left-0 top-0 pl-3 h-full flex justify-center items-center gap-4">
-							<div className="h-2/3 w-[1px] bg-slate-400" />
-							<ChevronDown size={20} strokeWidth={1.5} />
-						</div>
-					</div>
+					<input
+						type="text"
+						value={searchPublisher}
+						onChange={(e) => setSearchPublisher(e.target.value)}
+						className="w-full md:text-sm lg:text-lg p-1 rounded-xl bg-transparent border border-primary"
+						placeholder="البحث عن دور النشر"
+					/>
 				</div>
 			</div>
+
 			<div className="flex mx-auto justify-center items-center gap-4 my-8">
 				<div className="w-52 h-40 bg-[url('/shapes/button-bg.svg')] bg-contain bg-center bg-no-repeat flex justify-center items-center text-white">
 					رسائل
@@ -107,14 +174,19 @@ export default async function page() {
 				</div>
 			</div>
 
+			{/* Display Filtered Books */}
 			<div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
-				{libraryBooks.map((book: Book) => (
-					<BooklibraryCard
-						route="/library"
-						key={book.id}
-						publication={book}
-					/>
-				))}
+				{filteredBooks.length > 0 ? (
+					filteredBooks.map((book) => (
+						<BooklibraryCard
+							route="/library"
+							key={book.id}
+							publication={book}
+						/>
+					))
+				) : (
+					<p className="text-center text-gray-500">لا توجد نتائج.</p>
+				)}
 			</div>
 		</div>
 	)
