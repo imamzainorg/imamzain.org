@@ -28,11 +28,12 @@ export default async function page({
         links={[
           { name: "الصفحة الرئيسية", url: "/" },
           { name: "الأخبار", url: "/news" },
+          {name : post.category ,url:"/news/category"},
           { name: post.title, url: "#" },
         ]}
       />
       {/* post title */}
-      <h1 className="p-2 sm:p-4 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mx-auto font-semibold mb-6">
+      <h1 className="p-2 sm:p-4 text-base sm:text-lg md:text-xl lg:text-2xl  mx-auto font-bold mb-6">
         {post.title}
       </h1>
       <div className="flex gap-x-10 justify-between flex-wrap">
