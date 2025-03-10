@@ -16,7 +16,7 @@ export default function RightsMessage() {
 	}
 	return (
 		<>
-			<div className=" container flex flex-col gap-12  py-24 max-sm:py-8">
+			<div className=" container flex flex-col gap-12  pt-20 max-sm:py-8">
 				<HeaderSections title={"رسالة الحقوق"} />
 				<motion.p
 					className="  font-light text-lg md:text-2xl lg:text-2xl leading-7 md:leading-9 lg:leading-10 text-justify tracking-tighter"

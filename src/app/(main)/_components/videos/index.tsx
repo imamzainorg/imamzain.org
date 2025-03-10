@@ -49,7 +49,7 @@ export default function Videos({
 
 	return (
 		<>
-			<div className="container flex flex-col gap-12 py-20 ">
+			<div className="container flex flex-col gap-12 pt-20 ">
 				<HeaderSections
 					title={"المرئيات"}
 					moreButton={{

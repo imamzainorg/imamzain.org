@@ -34,7 +34,7 @@ export default function Posts({ newsPosts }: { newsPosts: Post[] }) {
 	}, [])
 
 	return (
-		<div className="container py-20 flex flex-col items-center gap-6">
+		<div className="container pt-20 flex flex-col items-center gap-6">
 			<HeaderSections
 				title={"الأخبار"}
 				moreButton={{

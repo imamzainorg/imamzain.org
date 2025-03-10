@@ -1,14 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { Button, Input } from "@heroui/react";
-import { PersonIcon, MobileIcon } from "@/assets/icons/reusable";
-import { toast } from "sonner";
+import {motion} from "framer-motion";
+import {Button, Input} from "@heroui/react";
+import {PersonIcon, MobileIcon} from "@/assets/icons/reusable";
 import CountriesDropdown from "@/components/countries-input";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
-import { useState } from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCircleCheck} from '@fortawesome/free-regular-svg-icons';
+import {useState} from "react";
 
 const ZiaraForm = () => {
     const [sended, setSended] = useState<boolean>(false);
@@ -55,7 +54,8 @@ const ZiaraForm = () => {
     return (
         <div className="flex flex-col items-center lg:items-end justify-center w-full">
             {!sended ? (
-                <div className="flex flex-col items-center gap-4 pt-20 py-6 ml-0 lg:ml-16 w-[70%] sm:w-[50%] md:w-[35%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%]">
+                <div
+                    className="flex flex-col items-center gap-4 pt-20 py-6 ml-0 lg:ml-16 w-[70%] sm:w-[50%] md:w-[35%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%]">
                     <Input
                         size={"lg"}
                         className="border-none w-full"
@@ -63,13 +63,13 @@ const ZiaraForm = () => {
                         name="username"
                         placeholder="الزيارة نيابة عن"
                         value={formData.username}
-                        onChange={(e) => setFormData({ ...formData, username: e.target.value })}
+                        onChange={(e) => setFormData({...formData, username: e.target.value})}
                         classNames={{
                             base: "",
                             input: "border-none focus:ring-0",
                         }}
                         startContent={
-                            <PersonIcon stroke="#bb9661" fill="#bb9661" strokeWidth={0.1} />
+                            <PersonIcon stroke="#bb9661" fill="#bb9661" strokeWidth={0.1}/>
                         }
                         type="text"
                     />
@@ -83,20 +83,20 @@ const ZiaraForm = () => {
                         name="phone"
                         placeholder="رقم الهاتف"
                         value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
                         classNames={{
                             base: "",
                             input: "border-none focus:ring-0",
                         }}
                         startContent={
-                            <MobileIcon stroke="#bb9661" fill="none" strokeWidth={1.5} />
+                            <MobileIcon stroke="#bb9661" fill="none" strokeWidth={1.5}/>
                         }
                         type="number"
                     />
 
                     {/* Dropdown for Countries */}
                     <CountriesDropdown
-                        onCountryChange={(e) => setFormData({ ...formData, country: e })}
+                        onCountryChange={(e) => setFormData({...formData, country: e})}
                     />
 
                     {errors && <p className="text-red-500 text-sm">{errors}</p>} {/* Display one error message */}
@@ -111,15 +111,15 @@ const ZiaraForm = () => {
                 </div>
             ) : (
 
-                    <motion.div
-                        initial={{opacity: 0}}
-                        animate={{opacity: 1}}
-                        transition={{duration: 1}}
-                        className="flex flex-col gap-6  pb-20 items-center   pt-20 py-6 ml-0 lg:ml-16 w-[70%] sm:w-[50%] md:w-[35%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%]"
-                    >
-                        <FontAwesomeIcon icon={faCircleCheck} className={"text-7xl lg:text-9xl"}/>
-                        <p>تم ادراج اسمك في قائمة الزائرين</p>
-                    </motion.div>
+                <motion.div
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    transition={{duration: 1}}
+                    className="flex flex-col gap-6  pb-20 items-center   pt-20 py-6 ml-0 lg:ml-16 w-[70%] sm:w-[50%] md:w-[35%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%]"
+                >
+                    <FontAwesomeIcon icon={faCircleCheck} className={"text-7xl lg:text-9xl"}/>
+                    <p>تم ادراج اسمك في قائمة الزائرين</p>
+                </motion.div>
 
             )}
         </div>
@@ -127,8 +127,8 @@ const ZiaraForm = () => {
 };
 
 
-export default function Services() {
-    // Animation variants for the motion.div
+export default function page() {
+
     const containerVariants = {
         hidden: {opacity: 0, x: 100}, // Start off-screen to the right
         visible: {
@@ -140,11 +140,11 @@ export default function Services() {
             },
         },
     };
-
     return (
-        <div className="pt-20">
-            <div className="relative text-white flex flex-col items-center space-y-2  ">
-                <div className="absolute h-full w-full bg-dark-background -z-10 max-lg:hidden" />
+        <>
+
+            <div
+                className="relative bg-dark-background -z-10 pt-32 pb-10 text-white flex flex-col items-center space-y-2  ">
                 <div className="container flex flex-col items-center py-12">
                     <div
                         className="relative flex justify-between  items-center
@@ -157,30 +157,15 @@ export default function Services() {
                             variants={containerVariants}
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, amount: 0.3 }}
-                            className="flex justify-start flex-col
+                            viewport={{once: true, amount: 0.3}}
+                            className="flex justify-center flex-col
 				                w-[60%] lg:w-1/2
 							    h-fit lg:h-full
 							    gap-4 lg:gap-8 xl:gap-14
                               max-lg:text-gray-900
 							 "
                         >
-                            <div className="w-full flex items-center sm:items-center gap-2 md:gap-4 pb-8 lg:pb-0 max-lg:hidden">
-                                <Image
-                                    src={"/shapes/title-icon.svg"}
-                                    width={150}
-                                    height={150}
-                                    alt="title icon"
-                                    className="w-3 sm:w-4 xl:w-5"
-                                />
-                                <h1
-                                    className={
-                                        "mt-2 text-lg md:text-xl lg:text-2xl xl:text-3xl font-extrabold text-white text-justify"
-                                    }
-                                >
-                                    الخدمات
-                                </h1>
-                            </div>
+
                             <p className="text-2xl sm:text-2xl xl:text-5xl font-bold text-start
                             !leading-[30px] lg:!leading-[70px]
                             max-lg:text-center
@@ -214,13 +199,56 @@ export default function Services() {
                             }}
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, amount: 0.3 }}
+                            viewport={{once: true, amount: 0.3}}
                         >
-                            <ZiaraForm />
+                            <ZiaraForm/>
                         </motion.div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
+
+            <div
+                className="container grid gap-y-4 md:grid-cols-2 lg:grid-cols-3 md:gap-y-10 md:gap-x-10 lg:py-10 justify-items-center">
+
+                <div
+                    className="w-full  p-8 bg-white border-1 border-neutral-200 drop-shadow-lg rounded-2xl flex flex-col justify-start items-center gap-8 text-center"
+                >
+                    <div className="flex flex-col justify-between items-center gap-4 text-center">
+                        <h4 className="text-2xl font-bold">
+                            الطلبات قيد الانتظار
+                        </h4>
+                        <p className="text- text-neutral-500 leading-6">
+                            3232
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    className="w-full  p-8 bg-white border-1 border-neutral-200 drop-shadow-lg rounded-2xl flex flex-col justify-start items-center gap-8 text-center"
+                >
+                    <div className="flex flex-col justify-between items-center gap-4 text-center">
+                        <h4 className="text-2xl font-bold">
+                            عدد الطلبات المنجزة
+                        </h4>
+                        <p className="text- text-neutral-500 leading-6">
+                            3232
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    className="w-full  p-8 bg-white border-1 border-neutral-200 drop-shadow-lg rounded-2xl flex flex-col justify-start items-center gap-8 text-center"
+                >
+                    <div className="flex flex-col justify-between items-center gap-4 text-center">
+                        <h4 className="text-2xl font-bold">
+                            اجمالي الطلبات
+                        </h4>
+                        <p className="text- text-neutral-500 leading-6">
+                            3232
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </>
+    )
 }
