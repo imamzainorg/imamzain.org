@@ -46,8 +46,8 @@ export default function InstitutionMessage() {
 			<SectionCta
 				links={[
 					{
-						label: "رؤية المؤسسة",
-						href: "/about/vision-and-goals#vision",
+						label: "اهداف المؤسسة",
+						href: "/about/vision-and-goals#goals",
 					},
 					{
 						label: "رسالة المؤسسة",
