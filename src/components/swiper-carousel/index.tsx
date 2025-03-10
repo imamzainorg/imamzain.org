@@ -81,13 +81,12 @@ export default function SwiperCarousel({images}: { images: Attachment[] }) {
 						className="h-full w-full"
 						style={{boxSizing: "content-box"}}
 					>
-						<div
-							className="flex justify-center items-center w-full h-full rounded-2xl bg-secondary shadow-2xl">
+						<div className="flex justify-center items-center w-full h-full rounded-2xl  shadow-2xl bg-secondary">
 							<ImageView
 								images={images}
 								src={src.path}
 								alt={`Image ${index}`}
-								className="rounded-2xl object-cover shadow-lg w-full h-full  "
+								className="rounded-2xl shadow-lg w-full h-full"
 							/>
 						</div>
 					</SwiperSlide>

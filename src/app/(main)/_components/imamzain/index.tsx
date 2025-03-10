@@ -14,8 +14,8 @@ export default function Imamzain() {
 		},
 	}
 	return (
-		<>
-			<div className="bg-[url('/images/albaqi.jpg')] bg-cover">
+		<div className="pt-20">
+			<div className="bg-[url('/images/albaqi.jpg')] bg-cover ">
 				<div className="bg-secondary/80 text-white">
 					<motion.div className="container flex flex-col gap-12 py-20 max-sm:py-8 overflow-hidden w-fit h-fit">
 						<h1 className="text-3xl text-center md:text-right md:text-4xl text-primary font-bold  ">
@@ -58,6 +58,6 @@ export default function Imamzain() {
 					</motion.div>
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }

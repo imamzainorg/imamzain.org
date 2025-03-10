@@ -22,7 +22,6 @@ interface ImageViewProps {
 	src: string
 	className?: string
 	alt?: string
-	view?: boolean
 }
 
 export default function ImageView({
@@ -56,12 +55,12 @@ export default function ImageView({
 	};
 	return (
 		<>
-			<div className={`${className} relative`}>
+			<div className={`${className} relative w-inherit h-inherit overflow-hidden`}>
 				<Image
 					src={src}
 					alt={`Image-${alt ?? src}`}
 					fill
-					className={`${className}`}
+					className={`object-cover w-inherit h-inherit  `}
 					sizes="(max-width: 768px) 100vw , 700px"
 				/>
 				{images && (

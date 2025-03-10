@@ -1,54 +1,51 @@
-"use client"
+"use client";
 
-import React from "react"
-import { Autocomplete, AutocompleteItem } from "@heroui/react"
-import { Globe } from "lucide-react"
-import countries from "i18n-iso-countries"
-import ar from "i18n-iso-countries/langs/ar.json"
+import { Autocomplete, AutocompleteItem } from "@heroui/react";
+import { Globe } from "lucide-react";
+import React, { useState } from "react";
+import countries from "i18n-iso-countries";
+import ar from "i18n-iso-countries/langs/ar.json";
+import {Key} from "@react-types/shared";
+countries.registerLocale(ar);
 
-countries.registerLocale(ar)
+const CountriesDropdown = ({ className, onCountryChange }: { className?: string, onCountryChange?: (key: Key | null) => void }) => {
+    const countryNamesInArabic = countries.getNames("ar", { select: "official" });
+    const countriesArray = Object.entries(countryNamesInArabic).map(
+        ([key, label]) => ({
+            key,
+            label,
+        })
+    );
 
-interface CountriesDropdownProps {
-	className?: string
-	value?: string
-	onChange?: (value: string) => void
-}
+    // State to store selected country
+    const [selectedCountry, setSelectedCountry] = useState<string>("");
 
-const CountriesDropdown: React.FC<CountriesDropdownProps> = ({
-	className,
-	value,
-	onChange,
-}) => {
-	const countryNamesInArabic = countries.getNames("ar", {
-		select: "official",
-	})
-	const countriesArray = Object.entries(countryNamesInArabic).map(
-		([key, label]) => ({
-			key,
-			label,
-		}),
-	)
+    // Handle country selection
+    const handleCountryChange = (key: Key | null) => {
+        if (key) {
+            setSelectedCountry(key.toString()); // Convert the key to string if it's not null
+            if (onCountryChange) {
+                onCountryChange(key); // Pass the selected country key to the parent component
+            }
+        }
+    };
 
-	return (
-		<Autocomplete
-			startContent={
-				<Globe stroke="#bb9661" fill="none" strokeWidth={2} />
-			}
-			className={`w-full ${className || ""}`}
-			placeholder="البلد"
-			size="lg"
-			value={value}
-			onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-				if (onChange) onChange(e.target.value)
-			}}
-		>
-			{countriesArray.map((country) => (
-				<AutocompleteItem key={country.key} value={country.label}>
-					{country.label}
-				</AutocompleteItem>
-			))}
-		</Autocomplete>
-	)
-}
+    return (
+        <Autocomplete
+            startContent={<Globe stroke="#bb9661" fill="none" strokeWidth={2} />}
+            className={`w-full ${className}`}
+            placeholder="البلد"
+            size="lg"
+            value={selectedCountry}
+            onSelectionChange={(key) => handleCountryChange(key)}
+        >
+            {countriesArray.map((country) => (
+                <AutocompleteItem key={country.key} value={country.key}>
+                    {country.label}
+                </AutocompleteItem>
+            ))}
+        </Autocomplete>
+    );
+};
 
-export default CountriesDropdown
+export default CountriesDropdown;
