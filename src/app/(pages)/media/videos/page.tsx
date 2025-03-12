@@ -9,10 +9,10 @@ import {useState} from "react";
 import VideoComponent from "./_components/video-section";
 
 export default function Page() {
-    const [videoId, setVideoId] = useState<string | null>(null);
+	const [videoId, setVideoId] = useState<string | null>(null)
 
-    const openModal = (videoId: string) => setVideoId(videoId);
-    const closeModal = () => setVideoId(null);
+	const openModal = (videoId: string) => setVideoId(videoId)
+	const closeModal = () => setVideoId(null)
 
     return (
         <div className="">
@@ -73,25 +73,25 @@ export default function Page() {
                 ))}
             </div>
 
-            {videoId && (
-                <div
-                    className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center p-4 z-50"
-                    onClick={closeModal}
-                >
-                    <div
-                        className="relative bg-black rounded-lg overflow-hidden w-full max-w-4xl aspect-video"
-                        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
-                    >
-                        {/* YouTube Video */}
-                        <iframe
-                            className="w-full h-full"
-                            src={`https://www.youtube.com/embed/O33ZsudmqcU?autoplay=1`}
-                            title="YouTube Video"
-                            allow="autoplay; fullscreen"
-                        ></iframe>
-                    </div>
-                </div>
-            )}
-        </div>
-    );
+			{videoId && (
+				<div
+					className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center p-4 z-50"
+					onClick={closeModal}
+				>
+					<div
+						className="relative bg-black rounded-lg overflow-hidden w-full max-w-4xl aspect-video"
+						onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+					>
+						{/* YouTube Video */}
+						<iframe
+							className="w-full h-full"
+							src={`https://www.youtube.com/embed/O33ZsudmqcU?autoplay=1`}
+							title="YouTube Video"
+							allow="autoplay; fullscreen"
+						></iframe>
+					</div>
+				</div>
+			)}
+		</div>
+	)
 }
