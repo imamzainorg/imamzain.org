@@ -16,7 +16,7 @@ export default function InstitutionMessage() {
 	}
 
 	return (
-		<div className="container py-20 flex flex-col gap-8">
+		<div className="container pt-20 flex flex-col gap-8">
 			<h1 className="text-3xl text-center md:text-right md:text-5xl text-primary font-bold">
 				رؤية المؤسسة
 			</h1>
@@ -46,8 +46,8 @@ export default function InstitutionMessage() {
 			<SectionCta
 				links={[
 					{
-						label: "رؤية المؤسسة",
-						href: "/about/vision-and-goals#vision",
+						label: "اهداف المؤسسة",
+						href: "/about/vision-and-goals#goals",
 					},
 					{
 						label: "رسالة المؤسسة",

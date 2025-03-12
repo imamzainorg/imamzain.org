@@ -132,6 +132,7 @@ export default function Header() {
 		setExpandedIndex((prev) => (prev === index ? null : index))
 	}
 
+
 	return (
 		<motion.div className="text-white">
 			{/* Header */}
@@ -141,7 +142,7 @@ export default function Header() {
 				animate={
 					isSmallScreen
 						? "visible"
-						: isScrollDown
+						: isScrollDown && path !== "/media/videos"
 							? "visible"
 							: "hidden"
 				}
@@ -154,9 +155,7 @@ export default function Header() {
 
 				{/* Navbar */}
 				<div
-					className={`w-full  -3 rounded-b-[2rem] ${
-						isScrolled || path !== "/" ? `bg-primary ${isMenuVisible ? "" : "shadow-2xl"}` : ""
-					}`}
+					className={`w-full z-50 rounded-b-[2rem] ${ isScrolled || path !== "/" && path !== "/media/videos"   ?( `bg-primary ${isMenuVisible ? "" : "shadow-2xl"}` ): "" }`}
 				>
 					<div className="container flex justify-between items-center gap-4">
 						<Link href="/">

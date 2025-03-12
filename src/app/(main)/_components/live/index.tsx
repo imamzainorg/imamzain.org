@@ -3,7 +3,7 @@ import { PlayButtonIcon } from "@/assets/icons/reusable"
 import {motion} from "framer-motion"
 export default function Live() {
 	return (
-		<>
+		<div className="pt-20">
 			<div className="container   flex flex-col justify-between md:flex-row items-center gap-4 md:gap-8 xl:gap-16  ">
 				<motion.div
 					variants={{
@@ -72,6 +72,6 @@ export default function Live() {
 					</div>
 				</motion.div>
 			</div>
-		</>
+		</div>
 	)
 }

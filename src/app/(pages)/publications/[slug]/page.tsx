@@ -36,8 +36,8 @@ export default async function Page({
 			/>
 			{/* الكتاب المقصود */}
 			<div className="pt-20 sm:pt-40">
-				<div className="border bg-gray-100  flex  border-primary/30 shadow-xl shadow-primary/20 rounded-3xl flex-col     w-full">
-					<div className="flex flex-col relative  sm:flex-row -top-24 sm:top-0     justify-center items-center ">
+				<div className="border bg-gray-100  flex  border-primary/30 shadow-xl shadow-primary/20 rounded-3xl flex-col     ">
+					<div className="flex flex-col relative  sm:flex-row -top-24 sm:top-0     justify-center items-center  w-3/4 mx-auto">
 						<Image
 							src={publication.image}
 							width={350}

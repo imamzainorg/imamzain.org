@@ -6,14 +6,15 @@ import Breadcrumbs from "@/components/breadcrumb";
 import PostCard from "./_components/news-card";
 import { dataFetcher } from "@/lib/dataFetcher";
 import { Post } from "@/types/post";
-import Arrow from "@/components/Arrow"
+import Arrow from "@/components/Arrow";
+import News from "@/data/news-alataba.json";
 export default async function Page() {
   const data = await dataFetcher<Post[]>("posts.json");
-
   const latestData = data.slice(0, 5);
   const mostReadData = data.slice(0, 3);
   const meetingsData = data.slice(0, 4);
-
+  const group1Data = data.slice(0, 11);
+  const group2Data = data.slice(11, 21);
   return (
     <div>
       <div className="flex justify-between items-end mt-2 xl:mt-0 xl:mb-4">
@@ -23,13 +24,14 @@ export default async function Page() {
             { name: "الأخبار", url: "#" },
           ]}
         />
-     
-     <Link
-					  href="/news/archives"
-					className="flex text-white p-1 md:text-sm md:mb-1 xl:pr-2 xl:relative xl:left-14   text-[10px] group items-center gap-5 bg-primary border-2 border-transparent hover:bg-secondary rounded-xl transition duration-1000"
-					>
-			ارشيف الاخبار		<Arrow className="translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 duration-300" />
-				</Link>
+
+        <Link
+          href="/news/archives"
+          className="flex text-white p-1 md:text-sm md:mb-1 xl:pr-2 xl:relative xl:left-14   text-[10px] group items-center gap-5 bg-primary border-2 border-transparent hover:bg-secondary rounded-xl transition duration-1000"
+        >
+          ارشيف الاخبار{" "}
+          <Arrow className="translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 duration-300" />
+        </Link>
       </div>
 
       {/* Latest Posts */}
@@ -127,6 +129,73 @@ export default async function Page() {
             </p>
           </div>
         </Link>
+      </div>
+      <SectionTitle title="  اخبار العتبة الحسينية المقدسة" />
+
+      <div className="flex flex-col lg:flex-row gap-y-8 lg:gap-x-16 mt-2">
+        <Link
+          href={`/news/${group1Data[10].slug}`}
+          key={group1Data[10].id}
+          className="lg:w-1/2 w-full xl:mt-4"
+        >
+          <div className="">
+            {News.group1.map((item) => (
+              <div key={item.id} className="rounded-xl ">
+                <div className="relative w-full h-full overflow-hidden rounded-xl hover:cursor-pointer  border-4 border-transparent transition-all  hover:border-secondary duration-300 ease-in-out">
+                  <Image
+                    src={item.image}
+                    alt={item.description}
+                    width={1500}
+                    height={1500}
+                    className="w-full h-full object-cover  transform-origin:center duration-300 hover:scale-110"
+                  />
+                </div>
+
+                <h2 className="xl:text-2xl text-lg pt-2 pr-3 font-bold  text-gray-900">
+                  {item.title}
+                </h2>
+
+                <p className="text-sm pr-3 font-medium text-gray-700  mt-2 lg:text-lg mx-auto">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Link>
+        <div className="w-full lg:w-1/2 md:grid md:grid-cols-2 gap-2 p-2">
+          {Array.isArray(News.group2) &&
+            News.group2.map((item) => {
+              if (!item) return null;
+
+              const correspondingEndData = group2Data.find(
+                (data) => data.id === item.id
+              );
+
+              return (
+                <Link
+                  key={item.id}
+                  href={`/news/${correspondingEndData?.slug}`}
+                  className=""
+                >
+                  <div className="rounded-xl overflow-hidden">
+                    <div className="relative w-full h-auto overflow-hidden rounded-xl hover:cursor-pointer border-4 border-transparent transition-all hover:border-secondary duration-300 ease-in-out">
+                      <Image
+                        src={item.image}
+                        alt={item.description}
+                        width={1500}
+                        height={1500}
+                        className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-110"
+                      />
+                    </div>
+
+                    <p className="text-base font-semibold mt-2 p-1 pr-2">
+                      {item.description}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
+        </div>
       </div>
     </div>
   );

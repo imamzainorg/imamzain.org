@@ -32,18 +32,18 @@ export default function BooklibraryCard({
 					</div>
 				)}
 			</div>
-			<div className=" w-2/3 flex flex-col h-5/6 justify-center gap-0 sm:gap-1 md:gap-5 xmd:gap-7  lg:gap-0  relative">
-				<h2 className="text-primary text-[0.6rem] xs:text-lg sm:text-xl lg:text-base xl:text-xl font-bold  absolute top-2 xs:top-1 sm:top-3 lg:top-1 2xl:top-3 ">
+			<div className=" w-2/3 flex flex-col h-5/6 pb-5 pt-3 gap-0 sm:gap-1 md:gap-5 xmd:gap-7  lg:gap-0 justify-between">
+				<h2 className="text-primary text-[0.6rem] xs:text-lg sm:text-xl lg:text-base xl:text-xl font-bold  ">
 					{publication.title}
 				</h2>
 
-				<span className="text-[0.5rem] xs:text-sm sm:text-lg md:text-xl lg:text-sm xl:text-lg font-medium absolute top-10 xs:top-14 sm:top-16 lg:top-14 xl:top-16 2xl:top-20">
+				<span className="text-[0.5rem] xs:text-sm sm:text-lg md:text-xl lg:text-sm xl:text-lg font-medium">
 					{publication.author}
 				</span>
-				<span className="text-[8px] xs:text-[0.7rem] sm:text-md md:text-lg lg:text-[10px] xl:text-[14px] 2xl:text-base font-light absolute top-14 xs:top-20 sm:top-24 lg:top-[90px] xl:top-[120px]">
+				<span className="text-[8px] xs:text-[0.7rem] sm:text-md md:text-lg lg:text-[10px] xl:text-[14px] 2xl:text-base font-light ">
 					الناشر: {publication.printHouse}{" "}
 				</span>
-				<div className="flex justify-between w-11/12 mt-2 text-[0.5rem] xs:text-[10px] sm:text-xs  lg:text-[10px] 2xl:text-[12px]  font-light tracking-wide text-gray-600 absolute top-[73px] xs:top-28 sm:top-36 md:top-48 xmd:top-56 lg:top-[115px] xl:top-36 2xl:top-44">
+				<div className="flex justify-between w-11/12 mt-2 text-[0.5rem] xs:text-[10px] sm:text-xs  lg:text-[10px] 2xl:text-[12px]  font-light tracking-wide text-gray-600">
 					<span>{publication.pages} صفحة</span>
 					<span>{publication.views} مشاهدة</span>
 				</div>

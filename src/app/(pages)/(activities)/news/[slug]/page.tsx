@@ -22,19 +22,18 @@ export default async function page({
 
 	// mimic the data recieved from fetch(https://api.imamzain.org/news/{slug}/related)
 	const relatedData = data.slice(0, 3)
-
 	return (
 		<div>
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
 					{ name: "الأخبار", url: "/news" },
+					{ name: post.category, url: "/news/category" },
 					{ name: post.title, url: "#" },
 				]}
 			/>
-
 			{/* post title */}
-			<h1 className="p-2 sm:p-4 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mx-auto font-semibold mb-6">
+			<h1 className="p-2 sm:p-4 text-base sm:text-lg md:text-xl lg:text-2xl  mx-auto font-bold mb-6">
 				{post.title}
 			</h1>
 			<div className="flex gap-x-10 justify-between flex-wrap">
@@ -79,7 +78,6 @@ export default async function page({
 						</div>
 					</div>
 				</div>
-
 				{/* post content */}
 				<div className="text-xl mt-16 lg:mt-24 tracking-tight space-y-6 lg:space-y-3 lg:col-span-2 lg:order-last w-full">
 					<h1 className="">{post.body.lede}</h1>
@@ -89,14 +87,11 @@ export default async function page({
 					/>
 					<p className="">{post.body.tail}</p>
 				</div>
-
 				{/* related data */}
-
 				<div className="lg:w-4/12">
 					<h2 className="text-primary font-bold text-center lg:text-left p-4 mb-2 sm:text-xl xl:text-2xl">
 						مواضيع ذات صلة
 					</h2>
-
 					<div className="grid grid-cols-1 gap-4">
 						{relatedData.map((post) => (
 							<PostCard key={post.id} {...post} />
@@ -104,7 +99,6 @@ export default async function page({
 					</div>
 				</div>
 			</div>
-
 			{post.attachments && (
 				<div className="pt-20">
 					<SwiperGallery images={post.attachments} />
