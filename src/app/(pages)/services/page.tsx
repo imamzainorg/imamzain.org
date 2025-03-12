@@ -32,9 +32,9 @@ export default function Page() {
 		setFormData((prev: FormData) => ({ ...prev, [name]: value }))
 	}
 
-	const handleCountryChange = (value: string) => {
-		setFormData((prev: FormData) => ({ ...prev, country: value }))
-	}
+	// const handleCountryChange = (value: string) => {
+	// 	setFormData((prev: FormData) => ({ ...prev, country: value }))
+	// }
 
 	const isValidEmail = (email: string): boolean => {
 		return /\S+@\S+\.\S+/.test(email)
@@ -142,8 +142,8 @@ export default function Page() {
 						/>
 						<CountriesDropdown
 							className="border-none w-full"
-							value={formData.country}
-							onChange={handleCountryChange}
+							// value={formData.country}
+							// onChange={handleCountryChange}
 						/>
 						<div className="relative w-full">
 							<textarea
