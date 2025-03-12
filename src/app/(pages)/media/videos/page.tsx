@@ -1,16 +1,11 @@
-"use client";
-import Image from "next/image";
-import Breadcrumbs from "@/components/breadcrumb";
+"use client"; 
 import playlists from "@/data/youtube.json";
 import {motion} from "framer-motion";
 import ImageView from "@/components/image-view";
-import {
-    PlayButtonIcon,
-    TimeIcon,
+import { 
     VideoRecordingIcon,
 } from "@/assets/icons/reusable";
-import {useState} from "react";
-import {Eye, Play} from "lucide-react";
+import {useState} from "react"; 
 import VideoComponent from "./_components/video-section";
 
 export default function Page() {
@@ -21,7 +16,7 @@ export default function Page() {
 
     return (
         <div className="">
-            <div className=" container    absolute top-0 left-0 right-0 z-10">
+            {/* <div className=" container    absolute top-0 left-0 right-0 z-10">
                 <Breadcrumbs
                     className="    text-white  "
                     dotColor="bg-secondary"
@@ -30,7 +25,7 @@ export default function Page() {
                         {name: "المرئيات", url: "#"},
                     ]}
                 />
-            </div>
+            </div> */}
             < VideoComponent/>
             <div className=" container pb-32">
                 {playlists.map((playlist, index) => (
