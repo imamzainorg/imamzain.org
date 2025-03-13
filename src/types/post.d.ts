@@ -1,7 +1,7 @@
 import { Attachment } from "./attachments"
 
 export type PostCategory =
-	| "العنبة الحسينية"
+	| "العتبة الحسينية"
 	| " مؤتمرات"
 	| "اخبار"
 	| "لقاءات"
