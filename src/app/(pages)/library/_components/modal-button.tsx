@@ -14,7 +14,7 @@ export default function ModalButton({ subject }: { subject: Subject }) {
 				onClick={() => setOpen(true)}
 				className="group shadow-md hover:shadow-xl shadow-secondary/20 bg-white/60 border cursor-pointer rounded-xl flex justify-between items-center p-4 m-5 border-slate-200 hover:border-secondary/70 duration-150"
 			>
-				<h2 className="font-bold text-xs lg:text-lg">
+				<h2 className="font-medium text-xs lg:text-lg">
 					{subject.title}
 				</h2>
 				<h3 className="text-base p-1 px-2  rounded-md sm:rounded-lg border font-bold border-slate-300 group-hover:border-secondary/70 duration-150">
