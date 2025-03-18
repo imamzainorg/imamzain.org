@@ -6,10 +6,10 @@ import SectionCta from "@/components/section-cta"
 import { dataFetcher } from "@/lib/dataFetcher"
 import { Book } from "@/types/book"
 import Link from "next/link";
-import Section from "@/components/section"
+
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
-import BoxesList from "../_components/follow-al-sahifa";
+
 export default async function Page() {
 	const libraryBooks = await dataFetcher<Book[]>("library.json")
 	return (
@@ -45,12 +45,7 @@ export default async function Page() {
           alt="al-sahifa cover "
         />
       </div>
-	  <Section title=" " />
-      <div className="">
-        <main className=" flex items-center justify-center w-3/4 mx-auto ">
-          <BoxesList />
-        </main>
-      </div>
+	
 			<div className="m-10">
 				<SectionCta
 					links={[
