@@ -63,9 +63,9 @@ export default function Publications({
 		<div className="container w-full flex flex-col items-center pt-20">
 			<div className="flex w-full items-center justify-between my-8">
 				<HeaderSections
-					title={"الأصدارات"}
+					title={"الإصدارات"}
 					moreButton={{
-						label: "ارشيف الأصدارات",
+						label: "ارشيف الإصدارات",
 						href: "/publications",
 					}}
 				/>

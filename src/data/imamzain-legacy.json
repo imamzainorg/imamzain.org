@@ -6832,6 +6832,7 @@
         "title": "ما ألحقه السيد محسن الأمين العاملي",
         "slug": "",
         "subjects": []
+        
       }
     ]
   },
@@ -6849,6 +6850,7 @@
             "id": "١",
             "title": "مقدمة الرسالة",
             "slug": "risalat-al-huqoq-introduction",
+          
             "phrases": [
               {
                 "id": "١",
@@ -6962,6 +6964,7 @@
         "id": 2,
         "title": "حقوق الله عز وجل",
         "slug": "the-rights-of-god",
+        
         "subjects": [
           {
             "id": "١",

@@ -14,13 +14,13 @@ export default async function page() {
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
-					{ name: "الأصدارات", url: "/publications" },
+					{ name: "الإصدارات", url: "/publications" },
 				]}
 			/>
 
 			{/* highlighted books */}
 			<div className="w-full">
-				<SectionTitle title="الأصدارات" />
+				<SectionTitle title="الإصدارات" />
 				<div className="w-11/12 mx-auto my-8">
 					<HighlightCarousel publications={publications} />
 				</div>
