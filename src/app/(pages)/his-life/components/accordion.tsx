@@ -10,7 +10,7 @@ export default function HisLifeAccordion({
 	section: { title: string; slug: string; content: string }
 }) {
 	return (
-		<Accordion >
+		<Accordion>
 			<AccordionItem
 				key={section.title}
 				aria-label={section.title}
@@ -25,9 +25,10 @@ export default function HisLifeAccordion({
 					indicator: "hidden",
 				}}
 			>
-				<div className="text-justify px-8 pt-12 bg-yellow-50 rounded-b-3xl -translate-y-10 z-10 relative line-clamp-6 leading-loose">
-					{section.content}
-				</div>
+				<div
+					className="text-justify px-8 pt-12 bg-yellow-50 rounded-b-3xl -translate-y-10 z-10 relative line-clamp-6 leading-loose"
+					dangerouslySetInnerHTML={{ __html: section.content }}
+				/>
 				<div className="w-full flex justify-end">
 					<Link
 						href={`/his-life/${section.slug}`}
