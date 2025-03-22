@@ -45,7 +45,7 @@ export function HighlightCarousel({ publications }: { publications: Book[] }) {
 							className="flex justify-center gap-2 sm:gap-6"
 						>
 							<div className="w-7/12 flex flex-col justify-center gap-4 sm:gap-8 lg:gap-12">
-								<h1 className="text-sm sm:text-3xl lg:text-5xl xl:text-5xl font-extrabold !leading-[5rem] tracking-wide">
+								<h1 className="text-sm sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold xl:!leading-[5rem] tracking-wide">
 									{publication.title}
 								</h1>
 								<h3 className="text-xs sm:text-2xl">
