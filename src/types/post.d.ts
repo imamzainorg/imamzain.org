@@ -6,6 +6,7 @@ export type PostCategory =
 	| "اخبار"
 	| "لقاءات"
 	| "ندوات"
+	| "مجالس"
 
 export type Post = {
 	id: number
