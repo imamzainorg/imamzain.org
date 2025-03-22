@@ -23,7 +23,7 @@ import {LogoRotate} from "@/layouts/header/logo-rotate";
 
 const links = [
 	{
-		label: "سيرة الأمام زين العابدين (ع)",
+		label: "سيرة الإمام زين العابدين (ع)",
 		href: "/his-life",
 	},
 	{
@@ -34,7 +34,7 @@ const links = [
 		],
 	},
 	{
-		label: "الأصدارات",
+		label: "الإصدارات",
 		href: "/publications",
 	},
 	{

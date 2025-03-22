@@ -69,10 +69,10 @@ export default function TopBar() {
 			>
 				<div className="container">
 					<div className="flex justify-between items-center py-1">
-						<div className="flex items-center gap-2">
+						<div className="flex items-center gap-2 invisible">
 							<FontAwesomeIcon
 								icon={faCalendar}
-								color={`${!isScrolled && path === "/"? "#ffffff" : "#bb9661"}`}
+								color={`${!isScrolled && path === "/" ? "#ffffff" : "#bb9661"}`}
 							/>
 							<p
 								className={`text-sm  p-0 mt-1 ${!isScrolled && path === "/" ? "text-[#ffffff]" : "text-[#bb9661]"}`}

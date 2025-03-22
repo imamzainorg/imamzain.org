@@ -5,6 +5,10 @@ import ShowcaseSection from "../_components/showcase-section"
 import SectionCta from "@/components/section-cta"
 import { dataFetcher } from "@/lib/dataFetcher"
 import { Book } from "@/types/book"
+import Link from "next/link";
+
+import { ArrowLeft } from "lucide-react";
+import Image from "next/image";
 
 export default async function Page() {
 	const libraryBooks = await dataFetcher<Book[]>("library.json")
@@ -17,7 +21,31 @@ export default async function Page() {
 					{ name: "رسالة الحقوق", url: "#" },
 				]}
 			/>
+   <div className="mt-32 mb-8 mx-auto md:flex justify-center gap-20 p-16 backdrop-blur-[1px] shadow-lg shadow-primary/10 rounded-[110px] border border-primary">
+        <div className="w-full flex flex-col justify-around">
+          <div className="lg:space-y-20 md:space-y-10 space-y-7">
+            <h1 className="text-base md:text-3xl lg:text-4xl xl:text-5xl font-semibold">رسالة الحقوق</h1>
+            <p className= " text-sm md:text-xl lg:tetx-3xl 2xl:text-4xl leading-normal pb-5">
 
+			تعتبر أوّل رسالة قانونية جامعة دوّنت في التأريخ البشري، وهي من الذخائر النفيسة الذي ترتبط ارتباطاً وثيقاً بالإنسان وحقوقه كلّها وتشتمل على شبكة علاقات الإنسان الثلاثة، مع ربِّه ونفسِه ومجتمعه.   </p>
+          </div>
+          <Link
+            href="/library/risalat-al-huqoq/read"
+            className="w-full xs:w-fit  text-sm md:text-xl py-2 px-4 border-2 rounded-xl border-primary flex items-center gap-4 group"
+          >
+			تصفح رسالة الحقوق
+            <ArrowLeft className="opacity-0 translate-x-3 flex items-end justify-start group-hover:opacity-100 group-hover:translate-x-0 duration-150" />
+          </Link>
+        </div>
+        <Image
+          src={`/shapes/book-bg.svg`}
+          className="w-1/3 hidden md:block"
+          width={50}
+          height={50}
+          alt="al-sahifa cover "
+        />
+      </div>
+	
 			<div className="m-10">
 				<SectionCta
 					links={[
