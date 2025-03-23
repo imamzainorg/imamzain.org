@@ -57,7 +57,7 @@ export default async function Page({
 							<div className="flex flex-row justify-between  items-center w-full sm:relative sm:-top-20 xl:-top-36  p-1 ">
 								<Link
 									download
-									href={`${publication.pdf}`}
+									href={publication.pdf}
 									target="_blank"
 									rel="noopener noreferrer"
 									className="flex items-center gap-3 bg-primary text-[10px] whitespace-pre p-4 sm:text-[14px] md:text-lg xl:text-xl rounded-[30px] text-white"
@@ -127,7 +127,8 @@ export default async function Page({
 							الوصف
 							<br />
 							<span className="relative right-4 text-slate-500 ">
-							الوصف الاجزاء 	</span>
+								الوصف الاجزاء{" "}
+							</span>
 						</div>
 					</div>
 				</div>
