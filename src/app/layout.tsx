@@ -70,7 +70,7 @@ const imamzainfont = localFont({
 })
 
 export const metadata: Metadata = {
-	title: "الموقع التجريبي لمؤسسة الإمام زين العابدين",
+	title: "مؤسسة الإمام زين العابدين",
 	description:
 		"مؤسسة قائمة لاحياء تراث ونشر تعاليم الامام علي بن الحسين السجاد عليه السلام",
 }

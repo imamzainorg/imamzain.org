@@ -118,7 +118,7 @@ export default function Footer() {
 								<h3 className="font-bold text-lg mb-4">
 									{section.label}
 								</h3>
-								<ul className="flex flex-col gap-3 mr-5">
+								<ul className="flex flex-col gap-3  ">
 									{section.sublinks.map(
 										(sublink: Sublink, j: number) => (
 											<Link

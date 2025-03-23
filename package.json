@@ -35,6 +35,7 @@
     "i18n-iso-countries": "^7.13.0",
     "libphonenumber-js": "^1.11.16",
     "lucide-react": "^0.468.0",
+    "moment-hijri": "^3.0.0",
     "next": "^15.0.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -48,6 +49,7 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.10",
+    "@types/moment-hijri": "^2.1.4",
     "@types/node": "20.17.19",
     "@types/react": "19.0.10",
     "@types/react-dom": "^19",
