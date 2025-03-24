@@ -26,24 +26,12 @@ export default async function Page({
   }
 
   // If the publication belongs to a series, filter and sort its parts.
-  let seriesParts: Book[] = [];
-  let previousPart: Book | null = null;
-  let nextPart: Book | null = null;
+  let seriesParts: Book[] = []; 
 
   if (publication.series) {
     seriesParts = publications.filter(
       (book) => book.series === publication.series
-    );
-    seriesParts.sort((a, b) => (a.partNumber || 0) - (b.partNumber || 0));
-    const currentIndex = seriesParts.findIndex(
-      (book) => book.slug === publication.slug
-    );
-    if (currentIndex > 0) {
-      previousPart = seriesParts[currentIndex - 1];
-    }
-    if (currentIndex < seriesParts.length - 1) {
-      nextPart = seriesParts[currentIndex + 1];
-    }
+    ); 
   }
 
   return (
