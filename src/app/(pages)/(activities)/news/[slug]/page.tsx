@@ -28,7 +28,7 @@ export default async function page({
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
 					{ name: "الأخبار", url: "/news" },
-					{ name: post.category, url: "/news/category" },
+					// { name: post.category, url: "/news/category" },
 					{ name: post.title, url: "#" },
 				]}
 			/>
