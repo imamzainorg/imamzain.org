@@ -4,20 +4,28 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const images = ["/images/albaqi.jpg"];
+const images = ["/images/albaqi.jpg"]; // You can add more images if needed.
+
+import hadiths from "@/data/hadiths.json"; // Hadiths are stored in a JSON file  
 
 export default function TopImage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [prevImageIndex, setPrevImageIndex] = useState(0);
 
+  // Change image every 10 seconds.
   useEffect(() => {
-    const interval = setInterval(() => {
+    const imageInterval = setInterval(() => {
       setPrevImageIndex(currentImageIndex);
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 10000); // 5 minutes
-
-    return () => clearInterval(interval);
+    }, 10000);
+    return () => clearInterval(imageInterval);
   }, [currentImageIndex]);
+
+  // Get the current day of the month (1-31)
+  const today = new Date();
+  const dayOfMonth = today.getDate(); // e.g., 1 for the 1st, 15 for the 15th, etc.
+  // Calculate the hadith index based on the day.
+  const currentHadithIndex = (dayOfMonth - 1) % hadiths.length;
 
   return (
     <div
@@ -54,19 +62,20 @@ export default function TopImage() {
         />
         <div className="absolute flex flex-col justify-center gap-4 items-center bottom-0 right-0 w-full h-1/2 z-30">
           <motion.div
+            key={hadiths[currentHadithIndex].content} // Trigger animation when hadith changes.
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: 1.5,
               ease: "easeOut",
             }}
-            className="text-3xl text-white text-center py-10 px-12 md:px-0"
+            className="text-3xl text-white text-center py-10 pt-32 px-12 md:px-0"
           >
-            <h1 className="font-bold text-xl lg:text-2xl text-white">
-              عن الإمام زين العابدين (عليه السلام):
+            <h1 className="font-bold text-xl lg:text-2xl text-white pb-5">
+              {hadiths[currentHadithIndex].author}
             </h1>
             <p className="text-xl lg:text-2xl 2xl:text-3xl text-white text-center">
-              اعلم أنك إن تكن ذنبا في الخير خير لك من أن تكون رأسا في الشر.
+              {hadiths[currentHadithIndex].content}
             </p>
           </motion.div>
         </div>
@@ -78,7 +87,7 @@ export default function TopImage() {
             src={images[prevImageIndex]}
             alt="Previous landing image"
             fill
-            sizes="(max-width: 768px) 100vw , 700px"
+            sizes="(max-width: 768px) 100vw, 700px"
             className="object-cover absolute inset-0"
             style={{ objectPosition: "top" }}
           />
@@ -88,14 +97,14 @@ export default function TopImage() {
             key={images[currentImageIndex]}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 3 }} // Smooth fade over 3 seconds
+            transition={{ duration: 3 }}
             className="absolute inset-0 w-full h-full"
           >
             <Image
               src={images[currentImageIndex]}
               alt="Landing image"
               fill
-              sizes="(max-width: 768px) 100vw , 700px"
+              sizes="(max-width: 768px) 100vw, 700px"
               className="object-cover"
               style={{ objectPosition: "top" }}
             />
