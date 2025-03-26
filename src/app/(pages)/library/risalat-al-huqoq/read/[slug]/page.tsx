@@ -44,7 +44,7 @@ export default async function Page({
             <div className="text-center">الصحيفة السجادية</div>
             <div className="border" />
             <div className="flex flex-col gap-5">
-              {risalatAlHuqoq.dictionaries.map((dict) => (
+              {risalatAlHuqoq?.dictionaries.map((dict) => (
                 <Link
                   key={dict.id}
                   href={`/library/risalat-al-huqoq/read/${dict.slug}`}
