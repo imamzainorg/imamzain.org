@@ -1,29 +1,25 @@
 "use client"
 
-import { useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { useEffect } from "react"
+import { usePathname } from "next/navigation"
 
 export default function Template({ children }: { children: React.ReactNode }) {
-    const path = usePathname();
+	const path = usePathname()
 
-    useEffect(() => {
-        // Set the background color based on the path
-        if (path.startsWith("/his-life")) {
-            document.body.style.backgroundColor = "rgb(254, 252, 232)";
-        } else {
-            // Reset the background color if the path doesn't match
-            document.body.style.backgroundColor = ""; // or set to your default color
-        }
+	useEffect(() => {
+		// Set the background color based on the path
+		if (path.startsWith("/his-life")) {
+			document.body.style.backgroundColor = "rgb(254, 252, 232)"
+		} else {
+			// Reset the background color if the path doesn't match
+			document.body.style.backgroundColor = "" // or set to your default color
+		}
 
-        // Cleanup function to reset the background color when the component unmounts
-        return () => {
-            document.body.style.backgroundColor = "";
-        };
-    }, [path]); // Add `path` as a dependency
+		// Cleanup function to reset the background color when the component unmounts
+		return () => {
+			document.body.style.backgroundColor = ""
+		}
+	}, [path]) // Add `path` as a dependency
 
-    return (
-        <div className="pb-12  -mb-24">
-            {children}
-        </div>
-    );
+	return <div className="pb-12  -mb-24">{children}</div>
 }
