@@ -65,14 +65,14 @@ export default async function Page() {
             الإيمان والخشوع.
           </p>
           <Link
-            href="/library/al-sahifa/read"
+            href="/library/al-sahifa/read/al-sahifa-al-sajjadiya"
             className="w-full xs:w-fit  text-sm md:text-xl py-2 px-4 border-2 rounded-xl border-primary flex items-center gap-4 group"
           >
             تصفح الصحيفة الكاملة
             <ArrowLeft className="opacity-0 translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 duration-150" />
           </Link>
         </div>
-        <div className="w-64 max-md:hidden left-28 -top-16 absolute">
+        <div className="w-80 max-md:hidden left-20 -top-20 absolute">
           <Image
             src={`/shapes/book-bg.svg`}
             className="w-full "
