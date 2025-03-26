@@ -2,7 +2,6 @@ import BooklibraryCard from "../_components/book-library-card";
 import Breadcrumbs from "@/components/breadcrumb";
 import RelatedBooks from "../_components/related-books";
 import ShowcaseSection from "../_components/showcase-section";
-import SectionCta from "@/components/section-cta";
 import { dataFetcher } from "@/lib/dataFetcher";
 import { Book } from "@/types/book";
 import Link from "next/link";

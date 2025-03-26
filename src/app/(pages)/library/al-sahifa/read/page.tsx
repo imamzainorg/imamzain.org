@@ -4,7 +4,6 @@ import ModalButton from "../../_components/modal-button";
 import Section from "@/components/section";
 import { Legacy } from "@/types/imamzainLegacy";
 import Link from "next/link";
-import { title } from "process";
 
 export default async function Page() {
   const data = await dataFetcher<Legacy[]>("imamzain-legacy.json");
