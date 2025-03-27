@@ -15,7 +15,7 @@ export default function HisLifeAccordion({
 				key={section.title}
 				aria-label={section.title}
 				title={
-					<div className="relative bg-primary p-4 text-white shadow-lg rounded-2xl font-bold overflow-hidden z-10">
+					<div className=" relative bg-primary p-4 text-white shadow-lg rounded-2xl font-bold overflow-hidden z-10">
 						<span className="mr-8">{section.title}</span>
 						<div className="absolute top-0 -right-4 bg-[url('/shapes/newsIndicator.svg')] bg-center bg-no-repeat -rotate-90 w-14 h-14" />
 					</div>

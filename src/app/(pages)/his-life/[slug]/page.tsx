@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 					
 					
 					<div
-						className="text-justify tracking-tight w-11/12 mx-auto text-lg leading-loose"
+						className=" text-justify tracking-tight w-11/12 mx-auto text-lg leading-loose"
 						dangerouslySetInnerHTML={{ __html: section.content }}
 					/>
 				</div>

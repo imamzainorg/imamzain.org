@@ -19,7 +19,7 @@ export default async function Page() {
 					<h2 className=" text-green-900 text-2xl md:text-3xl font-bold mb-4">
 						سيرة الإمام السجاد عليه السلام
 					</h2>
-					<p className="font-light text-lg md:text-xl leading-7 md:leading-9 lg:leading-loose text-justify tracking-tighter">
+					<p className=" font-light text-lg md:text-xl leading-7 md:leading-9 lg:leading-loose text-justify tracking-tighter">
 						الإمام علي بن الحسين (عليه السلام) هو الإمام الرابع من
 						سلسلة الأئمة الأطهار (عليهم السلام) من آل بيت النبي (صلى
 						الله عليه وآله)، أطل على هذه الدنيا في اليوم الخامس من
