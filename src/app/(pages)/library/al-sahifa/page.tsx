@@ -1,7 +1,7 @@
 import BooklibraryCard from "../_components/book-library-card";
 import Breadcrumbs from "@/components/breadcrumb";
 import RelatedBooks from "../_components/related-books";
-import ShowcaseSection from "../_components/showcase-section"; 
+import ShowcaseSection from "../_components/showcase-section";
 import { dataFetcher } from "@/lib/dataFetcher";
 import { Book } from "@/types/book";
 import Link from "next/link";
@@ -20,27 +20,24 @@ export default async function Page() {
   const dataCard: dataC[] = [
     {
       title: "ما الحقه الحر العاملي",
-      description:
-        "الأصدارات الأدعية للإمام للإمامضين عليه السلام   الأصدارات الأدعية للإمام للإمامضين عليه السلام",
-      URL: "/library/al-sahifa",
+      description: " ",
+      URL: "/library/al-sahifa/read/zfgdfn-fghdfh",
     },
     {
       title: "ما ألحقه الميرزا عبد الله الافندي",
-      description:
-        "الأصدارات الأدعية للإمام للإمامضين عليه السلام   الأصدارات الأدعية للإمام للإمامضين عليه السلام",
-      URL: "/library/al-sahifa",
+      description: " ",
+
+      URL: "/library/al-sahifa/read/ma-alhaqahu-al-mirza-abdullah-al-afandi",
     },
     {
       title: "ما ألحقه الميرزا حسين النوري",
-      description:
-        "الأصدارات الأدعية للإمام للإمامضين عليه السلام   الأصدارات الأدعية للإمام للإمامضين عليه السلام",
-      URL: "/library/al-sahifa",
+      description: " ",
+      URL: "/library/al-sahifa/read/ma-alhaqahu-al-mirza-husayn-al-nuri",
     },
     {
       title: "ما ألحقه السيد محسن الأمين العاملي",
-      description:
-        "الأصدارات الأدعية للإمام للإمامضين عليه السلام   الأصدارات الأدعية للإمام للإمامضين عليه السلام",
-      URL: "/library/al-sahifa",
+      description: " ",
+      URL: "/library/al-sahifa/read/ma-alhaqahu-al-sayyid-muhsin-al-amin-al-amili",
     },
   ];
 

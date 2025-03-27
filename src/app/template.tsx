@@ -47,15 +47,8 @@ export default function Template({ children }: { children: React.ReactNode }) {
 					</div>
 				</motion.div>
 			) : (
-				<motion.div
-					key={path}
-					initial="hidden"
-					animate="enter"
-					exit="exit"
-					variants={variants}
-				>
-					<Layouts>{children}</Layouts>
-				</motion.div>
+ 
+					<Layouts>{children}</Layouts> 
 			)}
 		</AnimatePresence>
 	)

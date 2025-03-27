@@ -77,7 +77,7 @@ const formatHijriDateInArabic = (
     arabicMonths[
       hijriCalendar.findIndex((month) => month.hijriMonth === hijriMonth)
     ];
-  return ` ${arabicDay}- ${arabicMonth} - ${arabicYear} هـ`;
+  return ` ${arabicDay} - ${arabicMonth} - ${arabicYear} هـ`;
 };
 
 export default function TopBar() {

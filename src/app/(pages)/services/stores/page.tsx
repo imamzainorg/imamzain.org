@@ -3,7 +3,7 @@ import storeLocations from "@/data/store-locations.json"
 
 export default function Page() {
 	return (
-		<div className="">
+		<div className="container pb-10">
 			<Breadcrumbs
 				links={[
 					{ name: "الرئيسية", url: "/" },
