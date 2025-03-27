@@ -49,6 +49,10 @@ const links = [
 				label: "رسالة الحقوق",
 				href: "/library/risalat-al-huqoq"
 			},
+			{
+				label: "الصفحة العلمية",
+				href: "/research"
+			},
 		],
 	},
 	{
@@ -203,7 +207,7 @@ export default function Header() {
 											</Link>
 											{hasSubLinks && (
 												<div
-													className="absolute top-[2rem] -right-1 py-2 min-w-60 transform scale-0 -translate-y-5 opacity-0 group-hover:scale-100 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 z-20">
+													className="absolute top-[2rem] -right-1  min-w-60 transform scale-0 -translate-y-5 opacity-0 group-hover:scale-100 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 z-20">
 													<div className="px-4 py-8 bg-gray-100 rounded-lg shadow-lg">
 														{link.subLinks.map((subLink, subIndex) => (
 															<Link

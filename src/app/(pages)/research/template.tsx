@@ -37,7 +37,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
       />
       <div className="flex  pt-4 gap-5">
         <div className="flex flex-col h-fit gap-5 backdrop-blur-[3px] p-5 rounded-3xl border border-primary shadow-primary/10">
-          <div className="border" />
+          {/* <div className="border" /> */}
           <NavLink href="/research" label="                    تعليمات كتابة البحوث المعتمدة
 " />
           <NavLink href="/research/terms" label="ضوابط كتابة البحوث العلمية" />

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const images = ["/images/albaqi.jpg"]; // You can add more images if needed.
 
-import hadiths from "@/data/hadiths.json"; // Hadiths are stored in a JSON file  
+import hadiths from "@/data/hadiths.json"; // Hadiths are stored in a JSON file
 
 export default function TopImage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -69,12 +69,12 @@ export default function TopImage() {
               duration: 1.5,
               ease: "easeOut",
             }}
-            className="text-3xl text-white text-center py-10 pt-32 px-12 md:px-0"
+            className="text-3xl  md:w-1/2  text-white text-center py-10 pt-32 px-12 md:px-0"
           >
             <h1 className="font-bold text-xl lg:text-2xl text-white pb-5">
               {hadiths[currentHadithIndex].author}
             </h1>
-            <p className="text-xl lg:text-2xl 2xl:text-3xl text-white text-center">
+            <p className="text-xl lg:text-2xl 2xl:text-3xl text-white text-center   ">
               {hadiths[currentHadithIndex].content}
             </p>
           </motion.div>
