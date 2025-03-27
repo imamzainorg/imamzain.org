@@ -10,7 +10,7 @@ export default async function page() {
 	const publications = await dataFetcher<Book[]>("publications.json")
 
 	return (
-		<div  >
+		<div>
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
@@ -18,7 +18,7 @@ export default async function page() {
 				]}
 			/>
 
-			{/* highlighted books */}
+			{/* highlighted books  */}
 			<div className="w-full">
 				<SectionTitle title="الإصدارات" />
 				<div className="w-11/12 mx-auto my-8">
