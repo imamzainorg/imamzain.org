@@ -6,7 +6,7 @@
     "dictionaries": [
       {
         "id": 1,
-        "title": "الصحيفة السجادية",
+        "title": "فهرس الصحيفة السجادية",
         "slug": "al-sahifa-al-sajjadiya",
         "subjects": [
           {
@@ -6812,25 +6812,25 @@
       {
         "id": 2,
         "title": "ما الحقه الحر العاملي",
-        "slug": "",
+        "slug": "zfgdfn-fghdfh",
         "subjects": []
       },
       {
         "id": 3,
         "title": "ما ألحقه الميرزا عبد الله الافندي",
-        "slug": "",
+        "slug": "ma-alhaqahu-al-mirza-abdullah-al-afandi",
         "subjects": []
       },
       {
         "id": 4,
         "title": "ما ألحقه الميرزا حسين النوري",
-        "slug": "",
+        "slug": "ma-alhaqahu-al-mirza-husayn-al-nuri",
         "subjects": []
       },
       {
         "id": 5,
         "title": "ما ألحقه السيد محسن الأمين العاملي",
-        "slug": "",
+        "slug": "ma-alhaqahu-al-sayyid-muhsin-al-amin-al-amili",
         "subjects": []
         
       }

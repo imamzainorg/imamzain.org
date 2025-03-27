@@ -9,15 +9,16 @@ export default function ModalButton({ subject }: { subject: Subject }) {
 	// const [selectedphrase, setSelectedPhrase] = useState(subject.phrases[0])
 	const [open, setOpen] = useState(false)
 	return (
-		<div>
+		<>
 			<div
+			    id={subject?.slug}
 				onClick={() => setOpen(true)}
-				className="group shadow-md hover:shadow-xl shadow-secondary/20 bg-white/60 border cursor-pointer rounded-xl flex justify-between items-center p-4 m-5 border-slate-200 hover:border-secondary/70 duration-150"
+				className="w-full h-full group shadow-md hover:shadow-xl shadow-secondary/20 bg-white/60 border cursor-pointer rounded-xl flex justify-between items-center p-4   border-slate-200 hover:border-secondary/70 duration-150"
 			>
-				<h2 className="font-medium text-xs lg:text-lg">
+				<h2 className="font-medium text-xs lg:text-lg group-hover:text-primary">
 					{subject.title}
 				</h2>
-				<h3 className="text-base p-1 px-2  rounded-md sm:rounded-lg border font-bold border-slate-300 group-hover:border-secondary/70 duration-150">
+				<h3 className="text-base p-1 px-2  rounded-md sm:rounded-lg border font-bold border-slate-300 group-hover:text-primary group-hover:border-secondary/70 duration-150">
 					{subject.id}
 				</h3>
 			</div>
@@ -44,6 +45,6 @@ export default function ModalButton({ subject }: { subject: Subject }) {
 					</div>
 				</div>
 			</Modal>
-		</div>
+		</>
 	)
 }

@@ -7,14 +7,16 @@ export default function Section({
 	text,
 	moreButton,
 	dark,
+	id
 }: {
 	title: string
 	text?: string
 	moreButton?: string
 	dark?: boolean
+	id?: string 
 }) {
 	return (
-		<div className="w-full space-y-6 !my-8">
+		<div id={id} className="w-full space-y-6 !my-8">
 			<div className="w-full flex items-center sm:items-center gap-2 md:gap-4">
 				<Image
 					src={"/shapes/title-icon.svg"}
