@@ -19,7 +19,7 @@ import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons"
 import { motion } from "framer-motion"
 import useWindowEvents from "@/hooks/window-events"
 import TopBar from "@/layouts/header/top-bar"
-import {LogoRotate} from "@/layouts/header/logo-rotate";
+import { LogoRotate } from "@/layouts/header/logo-rotate"
 
 const links = [
 	{
@@ -47,12 +47,12 @@ const links = [
 			},
 			{
 				label: "رسالة الحقوق",
-				href: "/library/risalat-al-huqoq"
+				href: "/library/risalat-al-huqoq",
 			},
-			{
-				label: "الصفحة العلمية",
-				href: "/research"
-			},
+			// {
+			// 	label: "الصفحة العلمية",
+			// 	href: "/research"
+			// },
 		],
 	},
 	{
@@ -137,7 +137,6 @@ export default function Header() {
 		setExpandedIndex((prev) => (prev === index ? null : index))
 	}
 
-
 	return (
 		<motion.div className="text-white">
 			{/* Header */}
@@ -152,7 +151,9 @@ export default function Header() {
 							: "hidden"
 				}
 				className={`fixed top-0 left-0 w-full h-fit flex flex-col justify-between lg:justify-around items-center z-50 text-white transition-all duration-300 ${
-					isScrolled || path !== "/" ? "rounded-b-2xl " : "bg-gradient-to-b from-black/70 to-transparent"
+					isScrolled || path !== "/"
+						? "rounded-b-2xl "
+						: "bg-gradient-to-b from-black/70 to-transparent"
 				}`}
 			>
 				{/* Top Bar */}
@@ -160,7 +161,7 @@ export default function Header() {
 
 				{/* Navbar */}
 				<div
-					className={`w-full z-50 rounded-b-[2rem] ${ isScrolled || path !== "/" && path !== "/media/videos"   ?( `bg-primary ${isMenuVisible ? "" : "shadow-2xl"}` ): "" }`}
+					className={`w-full z-50 rounded-b-[2rem] ${isScrolled || (path !== "/" && path !== "/media/videos") ? `bg-primary ${isMenuVisible ? "" : "shadow-2xl"}` : ""}`}
 				>
 					<div className="container flex justify-between items-center gap-4">
 						<Link href="/">
@@ -186,7 +187,8 @@ export default function Header() {
 										{/* Highlight the active link if the current path includes link.href */}
 										<div
 											className={`bg-white absolute rounded-full -bottom-1 right-4 px-2 h-0.5 w-5/6 mx-auto -z-10 ${
-												link.href && path.includes(link.href)
+												link.href &&
+												path.includes(link.href)
 													? "scale-100"
 													: "scale-0"
 											} group-hover:scale-100 origin-center transition-transform duration-300 ease-in-out`}
@@ -203,24 +205,33 @@ export default function Header() {
 													className="w-2"
 													alt="icon"
 												/>
-												<p className=''>{link.label}</p>
+												<p className="">{link.label}</p>
 											</Link>
 											{hasSubLinks && (
-												<div
-													className="absolute top-[2rem] -right-1  min-w-60 transform scale-0 -translate-y-5 opacity-0 group-hover:scale-100 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 z-20">
+												<div className="absolute top-[2rem] -right-1  min-w-60 transform scale-0 -translate-y-5 opacity-0 group-hover:scale-100 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 z-20">
 													<div className="px-4 py-8 bg-gray-100 rounded-lg shadow-lg">
-														{link.subLinks.map((subLink, subIndex) => (
-															<Link
-																key={subIndex}
-																href={subLink.href}
-																className="pr-2 py-2 hover:bg-gray-300 transition group-hover:block text-gray-700"
-															>
-																{subLink.label}
-															</Link>
-														))}
+														{link.subLinks.map(
+															(
+																subLink,
+																subIndex,
+															) => (
+																<Link
+																	key={
+																		subIndex
+																	}
+																	href={
+																		subLink.href
+																	}
+																	className="pr-2 py-2 hover:bg-gray-300 transition group-hover:block text-gray-700"
+																>
+																	{
+																		subLink.label
+																	}
+																</Link>
+															),
+														)}
 													</div>
 												</div>
-
 											)}
 										</>
 									</div>
@@ -232,12 +243,14 @@ export default function Header() {
 						<button
 							className="lg:hidden"
 							onClick={toggleMenu}
-							aria-label={isMenuVisible ? "Close Menu" : "Open Menu"}
+							aria-label={
+								isMenuVisible ? "Close Menu" : "Open Menu"
+							}
 						>
 							{!isMenuVisible ? (
-								<MenuIcon stroke={"#ffffff"}/>
+								<MenuIcon stroke={"#ffffff"} />
 							) : (
-								<XIcon stroke={"#ffffff"}/>
+								<XIcon stroke={"#ffffff"} />
 							)}
 						</button>
 					</div>
@@ -263,7 +276,9 @@ export default function Header() {
 									{link.href ? (
 										<Link
 											href={link.href}
-											onClick={() => setIsMenuVisible(false)}
+											onClick={() =>
+												setIsMenuVisible(false)
+											}
 											className="text-xl text-white hover:text-gray-200 transition"
 										>
 											{link.label}
@@ -292,16 +307,20 @@ export default function Header() {
 											isOpen ? "max-h-96 mt-2" : "max-h-0"
 										}`}
 									>
-										{link.subLinks.map((subLink, subIndex) => (
-											<Link
-												key={subIndex}
-												href={subLink.href}
-												onClick={() => setIsMenuVisible(false)}
-												className="block pl-6 py-2 text-white/90 hover:text-gray-200"
-											>
-												{subLink.label}
-											</Link>
-										))}
+										{link.subLinks.map(
+											(subLink, subIndex) => (
+												<Link
+													key={subIndex}
+													href={subLink.href}
+													onClick={() =>
+														setIsMenuVisible(false)
+													}
+													className="block pl-6 py-2 text-white/90 hover:text-gray-200"
+												>
+													{subLink.label}
+												</Link>
+											),
+										)}
 									</div>
 								)}
 							</div>
@@ -322,13 +341,17 @@ export default function Header() {
 									href={item.href}
 									className="p-2"
 								>
-									<FontAwesomeIcon icon={item.icon} size={"2x"} />
+									<FontAwesomeIcon
+										icon={item.icon}
+										size={"2x"}
+									/>
 								</Link>
 							))}
 						</div>
 					</div>
 					<p className="text-xs sm:text-sm md:text-base lg:text-xl text-gray-300 my-4 p-2">
-						جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (ع) &copy; 1824
+						جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (ع) &copy;
+						1824
 					</p>
 				</div>
 			</nav>
