@@ -1,5 +1,5 @@
-"use client" 
-import { motion } from "framer-motion" 
+"use client"
+import { motion } from "framer-motion"
 import Image from "next/image"
 
 const variants = {
@@ -7,7 +7,7 @@ const variants = {
 	enter: { opacity: 1 },
 	exit: { opacity: 0 },
 }
-export default function Loading() { 
+export default function Loading() {
 	return (
 		<motion.div
 			key="loader"
@@ -27,7 +27,7 @@ export default function Loading() {
 						className="object-contain"
 					/>
 				</div>
-				<div className="text-lg font-semibold text-gray-600 animate-pulse">
+				<div className="text-lg font-semibold text-gray-600 animate-pulse ">
 					Loading...
 				</div>
 			</div>
