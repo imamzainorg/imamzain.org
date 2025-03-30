@@ -42,7 +42,7 @@ const links: LinkSection[] = [
 		],
 	},
 	{
-		label: "المكتب التخصصيه",
+		label: "المكتبة التخصصية",
 		sublinks: [
 			{ label: "ما كتب عن الامام", href: "/library" },
 			{ label: "الصحيفه السجاديه", href: "/library/al-sahifa" },
@@ -57,13 +57,12 @@ const links: LinkSection[] = [
 			{ label: "معرض الصور", href: "/media/images" },
 		],
 	},
-
 ]
 
 const SocialLinks = ({
-						 className,
-						 size,
-					 }: {
+	className,
+	size,
+}: {
 	className?: string
 	size: SizeProp
 }) => (
@@ -137,8 +136,8 @@ export default function Footer() {
 				</div>
 				<div className="flex justify-end  ">
 					<p className="text-sm text-white/40 mt-10">
-						جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه السلام) &copy;
-						2024
+						جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه
+						السلام) &copy; 2024
 					</p>
 				</div>
 			</div>
@@ -189,8 +188,8 @@ export default function Footer() {
 					/>
 				</div>
 				<p className="text-center text-sm text-white/40">
-					جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه السلام) &copy;
-					2025
+					جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه السلام)
+					&copy; 2025
 				</p>
 			</div>
 		</div>
