@@ -1,7 +1,7 @@
 export default async function Page() {
 	return (
 		<div className="w-full h-screen justify-center items-center text-3xl">
-			صفحة المؤتمرات
+			صفحة ملتقى البقيع
 		</div>
 	)
 }

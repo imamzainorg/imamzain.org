@@ -6812,7 +6812,7 @@
       {
         "id": 2,
         "title": "ما الحقه الحر العاملي",
-        "slug": "zfgdfn-fghdfh",
+        "slug": "ma-alhaqahu-al-hur-al-amili",
         "subjects": []
       },
       {
@@ -6832,7 +6832,6 @@
         "title": "ما ألحقه السيد محسن الأمين العاملي",
         "slug": "ma-alhaqahu-al-sayyid-muhsin-al-amin-al-amili",
         "subjects": []
-        
       }
     ]
   },
@@ -6850,7 +6849,6 @@
             "id": "١",
             "title": "مقدمة الرسالة",
             "slug": "risalat-al-huqoq-introduction",
-          
             "phrases": [
               {
                 "id": "١",
@@ -6964,7 +6962,6 @@
         "id": 2,
         "title": "حقوق الله عز وجل",
         "slug": "the-rights-of-god",
-        
         "subjects": [
           {
             "id": "١",

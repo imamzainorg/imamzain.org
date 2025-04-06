@@ -49,15 +49,19 @@ const links = [
 				label: "رسالة الحقوق",
 				href: "/library/risalat-al-huqoq",
 			},
-			// {
-			// 	label: "الصفحة العلمية",
-			// 	href: "/research"
-			// },
+			{
+				label: "الصفحة العلمية",
+				href: "/research",
+			},
 		],
 	},
 	{
 		label: "النشاطات",
-		href: "/news",
+		sublinks: [
+			// { label: "المسابقات", href: "/contests" },
+			{ label: "الاخبار", href: "/news" },
+			{ label: "ملتقى البقيع", href: "/baqi-gathering" },
+		],
 	},
 	{
 		label: "الخدمات",
