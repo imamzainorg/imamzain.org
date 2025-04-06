@@ -5,9 +5,9 @@ import { motion } from "framer-motion"
 import { Button, Input } from "@heroui/react"
 import { PersonIcon, MobileIcon } from "@/assets/icons/reusable"
 import CountriesDropdown from "@/components/countries-input"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCircleCheck } from "@fortawesome/free-regular-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome" 
 import { useState } from "react"
+import { faCircleCheck } from "@fortawesome/free-solid-svg-icons"
 
 const ZiaraForm = () => {
 	const [sended, setSended] = useState<boolean>(false)
