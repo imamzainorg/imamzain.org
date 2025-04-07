@@ -4,7 +4,10 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const images = ["/images/albaqi.jpg"]; // You can add more images if needed.
+const images = [
+    "/images/albaqi.jpg",
+    "/images/albaqi.jpg"
+]; // You can add more images if needed.
 
 import hadiths from "@/data/hadiths.json"; // Hadiths are stored in a JSON file
 
@@ -17,7 +20,7 @@ export default function TopImage() {
     const imageInterval = setInterval(() => {
       setPrevImageIndex(currentImageIndex);
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 10000);
+    }, 5000);
     return () => clearInterval(imageInterval);
   }, [currentImageIndex]);
 
