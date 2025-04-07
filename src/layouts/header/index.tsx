@@ -57,8 +57,7 @@ const links = [
 	},
 	{
 		label: "النشاطات",
-		sublinks: [
-			// { label: "المسابقات", href: "/contests" },
+		subLinks: [
 			{ label: "الاخبار", href: "/news" },
 			{ label: "ملتقى البقيع", href: "/baqi-gathering" },
 		],

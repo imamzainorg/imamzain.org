@@ -11,7 +11,6 @@ import {
 import { faCalendar, faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { usePathname } from "next/navigation";
 import moment from "moment-hijri"; // Import moment-hijri
-
 import useWindowEvents from "../../../hooks/window-events";
 import { useLanguages } from "../../../context/language-context";
 

@@ -28,6 +28,7 @@ export default function ComingSoon() {
 							width={300}
 							height={300}
 						/>
+
 					</div>
 					<div className="text-center space-y-0">
 						<h1 className="text-3xl sm:text-4xl md:text-5xl text-slate-200 my-5 sm:my-10 md:my-12 lg:my-15 opacity-0 animate-fade-in-up duration-300">
