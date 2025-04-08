@@ -21,5 +21,5 @@ export default function Template({ children }: { children: React.ReactNode }) {
 		}
 	}, [path]) // Add `path` as a dependency
 
-	return <div className=" pb-12 -mb-24">{children}</div>
+	return <div className="pb-12 -mb-24">{children}</div>
 }
