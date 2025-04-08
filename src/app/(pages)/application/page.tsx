@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import ImageView from "@/components/image-view";
+import Link from "next/link"; 
 import Image from "next/image";
 import mainApp from "../../../../public/application/main-bg.jpg";
 
