@@ -28,7 +28,7 @@ const Hero = () => (
             ملتقى البقيع الثاني
         </h1>
         <p className="text-xl md:text-2xl max-w-3xl mb-3">
-              هوية وتاريخ
+              الهوية والتاريخ
          </p>
 
         <p className="text-lg mb-3">12 شوال 1446هـ</p>

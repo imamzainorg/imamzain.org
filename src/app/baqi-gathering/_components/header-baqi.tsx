@@ -8,6 +8,7 @@ const HeaderBaqi = () => {
         {href: "#speakers", label: "المتحدثون"},
         {href: "#schedule", label: "جدول الأعمال"},
         {href: "/baqi-gathering/gallery", label: "معرض الصور"},
+        {href: "/", label: "مؤسسة الإمام زين العابدين (عليه السلام)"},
     ];
     return (
         <header className=" fixed top-0 right-0 z-50 w-full bg-[#0B1F47] text-white py-1 border-b-4 border-[#eec67d]">
