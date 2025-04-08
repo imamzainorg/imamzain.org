@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const images = [
     "/images/albaqi.jpg",
-    "/images/albaqi.jpg"
+    "/images/albaqi_2.jpg"
 ]; // You can add more images if needed.
 
 import hadiths from "@/data/hadiths.json"; // Hadiths are stored in a JSON file

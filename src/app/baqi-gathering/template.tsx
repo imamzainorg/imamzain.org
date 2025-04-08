@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion"
 import { usePathname } from "next/navigation"
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import HeaderBaqi from "./_components/header-baqi"
+import FooterBaqi from "./_components/footer-baqi"
 
 const variants = {
 	hidden: { opacity: 0 },
@@ -47,7 +49,15 @@ export default function Template({ children }: { children: React.ReactNode }) {
 				</motion.div>
 			) : (
  
-					<>{children}</>
+					<>
+					<HeaderBaqi />
+					<div className="">
+					{children}
+					</div>
+				
+					<FooterBaqi />
+					
+					</>
 			)}
 		</AnimatePresence>
 	)

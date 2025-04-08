@@ -1,8 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
-import {SizeProp} from "@fortawesome/fontawesome-svg-core";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faFacebook, faInstagram, faTiktok, faTwitter} from "@fortawesome/free-brands-svg-icons";
+import Image from "next/image"; 
 interface SectionTitleProps {
     children: React.ReactNode;
     className?: string;
@@ -13,50 +9,11 @@ const SectionTitle = ({children, className = ""} : SectionTitleProps) => (
             className={`text-3xl md:text-4xl text-center text-[#0B1F47] mb-10 relative inline-block font-bold ${className}`}
         >
             {children}
-            <span
-                className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 block w-full h-1 bg-[#eec67d]"></span>
+            <span className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 block w-full h-1 bg-[#eec67d]"></span>
         </h2>
     </div>
 );
-
-const Header = () => {
-    const navItems = [
-        {id: "about", label: "عن الملتقى"},
-        {id: "objectives", label: "الأهداف"},
-        {id: "speakers", label: "المتحدثون"},
-        {id: "schedule", label: "جدول الأعمال"}
-    ];
-    return (
-        <header className=" fixed top-0 right-0 z-50 w-full bg-[#0B1F47] text-white py-1 border-b-4 border-[#eec67d]">
-            <div className="max-w-7xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between">
-                <div className="flex items-start h-24 overflow-hidden">
-                    <Image
-                        src="/baqi-gathering/ملتقى-البقيع-شعار-النيلي.png"
-                        width={1000}
-                        height={1000}
-                        className="w-14  cursor-pointer py-2"
-                        alt="Logo"
-                    />
-                </div>
-                <nav>
-                    <ul className="flex  justify-center mt-4 md:mt-0">
-                        {navItems.map((item) => (
-                            <li key={item.id} className="px-2">
-                                <a
-                                    href={`#${item.id}`}
-                                    className="text-lg hover:text-[#c49e38] transition-all duration-300"
-                                >
-                                    {item.label}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
-            </div>
-        </header>
-    );
-};
-
+ 
 const Hero = () => (
 
     <section
@@ -71,8 +28,8 @@ const Hero = () => (
             ملتقى البقيع الثاني
         </h1>
         <p className="text-xl md:text-2xl max-w-3xl mb-3">
-            تحت شعار &quot;البقيع: تراث إسلامي وذاكرة الأمة&quot;
-        </p>
+              هوية وتاريخ
+         </p>
 
         <p className="text-lg mb-3">12 شوال 1446هـ</p>
         <a
@@ -157,30 +114,32 @@ const ObjectivesSection = () => (
 
 const SpeakersSection = () => {
     const speakers = [
-        {
-            img: "/baqi-gathering/شيخ محمد أل حيدر.jpg",
-            alt: "شيخ محمد أل حيدر",
-            name: "سماحة الشيخ محمد أل حيدر",
-            title: "هدم القبور نقطة تقاطع السياقات",
-        },
+        
         {
             img: "/baqi-gathering/سماحة الشيخ ستار المرشدي.jpg",
             alt: "سماحة الشيخ ستار المرشدي",
             name: "سماحة الشيخ ستار المرشدي",
             title: "قبور ال البيت في التراث الإسلامي بين الحفاظ والتجريف",
         },
+        
         {
             img: "/baqi-gathering/الأستاذ الدكتور حسن الحكيم.jpg",
             alt: "الدكتور حسن الحكيم",
             name: "الأستاذ الدكتور حسن الحكيم",
             title: "قبور ال البيت في التراث الإسلامي بين الحفاظ والتجريف",
         },
+        {
+            img: "/baqi-gathering/شيخ محمد أل حيدر.jpg",
+            alt: "شيخ محمد أل حيدر",
+            name: "سماحة الشيخ محمد أل حيدر",
+            title: "هدم القبور نقطة تقاطع السياقات",
+        },
     ];
     return (
         <section id="speakers" className="py-16 bg-white">
             <div className="container">
                 <SectionTitle>المحاضرون</SectionTitle>
-                <div className="flex   justify-center gap-8">
+                <div className="flex py-5 text-neutral-700 justify-center gap-5">
                     {speakers.map((speaker, index) => (
                         <div
                             key={index}
@@ -190,8 +149,11 @@ const SpeakersSection = () => {
                                 <h3 className="text-xl font-semibold mb-2 text-[#1a3c40]">
                                     {speaker.name}
                                 </h3>
+                                <p className="text-neutral-700 text-lg font-bold">
+                                     عنوان البحث:
+                                </p>
                                 <p className="text-neutral-700 text-lg">
-                                    البحث بعنوان {speaker.title}
+                                      {speaker.title}
                                 </p>
                             </div>
                             <div className="flex items-center justify-center p-2">
@@ -332,70 +294,19 @@ const ScheduleSection = () => {
     );
 };
 
-const SocialLinks = ({
-                         className,
-                         size,
-                     }: {
-    className?: string
-    size: SizeProp
-}) => (
-    <div className={`flex h-fit gap-6 items-center ${className}`}>
-        {bigNavSocials.map((social, index) => (
-            <Link
-                key={index}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:scale-105 transition-transform h-fit p-0 m-0"
-            >
-                <FontAwesomeIcon icon={social.icon} size={size}/>
-            </Link>
-        ))}
-    </div>
-)
-
-const bigNavSocials = [
-    {href: "https://www.instagram.com/imamzainorg/", icon: faInstagram},
-    {href: "https://www.tiktok.com/@imamzainorg", icon: faTiktok},
-    {href: "https://www.facebook.com/@imamzainorg", icon: faFacebook},
-    {href: "https://twitter.com/imamzainorg", icon: faTwitter},
-]
-const Footer = () => (
-    <footer className="bg-[#0B1F47] text-white py-12">
-        <div className="container">
-            <div className="flex  flex-col  justify-center items-center gap-6 mb-10">
-                <Link href='/' className="w-[200px]">
-                    <Image
-                        src="/images/logo-vertical-white.svg"
-                        alt="Logo"
-                        width={250}
-                        height={200}
-                    />
-                </Link>
-
-                <div className="    mb-6">
-                    <h3 className="text-2xl text-[#c49e38] mb-4 text-center">تواصل معنا</h3>
-                    < SocialLinks size={'2xl'}/>
-                </div>
-            </div>
-            <div className="text-center border-t border-[#2a5559] pt-4">
-                &copy; {new Date().getFullYear()} مؤسسة الإمام زين العابدين للبحوث والدراسات.
-                جميع الحقوق محفوظة.
-            </div>
-        </div>
-    </footer>
-);
+ 
+ 
 
 export default function page() {
     return (
         <div className="bg-gray-100 text-gray-800 ">
-            <Header/>
+           
             <Hero/>
             <AboutSection/>
             <ObjectivesSection/>
             <SpeakersSection/>
             <ScheduleSection/>
-            <Footer/>
+          
         </div>
     );
 }
