@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
 				hostname: "i.ytimg.com",
 				pathname: "/vi/**",
 			},
+			{
+				protocol: "https",
+				hostname: "placehold.co",
+			},
 		],
 	},
 	async rewrites() {
