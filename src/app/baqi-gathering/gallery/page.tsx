@@ -5,7 +5,7 @@ import galleryBapiImages from "@/data/gallery-bapi.json";
 import { Attachment } from "@/types/attachments";
 
 export default function Page() {
-  const [images, setImages] = useState<Attachment[]>([]);
+  const [images, setImages] = useState<Attachment[]>([] );
   useEffect(() => {
     const newArray = galleryBapiImages.map((item) => ({
       id: item.id,

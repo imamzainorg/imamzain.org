@@ -139,7 +139,7 @@ export default function Page() {
 						href="mailto:zain.alabiedeen22@gmail.com"
 						className="text-blue-600"
 					>
-						zain.alabiedeen22@gmail.com
+						 info@imamzain.org
 					</a>
 				</p>
 				<p>
