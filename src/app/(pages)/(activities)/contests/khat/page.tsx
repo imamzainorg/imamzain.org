@@ -1,7 +1,7 @@
 import Breadcrumbs from "@/components/breadcrumb"
 import Section from "@/components/section"
 import Image from "next/image"
-import Link from "next/link"
+import { StepperDemo } from "./components/applicationSteps"
 const prizes = [
 	{
 		type: "الثلث الجلي",
@@ -34,80 +34,88 @@ const prizes = [
 		third: "1,000,000 د.ع",
 	},
 ]
-const founders = [
+type Personal = {
+	label: string
+	persons: {
+		image: string
+		name: string
+		subtitle?: string
+	}[]
+}
+
+const personal: Personal[] = [
 	{
-		image: "/pfp-placeholder.jpg",
-		name: "السيد غسان الخرسان (دام عزه)",
-		subtitle: "رئيس مؤسسة الامام زين العابدين (عليه السلام)",
+		label: "لجنة التأسيس والإشراف العام للمسابقة",
+		persons: [
+			{
+				image: "/images/logo-icon.png",
+				name: "السيد غسان الخرسان (دام عزه)",
+				subtitle: "رئيس مؤسسة الامام زين العابدين (عليه السلام)",
+			},
+			{
+				image: "/contests/khat/محمد المشرفاوي.jpg",
+				name: "الخطاط السيد محمد ياسين المشرفاوي",
+				subtitle: "خطاط العتبة الحسينية المقدسة",
+			},
+		],
 	},
 	{
-		image: "/pfp-placeholder.jpg",
-		name: "الخطاط السيد محمد ياسين المشرفاوي",
-		subtitle: "خطاط العتبة الحسينية المقدسة",
+		label: "هيئة التحكيم",
+		persons: [
+			{
+				image: "/contests/khat/نبيل الشريفي.jpg",
+				name: "الاستاذ الخطاط نبيل الشريفي",
+				subtitle: "العراق",
+			},
+			{
+				image: "/contests/khat/صادق الحسيني.jpg",
+				name: "الاستاذ الخطاط صادق الحسيني",
+				subtitle: "العراق",
+			},
+			{
+				image: "/contests/khat/فرهاد قورلو.jpg",
+				name: "الاستاذ الخطاط فرهاد قورلو",
+				subtitle: "تركيا",
+			},
+			{
+				image: "/contests/khat/محسن عبادى.jpg",
+				name: "الاستاذ الخطاط محسن عبادى",
+				subtitle: "ايران",
+			},
+			{
+				image: "/contests/khat/عباس بو مجداد.jpg",
+				name: "الاستاذ الخطاط عباس بو مجداد",
+				subtitle: "السعودية",
+			},
+		],
 	},
-]
-const jury = [
 	{
-		image: "/pfp-placeholder.jpg",
-		name: "الاستاذ الخطاط نبيل الشريفي",
-		subtitle: "العراق",
-	},
-	{
-		image: "/pfp-placeholder.jpg",
-		name: "الاستاذ الخطاط صادق الحسيني",
-		subtitle: "العراق",
-	},
-	{
-		image: "/pfp-placeholder.jpg",
-		name: "الاستاذ الخطاط فرهاد قورلو",
-		subtitle: "تركيا",
-	},
-	{
-		image: "/pfp-placeholder.jpg",
-		name: "الاستاذ الخطاط محسن عبادى",
-		subtitle: "ايران",
-	},
-	{
-		image: "/pfp-placeholder.jpg",
-		name: "الاستاذ الخطاط عباس بو مجداد",
-		subtitle: "السعودية",
+		label: "لجنة تنظيم المسابقة والسكرتارية",
+		persons: [
+			{
+				image: "/contests/khat/عدنان الدلفي.jpg",
+				name: "الخطاط عدنان حمد الدلفي",
+			},
+			{
+				image: "/contests/khat/موفق البياتي.jpg",
+				name: "الخطاط موفق خورشيد البياتي",
+			},
+			{
+				image: "/contests/khat/حسين الحلو.jpg",
+				name: "الخطاط حسين الحلو",
+			},
+			{
+				image: "/contests/khat/اوس البندر.jpg",
+				name: "الخطاط أوس البندر",
+			},
+			{
+				image: "/contests/khat/حيدر السياب.jpg",
+				name: "الخطاط حيدر السياب",
+			},
+		],
 	},
 ]
 
-const organizers = [
-	{
-		image: "/pfp-placeholder.jpg",
-		name: "الخطاط عدنان حمد الدلفي",
-	},
-	{
-		image: "/pfp-placeholder.jpg",
-		name: "الخطاط موفق خورشيد البياتي",
-	},
-	{
-		image: "/pfp-placeholder.jpg",
-		name: "الخطاط حسين الحلو",
-	},
-	{
-		image: "/pfp-placeholder.jpg",
-		name: "الخطاط أوس البندر",
-	},
-	{
-		image: "/pfp-placeholder.jpg",
-		name: "الخطاط حيدر السياب",
-	},
-]
-const rules = [
-	"يشترط أن يكون الورق من النوع المقهر وبخلفية فاتحة، ولا يجوز استخدام الورق الأبيض. حجم الورقة يجب أن يكون (٧٠ × ٥٠) سم لجميع الخطوط. يُستبعد من لم يلتزم بذلك.",
-	"يمكن للمتسابق الاشتراك بثلاثة أنواع من الخطوط فقط، ولا يحق له الاشتراك بأكثر من عمل في النوع الواحد.",
-	"يجوز اعتماد أي رسم قرآني في النصوص القرآنية.",
-	"يجب التقيد بالقواعد الإملائية والنحوية في النصوص غير القرآنية.",
-	"يجب أن تكون الأعمال خالية من التوقيع أو أي إشارة لكاتبها، وألا تكون مزخرفة أو مذهبة أو ذات حدود أو ملصقة على ورق مقوى أو خشب. تُرسل بطريقة تحافظ على سلامة اللوحة.",
-	"يُرفق مع العمل ورقة مستقلة تتضمن: اسم المشارك، عنوانه الكامل، سيرة ذاتية مختصرة، صورة شخصية، صورة جواز السفر، ونسخة من استمارة المسابقة.",
-	"تُعدّ جميع الأعمال ملكاً للعتبة الحسينية المقدسة - مؤسسة الإمام زين العابدين (عليه السلام) سواء فازت أو لم تفز.",
-	"على كل مشارك الالتزام بالشروط والنصوص الواردة، ويُستبعد كل عمل يخالف ذلك.",
-	"يحق للمتسابق اختيار لون الحبر بحرية، ويمكن استخدام لون واحد أو أكثر.",
-	"تُرسل الأعمال بعد تغليفها في أسطوانة إلى العنوان التالي: كربلاء المقدسة - العتبة الحسينية المقدسة.",
-]
 export default function page() {
 	return (
 		<div className="container">
@@ -152,6 +160,10 @@ export default function page() {
 					/>
 				</div>
 			</div>
+			<h1 className="w-full text-center text-2xl mt-20 font-semibold">
+				خطوات الاشتراك في المسابقة
+			</h1>
+			<StepperDemo />
 			<div className="w-full h-0.5 bg-gradient-to-r from-transparent via-primary/20 to-transparent rounded-full mt-8" />
 			{/* اعلان المسابقة */}
 			<div className="flex justify-between py-10 my-5 text-xl  p-5">
@@ -162,12 +174,6 @@ export default function page() {
 						يوم 11/4/2025م
 					</span>
 				</div>
-				<Link
-					href="#"
-					className="p-5 border-2 rounded-2xl hover:text-primary hover:border-primary duration-300 "
-				>
-					التقديم الان
-				</Link>
 				<div className="text-lg text-center">
 					آخر موعد لتسليم اللوحات
 					<br />{" "}
@@ -176,80 +182,36 @@ export default function page() {
 			</div>
 			<div className="w-full h-0.5 bg-gradient-to-r from-transparent via-primary/20 to-transparent rounded-full mb-8" />
 
-			<div className="flex flex-col justify-center space-y-10">
-				<Section title="الشخصيات" />
-				<h1 className="text-xl font-semibold m-auto text-center border-b w-fit mb-2 ">
-					لجنة التأسيس والإشراف العام للمسابقة
-				</h1>
-				<div className="flex flex-wrap justify-around m-auto w-full">
-					{founders.map((founder) => (
-						<div
-							key={founder.name}
-							className="flex flex-col text-center justify-center items-center w-1/3"
-						>
-							<Image
-								src={founder.image}
-								alt={founder.name}
-								width={300}
-								height={300}
-								className="w-24 rounded-full"
-							/>
-							<p className="text-lg font-semibold">
-								{founder.name}
-							</p>
-							<p className="text-slate-500 ">
-								{founder.subtitle}
-							</p>
+			<div className="flex flex-col justify-center space-y-15">
+				{personal.map((type) => (
+					<div key={type.label} className="my-8">
+						<Section title={type.label} />
+						<div className="flex flex-wrap justify-around gap-y-10 m-auto w-full">
+							{type.persons.map((person) => (
+								<div
+									key={person.name}
+									className="flex flex-col text-center justify-center items-center w-1/3"
+								>
+									<Image
+										src={person.image}
+										alt={person.name}
+										width={300}
+										height={300}
+										className="w-24 h-24 rounded-full hover:scale-110 duration-150"
+									/>
+									<p className="text-lg font-semibold">
+										{person.name}
+									</p>
+									{person.subtitle && (
+										<p className="font-light text-slate-500">
+											{person.subtitle}
+										</p>
+									)}
+								</div>
+							))}
 						</div>
-					))}
-				</div>
-				<h1 className="text-xl font-semibold m-auto text-center border-b w-fit mb-2">
-					هيئة التحكيم
-				</h1>
-				<div className="flex flex-wrap justify-around m-auto w-full">
-					{jury.map((founder) => (
-						<div
-							key={founder.name}
-							className="flex flex-col text-center justify-center items-center w-1/3"
-						>
-							<Image
-								src={founder.image}
-								alt={founder.name}
-								width={300}
-								height={300}
-								className="w-24 rounded-full"
-							/>
-							<p className="text-lg font-semibold">
-								{founder.name}
-							</p>
-							<p className="text-slate-500 ">
-								{founder.subtitle}
-							</p>
-						</div>
-					))}
-				</div>
-				<h1 className="text-xl font-semibold m-auto text-center border-b w-fit mb-2">
-					لجنة تنظيم المسابقة والسكرتارية
-				</h1>
-				<div className="flex flex-wrap justify-around  m-auto w-full">
-					{organizers.map((founder) => (
-						<div
-							key={founder.name}
-							className="flex flex-col text-center justify-center items-center w-1/3"
-						>
-							<Image
-								src={founder.image}
-								alt={founder.name}
-								width={300}
-								height={300}
-								className="w-24 rounded-full"
-							/>
-							<p className="text-lg font-semibold">
-								{founder.name}
-							</p>
-						</div>
-					))}
-				</div>
+					</div>
+				))}
 			</div>
 
 			<div className="w-full h-0.5 bg-gradient-to-r from-transparent via-slate-900/20 to-transparent rounded-full my-8" />
@@ -309,19 +271,6 @@ export default function page() {
 			</div>
 
 			<div className="w-full h-0.5 bg-gradient-to-r from-transparent via-slate-900/20 to-transparent rounded-full my-8" />
-
-			{/* الشروط */}
-			<Section title="شروط المسابقة" />
-
-			<div className="bg-white rounded-xl shadow-md p-6">
-				<ol className="list-decimal text-right text-gray-700 space-y-3 pr-4">
-					{rules.map((rule, index) => (
-						<li key={index} className="leading-relaxed">
-							{rule}
-						</li>
-					))}
-				</ol>
-			</div>
 		</div>
 	)
 }
