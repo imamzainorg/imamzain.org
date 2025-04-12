@@ -6819,7 +6819,55 @@
         "id": 3,
         "title": "ما ألحقه الميرزا عبد الله الافندي",
         "slug": "ma-alhaqahu-al-mirza-abdullah-al-afandi",
-        "subjects": []
+        "subjects": [
+          {
+            "id": "١",
+            "title": "مقدمة",
+            "slug": "supplication-1",
+            "phrases": [
+              {
+                "id": "١",
+                "content": "بِسْمِ الله الرَّحْمنِ الرَّحِيمِ",
+                "explanations": [
+                  {
+                    "author": "",
+                    "content": ""
+                  }
+                ]
+              },
+              {
+                "id": "2",
+                "content": "الحمد لله رب العالمين والصلاة على خير خلقه محمد وآله أجمعين.",
+                "explanations": [
+                  {
+                    "author": "",
+                    "content": ""
+                  }
+                ]
+              },
+              {
+                "id": "",
+                "content": "",
+                "explanations": [
+                  {
+                    "author": "",
+                    "content": ""
+                  }
+                ]
+              },
+              {
+                "id": "",
+                "content": "",
+                "explanations": [
+                  {
+                    "author": "",
+                    "content": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       },
       {
         "id": 4,
