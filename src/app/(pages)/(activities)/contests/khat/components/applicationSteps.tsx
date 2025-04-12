@@ -27,15 +27,15 @@ const rules = [
 	"تُرسل الأعمال بعد تغليفها في أسطوانة إلى العنوان التالي: كربلاء المقدسة - العتبة الحسينية المقدسة.",
 ]
 const stepper = defineStepper(
-	{ id: "step-1", title: "1. قراءة الشروط" },
-	{ id: "step-2", title: "2. تحميل الاستمارة", description: "Second step" },
+	{ id: "1", title: "1. قراءة الشروط" },
+	{ id: "2", title: "2. تحميل الاستمارة", description: "Second step" },
 	{
-		id: "step-3",
+		id: "3",
 		title: "3. ارسال على الايميل",
 		description: "third step",
 	},
 	{
-		id: "step-4",
+		id: "4",
 		title: "4. ارسال الى المنظمين",
 		description: "fourth step",
 	},
@@ -45,77 +45,102 @@ export const StepperDemo = () => {
 	const methods = stepper.useStepper()
 
 	return (
-		<div className="w-full px-20 flex flex-col justify-center items-center">
+		<div className="w-full px-4 sm:px-6 md:px-10 lg:px-20 flex flex-col justify-center items-center">
 			<div className="w-full mx-auto">
-				<ol className="flex items-center w-full justify-center gap-4">
+				{/* Horizontal stepper for medium screens and above */}
+				<ol className="hidden md:flex items-center w-full justify-center gap-2 lg:gap-4">
 					<li
 						className={cn(
-							"flex flex-col gap-5 w-full items-center border-b-2 border-primary p-8 duration-300",
-							methods.current === methods.get("step-1")
+							"flex flex-col gap-2 md:gap-3 lg:gap-5 w-full items-center border-b-2 border-primary p-4 md:p-6 lg:p-8 duration-300",
+							methods.current === methods.get("1")
 								? "border-opacity-100"
 								: "border-opacity-0",
 						)}
 					>
-						<span className="flex flex-col items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
-							<NewspaperIcon />
+						<span className="flex flex-col items-center justify-center w-8 h-8 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
+							<NewspaperIcon className="w-4 h-4 lg:w-6 lg:h-6" />
 						</span>
-						<p>{methods.get("step-1").title}</p>
+						<p className="text-sm md:text-base text-center">
+							{methods.get("1").title}
+						</p>
 					</li>
 					<li
 						className={cn(
-							"flex flex-col gap-5 w-full items-center border-b-2 border-primary p-8 duration-300",
-							methods.current === methods.get("step-2")
+							"flex flex-col gap-2 md:gap-3 lg:gap-5 w-full items-center border-b-2 border-primary p-4 md:p-6 lg:p-8 duration-300",
+							methods.current === methods.get("2")
 								? "border-opacity-100"
 								: "border-opacity-0",
 						)}
 					>
-						<span className="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
-							<DownloadIcon />
+						<span className="flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
+							<DownloadIcon className="w-4 h-4 lg:w-6 lg:h-6" />
 						</span>
-						<p>{methods.get("step-2").title}</p>
+						<p className="text-sm md:text-base text-center">
+							{methods.get("2").title}
+						</p>
 					</li>
 					<li
 						className={cn(
-							"flex flex-col gap-5 w-full items-center border-b-2 border-primary p-8 duration-300",
-							methods.current === methods.get("step-3")
+							"flex flex-col gap-2 md:gap-3 lg:gap-5 w-full items-center border-b-2 border-primary p-4 md:p-6 lg:p-8 duration-300",
+							methods.current === methods.get("3")
 								? "border-opacity-100"
 								: "border-opacity-0",
 						)}
 					>
-						<span className="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
-							<UploadIcon />
+						<span className="flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
+							<UploadIcon className="w-4 h-4 lg:w-6 lg:h-6" />
 						</span>
-						<p>{methods.get("step-3").title}</p>
+						<p className="text-sm md:text-base text-center">
+							{methods.get("3").title}
+						</p>
 					</li>
 					<li
 						className={cn(
-							"flex flex-col gap-5 w-full items-center border-b-2 border-primary p-8 duration-300",
-							methods.current === methods.get("step-4")
+							"flex flex-col gap-2 md:gap-3 lg:gap-5 w-full items-center border-b-2 border-primary p-4 md:p-6 lg:p-8 duration-300",
+							methods.current === methods.get("4")
 								? "border-opacity-100"
 								: "border-opacity-0",
 						)}
 					>
-						<span className="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
-							<PackageIcon />
+						<span className="flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
+							<PackageIcon className="w-4 h-4 lg:w-6 lg:h-6" />
 						</span>
-						<p>{methods.get("step-4").title}</p>
+						<p className="text-sm md:text-base text-center">
+							{methods.get("4").title}
+						</p>
 					</li>
 				</ol>
+
+				{/* Mobile stepper - vertical and compact */}
+				<div className="flex md:hidden items-center justify-between w-full px-2 py-4">
+					<span className="font-medium text-lg">
+						{methods.current.title}
+					</span>
+					<div className="flex items-center gap-2">
+						<span className="text-sm">
+							{methods.current.id} / 4
+						</span>
+					</div>
+				</div>
 			</div>
-			<div className="flex flex-col gap-4 w-full p-10 ">
+
+			<div className="flex flex-col gap-4 w-full p-4 sm:p-6 md:p-8 lg:p-10">
 				{methods.switch({
-					"step-1": () => (
-						<ol className="list-decimal text-right text-gray-700 space-y-3 pr-4 p-8">
+					"1": () => (
+						<ol className="list-decimal text-right text-gray-700 space-y-2 sm:space-y-3 pr-2 sm:pr-4 p-2 sm:p-4 md:p-6 lg:p-8">
 							{rules.map((rule, index) => (
-								<li key={index} className="leading-relaxed">
+								<li
+									key={index}
+									className="leading-relaxed text-sm sm:text-base"
+								>
 									{rule}
 								</li>
 							))}
 						</ol>
 					),
-					"step-2": () => (
-						<div className="w-full flex flex-col justify-center items-center gap-4 p-8">
-							<p className="w-1/2 mx-auto text-xl text-center">
+					"2": () => (
+						<div className="w-full flex flex-col justify-center items-center gap-4 p-2 sm:p-4 md:p-6 lg:p-8">
+							<p className="w-full sm:w-4/5 md:w-3/4 lg:w-1/2 mx-auto text-base sm:text-lg md:text-xl text-center">
 								يجب تنزيل الاستمارة الخاصة بالتقديم، ملئها،
 								واعادة ارسالها للانضامام يجب تنزيل الاستمارة
 								الخاصة بالتقديم، ملئها، واعادة ارسالها للإنضمام
@@ -123,57 +148,61 @@ export const StepperDemo = () => {
 							<Link
 								download
 								href="/contests/khat/form.pdf"
-								className="p-3 border-2 animate-appearance-in rounded-2xl hover:text-primary hover:border-primary duration-300 "
+								className="p-2 sm:p-3 border-2 animate-appearance-in rounded-xl sm:rounded-2xl hover:text-primary hover:border-primary duration-300 text-sm sm:text-base"
 							>
 								تحميل الاستمارة
 							</Link>
 						</div>
 					),
-					"step-3": () => (
-						<div className="w-full flex flex-col justify-center items-center gap-4 p-8">
-							<p className="w-1/2 mx-auto text-xl text-center">
+					"3": () => (
+						<div className="w-full flex flex-col justify-center items-center gap-4 p-2 sm:p-4 md:p-6 lg:p-8">
+							<p className="w-full sm:w-4/5 md:w-3/4 lg:w-1/2 mx-auto text-base sm:text-lg md:text-xl text-center">
 								بعد ملىء الاستمارة يجب ارسالها مع صورة من عملك
 								على الايميل التالي
 							</p>
 							<Link
 								href="mailto:khat@imamzain.org"
-								className="text-2xl font-semibold p-3 border-b-2 flex items-center gap-8 duration-150 hover:-translate-y-2"
+								className="text-lg sm:text-xl md:text-2xl font-semibold p-2 sm:p-3 border-b-2 flex items-center gap-4 sm:gap-6 md:gap-8 duration-150 hover:-translate-y-2"
 							>
-								<EmailIcon />
+								<EmailIcon className="w-5 h-5 sm:w-6 sm:h-6" />
 								khat@imamzain.org
 							</Link>
 						</div>
 					),
-					"step-4": () => (
-						<div className="w-full flex flex-col justify-center items-center gap-4 p-8">
-							<p className="w-1/2 mx-auto text-xl text-center">
+					"4": () => (
+						<div className="w-full flex flex-col justify-center items-center gap-4 p-2 sm:p-4 md:p-6 lg:p-8">
+							<p className="w-full sm:w-4/5 md:w-3/4 lg:w-1/2 mx-auto text-base sm:text-lg md:text-xl text-center">
 								اخر خطوة لإتمام الاشتراك هي ارسال عملك منظمين
 								المسابقة في العتبة الحسينية المقدسة
 							</p>
-							<p>وحسب ما مذكور في النقطة الاخيرة من الشروط</p>
+							<p className="text-sm sm:text-base">
+								وحسب ما مذكور في النقطة الاخيرة من الشروط
+							</p>
 
-							<p className="font-semibold mt-8">
+							<p className="font-semibold mt-4 sm:mt-6 md:mt-8 text-sm sm:text-base">
 								للتواصل والاستفسار
 							</p>
-							<p className="text-2xl font-semibold p-3 border-b-2 flex items-center gap-8 duration-150 hover:-translate-y-2">
-								<PhoneIcon />
+							<p className="text-lg sm:text-xl md:text-2xl font-semibold p-2 sm:p-3 border-b-2 flex items-center gap-4 sm:gap-6 md:gap-8 duration-150 hover:-translate-y-2">
+								<PhoneIcon className="w-5 h-5 sm:w-6 sm:h-6" />
 								<span dir="ltr">+964 781 970 7817</span>
 							</p>
 						</div>
 					),
 				})}
-				<div className="flex justify-between ">
+				<div className="flex justify-between mt-4">
 					<button
 						onClick={() => !methods.isFirst && methods.prev()}
 						className={cn(
-							"rounded-full p-4 border-2",
+							"rounded-full p-2 sm:p-3 md:p-4 border-2",
 							methods.isFirst
 								? "border-gray-400"
 								: "border-primary/20",
 						)}
+						aria-label="Previous step"
 					>
 						<ArrowRight
 							className={cn(
+								"w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6",
 								methods.isFirst
 									? "text-gray-400"
 									: "text-primary",
@@ -183,14 +212,16 @@ export const StepperDemo = () => {
 					<button
 						onClick={() => !methods.isLast && methods.next()}
 						className={cn(
-							"rounded-full p-4 border-2",
+							"rounded-full p-2 sm:p-3 md:p-4 border-2",
 							methods.isLast
 								? "border-gray-400"
 								: "border-primary/20",
 						)}
+						aria-label="Next step"
 					>
 						<ArrowLeft
 							className={cn(
+								"w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6",
 								methods.isLast
 									? "text-gray-400"
 									: "text-primary",
