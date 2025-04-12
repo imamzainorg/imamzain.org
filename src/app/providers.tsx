@@ -1,12 +1,12 @@
-import {HeroUIProvider} from "@heroui/react"
-import {LanguagesProvider} from "@/context/language-context";
+"use client"
 
-export function Providers({children}: { children: React.ReactNode }) {
-    return (
-        <HeroUIProvider>
-            <LanguagesProvider>
-                {children}
-            </LanguagesProvider>
-        </HeroUIProvider>
-    )
+import { HeroUIProvider } from "@heroui/react"
+import { LanguagesProvider } from "@/context/language-context"
+
+export function Providers({ children }: { children: React.ReactNode }) {
+	return (
+		<HeroUIProvider>
+			<LanguagesProvider>{children}</LanguagesProvider>
+		</HeroUIProvider>
+	)
 }
