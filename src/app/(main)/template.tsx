@@ -47,8 +47,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
 					</div>
 				</motion.div>
 			) : (
- 
-					<Layouts>{children}</Layouts> 
+				<Layouts>{children}</Layouts>
 			)}
 		</AnimatePresence>
 	)

@@ -160,7 +160,7 @@ export default function page() {
 					/>
 				</div>
 			</div>
-			<h1 className="w-full text-center text-xl sm:text-2xl mt-12 sm:mt-16 lg:mt-20 font-semibold">
+			<h1 className="w-full text-center text-xl sm:text-2xl md:text-3xl my-12 sm:my-16 lg:my-20 font-semibold">
 				خطوات الاشتراك في المسابقة
 			</h1>
 			<StepperDemo />

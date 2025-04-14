@@ -1,10 +1,6 @@
 "use client"
-
-import * as React from "react"
 import { defineStepper } from "@stepperize/react"
 import {
-	ArrowLeft,
-	ArrowRight,
 	DownloadIcon,
 	NewspaperIcon,
 	PackageIcon,
@@ -50,11 +46,12 @@ export const StepperDemo = () => {
 				{/* Horizontal stepper for medium screens and above */}
 				<ol className="hidden md:flex items-center w-full justify-center gap-2 lg:gap-4">
 					<li
+						onClick={() => methods.goTo("1")}
 						className={cn(
-							"flex flex-col gap-2 md:gap-3 lg:gap-5 w-full items-center border-b-2 border-primary p-4 md:p-6 lg:p-8 duration-300",
+							"flex bg-white/60 rounded-xl hover:shadow-xl cursor-pointer flex-col gap-2 md:gap-3 lg:gap-5 w-full items-center border border-b-2 border-primary p-4 md:p-6 lg:p-8 duration-300",
 							methods.current === methods.get("1")
-								? "border-opacity-100"
-								: "border-opacity-0",
+								? "border-primary"
+								: "border-slate-200",
 						)}
 					>
 						<span className="flex flex-col items-center justify-center w-8 h-8 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
@@ -65,11 +62,12 @@ export const StepperDemo = () => {
 						</p>
 					</li>
 					<li
+						onClick={() => methods.goTo("2")}
 						className={cn(
-							"flex flex-col gap-2 md:gap-3 lg:gap-5 w-full items-center border-b-2 border-primary p-4 md:p-6 lg:p-8 duration-300",
+							"flex bg-white/60 rounded-xl hover:shadow-xl cursor-pointer flex-col gap-2 md:gap-3 lg:gap-5 w-full items-center border border-b-2 border-primary p-4 md:p-6 lg:p-8 duration-300",
 							methods.current === methods.get("2")
-								? "border-opacity-100"
-								: "border-opacity-0",
+								? "border-primary"
+								: "border-slate-200",
 						)}
 					>
 						<span className="flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
@@ -80,11 +78,12 @@ export const StepperDemo = () => {
 						</p>
 					</li>
 					<li
+						onClick={() => methods.goTo("3")}
 						className={cn(
-							"flex flex-col gap-2 md:gap-3 lg:gap-5 w-full items-center border-b-2 border-primary p-4 md:p-6 lg:p-8 duration-300",
+							"flex bg-white/60 rounded-xl hover:shadow-xl cursor-pointer flex-col gap-2 md:gap-3 lg:gap-5 w-full items-center border border-b-2 border-primary p-4 md:p-6 lg:p-8 duration-300",
 							methods.current === methods.get("3")
-								? "border-opacity-100"
-								: "border-opacity-0",
+								? "border-primary"
+								: "border-slate-200",
 						)}
 					>
 						<span className="flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
@@ -95,11 +94,12 @@ export const StepperDemo = () => {
 						</p>
 					</li>
 					<li
+						onClick={() => methods.goTo("4")}
 						className={cn(
-							"flex flex-col gap-2 md:gap-3 lg:gap-5 w-full items-center border-b-2 border-primary p-4 md:p-6 lg:p-8 duration-300",
+							"flex bg-white/60 rounded-xl hover:shadow-xl cursor-pointer flex-col gap-2 md:gap-3 lg:gap-5 w-full items-center border border-b-2 border-primary p-4 md:p-6 lg:p-8 duration-300",
 							methods.current === methods.get("4")
-								? "border-opacity-100"
-								: "border-opacity-0",
+								? "border-primary"
+								: "border-slate-200",
 						)}
 					>
 						<span className="flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
@@ -127,7 +127,7 @@ export const StepperDemo = () => {
 			<div className="flex flex-col gap-4 w-full p-4 sm:p-6 md:p-8 lg:p-10">
 				{methods.switch({
 					"1": () => (
-						<ol className="list-decimal text-right text-gray-700 space-y-2 sm:space-y-3 pr-2 sm:pr-4 p-2 sm:p-4 md:p-6 lg:p-8">
+						<ol className="animate-fade-in-up list-decimal text-right text-gray-700 space-y-2 sm:space-y-3 pr-2 sm:pr-4 p-2 sm:p-4 md:p-6 lg:p-8">
 							{rules.map((rule, index) => (
 								<li
 									key={index}
@@ -139,7 +139,7 @@ export const StepperDemo = () => {
 						</ol>
 					),
 					"2": () => (
-						<div className="w-full flex flex-col justify-center items-center gap-4 p-2 sm:p-4 md:p-6 lg:p-8">
+						<div className="animate-fade-in-up w-full flex flex-col justify-center items-center gap-4 p-2 sm:p-4 md:p-6 lg:p-8">
 							<p className="w-full sm:w-4/5 md:w-3/4 lg:w-1/2 mx-auto text-base sm:text-lg md:text-xl text-center">
 								يجب تنزيل الاستمارة الخاصة بالتقديم، ملئها،
 								واعادة ارسالها للانضامام يجب تنزيل الاستمارة
@@ -148,20 +148,21 @@ export const StepperDemo = () => {
 							<Link
 								download
 								href="/contests/khat/form.pdf"
-								className="p-2 sm:p-3 border-2 animate-appearance-in rounded-xl sm:rounded-2xl hover:text-primary hover:border-primary duration-300 text-sm sm:text-base"
+								className="flex gap-2 items-center p-2 sm:p-3 border-2 rounded-xl sm:rounded-2xl hover:text-primary hover:border-primary duration-300 text-sm sm:text-base"
 							>
 								تحميل الاستمارة
+								<DownloadIcon size={16} />
 							</Link>
 						</div>
 					),
 					"3": () => (
-						<div className="w-full flex flex-col justify-center items-center gap-4 p-2 sm:p-4 md:p-6 lg:p-8">
+						<div className="animate-fade-in-up w-full flex flex-col justify-center items-center gap-4 p-2 sm:p-4 md:p-6 lg:p-8">
 							<p className="w-full sm:w-4/5 md:w-3/4 lg:w-1/2 mx-auto text-base sm:text-lg md:text-xl text-center">
 								بعد ملىء الاستمارة يجب ارسالها مع صورة من عملك
 								على الايميل التالي
 							</p>
 							<Link
-								href="mailto:khat@imamzain.org"
+								href="mailto:kh	at@imamzain.org"
 								className="text-lg sm:text-xl md:text-2xl font-semibold p-2 sm:p-3 border-b-2 flex items-center gap-4 sm:gap-6 md:gap-8 duration-150 hover:-translate-y-2"
 							>
 								<EmailIcon className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -170,7 +171,7 @@ export const StepperDemo = () => {
 						</div>
 					),
 					"4": () => (
-						<div className="w-full flex flex-col justify-center items-center gap-4 p-2 sm:p-4 md:p-6 lg:p-8">
+						<div className="animate-fade-in-up w-full flex flex-col justify-center items-center gap-4 p-2 sm:p-4 md:p-6 lg:p-8">
 							<p className="w-full sm:w-4/5 md:w-3/4 lg:w-1/2 mx-auto text-base sm:text-lg md:text-xl text-center">
 								اخر خطوة لإتمام الاشتراك هي ارسال عملك منظمين
 								المسابقة في العتبة الحسينية المقدسة
@@ -189,46 +190,6 @@ export const StepperDemo = () => {
 						</div>
 					),
 				})}
-				<div className="flex justify-between mt-4">
-					<button
-						onClick={() => !methods.isFirst && methods.prev()}
-						className={cn(
-							"rounded-full p-2 sm:p-3 md:p-4 border-2",
-							methods.isFirst
-								? "border-gray-400"
-								: "border-primary/20",
-						)}
-						aria-label="Previous step"
-					>
-						<ArrowRight
-							className={cn(
-								"w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6",
-								methods.isFirst
-									? "text-gray-400"
-									: "text-primary",
-							)}
-						/>
-					</button>
-					<button
-						onClick={() => !methods.isLast && methods.next()}
-						className={cn(
-							"rounded-full p-2 sm:p-3 md:p-4 border-2",
-							methods.isLast
-								? "border-gray-400"
-								: "border-primary/20",
-						)}
-						aria-label="Next step"
-					>
-						<ArrowLeft
-							className={cn(
-								"w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6",
-								methods.isLast
-									? "text-gray-400"
-									: "text-primary",
-							)}
-						/>
-					</button>
-				</div>
 			</div>
 		</div>
 	)

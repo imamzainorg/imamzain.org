@@ -302,5 +302,45 @@
             "id": 38,
             "path": "/gallery/image (38).JPG"
         }
+    },
+    {
+        "id": 39,
+        "title": "text",
+        "image": {
+            "id": 39,
+            "path": "/news/second-scientific-forum-baqi-report-1.jpg"
+        }
+    },
+    {
+        "id": 40,
+        "title": "text",
+        "image": {
+            "id": 40,
+            "path": "/news/second-scientific-forum-baqi-report-2.jpg"
+        }
+    },
+    {
+        "id": 41,
+        "title": "text",
+        "image": {
+            "id": 41,
+            "path": "/news/second-scientific-forum-baqi-report-3.jpg"
+        }
+    },
+    {
+        "id": 42,
+        "title": "text",
+        "image": {
+            "id": 42,
+            "path": "/news/second-scientific-forum-baqi-report-4.jpg"
+        }
+    },
+    {
+        "id": 43,
+        "title": "text",
+        "image": {
+            "id": 43,
+            "path": "/news/second-scientific-forum-baqi-report-5.jpg"
+        }
     }
 ]

@@ -23,7 +23,7 @@ export default function GallerySection() {
 	}
 
 	useEffect(() => {
-		const newArray = galleryImages.map((item) => ({
+		const newArray = galleryImages.reverse().map((item) => ({
 			id: item.id,
 			path: item.image.path,
 		}))
@@ -60,7 +60,11 @@ export default function GallerySection() {
 						dark
 					/>
 
-					<SwiperCarousel images={images} />
+					<SwiperCarousel
+						images={images
+							.slice(images.length - 10, images.length)
+							.reverse()}
+					/>
 					<div className="mt-8 p-4 rounded-3xl grid grid-cols-2 md:grid-cols-3 xmd:grid-cols-5 gap-4 grid-rows-1 bg-gray-600/35">
 						{Show &&
 							galleryImages

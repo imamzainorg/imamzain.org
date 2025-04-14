@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 interface SectionTitleProps {
 	children: React.ReactNode
@@ -121,18 +122,19 @@ const SpeakersSection = () => {
 			img: "/baqi-gathering/شيخ محمد أل حيدر.jpg",
 			alt: "شيخ محمد أل حيدر",
 			name: "سماحة الشيخ محمد أل حيدر",
-			title: "هدم القبور نقطة تقاطع السياقات",
+			title: "هدم قبور البقيع... المناشىء الفكرية والتداعيات الإجتماعية",
+		},
+
+		{
+			img: "/baqi-gathering/الأستاذ الدكتور حسن الحكيم.jpg",
+			alt: "الدكتور حسن الحكيم",
+			name: "الأستاذ الدكتور حسن الحكيم",
+			title: "قبور آل البيت عليهم السلام في التراث الإسلامي بين الحفاظ والتجريف",
 		},
 		{
 			img: "/baqi-gathering/سماحة الشيخ ستار المرشدي.jpg",
 			alt: "سماحة الشيخ ستار المرشدي",
 			name: "سماحة الشيخ ستار المرشدي",
-			title: "قبور آل البيت عليهم السلام في التراث الإسلامي بين الحفاظ والتجريف",
-		},
-		{
-			img: "/baqi-gathering/الأستاذ الدكتور حسن الحكيم.jpg",
-			alt: "الدكتور حسن الحكيم",
-			name: "الأستاذ الدكتور حسن الحكيم",
 			title: "قبور آل البيت عليهم السلام في التراث الإسلامي بين الحفاظ والتجريف",
 		},
 	]
@@ -180,7 +182,7 @@ const ScheduleSection = () => {
 	const scheduleItems = [
 		{
 			time: "9:30 - 9:35",
-			title: "قراءة آي من كتاب الله العزيز",
+			title: "قراءة آية من كتاب الله العزيز",
 			duration: "5 دقائق",
 		},
 		{
@@ -226,7 +228,10 @@ const ScheduleSection = () => {
 	]
 
 	const sidelineItems = [
-		{ title: "معرض الخط التخصصي بالإمام السجاد عليه السلام" },
+		{
+			title: "معرض الخط التخصصي بالإمام السجاد عليه السلام",
+			href: "/contests/khat",
+		},
 	]
 
 	return (
@@ -292,14 +297,15 @@ const ScheduleSection = () => {
 					</h3>
 					<div className="space-y-3 sm:space-y-4">
 						{sidelineItems.map((item, index) => (
-							<div
+							<Link
 								key={index}
+								href={item.href}
 								className="bg-white rounded shadow overflow-hidden p-3 sm:p-4 text-center"
 							>
 								<h3 className="text-lg sm:text-xl text-[#1a3c40]">
 									{item.title}
 								</h3>
-							</div>
+							</Link>
 						))}
 					</div>
 				</div>
