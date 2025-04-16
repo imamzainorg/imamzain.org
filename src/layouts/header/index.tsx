@@ -67,7 +67,7 @@ const links = [
 		label: "الخدمات",
 		subLinks: [
 			{ label: "اتصل بنا", href: "/services" },
-			{ label: "الزيارة بالأنابة", href: "/visitation" },
+			{ label: "الزيارة بالإنابة", href: "/visitation" },
 			{ label: "نقاط البيع المباشر", href: "/services/stores" },
 			{ label: "تطبيق أنوار سجادية", href: "/application" },
 		],
