@@ -6813,7 +6813,35 @@
         "id": 2,
         "title": "ما الحقه الحر العاملي",
         "slug": "ma-alhaqahu-al-hur-al-amili",
-        "subjects": []
+        "subjects": [
+          {
+            "id": "١",
+            "title": "مقدمة",
+            "slug": "supplication-1",
+            "phrases": [
+              {
+                "id": "١",
+                "content": "بِسْمِ الله الرَّحْمنِ الرَّحِيمِ",
+                "explanations": [
+                  {
+                    "author": "",
+                    "content": ""
+                  }
+                ]
+              },
+              {
+                "id": "٢",
+                "content": " الحمد لله رب العالمين والصلاة على خير خلقه محمد وآله أجمعين.",
+                "explanations": [
+                  {
+                    "author": "",
+                    "content": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       },
       {
         "id": 3,
@@ -6823,7 +6851,7 @@
           {
             "id": "١",
             "title": "مقدمة",
-            "slug": "supplication-1",
+            "slug": "introduction",
             "phrases": [
               {
                 "id": "١",
@@ -7040,7 +7068,7 @@
           {
             "id": "٢",
             "title": "الصحيفة الثالثة من كلام سيد الساجدين",
-            "slug": "supplication-2",
+            "slug": "The third page of the words of the Master of Prostrators-2",
             "phrases": [
               {
                 "id": "١",
@@ -7487,7 +7515,7 @@
           {
             "id": "٣",
             "title": "دعائه (عليه السلام) إذا مجّد ربه واستقصى في الثناء عليه",
-            "slug": "supplication-3",
+            "slug": "His supplication (peace be upon him) when he glorified his Lord and praised Him to the fullest.-3",
             "phrases": [
               {
                 "id": "١",
@@ -7624,7 +7652,7 @@
           {
             "id": "٤",
             "title": "دعائه في التحميد لله عزَّ وجلَّ",
-            "slug": "supplication-4",
+            "slug": "His supplication in praise of God Almighty-4",
             "phrases": [
               {
                 "id": "١",
@@ -7671,7 +7699,7 @@
           {
             "id": "٥",
             "title": "دُعَائِهِ عليه السلام فِي المناجاة لله عزَّ وجلَّ",
-            "slug": "supplication-5",
+            "slug": "His supplication, peace be upon him, in his supplication to God Almighty-5",
             "phrases": [
               {
                 "id": "١",
@@ -7968,7 +7996,7 @@
           {
             "id": "٦",
             "title": "دعائه عليه السلام في الصلاة على النبي صلى الله عليه وآله",
-            "slug": "supplication-6",
+            "slug": "His supplication, peace be upon him, in prayers upon the Prophet, may God bless him and his family-6",
             "phrases": [
               {
                 "id": "١",
@@ -8155,7 +8183,7 @@
           {
             "id": "٧",
             "title": "شدعائه (عليه السلام) في طلب السعادة",
-            "slug": "supplication-7",
+            "slug": "His supplication (peace be upon him) in seeking happiness-7",
             "phrases": [
               {
                 "id": "١",
@@ -8202,7 +8230,7 @@
           {
             "id": "٨",
             "title": "دعائه عليه السلامفي الشكوى",
-            "slug": "supplication-8",
+            "slug": "His supplication, peace be upon him, in complaint-8",
             "phrases": [
               {
                 "id": "١",
@@ -8299,7 +8327,7 @@
           {
             "id": "٩",
             "title": "دعائه (عليه السلام) في الاحتراز عن المخاوف والخلاص من المهالك",
-            "slug": "supplication-9",
+            "slug": "His supplication (peace be upon him) to guard against fears and be saved from dangers-9",
             "phrases": [
               {
                 "id": "١",
@@ -8346,7 +8374,7 @@
           {
             "id": "١٠",
             "title": "دعائه (عليه السلام) لدفع الأعادي والحفظ",
-            "slug": "supplication-10",
+            "slug": "His supplication (peace be upon him) to repel enemies and protect-10",
             "phrases": [
               {
                 "id": "١",
@@ -8433,7 +8461,7 @@
           {
             "id": "١١",
             "title": "دعائه (عليه السلام) بعد صلاة الليل",
-            "slug": "supplication-11",
+            "slug": "His supplication (peace be upon him) after the night prayer-11",
             "phrases": [
               {
                 "id": "١",
@@ -8480,7 +8508,7 @@
           {
             "id": "١٢",
             "title": "دعائه (عليه السلام) إذا أصبح",
-            "slug": "supplication-12",
+            "slug": "His supplication (peace be upon him) when he wakes up-12",
             "phrases": [
               {
                 "id": "١",
@@ -8547,7 +8575,7 @@
           {
             "id": "١٣",
             "title": "دعائه (عليه السلام) لإنجاح المآرب [المشارب]",
-            "slug": "supplication-13",
+            "slug": "His supplication (peace be upon him) for the success of desires [drinks]-13",
             "phrases": [
               {
                 "id": "١",
@@ -8574,7 +8602,7 @@
           {
             "id": "١٤",
             "title": "دعائه (عليه السلام) على أهل الشام (١)",
-            "slug": "supplication-14",
+            "slug": "His (peace be upon him) supplication for the people of Ash-Sham (1)-14",
             "phrases": [
               {
                 "id": "١",
@@ -8701,7 +8729,7 @@
           {
             "id": "١٥",
             "title": "دعائه (عليه السلام) في الاستعاذة [من البلايا] ومذامِّ الأخلاق",
-            "slug": "supplication-15",
+            "slug": "His supplication (peace be upon him) for seeking refuge [from calamities] and bad morals-15",
             "phrases": [
               {
                 "id": "١",
@@ -8738,7 +8766,7 @@
           {
             "id": "١٦",
             "title": "دعائه (عليه السلام) إذا عرضت له مهمة من المهمات",
-            "slug": "supplication-16",
+            "slug": "His supplication (peace be upon him) when he was faced with an important task-16",
             "phrases": [
               {
                 "id": "١",
@@ -8786,7 +8814,7 @@
           {
             "id": "١٧",
             "title": "دعائه (عليه السلام) للجيران",
-            "slug": "supplication-18",
+            "slug": "His (peace be upon him) supplication for the neighbors-18",
             "phrases": [
               {
                 "id": "١",
@@ -8843,7 +8871,7 @@
           {
             "id": "١٨",
             "title": "دعائه (عليه السلام) في الكرب والإقالة",
-            "slug": "supplication-19",
+            "slug": "His supplication (peace be upon him) in distress and dismissal-19",
             "phrases": [
               {
                 "id": "١",
@@ -8930,7 +8958,7 @@
           {
             "id": "١٩",
             "title": "دعائه (عليه السلام) في حال القنوت",
-            "slug": "supplication-20",
+            "slug": "His supplication (peace be upon him) during the Qunut-20",
             "phrases": [
               {
                 "id": "١",
@@ -9007,7 +9035,7 @@
           {
             "id": "٢٠",
             "title": "دعائه (عليه السلام) في الاستغفار في قنوت صلاة الوتر",
-            "slug": "supplication-21",
+            "slug": "His (peace be upon him) supplication for forgiveness in the Qunut of the Witr prayer-21",
             "phrases": [
               {
                 "id": "١",
@@ -9084,7 +9112,7 @@
           {
             "id": "٢١",
             "title": "دعائه (عليه السلام) في إهلاك الأعداء والحاسدين والمارقين ودفعهم",
-            "slug": "supplication-22",
+            "slug": "His supplication (peace be upon him) for the destruction of enemies, envious people, and apostates and for repelling them-22",
             "phrases": [
               {
                 "id": "١",
@@ -9231,7 +9259,7 @@
           {
             "id": "٢٢",
             "title": "دعائه في اليقظة",
-            "slug": "supplication-23",
+            "slug": "His supplication while awake-23",
             "phrases": [
               {
                 "id": "١",
@@ -9248,13 +9276,13 @@
           {
             "id": "٢٣",
             "title": "دعائه للضرورة",
-            "slug": "supplication-24",
+            "slug": "His supplication for necessity-24",
             "phrases": []
           },
           {
             "id": "٢٤",
             "title": "دعائه في المناجاة",
-            "slug": "supplication-25",
+            "slug": "His supplication in the supplication-25",
             "phrases": [
               {
                 "id": "١",
@@ -9271,7 +9299,7 @@
           {
             "id": "٢٥",
             "title": "دعائه في المناجاة",
-            "slug": "supplication-26",
+            "slug": "His supplication in the supplication-26",
             "phrases": [
               {
                 "id": "١",
@@ -10728,7 +10756,7 @@
           {
             "id": "٢٦",
             "title": "دعائه (عليه السلام) في المناجاة وتعرف أيضاً بالإنجيلية الوسطى",
-            "slug": "supplication-27",
+            "slug": "His supplication (peace be upon him) in the supplication, also known as the Middle Gospel-27",
             "phrases": [
               {
                 "id": "١",
@@ -11065,7 +11093,7 @@
           {
             "id": "٢٧",
             "title": "دعائه (عليه السلام) في المناجاة",
-            "slug": "supplication-28",
+            "slug": "His supplication (peace be upon him) in supplication-28",
             "phrases": [
               {
                 "id": "١",
@@ -11122,7 +11150,7 @@
           {
             "id": "٢٨",
             "title": "دعائه (عليه السلام) في المناجاة",
-            "slug": "supplication-29",
+            "slug": "His supplication (peace be upon him) in supplication-29",
             "phrases": [
               {
                 "id": "١",
@@ -11190,7 +11218,7 @@
           {
             "id": "٢٩",
             "title": " دعائه (عليه السلام) في المناجاة أيضاً",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) in supplication as well-29",
             "phrases": [
               {
                 "id": "١",
@@ -11317,7 +11345,7 @@
           {
             "id": " ٣٠",
             "title": "دعائه (عليه السلام) في المناجاة مختصرة أيضا",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) in the supplication is also brief.-30",
             "phrases": [
               {
                 "id": "١",
@@ -11384,7 +11412,7 @@
           {
             "id": "٣١",
             "title": "دعائه (عليه السلام) في المناجاة مختصرة",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) in the supplication is brief-31",
             "phrases": [
               {
                 "id": "١",
@@ -11421,7 +11449,7 @@
           {
             "id": "٣٢",
             "title": "دعائه (عليه السلام) في المناجاة مختصرة أيضا",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) in the supplication is also brief.-32",
             "phrases": [
               {
                 "id": "١",
@@ -11438,7 +11466,7 @@
           {
             "id": "٣٣",
             "title": "دعائه (عليه السلام) للفرج في وقت المصائب أو عند الفقر والفاقة",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) for relief in times of calamities or poverty and need-33",
             "phrases": [
               {
                 "id": "١",
@@ -11479,7 +11507,7 @@
           {
             "id": "٣٤",
             "title": "دعائه (عليه السلام) في حال الضيق والشدة",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) in times of distress and hardship-34",
             "phrases": [
               {
                 "id": "١",
@@ -11516,7 +11544,7 @@
           {
             "id": "٣٥",
             "title": "دعائه (عليه السلام) في تفريج الهموم والغموم وهذا دعاء مستجاب",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) to relieve worries and sorrows, and this is an answered supplication.-35",
             "phrases": [
               {
                 "id": "١",
@@ -11543,7 +11571,7 @@
           {
             "id": "٣٦",
             "title": "دعائه (عليه السلام) في التوبة",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) in repentance-36",
             "phrases": [
               {
                 "id": "١",
@@ -11630,7 +11658,7 @@
           {
             "id": "٣٧",
             "title": "دعائه (عليه السلام) في التذلل والمسكنة",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) in humility and poverty-37",
             "phrases": [
               {
                 "id": "١",
@@ -11697,7 +11725,7 @@
           {
             "id": "٣٨",
             "title": "دعائه (عليه السلام) في التضرع الى الله تعالى",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) in supplication to God Almighty-38",
             "phrases": [
               {
                 "id": "١",
@@ -11764,7 +11792,7 @@
           {
             "id": "٣٩",
             "title": "دعائه (عليه السلام) في جوف الليل وفي وقت السحر في الخلوة ",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) in the middle of the night and at dawn in seclusion-39",
             "phrases": [
               {
                 "id": "١",
@@ -11861,7 +11889,7 @@
           {
             "id": "٤٠",
             "title": "دعائه (عليه السلام) في سحر كل ليلة بعقب ركعتي الفجر(١)",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) at dawn every night after the two units of prayer at dawn.-40",
             "phrases": [
               {
                 "id": "١",
@@ -11928,7 +11956,7 @@
           {
             "id": "٤١",
             "title": "دعائه (عليه السلام) في قنوت الوتر أيضاً",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) in the Qunut of Witr prayer as well.-41",
             "phrases": [
               {
                 "id": "١",
@@ -11965,7 +11993,7 @@
           {
             "id": "٤٢",
             "title": "دعائه (عليه السلام) في سجوده",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) in his prostration-42",
             "phrases": [
               {
                 "id": "١",
@@ -12012,7 +12040,7 @@
           {
             "id": "٤٣",
             "title": "دعائه (عليه السلام) عند انصرافه من صلاة فريضة أو نافلة",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) upon completing an obligatory or voluntary prayer-43",
             "phrases": [
               {
                 "id": "١",
@@ -12099,7 +12127,7 @@
           {
             "id": "٤٤",
             "title": "دعائه (عليه السلام) عند ختم القرآن",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) upon completing the Qur’an-44",
             "phrases": [
               {
                 "id": "١",
@@ -12156,13 +12184,13 @@
           {
             "id": "٤٥",
             "title": "دعائه (عليه السلام) من ارتفاع النهار إلى قرب الزوال",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) from the beginning of the day until near noon-45",
             "phrases": []
           },
           {
             "id": "٤٦",
             "title": "دعائه (عليه السلام) من ارتفاع النهار إلى قرب الزوال",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) from the beginning of the day until near noon-46",
             "phrases": [
               {
                 "id": "١",
@@ -12219,7 +12247,7 @@
           {
             "id": "٤٧",
             "title": "دعائه (عليه السلام) في تسبيح الله وتنزيهه",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) in glorifying and sanctifying God-47",
             "phrases": [
               {
                 "id": "١",
@@ -12256,7 +12284,7 @@
           {
             "id": "٤٨",
             "title": "دعائه (عليه السلام) في أول يوم من رجب",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) on the first day of Rajab-48",
             "phrases": [
               {
                 "id": "١",
@@ -12293,7 +12321,7 @@
           {
             "id": "٤٩",
             "title": "دعائه (عليه السلام) في اول كل سنة وهو أول يوم من شهر رمضان",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) at the beginning of every year, which is the first day of the month of Ramadan.-49",
             "phrases": [
               {
                 "id": "١",
@@ -12330,7 +12358,7 @@
           {
             "id": "٥٠",
             "title": "دعائه (عليه السلام) في آخر ليلة من شهر رمضان",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) on the last night of Ramadan-507",
             "phrases": [
               {
                 "id": "١",
@@ -12377,7 +12405,7 @@
           {
             "id": "٥١",
             "title": "دعائه (عليه السلام) في أوقات شهر رمضان",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) during the times of the month of Ramadan-51",
             "phrases": [
               {
                 "id": "١",
@@ -12624,7 +12652,7 @@
           {
             "id": "٥٢",
             "title": "دعائه (عليه السلام) في ليالي أفراد شهر رمضان",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) on the nights of the month of Ramadan-52",
             "phrases": [
               {
                 "id": "١",
@@ -12681,7 +12709,7 @@
           {
             "id": "٥٣",
             "title": "دعائه (عليه السلام) في جوامع مطالب الدنيا والآخرة",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) on the comprehensive demands of this world and the hereafter-53",
             "phrases": [
               {
                 "id": "١",
@@ -12768,7 +12796,7 @@
           {
             "id": "٥٤",
             "title": "دعائه (عليه السلام) في مطالب الدنيا والاخرة",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) for the demands of this world and the hereafter-54",
             "phrases": [
               {
                 "id": "١",
@@ -12795,7 +12823,7 @@
           {
             "id": "٥٥",
             "title": "دعائه (عليه السلام) في إنجاح المطالب والفرج والمصائب",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) for the success of demands, relief, and calamities-55",
             "phrases": [
               {
                 "id": "١",
@@ -12842,7 +12870,7 @@
           {
             "id": "٥٦",
             "title": "دعائه (عليه السلام) في دفع كل شر ومصيبة",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) to ward off all evil and calamity-56",
             "phrases": [
               {
                 "id": "١",
@@ -12879,7 +12907,7 @@
           {
             "id": "٥٧",
             "title": "دعائه (عليه السلام) وتسبيحه وعوذته في الأيام السبعة",
-            "slug": "",
+            "slug": "His supplication (peace be upon him), his glorification, and his invocation of protection during the seven days-57",
             "phrases": [
               {
                 "id": "١",
@@ -12986,7 +13014,7 @@
           {
             "id": "٥٨",
             "title": "دعائه (عليه السلام) في يوم الاحد",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) on Sunday-58",
             "phrases": [
               {
                 "id": "١",
@@ -13073,7 +13101,7 @@
           {
             "id": "٥٩",
             "title": "دعائه (عليه السلام) في يوم الإثنين",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) on Monday-59",
             "phrases": [
               {
                 "id": "١",
@@ -13150,7 +13178,7 @@
           {
             "id": "٦٠",
             "title": "دعائه (عليه السلام) في يوم الثلاثاء",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) on Tuesday-60",
             "phrases": [
               {
                 "id": "١",
@@ -13217,7 +13245,7 @@
           {
             "id": "٦١",
             "title": "دعائه (عليه السلام) في يوم الاربعاء",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) on Wednesday-61",
             "phrases": [
               {
                 "id": "١",
@@ -13284,7 +13312,7 @@
           {
             "id": "٦٢",
             "title": "دعائه في يوم الخميس على ما رأيته في تلك المجموعة:",
-            "slug": "",
+            "slug": "His supplication on Thursday, as I saw in that group:-62",
             "phrases": [
               {
                 "id": "١",
@@ -13351,7 +13379,7 @@
           {
             "id": "٦٣",
             "title": "دعائه (عليه السلام) في أعقاب صلوات نوافل الجمعة",
-            "slug": "",
+            "slug": "His supplication (peace be upon him) after the voluntary Friday prayers-63",
             "phrases": [
               {
                 "id": "١",
