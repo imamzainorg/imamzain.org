@@ -1,7 +1,11 @@
 import Breadcrumbs from "@/components/breadcrumb"
 import Section from "@/components/section"
 import Image from "next/image"
-import { ApplyStepper } from "../kitab/components/applicationSteps"
+
+import galleryImages from "@/data/gallery.json"
+import { ApplyStepper } from "../components/applicationSteps"
+import SwiperGallery from "../../news/_components/swiper-gallery"
+import HeaderSections from "@/components/header-sections"
 const prizes = [
 	{
 		type: "الثلث الجلي",
@@ -117,6 +121,11 @@ const personal: Personal[] = [
 ]
 
 export default function page() {
+	const images = galleryImages
+		.filter((item) => item.title === "khat")
+		.map((image) => {
+			return { id: image.id, path: image.image.path }
+		})
 	return (
 		<div className="container px-4 sm:px-6 md:px-8">
 			<Breadcrumbs
@@ -273,6 +282,16 @@ export default function page() {
 			</div>
 
 			<div className="w-full h-0.5 bg-gradient-to-r from-transparent via-slate-900/20 to-transparent rounded-full my-6 sm:my-8" />
+			<div className="pt-20">
+				<HeaderSections
+					title={"ارشيف المسابقة"}
+					moreButton={{
+						label: "ارشيف المسابقة",
+						href: "/contests/khat/gallery",
+					}}
+				/>
+				<SwiperGallery images={images} />
+			</div>
 		</div>
 	)
 }

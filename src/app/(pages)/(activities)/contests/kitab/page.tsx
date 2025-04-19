@@ -1,7 +1,7 @@
 import Breadcrumbs from "@/components/breadcrumb"
 import Section from "@/components/section"
 import Image from "next/image"
-import { ApplyStepper } from "./components/applicationSteps"
+import { ApplyStepper } from "../components/applicationSteps"
 const prizes = [
 	{
 		type: "الثلث الجلي",

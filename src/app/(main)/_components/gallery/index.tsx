@@ -4,14 +4,11 @@ import { motion } from "framer-motion"
 import SwiperCarousel from "@/components/swiper-carousel"
 import galleryImages from "@/data/gallery.json"
 import { useEffect, useState } from "react"
-import { Attachment } from "@/types/attachments"
 import ImageView from "@/components/image-view"
 import Link from "next/link"
 
 export default function GallerySection() {
 	const [Show, setToShow] = useState(Number || null)
-
-	const [images, setImages] = useState<Attachment[]>([])
 
 	const updateBooksToShow = () => {
 		const width = window.innerWidth
@@ -21,16 +18,6 @@ export default function GallerySection() {
 		else if (width >= 640) setToShow(2)
 		else setToShow(2)
 	}
-
-	useEffect(() => {
-		const newArray = galleryImages.reverse().map((item) => ({
-			id: item.id,
-			path: item.image.path,
-		}))
-
-		console.log(newArray)
-		setImages(newArray)
-	}, [])
 
 	// Set initial value and update on resize
 	useEffect(() => {
@@ -61,9 +48,15 @@ export default function GallerySection() {
 					/>
 
 					<SwiperCarousel
-						images={images
-							.slice(images.length - 10, images.length)
-							.reverse()}
+						images={galleryImages
+							.slice(
+								galleryImages.length - 10,
+								galleryImages.length,
+							)
+							.reverse()
+							.map((image) => {
+								return { id: image.id, path: image.image.path }
+							})}
 					/>
 					<div className="mt-8 p-4 rounded-3xl grid grid-cols-2 md:grid-cols-3 xmd:grid-cols-5 gap-4 grid-rows-1 bg-gray-600/35">
 						{Show &&
