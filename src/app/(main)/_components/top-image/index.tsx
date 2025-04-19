@@ -7,14 +7,14 @@ import { motion, AnimatePresence } from "framer-motion"
 // Define different image sets for different screen sizes
 const desktopImages = [
 	"/images/albaqi.jpg",
-	"/images/albaqi_2.jpg",
+	"/images/albaqi-2.jpg",
 	"/images/hero-3.jpg",
 ]
 
 // Mobile optimized images - replace these with your actual mobile image paths
 const mobileImages = [
 	"/images/albaqi.jpg",
-	"/images/albaqi_2.jpg",
+	"/images/albaqi-2.jpg",
 	"/images/hero-3-vertical.jpg",
 ]
 
