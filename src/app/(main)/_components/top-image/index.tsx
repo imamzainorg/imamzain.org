@@ -86,7 +86,7 @@ export default function TopImage() {
 	// Update this to check for both mobile and desktop versions
 	const showHadith =
 		(!isMobile && images[currentImageIndex] === "/images/albaqi.jpg") ||
-		(isMobile && images[currentImageIndex] === "/images/albaqi_mobile.jpg")
+		(isMobile && images[currentImageIndex] === "/images/albaqi.jpg") // Updated to check for actual mobile path
 
 	// Move to next image
 	const nextImage = useCallback(() => {
@@ -127,13 +127,21 @@ export default function TopImage() {
 				className="relative w-full h-[95vh] max-lg:h-[90vh] bg-[#006654] overflow-hidden"
 				style={maskStyles}
 			>
-				{/* Gradient overlay */}
-				<div
-					className="absolute top-0 right-0 w-full h-full z-20"
-					style={{
-						background: `linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 35%, rgba(0,0,0,0.1) 100%)`,
-					}}
-				/>
+				{/* Gradient overlay - only shown when albaqi.jpg is displayed */}
+				<AnimatePresence>
+					{showHadith && (
+						<motion.div
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							transition={{ duration: 1 }}
+							className="absolute top-0 right-0 w-full h-full z-20"
+							style={{
+								background: `linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 35%, rgba(0,0,0,0.1) 100%)`,
+							}}
+						/>
+					)}
+				</AnimatePresence>
 
 				{/* Hadith display - only shown when albaqi.jpg is displayed */}
 				<div className="absolute flex flex-col justify-center gap-4 items-center bottom-0 right-0 w-full h-1/2 z-30">
@@ -169,6 +177,7 @@ export default function TopImage() {
 				<div className="absolute inset-0 w-full h-full">
 					{/* Previous Image */}
 					<Image
+						unoptimized
 						src={images[prevImageIndex]}
 						alt="Background image"
 						fill
@@ -187,6 +196,7 @@ export default function TopImage() {
 						className="absolute inset-0 w-full h-full"
 					>
 						<Image
+							unoptimized
 							src={images[currentImageIndex]}
 							alt="Background image"
 							fill

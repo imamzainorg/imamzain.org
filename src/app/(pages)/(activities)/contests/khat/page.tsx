@@ -169,14 +169,14 @@ export default function page() {
 			<div className="flex flex-col sm:flex-row justify-between py-6 sm:py-8 lg:py-10 my-4 sm:my-5 text-base sm:text-lg lg:text-xl p-3 sm:p-5">
 				<div className="text-center mb-4 sm:mb-0">
 					اعلان المسابقة
-					<br />{" "}
+					<br />
 					<span className="text-lg sm:text-xl font-semibold">
 						يوم ١١ / ٤ / ٢٠٢٥م
 					</span>
 				</div>
 				<div className="text-center">
 					آخر موعد لتسليم اللوحات
-					<br />{" "}
+					<br />
 					<span className="text-lg sm:text-xl font-semibold">
 						يوم ٥ / ١ / ٢٠٢٦م
 					</span>

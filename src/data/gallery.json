@@ -342,5 +342,37 @@
             "id": 43,
             "path": "/news/second-scientific-forum-baqi-report-5.jpg"
         }
+    },
+    {
+        "id": 44,
+        "title": "text",
+        "image": {
+            "id": 44,
+            "path": "/gallery/image (39).JPG"
+        }
+    },
+    {
+        "id": 45,
+        "title": "text",
+        "image": {
+            "id": 45,
+            "path": "/gallery/image (40).JPG"
+        }
+    },
+    {
+        "id": 46,
+        "title": "text",
+        "image": {
+            "id": 46,
+            "path": "/gallery/image (41).jpg"
+        }
+    },
+    {
+        "id": 47,
+        "title": "text",
+        "image": {
+            "id": 47,
+            "path": "/gallery/image (42).jpg"
+        }
     }
 ]
