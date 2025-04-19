@@ -23,7 +23,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
 
 	const xRef = useRef(0)
 	const yRef = useRef(0)
-	const frameRef = useRef<number>(0)
+	const frameRef = useRef<number>(-1)
 
 	useEffect(() => {
 		const animate = () => {
@@ -94,7 +94,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
 					}}
 				>
 					<Image
-						className="object-contain w-full h-full opacity-100 transition-opacity duration-600 ease-in-out"
+						className="object-cover w-full h-full opacity-100 transition-opacity duration-600 ease-in-out"
 						style={{
 							opacity: current === index ? 1 : 0.5,
 						}}
