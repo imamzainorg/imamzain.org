@@ -1,7 +1,7 @@
 import Breadcrumbs from "@/components/breadcrumb"
 import Section from "@/components/section"
 import Image from "next/image"
-import { StepperDemo } from "./components/applicationSteps"
+import { ApplyStepper } from "./components/applicationSteps"
 const prizes = [
 	{
 		type: "الثلث الجلي",
@@ -162,7 +162,7 @@ export default function page() {
 			<h1 className="w-full text-center text-xl sm:text-2xl md:text-3xl my-12 sm:my-16 lg:my-20 font-semibold">
 				خطوات الاشتراك في المسابقة
 			</h1>
-			<StepperDemo />
+			<ApplyStepper />
 			<div className="w-full h-0.5 bg-gradient-to-r from-transparent via-primary/20 to-transparent rounded-full mt-6 sm:mt-8" />
 			{/* اعلان المسابقة */}
 			<div className="flex flex-col sm:flex-row justify-between py-6 sm:py-8 lg:py-10 my-4 sm:my-5 text-base sm:text-lg lg:text-xl p-3 sm:p-5">
