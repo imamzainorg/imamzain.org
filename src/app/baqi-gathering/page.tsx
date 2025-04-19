@@ -156,7 +156,7 @@ const SpeakersSection = () => {
 									عنوان البحث :
 								</p>
 								<p className="text-neutral-700 text-sm sm:text-base">
-									البحث بعنوان {speaker.title}
+									{speaker.title}
 								</p>
 							</div>
 							<div className="flex items-center justify-center p-2 order-1 sm:order-2 xl:order-1 2xl:order-2">
