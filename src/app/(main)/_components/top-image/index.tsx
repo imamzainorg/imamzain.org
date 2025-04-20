@@ -4,22 +4,6 @@ import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 
-// Define different image sets for different screen sizes
-const desktopImages = [
-	"/images/albaqi.jpg",
-	"/images/albaqi-2.jpg",
-	"/images/hero-3.jpg",
-]
-
-// Mobile optimized images - replace these with your actual mobile image paths
-const mobileImages = [
-	"/images/albaqi.jpg",
-	"/images/albaqi-2.jpg",
-	"/images/hero-3-vertical.jpg",
-]
-
-import hadiths from "@/data/hadiths.json"
-
 const HadithDisplay = ({
 	hadith,
 }: {
@@ -46,63 +30,62 @@ const HadithDisplay = ({
 	</motion.div>
 )
 
-export default function TopImage() {
+export default function TopImage({
+	desktopImages,
+	mobileImages,
+	currentHadith,
+}: {
+	desktopImages: string[]
+	mobileImages: string[]
+	currentHadith: {
+		id: number
+		author: string
+		content: string
+	}
+}) {
 	const [currentImageIndex, setCurrentImageIndex] = useState(0)
 	const [prevImageIndex, setPrevImageIndex] = useState(0)
 	const [isPaused, setIsPaused] = useState(false)
 	const [isMobile, setIsMobile] = useState(false)
 	const [images, setImages] = useState(desktopImages)
 
-	// Get the current day of the month (1-31)
-	const today = new Date()
-	const dayOfMonth = today.getDate() // e.g., 1 for the 1st, 15 for the 15th, etc.
-	// Calculate the hadith index based on the day.
-	const currentHadithIndex = (dayOfMonth - 1) % hadiths.length
-
-	// Use useEffect to handle window resize and set proper image array
+	// Set Proper Image Array
 	useEffect(() => {
-		// Only run on client side
-		if (typeof window === "undefined") return
-
-		// Initial check for mobile
 		const checkMobile = () => {
-			const mobileBreakpoint = 768 // Adjust this value as needed
+			const mobileBreakpoint = 640
 			const mobile = window.innerWidth < mobileBreakpoint
 			setIsMobile(mobile)
-			setImages(mobile ? mobileImages : desktopImages)
+			setImages(
+				window.innerWidth < mobileBreakpoint
+					? mobileImages
+					: desktopImages,
+			)
 		}
 
-		// Run check on mount
 		checkMobile()
 
-		// Add resize listener
 		window.addEventListener("resize", checkMobile)
 
-		// Clean up
 		return () => window.removeEventListener("resize", checkMobile)
-	}, [])
+	}, [desktopImages, mobileImages])
 
-	// Check if the albaqi.jpg image is currently displayed
-	// Update this to check for both mobile and desktop versions
+	// Hadith should show only on first Image
 	const showHadith =
 		(!isMobile && images[currentImageIndex] === "/images/albaqi.jpg") ||
-		(isMobile && images[currentImageIndex] === "/images/albaqi.jpg") // Updated to check for actual mobile path
+		(isMobile && images[currentImageIndex] === "/images/albaqi.jpg")
 
-	// Move to next image
 	const nextImage = useCallback(() => {
 		setPrevImageIndex(currentImageIndex)
 		setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
 	}, [currentImageIndex, images.length])
 
-	// Change image every 5 seconds
 	useEffect(() => {
 		if (isPaused) return
 
-		const imageInterval = setInterval(nextImage, 5000)
+		const imageInterval = setInterval(nextImage, 5000) // 5 Seconds For Each Slide
 		return () => clearInterval(imageInterval)
 	}, [currentImageIndex, isPaused, nextImage])
 
-	// Mask styles as a CSS class variable to avoid repetition
 	const maskStyles = {
 		WebkitMaskImage: `url('/images/landing-mask.svg')`,
 		maskImage: `url('/images/landing-mask.svg')`,
@@ -146,11 +129,7 @@ export default function TopImage() {
 				{/* Hadith display - only shown when albaqi.jpg is displayed */}
 				<div className="absolute flex flex-col justify-center gap-4 items-center bottom-0 right-0 w-full h-1/2 z-30">
 					<AnimatePresence mode="wait">
-						{showHadith && (
-							<HadithDisplay
-								hadith={hadiths[currentHadithIndex]}
-							/>
-						)}
+						{showHadith && <HadithDisplay hadith={currentHadith} />}
 					</AnimatePresence>
 				</div>
 
@@ -177,7 +156,6 @@ export default function TopImage() {
 				<div className="absolute inset-0 w-full h-full">
 					{/* Previous Image */}
 					<Image
-						unoptimized
 						src={images[prevImageIndex]}
 						alt="Background image"
 						fill
@@ -187,7 +165,7 @@ export default function TopImage() {
 						priority={prevImageIndex === 0}
 					/>
 
-					{/* Fading in New Image */}
+					{/* New Image */}
 					<motion.div
 						key={images[currentImageIndex]}
 						initial={{ opacity: 0 }}
@@ -196,7 +174,6 @@ export default function TopImage() {
 						className="absolute inset-0 w-full h-full"
 					>
 						<Image
-							unoptimized
 							src={images[currentImageIndex]}
 							alt="Background image"
 							fill
