@@ -1,6 +1,18 @@
 import Breadcrumbs from "@/components/breadcrumb"
+import Section from "@/components/section"
 import Image from "next/image"
 import Link from "next/link"
+import { researchAxes } from "./data/researchAxes"
+import { rules } from "./data/rules"
+import { criteria } from "./data/criteria"
+import {
+	Award,
+	BadgeDollarSign,
+	BookCheck,
+	ScrollText,
+	ShieldCheck,
+} from "lucide-react"
+import { EmailIcon } from "@/assets/icons/reusable"
 
 export default function Page() {
 	return (
@@ -25,9 +37,9 @@ export default function Page() {
 						</p>
 						<Link
 							href="#"
-							className="border-2 hover:border-primary text-white hover:text-primary font-semibold py-3 px-6 rounded-md transition duration-300"
+							className="border-b-2 hover:border-primary text-white hover:text-primary font-semibold py-3 px-6 transition duration-300"
 						>
-							ارسل عملك
+							قم بالإنضمام الى المسابقة الآن
 						</Link>
 					</div>
 				</div>
@@ -35,11 +47,9 @@ export default function Page() {
 
 			<section id="about" className="py-20">
 				<div className="container mx-auto px-4">
-					<h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
-						حول المسابقة
-					</h2>
+					<Section title="المنظمين" />
 					<div className="flex flex-col md:flex-row items-center justify-center gap-12 text-lg leading-loose tracking-tight text-justify">
-						<div className="md:w-1/2">
+						<div className="md:w-2/3">
 							<p className="mb-4 text-gray-700 ">
 								تنظّم مؤسسة الإمام زين العابدين للبحوث والدراسات
 								هذه المسابقة لإبراز الجوانب الفكرية والعلمية في
@@ -69,217 +79,119 @@ export default function Page() {
 			</section>
 
 			<div>
-				<h1 className="text-3xl font-bold text-center mb-8 text-gray-800">
-					محاور الكتابة
-				</h1>
+				<Section title="محاور الكتابة" />
 
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-screen-md mx-auto">
-					<div className="p-6 flex items-center justify-right">
-						<div className="text-center">
-							<h2 className="text-2xl font-semibold mb-2 flex items-center gap-2">
-								<Image
-									src={"/shapes/book_icon.svg"}
-									width={50}
-									height={50}
-									alt="pointer"
-									className="rotate-90 w-5 h-5 object-contain"
-								/>
-								محور العلوم الاسلامية
-							</h2>
-							<p className="text-gray-600">
-								Content for the first cell
-							</p>
+				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-screen-lg mx-auto">
+					{researchAxes.map((axes) => (
+						<div
+							key={axes.title}
+							className="p-6 flex items-center justify-right w-full"
+						>
+							<div className="text-center">
+								<h2 className="text-2xl font-semibold mb-2 flex items-center gap-2">
+									<Image
+										src={"/shapes/book_icon.svg"}
+										width={50}
+										height={50}
+										alt="pointer"
+										className="rotate-90 w-5 h-5 object-contain"
+									/>
+									{axes.title}
+								</h2>
+								<div className="text-gray-600 mr-7">
+									{axes.keywords.map((keyword) => (
+										<span key={keyword}>
+											{keyword}
+											{keyword !==
+											axes.keywords[
+												axes.keywords.length - 1
+											]
+												? "، "
+												: ""}
+										</span>
+									))}
+								</div>
+							</div>
 						</div>
-					</div>
-
-					<div className="bg-white rounded-lg shadow p-6 flex items-center justify-center">
-						<div className="text-center">
-							<h2 className="text-xl font-semibold mb-2">
-								Row 1, Cell 2
-							</h2>
-							<p className="text-gray-600">
-								Content for the second cell
-							</p>
-						</div>
-					</div>
-
-					<div className="bg-white rounded-lg shadow p-6 flex items-center justify-center">
-						<div className="text-center">
-							<h2 className="text-xl font-semibold mb-2">
-								Row 2, Cell 1
-							</h2>
-							<p className="text-gray-600">
-								Content for the third cell
-							</p>
-						</div>
-					</div>
-
-					<div className="bg-white rounded-lg shadow p-6 flex items-center justify-center">
-						<div className="text-center">
-							<h2 className="text-xl font-semibold mb-2">
-								Row 2, Cell 2
-							</h2>
-							<p className="text-gray-600">
-								Content for the fourth cell
-							</p>
-						</div>
-					</div>
-
-					<div className="bg-white rounded-lg shadow p-6 flex items-center justify-center">
-						<div className="text-center">
-							<h2 className="text-xl font-semibold mb-2">
-								Row 3, Cell 1
-							</h2>
-							<p className="text-gray-600">
-								Content for the fifth cell
-							</p>
-						</div>
-					</div>
-
-					<div className="bg-white rounded-lg shadow p-6 flex items-center justify-center">
-						<div className="text-center">
-							<h2 className="text-xl font-semibold mb-2">
-								Row 3, Cell 2
-							</h2>
-							<p className="text-gray-600">
-								Content for the sixth cell
-							</p>
-						</div>
-					</div>
+					))}
 				</div>
 			</div>
 
-			<section id="guidelines" className="py-20">
-				<div className="container mx-auto px-4">
-					<h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
-						Submission Guidelines
-					</h2>
-
-					<div className="grid md:grid-cols-2 gap-8 mb-16">
-						<div className="bg-white p-8 rounded-lg shadow-md">
-							<h3 className="text-xl font-semibold text-purple-700 mb-4">
-								Eligibility
-							</h3>
-							<ul className="list-disc pl-5 text-gray-700 space-y-2">
-								<li>Original, unpublished book manuscripts</li>
-								<li>Minimum 150 pages / 40,000 words</li>
-								<li>
-									Written in English, Arabic, Persian, or Urdu
-								</li>
-								<li>
-									Must focus on Imam Al-Sajjad&apos;s life,
-									teachings, or legacy
-								</li>
-								<li>
-									Open to writers of all nationalities and
-									backgrounds
-								</li>
-							</ul>
-						</div>
-
-						<div className="bg-white p-8 rounded-lg shadow-md">
-							<h3 className="text-xl font-semibold text-purple-700 mb-4">
-								Book Categories
-							</h3>
-							<ul className="list-disc pl-5 text-gray-700 space-y-2">
-								<li>Academic/Scholarly Research</li>
-								<li>Biography/Historical Account</li>
-								<li>Spiritual Commentary</li>
-								<li>Contemporary Application of Teachings</li>
-								<li>
-									Translation & Commentary of Imam&apos;s
-									Works
-								</li>
-							</ul>
-						</div>
-
-						<div className="bg-white p-8 rounded-lg shadow-md">
-							<h3 className="text-xl font-semibold text-purple-700 mb-4">
-								Format Requirements
-							</h3>
-							<ul className="list-disc pl-5 text-gray-700 space-y-2">
-								<li>Manuscript in PDF format</li>
-								<li>Double-spaced, 12pt standard font</li>
-								<li>
-									Complete with table of contents,
-									bibliography
-								</li>
-								<li>
-									Cover letter with author bio (max 500 words)
-								</li>
-								<li>
-									Abstract summarizing the work (max 1000
-									words)
-								</li>
-							</ul>
-						</div>
-
-						<div className="bg-white p-8 rounded-lg shadow-md">
-							<h3 className="text-xl font-semibold text-purple-700 mb-4">
-								Evaluation Criteria
-							</h3>
-							<ul className="list-disc pl-5 text-gray-700 space-y-2">
-								<li>Originality and innovation of approach</li>
-								<li>Academic rigor and scholarly integrity</li>
-								<li>Quality of research and sources</li>
-								<li>Literary excellence and accessibility</li>
-								<li>Relevance to contemporary contexts</li>
-							</ul>
-						</div>
-					</div>
-
-					{/* Timeline */}
-					<div className="relative">
-						{/* Desktop Timeline Line */}
-						<div className="hidden md:block absolute h-1 bg-purple-600 top-1/2 left-0 right-0 transform -translate-y-1/2"></div>
-
-						{/* Mobile Timeline Line */}
-						<div className="md:hidden absolute w-1 bg-purple-600 top-0 bottom-0 left-1/2 transform -translate-x-1/2"></div>
-
-						<div className="grid md:grid-cols-4 gap-8 relative">
-							{[
-								{
-									phase: "1",
-									title: "Submissions Open",
-									date: "May 1, 2025",
-								},
-								{
-									phase: "2",
-									title: "Deadline",
-									date: "November 30, 2025",
-								},
-								{
-									phase: "3",
-									title: "Evaluation Period",
-									date: "December 2025 - February 2026",
-								},
-								{
-									phase: "4",
-									title: "Winners Announced",
-									date: "March 15, 2026",
-								},
-							].map((item, index) => (
-								<div
-									key={index}
-									className="flex flex-col items-center relative"
-								>
-									<div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold z-10">
-										{item.phase}
-									</div>
-									<div className="text-center mt-4">
-										<h4 className="font-semibold text-gray-800">
-											{item.title}
-										</h4>
-										<p className="text-gray-600">
-											{item.date}
-										</p>
-									</div>
-								</div>
-							))}
-						</div>
-					</div>
+			<Section title="معايير التقييم" />
+			{criteria.map((index) => (
+				<div
+					key={index}
+					className="flex items-center gap-4 my-4 md:w-2/3 mx-auto text-xl"
+				>
+					<ScrollText className="text-primary" />
+					{index}
 				</div>
-			</section>
+			))}
+
+			<Section title="شروط الإنضمام للمسابقة" />
+			<div className="flex flex-col md:flex-row items-center justify-center gap-12 text-lg leading-loose tracking-tight text-justify">
+				<div className="md:w-2/3">
+					<ol className=" list-decimal text-right text-gray-700 space-y-2 sm:space-y-3 pr-2 sm:pr-4 p-2 sm:p-4 md:p-6 lg:p-8">
+						{rules.map((rule, index) => (
+							<li
+								key={index}
+								className="leading-relaxed text-sm sm:text-base md:text-lg"
+							>
+								{rule}
+							</li>
+						))}
+					</ol>
+				</div>
+			</div>
+
+			<Section title="جوائز قيمة" />
+			<div className="flex flex-col md:flex-row gap-4 w-full">
+				<div className="w-1/2 p-8 bg-white/40 shadow-xl border rounded-xl flex flex-col justify-center items-center text-center gap-8 ">
+					<BadgeDollarSign
+						className="w-20 h-20 text-secondary"
+						strokeWidth={0.5}
+					/>
+					يتم اختيار (۳) فائزين ويخصص لكل منهم جائزة بمقدار (000,000,
+					2) دينار عراقي.
+				</div>
+				<div className="w-1/2 p-8 bg-white/40 shadow-xl border rounded-xl flex flex-col justify-center items-center text-center gap-8 ">
+					<Award
+						className="w-20 h-20 text-secondary"
+						strokeWidth={0.5}
+					/>
+					يضاف للكتاب المتميز هدية قدرها (٥٠٠,٠٠٠) دينار عراقي.
+				</div>
+				<div className="w-1/2 p-8 bg-white/40 shadow-xl border rounded-xl flex flex-col justify-center items-center text-center gap-8 ">
+					<BookCheck
+						className="w-20 h-20 text-secondary"
+						strokeWidth={0.5}
+					/>
+					يتم طبع ونشر الكتب المقبولة على نفقة المؤسسة وتكون حقوق
+					الطبع محفوظة للمؤسسة.
+				</div>
+				<div className="w-1/2 p-8 bg-white/40 shadow-xl border rounded-xl flex flex-col justify-center items-center text-center gap-8 ">
+					<ShieldCheck
+						className="w-20 h-20 text-secondary"
+						strokeWidth={0.5}
+					/>
+					تزويد المشاركين المقبولين والفائزين بما يؤيد ذلك رسمياً.
+				</div>
+			</div>
+
+			<Section title="آلية التقديم" />
+			<div className="animate-fade-in-up w-full flex flex-col justify-center items-center gap-4 p-2 sm:p-4 md:p-6 lg:p-8">
+				<p className="w-full sm:w-4/5 md:w-3/4 lg:w-1/2 mx-auto text-base sm:text-lg md:text-xl text-center">
+					يمكنكم الإنضمام الى المسابقة من خلال تقديم عملكم عبر البريد
+					الالكتروني
+				</p>
+				<Link
+					href="mailto:kitab@imamzain.org"
+					className="text-lg sm:text-xl md:text-2xl font-semibold p-2 sm:p-3 border-b-2 flex items-center gap-4 sm:gap-6 md:gap-8 duration-150 hover:-translate-y-2"
+				>
+					<EmailIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+					kitab@imamzain.org
+				</Link>
+			</div>
 		</div>
 	)
 }
