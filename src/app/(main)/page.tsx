@@ -18,13 +18,13 @@ import hadiths from "@/data/hadiths.json"
 const desktopImages = [
 	"/images/albaqi.jpg",
 	"/images/albaqi-2.png",
-	"/images/hero-3.jpg",
+	// "/images/hero-3.jpg",
 ]
 
 const mobileImages = [
 	"/images/albaqi.jpg",
 	"/images/albaqi-2.jpg",
-	"/images/hero-3-vertical.jpg",
+	// "/images/hero-3-vertical.jpg",
 ]
 
 export default async function page() {
