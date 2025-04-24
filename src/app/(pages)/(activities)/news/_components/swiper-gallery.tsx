@@ -46,7 +46,7 @@ export default function SwiperGallery({ images }: SwiperGalleryProps) {
 							src={image.path}
 							alt={`Slide ${image.id}`}
 							className="w-full sm:w-[15rem] xl:w-[17rem] 2xl:w-[20rem] h-60 sm:h-40 xl:h-52 mx-auto rounded-2xl"
-							// view: this property doesn't exit ImageView, Edit ImageView component to fix
+							//  view: this property doesn't exit ImageView, Edit ImageView component to fix
 						/>
 					</SwiperSlide>
 				))}
