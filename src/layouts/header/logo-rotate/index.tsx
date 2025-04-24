@@ -49,6 +49,7 @@ export function LogoRotate({
 				>
 					<Image
 						src={paths[index]}
+						priority
 						width={50}
 						height={50}
 						className={`${className}`}

@@ -38,6 +38,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
 						<div className="  ">
 							<Image
 								src="/images/logo-horizontal.svg"
+								priority
 								width={100}
 								height={100}
 								className="w-32 sm:w-40 xl:w-52 cursor-pointer"

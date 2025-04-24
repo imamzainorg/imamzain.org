@@ -49,6 +49,7 @@ export default function GallerySection() {
 
 					<SwiperCarousel
 						images={galleryImages
+							.filter((item) => item.title !== "khat")
 							.slice(
 								galleryImages.length - 10,
 								galleryImages.length,

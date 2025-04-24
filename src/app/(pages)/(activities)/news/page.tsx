@@ -145,7 +145,7 @@ export default async function Page() {
 							className={`"xl:mt-4" ${index === 0 ? "col-span-2 row-span-2" : ""} `}
 						>
 							<div className="">
-								<div key={post.id} className="rounded-xl ">
+								<div className="rounded-xl ">
 									<div className="relative w-full h-full overflow-hidden rounded-xl hover:cursor-pointer border-4 border-transparent transition-all  hover:border-secondary duration-300 ease-in-out">
 										<Image
 											src={post.image}

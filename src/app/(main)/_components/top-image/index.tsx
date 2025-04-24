@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion"
 const HadithDisplay = ({
 	hadith,
 }: {
-	hadith: { id: number; author: string; content: string }
+	hadith: { id: number; content: string }
 }) => (
 	<motion.div
 		key={hadith.content}
@@ -22,7 +22,7 @@ const HadithDisplay = ({
 		aria-live="polite"
 	>
 		<h1 className="font-bold text-xl lg:text-2xl text-white pb-5">
-			{hadith.author}
+			عَنِ الإِمَامِ زَيْنِ العَابِدِينَ (عَلَيْهِ السَّلَام)
 		</h1>
 		<p className="text-xl lg:text-2xl 2xl:text-3xl text-white text-center">
 			{hadith.content}
@@ -39,7 +39,6 @@ export default function TopImage({
 	mobileImages: string[]
 	currentHadith: {
 		id: number
-		author: string
 		content: string
 	}
 }) {

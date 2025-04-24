@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { Button, Input } from "@heroui/react"
 import { PersonIcon, MobileIcon } from "@/assets/icons/reusable"
 import CountriesDropdown from "@/components/countries-input"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome" 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useState } from "react"
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons"
 
@@ -115,7 +115,8 @@ const ZiaraForm = () => {
 					{/* Display one error message */}
 					{/* Submit Button */}
 					<Button
-						onClick={handleSubmit}
+						onPress={handleSubmit}
+						aria-label="submit"
 						className="text-white rounded-md bg-secondary p-4 md:p-6 mt-2 font-bold text-xs md:text-lg"
 					>
 						التسجيل

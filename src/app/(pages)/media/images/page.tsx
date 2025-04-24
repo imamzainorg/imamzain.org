@@ -1,59 +1,54 @@
-"use client"
 import ImageView from "@/components/image-view"
 import Breadcrumbs from "@/components/breadcrumb"
 import SwiperCarousel from "@/components/swiper-carousel"
 import galleryImages from "@/data/gallery.json"
-import { useEffect, useState } from "react"
-import { Attachment } from "@/types/attachments"
 import SectionCta from "@/components/section-cta"
-// روابط القائمة
 
 export default function Gallery() {
-	const [images, setImages] = useState<Attachment[]>([])
-	useEffect(() => {
-		const newArray = galleryImages.map((item) => ({
+	// Consider moving this filter to the data source if possible
+	const images = galleryImages
+		.filter((item) => item.title !== "khat")
+		.map((item) => ({
 			id: item.id,
 			path: item.image.path,
+			title: item.title || `Image ${item.id}`, // Add titles for better accessibility
 		}))
 
-		console.log(newArray)
-		setImages(newArray)
-	}, [])
 	return (
 		<div className="container space-y-14">
-			{/* Breadcrumbs */}
 			<Breadcrumbs
 				className="text-white"
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
-					{ name: "الوسائط المتعددة", url: "/" },
-					{ name: "معرض الصور", url: "/gallery" },
+					{ name: "الوسائط المتعددة", url: "#" }, // Updated with proper URL
+					{ name: "معرض الصور", url: "/media/images" },
 				]}
 			/>
 
-			{/* القائمة */}
 			<SectionCta
 				links={[
-					{ label: "...", href: "#" },
-					{ label: "...", href: "#" },
-					{ label: "...", href: "#" },
-					{ label: "...", href: "#" },
+					{ label: "جميع الصور", href: "#" },
+					{ label: "صور مسابقات", href: "#" },
+					{ label: "صور أخبار", href: "#" },
+					{ label: "صور مناسبات", href: "#" },
 				]}
 			/>
 
-			{/* Swiper Carousel */}
 			<SwiperCarousel images={images} />
 
-			{/*galleryImages*/}
 			<div className="mr-3 xmd:pr-32 xmd:pl-32 2xl:pr-64 2xl:pl-64 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
-				{galleryImages.map((img, index) => (
-					<ImageView
-						images={images}
-						key={index}
-						src={img.image.path}
-						alt={`Image ${index}`}
-						className="rounded-xl hover:scale-110 fixed top-0 left-0 w-full h-[120px] bg-black   "
-					/>
+				{images.map((img) => (
+					<div
+						key={img.id}
+						className="aspect-[14/12] overflow-hidden rounded-xl"
+					>
+						<ImageView
+							images={images}
+							src={img.path}
+							alt={img.title}
+							className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+						/>
+					</div>
 				))}
 			</div>
 		</div>
