@@ -49,10 +49,10 @@ const links = [
 				label: "رسالة الحقوق",
 				href: "/library/risalat-al-huqoq",
 			},
-			{
-				label: "الصفحة العلمية",
-				href: "/research",
-			},
+			// {
+			// 	label: "الصفحة العلمية",
+			// 	href: "/research",
+			// },
 		],
 	},
 	{
