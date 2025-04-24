@@ -104,7 +104,8 @@ export default function ImageView({
 											<Image
 												src={image.path}
 												alt={`Image-${image.path ?? index}`}
-												fill
+												width={1600}
+												height={1067}
 												className="object-contain h-full w-[130%]"
 											/>
 										</SwiperSlide>

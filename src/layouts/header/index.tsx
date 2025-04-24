@@ -60,7 +60,7 @@ const links = [
 		subLinks: [
 			{ label: "الاخبار", href: "/news" },
 			{ label: "ملتقى البقيع", href: "/baqi-gathering" },
-			{ label: "مسابقة الخط العربي", href: "/contests/khat" },
+			{ label: "المسابقات", href: "/contests" },
 		],
 	},
 	{
