@@ -14,12 +14,12 @@ export default function Page() {
 			link: "/contests/khat",
 			src: "/contests/khat/landing.jpg",
 		},
-		{
-			title: "مسابقة كتاب 1447هـ",
-			button: "تفاصيل المسابقة",
-			link: "/contests/kitab",
-			src: "/contests/kitab/landing.jpg",
-		},
+		// {
+		// 	title: "مسابقة كتاب 1447هـ",
+		// 	button: "تفاصيل المسابقة",
+		// 	link: "/contests/kitab",
+		// 	src: "/contests/kitab/landing.jpg",
+		// },
 	]
 
 	return (
