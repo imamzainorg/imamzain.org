@@ -12,7 +12,7 @@
     "pages": 10,
     "parts": 1,
     "views": 1500,
-    "image": "https://imamhussain.org/arabic/23578.jpg",
+    "category" : "الأخلاقية",
     "pdf": "https://imamhussain.org/arabic/23578.pdf"
   },
   {
@@ -28,7 +28,7 @@
     "pages": 12,
     "parts": 1,
     "views": 1300,
-    "image": "https://imamhussain.org/arabic/24281.jpg",
+    "category" : "سيرة",
     "pdf": "https://imamhussain.org/arabic/24281.pdf"
   },
   {
@@ -44,7 +44,7 @@
     "pages": 15,
     "parts": 1,
     "views": 1100,
-    "image": "https://www.jeahs.com/images/articles/358.jpg",
+    "category" : "القرآن",
     "pdf": "https://www.jeahs.com/index.php/jeahs/article/view/358/358.pdf"
   },
   {
@@ -59,8 +59,8 @@
     "language": "العربية",
     "pages": 20,
     "parts": 1,
-    "views": 1400,
-    "image": "https://alameedcenter.iq/images/publications/1653028948e3c9ba02bb594c495de3f256eedf439b.jpg",
+    "views": 1400, 
+    "category" : "المناجيات",
     "pdf": "https://alameedcenter.iq/static/uploads/1/pdf/1653028948e3c9ba02bb594c495de3f256eedf439b--%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%AC%D9%8A%D8%A7%D8%AA.pdf"
   },
   {
@@ -75,8 +75,8 @@
     "language": "العربية",
     "pages": 18,
     "parts": 1,
-    "views": 1200,
-    "image": "https://www.iraqoaj.net/images/articles/d20596792dd85608.jpg",
+    "views": 1200, 
+    "category" : "حقوق",
     "pdf": "https://www.iraqoaj.net/iasj/pdf/d20596792dd85608"
   }
 ]

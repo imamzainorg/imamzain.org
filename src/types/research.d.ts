@@ -11,7 +11,7 @@ export type Research = {
     language: string
     pages: number
     parts: number
-    views: number
-    image: string
+    views: number 
+    category: string
     pdf: string
 }
