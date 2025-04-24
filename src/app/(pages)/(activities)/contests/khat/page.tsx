@@ -2,10 +2,10 @@ import Breadcrumbs from "@/components/breadcrumb"
 import Section from "@/components/section"
 import Image from "next/image"
 
-import galleryImages from "@/data/gallery.json"
+// import galleryImages from "@/data/gallery.json"
 import { ApplyStepper } from "../components/applicationSteps"
-import SwiperGallery from "../../news/_components/swiper-gallery"
-import HeaderSections from "@/components/header-sections"
+// import SwiperGallery from "../../news/_components/swiper-gallery"
+// import HeaderSections from "@/components/header-sections"
 const prizes = [
 	{
 		type: "الثلث الجلي",
@@ -121,17 +121,17 @@ const personal: Personal[] = [
 ]
 
 export default function page() {
-	const images = galleryImages
-		.filter((item) => item.title === "khat")
-		.map((image) => {
-			return { id: image.id, path: image.image.path }
-		})
+	// const images = galleryImages
+	// 	.filter((item) => item.title === "khat")
+	// 	.map((image) => {
+	// 		return { id: image.id, path: image.image.path }
+	// 	})
 	return (
 		<div className="container px-4 sm:px-6 md:px-8">
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
-					{ name: "المسابقات", url: "#" },
+					{ name: "المسابقات", url: "/contests" },
 					{ name: "مسابقة الخط", url: "#" },
 				]}
 			/>
@@ -281,8 +281,8 @@ export default function page() {
 				</p>
 			</div>
 
-			<div className="w-full h-0.5 bg-gradient-to-r from-transparent via-slate-900/20 to-transparent rounded-full my-6 sm:my-8" />
-			<div className="pt-20">
+			{/* <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-slate-900/20 to-transparent rounded-full my-6 sm:my-8" />
+			<div className="pt-20 space-y-8">
 				<HeaderSections
 					title={"ارشيف المسابقة"}
 					moreButton={{
@@ -291,7 +291,7 @@ export default function page() {
 					}}
 				/>
 				<SwiperGallery images={images} />
-			</div>
+			</div> */}
 		</div>
 	)
 }
