@@ -24,7 +24,7 @@ export default function Page() {
 					{ name: "مسابقة كتاب", url: "#" },
 				]}
 			/>
-			<div className="rounded-xl border-2">
+			<div className="rounded-xl border-2 mb-16">
 				<div className="m-2 bg-slate-900 text-white py-32 bg-opacity-80 bg-blend-overlay bg-[url('/contests/kitab/hero.jpg')] bg-cover rounded-xl">
 					<div className=" mx-auto px-4 text-center">
 						<h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -33,11 +33,11 @@ export default function Page() {
 						<p className="text-xl max-w-3xl mx-auto mb-32">
 							ساهم في إحياء تراث الإمام زين العابدين عليه السلام
 							عبر تأليف كتاب علمي رصين، وادخل منافسة &quot;كتاب
-							١٤٤7 هـ&quot; للفوز والنشر والتكريم.
+							١٤٤٧ هـ&quot; للفوز والنشر والتكريم.
 						</p>
 						<Link
 							href="#submit"
-							className="border-b-2 hover:border-primary text-white hover:text-primary font-semibold py-3 px-6 transition duration-300"
+							className="border-b-2 hover:border-secondary text-white hover:text-secondary font-semibold py-3 px-6 transition duration-300"
 						>
 							قم بالإنضمام الى المسابقة الآن
 						</Link>
@@ -45,7 +45,40 @@ export default function Page() {
 				</div>
 			</div>
 
-			<section id="about" className="py-20">
+			<Section title="جوائز قيمة" />
+			<div className="flex flex-col md:flex-row gap-4 w-full mb-16">
+				<div className="w-1/2 p-8 bg-white/40 shadow-xl border rounded-xl flex flex-col justify-center items-center text-center gap-8 ">
+					<BadgeDollarSign
+						className="w-20 h-20 text-secondary"
+						strokeWidth={0.5}
+					/>
+					يتم اختيار (۳) فائزين ويخصص لكل منهم جائزة بمقدار (000,000,
+					2) دينار عراقي.
+				</div>
+				<div className="w-1/2 p-8 bg-white/40 shadow-xl border rounded-xl flex flex-col justify-center items-center text-center gap-8 ">
+					<Award
+						className="w-20 h-20 text-secondary"
+						strokeWidth={0.5}
+					/>
+					يضاف للكتاب المتميز هدية قدرها (٥٠٠,٠٠٠) دينار عراقي.
+				</div>
+				<div className="w-1/2 p-8 bg-white/40 shadow-xl border rounded-xl flex flex-col justify-center items-center text-center gap-8 ">
+					<BookCheck
+						className="w-20 h-20 text-secondary"
+						strokeWidth={0.5}
+					/>
+					يتم طبع ونشر الكتب المقبولة على نفقة المؤسسة وتكون حقوق
+					الطبع محفوظة للمؤسسة.
+				</div>
+				<div className="w-1/2 p-8 bg-white/40 shadow-xl border rounded-xl flex flex-col justify-center items-center text-center gap-8 ">
+					<ShieldCheck
+						className="w-20 h-20 text-secondary"
+						strokeWidth={0.5}
+					/>
+					تزويد المشاركين المقبولين والفائزين بما يؤيد ذلك رسمياً.
+				</div>
+			</div>
+			{/* <section id="about" className="py-20">
 				<div className="container mx-auto px-4">
 					<Section title="المنظمين" />
 					<div className="flex flex-col md:flex-row items-center justify-center gap-12 text-lg leading-loose tracking-tight text-justify">
@@ -76,11 +109,10 @@ export default function Page() {
 						</div>
 					</div>
 				</div>
-			</section>
+			</section> */}
 
-			<div>
+			<div className="my-16">
 				<Section title="محاور الكتابة" />
-
 				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-screen-lg mx-auto">
 					{researchAxes.map((axes) => (
 						<div
@@ -117,16 +149,18 @@ export default function Page() {
 				</div>
 			</div>
 
-			<Section title="معايير التقييم" />
-			{criteria.map((index) => (
-				<div
-					key={index}
-					className="flex items-center gap-4 my-4 md:w-2/3 mx-auto text-xl"
-				>
-					<ScrollText className="text-primary" />
-					{index}
-				</div>
-			))}
+			<div className="my-16">
+				<Section title="معايير التقييم" />
+				{criteria.map((index) => (
+					<div
+						key={index}
+						className="flex items-center gap-4 my-4 md:w-2/3 mx-auto text-xl"
+					>
+						<ScrollText className="text-primary" />
+						{index}
+					</div>
+				))}
+			</div>
 
 			<Section title="شروط الإنضمام للمسابقة" />
 			<div className="flex flex-col md:flex-row items-center justify-center gap-12 text-lg leading-loose tracking-tight text-justify">
@@ -141,40 +175,6 @@ export default function Page() {
 							</li>
 						))}
 					</ol>
-				</div>
-			</div>
-
-			<Section title="جوائز قيمة" />
-			<div className="flex flex-col md:flex-row gap-4 w-full">
-				<div className="w-1/2 p-8 bg-white/40 shadow-xl border rounded-xl flex flex-col justify-center items-center text-center gap-8 ">
-					<BadgeDollarSign
-						className="w-20 h-20 text-secondary"
-						strokeWidth={0.5}
-					/>
-					يتم اختيار (۳) فائزين ويخصص لكل منهم جائزة بمقدار (000,000,
-					2) دينار عراقي.
-				</div>
-				<div className="w-1/2 p-8 bg-white/40 shadow-xl border rounded-xl flex flex-col justify-center items-center text-center gap-8 ">
-					<Award
-						className="w-20 h-20 text-secondary"
-						strokeWidth={0.5}
-					/>
-					يضاف للكتاب المتميز هدية قدرها (٥٠٠,٠٠٠) دينار عراقي.
-				</div>
-				<div className="w-1/2 p-8 bg-white/40 shadow-xl border rounded-xl flex flex-col justify-center items-center text-center gap-8 ">
-					<BookCheck
-						className="w-20 h-20 text-secondary"
-						strokeWidth={0.5}
-					/>
-					يتم طبع ونشر الكتب المقبولة على نفقة المؤسسة وتكون حقوق
-					الطبع محفوظة للمؤسسة.
-				</div>
-				<div className="w-1/2 p-8 bg-white/40 shadow-xl border rounded-xl flex flex-col justify-center items-center text-center gap-8 ">
-					<ShieldCheck
-						className="w-20 h-20 text-secondary"
-						strokeWidth={0.5}
-					/>
-					تزويد المشاركين المقبولين والفائزين بما يؤيد ذلك رسمياً.
 				</div>
 			</div>
 
