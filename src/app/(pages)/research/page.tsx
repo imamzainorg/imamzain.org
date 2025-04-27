@@ -100,7 +100,7 @@ export default function Page() {
 					<ol className="list-decimal text-right text-gray-700 space-y-2 sm:space-y-3  px-2 sm:px-4 md:px-6 lg:px-8">
 						{[
 							"سعر صفحة الكتاب (تأليف، تحقيق) 5,000 د.ع.",
-							"المكافئات اعلان تعني في البحوث والكتب التي تأتي من خلال الاستكتاب",
+							"المكافئات اعلاه تعني في البحوث والكتب التي تأتي من خلال الاستكتاب",
 							"البحوث المقدمة للمؤسسة تخصص 5% من مجموع المطبوع هدية للمؤلف",
 						].map((rule, index) => (
 							<li key={index} className="leading-relaxed">
