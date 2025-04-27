@@ -153,7 +153,7 @@ export default function TopImage({
 						src={images[prevImageIndex]}
 						alt="Background image"
 						fill
-						sizes="(max-width: 768px) 100vw, 100vw"
+						quality={100}
 						className="object-cover absolute inset-0"
 						style={{ objectPosition: "center" }}
 						priority={prevImageIndex === 0}
@@ -171,7 +171,7 @@ export default function TopImage({
 							src={images[currentImageIndex]}
 							alt="Background image"
 							fill
-							sizes="(max-width: 768px) 100vw, 100vw"
+							quality={100}
 							className="object-cover"
 							style={{ objectPosition: "center" }}
 							priority={currentImageIndex === 0}
