@@ -45,15 +45,12 @@ export default function TopImage({
 	const [currentImageIndex, setCurrentImageIndex] = useState(0)
 	const [prevImageIndex, setPrevImageIndex] = useState(0)
 	const [isPaused, setIsPaused] = useState(false)
-	const [isMobile, setIsMobile] = useState(false)
 	const [images, setImages] = useState(desktopImages)
 
 	// Set Proper Image Array
 	useEffect(() => {
 		const checkMobile = () => {
 			const mobileBreakpoint = 640
-			const mobile = window.innerWidth < mobileBreakpoint
-			setIsMobile(mobile)
 			setImages(
 				window.innerWidth < mobileBreakpoint
 					? mobileImages
@@ -69,9 +66,7 @@ export default function TopImage({
 	}, [desktopImages, mobileImages])
 
 	// Hadith should show only on first Image
-	const showHadith =
-		(!isMobile && images[currentImageIndex] === "/images/albaqi.jpg") ||
-		(isMobile && images[currentImageIndex] === "/images/albaqi.jpg")
+	const showHadith = currentImageIndex === 0
 
 	const nextImage = useCallback(() => {
 		setPrevImageIndex(currentImageIndex)

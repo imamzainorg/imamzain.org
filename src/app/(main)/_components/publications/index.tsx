@@ -110,6 +110,7 @@ export default function Publications({
 											src={"/shapes/book_icon.svg"}
 											alt={`${book.title} icon`}
 											fill
+											sizes="100vw"
 											className="object-contain"
 										/>
 									</motion.div>
