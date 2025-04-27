@@ -1,5 +1,71 @@
 [
   {
+    "id": 19,
+    "slug": "meeting-director-shia-studies-institute-canada",
+    "image": "/news/meeting-director-shia-studies-1.jpg",
+    "title": "مؤسسة الإمام زين العابدين (ع) تستقبل مدير معهد الدراسات الشيعية في كندا",
+    "summary": "استقبلت مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات الشيخ فيناي كيتاني، مدير معهد الدراسات الشيعية في كندا، لبحث سبل التعاون البحثي وتبادل الخبرات، بحضور الدكتور حسين جهاد حساني والدكتور كريم جهاد حساني، وبإشراف رئيس المؤسسة السيد غسان الخرسان.",
+    "body": {
+      "lede": "أكد السيد غسان الخرسان، رئيس المؤسسة، خلال اللقاء، أن الزيارة تأتي ضمن جهود المؤسسة لتعزيز التعاون العلمي مع المراكز البحثية الدولية، مشيراً إلى أهمية تبادل الخبرات وإطلاق مشاريع بحثية مشتركة تسهم في إثراء المكتبة الإسلامية وتعزيز الوعي الفكري والثقافي.",
+      "content": "<p>استعرض الوفد الضيف أحدث إصدارات المؤسسة وأبدى إعجابه بالمستوى العلمي والبحثي الذي وصلت إليه، مع التأكيد على ضرورة العمل المشترك لإعداد دراسات وبحوث تخدم القضايا العقائدية والفكرية.</p><p>من جهته، أشار الشيخ فيناي كيتاني إلى أهمية هذا التعاون باعتباره خطوة نحو توسيع أفق البحث العلمي وتطوير البرامج الأكاديمية، مشيداً بالدور الذي تضطلع به مؤسسة الإمام زين العابدين (عليه السلام) في خدمة التراث الديني والفكري.</p><p>كما تم الاتفاق على إعداد برامج تدريبية وورش عمل بحثية مشتركة، والعمل على إصدار كتب علمية تسلط الضوء على القضايا المشتركة بين المؤسستين.</p>",
+      "tail": "يذكر أن الشيخ فيناي كيتاني حاصل على شهادة الدكتوراه في الفلسفة والعقيدة من جامعة تورنتو، ويدير معهد الدراسات الشيعية في كندا تحت إشراف السيد محمد الرضوري."
+    },
+    "views": 0,
+    "date": "2025-04-27",
+    "last_update": "2025-04-27",
+    "category": "زيارات",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/news/meeting-director-shia-studies-2.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/news/meeting-director-shia-studies-3.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/news/meeting-director-shia-studies-4.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/news/meeting-director-shia-studies-5.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/news/meeting-director-shia-studies-6.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/news/meeting-director-shia-studies-7.jpg"
+      },
+      {
+        "id": 7,
+        "path": "/news/meeting-director-shia-studies-8.jpg"
+      },
+      {
+        "id": 8,
+        "path": "/news/meeting-director-shia-studies-9.jpg"
+      },
+      {
+        "id": 9,
+        "path": "/news/meeting-director-shia-studies-10.jpg"
+      },
+      {
+        "id": 10,
+        "path": "/news/meeting-director-shia-studies-11.jpg"
+      },
+      {
+        "id": 11,
+        "path": "/news/meeting-director-shia-studies-12.jpg"
+      },
+      {
+        "id": 12,
+        "path": "/news/meeting-director-shia-studies-13.jpg"
+      }
+    ]
+  },
+  {
     "id": 18,
     "slug": "second-scientific-forum-baqi-report",
     "image": "/news/second-scientific-forum-baqi-report-1.jpg",
