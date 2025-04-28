@@ -41,12 +41,12 @@ export default function RightsMessage() {
 				<SectionCta
 					links={[
 						{
-							label: "رسالة الحقوق",
-							href: "/coming-soon",
-						},
-						{
 							label: "شروح رسالة الحقوق",
 							href: "/library/risalat-al-huqoq",
+						},
+						{
+							label: "قراءة رسالة الحقوق",
+							href: "/library/risalat-al-huqoq/read",
 						},
 					]}
 				/>
