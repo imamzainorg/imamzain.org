@@ -38,7 +38,7 @@ export default function About() {
 					</div>
 					<div className="hidden md:flex items-center w-1/2 h-auto">
 						<Image
-							src="/images/about-vision.jpg"
+							src="/images/about-vision-min.jpg"
 							className="rounded-[30px] bg-black"
 							width={800}
 							height={500}
