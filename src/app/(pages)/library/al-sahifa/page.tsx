@@ -21,7 +21,7 @@ export default async function Page() {
 		{
 			title: "ما الحقه الحر العاملي",
 			description: " ",
-			URL: "/library/al-sahifa/read/zfgdfn-fghdfh",
+			URL: "/library/al-sahifa/read/ma-alhaqahu-al-hur-al-amili",
 		},
 		{
 			title: "ما ألحقه الميرزا عبد الله الافندي",
