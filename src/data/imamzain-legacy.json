@@ -7336,7 +7336,6 @@
                   }
                 ]
               }
-              
             ]
           },
           {
@@ -14702,7 +14701,7 @@
           },
           {
             "id": "١١٣",
-            "title": "دعائه (عليه السلام) في كل صباح ومساء (١)",
+            "title": "دعائه (عليه السلام) في كل صباح ومساء ",
             "slug": "daily-morning-evening-supplication-1",
             "phrases": [
               {
@@ -14754,16 +14753,6 @@
                     "content": ""
                   }
                 ]
-              },
-              {
-                "id": "٦",
-                "content": "<p><hr style='width: 30%; height: 2px; background-color: black;'></p><p><small>١ - هذا الدعاء سقط من نسخة (ز).</small></p> ",
-                "explanations": [
-                  {
-                    "author": "",
-                    "content": ""
-                  }
-                ]
               }
             ]
           },
@@ -14796,7 +14785,7 @@
           },
           {
             "id": "١١٥",
-            "title": "دعائه (عليه السلام) في المهمات من همٍّ أو ضرٍّ أو عدوٍّ (١)",
+            "title": "دعائه (عليه السلام) في المهمات من همٍّ أو ضرٍّ أو عدوٍّ ",
             "slug": "supplication-for-urgent-needs-1",
             "phrases": [
               {
@@ -14968,22 +14957,12 @@
                     "content": ""
                   }
                 ]
-              },
-              {
-                "id": "١٨",
-                "content": "<p><hr style='width: 30%; height: 2px; background-color: black;'></p><p><small>١ - في حاشية(م): هذا الدعاء رواه أبو علي الطوسي في الآمالي.</small></p> ",
-                "explanations": [
-                  {
-                    "author": "",
-                    "content": ""
-                  }
-                ]
               }
             ]
           },
           {
             "id": "١١٦",
-            "title": "دعائه (عليه السلام) في الاحتراز من الأعداء والتحصّن من الأسواء عند طلوع الشمس وعند غروبها (١)",
+            "title": "دعائه (عليه السلام) في الاحتراز من الأعداء والتحصّن من الأسواء عند طلوع الشمس وعند غروبها ",
             "slug": "sunrise-sunset-protection-supplication-1",
             "phrases": [
               {
@@ -15189,16 +15168,6 @@
               {
                 "id": "٢١",
                 "content": "﴿إِنِّي تَوَكَّلْتُ عَلَى اللهِ رَبِّي وَرَبِّكُم مَّا مِن دَابَّةٍ إِلاَّ هُوَ آخِذٌ بِنَاصِيَتِهَا إِنَّ رَبِّي عَلَى صِرَاطٍ مُّسْتَقِيمٍ﴾ . ",
-                "explanations": [
-                  {
-                    "author": "",
-                    "content": ""
-                  }
-                ]
-              },
-              {
-                "id": "٢٢",
-                "content": "<p><hr style='width: 30%; height: 2px; background-color: black;'></p><p><small>١ - في حاشية (م): من المهج [ مهج الدعوات].</smal></p> ",
                 "explanations": [
                   {
                     "author": "",
@@ -42438,7 +42407,7 @@
       {
         "id": 4,
         "title": "حقوق الافعال",
-        "slug": "the-rights-of-kin",
+        "slug": "the-rights-of-acts",
         "subjects": [
           {
             "id": "١٠",
