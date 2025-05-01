@@ -19,6 +19,7 @@
     "@heroui/react": "^2.6.14",
     "@hookform/resolvers": "^3.9.1",
     "@iconify/react": "^5.2.1",
+    "@radix-ui/react-tabs": "^1.1.9",
     "@react-google-maps/api": "^2.20.5",
     "@stepperize/react": "^5.1.5",
     "@tailwindcss/container-queries": "^0.1.1",

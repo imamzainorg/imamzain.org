@@ -13,6 +13,7 @@ export default function NewsShare({
 	className?: string
 	stroke?: string
 	strokeWidth?: number
+	iconSize?: number;
 }) {
 	return (
 		<LinkIcon
