@@ -1,39 +1,76 @@
-import { XIcon } from "lucide-react"
+"use client"
 
-export default function Modal({
-	open,
-	onClose,
-	children,
-}: {
+import { useEffect, ReactNode, useState } from "react"
+
+interface ModalProps {
 	open: boolean
 	onClose: () => void
-	children: React.ReactNode
-}) {
+	children: ReactNode
+}
+
+export default function Modal({ open, onClose, children }: ModalProps) {
+	// State for handling animation
+	const [isVisible, setIsVisible] = useState(false)
+
+	useEffect(() => {
+		// Handle animation timing
+		if (open) {
+			// Make component visible immediately, then start animations
+			setIsVisible(true)
+		} else {
+			// Delay unmounting to allow exit animations to complete
+			const timer = setTimeout(() => {
+				setIsVisible(false)
+			}, 300) // Match this to your animation duration
+			return () => clearTimeout(timer)
+		}
+	}, [open])
+
+	// Close when escape key is pressed
+	useEffect(() => {
+		const handleEsc = (e: KeyboardEvent) => {
+			if (e.key === "Escape") onClose()
+		}
+
+		if (open) {
+			document.addEventListener("keydown", handleEsc)
+			// Prevent body scrolling when modal is open
+			document.body.style.overflow = "hidden"
+		}
+
+		return () => {
+			document.removeEventListener("keydown", handleEsc)
+			document.body.style.overflow = "unset"
+		}
+	}, [open, onClose])
+
+	if (!open && !isVisible) return null
+
 	return (
-		// backdrop
-		<div
-			onClick={onClose}
-			className={`
-        fixed inset-0 flex justify-center items-center transition-colors
-        ${open ? "visible bg-black/20" : "invisible"}
-      `}
-		>
-			{/* modal */}
+		<>
+			{/* Backdrop */}
 			<div
-				onClick={(e) => e.stopPropagation()}
-				className={`overflow-scroll
-          bg-white rounded-xl shadow p-6 transition-all
-          ${open ? "scale-100 opacity-100" : "scale-125 opacity-0"}
-        `}
-			>
-				<button
-					onClick={onClose}
-					className="absolute top-2 right-2 p-1 rounded-lg text-gray-400 bg-white hover:bg-gray-50 hover:text-gray-600"
+				className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300 ease-out ${
+					open ? "opacity-100" : "opacity-0"
+				}`}
+				onClick={onClose}
+				aria-hidden="true"
+			/>
+
+			{/* Modal container */}
+			<div className="fixed inset-0 flex items-center justify-center z-50 p-4">
+				{/* Modal content */}
+				<div
+					className={`transform transition-all duration-300 ease-out ${
+						open
+							? "opacity-100 scale-100 translate-y-0"
+							: "opacity-0 scale-95 translate-y-4"
+					}`}
+					onClick={(e) => e.stopPropagation()}
 				>
-					<XIcon />
-				</button>
-				{children}
+					{children}
+				</div>
 			</div>
-		</div>
+		</>
 	)
 }
