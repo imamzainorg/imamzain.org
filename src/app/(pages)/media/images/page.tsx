@@ -5,13 +5,13 @@ import galleryImages from "@/data/gallery.json"
 import SectionCta from "@/components/section-cta"
 
 export default function Gallery() {
-	// Consider moving this filter to the data source if possible
+	
 	const images = galleryImages
 		.filter((item) => item.title !== "khat")
 		.map((item) => ({
 			id: item.id,
 			path: item.image.path,
-			title: item.title || `Image ${item.id}`, // Add titles for better accessibility
+			title: item.title || `Image ${item.id}`, 
 		}))
 
 	return (
@@ -20,7 +20,7 @@ export default function Gallery() {
 				className="text-white"
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
-					{ name: "الوسائط المتعددة", url: "#" }, // Updated with proper URL
+					{ name: "الوسائط المتعددة", url: "#" }, 
 					{ name: "معرض الصور", url: "/media/images" },
 				]}
 			/>
