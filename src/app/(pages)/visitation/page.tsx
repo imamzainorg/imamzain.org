@@ -246,9 +246,9 @@ export default function page() {
       </div>
 
       <div className="container grid gap-y-4 md:grid-cols-2 lg:grid-cols-3 md:gap-y-10 md:gap-x-10 lg:py-10 justify-items-center">
-        <CardStatistics title="الطلبات قيد الانتظار" value={3232} />
-        <CardStatistics title="عدد الطلبات المنجزة" value={3232} />
-        <CardStatistics title="اجمالي الطلبات" value={3232} />
+        <CardStatistics title="الطلبات قيد الانتظار" value={25} />
+        <CardStatistics title="عدد الطلبات المنجزة" value={4958} />
+        <CardStatistics title="اجمالي الطلبات" value={4983} />
       </div>
     </>
   );
