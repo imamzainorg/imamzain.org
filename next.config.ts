@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
 				protocol: "https",
 				hostname: "placehold.co",
 			},
+			{
+				protocol: "https",
+				hostname: "d2pj6hgapx5040.cloudfront.net",
+			},
 		],
 	},
 	async rewrites() {
