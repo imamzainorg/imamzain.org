@@ -27,7 +27,7 @@ export default function Loading() {
 						className="object-contain"
 					/>
 				</div>
-				<div className="text-lg font-semibold text-gray-600 animate-pulse ">
+				<div className="text-lg font-semibold text-gray-600 animate-pulse">
 					Loading...
 				</div>
 			</div>
