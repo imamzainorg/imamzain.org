@@ -16,7 +16,7 @@ export default function ModalButton({ subject }: { subject: Subject }) {
 			<div
 				id={subject?.slug}
 				onClick={() => setOpen(true)}
-				className="group relative w-full h-full overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100 border cursor-pointer rounded-3xl flex justify-between items-center p-3  border-slate-200 hover:border-secondary/60 shadow-md hover:shadow-xl transition-all duration-300"
+				className ="group relative w-full h-full overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100 border cursor-pointer rounded-3xl flex justify-between items-center p-3  border-slate-200 hover:border-secondary/60 shadow-md hover:shadow-xl transition-all duration-300"
 			>
 			
 
