@@ -169,14 +169,7 @@ export default function BookCard({
 				)}
 
 				{/* وصف الكتاب */}
-				<div className="p-6 md:p-10">
-					<h2 className="text-2xl font-bold mb-4 text-gray-900 flex items-center gap-2">
-						وصف الكتاب
-					</h2>
-					<div className="prose prose-lg max-w-none text-gray-600 leading-relaxed">
-						<p className="p-4">قريباً</p>
-					</div>
-				</div>
+			
 			</div>
 		</div>
 	)
