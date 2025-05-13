@@ -4,11 +4,10 @@ import { useState, useRef } from "react"
 import Modal from "@/components/modal"
 import { Subject } from "@/types/imamzainLegacy"
 import { cn } from "@/lib/utils"
+import { motion } from "framer-motion"
 
 export default function ModalButton({ subject }: { subject: Subject }) {
-	const [selectedPhraseIndex, setSelectedPhraseIndex] = useState<
-		number | null
-	>(null)
+	const [selectedPhraseIndex, setSelectedPhraseIndex] = useState<number | null>(null)
 	const [open, setOpen] = useState(false)
 	const modalRef = useRef<HTMLDivElement>(null)
 
@@ -17,41 +16,55 @@ export default function ModalButton({ subject }: { subject: Subject }) {
 			<div
 				id={subject?.slug}
 				onClick={() => setOpen(true)}
-				className="w-full h-full group relative overflow-hidden bg-gradient-to-br from-white to-gray-50 border cursor-pointer rounded-xl flex justify-between items-center p-5 border-slate-200 hover:border-secondary/70 shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out"
+				className="group relative w-full h-full overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100 border cursor-pointer rounded-3xl flex justify-between items-center p-3  border-slate-200 hover:border-secondary/60 shadow-md hover:shadow-xl transition-all duration-300"
 			>
-				{/* Decorative element */}
-				<div className="absolute -right-6 -top-6 w-16 h-16 bg-secondary/10 rounded-full transform group-hover:scale-150 group-hover:bg-secondary/20 transition-all duration-500"></div>
+			
 
-				<div className="w-5/6 flex flex-col space-y-1 z-10">
-					<h2 className="font-semibold text-xs lg:text-lg text-gray-800 group-hover:text-primary transition-colors duration-300">
+<div className="absolute -top-10 -right-10 z-0">
+	<div className="relative w-36 h-36">
+		<div className="absolute w-full h-full rounded-full bg-gradient-to-br from-secondary/30 to-primary/10 blur-2xl opacity-30 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700" />
+		<div className="absolute w-20 h-20 right-4 top-4 rounded-full bg-secondary/20 blur-xl opacity-40 group-hover:opacity-60 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-700" />
+	</div>
+</div>
+			
+				<div className="w-5/6 flex flex-col gap-1 z-10">
+					<h2 className="font-semibold text-base pr-2 text-gray-800 group-hover:text-primary transition-colors duration-300">
 						{subject.title}
 					</h2>
-					<p className="text-xs text-gray-500 hidden sm:block">
+					<p className="text-xs text-gray-500 hidden sm:block pr-2">
 						{subject.phrases.length} عبارات
 					</p>
 				</div>
 
-				<h3 className="text-base p-1.5 px-3 rounded-lg border font-bold bg-white/80 border-slate-300 text-gray-700 group-hover:text-primary group-hover:border-secondary/70 group-hover:bg-white transition-all duration-300 z-10">
-					{subject.id}
-				</h3>
+				
+			<div className="w-7 h-7 md:w-9 md:h-9 flex items-center justify-center rounded-full bg-white text-primary border border-secondary/30 shadow-sm z-10">
+	<span className="text-sm md:text-base font-bold">
+		{subject.id}
+	</span>
+</div>
+
 			</div>
 
 			<Modal open={open} onClose={() => setOpen(false)}>
-				<div
+				<motion.div
 					ref={modalRef}
-					className="w-[90vw] md:w-[80vw] xl:w-[60vw] max-h-[80vh] overflow-hidden bg-white rounded-2xl shadow-2xl relative z-50"
+					initial={{ opacity: 0, scale: 0.97 }}
+					animate={{ opacity: 1, scale: 1 }}
+					exit={{ opacity: 0, scale: 0.97 }}
+					transition={{ duration: 0.25 }}
+					className="w-[90vw] md:w-[80vw] xl:w-[60vw] max-h-[85vh] overflow-hidden bg-white rounded-3xl shadow-2xl relative z-50 flex flex-col"
 				>
-					<div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-4 border-b border-gray-100">
+					{/* الرأس */}
+					<div className="sticky top-0 z-20 bg-gradient-to-r from-primary/5 to-secondary/5 backdrop-blur-md p-5 border-b border-gray-200 rounded-t-3xl">
 						<div className="flex justify-between items-center">
-							<h3 className="text-xl font-bold text-gray-800">
-								{subject.title}
-							</h3>
-							<span className="px-3 py-1 bg-white/80 rounded-full text-sm font-medium text-primary border border-primary/20">
+							<h3 className="text-lg md:text-xl font-bold text-gray-800">{subject.title}</h3>
+							<span className="px-3 py-1 bg-white/80 rounded-full text-sm font-semibold text-primary border border-primary/20">
 								{subject.id}
 							</span>
 						</div>
 					</div>
 
+					{/* المحتوى */}
 					<div className="my-4 w-full px-6 mx-auto overflow-y-auto max-h-[60vh] pb-6">
 						{subject.phrases.map((phrase, index) => (
 							<div
@@ -80,15 +93,16 @@ export default function ModalButton({ subject }: { subject: Subject }) {
 						))}
 					</div>
 
-					<div className="bg-gray-50 p-4 border-t border-gray-100 flex justify-end">
+					{/* زر الإغلاق */}
+					<div className="bg-gray-50 p-5 border-t border-gray-100 rounded-b-3xl flex justify-end">
 						<button
 							onClick={() => setOpen(false)}
-							className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200 hover:shadow-md"
+							className="px-5 py-2 bg-primary text-white font-medium rounded-xl hover:bg-primary/90 transition-all"
 						>
-							اغلق النافذة
+							إغلاق النافذة
 						</button>
 					</div>
-				</div>
+				</motion.div>
 			</Modal>
 		</>
 	)

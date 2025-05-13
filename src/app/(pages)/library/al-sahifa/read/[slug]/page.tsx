@@ -133,7 +133,7 @@ export default async function Page({
 						title={selectedDictionary.title}
 					/>
 
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-11/12">
 						{selectedDictionary.subjects.map((subject) => (
 							<ModalButton key={subject.id} subject={subject} />
 						))}
