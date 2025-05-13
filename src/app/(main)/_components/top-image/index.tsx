@@ -44,7 +44,6 @@ export default function TopImage({
 }) {
 	const [currentImageIndex, setCurrentImageIndex] = useState(0)
 	const [prevImageIndex, setPrevImageIndex] = useState(0)
-	const [isPaused, setIsPaused] = useState(false)
 	const [images, setImages] = useState(desktopImages)
 
 	// Set Proper Image Array
@@ -74,11 +73,9 @@ export default function TopImage({
 	}, [currentImageIndex, images.length])
 
 	useEffect(() => {
-		if (isPaused) return
-
 		const imageInterval = setInterval(nextImage, 5000) // 5 Seconds For Each Slide
 		return () => clearInterval(imageInterval)
-	}, [currentImageIndex, isPaused, nextImage])
+	}, [currentImageIndex, nextImage])
 
 	const maskStyles = {
 		WebkitMaskImage: `url('/images/landing-mask.svg')`,
@@ -95,8 +92,6 @@ export default function TopImage({
 		<div
 			className="relative w-full h-[96vh] max-lg:h-[91vh] bg-[#006654] overflow-hidden"
 			style={maskStyles}
-			onMouseEnter={() => setIsPaused(true)}
-			onMouseLeave={() => setIsPaused(false)}
 			role="region"
 			aria-label="Featured image and hadith of the day"
 		>
