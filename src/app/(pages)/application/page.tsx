@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import Link from "next/link"; 
+import Link from "next/link";
 import Image from "next/image";
 import mainApp from "../../../../public/application/main-bg.jpg";
 
@@ -264,7 +264,7 @@ const MasnadSection = () => {
 const ShrinesVisitationSection = () => {
   return (
     <div className={"bg-[#FDD79C] "}>
-      <div className="relative top-0 h-[40rem] lg:h-[70rem] w-full mx-auto xl:w-[100rem]">
+      <div className="relative top-0 h-[40rem] lg:h-[70rem] w-full mx-auto ">
         <div className="absolute top-0 right-0  w-full h-full -z-0 ">
           <Image
             src={"/application/07.png"}
@@ -359,27 +359,25 @@ const FeaturesSection = () => {
 
       <div className="grid gap-y-4 md:grid-cols-2 lg:grid-cols-3 md:gap-y-10 md:gap-x-10 lg:py-10 justify-items-center">
         {features.map((feature, index) => (
- 
-            <div
-              key={index}
-              className="w-full  p-8 bg-white drop-shadow-lg rounded-2xl flex flex-col justify-start items-center gap-8 text-center"
-            >
-              <Image
-                src={feature.imageSrc}
-                alt={feature.imageAlt}
-                width={100}
-                height={100}
-                className="w-8 h-8  object-cover sdfasdf"
-              />
+          <div
+            key={index}
+            className="w-full  p-8 bg-white drop-shadow-lg rounded-2xl flex flex-col justify-start items-center gap-8 text-center"
+          >
+            <Image
+              src={feature.imageSrc}
+              alt={feature.imageAlt}
+              width={100}
+              height={100}
+              className="w-8 h-8  object-cover sdfasdf"
+            />
 
-              <div className="flex flex-col justify-between items-center gap-4 text-center">
-                <h4 className="text-2xl font-bold">{feature.title}</h4>
-                <p className="text- text-neutral-500 leading-6">
-                  {feature.description}
-                </p>
-              </div>
+            <div className="flex flex-col justify-between items-center gap-4 text-center">
+              <h4 className="text-2xl font-bold">{feature.title}</h4>
+              <p className="text- text-neutral-500 leading-6">
+                {feature.description}
+              </p>
             </div>
-    
+          </div>
         ))}
       </div>
     </div>
