@@ -73,7 +73,7 @@ export default async function page({
 									<TwitterIcon width={20} height={20} />
 								</Link>
 								<div className="w-0.5 h-5 bg-gray-600 " />
-								<NewsShare slug={slug} />
+								<NewsShare 	url={`news/${slug}`} />
 							</div>
 						</div>
 					</div>

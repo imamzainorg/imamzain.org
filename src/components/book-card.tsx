@@ -67,7 +67,7 @@ export default function BookCard({
 
 							<div className="inline-flex items-center gap-2 bg-white border border-primary text-primary hover:bg-primary/10 transition-all font-medium px-6 py-3 rounded-full shadow-sm">
 								<NewsShare
-									slug={publication.slug}
+									url={`publications/${publication.slug}`}
 									className="cursor-pointer hover:scale-110 transition-transform"
 									iconSize={20}
 								/>

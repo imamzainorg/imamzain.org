@@ -4,12 +4,12 @@ import { LinkIcon } from "lucide-react"
 import { toast } from "sonner"
 
 export default function NewsShare({
-	slug,
+	url,
 	className = "",
 	stroke = "#000000",
 	strokeWidth = 1,
 }: {
-	slug: string
+	url: string
 	className?: string
 	stroke?: string
 	strokeWidth?: number
@@ -24,7 +24,7 @@ export default function NewsShare({
 			className={className}
 			onClick={() => {
 				navigator.clipboard.writeText(
-					`https://www.imamzain.org/news/${slug}`,
+					`https://www.imamzain.org/${url}`,
 				)
 				toast("تم نسخ الرابط في الحافظة")
 			}}
