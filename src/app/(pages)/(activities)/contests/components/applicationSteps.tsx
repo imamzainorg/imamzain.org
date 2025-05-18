@@ -22,6 +22,26 @@ const rules = [
 	"يحق للمتسابق اختيار لون الحبر بحرية، ويمكن استخدام لون واحد أو أكثر.",
 	"تُرسل الأعمال بعد تغليفها في أسطوانة إلى العنوان التالي: كربلاء المقدسة - العتبة الحسينية المقدسة.",
 ]
+
+const additionalRules = [
+	{
+		font: "الثلث الجلي:",
+		rule: " لا يزيد قياس القلم في هذا الخط عن (١٠) ملم ولا يقل عن (٦) ملم وللمتسابق حرية الابتكار في التكوين",
+	},
+	{
+		font: "الثلث العادي:",
+		rule: " لا يزيد قياس القلم في هذا الخط عن (٢,٥) ملم ولا يقل عن (١,٥) ملم للمتسابق حرية الابتكار في التكوين",
+	},
+	{
+		font: "خط النسخ:",
+		rule: " لا يزيد قياس القلم في خط النسخ عن (١) ملم ولا يقل عن (٠,٦) ملم للمتسابق حرية الابتكار في التكوين",
+	},
+	{
+		font: "خط النستعليق:",
+		rule: " لا يقل قياس القلم في خط النستعليق عن (٢) ملم للمتسابق حرية الابتكار في التكوين",
+	},
+]
+
 const stepper = defineStepper(
 	{ id: "1", title: "1. قراءة الشروط" },
 	{ id: "2", title: "2. تحميل الاستمارة", description: "Second step" },
@@ -131,6 +151,7 @@ export const ApplyStepper = () => {
 							<h1 className="text-base sm:text-xl lg:text-2xl font-bold">
 								شروط الإنضمام للمسابقة
 							</h1>
+							<h2 className="font-bold">القوانين العامة</h2>
 							<ol className="animate-fade-in-up list-decimal text-right text-gray-700 space-y-2 sm:space-y-3 pr-2 sm:pr-4 p-2 sm:p-4 md:p-6 lg:p-8">
 								{rules.map((rule, index) => (
 									<li
@@ -138,6 +159,21 @@ export const ApplyStepper = () => {
 										className="leading-relaxed text-sm sm:text-base"
 									>
 										{rule}
+									</li>
+								))}
+							</ol>
+							<div className="w-1/2 mx-auto bg-gradient-to-r from-transparent via-primary to-transparent h-[1px]" />
+							<h2 className="font-bold">شروط خاصة بنوع الخط</h2>
+							<ol className="delay-100 animate-fade-in-up text-right text-gray-700 space-y-2 sm:space-y-3 pr-2 sm:pr-4 p-2 sm:p-4 md:p-6 lg:p-8">
+								{additionalRules.map((rule, index) => (
+									<li
+										key={index}
+										className="leading-relaxed text-sm sm:text-base"
+									>
+										<span className="font-semibold mx-2">
+											{rule.font}
+										</span>
+										{rule.rule}
 									</li>
 								))}
 							</ol>
