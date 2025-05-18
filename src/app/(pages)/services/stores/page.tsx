@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/breadcrumb";
 import storeLocations from "@/data/store-locations.json";
 import { useState, useEffect } from "react";
 import { SellPoint } from "@/types/storeLocations";
-import NewsShare from "@/app/(pages)/(activities)/news/_components/news-share";
+import NewsShare from "@/components/news-share";
 import Link from "next/link";
 export default function Page() {
   const [selectedPoint, setSelectedPoint] = useState<SellPoint | null>(null);
@@ -127,24 +127,24 @@ export default function Page() {
                           </span>
                         </p>
 
-                     <div className="flex flex-row gap-2 text-xs">
-                         <div className="mt-4 inline-flex items-center gap-2 bg-primary border border-primary text-white  transition-all font-medium px-2.5 py-1.5 rounded-full shadow-sm">
-                          <NewsShare
-                            fullLink={sellpoint.gpsLink}
-                            className="cursor-pointer hover:scale-110  transition-transform"
-                            iconSize={15}
-                            stroke={"#fff"}
-                          />
-                          مشاركة
-                        </div>
+                        <div className="flex flex-row gap-2 text-xs">
+                          <div className="mt-4 inline-flex items-center gap-2 bg-primary border border-primary text-white  transition-all font-medium px-2.5 py-1.5 rounded-full shadow-sm">
+                            <NewsShare
+                              fullLink={sellpoint.gpsLink}
+                              className="cursor-pointer hover:scale-110  transition-transform"
+                              iconSize={15}
+                              stroke={"#fff"}
+                            />
+                            مشاركة
+                          </div>
 
-                        <Link
-                          href={sellpoint.gpsLink}
-                          className=" mt-4 inline-flex items-center gap-2 bg-primary border border-primary text-white  transition-all font-medium px-2.5 py-1.5 rounded-full shadow-sm"
-                        >
-                         الذهاب إلى الموقع
-                        </Link>
-                     </div>
+                          <Link
+                            href={sellpoint.gpsLink}
+                            className=" mt-4 inline-flex items-center gap-2 bg-primary border border-primary text-white  transition-all font-medium px-2.5 py-1.5 rounded-full shadow-sm"
+                          >
+                            الذهاب إلى الموقع
+                          </Link>
+                        </div>
                       </div>
 
                       {/* الخريطة */}
