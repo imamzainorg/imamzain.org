@@ -47,35 +47,43 @@ export default function Page() {
 
 			<Section title="جوائز قيمة" />
 			<div className="flex flex-col md:flex-row gap-4 w-full mb-16">
-				<div className="w-1/2 p-8 bg-white/40 shadow-xl border rounded-xl flex flex-col justify-center items-center text-center gap-8 ">
+				<div className="w-full md:w-1/2 flex flex-col justify-center items-center text-center gap-2 md:gap-8">
 					<BadgeDollarSign
-						className="w-20 h-20 text-secondary"
+						className="w-10 md:w-20 h-10 md:h-20 text-secondary"
 						strokeWidth={0.5}
 					/>
-					يتم اختيار (۳) فائزين ويخصص لكل منهم جائزة بمقدار (000,000,
-					2) دينار عراقي.
+					<span className="w-2/3 mx-auto text-sm md:text-base">
+						يتم اختيار (۳) فائزين ويخصص لكل منهم جائزة بمقدار
+						(000,000, 2) دينار عراقي.
+					</span>
 				</div>
-				<div className="w-1/2 p-8 bg-white/40 shadow-xl border rounded-xl flex flex-col justify-center items-center text-center gap-8 ">
+				<div className="w-full md:w-1/2 flex flex-col justify-center items-center text-center gap-2 md:gap-8 ">
 					<Award
-						className="w-20 h-20 text-secondary"
+						className="w-10 md:w-20 h-10 md:h-20 text-secondary"
 						strokeWidth={0.5}
 					/>
-					يضاف للكتاب المتميز هدية قدرها (٥٠٠,٠٠٠) دينار عراقي.
+					<span className="w-2/3 mx-auto text-sm md:text-base">
+						يضاف للكتاب المتميز هدية قدرها (٥٠٠,٠٠٠) دينار عراقي.
+					</span>
 				</div>
-				<div className="w-1/2 p-8 bg-white/40 shadow-xl border rounded-xl flex flex-col justify-center items-center text-center gap-8 ">
+				<div className="w-full md:w-1/2 flex flex-col justify-center items-center text-center gap-2 md:gap-8 ">
 					<BookCheck
-						className="w-20 h-20 text-secondary"
+						className="w-10 md:w-20 h-10 md:h-20 text-secondary"
 						strokeWidth={0.5}
 					/>
-					يتم طبع ونشر الكتب المقبولة على نفقة المؤسسة وتكون حقوق
-					الطبع محفوظة للمؤسسة.
+					<span className="w-2/3 mx-auto text-sm md:text-base">
+						يتم طبع ونشر الكتب المقبولة على نفقة المؤسسة وتكون حقوق
+						الطبع محفوظة للمؤسسة.
+					</span>
 				</div>
-				<div className="w-1/2 p-8 bg-white/40 shadow-xl border rounded-xl flex flex-col justify-center items-center text-center gap-8 ">
+				<div className="w-full md:w-1/2 flex flex-col justify-center items-center text-center gap-2 md:gap-8 ">
 					<ShieldCheck
-						className="w-20 h-20 text-secondary"
+						className="w-10 md:w-20 h-10 md:h-20 text-secondary"
 						strokeWidth={0.5}
 					/>
-					تزويد المشاركين المقبولين والفائزين بما يؤيد ذلك رسمياً.
+					<span className="w-2/3 mx-auto text-sm md:text-base">
+						تزويد المشاركين المقبولين والفائزين بما يؤيد ذلك رسمياً.
+					</span>
 				</div>
 			</div>
 			{/* <section id="about" className="py-20">
