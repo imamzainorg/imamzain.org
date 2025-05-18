@@ -5,17 +5,29 @@
             {
                 "name": "المقر الرئيسي",
                 "location": "حي الزهراء ، ملحق شارع الروان",
-                "phone": "+964 782 943 9996"
+                "phone": "  +964 782 943 9996",
+                "id":1,
+                "gps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d270.6498601292837!2d44.36133199369196!3d31.996705416089522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x155ed74306dd573d%3A0x16b7bd7757d9a76!2z2YXYpNiz2LPYqSDYp9mE2KfZhdin2YUg2LLZitmGINin2YTYudin2KjYr9mK2YYgKNi5KSDZhNmE2KjYrdmI2Ksg2YjYp9mE2K_Ysdin2LPYp9iq!5e1!3m2!1sar!2siq!4v1747304609896!5m2!1sar!2siq"  ,
+                "gpsLink" :"https://maps.app.goo.gl/hTAC5fpYgpPZiNbT8"
             },
-            {
-                "name": "معرض الكتاب الدائم",
-                "location": "العتبة الحسينية المقدسة ، شارع الرسول (صلى الله عليه واله وسلم) قرب فندق القاسم (عليه السلام) مقابل مكتب السيد السيستاني",
-                "phone": "+964 772 589 0454"
+           
+                {
+                "name": " معرض الكتاب الدائم",
+                "location": " شارع الرسول (ص)",
+                "phone": "  +964 772 589 0454",
+                "id":2,
+                "gps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12248.799836988952!2d44.333462515415384!3d31.99232257928696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x155ed14381d49035%3A0xb1a4879719652a94!2z2YXYudix2LYg2KfZhNmD2KrYp9ioINin2YTYr9in2KbZhSDZhNmE2LnYqtio2Kkg2KfZhNi52KjYp9iz2YrYqSDYp9mE2YXZgtiv2LPYqQ!5e1!3m2!1sar!2siq!4v1747301020329!5m2!1sar!2siq",
+                "gpsLink" :"https://maps.app.goo.gl/Ew1pm1zJBQ5fe68m9"
+        
             },
             {
                 "name": "دار البذرة للطباعة والنشر",
-                "location": "امتداد شارع الرسول (صلى الله عليه واله وسلم) قرب مدرسة النضال الابتدائية مقابل فندق الرسول (صلى الله عليه واله وسلم) السياحي",
-                "phone": "+964 780 245 0230 ، +964 760 180 4421"
+                "location": "امتداد شارع الرسول (ص) ",
+                "phone": "  +964 780 245 0230 ، +964 760 180 4421",
+                "id":3,
+                "gps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3062.247792954429!2d44.31911292491125!3d31.990889823745928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x155ed1d6a5de3489%3A0xd7f9b3809f1d75fd!2z2K_Yp9ixINin2YTYqNiw2LHYqSDZhNmE2LfYqNin2LnYqSDZiNin2YTZhti02LEg2YjYp9mE2KrZiNiy2YrYuQ!5e1!3m2!1sar!2siq!4v1747301223205!5m2!1sar!2siq",
+                "gpsLink" :"https://maps.app.goo.gl/fmphsWkjwSx9Mcj5A"
+            
             }
         ]
     },
@@ -25,7 +37,11 @@
             {
                 "name": "معرض الكتاب الدائم",
                 "location": "بين الحرمين الشريفين",
-                "phone": "+964 772 510 8015"
+                "phone": "+964 772 510 8015",
+                "id":4,
+                "gps":"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d778542.94581969!2d44.89791067432297!3d32.61638800292339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15596b92f7c88119%3A0x81dfc1038107e017!2z2YXYudix2LYg2KfZhNmD2KrYp9ioINin2YTYr9in2KbZhQ!5e1!3m2!1sar!2siq!4v1747301345962!5m2!1sar!2siq" ,
+                "gpsLink" :"https://maps.app.goo.gl/9ioksC3yqfAgpAGY8"
+          
             }
         ]
     }
