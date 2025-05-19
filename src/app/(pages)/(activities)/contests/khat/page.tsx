@@ -6,38 +6,7 @@ import Image from "next/image"
 import { ApplyStepper } from "../components/applicationSteps"
 // import SwiperGallery from "../../news/_components/swiper-gallery"
 // import HeaderSections from "@/components/header-sections"
-const prizes = [
-	{
-		type: "الثلث الجلي",
-		first: "3,000,000 د.ع",
-		second: "2,000,000 د.ع",
-		third: "1,000,000 د.ع",
-	},
-	{
-		type: "الثلث العادي",
-		first: "3,000,000 د.ع",
-		second: "2,000,000 د.ع",
-		third: "1,000,000 د.ع",
-	},
-	{
-		type: "النسخ",
-		first: "3,000,000 د.ع",
-		second: "2,000,000 د.ع",
-		third: "1,000,000 د.ع",
-	},
-	{
-		type: "الديواني",
-		first: "3,000,000 د.ع",
-		second: "2,000,000 د.ع",
-		third: "1,000,000 د.ع",
-	},
-	{
-		type: "النستعليق",
-		first: "3,000,000 د.ع",
-		second: "2,000,000 د.ع",
-		third: "1,000,000 د.ع",
-	},
-]
+const prizes = ["الثلث الجلي", "الثلث العادي", "النسخ", "الديواني", "النستعليق"]
 type Personal = {
 	label: string
 	persons: {
@@ -169,6 +138,7 @@ export default function page() {
 					/>
 				</div>
 			</div>
+
 			<h1 className="w-full text-center text-xl sm:text-2xl md:text-3xl my-12 sm:my-16 lg:my-20 font-semibold">
 				خطوات الاشتراك في المسابقة
 			</h1>
@@ -228,40 +198,48 @@ export default function page() {
 			<div className="w-full h-0.5 bg-gradient-to-r from-transparent via-slate-900/20 to-transparent rounded-full my-6 sm:my-8" />
 
 			{/* الجوائز والمحفزات */}
-			<div className="flex flex-col justify-center space-y-6 sm:space-y-8">
+			<div className="flex flex-col justify-center space-y-8 py-8 px-4 md:px-6">
 				<Section title="الجوائز والمحفزات" />
-				<div className="relative overflow-x-auto shadow-md rounded-lg">
-					<table className="table-fixed w-full text-left">
-						<thead className="bg-[#006654] text-[#e5e7eb] uppercase text-xs sm:text-sm">
+
+				<div className="relative overflow-hidden shadow-lg rounded-xl border border-gray-200">
+					<table className="w-full text-right">
+						<thead className="bg-[#006654] text-white">
 							<tr>
-								<td className="py-2 sm:py-3 px-2 sm:px-4 border border-gray-200 text-center">
+								<th className="py-3 px-4 font-semibold text-center text-sm md:text-base">
 									نوع الخط
-								</td>
-								<td className="py-2 sm:py-3 px-2 sm:px-4 border border-gray-200 text-center">
+								</th>
+								<th className="py-3 px-4 font-semibold text-center text-sm md:text-base">
 									المركز الأول
-								</td>
-								<td className="py-2 sm:py-3 px-2 sm:px-4 border border-gray-200 text-center">
+								</th>
+								<th className="py-3 px-4 font-semibold text-center text-sm md:text-base">
 									المركز الثاني
-								</td>
-								<td className="py-2 sm:py-3 px-2 sm:px-4 border border-gray-200 text-center">
+								</th>
+								<th className="py-3 px-4 font-semibold text-center text-sm md:text-base">
 									المركز الثالث
-								</td>
+								</th>
 							</tr>
 						</thead>
-						<tbody className="bg-white text-[#6b7280] text-xs sm:text-sm lg:text-base">
+						<tbody>
 							{prizes.map((row, index) => (
-								<tr key={index}>
-									<td className="py-2 sm:py-4 px-2 sm:px-4 border border-gray-200 text-center">
-										{row.type}
+								<tr
+									key={index}
+									className={
+										index % 2 === 0
+											? "bg-white"
+											: "bg-gray-50"
+									}
+								>
+									<td className="py-4 px-4 border-b border-gray-200 text-center font-medium text-gray-700">
+										{row}
 									</td>
-									<td className="py-2 sm:py-4 px-2 sm:px-4 border border-gray-200 text-center">
-										{row.first}
+									<td className="py-4 px-4 border-b border-gray-200 text-center text-gray-800 font-bold">
+										3,000,000 د.ع
 									</td>
-									<td className="py-2 sm:py-4 px-2 sm:px-4 border border-gray-200 text-center">
-										{row.second}
+									<td className="py-4 px-4 border-b border-gray-200 text-center text-gray-800">
+										2,000,000 د.ع
 									</td>
-									<td className="py-2 sm:py-4 px-2 sm:px-4 border border-gray-200 text-center">
-										{row.third}
+									<td className="py-4 px-4 border-b border-gray-200 text-center text-gray-800">
+										1,000,000 د.ع
 									</td>
 								</tr>
 							))}
@@ -269,18 +247,136 @@ export default function page() {
 					</table>
 				</div>
 
-				<p className="text-base sm:text-lg">
-					وسيتم منح خمس جوائز تقديرية كل منها بقدر ٢٥٠,٠٠٠ د.ع لكل نوع
-					من الأنواع الخمسة لأفضل المتسابقين الذين يلون الفائزين
-					الثلاثة الأوائل .
-				</p>
-				<p className="text-gray-700 w-fit border-b border-slate-300 italic text-sm sm:text-base">
-					ملاحظة: تصرف الجوائز بالدينار العراقي وتحول قيمة الجائزة
-					بالنسبة للفائزين الأجانب إلى العملات المتداولة وحسب سعر
-					الصرف في وقته .
-				</p>
+				<div className="space-y-4 p-6 border-r-2 border-[#006654]">
+					<p className="text-base md:text-lg text-right text-gray-800 leading-relaxed">
+						وسيتم منح خمس جوائز تقديرية كل منها بقدر ٢٥٠,٠٠٠ د.ع لكل
+						نوع من الأنواع الخمسة لأفضل المتسابقين الذين يلون
+						الفائزين الثلاثة الأوائل.
+					</p>
+					<div className="flex mt-4">
+						<div className="bg-gray-50 p-4 rounded-md border-r-2 border-[#006654] max-w-lg">
+							<p className="text-gray-700 text-right text-sm md:text-base italic">
+								<span className="font-semibold text-[#006654] ml-2">
+									ملاحظة:
+								</span>
+								تصرف الجوائز بالدينار العراقي وتحول قيمة الجائزة
+								بالنسبة للفائزين الأجانب إلى العملات المتداولة
+								وحسب سعر الصرف في وقته.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			{/* كلمة رئيس المؤسسة - First large text block */}
+			<div className="my-10 sm:my-14 lg:my-16">
+				<Section title="كلمة رئيس المؤسسة" />
+				<div className="mt-6 p-6">
+					<div className="prose prose-lg max-w-none text-justify leading-relaxed">
+						<p className="text-center font-semibold">
+							بسم الله الرحمن الرحيم
+						</p>
+						<p>
+							الحمد لله الذي علم بالقلم، علم الإنسان ما لم يعلم،
+							والحمد لله الذي جعل القلم وسيلة لتداول العلوم، وزين
+							الحروف بجمال الخطوط والصلاة والسلام على المبعوث
+							بتعليم الكتاب والحكمة وتزكية النفوس بتلاوة الآيات
+							البينات أشرف الأنبياء وخاتم المرسلين، محمد وآله
+							الطيبين الطاهرين.
+						</p>
+						<p>
+							أما بعد، فإن الخط العربي ليس مجرد فن تجريدي، بل هو
+							وعاء للمعرفة، وأداة لحفظ التراث، وجسر يصل بين
+							الأجيال عبر الزمن. وقد تميز الخط العربي بمكانة سامية
+							في الحضارة الإسلامية، فقد جمع بين زينة النصوص، وجمال
+							المعاني.
+						</p>
+						<p>
+							ولما كان التراث الفكري والروحي للإمام زين العابدين
+							(عليه السلام) يمثل مدرسة متكاملة في القيم الروحية
+							والإنسانية، فقد جاءت هذه المسابقة التي تعنى بإبراز
+							التراث المبارك للإمام زين العابدين (عليه السلام) من
+							خلال فن الخط العربي لتجمع بين جماليات الخط العربي
+							وعمق كلماته النورانية إذ أن تلك الكلمات والمواعظ
+							والمعاني الإلهية السامية تستحق أن تكتب بأقلام من نور
+							وبماء الذهب وبأجمل الخطوط وأرقى الأساليب.. تهدف هذه
+							المسابقة إلى تحقيق عدة غايات علمية وفنية، من أبرزها:
+						</p>
+						<ol className="list-decimal mr-6 space-y-2">
+							<li>
+								إبراز البعد الجمالي للخط العربي بوصفه مظهراً من
+								مظاهر الهوية الإسلامية.
+							</li>
+							<li>
+								إحياء تراث الإمام زين العابدين (عليه السلام) عبر
+								تدوين نصوصه الأخلاقية والتربوية بأبهى صور الفن
+								الإسلامي.
+							</li>
+							<li>
+								تحفيز الخطاطين والمتلقين على دراسة معاني النصوص
+								المختارة، مما يعزز الفهم العميق لكلمات الإمام
+								(عليه السلام).
+							</li>
+						</ol>
+						<p>
+							وإننا اليوم، إذ نطلق هذه المسابقة، ندعو الإخوة
+							الخطاطين والمبدعين إلى استلهام روحانية هذا التراث،
+							وصياغته بأرقى أشكال الخط العربي، ليكون الخطاطون
+							المشاركون سفراء لهذا التراث العظيم، يعبرون بريشاتهم
+							عن معانيه الراقية ويحيون تراثاً متجذراً في القيم
+							والمعرفة فيكون هذا الإبداع امتداداً لرسالة الإمام
+							(عليه السلام) التي تدعو إلى الفضيلة والأخلاق النبيلة
+							والمعرفة الحقة.
+						</p>
+						<p>
+							نسأل الله أن يوفق المشاركين لما فيه خير الدنيا
+							والآخرة، وأن تكون هذه المسابقة خطوة في سبيل نشر
+							الفكر الصحيح بشكل جميل ورائع وإحياء جماليات الخط
+							العربي، والحمد لله رب العالمين.
+						</p>
+					</div>
+				</div>
 			</div>
 
+			{/* أهداف المسابقة - Second large text block */}
+			<div className="my-10 sm:my-14 lg:my-16">
+				<Section title="أهداف المسابقة" />
+				<div className="mt-6 p-6">
+					<div className="prose prose-lg max-w-none text-right">
+						<ol className="list-decimal mr-6 space-y-4">
+							<li>
+								إحياء تراث الثقلين من القرآن الكريم وعترة النبي
+								محمد (صلى الله عليه و آله و سلّم ) باختيار نصوص
+								مناسبة تكون موضوعا للوحات الخطية.
+							</li>
+							<li>
+								اهتمام العتبة الحسينية المقدسة بالخط العربي كجزء
+								اساسي من التراث الاسلامي الذي هو محط الاهتمام
+								الأول لها.
+							</li>
+							<li>
+								التركيز على تراث الإمام زين العابدين (عليه
+								السلام) الزاخز من الصحيفة السجادية ورسالة الحقوق
+								وغيرها ونشر هذه العلوم والمعارف في كافة الأمصار
+								من خلال هذا الفن والتركيز عليها والترويج لها.
+							</li>
+							<li>
+								تسليط الضوء على الريادة العراقية وخصوصاً المدرسة
+								البغدادية للخطوط العربية وكونها مصدر الاشعاع لكل
+								المدارس المتأخرة عنها زمناً.
+							</li>
+							<li>
+								تنمية الحركة الثقافية من خلال اشتراك خطاطين من
+								دول مختلفة وحضارات متباينة والتفاعل الحواري بين
+								أهل هذا الفن ومتذوقيه.
+							</li>
+							<li>
+								الارتقاء بفن الخط العربي وتطويره وزيادة عدد
+								الخطاطين والمهتمين بالخط وتنمية مهاراتهم.
+							</li>
+						</ol>
+					</div>
+				</div>
+			</div>
 			{/* <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-slate-900/20 to-transparent rounded-full my-6 sm:my-8" />
 			<div className="pt-20 space-y-8">
 				<HeaderSections

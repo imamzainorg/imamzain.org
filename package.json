@@ -56,6 +56,7 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/moment-hijri": "^2.1.4",
     "@types/node": "20.17.19",
     "@types/react": "19.0.10",
