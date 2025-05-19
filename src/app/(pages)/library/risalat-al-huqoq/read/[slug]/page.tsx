@@ -43,7 +43,7 @@ export default async function Page({
     <div className="px-4 sm:px-10 py-10 bg-gradient-to-br  min-h-screen">
       <Breadcrumbs
         links={[
-          { name: "الصحفة الرئيسية", url: "/" },
+          { name: "الصفحة الرئيسية", url: "/" },
           { name: "المكتبة التخصصية", url: "/library" },
           {
             name: "رسالة الحقوق",
