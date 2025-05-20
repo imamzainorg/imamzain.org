@@ -44,7 +44,7 @@ export default function presidentGoals() {
               وأرقى الأساليب.. تهدف هذه المسابقة إلى تحقيق عدة غايات علمية
               وفنية، من أبرزها:
             </p>
-            <ol className="list-decimal mr-6 space-y-2">
+            <ol className="arabic-list mr-6 space-y-2">
               <li>
                 إبراز البعد الجمالي للخط العربي بوصفه مظهراً من مظاهر الهوية
                 الإسلامية.
@@ -85,7 +85,7 @@ export default function presidentGoals() {
         <Section title="أهداف المسابقة" />
         <div className="mt-6 p-6">
           <div className="prose prose-lg max-w-none text-right">
-            <ol className="list-decimal mr-6 space-y-4">
+            <ol className=" arabic-list mr-6 space-y-4">
               <li>
                 إحياء تراث الثقلين من القرآن الكريم وعترة النبي محمد (صلى الله
                 عليه و آله و سلّم ) باختيار نصوص مناسبة تكون موضوعا للوحات

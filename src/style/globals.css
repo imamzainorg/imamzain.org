@@ -74,3 +74,20 @@ html {
 .swiper-button-next::after {
 	color: #bb9661;
 }
+.arabic-list {
+  list-style-type: decimal;
+  direction: rtl;
+  unicode-bidi: isolate;
+  counter-reset: arabic-counter;
+  padding-right: 1rem;
+}
+
+.arabic-list li {
+  counter-increment: arabic-counter;
+  position: relative;
+  padding-right: 1rem;
+}
+
+.arabic-list li::marker {
+  content: counter(arabic-counter, arabic-indic) "-";
+}
