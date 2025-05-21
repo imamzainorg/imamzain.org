@@ -134,11 +134,14 @@ export default async function Page() {
 					</div>
 				</Link>
 			</div>
-
+	
 			<SectionTitle title="اخبار العتبة الحسينية المقدسة" />
 			<div className="">
 				<div className="md:grid md:grid-cols-4 gap-5 p-2 mt-2">
-					{imamHussainPosts.map((post, index) => (
+				    {[...imamHussainPosts]
+      .sort((a, b) => b.id - a.id)
+      .slice(0, 5)
+      .map((post, index) => (
 						<Link
 							href={`/news/${post.slug}`}
 							key={post.id}

@@ -173,7 +173,7 @@ export default function Page() {
 			<Section title="شروط الإنضمام للمسابقة" />
 			<div className="flex flex-col md:flex-row items-center justify-center gap-12 text-lg leading-loose tracking-tight text-justify">
 				<div className="md:w-2/3">
-					<ol className=" list-decimal text-right text-gray-700 space-y-2 sm:space-y-3 pr-2 sm:pr-4 p-2 sm:p-4 md:p-6 lg:p-8">
+					<ol className="list-decimal text-right text-gray-700 space-y-2 sm:space-y-3 pr-2 sm:pr-4 p-2 sm:p-4 md:p-6 lg:p-8">
 						{rules.map((rule, index) => (
 							<li
 								key={index}
