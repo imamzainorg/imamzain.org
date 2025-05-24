@@ -1,5 +1,6 @@
 import { heroui } from "@heroui/react"
 import type { Config } from "tailwindcss"
+
 export default {
 	content: [
 		"./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -48,6 +49,9 @@ export default {
 				primary: "#006654",
 				secondary: "#bb9661",
 				"dark-background": "rgb(37,52,63)",
+			},
+			listStyleType: {
+				"arabic-indic": "arabic-indic",
 			},
 		},
 	},
