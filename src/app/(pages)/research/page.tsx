@@ -97,7 +97,7 @@ export default function Page() {
 					<div className="w-full text-right mt-8 text-lg">
 						ملاحظات:
 					</div>
-					<ol className="list-decimal text-right text-gray-700 space-y-2 sm:space-y-3  px-2 sm:px-4 md:px-6 lg:px-8">
+					<ol className="list-arabic-indic text-right text-gray-700 space-y-2 sm:space-y-3  px-2 sm:px-4 md:px-6 lg:px-8">
 						{[
 							"سعر صفحة الكتاب (تأليف، تحقيق) 5,000 د.ع.",
 							"المكافئات اعلاه تعني في البحوث والكتب التي تأتي من خلال الاستكتاب",

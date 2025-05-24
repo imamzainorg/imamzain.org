@@ -227,46 +227,49 @@ export default function page() {
         <Section title="الجوائز والمحفزات" />
 
         <div className="relative overflow-hidden shadow-lg rounded-xl border border-gray-200">
-          <table className="w-full text-right">
-            <thead className="bg-[#006654] text-white">
-              <tr>
-                <th className="py-3 px-4 font-semibold text-center text-sm md:text-base">
-                  نوع الخط
-                </th>
-                <th className="py-3 px-4 font-semibold text-center text-sm md:text-base">
-                  المركز الأول
-                </th>
-                <th className="py-3 px-4 font-semibold text-center text-sm md:text-base">
-                  المركز الثاني
-                </th>
-                <th className="py-3 px-4 font-semibold text-center text-sm md:text-base">
-                  المركز الثالث
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {prizes.map((row, index) => (
-                <tr
-                  key={index}
-                  className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
-                >
-                  <td className="py-4 px-4 border-b border-gray-200 text-center font-medium text-gray-700">
-                    {row}
-                  </td>
-                  <td className="py-4 px-4 border-b border-gray-200 text-center text-gray-800 font-bold">
-                    3,000,000 د.ع
-                  </td>
-                  <td className="py-4 px-4 border-b border-gray-200 text-center text-gray-800">
-                    2,000,000 د.ع
-                  </td>
-                  <td className="py-4 px-4 border-b border-gray-200 text-center text-gray-800">
-                    1,000,000 د.ع
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+  <div className="overflow-x-auto">
+    <table className="min-w-full text-right">
+      <thead className="bg-[#006654] text-white">
+        <tr>
+          <th className="py-3 px-4 font-semibold text-center text-sm md:text-base whitespace-nowrap">
+            نوع الخط
+          </th>
+          <th className="py-3 px-4 font-semibold text-center text-sm md:text-base whitespace-nowrap">
+            المركز الأول
+          </th>
+          <th className="py-3 px-4 font-semibold text-center text-sm md:text-base whitespace-nowrap">
+            المركز الثاني
+          </th>
+          <th className="py-3 px-4 font-semibold text-center text-sm md:text-base whitespace-nowrap">
+            المركز الثالث
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {prizes.map((row, index) => (
+          <tr
+            key={index}
+            className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
+          >
+            <td className="py-4 px-4 border-b border-gray-200 text-center font-medium text-gray-700 whitespace-nowrap">
+              {row}
+            </td>
+            <td className="py-4 px-4 border-b border-gray-200 text-center text-gray-800 font-bold whitespace-nowrap">
+              3,000,000 د.ع
+            </td>
+            <td className="py-4 px-4 border-b border-gray-200 text-center text-gray-800 whitespace-nowrap">
+              2,000,000 د.ع
+            </td>
+            <td className="py-4 px-4 border-b border-gray-200 text-center text-gray-800 whitespace-nowrap">
+              1,000,000 د.ع
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
 
         <div className="space-y-4 p-6 border-r-2 border-[#006654]">
           <p className="text-base md:text-lg text-right text-gray-800 leading-relaxed">

@@ -47,7 +47,7 @@ export default function Page() {
 
 			<div className="pt-20 pr-20  ">
 				<StepSection step={1} title="الضوابط العامة" Boarded>
-					<ul className="list-decimal space-y-2 ">
+					<ul className="list-arabic-indic space-y-2 ">
 						<li>
 							سلامة العبارات عن التعقيدات اللفظية والمعنوية ووضوح
 							المعنى قدر الإمكان.
@@ -91,7 +91,7 @@ export default function Page() {
 							<h2 className="font-bold text-2xl">
 								تقسيم الأبحاث:
 							</h2>
-							<ul className="list-decimal pr-6 space-y-2">
+							<ul className="list-arabic-indic pr-6 space-y-2">
 								<li>
 									إذا كان حجم الكتاب أقل من 300 صفحة، يقسم إلى
 									فصول ومباحث.
@@ -120,7 +120,7 @@ export default function Page() {
 							<h2 className="font-bold text-2xl">
 								مواصفات الصفحة:
 							</h2>
-							<ol className="list-decimal list-inside space-y-3 text-right">
+							<ol className="list-arabic-indic list-inside space-y-3 text-right">
 								<li>
 									يُكتب البحث أو الكتاب بقطع{" "}
 									<strong>وزيري</strong>.
@@ -162,7 +162,7 @@ export default function Page() {
 
 						<div>
 							<h2 className="font-bold text-2xl">الاقتباس:</h2>
-							<ul className="list-decimal pr-6 space-y-2">
+							<ul className="list-arabic-indic pr-6 space-y-2">
 								<li>من القرآن: توضع الآية بين قوسين مزهرية.</li>
 								<li>من الروايات: يُذكر اسم الراوي والمصدر.</li>
 								<li>
@@ -183,7 +183,7 @@ export default function Page() {
 					title="شروط النشر والملكية الفكرية"
 					Boarded
 				>
-					<ol className="list-decimal list-inside space-y-3 text-right">
+					<ol className="list-arabic-indic list-inside space-y-3 text-right">
 						<li>
 							البحوث والكتب المقدمة عبر <strong>الاستكتاب</strong>{" "}
 							تخضع للشروط السابقة.
