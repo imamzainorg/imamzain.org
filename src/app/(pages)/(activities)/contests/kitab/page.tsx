@@ -189,7 +189,7 @@ export default function Page() {
 			<Section title="آلية التقديم" />
 			<div
 				id="submit"
-				className="animate-fade-in-up w-full flex flex-col justify-center items-center gap-4 p-2 sm:p-4 md:p-6 lg:p-8"
+				className="animate-fade-in-up w-full flex flex-col justify-center items-center gap-4 p-2 sm:p-4 md:p-6 lg:p-8 "
 			>
 				<p className="w-full sm:w-4/5 md:w-3/4 lg:w-1/2 mx-auto text-base sm:text-lg md:text-xl text-center">
 					يمكنكم الإنضمام الى المسابقة من خلال تقديم عملكم عبر البريد
