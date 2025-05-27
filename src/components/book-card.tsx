@@ -2,7 +2,8 @@ import { DownloadIcon } from "@/assets/icons/reusable";
 import { Book } from "@/types/book";
 import Image from "next/image";
 import Link from "next/link";
-import NewsShare from "@/components/news-share";
+
+import Sharbox from "@/components/sharbox";
 import {
   ShoppingCartIcon,
   BookOpen,
@@ -64,15 +65,7 @@ export default function BookCard({
                 تنزيل الكتاب
               </Link>
 
-              <div className="inline-flex items-center gap-2 bg-white border border-primary text-primary hover:bg-primary/10 transition-all font-medium px-6 py-3 rounded-full shadow-sm">
-                <NewsShare
-                  url={`publications/${publication.slug}`}
-                  className="cursor-pointer hover:scale-110 transition-transform"
-                  iconSize={20}
-                />
-                مشاركة
-              </div>
-
+              <Sharbox />
               <Link
                 href={`/services/stores`}
                 className="inline-flex items-center gap-2 bg-white border border-primary text-primary hover:bg-primary/10 transition-all font-medium px-6 py-3 rounded-full shadow-sm"
