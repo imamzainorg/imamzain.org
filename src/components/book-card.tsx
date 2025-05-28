@@ -3,7 +3,7 @@ import { Book } from "@/types/book";
 import Image from "next/image";
 import Link from "next/link";
 
-import Sharbox from "@/components/sharbox";
+import Sharbox from "@/components/box-share";
 import {
   ShoppingCartIcon,
   BookOpen,

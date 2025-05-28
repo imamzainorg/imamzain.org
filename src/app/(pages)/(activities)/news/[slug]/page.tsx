@@ -68,8 +68,11 @@ export default async function page({
                 >
                   <TwitterIcon width={20} height={20} />
                 </Link>
-                <div className="w-0.5 h-5 bg-gray-600 " />
-                <NewsShare url={`news/${slug}`} />
+                <div className="w-0.5 h-5 bg-gray-600 cursor-pointer" />
+                <NewsShare 
+                  iconSize={20}
+                  className="text-gray-600 hover:text-primary cursor-pointer transition-all"
+                url={`https://imamzain.org/news/${slug}`}/>
               </div>
             </div>
           </div>

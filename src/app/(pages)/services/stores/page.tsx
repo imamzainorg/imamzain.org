@@ -4,7 +4,8 @@ import Breadcrumbs from "@/components/breadcrumb";
 import storeLocations from "@/data/store-locations.json";
 import { useState, useEffect } from "react";
 import { SellPoint } from "@/types/storeLocations";
-import NewsShare from "@/components/news-share";
+import CopyShareButton from "@/components/Copy-Share"
+
 import Link from "next/link";
 export default function Page() {
   const [selectedPoint, setSelectedPoint] = useState<SellPoint | null>(null);
@@ -104,7 +105,7 @@ export default function Page() {
                   <div
                     key={sellpoint.id}
                     id={`point-${sellpoint.id}`}
-                    className={`p-5 border border-primary/30 overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-200 group cursor-pointer rounded-3xl flex flex-col gap-4 transition-all duration-300 shadow-md hover:shadow-xl ${
+                    className={`p-5 border border-primary/30 overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-200 group  rounded-3xl flex flex-col gap-4 transition-all duration-300 shadow-md hover:shadow-xl ${
                       selectedPoint?.id === sellpoint.id
                         ? "ring-2 ring-primary/40 bg-primary/5"
                         : "hover:bg-gray-50"
@@ -128,15 +129,7 @@ export default function Page() {
                         </p>
 
                         <div className="flex flex-row gap-2 text-xs">
-                          <div className="mt-4 inline-flex items-center gap-2 bg-primary border border-primary text-white  transition-all font-medium px-2.5 py-1.5 rounded-full shadow-sm">
-                            <NewsShare
-                              fullLink={sellpoint.gpsLink}
-                              className="cursor-pointer hover:scale-110  transition-transform"
-                              iconSize={15}
-                              stroke={"#fff"}
-                            />
-                            مشاركة
-                          </div>
+                       <CopyShareButton link={sellpoint.gpsLink} />
 
                           <Link
                             href={sellpoint.gpsLink}
