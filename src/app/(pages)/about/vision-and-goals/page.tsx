@@ -141,7 +141,7 @@ export default function VisionAndGoals() {
         whileInView="visible"
         viewport={{ once: true }}
         transition={{ staggerChildren: 0.2 }}
-        className="space-y-10"
+        className="space-y-10 "
       >
         {sections.map((section) => (
           <motion.section
@@ -152,7 +152,7 @@ export default function VisionAndGoals() {
               visible: { opacity: 1, y: 0 },
             }}
             transition={{ duration: 0.5 }}
-            className="bg-white p-6 rounded-lg shadow-md"
+            className="bg-white p-6 rounded-lg scroll-mt-64 shadow-md"
           >
             <SectionTitle title={section.title} />
             <div className="space-y-4">{renderSectionContent(section)}</div>

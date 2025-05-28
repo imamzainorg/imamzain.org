@@ -47,7 +47,7 @@ export default function InstitutionMessage() {
 				links={[
 					{
 						label: "اهداف المؤسسة",
-						href: "/about/vision-and-goals#goals",
+						href: "/about/vision-and-goals#vision",
 					},
 					{
 						label: "رسالة المؤسسة",
