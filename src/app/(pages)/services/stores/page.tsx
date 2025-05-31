@@ -4,9 +4,11 @@ import Breadcrumbs from "@/components/breadcrumb";
 import storeLocations from "@/data/store-locations.json";
 import { useState, useEffect } from "react";
 import { SellPoint } from "@/types/storeLocations";
-import CopyShareButton from "@/components/Copy-Share"
 
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { toast } from "sonner";
+import NewsShare from "@/components/news-share";
 export default function Page() {
   const [selectedPoint, setSelectedPoint] = useState<SellPoint | null>(null);
 
@@ -127,17 +129,29 @@ export default function Page() {
                             {sellpoint.phone}
                           </span>
                         </p>
+                      <div className="flex flex-col md:flex-row items-start md:items-center gap-2 mt-4">
+                          <Button
+                          onClick={() => {
+                            navigator.clipboard.writeText(sellpoint.gpsLink);
+                            toast("تم نسخ الرابط في الحافظة");
+                          }}
+                          variant="outline"
+                          className="mt-4 inline-flex items-center gap-2 bg-primary border border-primary text-white transition-all font-medium px-2.5 py-1.5 rounded-full shadow-sm cursor-pointer hover:scale-105"
+                        >
+                          <NewsShare iconSize={20} />
+                          مشاركة
+                        </Button>
 
-                        <div className="flex flex-row gap-2 text-xs">
-                       <CopyShareButton link={sellpoint.gpsLink} />
-
-                          <Link
-                            href={sellpoint.gpsLink}
-                            className=" mt-4 inline-flex items-center gap-2 bg-primary border border-primary text-white  transition-all font-medium px-2.5 py-1.5 rounded-full shadow-sm"
-                          >
+                        <Button
+                          asChild
+                     
+                           className="mt-4 inline-flex items-center gap-2 bg-primary border border-primary text-white transition-all font-medium px-2.5 py-1.5 rounded-full shadow-sm cursor-pointer hover:scale-105"
+                        >
+                          <Link href={sellpoint.gpsLink}>
                             الذهاب إلى الموقع
                           </Link>
-                        </div>
+                        </Button>
+                      </div>
                       </div>
 
                       {/* الخريطة */}
