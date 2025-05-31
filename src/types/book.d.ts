@@ -16,4 +16,5 @@ export type Book = {
 	totalParts : number
 	series: string
 	category: string;
+	  description?: string
 }
