@@ -19,6 +19,7 @@
     "@heroui/react": "^2.6.14",
     "@hookform/resolvers": "^3.9.1",
     "@iconify/react": "^5.2.1",
+    "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tabs": "^1.1.9",
     "@react-google-maps/api": "^2.20.5",
     "@stepperize/react": "^5.1.5",
@@ -49,9 +50,9 @@
     "react-icons": "^5.5.0",
     "react-phone-number-input": "^3.4.10",
     "react-responsive": "^10.0.0",
-    "sonner": "^1.7.1",
+    "sonner": "^1.7.4",
     "swiper": "^11.2.0",
-    "tailwind-merge": "^2.5.5",
+    "tailwind-merge": "^2.6.0",
     "zod": "^3.24.0"
   },
   "devDependencies": {
