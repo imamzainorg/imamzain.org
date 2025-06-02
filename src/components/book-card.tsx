@@ -5,9 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
 import { toast } from "sonner";
-
 import NewsShare from "@/components/news-share";
-
 import {
   ShoppingCartIcon,
   BookOpen,

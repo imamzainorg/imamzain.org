@@ -8,7 +8,7 @@ import Section from "@/components/section";
 import { dataFetcher } from "@/lib/dataFetcher";
 import { Book } from "@/types/book";
 import BooklibraryCard from "../library/_components/book-library-card";
-import { Input } from "@/components/ui/input";
+
 import {  AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { SearchIcon, FilterIcon, ChevronLeft, ChevronRight } from "lucide-react";
@@ -119,9 +119,9 @@ export default function PublicationsPage() {
         <div className="bg-white rounded-xl shadow-md p-4 md:p-6">
           <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
             <div className="w-full md:w-1/2 relative">
-              <Input
+              <input
                 placeholder="ابحث في الإصدارات..."
-                className="pr-12 text-lg rounded-xl border border-primary focus:border-primary focus:ring-1 focus:ring-primary"
+                className="pr-12 w-11/12 text-lg rounded-xl border border-primary focus:border-primary focus:ring-1 focus:ring-primary"
                 value={searchTerm}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setSearchTerm(e.target.value)
