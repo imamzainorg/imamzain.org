@@ -76,10 +76,12 @@ export default function Publications({
 					<Link key={book.id} href={`/publications/${book.slug}`}>
 						<motion.div
 							className="flex flex-col justify-between rounded-2xl h-full"
-							style={{
-								background:
-									"linear-gradient(0deg, rgba(229,229,229,1) 0%, rgba(229,229,229,1) 0%, rgba(229,229,229,0) 50%)",
-							}}
+style={{
+  background:
+    "linear-gradient(0deg, rgba(225, 232, 215, 1) 0%, rgba(225, 232, 215, 1) 0%, rgba(225, 232, 215, 0) 50%)",
+}}
+
+
 							variants={parentVariants}
 							initial="rest"
 							animate="visible"
