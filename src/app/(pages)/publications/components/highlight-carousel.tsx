@@ -6,30 +6,29 @@ import { Book } from "@/types/book"
 import { cn } from "@/lib/utils"
 import { AnimatePresence, motion } from "framer-motion"
 import { useEffect, useState } from "react"
-
 export function HighlightCarousel({ publications }: { publications: Book[] }) {
-	const [publication, setPublication] = useState(publications[0])
+	const displayedPublications = publications.slice(0, 4)
+	const [publication, setPublication] = useState(displayedPublications[0])
 
 	useEffect(() => {
 		const interval = setInterval(() => {
-			if (publications.indexOf(publication) === publications.length - 1) {
-				setPublication(publications[0])
-			} else {
-				setPublication(
-					publications[publications.indexOf(publication) + 1],
-				)
-			}
+			const currentIndex = displayedPublications.indexOf(publication)
+			const nextIndex =
+				currentIndex === displayedPublications.length - 1
+					? 0
+					: currentIndex + 1
+			setPublication(displayedPublications[nextIndex])
 		}, 5000)
 
 		return () => clearInterval(interval)
-	}, [publications, publication])
+	}, [displayedPublications, publication])
 
 	return (
 		<section className="space-y-10">
 			<div
 				className={cn(
 					"text-white rounded-xl sm:rounded-2xl lg:rounded-[50px] xl:rounded[150px] bg-[url('/shapes/dark-bg.svg')] p-4 lg:p-10 xl:p-20 duration-200",
-					publications.indexOf(publication) % 2 === 0
+					displayedPublications.indexOf(publication) % 2 === 0
 						? "bg-dark-background"
 						: "bg-secondary/60",
 				)}
@@ -37,7 +36,7 @@ export function HighlightCarousel({ publications }: { publications: Book[] }) {
 				<AnimatePresence mode="wait">
 					{publication ? (
 						<motion.div
-							key={publication ? publication.id : "empty"}
+							key={publication.id}
 							initial={{ x: 10, opacity: 0 }}
 							animate={{ x: 0, opacity: 1 }}
 							exit={{ x: -10, opacity: 0 }}
@@ -76,19 +75,23 @@ export function HighlightCarousel({ publications }: { publications: Book[] }) {
 					)}
 				</AnimatePresence>
 			</div>
+
+			{/* المؤشرات */}
 			<div className="flex gap-4 w-full justify-center">
-				{publications.map((_, index) => (
+				{displayedPublications.map((_, index) => (
 					<div
 						key={index}
-						onClick={() => setPublication(publications[index])}
+						onClick={() => setPublication(displayedPublications[index])}
 						className={cn(
 							"rounded-full w-4 h-4 bg-primary/20 cursor-pointer hover:bg-primary/50 duration-150",
-							publications.indexOf(publication) === index &&
+							displayedPublications.indexOf(publication) === index &&
 								"bg-primary",
 						)}
 					/>
 				))}
+				
 			</div>
+			
 		</section>
 	)
 }
