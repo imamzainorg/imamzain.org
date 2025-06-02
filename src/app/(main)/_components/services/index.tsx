@@ -215,9 +215,8 @@ export default function Services() {
 						</motion.div>
 						<motion.div
 							className="flex md:flex-col items-center justify-center bg-[url('/shapes/ziara-bg.svg')] bg-center lg:bg-left bg-no-repeat
-                            w-full lg:w-1/2
-                            h-96 lg:h-full
-                            "
+                            xs:w-full lg:w-1/2
+                            h-96 lg:h-full w-screen px-0 max-w-none                           "
 							variants={{
 								hidden: {
 									opacity: 0,
