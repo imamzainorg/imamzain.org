@@ -1,11 +1,11 @@
-import { DownloadIcon } from "@/assets/icons/reusable"
+
 import { Book } from "@/types/book"
 import Image from "next/image"
 import Link from "next/link"
 
 export default function BooklibraryCard({
 	publication,
-	downloadable = false,
+
 	route = "",
 }: {
 	publication: Book
@@ -26,11 +26,7 @@ export default function BooklibraryCard({
 					className="object-center w-auto h-4/6 lg:h-3/6 xl:h-4/6"
 					alt={publication.image}
 				/>
-				{downloadable && (
-					<div className="absolute -bottom-1 sm:bottom-1 lg:bottom-2 xl:-bottom-1 bg-white rounded-full p-2 sm:p-3 lg:p-2">
-						<DownloadIcon className="h-auto w-4 sm:w-5 lg:w-5 xl:w-6" />
-					</div>
-				)}
+			
 			</div>
 			<div className=" w-2/3 flex flex-col h-5/6 pb-5 pt-3 gap-0 sm:gap-1 md:gap-5 xmd:gap-7  lg:gap-0 justify-between">
 				<h2 className="text-primary text-[0.6rem] xs:text-lg sm:text-xl lg:text-base xl:text-xl font-bold  ">
