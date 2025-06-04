@@ -100,7 +100,7 @@ export default function VisionAndGoals() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
+    <div className="max-w-5xl  mx-auto px-4 py-10">
       <Breadcrumbs
         links={[
           { name: "الصفحة الرئيسية", url: "/" },
@@ -141,7 +141,7 @@ export default function VisionAndGoals() {
         whileInView="visible"
         viewport={{ once: true }}
         transition={{ staggerChildren: 0.2 }}
-        className="space-y-10 "
+        className="space-y-10 mb-12 p-0 w-full "
       >
         {sections.map((section) => (
           <motion.section
