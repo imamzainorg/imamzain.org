@@ -27,13 +27,15 @@ export default async function Page() {
 					]}
 				/>
 
-				<Link
-					href="/news/archives"
-					className="flex text-white p-1 md:text-sm md:mb-1 xl:pr-2 xl:relative xl:left-14   text-[10px] group items-center gap-5 bg-primary border-2 border-transparent hover:bg-secondary rounded-xl transition duration-1000"
-				>
-					ارشيف الاخبار{" "}
-					<Arrow className="translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 duration-300" />
-				</Link>
+<Link
+  href="/news/archives"
+  className="group flex items-center gap-0.5 px-1.5 py-0.5 md:py-2 xs:px-3.5 text-[9px] sm:text-[10px] md:text-xs text-white bg-primary rounded-md border-2 border-transparent hover:bg-secondary transition-all duration-300 ease-in-out xl:pr-4 xl:relative xl:left-14"
+>
+  <span className="transition-all duration-300">أرشيف الأخبار</span>
+  <Arrow className="w-3 h-3 translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300" />
+</Link>
+
+
 			</div>
 
 			{/* Latest Posts */}
