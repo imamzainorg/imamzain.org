@@ -121,7 +121,7 @@ export default function PublicationsPage() {
             <div className="w-full md:w-1/2 relative">
               <input
                 placeholder="ابحث في الإصدارات..."
-                className="pr-12 w-11/12 text-lg rounded-xl border border-primary focus:border-primary focus:ring-1 focus:ring-primary"
+                className="pr-12 w-full md:w-11/12 text-lg rounded-xl border border-primary  focus:ring-1"
                 value={searchTerm}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setSearchTerm(e.target.value)
@@ -133,16 +133,16 @@ export default function PublicationsPage() {
               </div>
             </div>
 
-            <div className="w-full md:w-1/5">
+            <div className="w-full md:w-1/5  ">
               <Button
                 variant="outline"
-                className="w-full text-lg"
+                className="w-full text-md md:text-lg   md:p-5"
                 onClick={() => {
                   setSearchTerm("");
                   setFilterCategory("all");
                 }}
               >
-                <FilterIcon size={18} className="ml-2" />
+                <FilterIcon size={18} className="ml-2 " />
                 إعادة الضبط
               </Button>
             </div>
