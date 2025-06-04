@@ -23,7 +23,7 @@ export default function BooklibraryCard({
 					src={publication.image}
 					width={200}
 					height={200}
-					className="object-center w-auto h-4/6 lg:h-3/6 xl:h-4/6"
+					className="object-center w-auto h-4/6 lg:h-3/6 xl:h-36 rounded-sm"
 					alt={publication.image}
 				/>
 			
