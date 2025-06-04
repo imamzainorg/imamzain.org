@@ -62,7 +62,7 @@ export default function Page() {
   };
 
   return (
-    <div className="container pb-10">
+    <div className="  p-6 ">
       <Breadcrumbs
         links={[
           { name: "الصفحة الرئيسية", url: "/" },
@@ -70,8 +70,10 @@ export default function Page() {
           { name: "اتصل بنا", url: "#" },
         ]}
       />
-      <Section title="تواصل معنا" />
 
+      <div className="mr-4 lg:mr-8">
+        <Section  title="تواصل معنا" />
+      </div>
       {submitted ? (
         <div className="flex items-center justify-center max-w-screen-md mx-auto animate-fadeIn">
           <div className="bg-white/20 backdrop-blur-md shadow-xl p-10 rounded-3xl w-full flex flex-col items-center gap-4 text-center">
@@ -80,7 +82,7 @@ export default function Page() {
           </div>
         </div>
       ) : (
-        <div className="grid md:grid-cols-2 gap-8 max-w-screen-xl mx-auto bg-primary bg-pattern p-6 rounded-3xl">
+        <div className=" md:container grid md:grid-cols-2 gap-8 max-w-screen-xl mx-auto   bg-primary bg-pattern p-6 rounded-3xl">
           <div className="flex flex-col gap-5 justify-center text-white">
             <h3 className="text-2xl font-bold">معلومات التواصل</h3>
             <p>النجف الأشرف - ملحق شارع الروان</p>
