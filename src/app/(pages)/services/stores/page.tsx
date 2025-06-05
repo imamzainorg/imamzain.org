@@ -44,20 +44,21 @@ export default function Page() {
   };
 
   return (
-    <div className="container pb-10 scroll-smooth">
+    <div className="mx-auto md:container pb-10 scroll-smooth ">
       <Breadcrumbs
         links={[
           { name: "الرئيسية", url: "/" },
           { name: "الخدمات", url: "/services" },
           { name: "نقاط البيع المباشر", url: "#" },
         ]}
+        className="mr-4 md:mr-0"
       />
 
       <h1 className="text-4xl font-bold text-gray-900 my-10 text-center">
         نقاط البيع المباشر
       </h1>
 
-      <div className="flex flex-row gap-8 mt-6">
+      <div className="flex flex-row gap-8 mt-6 ">
         {/* الشريط الجانبي */}
         <aside className="lg:w-1/4 space-y-6 hidden lg:block sticky top-24 self-start">
           <div className="bg-white shadow-md border border-primary/20 rounded-2xl p-6 space-y-4">
@@ -92,11 +93,11 @@ export default function Page() {
         </aside>
 
         {/* المحتوى الرئيسي */}
-        <div className="w-full lg:w-3/4 max-w-screen-lg mx-auto space-y-12 px-4">
+        <div className="lg:w-3/4   mx-auto space-y-12 px-4">
           {storeLocations.map((storeLocation) => (
             <div
               key={storeLocation.city}
-              className="p-6 rounded-3xl bg-white shadow-md"
+              className=" p-6 w-full   rounded-3xl bg-white 5 shadow-md"
             >
               <Section
                 id={`store-${storeLocation.city}`}

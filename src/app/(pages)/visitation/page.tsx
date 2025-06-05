@@ -51,9 +51,9 @@ const ZiaraForm = () => {
   };
 
   return (
-    <div className="flex flex-col items-center lg:items-end justify-center w-full">
+    <div className="flex flex-col items-center lg:items-end justify-center w-screen md:w-full">
       {!sended ? (
-        <div className="flex flex-col items-center gap-4 pt-20 py-6 ml-0 lg:ml-16 w-[70%] sm:w-[50%] md:w-[35%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%]">
+        <div className="flex flex-col items-center gap-4 pt-20 py-6 ml-0 lg:ml-16 w-[70%] sm:w-[40%] xs:w-[45%] md:w-[40%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%]">
           <Input
             size={"lg"}
             className="border-none w-full"
