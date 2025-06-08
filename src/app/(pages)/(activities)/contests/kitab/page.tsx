@@ -24,25 +24,15 @@ export default function Page() {
 					{ name: "مسابقة كتاب", url: "#" },
 				]}
 			/>
-			<div className="rounded-xl border-2 mb-16">
-				<div className="m-2 bg-slate-900 text-white py-32 bg-opacity-80 bg-blend-overlay bg-[url('/contests/kitab/hero.jpg')] bg-cover rounded-xl">
-					<div className=" mx-auto px-4 text-center">
-						<h1 className="text-4xl md:text-5xl font-bold mb-4">
-							مسابقة كتاب
-						</h1>
-						<p className="text-xl max-w-3xl mx-auto mb-32">
-							ساهم في إحياء تراث الإمام زين العابدين عليه السلام
-							عبر تأليف كتاب علمي رصين، وادخل منافسة &quot;كتاب
-							١٤٤٧ هـ&quot; للفوز والنشر والتكريم.
-						</p>
-						<Link
-							href="#submit"
-							className="border-b-2 hover:border-secondary text-white hover:text-secondary font-semibold py-3 px-6 transition duration-300"
-						>
-							قم بالإنضمام الى المسابقة الآن
-						</Link>
-					</div>
-				</div>
+			<div className="rounded-xl border-2 mb-16 p-1 w-2/3 mx-auto">
+				<Image
+					src={"/contests/kitab/hero.jpg"}
+					width={1000}
+					height={800}
+					priority
+					alt="kitab cover"
+					className="object-cover w-full h-full rounded-xl aspect-[3/2]"
+				/>
 			</div>
 
 			<Section title="جوائز قيمة" />
@@ -86,38 +76,6 @@ export default function Page() {
 					</span>
 				</div>
 			</div>
-			{/* <section id="about" className="py-20">
-				<div className="container mx-auto px-4">
-					<Section title="المنظمين" />
-					<div className="flex flex-col md:flex-row items-center justify-center gap-12 text-lg leading-loose tracking-tight text-justify">
-						<div className="md:w-2/3">
-							<p className="mb-4 text-gray-700 ">
-								تنظّم مؤسسة الإمام زين العابدين للبحوث والدراسات
-								هذه المسابقة لإبراز الجوانب الفكرية والعلمية في
-								تراث الإمام علي بن الحسين زين العابدين. تأتي هذه
-								المبادرة في إطار سعي المؤسسة لتشجيع الكتابة
-								البحثية الجادة وتوسيع دائرة الاهتمام بتراث
-								الإمام، من خلال أعمال مكتوبة تعكس عمق فكره
-								وتأثيره في مختلف الحقول المعرفية.
-							</p>
-							<p className="mb-4 text-gray-700">
-								تهدف المسابقة إلى خلق بيئة علمية محفزة تفتح
-								المجال أمام الباحثين والمهتمين من داخل العراق
-								وخارجه لتقديم مساهماتهم الأصلية. وهي دعوة
-								للقراءة المتأنية، والتأمل، وإعادة إنتاج المعرفة
-								بشكل يعزز فهم تراث الإمام ضمن سياقات فكرية جديدة
-								ومعاصرة.
-							</p>
-							<p className="text-gray-700">
-								تُعد هذه المسابقة منبرًا سنويًا يتطلع إلى تعزيز
-								الحوار المعرفي حول شخصية الإمام زين العابدين،
-								وتقديم قراءات بحثية تفتح آفاقًا جديدة لفهم أعمق
-								وأكثر اتصالًا بالواقع.
-							</p>
-						</div>
-					</div>
-				</div>
-			</section> */}
 
 			<div className="my-16">
 				<Section title="محاور الكتابة" />
