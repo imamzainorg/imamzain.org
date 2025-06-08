@@ -51,9 +51,9 @@ const ZiaraForm = () => {
   };
 
   return (
-    <div className="flex flex-col items-center lg:items-end justify-center w-screen md:w-full">
+    <div className="flex flex-col  items-center lg:items-end justify-center w-screen md:w-full">
       {!sended ? (
-        <div className="flex flex-col items-center gap-4 pt-20 py-6 ml-0 lg:ml-16 w-[70%] sm:w-[40%] xs:w-[45%] md:w-[40%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%]">
+        <div className="flex z-50 flex-col items-center gap-4 pt-20 py-6 ml-0 lg:ml-16 w-[70%] sm:w-[40%] xs:w-[45%] md:w-[40%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%]">
           <Input
             size={"lg"}
             className="border-none w-full"
@@ -149,14 +149,15 @@ export default function page() {
     },
   };
   return (
-    <>
-      <div className="relative lg:bg-dark-background -z-10 pt-32 pb-10 text-white flex flex-col items-center space-y-2  ">
-        <div className="container flex flex-col items-center py-12">
+   <div className="pt-20">
+			<div className="relative text-white flex flex-col items-center space-y-2  ">
+				<div className="absolute h-full w-full bg-dark-background -z-10 max-lg:hidden" />
+				<div className="container flex flex-col items-center py-12">
           <div
             className="relative flex justify-between  items-center
 						 flex-col lg:flex-row
 						 h-fit lg:h-[450px]
-						 gap-12 lg:gap-4
+						 gap-12 lg:gap-4 
 						 "
           >
             <motion.div
@@ -209,7 +210,7 @@ export default function page() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
             >
-              <ZiaraForm />
+              <ZiaraForm  />
             </motion.div>
           </div>
         </div>
@@ -250,6 +251,6 @@ export default function page() {
         <CardStatistics title="عدد الطلبات المنجزة" value={4958} />
         <CardStatistics title="اجمالي الطلبات" value={4983} />
       </div>
-    </>
+    </div>
   );
 }
