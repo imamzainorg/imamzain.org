@@ -18,12 +18,12 @@ export default function BooklibraryCard({
 			key={publication.id}
 			className="flex items-center gap-4 py-4 lg:py-8 group"
 		>
-			<div className="relative w-1/3 h-full duration-300 group-hover:drop-shadow-xl group-hover:scale-105 group-hover:-translate-y-1 flex justify-center items-center bg-[url('/shapes/book-bg.svg')] bg-no-repeat bg-center">
+			<div className="relative w-1/3 h-full xl:h-40 duration-300 group-hover:drop-shadow-xl group-hover:scale-105 group-hover:-translate-y-1 flex justify-center items-center bg-[url('/shapes/book-bg.svg')] bg-no-repeat bg-center">
 				<Image
 					src={publication.image}
 					width={200}
 					height={200}
-					className="object-center w-auto h-4/6 lg:h-3/6 xl:h-36 rounded-sm"
+					className="object-center w-auto h-4/6  xl:h-32	 rounded-sm"
 					alt={publication.image}
 				/>
 			
