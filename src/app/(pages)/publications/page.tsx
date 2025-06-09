@@ -9,9 +9,14 @@ import { dataFetcher } from "@/lib/dataFetcher";
 import { Book } from "@/types/book";
 import BooklibraryCard from "../library/_components/book-library-card";
 
-import {  AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { SearchIcon, FilterIcon, ChevronLeft, ChevronRight } from "lucide-react";
+import { AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button1";
+import {
+  SearchIcon,
+  FilterIcon,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 
 export default function PublicationsPage() {
   const [publications, setPublications] = useState<Book[]>([]);
@@ -164,22 +169,19 @@ export default function PublicationsPage() {
               لا توجد نتائج
             </h3>
             <p className="text-gray-500 text-center max-w-md">
-              لم نعثر على أي إصدارات تطابق بحثك. حاول تغيير كلمات البحث أو
-              إعادة ضبط الفلاتر.
+              لم نعثر على أي إصدارات تطابق بحثك. حاول تغيير كلمات البحث أو إعادة
+              ضبط الفلاتر.
             </p>
           </div>
         ) : (
-        	<div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
-		   <AnimatePresence mode="wait">
+          <div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
+            <AnimatePresence mode="wait">
               {currentPublications.map((publication) => (
-               
-                  <BooklibraryCard
-                    route="/publications"
-                    publication={publication}
-                 
-                     key={publication.id}
-                  />
-               
+                <BooklibraryCard
+                  route="/publications"
+                  publication={publication}
+                  key={publication.id}
+                />
               ))}
             </AnimatePresence>
           </div>

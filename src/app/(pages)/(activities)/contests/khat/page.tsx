@@ -1,7 +1,8 @@
 import Breadcrumbs from "@/components/breadcrumb"
 import Section from "@/components/section"
 import Image from "next/image"
-import Link from "next/link"
+
+import ButtonLink from "@/components/button"
 // import galleryImages from "@/data/gallery.json"
 import { ApplyStepper } from "../components/applicationSteps"
 // import SwiperGallery from "../../news/_components/swiper-gallery"
@@ -96,7 +97,7 @@ export default function page() {
 	// 		return { id: image.id, path: image.image.path }
 	// 	})
 	return (
-		<div className="px-4 sm:px-6 md:px-8">
+		<div className="container px-4 sm:px-6 md:px-8">
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
@@ -128,18 +129,16 @@ export default function page() {
 						</p>
 					</div>
 					<div className="flex items-center justify-center flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8">
-						<Link
+						<ButtonLink
 							href="/contests/khat/president-goals/#president-message"
-							className=" mt-4 inline-flex items-center hover:scale-110 gap-2 bg-primary border-secondary border-2  text-white  transition-all font-medium px-2.5 py-1.5 rounded-full shadow-sm"
-						>
-							كلمة رئيس المؤسسة
-						</Link>
-						<Link
+							label="		كلمة رئيس المؤسسة"
+							className="border-secondary border-2"
+						/>
+						<ButtonLink
 							href="/contests/khat/president-goals/#goals"
-							className=" mt-4 inline-flex items-center gap-2 hover:scale-110 bg-primary  border-secondary border-2 text-white  transition-all font-medium px-2.5 py-1.5 rounded-full shadow-sm"
-						>
-							أهداف المسابقة
-						</Link>
+							label="أهداف المسابقة"
+							className="border-secondary border-2"
+						/>
 					</div>
 				</div>
 				<div className="w-full lg:w-1/2 flex justify-center lg:justify-end mt-6 lg:mt-0">

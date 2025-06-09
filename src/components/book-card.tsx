@@ -1,9 +1,9 @@
-"use client"
+"use client";
 import { DownloadIcon } from "@/assets/icons/reusable";
 import { Book } from "@/types/book";
 import Image from "next/image";
 import Link from "next/link";
-import {Button} from "@/components/ui/button";
+import { Button } from "@/components/ui/button1";
 import { toast } from "sonner";
 import NewsShare from "@/components/news-share";
 import {
@@ -67,19 +67,17 @@ export default function BookCard({
                 تنزيل الكتاب
               </Link>
 
-              
               <Button
-  onClick={() => {
-    navigator.clipboard.writeText(window.location.href)
-    toast("تم نسخ الرابط في الحافظة")
-  }}
-  variant="outline"
- 
-     className="inline-flex p-6 text-md items-center gap-2 bg-white border border-primary text-primary hover:bg-primary/10 transition-all font-medium  rounded-full shadow-sm"
-               >
-  <NewsShare iconSize={20} />
-  مشاركة
-</Button>
+                onClick={() => {
+                  navigator.clipboard.writeText(window.location.href);
+                  toast("تم نسخ الرابط في الحافظة");
+                }}
+                variant="outline"
+                className="inline-flex p-6 text-md items-center gap-2 bg-white border border-primary text-primary hover:bg-primary/10 transition-all font-medium  rounded-full shadow-sm"
+              >
+                <NewsShare iconSize={20} />
+                مشاركة
+              </Button>
               <Link
                 href={`/services/stores`}
                 className="inline-flex items-center gap-2 bg-white border border-primary text-primary hover:bg-primary/10 transition-all font-medium px-6 py-3 rounded-full shadow-sm"

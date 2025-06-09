@@ -161,8 +161,8 @@ export default function Header() {
         }`}
       >
         {/* Top Bar */}
-        
-          <TopBar />
+
+        <TopBar />
 
         {/* Navbar */}
         <div
@@ -180,52 +180,57 @@ export default function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="max-lg:hidden flex gap-2 items-center">
+
+            <nav className="max-lg:hidden flex   items-center">
               {links.map((link, index) => {
                 const hasSubLinks = link.subLinks && link.subLinks.length > 0;
+
                 return (
                   <div
                     key={index}
-                    className="relative group py-1 px-2 z-10 cursor-pointer"
+                    className="relative group py-2 px-3 cursor-pointer transition"
                   >
-                    {/* Highlight the active link if the current path includes link.href */}
+            
                     <div
-                      className={`bg-white absolute rounded-full -bottom-1 right-4 px-2 h-0.5 w-5/6 mx-auto -z-10 ${
+                      className={`absolute rounded-full -bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 w-4/5 bg-white transition-transform duration-300 ease-in-out ${
                         link.href && path.includes(link.href)
                           ? "scale-100"
-                          : "scale-0"
-                      } group-hover:scale-100 origin-center transition-transform duration-300 ease-in-out`}
+                          : "scale-0 group-hover:scale-100"
+                      }`}
                     />
-                    <>
-                      <Link
-                        href={link.href || "#"}
-                        className="group flex items-center gap-2 text-xs xl:text-base transition"
-                      >
-                        <Image
-                          src="/shapes/nav-menu-icon.svg"
-                          width={50}
-                          height={50}
-                          className="w-2"
-                          alt="icon"
-                        />
-                        <p className="">{link.label}</p>
-                      </Link>
+
+                    <Link
+                      href={link.href || "#"}
+                      className="flex items-center gap-2 text-sm xl:text-base text-white hover:text-gray-200 transition"
+                    >
+                      <Image
+                        src="/shapes/nav-menu-icon.svg"
+                        width={8}
+                        height={8}
+                        alt="icon"
+                        className="w-1.5"
+                      />
+                      <p className="">{link.label}</p>
                       {hasSubLinks && (
-                        <div className="absolute top-[2rem] -right-1 min-w-60 transform scale-0 -translate-y-5 opacity-0 group-hover:scale-100 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 z-50">
-                          <div className="px-4 py-8 bg-gray-100 rounded-lg shadow-lg">
-                            {link.subLinks.map((subLink, subIndex) => (
-                              <Link
-                                key={subIndex}
-                                href={subLink.href}
-                                className="pr-2 py-2 hover:bg-gray-300 transition group-hover:block text-gray-700"
-                              >
-                                {subLink.label}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
+                        <span className="ml-1 text-xs text-white"></span> // سهم صغير ▼
                       )}
-                    </>
+                    </Link>
+
+                    {hasSubLinks && (
+                      <div className="absolute top-full right-0 min-w-56 transform scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 z-50">
+                        <div className="bg-white shadow-xl rounded-xl py-4 px-4 space-y-2">
+                          {link.subLinks.map((subLink, subIndex) => (
+                            <Link
+                              key={subIndex}
+                              href={subLink.href}
+                              className="block px-2 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-100 transition"
+                            >
+                              {subLink.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 );
               })}
