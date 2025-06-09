@@ -1,5 +1,4 @@
 import Breadcrumbs from "@/components/breadcrumb"
-import Section from "@/components/section"
 import Image from "next/image"
 import Link from "next/link"
 import { researchAxes } from "./data/researchAxes"
@@ -11,155 +10,388 @@ import {
 	BookCheck,
 	ScrollText,
 	ShieldCheck,
+	Star,
+	Trophy,
+	Users,
+	BookOpen,
+	Crown,
 } from "lucide-react"
 import { EmailIcon } from "@/assets/icons/reusable"
 
 export default function Page() {
 	return (
-		<div>
-			<Breadcrumbs
-				links={[
-					{ name: "الصفحة الرئيسية", url: "/" },
-					{ name: "المسابقات", url: "/contests" },
-					{ name: "مسابقة كتاب", url: "#" },
-				]}
-			/>
-			<div className="rounded-xl border-2 mb-16 p-1 w-2/3 mx-auto">
-				<Image
-					src={"/contests/kitab/hero.jpg"}
-					width={1000}
-					height={800}
-					priority
-					alt="kitab cover"
-					className="object-cover w-full h-full rounded-xl aspect-[3/2]"
+		<div className="min-h-screen backdrop-blur-[0.5px]">
+			{/* Breadcrumbs */}
+			<div className="px-4 sm:px-6 lg:px-8 pt-6">
+				<Breadcrumbs
+					links={[
+						{ name: "الصفحة الرئيسية", url: "/" },
+						{ name: "المسابقات", url: "/contests" },
+						{ name: "مسابقة كتاب", url: "#" },
+					]}
 				/>
 			</div>
 
-			<Section title="جوائز قيمة" />
-			<div className="flex flex-col md:flex-row gap-4 w-full mb-16">
-				<div className="w-full md:w-1/2 flex flex-col justify-center items-center text-center gap-2 md:gap-8">
-					<BadgeDollarSign
-						className="w-10 md:w-20 h-10 md:h-20 text-secondary"
-						strokeWidth={0.5}
-					/>
-					<span className="w-2/3 mx-auto text-sm md:text-base">
-						يتم اختيار (۳) فائزين ويخصص لكل منهم جائزة بمقدار
-						(000,000, 2) دينار عراقي.
-					</span>
-				</div>
-				<div className="w-full md:w-1/2 flex flex-col justify-center items-center text-center gap-2 md:gap-8 ">
-					<Award
-						className="w-10 md:w-20 h-10 md:h-20 text-secondary"
-						strokeWidth={0.5}
-					/>
-					<span className="w-2/3 mx-auto text-sm md:text-base">
-						يضاف للكتاب المتميز هدية قدرها (٥٠٠,٠٠٠) دينار عراقي.
-					</span>
-				</div>
-				<div className="w-full md:w-1/2 flex flex-col justify-center items-center text-center gap-2 md:gap-8 ">
-					<BookCheck
-						className="w-10 md:w-20 h-10 md:h-20 text-secondary"
-						strokeWidth={0.5}
-					/>
-					<span className="w-2/3 mx-auto text-sm md:text-base">
-						يتم طبع ونشر الكتب المقبولة على نفقة المؤسسة وتكون حقوق
-						الطبع محفوظة للمؤسسة.
-					</span>
-				</div>
-				<div className="w-full md:w-1/2 flex flex-col justify-center items-center text-center gap-2 md:gap-8 ">
-					<ShieldCheck
-						className="w-10 md:w-20 h-10 md:h-20 text-secondary"
-						strokeWidth={0.5}
-					/>
-					<span className="w-2/3 mx-auto text-sm md:text-base">
-						تزويد المشاركين المقبولين والفائزين بما يؤيد ذلك رسمياً.
-					</span>
-				</div>
-			</div>
+			{/* Hero Section */}
+			<div className="px-4 sm:px-6 lg:px-8 py-12">
+				<div className="max-w-7xl mx-auto">
+					<div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+						<div className="w-full lg:w-1/2 space-y-8 tracking-tight">
+							{/* Badge */}
+							<div className="inline-flex items-center gap-2 border border-primary text-primary px-4 py-2 rounded-full text-sm font-medium">
+								<Trophy className="w-4 h-4" />
+								مسابقة علمية محكمة
+							</div>
 
-			<div className="my-16">
-				<Section title="محاور الكتابة" />
-				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-screen-lg mx-auto">
-					{researchAxes.map((axes) => (
-						<div
-							key={axes.title}
-							className="p-6 flex items-center justify-right w-full"
-						>
-							<div className="text-center">
-								<h2 className="text-2xl font-semibold mb-2 flex items-center gap-2">
-									<Image
-										src={"/shapes/book_icon.svg"}
-										width={50}
-										height={50}
-										alt="pointer"
-										className="rotate-90 w-5 h-5 object-contain"
-									/>
-									{axes.title}
-								</h2>
-								<div className="text-gray-600 mr-7">
-									{axes.keywords.map((keyword) => (
-										<span key={keyword}>
-											{keyword}
-											{keyword !==
-											axes.keywords[
-												axes.keywords.length - 1
-											]
-												? "، "
-												: ""}
-										</span>
-									))}
+							<h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-right leading-tight">
+								مسابقة الكتاب
+							</h1>
+
+							<div className="rounded-2xl p-6 sm:p-8 ">
+								<div className="space-y-6 text-justify leading-relaxed text-base sm:text-lg text-gray-700">
+									<div className="flex  items-start gap-3">
+										<div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+											<Star className="w-3 h-3 text-primary" />
+										</div>
+										<p>
+											<p className="font-bold text-primary">
+												الرؤية:
+											</p>
+											<p className="mr-4">
+												إحياء تراث الامام زين العابدين
+												(عليه السلام) عبر حث الباحثين
+												على انتاج دراسات رصينة تواكب
+												متطلبات العصر وتبرز ابعاد شخصيته
+												الفكرية والروحية والاجتماعية
+											</p>
+										</p>
+									</div>
+
+									<div>
+										<div className="flex items-center gap-3 mb-4">
+											<div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+												<BookOpen className="w-3 h-3 text-green-600" />
+											</div>
+											<p className="font-bold text-green-900">
+												الاهداف:
+											</p>
+										</div>
+										<ol className="list-arabic-indic mr-12 space-y-3 ">
+											<li className="hover:text-secondary cursor-cell transition-colors">
+												تقديم انتاج علمي مؤصل عن تراث
+												الامام عليه السلام
+											</li>
+											<li className="hover:text-secondary cursor-cell transition-colors">
+												تشجيع الباحثين والمفكرين على
+												الغوص في شخصية الامام عليه
+												السلام وموروثه العلمي
+											</li>
+											<li className="hover:text-secondary cursor-cell transition-colors">
+												اثراء المكتبة الاسلامية بكتاب
+												متميز من حيث المنهج والمحتوى
+											</li>
+											<li className="hover:text-secondary cursor-cell transition-colors">
+												ربط الاجيال المعاصرة بالقيم
+												العبادية والاجتماعية والفكرية في
+												مدرسة الامام (عليه السلام)
+											</li>
+										</ol>
+									</div>
 								</div>
 							</div>
 						</div>
-					))}
-				</div>
-			</div>
 
-			<div className="my-16">
-				<Section title="معايير التقييم" />
-				{criteria.map((index) => (
-					<div
-						key={index}
-						className="flex items-center gap-4 my-4 md:w-2/3 mx-auto text-xl"
-					>
-						<ScrollText className="text-primary" />
-						{index}
+						<div className="w-full lg:w-1/2 flex justify-center sm:translate-y-16">
+							<div className="relative group">
+								<div className="absolute -inset-4 bg-slate-300 rounded-3xl blur opacity-25"></div>
+								<div className="relative bg-white rounded-2xl p-3 shadow-2xl">
+									<Image
+										className="w-full rounded-xl"
+										src={"/contests/kitab/hero.jpg"}
+										alt="لوكو مسابقة الكتاب"
+										width={600}
+										height={600}
+									/>
+								</div>
+							</div>
+						</div>
 					</div>
-				))}
-			</div>
-
-			<Section title="شروط الإنضمام للمسابقة" />
-			<div className="flex flex-col md:flex-row items-center justify-center gap-12 text-lg leading-loose tracking-tight text-justify">
-				<div className="md:w-2/3">
-					<ol className="list-arabic-indic text-right text-gray-700 space-y-2 sm:space-y-3 pr-2 sm:pr-4 p-2 sm:p-4 md:p-6 lg:p-8">
-						{rules.map((rule, index) => (
-							<li
-								key={index}
-								className="leading-relaxed text-sm sm:text-base md:text-lg"
-							>
-								{rule}
-							</li>
-						))}
-					</ol>
 				</div>
 			</div>
 
-			<Section title="آلية التقديم" />
-			<div
-				id="submit"
-				className="animate-fade-in-up w-full flex flex-col justify-center items-center gap-4 p-2 sm:p-4 md:p-6 lg:p-8"
-			>
-				<p className="w-full sm:w-4/5 md:w-3/4 lg:w-1/2 mx-auto text-base sm:text-lg md:text-xl text-center">
-					يمكنكم الإنضمام الى المسابقة من خلال تقديم عملكم عبر البريد
-					الالكتروني
-				</p>
-				<Link
-					href="mailto:kitab@imamzain.org"
-					className="text-lg sm:text-xl md:text-2xl font-semibold p-2 sm:p-3 border-b-2 flex items-center gap-4 sm:gap-6 md:gap-8 duration-150 hover:-translate-y-2"
-				>
-					<EmailIcon className="w-5 h-5 sm:w-6 sm:h-6" />
-					kitab@imamzain.org
-				</Link>
+			{/* Prizes Section */}
+			<div className="px-4 sm:px-6 lg:px-8 py-16 backdrop-blur-sm">
+				<div className="max-w-7xl mx-auto">
+					<div className="text-center mb-12">
+						<h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+							جوائز قيمة
+						</h2>
+						<div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-primary/80 mx-auto rounded-full"></div>
+					</div>
+
+					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+						<div className="group relative bg-white/40 cursor-pointer rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-primary/20">
+							<div className="absolute top-4 right-4 w-8 h-8 border border-primary rounded-full flex items-center justify-center">
+								<Crown className="w-4 h-4 text-primary" />
+							</div>
+							<div className="flex flex-col items-center text-center space-y-4">
+								<div className="p-4 border border-primary rounded-full group-hover:scale-110 transition-transform">
+									<BadgeDollarSign
+										className="w-12 h-12 text-primary"
+										strokeWidth={1}
+									/>
+								</div>
+								<h3 className="font-bold text-primary text-lg">
+									الجائزة الأولى
+								</h3>
+								<p className="text-gray-700 leading-relaxed">
+									يتم اختيار (۳) فائزين ويخصص لكل منهم جائزة
+									بمقدار (000,000, 2) دينار عراقي.
+								</p>
+							</div>
+						</div>
+
+						<div className="group relative bg-white/40 cursor-pointer rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-primary/20">
+							<div className="absolute top-4 right-4 w-8 h-8 border border-primary rounded-full flex items-center justify-center">
+								<Star className="w-4 h-4 text-primary" />
+							</div>
+							<div className="flex flex-col items-center text-center space-y-4">
+								<div className="p-4 border border-primary rounded-full group-hover:scale-110 transition-transform">
+									<Award
+										className="w-12 h-12 text-primary"
+										strokeWidth={1}
+									/>
+								</div>
+								<h3 className="font-bold text-primary text-lg">
+									جائزة التميز
+								</h3>
+								<p className="text-gray-700 leading-relaxed">
+									يضاف للكتاب المتميز هدية قدرها (٥٠٠,٠٠٠)
+									دينار عراقي.
+								</p>
+							</div>
+						</div>
+
+						<div className="group relative bg-white/40 cursor-pointer rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-primary/20">
+							<div className="absolute top-4 right-4 w-8 h-8 border border-primary rounded-full flex items-center justify-center">
+								<BookOpen className="w-4 h-4 text-primary" />
+							</div>
+							<div className="flex flex-col items-center text-center space-y-4">
+								<div className="p-4 border border-primary rounded-full group-hover:scale-110 transition-transform">
+									<BookCheck
+										className="w-12 h-12 text-primary"
+										strokeWidth={1}
+									/>
+								</div>
+								<h3 className="font-bold text-primary text-lg">
+									النشر والطباعة
+								</h3>
+								<p className="text-gray-700 leading-relaxed">
+									يتم طبع ونشر الكتب المقبولة على نفقة المؤسسة
+									وتكون حقوق الطبع محفوظة للمؤسسة.
+								</p>
+							</div>
+						</div>
+
+						<div className="group relative bg-white/40 cursor-pointer rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-primary/20">
+							<div className="absolute top-4 right-4 w-8 h-8 border border-primary rounded-full flex items-center justify-center">
+								<Users className="w-4 h-4 text-green-800" />
+							</div>
+							<div className="flex flex-col items-center text-center space-y-4">
+								<div className="p-4 border border-primary rounded-full group-hover:scale-110 transition-transform">
+									<ShieldCheck
+										className="w-12 h-12 text-primary"
+										strokeWidth={1}
+									/>
+								</div>
+								<h3 className="font-bold text-green-800 text-lg">
+									التكريم الرسمي
+								</h3>
+								<p className="text-gray-700 leading-relaxed">
+									تزويد المشاركين المقبولين والفائزين بما يؤيد
+									ذلك رسمياً.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{/* Research Axes Section */}
+			<div className="px-4 sm:px-6 lg:px-8 py-16">
+				<div className="max-w-7xl mx-auto">
+					<div className="text-center mb-12">
+						<h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+							محاور الكتابة
+						</h2>
+						<p className="text-gray-600 text-lg max-w-2xl mx-auto">
+							اختر المحور الذي يناسب اختصاصك وابدأ رحلتك البحثية
+						</p>
+						<div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-primary/80 mx-auto rounded-full mt-4"></div>
+					</div>
+
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+						{researchAxes.map((axes) => (
+							<div
+								key={axes.title}
+								className="group bg-white rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100"
+							>
+								<div className="text-right">
+									<div className="flex items-center justify-start align-middle mb-4">
+										<div
+											className={`w-12 h-12 rounded-full flex items-center justify-center`}
+										>
+											<Image
+												src={"/shapes/book_icon.svg"}
+												width={24}
+												height={24}
+												alt="pointer"
+												className={`rotate-90 w-6 h-6 object-contain`}
+											/>
+										</div>
+										<h3 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">
+											{axes.title}
+										</h3>
+									</div>
+
+									<div className="bg-slate-50 rounded-xl p-4">
+										<p className="text-gray-600 leading-relaxed">
+											{axes.keywords.map(
+												(keyword, keyIndex) => (
+													<span
+														key={keyword}
+														className="inline-block hover:text-secondary transition-colors"
+													>
+														{keyword}
+														{keyIndex <
+															axes.keywords
+																.length -
+																1 && (
+															<span className="text-gray-400 mx-1">
+																،
+															</span>
+														)}
+													</span>
+												),
+											)}
+										</p>
+									</div>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+
+			{/* Evaluation Criteria Section */}
+			<div className="px-4 sm:px-6 lg:px-8 py-16">
+				<div className="max-w-7xl mx-auto">
+					<div className="text-center mb-12">
+						<h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+							معايير التقييم
+						</h2>
+						<div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-sprimaryecondary/80 mx-auto rounded-full"></div>
+					</div>
+
+					<div className="bg-gradient-to-r from-white/20 to-white/10 rounded-2xl p-8 mb-8 border border-primary/20">
+						<div className="flex items-center justify-center gap-4 mb-4 bg-white/40">
+							<Users className="w-8 h-8 text-primary" />
+							<h3 className="text-xl sm:text-2xl font-bold text-primary">
+								اللجنة العلمية
+							</h3>
+						</div>
+						<p className="text-center text-secondary text-lg font-semibold">
+							تضم أساتذة متخصصة علوم القرآن، التاريخ، الفلسفة،
+							واللغة.
+						</p>
+					</div>
+
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+						{criteria.map((criterion, index) => (
+							<div
+								key={index}
+								className="flex items-center gap-4 bg-gray-50/80 rounded-xl p-6 hover:bg-secondary/15 cursor-pointer hover:shadow-md transition-all duration-300 group"
+							>
+								<div className="p-3 bg-white rounded-full shadow-sm group-hover:shadow-md transition-shadow">
+									<ScrollText className="text-primary w-6 h-6" />
+								</div>
+								<span className="text-gray-700 group-hover:text-primary transition-colors text-base sm:text-lg">
+									{criterion}
+								</span>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+
+			{/* Rules Section */}
+			<div className="px-4 sm:px-6 lg:px-8 py-16">
+				<div className="max-w-7xl mx-auto">
+					<div className="text-center mb-12">
+						<h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+							شروط الإنضمام للمسابقة
+						</h2>
+						<div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-primary/80 mx-auto rounded-full"></div>
+					</div>
+
+					<div className="rounded-2xl p-8 shadow-lg border border-primary/20 bg-white/40">
+						<ol className="list-arabic-indic text-right space-y-4 pr-8">
+							{rules.map((rule, index) => (
+								<li
+									key={index}
+									className="leading-relaxed text-gray-700 text-base sm:text-lg  cursor-pointer p-3 hover:bg-primary/10 hover:font-semibold rounded-lg"
+								>
+									{rule}
+								</li>
+							))}
+						</ol>
+					</div>
+				</div>
+			</div>
+
+			{/* Submission Section */}
+			<div className="px-4 sm:px-6 lg:px-8 py-16">
+				<div className="max-w-4xl mx-auto text-center">
+					<div className="bg-white rounded-3xl p-8 sm:p-12 shadow-2xl">
+						<h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+							آلية التقديم
+						</h2>
+						<div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-primary/80 mx-auto rounded-full mb-8"></div>
+
+						<p className="text-gray-600 text-lg sm:text-xl leading-relaxed mb-8">
+							يمكنكم الإنضمام الى المسابقة من خلال تقديم عملكم عبر
+							البريد الالكتروني
+						</p>
+
+						<div className="inline-block">
+							<Link
+								href="mailto:kitab@imamzain.org"
+								className="group inline-flex items-center gap-4 bg-gradient-to-l from-secondary/40 to-secondary/80 text-white px-8 py-4 rounded-2xl font-semibold text-lg sm:text-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+							>
+								<div className="p-2 bg-white/20 rounded-full group-hover:bg-white/30 transition-colors">
+									<EmailIcon
+										className="w-6 h-6"
+										fill="#ffffff"
+										stroke="#ffffff"
+									/>
+								</div>
+								<span>kitab@imamzain.org</span>
+							</Link>
+						</div>
+
+						<div className="mt-8 flex items-center justify-center gap-2 text-gray-500">
+							<div className="w-2 h-2 bg-gray-300 rounded-full animate-pulse"></div>
+							<div
+								className="w-2 h-2 bg-gray-300 rounded-full animate-pulse"
+								style={{ animationDelay: "0.2s" }}
+							></div>
+							<div
+								className="w-2 h-2 bg-gray-300 rounded-full animate-pulse"
+								style={{ animationDelay: "0.4s" }}
+							></div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	)
