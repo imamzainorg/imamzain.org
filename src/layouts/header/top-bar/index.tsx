@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState, useRef } from "react"
+import React, { useEffect, useState,useRef } from "react"
 
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -11,76 +11,31 @@ import {
 } from "@fortawesome/free-brands-svg-icons"
 import { faCalendar, faGlobe } from "@fortawesome/free-solid-svg-icons"
 import { usePathname } from "next/navigation"
-import moment from "moment-hijri" // Import moment-hijri
 import useWindowEvents from "@/hooks/window-events"
 import { useLanguages } from "@/context/language-context"
 
-// Static Hijri-Gregorian calendar data (for day and month)
-const hijriCalendar = [
-	{ hijriMonth: "Muharram", gregorianStartDate: "2024-06-01" },
-	{ hijriMonth: "Safar", gregorianStartDate: "2024-07-01" },
-	{ hijriMonth: "Rabi' al-Awwal", gregorianStartDate: "2024-08-01" },
-	{ hijriMonth: "Rabi' al-Thani", gregorianStartDate: "2024-09-01" },
-	{ hijriMonth: "Jumada al-Awwal", gregorianStartDate: "2024-10-01" },
-	{ hijriMonth: "Jumada al-Thani", gregorianStartDate: "2024-11-01" },
-	{ hijriMonth: "Rajab", gregorianStartDate: "2024-12-01" },
-	{ hijriMonth: "Sha'ban", gregorianStartDate: "2025-01-01" },
-	{ hijriMonth: "Ramadan", gregorianStartDate: "2025-03-02" },
-	{ hijriMonth: "Shawwal", gregorianStartDate: "2025-04-01" },
-	{ hijriMonth: "Dhul-Qi'dah", gregorianStartDate: "2025-06-01" },
-	{ hijriMonth: "Dhul-Hijjah", gregorianStartDate: "2026-08-01" },
-]
 
-// Arabic month names for display (matching the static order)
-const arabicMonths = [
-	"محرم",
-	"صفر",
-	"ربيع الأول",
-	"ربيع الآخر",
-	"جمادى الأولى",
-	"جمادى الآخرة",
-	"رجب",
-	"شعبان",
-	"رمضان",
-	"شوال",
-	"ذو القعدة",
-	"ذو الحجة",
-]
 
-// Arabic numerals conversion array
-const arabicNumerals = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"]
-
-const toArabicNumerals = (number: number | string) => {
-	return number
-		.toString()
-		.split("")
-		.map((digit) => arabicNumerals[parseInt(digit, 10)] || digit)
-		.join("")
-}
-
-// Calculate Hijri day from the static Gregorian start date (assuming 29 days per month)
-const getHijriDay = (gregorianStartDate: string, today: Date) => {
-	const startDate = new Date(gregorianStartDate)
-	const diffInTime = today.getTime() - startDate.getTime()
-	return Math.floor(diffInTime / (1000 * 3600 * 24)) + 1
-}
-
-// Format the Hijri date in Arabic as "year - day - month"
-const formatHijriDateInArabic = (
-	hijriDay: number,
-	hijriMonth: string,
-	hijriYear: string,
-) => {
-	const arabicYear = toArabicNumerals(hijriYear)
-	const arabicDay = toArabicNumerals(hijriDay)
-	const arabicMonth =
-		arabicMonths[
-			hijriCalendar.findIndex((month) => month.hijriMonth === hijriMonth)
-		]
-	return ` ${arabicDay} - ${arabicMonth} - ${arabicYear} هـ`
-}
 
 export default function TopBar() {
+	const [hijriDate, setHijriDate] = useState('');
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch('/api/hijri-date')
+      .then(res => res.json())
+      .then(data => {
+        if (data.hijriDate) {
+          setHijriDate(data.hijriDate);
+        } else {
+          setError('تعذر استخراج التاريخ الهجري');
+        }
+      })
+      .catch(() => {
+        setError('فشل الاتصال بالخادم');
+      });
+  }, []);
+
 	const path = usePathname()
 	const { isScrolled } = useWindowEvents()
 	const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -103,35 +58,8 @@ export default function TopBar() {
 			document.removeEventListener("click", handleClickOutside)
 		}
 	}, [])
-
-	const today = new Date()
-
-	// Determine the current Hijri month using the static mapping
-	const currentHijriMonth = hijriCalendar.find((month) => {
-		const startDate = new Date(month.gregorianStartDate)
-		const endDate = new Date(startDate)
-		endDate.setDate(startDate.getDate() + 29) // Assuming 29 days per month
-		return today >= startDate && today <= endDate
-	})
-
-	// Calculate the Hijri day using the static start date
-	const hijriDay = currentHijriMonth
-		? getHijriDay(currentHijriMonth.gregorianStartDate, today)
-		: 0
-
-	// Get the dynamic Hijri year from the moment-hijri library
-	const hijriYearFromLibrary = moment().format("iYYYY")
-
-	// Format the complete Hijri date in Arabic as "year - day - month"
-	const hijriDateInArabic = currentHijriMonth
-		? formatHijriDateInArabic(
-				hijriDay,
-				currentHijriMonth.hijriMonth,
-				hijriYearFromLibrary,
-			)
-		: "جاري التحميل..."
-	const timeoutRef = useRef<NodeJS.Timeout | null>(null)
-
+const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+	
 	return (
 		<>
 			<div
@@ -154,9 +82,14 @@ export default function TopBar() {
 								}`}
 							>
 								{/* TODO: FIX THE HIJRI DATE PROBLEM AND REMOVE THE SPAN */}
-								<span className="text-transparent">
-									{currentHijriMonth &&
-										`${hijriDateInArabic}`}
+								<span className="">
+									
+									
+									{hijriDate
+										? hijriDate.split("||")[0]
+										: error
+										? `⚠️ ${error}`
+										: "جاري تحميل التاريخ..."}
 								</span>
 							</p>
 						</div>
