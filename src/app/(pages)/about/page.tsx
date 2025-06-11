@@ -3,7 +3,6 @@ import Section from "@/components/section"
 import Image from "next/image"
 
 
-
 export default function About() {
 	return (
 		<div className="container">
@@ -30,6 +29,7 @@ export default function About() {
 						moreButton="/about/vision-and-goals#vision"
 					/>
 				</div>
+		
 				<div className="flex gap-8">
 					<div className="w-full md:w-1/2">
 						<Section
