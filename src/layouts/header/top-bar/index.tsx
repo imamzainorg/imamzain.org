@@ -28,11 +28,11 @@ export default function TopBar() {
         if (data.hijriDate) {
           setHijriDate(data.hijriDate);
         } else {
-          setError('');
+          setError('تعذر استخراج التاريخ الهجري');
         }
       })
       .catch(() => {
-        setError('');
+        setError('فشل الاتصال بالخادم');
       });
   }, []);
 
@@ -89,7 +89,7 @@ const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 										? hijriDate.split("||")[0]
 										: error
 										? `⚠️ ${error}`
-										: ""}
+										: "جاري تحميل التاريخ..."}
 								</span>
 							</p>
 						</div>
