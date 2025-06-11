@@ -28,7 +28,7 @@ export default async function page({
 		<div className="">
 			{/* Breadcrumbs */}
 			<div className="border-b border-gray-200">
-				<div className="mx-auto px-4 sm:px-6 lg:px-8 py-3">
+				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
 					<Breadcrumbs
 						links={[
 							{ name: "الصفحة الرئيسية", url: "/" },
@@ -94,7 +94,7 @@ export default async function page({
 										<div className="w-[1px] h-5 bg-gray-600 cursor-pointer" />
 										<NewsShare
 											iconSize={20}
-											className="text-gray-600 hover:text-primary cursor-pointer transition-all"
+											className="rounded-full"
 											url={`https://imamzain.org/news/${slug}`}
 										/>
 									</div>
@@ -141,7 +141,7 @@ export default async function page({
 						{post.attachments && (
 							<div className="mt-12">
 								<HeaderSections title="معرض الصور" />
-								<div className="py-10">
+								<div className="-mx-4 sm:-mx-6 lg:-mx-8 pt-10">
 									<SwiperGallery images={post.attachments} />
 								</div>
 							</div>
@@ -156,7 +156,7 @@ export default async function page({
 								<h2 className="text-xl font-bold text-gray-900 mb-6 pb-3 border-b border-gray-200">
 									مواضيع ذات صلة
 								</h2>
-								<div className="space-y-8">
+								<div className="space-y-4">
 									{relatedData.map((relatedPost) => (
 										<PostCard
 											key={relatedPost.id}

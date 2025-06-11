@@ -1,30 +1,47 @@
-import { NextResponse } from 'next/server';
-import puppeteer from 'puppeteer';
+import { NextResponse } from "next/server"
+import { parse } from "node-html-parser"
 
 export async function GET() {
-  try {
-    const browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    });
-    const page = await browser.newPage();
-await page.goto('https://www.sistani.org/', { waitUntil: 'domcontentloaded' });
+	try {
+		// 1. Fetch the HTML content
+		const response = await fetch("https://www.sistani.org/", {
+			headers: {
+				"User-Agent":
+					"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+			},
+			next: { revalidate: 86400 },
+		})
 
-   
-    const dateText = await page.$eval('#home-date', el => el.textContent?.trim()).then(text => text?.split('||')[0] || '');
-    await browser.close();
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`)
+		}
 
-    if (!dateText) {
-      return NextResponse.json({ error: '' }, { status: 500 });
-    }
+		const html = await response.text()
 
-    return NextResponse.json({ hijriDate: dateText });
-  }  catch (error: unknown) {
-  if (error instanceof Error) {
-    console.error('Error fetching hijri date:', error.message);
-    return NextResponse.json({ error: '' }, { status: 500 });
-  } else {
-    console.error('Unknown error:', error);
-    return NextResponse.json({ error: '' }, { status: 500 });
-  }
-}}
+		// 2. Parse HTML and extract the date
+		const root = parse(html)
+		const dateElement = root.querySelector("#home-date")
+
+		if (!dateElement) {
+			return NextResponse.json(
+				{ error: "Date element not found" },
+				{ status: 404 },
+			)
+		}
+
+		// 3. Clean and return the date
+		const rawDate = dateElement.text.trim()
+		const hijriDate = rawDate.split("||")[0].trim()
+
+		return NextResponse.json({ hijriDate })
+	} catch (error) {
+		console.error("Error fetching Hijri date:", error)
+		return NextResponse.json(
+			{ error: "Failed to retrieve date" },
+			{ status: 500 },
+		)
+	}
+}
+
+// Required for Vercel deployment
+export const dynamic = "force-dynamic"

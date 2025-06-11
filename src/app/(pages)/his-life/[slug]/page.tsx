@@ -8,18 +8,13 @@ export default async function Page({
 	params: Promise<{ slug: string }>
 }) {
 	const slug = (await params).slug
-	
-	const imamzainLife = await dataFetcher<imamzainLife[]>("imamzain.json")
 
+	const imamzainLife = await dataFetcher<imamzainLife[]>("imamzain.json")
 
 	const section = imamzainLife.find((item) => item.slug === slug)
 
 	if (!section) {
-		return (
-			<div >
-				...
-			</div>
-		)
+		return <div>...</div>
 	}
 
 	return (
@@ -36,8 +31,7 @@ export default async function Page({
 					<h3 className="w-60 h-auto absolute top-0 p-4  bg-[url('/shapes/button-bg.svg')] bg-center bg-no-repeat text-center text-white font-semibold">
 						{section.title}
 					</h3>
-					
-					
+
 					<div
 						className=" text-justify tracking-tight w-11/12 mx-auto text-lg leading-loose"
 						dangerouslySetInnerHTML={{ __html: section.content }}
