@@ -58,7 +58,7 @@ export function FeaturedContest() {
 						</div>
 
 						{/* Image */}
-						<div className="xs:w-2/4 sm:w-2/5 mx-auto relative">
+						<div className="xs:w-2/4 sm:w-1/4 mx-auto relative">
 							<div className="relative rounded-2xl overflow-hidden shadow-2xl border-8 border-white transform rotate-3 hover:rotate-0 transition-transform duration-500">
 								<Image
 									src="/contests/khat/landing.jpg"
