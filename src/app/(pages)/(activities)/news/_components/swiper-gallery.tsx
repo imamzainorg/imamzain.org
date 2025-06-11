@@ -22,39 +22,101 @@ interface SwiperGalleryProps {
 
 export default function SwiperGallery({ images }: SwiperGalleryProps) {
 	return (
-		<div>
+		<div className="w-full">
 			<Swiper
-				spaceBetween={30}
+				spaceBetween={20}
 				pagination={{
 					clickable: true,
 					el: ".custom-pagination",
 				}}
+				navigation={true}
+				autoplay={{
+					delay: 4000,
+					disableOnInteraction: false,
+				}}
 				modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
-				className="mySwiper"
+				className="mySwiper w-full"
 				breakpoints={{
-					1536: { slidesPerView: 4 },
-					1280: { slidesPerView: 4 },
-					1022: { slidesPerView: 3 },
-					768: { slidesPerView: 3 },
-					360: { slidesPerView: 1 },
+					320: {
+						slidesPerView: 1,
+						spaceBetween: 10,
+					},
+					640: {
+						slidesPerView: 2,
+						spaceBetween: 15,
+					},
+					768: {
+						slidesPerView: 2,
+						spaceBetween: 20,
+					},
+					1024: {
+						slidesPerView: 3,
+						spaceBetween: 20,
+					},
+					1280: {
+						slidesPerView: 4,
+						spaceBetween: 25,
+					},
+					1536: {
+						slidesPerView: 4,
+						spaceBetween: 30,
+					},
 				}}
 			>
 				{images.map((image) => (
-					<SwiperSlide key={image.id}>
-						<ImageView
-							images={images}
-							src={image.path}
-							alt={`Slide ${image.id}`}
-							className="w-full sm:w-[15rem] xl:w-[17rem] 2xl:w-[20rem] h-60 sm:h-40 xl:h-52 mx-auto rounded-2xl"
-							//  view: this property doesn't exit ImageView, Edit ImageView component to fix
-						/>
+					<SwiperSlide key={image.id} className="h-auto">
+						<div className="aspect-[4/3] w-full overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+							<ImageView
+								images={images}
+								src={image.path}
+								alt={`Gallery image ${image.id}`}
+								className="w-full h-full object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
+							/>
+						</div>
 					</SwiperSlide>
 				))}
 			</Swiper>
-			<div className="custom-pagination mt-4" />
-			<style jsx>{`
+			<div className="custom-pagination mt-6" />
+
+			<style jsx global>{`
+				.mySwiper {
+					padding: 0 10px 40px 10px;
+				}
+
+				.mySwiper .swiper-slide {
+					height: auto;
+				}
+
 				.custom-pagination {
 					text-align: center;
+					position: relative;
+				}
+
+				.custom-pagination .swiper-pagination-bullet {
+					width: 12px;
+					height: 12px;
+					background: #cbd5e1;
+					opacity: 1;
+					margin: 0 6px;
+					transition: all 0.3s ease;
+				}
+
+				.custom-pagination .swiper-pagination-bullet-active {
+					background: var(--primary-color, #3b82f6);
+					transform: scale(1.2);
+				}
+
+				@media (max-width: 768px) {
+					.mySwiper .swiper-button-next,
+					.mySwiper .swiper-button-prev {
+						width: 36px;
+						height: 36px;
+					}
+
+					.mySwiper .swiper-button-next:after,
+					.mySwiper .swiper-button-prev:after {
+						font-size: 14px;
+					}
 				}
 			`}</style>
 		</div>
