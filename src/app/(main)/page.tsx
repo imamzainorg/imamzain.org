@@ -12,6 +12,7 @@ import { Post } from "@/types/post"
 import { YouTubePlaylist } from "@/types/youtubeData"
 import hadiths from "@/data/hadiths.json"
 import AnimatedTextSection from "@/components/animated-text"
+import { FeaturedContest } from "./_components/featured"
 
 const desktopImages = [
 	"/images/albaqi.jpg",
@@ -43,6 +44,7 @@ export default async function page() {
 				mobileImages={mobileImages}
 				currentHadith={currentHadith}
 			/>
+			<FeaturedContest />
 			<div className="container">
 				<AnimatedTextSection
 					title="رؤية المؤسسة"
@@ -74,12 +76,12 @@ export default async function page() {
 
 			<div className="pt-20">
 				<div
-					className="bg-cover bg-center bg-no-repeat"
+					className="bg-cover bg-top bg-no-repeat"
 					style={{
 						backgroundImage: "url('/images/albaqi.jpg')",
 					}}
 				>
-					<div className="bg-secondary/80 text-white">
+					<div className="bg-secondary/80 text-white py-20">
 						<div className="container">
 							<AnimatedTextSection
 								title="الإمام زين العابدين (عليه السلام)"

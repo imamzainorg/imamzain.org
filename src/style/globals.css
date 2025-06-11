@@ -75,19 +75,35 @@ html {
 	color: #bb9661;
 }
 .arabic-list {
-  list-style-type: decimal;
-  direction: rtl;
-  unicode-bidi: isolate;
-  counter-reset: arabic-counter;
-  padding-right: 1rem;
+	list-style-type: decimal;
+	direction: rtl;
+	unicode-bidi: isolate;
+	counter-reset: arabic-counter;
+	padding-right: 1rem;
 }
 
 .arabic-list li {
-  counter-increment: arabic-counter;
-  position: relative;
-  padding-right: 1rem;
+	counter-increment: arabic-counter;
+	position: relative;
+	padding-right: 1rem;
 }
 
 .arabic-list li::marker {
-  content: counter(arabic-counter, arabic-indic) "-";
+	content: counter(arabic-counter, arabic-indic) "-";
+}
+
+@keyframes float {
+	0% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+
+.animate-float {
+	animation: float 3s ease-in-out infinite;
 }
