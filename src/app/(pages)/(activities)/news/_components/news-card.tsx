@@ -6,7 +6,7 @@ export default function PostCard(post: Post) {
 	return (
 		<Link
 			href={`/news/${post.slug}`}
-			className="hover:scale-105 duration-200"
+			className="hover:scale-105 duration-200 py-10"
 		>
 			<div className="flex justify-center gap-6">
 				<div className="w-4/6 text-xs xl:text-sm space-y-2">
