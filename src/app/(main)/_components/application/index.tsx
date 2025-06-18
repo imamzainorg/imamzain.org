@@ -102,7 +102,7 @@ export default function Application() {
 								className="block group"
 							>
 								<div className="relative">
-									<div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+									<div className="absolute inset-0 bg-gradient-to-r rounded-2xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
 									<Image
 										src={"/application/app-store.svg"}
 										alt="Download on App Store"
@@ -128,7 +128,7 @@ export default function Application() {
 								className="block group"
 							>
 								<div className="relative">
-									<div className="absolute inset-0 bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+									<div className="absolute inset-0 bg-gradient-to-r rounded-2xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
 									<Image
 										src={"/application/google-play.svg"}
 										alt="Get it on Google Play"

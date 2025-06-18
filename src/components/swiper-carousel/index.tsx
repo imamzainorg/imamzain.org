@@ -1,39 +1,39 @@
-"use client";
+"use client"
 
-import {useState, useRef} from "react";
+import { useState, useRef } from "react"
 import {
 	Swiper as SwiperComponent,
 	type SwiperRef,
 	SwiperSlide,
-} from "swiper/react";
+} from "swiper/react"
 import {
 	EffectCoverflow,
 	Pagination,
 	Navigation,
 	Autoplay,
-} from "swiper/modules";
+} from "swiper/modules"
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/effect-coverflow";
-import "swiper/css/autoplay";
-import styles from "@/style/swiper.module.css";
-import {Swiper} from "swiper/types";
-import ImageView from "@/components/image-view";
-import {Attachment} from "@/types/attachments";
+import "swiper/css"
+import "swiper/css/navigation"
+import "swiper/css/pagination"
+import "swiper/css/effect-coverflow"
+import "swiper/css/autoplay"
+import styles from "@/style/swiper.module.css"
+import { Swiper } from "swiper/types"
+import ImageView from "@/components/image-view"
+import { Attachment } from "@/types/attachments"
 
-export default function SwiperCarousel({images}: { images: Attachment[] }) {
-	const swiperRef = useRef<SwiperRef>(null);
-	const [swiperInstance, setSwiperInstance] = useState<Swiper>();
+export default function SwiperCarousel({ images }: { images: Attachment[] }) {
+	const swiperRef = useRef<SwiperRef>(null)
+	const [swiperInstance, setSwiperInstance] = useState<Swiper>()
 
 	const handleNext = () => {
-		if (swiperInstance) swiperInstance.slideNext();
-	};
+		if (swiperInstance) swiperInstance.slideNext()
+	}
 
 	const handlePrev = () => {
-		if (swiperInstance) swiperInstance.slidePrev();
-	};
+		if (swiperInstance) swiperInstance.slidePrev()
+	}
 
 	return (
 		<div className="relative ">
@@ -79,7 +79,7 @@ export default function SwiperCarousel({images}: { images: Attachment[] }) {
 					<SwiperSlide
 						key={index}
 						className="h-full w-full"
-						style={{boxSizing: "content-box"}}
+						style={{ boxSizing: "content-box" }}
 					>
 						<div className="flex justify-center items-center w-full h-full rounded-2xl  shadow-2xl bg-secondary">
 							<ImageView
@@ -115,5 +115,5 @@ export default function SwiperCarousel({images}: { images: Attachment[] }) {
 				/>
 			</div>
 		</div>
-	);
+	)
 }

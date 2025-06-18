@@ -28,9 +28,9 @@ export function FeaturedContest() {
 
 							<div className="flex flex-wrap gap-4 mt-6">
 								<div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
-									<Award className="w-5 h-5 text-yellow-500" />
+									<Award className="w-5 h-5 text-primary" />
 									<span className="font-medium">
-										جوائز تصل إلى 3,000,000 د.ع
+										جوائز تصل إلى ٣,٠٠٠,٠٠٠ د.ع
 									</span>
 								</div>
 								<div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
@@ -80,11 +80,11 @@ export function FeaturedContest() {
 
 							{/* Floating element */}
 							<div className="absolute -top-6 -left-6 bg-white p-4 rounded-xl shadow-lg border border-gray-100 animate-float">
-								<div className="bg-yellow-400 text-gray-900 font-bold px-3 py-1 rounded-full text-sm">
+								<div className="bg-white border border-primary text-gray-900 font-bold px-3 py-1 rounded-full text-sm">
 									جائزة المركز الأول
 								</div>
 								<div className="mt-2 font-bold text-xl">
-									3,000,000 د.ع
+									٣,٠٠٠,٠٠٠ د.ع
 								</div>
 							</div>
 						</div>
