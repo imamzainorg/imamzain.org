@@ -15,7 +15,7 @@ export function FeaturedContest() {
 							</div>
 
 							<h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-								مسابقة زين العابدين الدولية الأولى في الخط
+								مسابقة الإمام زين العابدين الدولية الأولى في الخط
 								العربي
 							</h2>
 
