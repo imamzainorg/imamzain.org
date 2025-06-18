@@ -126,7 +126,7 @@ export default function Page() {
 							</div>
 
 							<h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-right leading-tight">
-								مسابقة زين العابدين عليه السلام الدولية الاولى
+								مسابقة الإمام زين العابدين عليه السلام الدولية الاولى
 								في الخط العربي
 							</h1>
 
