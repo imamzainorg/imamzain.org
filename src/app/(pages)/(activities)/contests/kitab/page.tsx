@@ -124,7 +124,7 @@ export default function Page() {
 				<div className="max-w-7xl mx-auto">
 					<div className="text-center mb-12">
 						<h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-							جوائز قيمة
+						المحفزات والجوائز
 						</h2>
 						<div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-primary/80 mx-auto rounded-full"></div>
 					</div>
@@ -288,7 +288,7 @@ export default function Page() {
 				<div className="max-w-7xl mx-auto">
 					<div className="text-center mb-12">
 						<h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-							معايير التقييم
+					آليةالتحكيم
 						</h2>
 						<div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-sprimaryecondary/80 mx-auto rounded-full"></div>
 					</div>
@@ -329,7 +329,7 @@ export default function Page() {
 				<div className="max-w-7xl mx-auto">
 					<div className="text-center mb-12">
 						<h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-							شروط الإنضمام للمسابقة
+							شروط المشاركة 
 						</h2>
 						<div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-primary/80 mx-auto rounded-full"></div>
 					</div>
