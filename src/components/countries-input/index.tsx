@@ -40,7 +40,7 @@ const CountriesDropdown = ({ className, onCountryChange }: { className?: string,
             onSelectionChange={(key) => handleCountryChange(key)}
         >
             {countriesArray.map((country) => (
-                <AutocompleteItem key={country.key} value={country.key}>
+                <AutocompleteItem key={country.key}  textValue={country.label}>
                     {country.label}
                 </AutocompleteItem>
             ))}
