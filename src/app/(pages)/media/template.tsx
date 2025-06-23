@@ -7,11 +7,11 @@ export default function Template({ children }: { children: React.ReactNode }) {
   const path = usePathname()
 
   useEffect(() => {
-    if (path.startsWith("/media")) {
-    document.body.classList.add("media-background-creative")
+    if (path.startsWith("/media/images") ) {
+  	document.body.style.backgroundColor = "#0a051a"                             
+    } else  if (path.startsWith("/media/videos")) {
+     document.body.classList.add("bg-dark-background")
 
-    } else {
-      document.body.classList.remove("media-background-creative")
     }
 
     return () => {
