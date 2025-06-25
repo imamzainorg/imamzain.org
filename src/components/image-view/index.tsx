@@ -47,7 +47,7 @@ export default function ImageView({
 
   return (
     <>
-      <div className={`${className} relative w-inherit h-inherit overflow-hidden`}>
+      <div className={`${className} relative w-inherit h-inherit  overflow-hidden`}>
         <Image
           src={src}
           alt={`Image-${alt ?? src}`}
@@ -65,14 +65,14 @@ export default function ImageView({
 
       <Modal
         backdrop="opaque"
-        className="bg-transparent border-0 shadow-none"
+        className="bg-transparent   border-0 shadow-none"
         hideCloseButton
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         onClose={onClose}
         size="5xl"
       >
-        <ModalContent>
+        <ModalContent  className="border-0 shadow-none">
           <ModalBody className="p-0 gap-0">
             <div className="w-full h-[80vh] flex flex-col justify-center items-center">
               {/* Main Swiper */}
@@ -92,7 +92,7 @@ export default function ImageView({
     thumbsSwiper.slideToLoop(realIndex, 300)
   }
 }}
-                className="w-full h-[75%]  mb-6"
+                className="w-full h-[75%]   mb-6 "
               >
                 {images?.map((image, index) => (
                   <SwiperSlide key={index}>
@@ -101,7 +101,7 @@ export default function ImageView({
                       alt={`Image-${index}`}
                       width={1600}
                       height={1067}
-                      className="object-contain w-full h-full"
+                      className="object-contain w-full h-full "
                     />
                   </SwiperSlide>
                 ))}
@@ -121,7 +121,7 @@ export default function ImageView({
                   1024: { slidesPerView: 6 },
                 }}
                 modules={[Thumbs]}
-                className="w-full max-w-5xl h-[90px] pt-4 px-2"
+                className="w-full bg-opacity-50  bg-black  max-w-5xl h-[90px] pt-4 px-2"
               >
                 {images?.map((image, index) => (
                   <SwiperSlide key={index}>
@@ -130,7 +130,7 @@ export default function ImageView({
                       alt={`Thumb-${index}`}
                       width={120}
                       height={80}
-                      className={`object-cover w-full h-full rounded-md border-2 transition-all duration-200 ${
+                      className={`object-cover w-full hover:cursor-pointer h-full rounded-md border-2 transition-all duration-200 ${
                         index === activeIndex
                           ? "border-primary scale-105"
                           : "border-transparent"
