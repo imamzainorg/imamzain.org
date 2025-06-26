@@ -3,28 +3,44 @@
 @tailwind utilities;
 
 html {
-	@apply m-0 p-0 w-full;
+  @apply m-0 p-0 w-full;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-* {
-	box-sizing: border-box;
-	--sb-thumb-color: #bb9661;
-	--sb-size: 5px;
-	scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+html.dark {
+  background-color: white !important;
+  color: inherit !important;
 }
 
-::-webkit-scrollbar {
-	width: var(--sb-size);
+:root {
+  --color-primary: #006654;
+  --color-secondary: #bb9661;
+  --sb-thumb-color: var(--color-secondary);
+  --sb-track-color: transparent;
 }
+
+.dark {
+  --color-primary: #231F20;
+  --color-secondary: #a53232;
+  --sb-thumb-color: (--color-secondary);
+}
+
 
 ::-webkit-scrollbar-track {
 	background: var(--sb-track-color);
 	border-radius: 20px;
 }
+* {
+  box-sizing: border-box;
+  --sb-size: 5px;
+  scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+}
+
 ::-webkit-scrollbar-thumb {
 	background: var(--sb-thumb-color);
 	border-radius: 20px;
 }
+
 
 .image-mask {
 	mask-repeat: no-repeat;
@@ -38,7 +54,7 @@ html {
 	height: 150vh;
 	width: 100%;
 	mask-size: cover;
-	mask-image: url("/shapes/hero-bound-bg.svg");
+	mask-image: url("/shapes/hero-bound_Muharrm.svg");
 }
 .button-mask {
 	position: absolute;
@@ -47,7 +63,7 @@ html {
 	height: 150vh;
 	width: 100%;
 	mask-size: cover;
-	mask-image: url("/shapes/button-bg.svg");
+	mask-image: url("/shapes/button-bg.svg") ;
 }
 
 .section-container {
@@ -63,17 +79,19 @@ html {
 }
 
 .tooltip {
-	@apply invisible absolute rounded-xl shadow-lg p-1 bg-white text-blue-300 -mt-8;
+  @apply invisible absolute rounded-xl shadow-lg p-1 bg-white text-[var(--color-primary)] -mt-8;
 }
 
 .has-tooltip:hover .tooltip {
-	@apply visible z-50 text-secondary;
+  @apply visible z-50 text-[var(--color-secondary)];
 }
+
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
-	color: #bb9661;
+  color: var(--color-secondary); /* ✅ بدل #bb9661 */
 }
+
 .arabic-list {
 	list-style-type: decimal;
 	direction: rtl;
