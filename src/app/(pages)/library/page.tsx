@@ -165,11 +165,11 @@ export default function Page() {
 			</div>
 
 			<div className="flex mx-auto justify-center items-center gap-4 my-8">
-				<div className="w-52 h-40 bg-[url('/shapes/button-bg.svg')] bg-contain bg-center bg-no-repeat flex justify-center items-center text-white">
+				<div className="w-52 h-40 bg-[url('/shapes/button-bg.svg')] dark:bg-[url('/shapes/button-bg_Muharram.svg')] bg-contain bg-center bg-no-repeat flex justify-center items-center text-white">
 					رسائل
 				</div>
 				<div className="w-1 h-1 bg-secondary rounded-full" />
-				<div className="w-52 h-40 bg-[url('/shapes/button-bg.svg')] bg-contain bg-center bg-no-repeat flex justify-center items-center text-white">
+				<div className="w-52 h-40 bg-[url('/shapes/button-bg.svg')]  dark:bg-[url('/shapes/button-bg_Muharram.svg')] bg-contain bg-center bg-no-repeat flex justify-center items-center text-white">
 					مجلات
 				</div>
 			</div>
