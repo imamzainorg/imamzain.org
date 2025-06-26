@@ -18,7 +18,7 @@ export default function PostCard(post: Post) {
 					</p>
 					<div className="flex items-center justify-between pt-2">
 						<div className="flex items-center gap-2 text-sm text-gray-500">
-							<div className="w-2 h-2 bg-[url('/shapes/indicator.svg')] bg-contain bg-no-repeat rotate-180 opacity-60" />
+							<div className="w-2 h-2 bg-[url('/shapes/indicator.svg')] dark:bg-[url('/shapes/newsIndicator_Muharram.svg')] bg-contain bg-no-repeat rotate-180 opacity-60" />
 							<time dateTime={post.date} className="font-medium">
 								{post.date}
 							</time>
@@ -39,7 +39,7 @@ export default function PostCard(post: Post) {
 				</div>
 
 				<div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 relative flex-shrink-0">
-					<div className="absolute bottom-3 -right-2 w-3 h-3 lg:w-4 lg:h-4 bg-[url('/shapes/newsIndicator.svg')] bg-no-repeat rotate-90 z-10"></div>
+					<div className="absolute bottom-3 -right-2 w-3 h-3 lg:w-4 lg:h-4 bg-[url('/shapes/newsIndicator.svg')] dark:bg-[url('/shapes/newsIndicator_Muharram.svg')] bg-no-repeat rotate-90 z-10"></div>
 					<Image
 						src={post.image}
 						width={200}
