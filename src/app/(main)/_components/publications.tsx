@@ -94,28 +94,39 @@ style={{
 									variants={iconVariants}
 									className="absolute right-0 bottom-0 w-32 h-32"
 								>
-									<motion.div
-										variants={{
-											hidden: { opacity: 0, x: 20 },
-											visible: {
-												opacity: 1,
-												x: 0,
-												transition: {
-													duration: 1,
-													ease: "easeOut",
-												},
-											},
-										}}
-										className="absolute right-0 bottom-0 w-32 h-32"
-									>
-										<Image
-											src={"/shapes/book_icon.svg"}
-											alt={`${book.title} icon`}
-											fill
-											sizes="100vw"
-											className="object-contain"
-										/>
-									</motion.div>
+								<motion.div
+	variants={{
+		hidden: { opacity: 0, x: 20 },
+		visible: {
+			opacity: 1,
+			x: 0,
+			transition: {
+				duration: 1,
+				ease: "easeOut",
+			},
+		},
+	}}
+	className="absolute right-0 bottom-0 w-32 h-32"
+>
+	{/* الصورة في الوضع العادي (Light Mode) */}
+	<Image
+		src="/shapes/book_icon.svg"
+		alt={`${book.title} icon`}
+		fill
+		sizes="100vw"
+		className="object-contain dark:hidden"
+	/>
+
+	{/* الصورة في الوضع الداكن (Dark Mode) */}
+	<Image
+		src="/shapes/book_icon_Muharram.svg"
+		alt={`${book.title} icon (dark)`}
+		fill
+		sizes="100vw"
+		className="object-contain hidden dark:block"
+	/>
+</motion.div>
+
 								</motion.div>
 
 								{/* Book Image 1 */}
