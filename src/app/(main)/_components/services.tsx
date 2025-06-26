@@ -184,8 +184,16 @@ export default function Services() {
 									width={150}
 									height={150}
 									alt="title icon"
-									className="w-3 sm:w-4 xl:w-5"
+									className="w-3 sm:w-4 xl:w-5 dark:hidden"
 								/>
+									<Image
+									src={"/shapes/title-icon_Muharram.svg"}
+									width={150}
+									height={150}
+									alt="title icon"
+									className="w-3 sm:w-4 xl:w-5 hidden dark:block"
+								/>
+								
 								<h1
 									className={
 										"mt-2 text-lg md:text-xl lg:text-2xl xl:text-3xl font-extrabold text-white text-justify"
@@ -214,7 +222,7 @@ export default function Services() {
 							</p>
 						</motion.div>
 						<motion.div
-							className="flex md:flex-col items-center justify-center bg-[url('/shapes/ziara-bg.svg')] bg-center lg:bg-left bg-no-repeat
+							className="flex md:flex-col items-center justify-center bg-[url('/shapes/ziara-bg.svg')] dark:bg-[url('/shapes/ziara-bg_Muharram.svg')] bg-center lg:bg-left bg-no-repeat
                             xs:w-full lg:w-1/2
                             h-96 lg:h-full w-screen px-0 max-w-none                           "
 							variants={{
