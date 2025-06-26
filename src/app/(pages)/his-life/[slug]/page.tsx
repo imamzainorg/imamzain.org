@@ -28,7 +28,7 @@ export default async function Page({
 			/>
 			<div className="lg:w-11/12 mx-auto pt-6 md:p-6  relative">
 				<div className="space-y-6 bg-yellow-50 rounded-3xl flex md:justify-start justify-center   w-full p-6 shadow-lg">
-					<h3 className="w-60 h-auto absolute top-0 p-4  bg-[url('/shapes/button-bg.svg')] bg-center bg-no-repeat text-center text-white font-semibold">
+					<h3 className="w-60 h-auto absolute top-0 p-4 dark:bg-[url('/shapes/button-bg_Muharram.svg')] bg-[url('/shapes/button-bg.svg')] bg-center bg-no-repeat text-center text-white font-semibold">
 						{section.title}
 					</h3>
 
