@@ -53,7 +53,7 @@ export default async function page({
 							{/* Meta Information */}
 							<div className="flex flex-wrap items-center justify-between gap-4 py-4 border-b border-gray-200">
 								<div className="flex items-center gap-3 text-gray-600">
-									<div className="w-3 h-3 bg-[url('/shapes/indicator.svg')] bg-contain bg-no-repeat rotate-180" />
+									<div className="w-3 h-3 bg-[url('/shapes/indicator.svg')] dark:bg-[url('/shapes/newsIndicator_Muharram.svg')] bg-contain bg-no-repeat rotate-180" />
 									<time className="text-sm font-medium">
 										{post.date}
 									</time>
