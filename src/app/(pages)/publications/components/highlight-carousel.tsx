@@ -58,7 +58,7 @@ export function HighlightCarousel({ publications }: { publications: Book[] }) {
 								</Link>
 							</div>
 							<div className="w-5/12">
-								<div className="w-full h-full flex justify-center items-center bg-[url('/shapes/book-bg.svg')] bg-no-repeat bg-center">
+								<div className="w-full h-full flex justify-center items-center bg-[url('/shapes/book-bg.svg')] dark:bg-[url('/shapes/book-bg_Muharram.svg')] bg-no-repeat bg-center">
 									<Image
 										src={publication.image}
 										width={200}
