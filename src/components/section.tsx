@@ -23,7 +23,14 @@ export default function Section({
 					width={150}
 					height={150}
 					alt="title icon"
-					className="w-3 sm:w-4 xl:w-5"
+					className="w-3 sm:w-4 xl:w-5 dark:hidden"
+				/>		
+				<Image
+					src={"/shapes/title-icon_Muharram.svg"}
+					width={150}
+					height={150}
+					alt="title icon"
+					className="w-3 sm:w-4 xl:w-5 hidden dark:block"
 				/>
 				<h1
 					className={cn(
