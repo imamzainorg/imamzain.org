@@ -42,7 +42,7 @@ export default async function Page() {
 					className="lg:w-7/12 space-y-6"
 				>
 					<div className="relative">
-						<div className="absolute w-7 h-7 -bottom-2.5 right-6 bg-[url('/shapes/newsIndicator.svg')] rotate-180 bg-no-repeat"></div>
+						<div className="absolute w-7 h-7 -bottom-2.5 right-6 bg-[url('/shapes/newsIndicator.svg')] dark:bg-[url('/shapes/newsIndicator_Muharram.svg')] rotate-180 bg-no-repeat"></div>
 						<Image
 							src={latestData[0].image}
 							width={500}
@@ -85,7 +85,7 @@ export default async function Page() {
 						))}
 					</div>
 					<div className="w-5/12 flex flex-col items-center gap-x-8 lg:flex-row">
-						<div className="w-[300px] h-[300px] lg:w-[360px] xl:w-[500px] lg:h-[360px] xl:h-[500px] bg-[url('/shapes/ziara-bg.svg')] bg-container rotate-180 bg-center bg-no-repeat flex justify-center items-center text-white relative isolate">
+						<div className="w-[300px] h-[300px] lg:w-[360px] xl:w-[500px] lg:h-[360px] xl:h-[500px] dark:bg-[url('/shapes/ziara-bg_Muharram.svg')] bg-[url('/shapes/ziara-bg.svg')] bg-container rotate-180 bg-center bg-no-repeat flex justify-center items-center text-white relative isolate">
 							<div className="absolute w-full h-full bg-[url('/shapes/bg.svg')]" />
 							<div className="rotate-180 text-center w-full">
 								<span className="md:text-lg lg:text-2xl xl:text-3xl font-semibold tracking-wide">
@@ -110,7 +110,7 @@ export default async function Page() {
 					className="space-y-4 flex flex-col lg:flex-row-reverse"
 				>
 					<div className="relative lg:w-1/2">
-						<div className="absolute rotate-180 lg:rotate-90 w-7 h-7 -bottom-2 right-5 lg:bottom-5 lg:-right-3 bg-[url('/shapes/newsIndicator.svg')] bg-no-repeat"></div>
+						<div className="absolute rotate-180 lg:rotate-90 w-7 h-7 -bottom-2 right-5 lg:bottom-5 lg:-right-3 bg-[url('/shapes/newsIndicator.svg')] dark:bg-[url('/shapes/newsIndicator_Muharram.svg')] bg-no-repeat"></div>
 						<Image
 							src={meetingsData[meetingsData.length - 1].image}
 							width={1500}
