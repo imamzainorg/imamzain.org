@@ -18,7 +18,7 @@ export default function BooklibraryCard({
 			key={publication.id}
 			className="flex items-center gap-4 py-4 lg:py-8 group"
 		>
-			<div className="relative w-1/3 h-full xl:h-40 duration-300 group-hover:drop-shadow-xl group-hover:scale-105 group-hover:-translate-y-1 flex justify-center items-center bg-[url('/shapes/book-bg.svg')] bg-no-repeat bg-center">
+			<div className="relative w-1/3 h-full xl:h-40 duration-300 group-hover:drop-shadow-xl group-hover:scale-105 group-hover:-translate-y-1 flex justify-center items-center dark:bg-[url('/shapes/book-bg_Muharram.svg')] bg-[url('/shapes/book-bg.svg')] bg-no-repeat bg-center">
 				<Image
 					src={publication.image}
 					width={200}
