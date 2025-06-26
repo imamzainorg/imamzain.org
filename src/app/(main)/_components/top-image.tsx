@@ -90,7 +90,7 @@ const showHadith = currentImageIndex === 0 || currentImageIndex === 1
 
 	return (
 		<div
-			className="relative w-full h-[96vh] max-lg:h-[91vh] bg-[#006654] overflow-hidden"
+			className="relative w-full h-[96vh] max-lg:h-[91vh] bg-[#006654] dark:bg-[#681717] overflow-hidden"
 			style={maskStyles}
 			role="region"
 			aria-label="Featured image and hadith of the day"
