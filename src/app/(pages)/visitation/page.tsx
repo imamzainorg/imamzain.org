@@ -190,7 +190,7 @@ export default function page() {
               </p>
             </motion.div>
             <motion.div
-              className="flex md:flex-col items-center justify-center bg-[url('/shapes/ziara-bg.svg')] bg-center lg:bg-left bg-no-repeat
+              className="flex md:flex-col items-center justify-center dark:bg-[url('/shapes/ziara-bg_Muharram.svg')] bg-[url('/shapes/ziara-bg.svg')] bg-center lg:bg-left bg-no-repeat
                             w-full lg:w-1/2
                             h-96 lg:h-full
                             "
