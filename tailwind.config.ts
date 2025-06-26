@@ -12,14 +12,12 @@ export default {
 	theme: {
 		container: {
 			padding: {
-			
 				md: "1rem",
 				lg: "4rem",
 				xl: "5rem",
 				"2xl": "6rem",
 			},
 		},
-
 		extend: {
 			screens: {
 				xxs: "280px",
@@ -46,8 +44,8 @@ export default {
 				"fade-in-up": "fadeInUp 0.5s ease-in-out",
 			},
 			colors: {
-				primary: "#006654",
-				secondary: "#bb9661",
+				primary: "var(--color-primary)",
+				secondary: "var(--color-secondary)",
 				"dark-background": "rgb(37,52,63)",
 			},
 			listStyleType: {
