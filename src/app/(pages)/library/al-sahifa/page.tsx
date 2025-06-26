@@ -71,7 +71,14 @@ export default async function Page() {
 				<div className="w-64 max-md:hidden left-28 -top-16 absolute">
 					<Image
 						src={`/shapes/book-bg.svg`}
-						className="w-full "
+						className="w-full  dark:hidden"
+						width={50}
+						height={50}
+						alt="al-sahifa cover"
+					/>
+							<Image
+						src={`/shapes/book-bg_Muharram.svg`}
+						className="w-full hidden dark:block "
 						width={50}
 						height={50}
 						alt="al-sahifa cover"
