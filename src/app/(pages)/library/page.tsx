@@ -175,7 +175,7 @@ export default function Page() {
 			</div>
 
 			{/* Display Filtered Books */}
-			<div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
+			<div className="bg-secondary/20  rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
 				{filteredBooks.length > 0 ? (
 					filteredBooks.map((book) => (
 						<BooklibraryCard
