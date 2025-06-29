@@ -71,7 +71,14 @@ export default async function Page() {
 				<div className="w-64 max-md:hidden left-28 -top-16 absolute">
 					<Image
 						src={`/shapes/book-bg.svg`}
-						className="w-full "
+						className="w-full  dark:hidden"
+						width={50}
+						height={50}
+						alt="al-sahifa cover"
+					/>
+							<Image
+						src={`/shapes/book-bg_Muharram.svg`}
+						className="w-full hidden dark:block "
 						width={50}
 						height={50}
 						alt="al-sahifa cover"
@@ -108,7 +115,7 @@ export default async function Page() {
 				route="/library/al-sahifa"
 				showcaseBooks={libraryBooks.slice(0, 3)}
 			/>
-			<div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
+			<div className="bg-secondary/40 bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
 				{libraryBooks.map((book) => (
 					<BooklibraryCard
 						route="/library/al-sahifa"

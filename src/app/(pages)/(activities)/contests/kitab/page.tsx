@@ -243,13 +243,23 @@ export default function Page() {
                     <div
                       className={`w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/20`}
                     >
-                      <Image
-                        src={"/shapes/book_icon.svg"}
-                        width={24}
-                        height={24}
-                        alt="pointer"
-                        className={`rotate-90 w-6 h-6 object-contain`}
-                      />
+                 {/* الصورة في الوضع العادي (Light) */}
+  <Image
+    src="/shapes/book_icon.svg"
+    width={24}
+    height={24}
+    alt="pointer"
+    className="rotate-90 w-6 h-6 object-contain dark:hidden"
+  />
+
+  {/* الصورة في الوضع الداكن (Dark) */}
+  <Image
+    src="/shapes/book_icon_Muharram.svg"
+    width={24}
+    height={24}
+    alt="pointer-dark"
+    className="rotate-90 w-6 h-6 object-contain hidden dark:block"
+  />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">
                       {axes.title}

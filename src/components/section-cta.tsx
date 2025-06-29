@@ -49,8 +49,8 @@ export default function SectionCta({
 						inline-flex justify-center items-center gap-4 transition-all duration-300 ease-in-out
 						active:scale-95 hover:scale-105 rounded-lg"
 						style={{
-							WebkitMaskImage: `url('/shapes/button-bg.svg')`,
-							maskImage: `url('/shapes/button-bg.svg')`,
+							WebkitMaskImage: `url('/shapes/button-bg.svg') dark:bg-[url('/shapes/button-bg_Muharram.svg')]`,
+							maskImage: `url('/shapes/button-bg.svg') `,
 							WebkitMaskRepeat: "no-repeat",
 							maskRepeat: "no-repeat",
 							WebkitMaskSize: "contain",

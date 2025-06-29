@@ -1,6 +1,5 @@
 "use client"
-import React, { useEffect, useState,useRef } from "react"
-
+import React, { useEffect, useState, useRef } from "react"
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
@@ -10,36 +9,57 @@ import {
 	faTwitter,
 } from "@fortawesome/free-brands-svg-icons"
 import { faCalendar, faGlobe } from "@fortawesome/free-solid-svg-icons"
+import { Sun, Moon } from "lucide-react"
 import { usePathname } from "next/navigation"
 import useWindowEvents from "@/hooks/window-events"
 import { useLanguages } from "@/context/language-context"
 
-
-
-
 export default function TopBar() {
-	const [hijriDate, setHijriDate] = useState('');
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetch('/api/hijri-date')
-      .then(res => res.json())
-      .then(data => {
-        if (data.hijriDate) {
-          setHijriDate(data.hijriDate);
-        } else {
-          setError('تعذر استخراج التاريخ الهجري');
-        }
-      })
-      .catch(() => {
-        setError('فشل الاتصال بالخادم');
-      });
-  }, []);
+	const [hijriDate, setHijriDate] = useState('')
+	const [error, setError] = useState<string | null>(null)
 
 	const path = usePathname()
 	const { isScrolled } = useWindowEvents()
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const { setLanguage, languages } = useLanguages()
+	const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+// Theme state
+const [theme, setTheme] = useState("dark") // خلي الافتراضي داكن
+
+// Load saved theme
+useEffect(() => {
+  const savedTheme = localStorage.getItem("theme") || "dark" // dark كافتراضي لو ما في تخزين
+  setTheme(savedTheme)
+  document.documentElement.classList.add(savedTheme)
+}, [])
+
+
+	// Apply theme on change
+	useEffect(() => {
+		document.documentElement.classList.remove("light", "dark")
+		document.documentElement.classList.add(theme)
+		localStorage.setItem("theme", theme)
+	}, [theme])
+
+	const toggleTheme = () => {
+		setTheme(prev => (prev === "dark" ? "light" : "dark"))
+	}
+
+	useEffect(() => {
+		fetch("/api/hijri-date")
+			.then(res => res.json())
+			.then(data => {
+				if (data.hijriDate) {
+					setHijriDate(data.hijriDate)
+				} else {
+					setError("تعذر استخراج التاريخ الهجري")
+				}
+			})
+			.catch(() => {
+				setError("فشل الاتصال بالخادم")
+			})
+	}, [])
 
 	const handleLanguageChange = (language: string) => {
 		setLanguage(language)
@@ -47,6 +67,7 @@ export default function TopBar() {
 	}
 
 	const closeMenu = () => setIsOpen(false)
+
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
 			if (!(event.target as HTMLElement).closest(".dropdown-lang")) {
@@ -58,8 +79,7 @@ export default function TopBar() {
 			document.removeEventListener("click", handleClickOutside)
 		}
 	}, [])
-const timeoutRef = useRef<NodeJS.Timeout | null>(null)
-	
+
 	return (
 		<>
 			<div
@@ -69,31 +89,31 @@ const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 			>
 				<div className="container">
 					<div className="flex justify-between items-center py-1">
-						<div className="flex items-center gap-2">
-							<FontAwesomeIcon
-								icon={faCalendar}
-								color={`${!isScrolled && path === "/" ? "#ffffff" : "#bb9661"}`}
-							/>
-							<p
-								className={`text-sm p-0 mt-1 ${
-									!isScrolled && path === "/"
-										? "text-[#ffffff]"
-										: "text-[#bb9661]"
-								}`}
-							>
-								{/* TODO: FIX THE HIJRI DATE PROBLEM AND REMOVE THE SPAN */}
-								<span className="">
-									
-									
-									{hijriDate
-										? hijriDate.split("||")[0]
-										: error
-										? `⚠️ ${error}`
-										: "جاري تحميل التاريخ..."}
-								</span>
-							</p>
-						</div>
+						{/* التاريخ الهجري */}
+					<div className="flex items-center gap-2">
+  <FontAwesomeIcon
+    icon={faCalendar}
+    color={theme === "dark" ? "#a53232" : "#bb9661"} // أبيض بالداك، بني باللايت
+  />
+  <p
+    className={`text-sm p-0 mt-1 ${
+      theme === "dark" ? "text-[#a53232]" : "text-[#bb9661]"
+    }`}
+  >
+    <span>
+      {hijriDate
+        ? hijriDate.split("||")[0]
+        : error
+        ? `⚠️ ${error}`
+        : "جاري تحميل التاريخ..."}
+    </span>
+  </p>
+</div>
+
+
+						{/* الأيقونات واللغات والثيم */}
 						<div className="flex justify-between items-center gap-5">
+							{/* روابط التواصل */}
 							{[
 								{
 									href: "https://www.instagram.com/imamzainorg/",
@@ -129,6 +149,25 @@ const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 									/>
 								</Link>
 							))}
+
+							{/* زر تغيير الثيم */}
+							<button
+								onClick={toggleTheme}
+								className={`p-1.5 rounded-full transition ${
+									isScrolled || path !== "/"
+										? "bg-secondary text-white"
+										: "bg-white text-primary"
+								}`}
+								title="تبديل الثيم"
+							>
+								{theme === "dark" ? (
+									<Sun size={16} />
+								) : (
+									<Moon size={16} />
+								)}
+							</button>
+
+							{/* قائمة اختيار اللغة */}
 							<div
 								className="relative cursor-pointer py-1 dropdown-lang"
 								onMouseEnter={() => {
@@ -164,9 +203,7 @@ const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 													)
 												}
 											>
-												<p
-													className={`font-semibold text-gray-500 text-sm w-full h-full rounded-lg cursor-pointer py- px-4 hover:bg-gray-300`}
-												>
+												<p className="font-semibold text-gray-500 text-sm w-full h-full rounded-lg cursor-pointer px-4 py-2 hover:bg-gray-300">
 													{language.name}
 												</p>
 											</div>
@@ -178,7 +215,8 @@ const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 					</div>
 				</div>
 			</div>
-			{/* Keyframe animation for the dropdown */}
+
+			{/* أنميشن القائمة المنسدلة */}
 			<style jsx>{`
 				@keyframes dropdown {
 					0% {

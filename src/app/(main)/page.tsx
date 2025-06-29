@@ -74,14 +74,14 @@ export default async function page() {
 			</div>
 			<Posts newsPosts={posts} />
 
-			<div className="pt-20">
+			<div className="pt-20 ">
 				<div
 					className="bg-cover bg-top bg-no-repeat"
 					style={{
 						backgroundImage: "url('/images/albaqi.jpg')",
 					}}
 				>
-					<div className="bg-secondary/80 text-white py-20">
+					<div className="bg-secondary/80 dark:bg-dark-primary text-white py-20">
 						<div className="container">
 							<AnimatedTextSection
 								title="الإمام زين العابدين (عليه السلام)"

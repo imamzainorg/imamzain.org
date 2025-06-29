@@ -77,7 +77,14 @@ export default function Posts({ newsPosts }: { newsPosts: Post[] }) {
 												width={10}
 												height={10}
 												alt="title icon"
-												className="w-3 md:w-4"
+												className="w-3 md:w-4 dark:hidden "
+											/>
+													<Image
+												src={"/shapes/title-icon_Muharram.svg"}
+												width={10}
+												height={10}
+												alt="title icon"
+												className="w-3 md:w-4 hidden dark:block"
 											/>
 											خبــــر
 										</div>

@@ -29,8 +29,8 @@ export function HighlightCarousel({ publications }: { publications: Book[] }) {
 				className={cn(
 					"text-white rounded-xl sm:rounded-2xl lg:rounded-[50px] xl:rounded[150px] bg-[url('/shapes/dark-bg.svg')] p-4 lg:p-10 xl:p-20 duration-200",
 					displayedPublications.indexOf(publication) % 2 === 0
-						? "bg-dark-background"
-						: "bg-secondary/60",
+						? "bg-dark-background dark:bg-dark-background "
+						: "bg-secondary-40 dark:bg-dark-secondary-40",
 				)}
 			>
 				<AnimatePresence mode="wait">
@@ -58,7 +58,7 @@ export function HighlightCarousel({ publications }: { publications: Book[] }) {
 								</Link>
 							</div>
 							<div className="w-5/12">
-								<div className="w-full h-full flex justify-center items-center bg-[url('/shapes/book-bg.svg')] bg-no-repeat bg-center">
+								<div className="w-full h-full flex justify-center items-center bg-[url('/shapes/book-bg.svg')] dark:bg-[url('/shapes/book-bg_Muharram.svg')] bg-no-repeat bg-center">
 									<Image
 										src={publication.image}
 										width={200}
@@ -83,7 +83,7 @@ export function HighlightCarousel({ publications }: { publications: Book[] }) {
 						key={index}
 						onClick={() => setPublication(displayedPublications[index])}
 						className={cn(
-							"rounded-full w-4 h-4 bg-primary/20 cursor-pointer hover:bg-primary/50 duration-150",
+							"rounded-full w-4 h-4 bg-primary-20 cursor-pointer hover:bg-primary-50 duration-150",
 							displayedPublications.indexOf(publication) === index &&
 								"bg-primary",
 						)}

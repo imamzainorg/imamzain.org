@@ -25,8 +25,8 @@ export default async function Page({
   }
 
   return (
-    <div className="space-y-16 my-12 max-w-screen-xl mx-auto px-4">
-     
+    <div className=" md:container space-y-16 my-12 max-w-screen-xl mx-auto px-4">
+
       <Breadcrumbs
         links={[
           { name: "الرئيسية", url: "/" },
