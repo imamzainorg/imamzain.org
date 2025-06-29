@@ -126,7 +126,7 @@ export default function PublicationsPage() {
             <div className="w-full md:w-1/2 relative">
               <input
                 placeholder="ابحث في الإصدارات..."
-                className="pr-12 w-full md:w-11/12 text-lg rounded-xl border border-primary  focus:ring-1"
+                className="pr-12 w-full md:w-11/12 text-lg bg-white rounded-xl border border-primary  focus:ring-1"
                 value={searchTerm}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setSearchTerm(e.target.value)
@@ -141,13 +141,13 @@ export default function PublicationsPage() {
             <div className="w-full md:w-1/5  ">
               <Button
                 variant="outline"
-                className="w-full text-md md:text-lg   md:p-5"
+                className="w-full text-md md:text-lg  bg-white md:p-5"
                 onClick={() => {
                   setSearchTerm("");
                   setFilterCategory("all");
                 }}
               >
-                <FilterIcon size={18} className="ml-2 " />
+                <FilterIcon size={18} className="ml-2 bg-white " />
                 إعادة الضبط
               </Button>
             </div>
@@ -174,7 +174,7 @@ export default function PublicationsPage() {
             </p>
           </div>
         ) : (
-          <div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
+          <div  className="bg-[rgba(187,150,97,0.1)] dark:bg-[rgba(0,0,0,0.1)]  rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10" >
             <AnimatePresence mode="wait">
               {currentPublications.map((publication) => (
                 <BooklibraryCard
@@ -198,6 +198,8 @@ export default function PublicationsPage() {
               onClick={() => paginate(Math.max(1, currentPage - 1))}
               disabled={currentPage === 1}
               aria-label="الصفحة السابقة"
+                 className="bg-white text-primary hover:bg-primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
+           
             >
               <ChevronRight size={20} />
             </Button>
@@ -219,8 +221,8 @@ export default function PublicationsPage() {
                   onClick={() => paginate(pageNum)}
                   className={`w-10 h-10 rounded-lg transition-colors duration-300 ${
                     currentPage === pageNum
-                      ? "bg-primary text-white"
-                      : "bg-white text-primary hover:bg-primary hover:text-white"
+                      ? "bg-primary  text-white"
+                      : "bg-white text-primary hover:bg-primary dark:hover:bg-[rgba(0,0,0,0.5)]  hover:text-white"
                   }`}
                   aria-current={currentPage === pageNum ? "page" : undefined}
                 >
@@ -235,6 +237,7 @@ export default function PublicationsPage() {
               onClick={() => paginate(Math.min(totalPages, currentPage + 1))}
               disabled={currentPage === totalPages}
               aria-label="الصفحة التالية"
+              className="bg-white text-primary hover:bg-primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
             >
               <ChevronLeft size={20} />
             </Button>
