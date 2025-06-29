@@ -75,11 +75,11 @@ export default function Publications({
 				{publications.slice(0, booksToShow).map((book) => (
 					<Link key={book.id} href={`/publications/${book.slug}`}>
 						<motion.div
-							className="flex flex-col justify-between rounded-2xl h-full"
-style={{
-  background:
-    "linear-gradient(0deg, rgba(225, 232, 215, 1) 0%, rgba(225, 232, 215, 1) 0%, rgba(225, 232, 215, 0) 50%)",
-}}
+							className="flex custom-gradient flex-col justify-between rounded-2xl h-full"
+  style={{
+    background:
+      "linear-gradient(0deg, rgba(225, 232, 215, 1) 0%, rgba(225, 232, 215, 1) 0%, rgba(225, 232, 215, 0) 50%)",
+  }}
 
 
 							variants={parentVariants}
