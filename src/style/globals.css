@@ -13,7 +13,7 @@ html.dark {
 }
 
 :root {
-  --color-primary: #006654;
+  --color-primary: rgb(0, 102, 84);
   --color-secondary: #bb9661;
   --sb-thumb-color: var(--color-secondary);
   --sb-track-color: transparent;
@@ -21,7 +21,7 @@ html.dark {
 
 .dark {
   --color-primary: #231F20;
-  --color-secondary: #a53232;
+  --color-secondary: rgb(164, 50, 50);
   --sb-thumb-color: (--color-secondary);
 }
 
@@ -99,6 +99,19 @@ html.dark {
 	counter-reset: arabic-counter;
 	padding-right: 1rem;
 }
+.custom-gradient {
+  transition: background 0.5s ease-in-out;
+}
+
+.dark .custom-gradient {
+  background: linear-gradient(
+    0deg,
+    rgba(128, 0, 32, 1) 0%,        /* ماروني */
+    rgba(128, 0, 32, 1) 0%,
+    rgba(128, 0, 32, 0) 50%
+  ) !important;
+}
+
 
 .arabic-list li {
 	counter-increment: arabic-counter;
