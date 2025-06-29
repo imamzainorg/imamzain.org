@@ -52,12 +52,12 @@ const ZiaraForm = () => {
 	}
 
 	return (
-		<div className="flex flex-col items-center lg:items-end justify-center w-full">
+		<div className="flex flex-col items-center lg:items-end justify-center w-full ">
 			{!sended ? (
-				<div className="flex flex-col items-center gap-4 pt-20 py-6 ml-0 lg:ml-16 w-[70%] sm:w-[50%] md:w-[35%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%]">
+				<div className="flex flex-col  bg-slate-400items-center gap-4 pt-20 py-6 ml-0 lg:ml-16 w-[70%] sm:w-[50%] md:w-[35%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%]">
 					<Input
 						size={"lg"}
-						className="border-none w-full"
+						className="border-none  w-full"
 						labelPlacement="inside"
 						name="username"
 						placeholder="الزيارة نيابة عن"
@@ -71,13 +71,14 @@ const ZiaraForm = () => {
 						classNames={{
 							base: "",
 							input: "border-none focus:ring-0",
+							  
 						}}
 						startContent={
-							<PersonIcon
-								stroke="#bb9661"
-								fill="#bb9661"
-								strokeWidth={0.1}
-							/>
+						<PersonIcon
+	stroke="var(--color-secondary)"
+	fill="var(--color-secondary)"
+	strokeWidth={0.1}
+/>
 						}
 						type="text"
 					/>
@@ -94,12 +95,13 @@ const ZiaraForm = () => {
 						}
 						classNames={{
 							base: "",
+						 
 							input: "border-none focus:ring-0",
 						}}
 						startContent={
 							<MobileIcon
-								stroke="#bb9661"
-								fill="none"
+									stroke="var(--color-secondary)"
+	fill="none"
 								strokeWidth={1.5}
 							/>
 						}
@@ -109,6 +111,7 @@ const ZiaraForm = () => {
 					<CountriesDropdown
 						onCountryChange={(e) =>
 							setFormData({ ...formData, country: e })
+							
 						}
 					/>
 					{errors && <p className="text-red-500 text-sm">{errors}</p>}{" "}
@@ -222,15 +225,15 @@ export default function Services() {
 							</p>
 						</motion.div>
 						<motion.div
-							className="flex md:flex-col items-center justify-center bg-[url('/shapes/ziara-bg.svg')] dark:bg-[url('/shapes/ziara-bg_Muharram.svg')] bg-center lg:bg-left bg-no-repeat
-                            xs:w-full lg:w-1/2
+							className="flex md:flex-col items-center justify-center bg-[url('/shapes/ziara-bg.svg')] dark:bg-[url('/shapes/ziara-bg_Muharram.svg')]  bg-center lg:bg-left bg-no-repeat
+                            xs:w-full lg:w-1/2 
                             h-96 lg:h-full w-screen px-0 max-w-none                           "
 							variants={{
 								hidden: {
 									opacity: 0,
 								},
 								visible: {
-									opacity: 1,
+									opacity: 0.8,
 									transition: {
 										duration: 1.5,
 										ease: "easeOut",
