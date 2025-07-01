@@ -1,31 +1,31 @@
-"use client";
-import { DownloadIcon } from "@/assets/icons/reusable";
-import { Book } from "@/types/book";
-import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button1";
-import { toast } from "sonner";
-import NewsShare from "@/components/news-share";
+"use client"
+import { DownloadIcon } from "@/assets/icons/reusable"
+import { Book } from "@/types/book"
+import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button1"
+import { toast } from "sonner"
+import NewsShare from "@/components/news-share"
 import {
-  ShoppingCartIcon,
-  BookOpen,
-  Languages,
-  FileText,
-  CalendarIcon,
-  Printer,
-  Users,
-} from "lucide-react";
+	ShoppingCartIcon,
+	BookOpen,
+	Languages,
+	FileText,
+	CalendarIcon,
+	Printer,
+	Users,
+} from "lucide-react"
 
 export default function BookCard({
-  publication,
-  publications,
+	publication,
+	publications,
 }: {
-  publication: Book;
-  publications: Book[];
+	publication: Book
+	publications: Book[]
 }) {
-  const seriesParts = publication.series
-    ? publications.filter((book) => book.series === publication.series)
-    : [];
+	const seriesParts = publication.series
+		? publications.filter((book) => book.series === publication.series)
+		: []
 
   return (
     <div className="space-y-16 my-12 max-w-screen-xl mx-auto px-4">
@@ -45,7 +45,7 @@ export default function BookCard({
 
           <div className="w-full lg:w-2/3 space-y-6 text-center lg:text-right">
             <div>
-              <span className="inline-block bg-primary/10 dark:bg-Muharram_primary/10 dark:text-Muharram_primary text-primary px-3 py-1 rounded-full text-sm mb-2">
+              <span className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-2">
                 {publication.category}
               </span>
               <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
@@ -146,34 +146,41 @@ export default function BookCard({
                         : "border-white text-gray-700 hover:bg-gray-100 hover:border-gray-400"
                     }
                   `}
-                >
-                  الجزء {index + 1}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
+								>
+									الجزء {index + 1}
+								</Link>
+							))}
+						</div>
+					</div>
+				)}
+			</div>
+		</div>
+	)
 }
 
 function Detail({
-  label,
-  value,
-  icon,
+	label,
+	value,
+	icon,
+	english = false,
 }: {
-  label: string;
-  value: string | number;
-  icon?: React.ReactNode;
+	label: string
+	value: string | number
+	icon?: React.ReactNode
+	english?: boolean
 }) {
-  return (
-    <div className="bg-gray-50 p-3 rounded-lg flex flex-col items-center lg:items-start">
-      <div className="flex items-center gap-2 text-gray-700">
-        {icon}
-        <span className="font-medium">{label}</span>
-      </div>
-      <span className="text-gray-500 mt-1">{value}</span>
-    </div>
-  );
+	return (
+		<div className="bg-gray-50 p-3 rounded-lg flex flex-col items-center lg:items-start">
+			<div className="flex items-center gap-2 text-gray-700">
+				{icon}
+				<span className="font-medium">{label}</span>
+			</div>
+			<span
+				dir={english ? "ltr" : "rtl"}
+				className={`text-gray-500 mt-1 ${english && "text-left"}`}
+			>
+				{value}
+			</span>
+		</div>
+	)
 }
