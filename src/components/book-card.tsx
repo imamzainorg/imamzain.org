@@ -45,7 +45,7 @@ export default function BookCard({
 
           <div className="w-full lg:w-2/3 space-y-6 text-center lg:text-right">
             <div>
-              <span className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mb-2">
+              <span className="inline-block bg-primary/10 text-primary dark:bg-Muharram_primary/10 dark:text-Muharram_primary px-3 py-1 rounded-full text-sm mb-2">
                 {publication.category}
               </span>
               <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
