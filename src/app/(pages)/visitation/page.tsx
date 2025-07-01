@@ -102,7 +102,7 @@ const ZiaraForm = () => {
           {/* Submit Button */}
           <Button
             onClick={handleSubmit}
-            className="text-white rounded-md bg-secondary p-4 md:p-6 mt-2 font-bold text-xs md:text-lg"
+            className="text-white rounded-md bg-secondary dark:bg-Muharram_primary p-4 md:p-6 mt-2 font-bold text-xs md:text-lg"
           >
             التسجيل
           </Button>
@@ -127,8 +127,8 @@ const ZiaraForm = () => {
 
 const CardStatistics = ({ title, value }: { title: string; value: number }) => {
   return (
-    <div className="w-full p-2 border-2 border-secondary drop-shadow-lg rounded-2xl flex flex-col justify-start items-center gap-8 text-center">
-      <div className="w-full rounded-2xl flex flex-col  justify-between items-center gap-4 text-center p-6 bg-primary border-[0.1px] border-nuetral-200">
+    <div className="w-full p-2 border-2 border-secondary dark:border-Muharram_secondary drop-shadow-lg rounded-2xl flex flex-col justify-start items-center gap-8 text-center">
+      <div className="w-full rounded-2xl flex flex-col  justify-between items-center gap-4 text-center p-6 bg-primary dark:bg-Muharram_primary border-[0.1px] border-nuetral-200">
         <h4 className="text-2xl font-bold  text-white">{title}</h4>
         <p className="text- text-white leading-6">{value}</p>
       </div>
@@ -217,9 +217,9 @@ export default function page() {
       </div>
 
       <div className="  container py-10 pt-20">
-        <div className=" w-full p-2 border-2 border-secondary drop-shadow-lg rounded-2xl flex flex-col justify-start items-center gap-8 text-center">
+        <div className=" w-full p-2 border-2 border-secondary dark:border-Muharram_secondary drop-shadow-lg rounded-2xl flex flex-col justify-start items-center gap-8 text-center">
           <div className="w-full rounded-2xl flex flex-col  justify-between items-center gap-4 text-center p-8 bg-white border-[0.1px] border-nuetral-200">
-            <h4 className="text-2xl md:text-4xl font-bold text-secondary">
+            <h4 className="text-2xl md:text-4xl font-bold text-secondary dark:text-Muharram_secondary">
               زيارة الإمام زين العابدين
             </h4>
             <p className="text-2xl   text-neutral-500 md:leading-10">

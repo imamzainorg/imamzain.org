@@ -81,7 +81,7 @@ export default function SwiperCarousel({ images }: { images: Attachment[] }) {
 						className="h-full w-full"
 						style={{ boxSizing: "content-box" }}
 					>
-						<div className="flex justify-center items-center w-full h-full rounded-2xl  shadow-2xl bg-secondary">
+						<div className="flex justify-center items-center w-full h-full rounded-2xl  shadow-2xl bg-secondary dark:bg-Muharram_secondary">
 							<ImageView
 								images={images}
 								src={src.path}
@@ -99,20 +99,31 @@ export default function SwiperCarousel({ images }: { images: Attachment[] }) {
 
             "
 			>
+						<div
+					onClick={handleNext}
+					className={`swiper-button-prev hidden dark:block ${styles.Muharram_secondary}`}
+				/>
 				<div
 					onClick={handleNext}
-					className={`swiper-button-prev ${styles.secondaryColor}`}
+					className={`swiper-button-prev dark:hidden ${styles.secondaryColor}`}
 				/>
+			
 			</div>
+			
 			<div
 				className="absolute bottom-0 top-0 right-0
             max-lg:hidden
             "
 			>
+					<div
+					onClick={handlePrev}
+					className={`swiper-button-next hidden dark:block ${styles.Muharram_secondary}`}
+				/>
 				<div
 					onClick={handlePrev}
-					className={`swiper-button-next ${styles.secondaryColor}`}
+					className={`swiper-button-next block dark:hidden ${styles.secondaryColor}`}
 				/>
+			
 			</div>
 		</div>
 	)

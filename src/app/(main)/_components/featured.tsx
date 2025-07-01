@@ -5,11 +5,11 @@ import { Palette, Award, Calendar } from "lucide-react"
 export function FeaturedContest() {
 	return (
 		<div className="">
-			<section className="relative py-16 border-b-2 bg-gradient-to-b from-transparent via-primary/5 to-primary/20 overflow-hidden my-20">
+			<section className="relative py-16 border-b-2 bg-gradient-to-b from-transparent via-primary/5 to-primary/20 dark:via-Muharram_primary/5 dark:to-Muharram_primary/20  overflow-hidden my-20">
 				<div className="container mx-auto px-4 relative z-10">
 					<div className="flex flex-col lg:flex-row items-center gap-10">
 						<div className="lg:w-1/2 text-right space-y-6">
-							<div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
+							<div className="inline-flex items-center gap-2 bg-primary/10 text-primary dark:bg-Muharram_primary/10 dark:text-Muharram_primary px-4 py-2 rounded-full text-sm font-medium">
 								<Palette className="w-4 h-4" />
 								مسابقة دولية محكمة
 							</div>
@@ -28,13 +28,13 @@ export function FeaturedContest() {
 
 							<div className="flex flex-wrap gap-4 mt-6">
 								<div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
-									<Award className="w-5 h-5 text-primary" />
+									<Award className="w-5 h-5 text-primary dark:text-Muharram_primary" />
 									<span className="font-medium">
 										جوائز تصل إلى ٣,٠٠٠,٠٠٠ د.ع
 									</span>
 								</div>
 								<div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
-									<Calendar className="w-5 h-5 text-primary" />
+									<Calendar className="w-5 h-5 text-primary dark:text-Muharram_primary" />
 									<span className="font-medium">
 										آخر موعد: ٥ / ١ / ٢٠٢٦
 									</span>
@@ -44,13 +44,13 @@ export function FeaturedContest() {
 							<div className="flex flex-wrap gap-4 mt-8">
 								<Link
 									href="/contests/khat#apply"
-									className="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-xl font-medium transition-colors shadow-lg hover:shadow-xl"
+									className="bg-primary dark:bg-Muharram_primary hover:bg-primary-dark text-white px-8 py-3 rounded-xl font-medium transition-colors shadow-lg hover:shadow-xl"
 								>
 									سجل الآن
 								</Link>
 								<Link
 									href="/contests/khat"
-									className="border-2 border-primary text-primary hover:bg-primary/10 px-8 py-3 rounded-xl font-medium transition-colors"
+									className="border-2 border-primary dark:border-Muharram_primary dark:text-Muharram_primary text-primary hover:bg-primary/10 dark:hover:bg-Muharram_primary/10 px-8 py-3 rounded-xl font-medium transition-colors"
 								>
 									اكتشف التفاصيل
 								</Link>
@@ -80,7 +80,7 @@ export function FeaturedContest() {
 
 							{/* Floating element */}
 							<div className="absolute -top-6 -left-6 bg-white p-4 rounded-xl shadow-lg border border-gray-100 animate-float">
-								<div className="bg-white border border-primary text-gray-900 font-bold px-3 py-1 rounded-full text-sm">
+								<div className="bg-white border border-primary dark:border-Muharram_primary text-gray-900 font-bold px-3 py-1 rounded-full text-sm">
 									جائزة المركز الأول
 								</div>
 								<div className="mt-2 font-bold text-xl">

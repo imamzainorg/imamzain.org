@@ -34,7 +34,7 @@ export default function Section({
 				/>
 				<h1
 					className={cn(
-						"text-lg md:text-xl lg:text-2xl xl:text-3xl font-extrabold text-primary",
+						"text-lg md:text-xl lg:text-2xl xl:text-3xl font-extrabold text-primary dark:text-Muharram_primary",
 						dark && "text-white",
 					)}
 				>
@@ -46,7 +46,7 @@ export default function Section({
 					<p className="text-lg leading-relaxed !tracking-tight text-justify inline">
 						{text}
 						{moreButton && (
-							<Link href={moreButton} className="text-primary font-semibold mr-2 hover:underline">
+							<Link href={moreButton} className="text-primary dark:text-Muharram_primary font-semibold mr-2 hover:underline">
 								المزيد...
 							</Link>
 						)}

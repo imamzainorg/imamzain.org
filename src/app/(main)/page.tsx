@@ -78,10 +78,10 @@ export default async function page() {
 				<div
 					className="bg-cover bg-top bg-no-repeat"
 					style={{
-						backgroundImage: "url('/images/albaqi.jpg')",
+						backgroundImage: "url('/images/albaqi.jpg') ",
 					}}
 				>
-					<div className="bg-secondary/80 dark:bg-dark-primary text-white py-20">
+					<div className="bg-secondary/25 dark:bg-Muharram_secondary/25 backdrop-blur-sm text-white py-20">
 						<div className="container">
 							<AnimatedTextSection
 								title="الإمام زين العابدين (عليه السلام)"

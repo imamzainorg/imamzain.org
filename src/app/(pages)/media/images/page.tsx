@@ -53,7 +53,7 @@ export default function GalleryPage() {
         />
 
         <div className="text-center animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-secondary to-black bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-secondary to-black dark:from-Muharram_secondary dark:to-black bg-clip-text text-transparent">
             معرض الصور
           </h1>
           <p className="text-gray-300 max-w-2xl mx-auto text-lg mb-4">

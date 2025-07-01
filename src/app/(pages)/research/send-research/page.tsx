@@ -13,16 +13,17 @@ interface StepSectionProps {
 const StepSection = ({ step, title, children, Boarded }: StepSectionProps) => {
 	return (
 		<div
-			className={`relative pr-16 pb-16 ${!!Boarded && "border-r-secondary border-r-4"}`}
+			className={`relative pr-16 pb-16 ${!!Boarded && "border-r-secondary dark:border-r-Muharram_secondary border-r-4"}`}
 		>
-			<div className="absolute -top-8 -right-12 w-24 h-24 border-secondary border-4 rounded-full bg-white flex justify-center items-center">
-				<div className="w-20 h-20 rounded-full bg-primary flex justify-center items-center">
+			<div className="absolute -top-8 -right-12 w-24 h-24 border-secondary  dark:border-Muharram_secondary
+			 border-4 rounded-full bg-white flex justify-center items-center">
+				<div className="w-20 h-20 rounded-full bg-primary dark:bg-Muharram_primary flex justify-center items-center">
 					<div className="text-3xl text-white pt-3">{step}</div>
 				</div>
 			</div>
 
 			<div>
-				<h2 className="text-primary text-4xl font-bold">{title}</h2>
+				<h2 className="text-primary dark:text-Muharram_primary text-4xl font-bold">{title}</h2>
 				<div className="pr-10 pt-10 text-xl text-gray-800 leading-relaxed pl-5">
 					{children}
 				</div>
@@ -259,7 +260,7 @@ export default function Page() {
 							<Link
 								download
 								href={"/research/تعهد الباحث.pdf"}
-								className="px-6 py-4 text-white text-nowrap flex gap-5 mx-10 text-xl bg-primary rounded-2xl hover:bg-primary/95"
+								className="px-6 py-4 text-white text-nowrap flex gap-5 mx-10 text-xl bg-primary rounded-2xl hover:bg-primary/95 dark:bg-Muharram_primary dark:hover:bg-Muharram_primary/95"
 							>
 								<p>تحميل فورمة الأقرار</p>
 								<ArrowDownToLine strokeWidth={1} />

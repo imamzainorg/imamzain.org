@@ -23,7 +23,7 @@ export default function Live() {
 					whileInView="visible"
 					viewport={{once: true, amount: 0.3}}
 					className="text-center md:text-right space-y-3 lg:w-1/3 xl:text-right">
-					<h1 className="text-primary font-bold text-3xl md:text-5xl xl:text-7xl tracking-wide">
+					<h1 className="text-primary dark:text-Muharram_primary font-bold text-3xl md:text-5xl xl:text-7xl tracking-wide">
 						البــــــث <br className="hidden md:block" />
 						المباشر
 					</h1>

@@ -30,7 +30,7 @@ export function HighlightCarousel({ publications }: { publications: Book[] }) {
 					"text-white rounded-xl sm:rounded-2xl lg:rounded-[50px] xl:rounded[150px] bg-[url('/shapes/dark-bg.svg')] p-4 lg:p-10 xl:p-20 duration-200",
 					displayedPublications.indexOf(publication) % 2 === 0
 						? "bg-dark-background dark:bg-dark-background "
-						: "bg-secondary-40 dark:bg-dark-secondary-40",
+						: "bg-dark-background dark:bg-dark-background",
 				)}
 			>
 				<AnimatePresence mode="wait">
@@ -52,7 +52,7 @@ export function HighlightCarousel({ publications }: { publications: Book[] }) {
 								</h3>
 								<Link
 									href={`/publications/${publication.slug}`}
-									className="w-fit bg-primary text-xs sm:text-2xl tracking-wide font-semibold px-4 py-2 lg:px-6 lg:py-3 xl:px-8 xl:py-4 rounded-lg lg:rounded-xl"
+									className="w-fit bg-primary dark:bg-Muharram_primary text-xs sm:text-2xl tracking-wide font-semibold px-4 py-2 lg:px-6 lg:py-3 xl:px-8 xl:py-4 rounded-lg lg:rounded-xl"
 								>
 									اشتري الكتاب
 								</Link>
@@ -83,9 +83,9 @@ export function HighlightCarousel({ publications }: { publications: Book[] }) {
 						key={index}
 						onClick={() => setPublication(displayedPublications[index])}
 						className={cn(
-							"rounded-full w-4 h-4 bg-primary-20 cursor-pointer hover:bg-primary-50 duration-150",
+							"rounded-full w-4 h-4 bg-primary/20 cursor-pointer hover:bg-primary-50 dark:bg-Muharram_primary/20 dark:hover:bg-Muharram_primary duration-150",
 							displayedPublications.indexOf(publication) === index &&
-								"bg-primary",
+								"bg-primary dark:bg-Muharram_primary",
 						)}
 					/>
 				))}

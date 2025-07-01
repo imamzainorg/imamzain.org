@@ -96,7 +96,7 @@ const showHadith = currentImageIndex === 0 || currentImageIndex === 1
 			aria-label="Featured image and hadith of the day"
 		>
 			<div
-				className="relative w-full h-[95vh] max-lg:h-[90vh] bg-[#006654] overflow-hidden"
+				className="relative w-full h-[95vh] max-lg:h-[90vh] bg-[#006654] dark:bg-[#681717]  overflow-hidden"
 				style={maskStyles}
 			>
 				{/* Gradient overlay - only shown when albaqi.jpg is displayed */}
@@ -129,7 +129,7 @@ const showHadith = currentImageIndex === 0 || currentImageIndex === 1
 							key={index}
 							className={`w-2 h-2 rounded-full ${
 								index === currentImageIndex
-									? "bg-primary"
+									? "bg-primary dark:bg-[#681717] "
 									: "bg-white/50"
 							}`}
 							onClick={() => {

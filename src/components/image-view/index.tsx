@@ -132,7 +132,7 @@ export default function ImageView({
                       height={80}
                       className={`object-cover w-full hover:cursor-pointer h-full rounded-md border-2 transition-all duration-200 ${
                         index === activeIndex
-                          ? "border-primary scale-105"
+                          ? "border-primary dark:border-Muharram_primary scale-105"
                           : "border-transparent"
                       }`}
                     />

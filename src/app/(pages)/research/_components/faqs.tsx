@@ -4,7 +4,7 @@ export default function Faqs() {
 	return (
 		<div className="py-10">
 			<div className="flex flex-col items-center gap-4 justify-between pb-5">
-				<h1 className="text-primary text-3xl font-bold">
+				<h1 className="text-primary dark:text-Muharram_primary text-3xl font-bold">
 					الأسئلة الشائعة{" "}
 				</h1>
 				<div className="col-span-1 w-full md:col-span-3 md:w-72 relative lg:mb-4">
@@ -12,10 +12,10 @@ export default function Faqs() {
 						type="text"
 						// value={searchTitle}
 						// onChange={(e) => setSearchTitle(e.target.value)}
-						className="w-full rounded-2xl md:text-sm lg:text-lg p-1 bg-transparent border border-primary focus:border-primary   outline-none   "
+						className="w-full rounded-2xl md:text-sm lg:text-lg p-1 bg-transparent border border-primary focus:border-primary dark:border-Muharram_primary dark:focus:border-Muharram_primary  outline-none   "
 						placeholder="البحث عن البحوث"
 					/>
-					<div className="absolute text-primary left-0 top-0 pl-3 h-full flex justify-center items-center gap-4">
+					<div className="absolute text-primary dark:text-Muharram_primary left-0 top-0 pl-3 h-full flex justify-center items-center gap-4">
 						<div className="h-2/3 w-[1px] bg-slate-400" />
 						<SearchIcon size={20} strokeWidth={1.5} />
 					</div>
@@ -51,7 +51,7 @@ export default function Faqs() {
 				].map((item, index) => (
 					<div
 						key={index}
-						className="text-start flex flex-col items-start gap-2 border-r-5 border-primary pr-2 cursor-pointer"
+						className="text-start flex flex-col items-start gap-2 border-r-5 border-primary dark:border-Muharram_primary pr-2 cursor-pointer"
 					>
 						<h1 className="text-2xl font-bold">
 							{" "}

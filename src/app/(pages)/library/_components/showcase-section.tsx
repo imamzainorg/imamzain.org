@@ -38,7 +38,7 @@ export default async function ShowcaseSection({
 						)}
 					</div>
 					<div className=" w-2/3 flex flex-col h-5/6 justify-center gap-0 sm:gap-1 md:gap-5 xmd:gap-7  lg:gap-0  relative">
-						<h2 className="text-primary text-[0.6rem] xs:text-lg sm:text-2xl xmd:text-3xl lg:text-xl xl:text-2xl font-bold  absolute -top-10 xs:-top-16 sm:-top-20 md:-top-28 xmd:-top-32 lg:-top-20 xl:-top-24 2xl:-top-28 ">
+						<h2 className="text-primary dark:text-Muharram_primary text-[0.6rem] xs:text-lg sm:text-2xl xmd:text-3xl lg:text-xl xl:text-2xl font-bold  absolute -top-10 xs:-top-16 sm:-top-20 md:-top-28 xmd:-top-32 lg:-top-20 xl:-top-24 2xl:-top-28 ">
 							{showcaseBooks[0].title}
 						</h2>
 

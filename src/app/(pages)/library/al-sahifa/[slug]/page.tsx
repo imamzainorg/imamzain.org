@@ -47,7 +47,7 @@ export default async function Page({
           كتب ذات صلة
         </h2>
 
-        <div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
+        <div className="bg-secondary dark:bg-Muharram_secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
           {LibraryBooks.filter((b) => b.slug !== book.slug)
             .slice(0, 2)
             .map((libraryBook) => (

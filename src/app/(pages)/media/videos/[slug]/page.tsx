@@ -43,7 +43,7 @@ export default async function media({
 				</div>
 
 				<div className="order-2 w-full md:w-1/2 p-4 md:ml-4 lg:ml-10 2xl:p-10 -tracking-tighter ">
-					<p className="text-secondary text-lg xs:text-xl xl:text-3xl  sm:text-2xl md:text-lg xmd:text-2xl my-4 xmd:text-justify text-center font-bold">
+					<p className="text-secondary dark:text-Muharram_secondary text-lg xs:text-xl xl:text-3xl  sm:text-2xl md:text-lg xmd:text-2xl my-4 xmd:text-justify text-center font-bold">
 						{video.title}
 					</p>
 					<p className="text-white  text-sm xs:text-lg md:text-sm !leading-10 md:!leading-4 xmd:!leading-5 lg:!leading-8 xl:!leading-10 2xl:!leading-10 2xl:2xl text-justify xl:text-xl my-4">

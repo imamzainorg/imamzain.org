@@ -16,7 +16,7 @@ export default async function Page() {
 
 			<div className="md:w-11/12 mx-auto md:px-6 ">
 				<div className="mb-20 space-y-10">
-					<h2 className=" text-green-900 text-2xl md:text-3xl font-bold mb-4">
+					<h2 className=" text-primary dark:text-Muharram_primary text-2xl md:text-3xl font-bold mb-4">
 						سيرة الإمام السجاد عليه السلام
 					</h2>
 					<p className=" font-light text-lg md:text-xl leading-7 md:leading-9 lg:leading-loose text-justify tracking-tighter">

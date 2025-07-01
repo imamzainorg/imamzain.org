@@ -65,6 +65,7 @@ export default function GallerySection() {
               href: "/media/images",
             }}
             dark
+            
           />
 
           {/* سلايدر الصور */}
@@ -74,7 +75,7 @@ export default function GallerySection() {
           <div className="mt-8 p-4 rounded-3xl bg-gray-600/35">
             {isLoading ? (
               <div className="flex justify-center items-center h-40">
-                <span className="animate-spin rounded-full border-4 border-gray-300 border-t-secondary w-12 h-12"></span>
+                <span className="animate-spin rounded-full border-4 border-gray-300 border-t-secondary   dark:border-t-Muharram_secondary w-12 h-12"></span>
               </div>
             ) : (
               <motion.div
@@ -149,7 +150,7 @@ export default function GallerySection() {
                 initial={{ scale: 0.7 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0.7 }}
-                onClick={(e) => e.stopPropagation()} // عشان لما تضغط على الصورة ما يغلق الليت بوكس
+                onClick={(e) => e.stopPropagation()}
               />
             </motion.div>
           )}

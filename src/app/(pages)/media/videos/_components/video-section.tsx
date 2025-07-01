@@ -80,7 +80,7 @@ export default function VideoComponent() {
 			<div className="absolute group top-0 right-0 w-full font-semibold text-sm h-full z-10">
 				<div className="container w-full h-full flex flex-col justify-end items-start cursor-pointer">
 					<div className="bg-neutral-4 w-[70%] lg:w-[35rem] pb-10 md:pb-28 lg:pb-32  flex flex-col justify-end items-start lg:gap-4">
-						<div className="  pb-4 text-xl lg:text-4xl font-bold text-[#bb9661]">
+						<div className="  pb-4 text-xl lg:text-4xl font-bold text-[#bb9661] dark:text-Muharram_secondary">
 							الملتقى التشاوري
 						</div>
 						<div className="font-semibold text-lg lg:text-3xl text-white">
@@ -90,7 +90,7 @@ export default function VideoComponent() {
 						<div className="flex gap-4 items-center">
 							<div className="w-fit text-slate-400 flex items-center gap-1 py-4">
 								<TimeIcon
-									className="w-5 h-5 text-secondary"
+									className="w-5 h-5 text-secondary dark:text-Muharram_secondary"
 									stroke="#bb9661"
 								/>
 								<span>09 /02 /2025</span>

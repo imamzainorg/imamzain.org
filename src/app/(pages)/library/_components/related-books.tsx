@@ -15,10 +15,10 @@ export default function RelatedBooks({
 	return (
 		<div className="flex flex-col">
 			<div>
-				<h3 className="text-[0.6rem] text-left text-primary font-bold mt-4 xs:text-sm md:text-xl lg:text-base">
+				<h3 className="text-[0.6rem] text-left text-primary dark:text-Muharram_primary font-bold mt-4 xs:text-sm md:text-xl lg:text-base">
 					مواضيع ذات صلة
 				</h3>
-				<div className="bg-secondary/30 bg-opacity-10 rounded-xl m-2 ">
+				<div className="bg-secondary/30 dark:bg-Muharram_primary/30 bg-opacity-10 rounded-xl m-2 ">
 					{relatedBooks.map((relatedBook) => (
 						<Link
 							href={`${route}/${relatedBook.slug}`}
@@ -40,7 +40,7 @@ export default function RelatedBooks({
 								)}
 							</div>
 							<div className="w-full flex flex-col  justify-center gap-0 sm:gap-1 md:gap-5 xmd:gap-7  lg:gap-0  relative">
-								<h2 className="text-primary text-[0.5rem] xs:text-[0.8rem] sm:text-lg md:text-xl lg:text-sm xl:text-md 2xl:text-lg font-bold  absolute top-1 xs:top-2  md:top-3  xmd:top-5 xl:top-4 2xl:top-2">
+								<h2 className="text-primary dark:text-Muharram_primary text-[0.5rem] xs:text-[0.8rem] sm:text-lg md:text-xl lg:text-sm xl:text-md 2xl:text-lg font-bold  absolute top-1 xs:top-2  md:top-3  xmd:top-5 xl:top-4 2xl:top-2">
 									{relatedBook.title}
 								</h2>
 
