@@ -54,7 +54,7 @@ const SubscriptionForm = () => {
 			/>
 			<button
 				type="submit"
-				className="bg-secondary px-4 py-1 xl:px-8 xl:py-2 w-fit mx-auto rounded-md text-sm"
+				className="bg-secondary hover:bg-secondary/80 dark:bg-Muharram_secondary dark:hover:bg-Muharram_secondary/80 px-4 py-1 xl:px-8 xl:py-2 w-fit mx-auto rounded-md text-sm"
 			>
 				اشترك الان
 			</button>

@@ -167,7 +167,7 @@ export default async function page({
 							</div>
 
 							{/* Newsletter Signup */}
-							<div className="bg-gradient-to-br from-primary to-primary/80 rounded-xl p-6 text-white">
+							<div className="bg-gradient-to-br from-primary to-primary/80 dark:from-Muharram_primary dark:to-Muharram_secondary/80 rounded-xl p-6 text-white">
 								<h3 className="text-lg font-bold mb-3">
 									اشترك في النشرة الإخبارية
 								</h3>
@@ -181,7 +181,7 @@ export default async function page({
 										placeholder="بريدك الإلكتروني"
 										className="flex-1 px-3 py-2 rounded-lg text-gray-900 text-sm"
 									/>
-									<button className="px-4 py-2 bg-white text-primary rounded-lg font-medium text-sm hover:bg-gray-100 transition-colors">
+									<button className="px-4 py-2 bg-white text-primary dark:text-Muharram_primary rounded-lg font-medium text-sm hover:bg-gray-100 transition-colors">
 										اشتراك
 									</button>
 								</div>

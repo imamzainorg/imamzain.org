@@ -10,7 +10,6 @@ import galleryImages from "@/data/gallery.json";
 
 export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState<string>("جميع الصور");
-
   const [lightboxOpen, setLightboxOpen] = useState<boolean>(false);
   const galleryRef = useRef<HTMLDivElement>(null);
 
@@ -27,7 +26,7 @@ export default function GalleryPage() {
     setLightboxOpen(false);
     document.body.style.overflow = "auto";
   }, []);
-  // التحكم بالسكرول عند فتح / إغلاق اللايت بوكس
+
   useEffect(() => {
     if (lightboxOpen) {
       document.body.style.overflow = "hidden";
@@ -41,8 +40,8 @@ export default function GalleryPage() {
   }, [lightboxOpen]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b  text-white ">
-      <div className="xl:container mx-auto px-4 ">
+    <div className="min-h-screen bg-gradient-to-b text-white">
+      <div className="xl:container mx-auto px-4">
         <Breadcrumbs
           className="text-white"
           links={[
@@ -60,7 +59,7 @@ export default function GalleryPage() {
             استعرض لحظاتنا المصورة من الفعاليات والمناسبات والمسابقات
           </p>
         </div>
-        <div className=" mb-8">
+        <div className="mb-8">
           <SectionCta
             links={categories.map((category) => ({
               label: category,
@@ -77,7 +76,7 @@ export default function GalleryPage() {
 
         <div
           ref={galleryRef}
-          className="mr-3 xmd:pr-32 xmd:pl-32 2xl:pr-64 2xl:pl-64 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5"
+          className="mr-3 xmd:px-32 2xl:px-64 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5"
         >
           {images.map((img) => (
             <div
@@ -97,11 +96,13 @@ export default function GalleryPage() {
 
       {lightboxOpen && (
         <div
-          className="fixed inset-0  bg-opacity-95 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center p-4"
           onClick={(e) => e.target === e.currentTarget && closeLightbox()}
         >
           <div className="max-w-4xl w-full max-h-[85vh] flex flex-col">
-            <div className="flex-1 flex items-center justify-center"></div>
+            <div className="flex-1 flex items-center justify-center">
+              {/* محتوى الـ Lightbox سيتم إضافته هنا */}
+            </div>
           </div>
         </div>
       )}

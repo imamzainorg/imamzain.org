@@ -146,7 +146,7 @@ export default function GallerySection() {
               <motion.img
                 src={selectedImage}
                 alt="Selected"
-                className="max-w-[90vw] max-h-[90vh] rounded-2xl shadow-2xl"
+                className="max-w-[90vw] max-h-[90vh] rounded-2xl  shadow-2xl"
                 initial={{ scale: 0.7 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0.7 }}

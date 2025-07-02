@@ -99,10 +99,10 @@ export default function Page() {
 					<span className=" text-sm">الترتيب حسب </span>
 					<select
 						id="sorting"
-						className="border-none bg-transparent focus:border-none active:border-none"
+						className="border-none bg-transparent  focus:border-none active:border-none"
 						onChange={(e) => setSortOption(e.target.value)}
 					>
-						<option value="latest" defaultChecked>
+						<option value="latest" className="  " defaultChecked>
 							الأحدث
 						</option>
 						<option value="common">الأكثر شيوعا</option>
@@ -175,7 +175,7 @@ export default function Page() {
 			</div>
 
 			{/* Display Filtered Books */}
-			<div className="bg-secondary/20 dark:bg-Muharram_secondary/20  rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
+			<div className="bg-secondary/20 dark:bg-Muharram_primary/20  rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
 				{filteredBooks.length > 0 ? (
 					filteredBooks.map((book) => (
 						<BooklibraryCard

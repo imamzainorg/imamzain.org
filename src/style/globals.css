@@ -77,10 +77,6 @@ html.dark {
 }
 
 
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  color: var(--color-secondary); 
-}
 
 .arabic-list {
 	list-style-type: decimal;

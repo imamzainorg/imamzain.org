@@ -147,7 +147,7 @@ export default async function Page() {
 						>
 							<div className="">
 								<div className="rounded-xl ">
-									<div className="relative w-full h-full overflow-hidden rounded-xl hover:cursor-pointer border-4 border-transparent transition-all  hover:border-secondary duration-300 ease-in-out">
+									<div className="relative w-full h-full overflow-hidden rounded-xl hover:cursor-pointer border-4 border-transparent transition-all  hover:border-secondary dark:hover:border-Muharram_secondary/80 duration-300 ease-in-out">
 										<Image
 											src={post.image}
 											alt={post.summary}
