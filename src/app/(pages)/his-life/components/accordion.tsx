@@ -15,7 +15,7 @@ export default function HisLifeAccordion({
 				key={section.title}
 				aria-label={section.title}
 				title={
-					<div className=" relative bg-primary p-4 text-white shadow-lg rounded-2xl font-bold overflow-hidden z-10">
+					<div className=" relative bg-primary dark:bg-Muharram_primary p-4 text-white shadow-lg rounded-2xl font-bold overflow-hidden z-10">
 						<span className="mr-8">{section.title}</span>
 						<div className="absolute top-0 -right-4 bg-[url('/shapes/newsIndicator.svg')] dark:bg-[url('/shapes/newsIndicator_Muharram.svg')] bg-center bg-no-repeat -rotate-90 w-14 h-14" />
 					</div>
@@ -32,7 +32,7 @@ export default function HisLifeAccordion({
 				<div className="w-full flex justify-end">
 					<Link
 						href={`/his-life/${section.slug}`}
-						className=" text-primary p-4 flex items-center gap-4 group -translate-y-10"
+						className=" text-primary dark:text-Muharram_primary p-4 flex items-center gap-4 group -translate-y-10"
 					>
 						قراءة المزيد
 						<ChevronLeft className="opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 duration-150" />

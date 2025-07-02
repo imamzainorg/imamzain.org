@@ -71,7 +71,7 @@ export default function VisionAndGoals() {
   ]
 
   const SectionTitle = ({ title }: { title: string }) => (
-	<h2 className="text-2xl font-bold mb-4 text-primary border-b-3 border-secondary inline-block pb-2">
+	<h2 className="text-2xl font-bold mb-4 text-primary dark:text-Muharram_primary border-b-3 border-secondary dark:border-Muharram_secondary  inline-block pb-2">
 	{title}
   </h2>
     

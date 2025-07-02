@@ -21,7 +21,7 @@ export default function UploadedResearch() {
 	return (
 		<div className="py-14">
 			<div className="flex justify-between pb-5">
-				<h1 className="text-primary text-3xl font-bold">
+				<h1 className="text-primary dark:text-Muharram_primary text-3xl font-bold">
 					البحوث المرفوعة{" "}
 				</h1>
 				<div className="col-span-1 w-full md:col-span-3 md:w-72 relative lg:mb-4">
@@ -29,10 +29,10 @@ export default function UploadedResearch() {
 						type="text"
 						// value={searchTitle}
 						// onChange={(e) => setSearchTitle(e.target.value)}
-						className="w-full rounded-2xl md:text-sm lg:text-lg p-1 bg-transparent border border-primary focus:border-primary   outline-none   "
+						className="w-full rounded-2xl md:text-sm lg:text-lg p-1 bg-transparent border border-primary focus:border-primary dark:border-Muharram_primary dark:focus:border-Muharram_primary  outline-none   "
 						placeholder="البحث عن البحوث"
 					/>
-					<div className="absolute text-primary left-0 top-0 pl-3 h-full flex justify-center items-center gap-4">
+					<div className="absolute text-primary dark:text-Muharram_primary left-0 top-0 pl-3 h-full flex justify-center items-center gap-4">
 						<div className="h-2/3 w-[1px] bg-slate-400" />
 						<SearchIcon size={20} strokeWidth={1.5} />
 					</div>
@@ -57,7 +57,7 @@ export default function UploadedResearch() {
 							<div className="w-full flex justify-end gap-2">
 								<Link
 									href={`/research/${item.slug}`}
-									className="px-4 py-2 text-white     bg-primary rounded-xl hover:bg-primary/95"
+									className="px-4 py-2 text-white     bg-primary rounded-xl hover:bg-primary/95 dark:hover:bg-Muharram_primary/95 dark:bg-Muharram_primary"
 								>
 									<FontAwesomeIcon
 										icon={faFilePdf}
@@ -66,7 +66,7 @@ export default function UploadedResearch() {
 								</Link>
 								<Link
 									href={`/research/${item.slug}`}
-									className="px-4 py-2  text-white   text-xl bg-primary rounded-xl hover:bg-primary/95"
+									className="px-4 py-2  text-white   text-xl bg-primary dark:bg-Muharram_primary rounded-xl hover:bg-primary/95 dark:hover:bg-Muharram_primary/95"
 								>
 									<FileText
 										strokeWidth={2}
@@ -82,7 +82,7 @@ export default function UploadedResearch() {
 			<div className="flex justify-end mt-10">
 				<Link
 					href={"/research/archive"}
-					className="flex font-semibold gap-2 w-fit  text-white items-center  py-2 px-4 pr-5 max-lg:py-1 rounded-lg bg-primary text-xs sm:text-sm"
+					className="flex font-semibold gap-2 w-fit  text-white items-center  py-2 px-4 pr-5 max-lg:py-1 rounded-lg bg-primary dark:bg-Muharram_primary text-xs sm:text-sm"
 				>
 					<p className="text-nowrap">المزيد</p>
 					<ChevronRightArrowIcon

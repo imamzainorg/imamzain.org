@@ -90,16 +90,23 @@ export default function Videos({
 										/>
 										<div className="absolute inset-0 w-full h-full bg-gradient-to-t from-white/20 to-transparent -z-10" />
 										<div className="h-4/6">
-											<div className="h-1/2 w-full flex justify-end items-start p-3">
+											<div className="h-1/2 w-full  flex justify-end items-start p-3">
 												<VideoRecordingIcon
 													fill="none"
 													stroke="#fff"
 												/>
 											</div>
+											
 											<div className="h-1/2 w-full flex justify-start items-end p-3">
-												<div className="bg-white rounded-full rotate-180 p-2">
+												<div className="bg-white dark:hidden rounded-full rotate-180 p-2">
 													<PlayButtonIcon
 														fill="#006654"
+														className="w-auto h-auto"
+													/>
+												</div>
+													<div className="bg-white hidden dark:block rounded-full rotate-180 p-2">
+													<PlayButtonIcon
+														fill="#231F20"
 														className="w-auto h-auto"
 													/>
 												</div>

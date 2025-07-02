@@ -82,7 +82,7 @@ export default function Page() {
           </div>
         </div>
       ) : (
-        <div className=" md:container grid md:grid-cols-2 gap-8 max-w-screen-xl mx-auto   bg-primary bg-pattern p-6 rounded-3xl">
+        <div className=" md:container grid md:grid-cols-2 gap-8 max-w-screen-xl mx-auto   bg-primary dark:bg-Muharram_primary bg-pattern p-6 rounded-3xl">
           <div className="flex flex-col gap-5 justify-center text-white">
             <h3 className="text-2xl font-bold">معلومات التواصل</h3>
             <p>النجف الأشرف - ملحق شارع الروان</p>
@@ -125,7 +125,7 @@ export default function Page() {
 
             <div className="relative w-full">
               <textarea
-                className="w-full h-28 rounded-xl p-4 pr-10 focus:ring-2 focus:ring-secondary resize-none"
+                className="w-full h-28 rounded-xl p-4 pr-10 focus:ring-2 focus:ring-secondary dark:focus:ring-Muharram_secondary resize-none"
                 name="message"
                 placeholder="اكتب رسالتك"
                 value={formData.message}
@@ -138,7 +138,7 @@ export default function Page() {
 
             <Button
               type="submit"
-              className="text-white rounded-xl bg-secondary px-6 py-4 font-bold text-base hover:scale-105 transition"
+              className="text-white rounded-xl bg-secondary dark:bg-Muharram_secondary px-6 py-4 font-bold text-base hover:scale-105 transition"
             >
               ارسال
             </Button>

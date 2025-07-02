@@ -45,7 +45,7 @@ export default function SectionCta({
 				>
 					<Link
 						href={link.href}
-						className="text-white md:text-lg bg-primary text-center p-4 px-8 sm:px-10 md:px-12 lg:px-16
+						className="text-white md:text-lg bg-primary dark:bg-Muharram_primary text-center p-4 px-8 sm:px-10 md:px-12 lg:px-16
 						inline-flex justify-center items-center gap-4 transition-all duration-300 ease-in-out
 						active:scale-95 hover:scale-105 rounded-lg"
 						style={{
@@ -60,7 +60,7 @@ export default function SectionCta({
 							minWidth: "200px",
 						}}
 					>
-						<span className="w-2 h-2 bg-secondary rounded-full z-10" />
+						<span className="w-2 h-2 bg-secondary dark:bg-Muharram_secondary rounded-full z-10" />
 						<span className="z-10">{link.label}</span>
 					</Link>
 				</motion.div>

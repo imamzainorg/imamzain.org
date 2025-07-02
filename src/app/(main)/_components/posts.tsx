@@ -69,7 +69,7 @@ export default function Posts({ newsPosts }: { newsPosts: Post[] }) {
 							}}
 						>
 							<Link href={`/news/${item.slug}`}>
-								<div className="rounded-3xl bg-gradient-to-t from-primary to-transparent flex justify-center items-end p-6 h-[30rem]">
+								<div className="rounded-3xl bg-gradient-to-t from-primary dark:from-Muharram_primary to-transparent flex justify-center items-end p-6 h-[30rem]">
 									<div className="flex flex-col text-white/90">
 										<div className="flex gap-2 items-center text-xl sm:text-2xl font-bold">
 											<Image

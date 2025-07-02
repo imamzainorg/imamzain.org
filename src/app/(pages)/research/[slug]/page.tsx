@@ -38,7 +38,7 @@ export default async function page({
         <div className="w-full flex justify-end gap-2">
           <Link
             href={"/"}
-            className="px-10 py-2 text-white     bg-primary rounded-xl hover:bg-primary/95"
+            className="px-10 py-2 text-white     bg-primary rounded-xl hover:bg-primary/95 dark:hover:bg-Muharram_primary/95 dark:bg-Muharram_primary"
           >
             <FontAwesomeIcon
               icon={faFilePdf}
@@ -47,7 +47,7 @@ export default async function page({
           </Link>
           <Link
             href={"/"}
-            className="px-10 py-2  text-white   text-xl bg-primary rounded-xl hover:bg-primary/95"
+            className="px-10 py-2  text-white   text-xl bg-primary rounded-xl hover:bg-primary/95 dark:hover:bg-Muharram_primary/95 dark:bg-Muharram_primary"
           >
             <FileText strokeWidth={2} color="#ffffff" className="mt-0.5" />
           </Link>
@@ -55,7 +55,7 @@ export default async function page({
       </div>
 
       <div className="mt-10">
-        <h1 className="text-primary text-3xl font-bold py-10">بحوث ذات صلة </h1>
+        <h1 className="text-primary dark:text-Muharram_primary text-3xl font-bold py-10">بحوث ذات صلة </h1>
 
         <div className="grid grid-cols-2  gap-4 ">
           {data.slice(0 , 4).map((item, index) => (
@@ -74,7 +74,7 @@ export default async function page({
               <div className="w-full flex justify-end gap-2">
                 <Link
                   href={"/"}
-                  className="px-4 py-2 text-white     bg-primary rounded-xl hover:bg-primary/95"
+                  className="px-4 py-2 text-white     bg-primary rounded-xl hover:bg-primary/95 dark:hover:bg-Muharram_primary/95 dark:bg-Muharram_primary"
                 >
                   <FontAwesomeIcon
                     icon={faFilePdf}
@@ -83,7 +83,7 @@ export default async function page({
                 </Link>
                 <Link
                   href={"/"}
-                  className="px-4 py-2  text-white   text-xl bg-primary rounded-xl hover:bg-primary/95"
+                  className="px-4 py-2  text-white   text-xl bg-primary rounded-xl hover:bg-primary/95 dark:hover:bg-Muharram_primary/95 dark:bg-Muharram_primary"
                 >
                   <FileText
                     strokeWidth={2}

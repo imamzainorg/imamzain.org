@@ -4,7 +4,7 @@ import Link from "next/link"
 export default function Breadcrumbs({
 	links,
 	className = "text-gray-700",
-	dotColor = "bg-primary",
+	dotColor = "bg-primary dark:bg-Muharram_secondary" ,
 }: {
 	links: { name: string; url: string }[]
 	className?: string
@@ -26,7 +26,7 @@ export default function Breadcrumbs({
 						<Link
 							href={link.url}
 							className={cn(
-								"hover:text-primary duration-150 line-clamp-1",
+								"hover:text-primary dark:hover:text-Muharram_primary duration-150 line-clamp-1",
 								index === links.length - 1 && "font-bold",
 							)}
 						>

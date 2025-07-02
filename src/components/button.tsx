@@ -15,7 +15,7 @@ export default function ButtonLink({ href, label, className }: ButtonLinkProps) 
     <Link
       href={href}
       className={cn(
-        "inline-flex items-center justify-center px-6 py-2 rounded-xl bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-colors",
+        "inline-flex items-center justify-center px-6 py-2 rounded-xl bg-primary dark:bg-Muharram_primary text-white text-sm font-semibold hover:bg-primary/90 dark:hover:bg-Muharram_primary/90 transition-colors",
         className
       )}
     >

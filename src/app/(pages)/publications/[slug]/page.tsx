@@ -46,7 +46,7 @@ export default async function Page({
         <h2 className="text-center font-semibold border-t border-b p-4 sm:text-2xl xl:text-4xl">
           كتب ذات صلة
         </h2>
-        <div className="bg-secondary bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
+        <div className="bg-secondary dark:bg-Muharram_primary  bg-opacity-10 dark:bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
           {publications
             .filter((book) => book.slug !== publication.slug)
             .slice(0, 2)

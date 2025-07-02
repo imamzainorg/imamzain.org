@@ -62,10 +62,10 @@ export default function Page() {
         {/* الشريط الجانبي */}
         <aside className="lg:w-1/4 space-y-6 hidden lg:block sticky top-24 self-start">
           <div className="bg-white shadow-md border border-primary/20 rounded-2xl p-6 space-y-4">
-            <h2 className="text-md font-bold text-center text-primary">
+            <h2 className="text-md font-bold text-center text-primary dark:text-Muharram_primary ">
               نقاط البيع المباشر
             </h2>
-            <div className="h-px bg-primary/20"></div>
+            <div className="h-px bg-primary/20 dark:bg-Muharram_primary/20"></div>
 
             <nav className="flex flex-col gap-2 text-sm">
               {storeLocations.map((cityBlock) => (
@@ -79,7 +79,7 @@ export default function Page() {
                       onClick={() => handlePointClick(point)}
                       className={`w-full text-right p-2 px-3 rounded-lg transition-colors cursor-pointer ${
                         selectedPoint?.id === point.id
-                          ? "bg-primary/10 text-primary font-medium"
+                          ? "bg-primary/10 text-primary dark:bg-Muharram_primary/10 dark:text-Muharram_primary font-medium"
                           : "hover:bg-gray-50 text-gray-700"
                       }`}
                     >
@@ -108,16 +108,16 @@ export default function Page() {
                   <div
                     key={sellpoint.id}
                     id={`point-${sellpoint.id}`}
-                    className={`p-5 border border-primary/30 overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-200 group  rounded-3xl flex flex-col gap-4 transition-all duration-300 shadow-md hover:shadow-xl ${
+                    className={`p-5 border border-primary/30 dark:border-Muharram_primary/30 overflow-hidden bg-gradient-to-br dark:bg-gradient-to-t  from-white via-gray-50 to-gray-200 group  rounded-3xl flex flex-col gap-4 transition-all duration-300 shadow-md hover:shadow-xl ${
                       selectedPoint?.id === sellpoint.id
-                        ? "ring-2 ring-primary/40 bg-primary/5"
+                        ? "ring-2 ring-primary/40 bg-primary/5 dark:ring-Muharram_primary/40 dark:bg-Muharram_primary/5"
                         : "hover:bg-gray-50"
                     }`}
                   >
                     <div className="flex flex-col gap-6">
                       {/* النص */}
                       <div className="flex-1">
-                        <h4 className="text-lg md:text-xl font-semibold text-gray-800 mb-2">
+                        <h4 className="text-lg md:text-xl font-semibold text-gray-800 mb-2 ">
                           {sellpoint.name}
                         </h4>
                         <p className="text-sm md:text-md text-gray-700 leading-relaxed">
@@ -137,7 +137,7 @@ export default function Page() {
                               toast("تم نسخ الرابط في الحافظة");
                             }}
                             variant="outline"
-                            className="mt-4 inline-flex items-center gap-2 bg-primary border border-primary text-white transition-all font-medium px-2.5 py-1.5 rounded-xl shadow-sm cursor-pointer hover:scale-105"
+                            className="mt-4 inline-flex items-center gap-2 bg-primary border border-primary dark:bg-Muharram_primary dark:border-Muharram_primary text-white transition-all font-medium px-2.5 py-1.5 rounded-xl shadow-sm cursor-pointer hover:scale-105"
                           >
                             <NewsShare iconSize={20} />
                             مشاركة
@@ -145,7 +145,7 @@ export default function Page() {
 
                           <Button
                             asChild
-                            className="mt-4 inline-flex items-center gap-2 bg-primary border border-primary text-white transition-all font-medium px-2.5 py-1.5 rounded-xl shadow-sm cursor-pointer hover:scale-105"
+                            className="mt-4 inline-flex items-center gap-2 bg-primary border border-primary dark:bg-Muharram_primary dark:border-Muharram_primary text-white transition-all font-medium px-2.5 py-1.5 rounded-xl shadow-sm cursor-pointer hover:scale-105"
                           >
                             <Link href={sellpoint.gpsLink}>
                               الذهاب إلى الموقع

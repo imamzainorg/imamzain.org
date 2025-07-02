@@ -51,7 +51,7 @@ export default async function Page() {
 				]}
 			/>
 
-			<div className="relative mt-4 md:mt-16 mb-8 mx-auto flex justify-start gap-20 p-8 md:p-10 backdrop-blur-[1px] shadow-lg shadow-primary/10 rounded-[60px] border border-primary">
+			<div className="relative mt-4 md:mt-16 mb-8 mx-auto flex justify-start gap-20 p-8 md:p-10 backdrop-blur-[1px] shadow-lg shadow-primary/10 dark:shadow-Muharram_primary/10 dark:border-Muharram_primary rounded-[60px] border border-primary">
 				<div className="w-full md:w-3/4 flex flex-col justify-around gap-5 md:pr-10  ">
 					<h1 className="text-base md:text-3xl lg:text-4xl xl:text-5xl font-semibold">
 						الصحيفة السجادية الكاملة
@@ -62,7 +62,7 @@ export default async function Page() {
 					</p>
 					<Link
 						href="/library/al-sahifa/read/al-sahifa-al-sajjadiya"
-						className="w-full xs:w-fit  text-sm md:text-xl py-2 px-4 border-2 rounded-xl border-primary flex items-center gap-4 group"
+						className="w-full xs:w-fit  text-sm md:text-xl py-2 px-4 border-2 rounded-xl border-primary dark:border-Muharram_primary flex items-center gap-4 group"
 					>
 						تصفح الصحيفة الكاملة
 						<ArrowLeft className="opacity-0 translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 duration-150" />
@@ -95,7 +95,7 @@ export default async function Page() {
 						<Link
 							key={card.title}
 							href={card.URL}
-							className="flex flex-col gap-2   text-center group shadow-md hover:shadow-xl shadow-secondary/20 bg-white/60 border cursor-pointer rounded-xl    justify-between items-center p-4   border-slate-200 hover:border-secondary/70 duration-150"
+							className="flex flex-col gap-2   text-center group shadow-md hover:shadow-xl shadow-secondary/20 dark:shadow-Muharram_secondary/20 bg-white/60 border cursor-pointer rounded-xl    justify-between items-center p-4   border-slate-200 hover:border-secondary/70 dark:hover:border-Muharram_secondary/70 duration-150"
 						>
 							<h2 className="font-medium text-sm lg:text-lg ">
 								{card.title}
@@ -115,7 +115,7 @@ export default async function Page() {
 				route="/library/al-sahifa"
 				showcaseBooks={libraryBooks.slice(0, 3)}
 			/>
-			<div className="bg-secondary/40 bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
+			<div className="bg-secondary/20 dark:bg-Muharram_primary/20 bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
 				{libraryBooks.map((book) => (
 					<BooklibraryCard
 						route="/library/al-sahifa"

@@ -90,7 +90,7 @@ const bigNavSocials = [
 
 export default function Footer() {
 	return (
-		<div className="bg-primary text-white rounded-t-[2rem] ">
+		<div className="bg-primary dark:bg-Muharram_primary text-white rounded-t-[2rem] ">
 			{/* Big screen */}
 			<div className="container max-lg:hidden py-10">
 				<div className="flex justify-between pb-10">

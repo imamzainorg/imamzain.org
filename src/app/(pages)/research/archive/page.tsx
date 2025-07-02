@@ -52,10 +52,10 @@ export default function Page() {
             type="text"
             // value={searchTitle}
             // onChange={(e) => setSearchTitle(e.target.value)}
-            className="w-full rounded-2xl md:text-sm lg:text-lg p-1 bg-transparent border border-primary focus:border-primary  active:  outline-none   "
+            className="w-full rounded-2xl md:text-sm lg:text-lg p-1 bg-transparent border border-primary focus:border-primary dark:border-Muharram_primary dark:focus:border-Muharram_primary  active:  outline-none   "
             placeholder="البحث عن البحوث"
           />
-          <div className="absolute text-primary left-0 top-0 pl-3 h-full flex justify-center items-center gap-4 ">
+          <div className="absolute text-primary dark:text-Muharram_primary left-0 top-0 pl-3 h-full flex justify-center items-center gap-4 ">
             <div className="h-2/3 w-[1px] bg-slate-400" />
             <SearchIcon size={20} strokeWidth={1.5} />
           </div>
@@ -84,7 +84,7 @@ export default function Page() {
                               text-sm 
                               ${
                                 selectedCategory === cat
-                                  ? "bg-primary text-white border-primary"
+                                  ? "bg-primary text-white border-primary dark:bg-Muharram_primary  dark:border-Muharram_primary"
                                   : "bg-white text-gray-700 border-gray-300"
                               }
                         `}
@@ -114,7 +114,7 @@ export default function Page() {
             <div className="w-full flex justify-end gap-2">
               <Link
                 href={"/"}
-                className="px-4 py-2 text-white     bg-primary rounded-xl hover:bg-primary/95"
+                className="px-4 py-2 text-white     bg-primary rounded-xl hover:bg-primary/95 dark:hover:bg-Muharram_primary/95 dark:bg-Muharram_primary"
               >
                 <FontAwesomeIcon
                   icon={faFilePdf}
@@ -123,7 +123,7 @@ export default function Page() {
               </Link>
               <Link
                 href={"/"}
-                className="px-4 py-2  text-white   text-xl bg-primary rounded-xl hover:bg-primary/95"
+                className="px-4 py-2  text-white   text-xl bg-primary rounded-xl hover:bg-primary/95 dark:hover:bg-Muharram_primary/95 dark:bg-Muharram_primary "
               >
                 <FileText strokeWidth={2} color="#ffffff" className="mt-0.5" />
               </Link>

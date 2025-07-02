@@ -139,7 +139,7 @@ useEffect(() => {
 									rel="noopener noreferrer"
 									className={`text-xl hover:scale-105 transition-transform h-5 p-0 m-0 ${
 										isScrolled || path !== "/"
-											? "text-primary"
+											? "text-primary dark:text-[#681717] "
 											: "text-white"
 									}`}
 								>
@@ -155,8 +155,8 @@ useEffect(() => {
 								onClick={toggleTheme}
 								className={`p-1.5 rounded-full transition ${
 									isScrolled || path !== "/"
-										? "bg-secondary text-white"
-										: "bg-white text-primary"
+										? "bg-secondary  dark:bg-Muharram_secondary text-white"
+										: "bg-white text-primary dark:text-Muharram_primary"
 								}`}
 								title="تبديل الثيم"
 							>
@@ -185,7 +185,7 @@ useEffect(() => {
 										icon={faGlobe}
 										className={`${
 											isScrolled || path !== "/"
-												? "text-primary"
+												? "text-primary dark:text-Muharram_primary"
 												: "text-white"
 										}`}
 										size="sm"

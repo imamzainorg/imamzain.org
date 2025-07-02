@@ -40,8 +40,11 @@ const CountriesDropdown = ({
 
   return (
     <Autocomplete
-  startContent={
-    <Globe stroke="var(--color-secondary)" fill="none" strokeWidth={2} />
+  startContent={<>
+      <Globe stroke="#bb9661" fill="none" strokeWidth={2} className="dark:hidden " />
+    <Globe stroke="#a43232" fill="none" strokeWidth={2} className="hidden dark:block " />
+
+  </>
   }
   className={`w-full country-autocomplete ${className ?? ""}`}
   placeholder="البلد"
@@ -52,7 +55,7 @@ const CountriesDropdown = ({
     base: styles.autocompleteBase,
     popoverContent: styles.popoverContent,
     listbox: styles.listbox,
-    selectorButton: "text-[var(--color-secondary)] ",
+    selectorButton: "text-secondary  dark:bg-Muharram_secondary",
   }}
 >
   {countriesArray.map((country) => (

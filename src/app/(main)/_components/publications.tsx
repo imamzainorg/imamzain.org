@@ -75,12 +75,13 @@ export default function Publications({
 				{publications.slice(0, booksToShow).map((book) => (
 					<Link key={book.id} href={`/publications/${book.slug}`}>
 						<motion.div
-							className="flex custom-gradient flex-col justify-between rounded-2xl h-full"
-  style={{
-    background:
-      "linear-gradient(0deg, rgba(225, 232, 215, 1) 0%, rgba(225, 232, 215, 1) 0%, rgba(225, 232, 215, 0) 50%)",
-  }}
+className="
+  flex flex-col justify-between rounded-2xl h-3/4
+  bg-gradient-to-t from-[#e1e8d7] via-[#e1e8d7]/10 to-transparent
+  dark:from-Muharram_secondary/20 dark:via-Muharram_secondary/5 dark:to-transparent
+"
 
+  
 
 							variants={parentVariants}
 							initial="rest"
@@ -108,7 +109,7 @@ export default function Publications({
 	}}
 	className="absolute right-0 bottom-0 w-32 h-32"
 >
-	{/* الصورة في الوضع العادي (Light Mode) */}
+	
 	<Image
 		src="/shapes/book_icon.svg"
 		alt={`${book.title} icon`}
@@ -117,7 +118,7 @@ export default function Publications({
 		className="object-contain dark:hidden"
 	/>
 
-	{/* الصورة في الوضع الداكن (Dark Mode) */}
+	
 	<Image
 		src="/shapes/book_icon_Muharram.svg"
 		alt={`${book.title} icon (dark)`}

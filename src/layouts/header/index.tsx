@@ -166,7 +166,7 @@ export default function Header() {
 
         {/* Navbar */}
         <div
-          className={`w-full z-9999 rounded-b-[2rem] ${isScrolled || (path !== "/" && path !== "/media/videos") ? `bg-primary ${isMenuVisible ? "" : "shadow-2xl"}` : ""}`}
+          className={`w-full z-9999 rounded-b-[2rem] ${isScrolled || (path !== "/" && path !== "/media/videos") ? `bg-primary dark:bg-Muharram_primary ${isMenuVisible ? "" : "shadow-2xl"}` : ""}`}
         >
           <div className="container flex justify-between items-center gap-4">
             <Link href="/">
@@ -254,7 +254,7 @@ export default function Header() {
 
       {/* Sidebar Navigation (Mobile) */}
       <nav
-        className={`fixed flex flex-col justify-between top-0 left-0 w-full h-full bg-primary transform transition-transform duration-500 ease-in-out z-30 ${
+        className={`fixed flex flex-col justify-between top-0 left-0 w-full h-full bg-primary dark:bg-Muharram_primary transform transition-transform duration-500 ease-in-out z-30 ${
           isMenuVisible ? "translate-x-0" : "-translate-x-full"
         }`}
       >

@@ -22,10 +22,10 @@ export default function Page() {
 
 			{/* Link send research */}
 			<div className="flex justify-between items-center w-full  pb-14">
-				<hr className="border border-[#bb9661] w-full" />
+				<hr className="border border-[#bb9661] dark:border-Muharram_secondary w-full" />
 				<Link
 					href={"/research/send-research"}
-					className="px-16 py-4 text-white text-nowrap mx-10 text-xl bg-primary rounded-2xl hover:bg-primary/95"
+					className="px-16 py-4 text-white text-nowrap mx-10 text-xl bg-primary  rounded-2xl hover:bg-primary/95 dark:bg-Muharram_primary dark:hover:bg-Muharram_primary/95	"
 				>
 					تقديم البحث
 				</Link>
@@ -34,7 +34,7 @@ export default function Page() {
 
 			{/* Awards */}
 			<div className="py-14">
-				<h1 className="text-primary text-3xl font-bold text-center	">
+				<h1 className="text-primary  dark:text-Muharram_primary text-3xl font-bold text-center	">
 					المكافئات المالية
 				</h1>
 				<div className="flex justify-between gap-1 mt-12">
@@ -93,7 +93,7 @@ export default function Page() {
 						</div>
 					))}
 				</div>
-				<div className="border-r-2 border-secondary pr-4 italic">
+				<div className="border-r-2 border-secondary dark:border-Muharram_primary pr-4 italic">
 					<div className="w-full text-right mt-8 text-lg">
 						ملاحظات:
 					</div>
