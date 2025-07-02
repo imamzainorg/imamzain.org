@@ -10,7 +10,7 @@ export default function PostCard(post: Post) {
 		>
 			<div className="flex gap-4">
 				<div className="flex-1 space-y-2">
-					<h2 className="font-bold text-sm lg:text-base line-clamp-2 hover:text-primary transition-colors">
+					<h2 className="font-bold text-sm lg:text-base line-clamp-2 hover:text-primary dark:hover:text-Muharram_primary transition-colors">
 						{post.title}
 					</h2>
 					<p className="text-gray-600 text-xs lg:text-sm line-clamp-2">

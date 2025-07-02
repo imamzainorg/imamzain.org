@@ -68,9 +68,23 @@ const ZiaraForm = () => {
               base: "",
               input: "border-none focus:ring-0",
             }}
-            startContent={
-              <PersonIcon stroke="#bb9661" fill="#bb9661" strokeWidth={0.1} />
-            }
+        startContent={
+  <>
+    <PersonIcon
+      stroke="#bb9661"
+      fill="#bb9661"
+      strokeWidth={0.1}
+      className="dark:hidden"
+    />
+    <PersonIcon
+      stroke="#a43232"
+      fill="#a43232"
+      strokeWidth={0.1}
+      className="hidden dark:block"
+    />
+  </>
+}
+
             type="text"
           />
           {/* Input for Phone */}
@@ -88,9 +102,12 @@ const ZiaraForm = () => {
               base: "",
               input: "border-none focus:ring-0",
             }}
-            startContent={
-              <MobileIcon stroke="#bb9661" fill="none" strokeWidth={1.5} />
-            }
+            startContent={<>
+            
+                   <MobileIcon stroke="#bb9661" fill="none" strokeWidth={1.5} className="dark:hidden" />
+              <MobileIcon stroke="#a43232" fill="none" strokeWidth={1.5} className="hidden dark:block"/>
+        </>
+           }
             type="number"
           />
           {/* Dropdown for Countries */}

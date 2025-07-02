@@ -81,13 +81,13 @@ export const ApplyStepper = () => {
 									methods.goTo(id as "1" | "2" | "3" | "4")
 								}
 								className={cn(
-									"flex bg-white/60 rounded-xl hover:shadow-xl cursor-pointer flex-col gap-2 md:gap-3 lg:gap-5 w-full items-center border border-b-2 border-primary p-4 md:p-6 lg:p-8 duration-300",
+									"flex bg-white/60 rounded-xl hover:shadow-xl cursor-pointer flex-col gap-2 md:gap-3 lg:gap-5 w-full items-center border border-b-2 border-primary  p-4 md:p-6 lg:p-8 duration-300",
 									methods.current.id === id
-										? "border-primary"
+										? "border-primary  "
 										: "border-slate-200",
 								)}
 							>
-								<span className="flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
+								<span className="flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full lg:h-12 lg:w-12  shrink-0">
 									<Icon className="w-4 h-4 lg:w-6 lg:h-6" />
 								</span>
 								<p className="text-sm md:text-base text-center">
@@ -133,7 +133,7 @@ export const ApplyStepper = () => {
 								))}
 							</ul>
 
-							<div className="w-1/2 mx-auto bg-gradient-to-r from-transparent via-primary to-transparent h-[1px]" />
+							<div className="w-1/2 mx-auto bg-gradient-to-r from-transparent via-primary  to-transparent h-[1px]" />
 							<h2 className="font-bold">شروط خاصة بنوع الخط</h2>
 							<ol className="text-right text-gray-700 space-y-2 pr-2 p-4">
 								{additionalRules.map((rule, index) => (
@@ -159,7 +159,7 @@ export const ApplyStepper = () => {
 							<Link
 								download
 								href="/contests/khat/form.pdf"
-								className="flex gap-2 items-center p-2 border-2 rounded-xl hover:text-primary hover:border-primary duration-300 text-sm sm:text-base"
+								className="flex gap-2 items-center p-2 border-2 rounded-xl hover:text-primary hover:border-primary  duration-300 text-sm sm:text-base"
 							>
 								تحميل الاستمارة
 								<DownloadIcon size={16} />

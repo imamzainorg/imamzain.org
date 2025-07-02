@@ -118,7 +118,7 @@ export default async function page({
 						{/* Article Body */}
 						<div className="prose prose-lg prose-gray max-w-none">
 							{post.body.lede && (
-								<div className="text-xl md:text-2xl font-medium text-gray-700 leading-relaxed mb-8 p-6 bg-gray-100 rounded-lg border-l-4 border-primary">
+								<div className="text-xl md:text-2xl font-medium text-gray-700 leading-relaxed mb-8 p-6 bg-gray-100 rounded-lg border-l-4 border-primary dark:border-Muharram_primary">
 									{post.body.lede}
 								</div>
 							)}

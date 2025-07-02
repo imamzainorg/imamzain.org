@@ -108,7 +108,13 @@ export default function Page() {
               onChange={handleChange}
               className="w-full"
               classNames={{ input: "border-none focus:ring-0" }}
-              startContent={<PersonIcon stroke="#bb9661" fill="#bb9661" strokeWidth={0.1} />}
+              startContent={
+<>
+<PersonIcon stroke="#bb9661" fill="#bb9661" strokeWidth={0.1} className="dark:hidden" />
+<PersonIcon stroke="#a43232" fill="#a43232" strokeWidth={0.1} className="hidden dark:block" />
+</>
+
+              }
             />
             <Input
               size="lg"
@@ -119,7 +125,12 @@ export default function Page() {
               onChange={handleChange}
               className="w-full"
               classNames={{ input: "border-none focus:ring-0" }}
-              startContent={<MailOpen stroke="#bb9661" fill="none" strokeWidth={1.5} />}
+              startContent={
+                <>
+                <MailOpen stroke="#bb9661" fill="none" strokeWidth={1.5} className="dark:hidden" />
+                <MailOpen stroke="#a43232" fill="none" strokeWidth={1.5}  className="hidden dark:block" />
+                </>
+              }
             />
             <CountriesDropdown className="w-full" />
 
@@ -132,7 +143,11 @@ export default function Page() {
                 onChange={handleChange}
               ></textarea>
               <div className="absolute left top-6 mr-3 transform -translate-y-1/2">
-                <MessageIcon width={24} height={24} />
+            <>
+                <MessageIcon width={24} height={24}  stroke="#bb9661" fill="none" className="dark:hidden" />
+                    <MessageIcon width={24} height={24}  stroke="#a43232" fill="none" className="hidden dark:block" />
+            </>
+
               </div>
             </div>
 
