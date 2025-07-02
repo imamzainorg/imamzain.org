@@ -46,7 +46,7 @@ export default function Page() {
                               text-sm 
                               ${
 							selectedCategory === cat
-								? "bg-primary text-white border-primary"
+								? "bg-primary text-white border-primary dark:bg-Muharram_primary dark:border-Muharram_primary"
 								: "bg-white text-gray-700 border-gray-300"
 						}
                         `}

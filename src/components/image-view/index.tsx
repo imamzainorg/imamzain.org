@@ -80,6 +80,14 @@ export default function ImageView({
                 initialSlide={activeIndex}
                 loop={true}
                 navigation
+  style={
+    {
+      "--swiper-navigation-color": "#bb9661",
+      "--swiper-pagination-color": "#ccff61",
+    } as React.CSSProperties & { [key: string]: string }
+  }
+  className=" w-full h-[75%] mb-6"
+  
                 thumbs={{
                   swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
                 }}
@@ -92,7 +100,7 @@ export default function ImageView({
     thumbsSwiper.slideToLoop(realIndex, 300)
   }
 }}
-                className="w-full h-[75%]   mb-6 "
+            
               >
                 {images?.map((image, index) => (
                   <SwiperSlide key={index}>
@@ -132,7 +140,7 @@ export default function ImageView({
                       height={80}
                       className={`object-cover w-full hover:cursor-pointer h-full rounded-md border-2 transition-all duration-200 ${
                         index === activeIndex
-                          ? "border-primary dark:border-Muharram_primary scale-105"
+                          ? "border-primary scale-105"
                           : "border-transparent"
                       }`}
                     />

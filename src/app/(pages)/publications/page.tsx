@@ -161,7 +161,7 @@ export default function PublicationsPage() {
         className="w-11/12 scroll-mt-64 mx-auto space-y-2 mb-8"
       >
         {currentPublications.length === 0 ? (
-          <div className="bg-secondary dark:bg-Muharram_secondary bg-opacity-10 rounded-xl flex flex-col items-center justify-center py-16">
+          <div className="bg-secondary dark:bg-Muharram_secondary/20 bg-opacity-10 rounded-xl flex flex-col items-center justify-center py-16">
             <div className="text-gray-500 mb-4">
               <SearchIcon size={48} strokeWidth={1} />
             </div>
@@ -222,7 +222,7 @@ export default function PublicationsPage() {
                   className={`w-10 h-10 rounded-lg transition-colors duration-300 ${
                     currentPage === pageNum
                       ? "bg-primary dark:bg-Muharram_primary  text-white"
-                      : "bg-white text-primary hover:bg-primary dark:hover:bg-[rgba(0,0,0,0.5)]  hover:text-white"
+                      : "bg-white text-primary hover:bg-primary dark:text-Muharram_primary dark:hover:bg-[rgba(0,0,0,0.5)]  hover:text-white"
                   }`}
                   aria-current={currentPage === pageNum ? "page" : undefined}
                 >
