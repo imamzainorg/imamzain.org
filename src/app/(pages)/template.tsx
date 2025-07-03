@@ -36,11 +36,18 @@ export default function Template({ children }: { children: React.ReactNode }) {
 				>
 					<div className="flex flex-col items-center gap-4">
 						<div className="  ">
-							<Image
+									<Image
 								src="/images/logo-horizontal.svg"
 								width={100}
 								height={100}
-								className="w-32 sm:w-40 xl:w-52 cursor-pointer"
+								className="w-32 sm:w-40 xl:w-52 dark:hidden cursor-pointer"
+								alt="logo"
+							/>
+							<Image
+								src="/images/logo-muharram.png"
+								width={100}
+								height={100}
+								className="w-32 sm:w-40 xl:w-52 hidden dark:block cursor-pointer"
 								alt="logo"
 							/>
 						</div>
