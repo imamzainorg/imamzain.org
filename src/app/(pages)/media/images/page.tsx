@@ -28,6 +28,15 @@ export default function GalleryPage() {
   }, []);
 
   useEffect(() => {
+    const originalBackground = document.body.style.background;
+    document.body.style.background = "gradient-to-b";
+
+    return () => {
+      document.body.style.background = originalBackground;
+    };
+  }, []);
+
+  useEffect(() => {
     if (lightboxOpen) {
       document.body.style.overflow = "hidden";
     } else {
@@ -40,7 +49,7 @@ export default function GalleryPage() {
   }, [lightboxOpen]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b text-white">
+    <div className="min-h-screen text-white">
       <div className="xl:container mx-auto px-4">
         <Breadcrumbs
           className="text-white"
@@ -59,6 +68,7 @@ export default function GalleryPage() {
             استعرض لحظاتنا المصورة من الفعاليات والمناسبات والمسابقات
           </p>
         </div>
+
         <div className="mb-8">
           <SectionCta
             links={categories.map((category) => ({
@@ -101,7 +111,7 @@ export default function GalleryPage() {
         >
           <div className="max-w-4xl w-full max-h-[85vh] flex flex-col">
             <div className="flex-1 flex items-center justify-center">
-              {/* محتوى الـ Lightbox سيتم إضافته هنا */}
+          
             </div>
           </div>
         </div>
