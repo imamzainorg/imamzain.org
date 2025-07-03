@@ -64,7 +64,7 @@ export default async function Page() {
 					</div>
 				</Link>
 				<div className="lg:w-4/12">
-					<h2 className="text-primary font-bold text-center lg:text-left p-4 mb-2 sm:text-xl xl:text-2xl">
+					<h2 className="text-primary dark:text-Muharram_primary font-bold text-center lg:text-left p-4 mb-2 sm:text-xl xl:text-2xl">
 						آخر الاخبار
 					</h2>
 					<div className="grid lg:grid-rows-4 gap-4">
