@@ -91,22 +91,36 @@ useEffect(() => {
 					<div className="flex justify-between items-center py-1">
 						{/* التاريخ الهجري */}
 					<div className="flex items-center gap-2">
-  <FontAwesomeIcon
-    icon={faCalendar}
-    color={theme === "dark" ? "#a53232" : "#bb9661"} 
-  />
+<FontAwesomeIcon
+  icon={faCalendar}
+   className={`text-sm p-0 mt-1 transition-colors duration-300 ${
+      theme === "dark"
+        ? isScrolled || path !== "/" 
+          ? "text-[#a53232]" 
+          : "text-white"
+        : "text-[#bb9661]"
+    }`}
+/>
+
   <p
-    className={`text-sm p-0 mt-1 ${
-      theme === "dark" ? "text-[#a53232]" : "text-[#bb9661]"
+
+  >
+   <span
+    className={`text-sm p-0 mt-1 transition-colors duration-300 ${
+      theme === "dark"
+        ? isScrolled || path !== "/" 
+          ? "text-[#a53232]" 
+          : "text-white"
+        : "text-[#bb9661]"
     }`}
   >
-    <span>
-      {hijriDate
-        ? hijriDate.split("||")[0]
-        : error
-        ? `⚠️ ${error}`
-        : "جاري تحميل التاريخ..."}
-    </span>
+    {hijriDate
+      ? hijriDate.split("||")[0]
+      : error
+      ? `⚠️ ${error}`
+      : "جاري تحميل التاريخ..."}
+  </span>
+
   </p>
 </div>
 
