@@ -25,11 +25,11 @@ export default function TopBar() {
 	const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
 // Theme state
-const [theme, setTheme] = useState("dark") // خلي الافتراضي داكن
+const [theme, setTheme] = useState("dark") 
 
 // Load saved theme
 useEffect(() => {
-  const savedTheme = localStorage.getItem("theme") || "dark" // dark كافتراضي لو ما في تخزين
+  const savedTheme = localStorage.getItem("theme") || "dark" 
   setTheme(savedTheme)
   document.documentElement.classList.add(savedTheme)
 }, [])
@@ -93,7 +93,7 @@ useEffect(() => {
 					<div className="flex items-center gap-2">
   <FontAwesomeIcon
     icon={faCalendar}
-    color={theme === "dark" ? "#a53232" : "#bb9661"} // أبيض بالداك، بني باللايت
+    color={theme === "dark" ? "#a53232" : "#bb9661"} 
   />
   <p
     className={`text-sm p-0 mt-1 ${

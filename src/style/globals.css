@@ -16,20 +16,6 @@ html.dark {
 
 
 
-::-webkit-scrollbar-track {
-	background: var(--sb-track-color);
-	border-radius: 20px;
-}
-* {
-  box-sizing: border-box;
-  --sb-size: 5px;
-  scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
-}
-
-::-webkit-scrollbar-thumb {
-	background: var(--sb-thumb-color);
-	border-radius: 20px;
-}
 
 
 .image-mask {
@@ -77,6 +63,17 @@ html.dark {
 }
 
 
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #bb9661; 
+  transition: color 0.3s ease;
+}
+
+.dark .swiper-button-next,
+.dark .swiper-button-prev {
+  color: #a43232; 
+}
 
 .arabic-list {
 	list-style-type: decimal;

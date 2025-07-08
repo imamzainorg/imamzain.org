@@ -76,32 +76,25 @@ export default function ImageView({
           <ModalBody className="p-0 gap-0">
             <div className="w-full h-[80vh] flex flex-col justify-center items-center">
               {/* Main Swiper */}
-              <SwiperComponent
-                initialSlide={activeIndex}
-                loop={true}
-                navigation
-  style={
-    {
-      "--swiper-navigation-color": "#bb9661",
-      "--swiper-pagination-color": "#ccff61",
-    } as React.CSSProperties & { [key: string]: string }
-  }
-  className=" w-full h-[75%] mb-6"
-  
-                thumbs={{
-                  swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
-                }}
-                modules={[Navigation, Thumbs]}
-           onSlideChange={(swiper) => {
-  const realIndex = swiper.realIndex
-  setActiveIndex(realIndex)
+        <SwiperComponent
+  initialSlide={activeIndex}
+  loop={true}
+  navigation
+  className="w-full h-[75%] mb-6"
+  thumbs={{
+    swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+  }}
+  modules={[Navigation, Thumbs]}
+  onSlideChange={(swiper) => {
+    const realIndex = swiper.realIndex
+    setActiveIndex(realIndex)
 
-  if (thumbsSwiper && !thumbsSwiper.destroyed) {
-    thumbsSwiper.slideToLoop(realIndex, 300)
-  }
-}}
-            
-              >
+    if (thumbsSwiper && !thumbsSwiper.destroyed) {
+      thumbsSwiper.slideToLoop(realIndex, 300)
+    }
+  }}
+>
+
                 {images?.map((image, index) => (
                   <SwiperSlide key={index}>
                     <Image
