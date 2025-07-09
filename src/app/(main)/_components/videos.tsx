@@ -78,7 +78,8 @@ export default function Videos({
 										whileHover="hover"
 										transition={{ duration: 0.3 }}
 									>
-										<Image
+
+									     	<Image
 											src={
 												playlist.videos[0].thumbnail ||
 												""
@@ -108,7 +109,7 @@ export default function Videos({
 													<PlayButtonIcon
 														fill="#231F20"
 														className="w-auto h-auto"
-													/>
+													/>	
 												</div>
 											</div>
 										</div>
@@ -188,6 +189,7 @@ export default function Videos({
 					</div>
 				</div>
 			)}
+			
 		</>
 	)
 }
