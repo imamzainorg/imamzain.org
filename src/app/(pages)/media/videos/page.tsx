@@ -83,12 +83,13 @@ export default function Page() {
 						onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
 					>
 						{/* YouTube Video */}
-						<iframe
-							className="w-full h-full"
-							src={`https://www.youtube.com/embed/O33ZsudmqcU?autoplay=1`}
-							title="YouTube Video"
-							allow="autoplay; fullscreen"
-						></iframe>
+					<iframe
+  className="w-full h-full"
+  src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+  title="YouTube Video"
+  allow="autoplay; fullscreen"
+/>
+
 					</div>
 				</div>
 			)}
