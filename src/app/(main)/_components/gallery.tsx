@@ -92,7 +92,7 @@ export default function GallerySection() {
                 }}
               >
                 {showCount &&
-                  galleryImages.slice(0, showCount).map((gallery) => (
+                    [...filteredGallery].reverse().slice(0, showCount).map((gallery) => (
                     <motion.div
                       key={gallery.id}
                       variants={{
