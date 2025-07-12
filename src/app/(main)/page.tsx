@@ -142,7 +142,7 @@ export default async function page() {
 						},
 						{
 							label: "قراءة رسالة الحقوق",
-							href: "/library/risalat-al-huqoq/read",
+							href: "/library/risalat-al-huqoq/read/introduction",
 						},
 					]}
 				/>
