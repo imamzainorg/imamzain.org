@@ -41,7 +41,14 @@ export default function GallerySection() {
     .slice(-10)
     .reverse()
     .map((image) => ({ id: image.id, path: image.image.path }));
-	const gridClass = showCount === 3 ? "grid-cols-3" : showCount === 4 ? "grid-cols-4": showCount === 5 ? "grid-cols-5" : "grid-cols-2";
+  const gridClass =
+    showCount === 3
+      ? "grid-cols-3"
+      : showCount === 4
+        ? "grid-cols-4"
+        : showCount === 5
+          ? "grid-cols-5"
+          : "grid-cols-2";
 
   return (
     <div className="pt-20">
@@ -65,7 +72,6 @@ export default function GallerySection() {
               href: "/media/images",
             }}
             dark
-            
           />
 
           {/* سلايدر الصور */}
@@ -79,7 +85,7 @@ export default function GallerySection() {
               </div>
             ) : (
               <motion.div
-			  className={`grid gap-4 ${gridClass}`}
+                className={`grid gap-4 ${gridClass}`}
                 initial="hidden"
                 animate="visible"
                 variants={{
@@ -92,42 +98,45 @@ export default function GallerySection() {
                 }}
               >
                 {showCount &&
-                    [...filteredGallery].reverse().slice(0, showCount).map((gallery) => (
-                    <motion.div
-                      key={gallery.id}
-                      variants={{
-                        hidden: { opacity: 0, y: 20 },
-                        visible: { opacity: 1, y: 0 },
-                      }}
-                    >
-                      <button
-                        onClick={() => setSelectedImage(gallery.image.path)}
-                        className="relative rounded-2xl overflow-hidden h-40 w-full block"
+                  [...filteredGallery]
+                    .reverse()
+                    .slice(0, showCount)
+                    .map((gallery) => (
+                      <motion.div
+                        key={gallery.id}
+                        variants={{
+                          hidden: { opacity: 0, y: 20 },
+                          visible: { opacity: 1, y: 0 },
+                        }}
                       >
-                        <ImageView
-                          src={gallery.image.path}
-                          alt={`Image ${gallery.id}`}
-                          className="rounded-2xl shadow-lg w-full h-full"
-                        />
-                        {/* تأثير Hover على الصورة */}
-                        <motion.div
-                          initial={{ y: 15, opacity: 0 }}
-                          whileHover={{
-                            y: 0,
-                            opacity: 1,
-                            transition: { duration: 0.3 },
-                          }}
-                          className="absolute top-0 right-0 w-full font-semibold text-sm flex flex-col justify-end h-full"
-                          style={{
-                            background:
-                              "linear-gradient(0deg, rgba(0,0,0,0.87) 0%, rgba(0,0,0,0.41) 45%, rgba(229,229,229,0) 100%)",
-                          }}
+                        <button
+                          onClick={() => setSelectedImage(gallery.image.path)}
+                          className="relative rounded-2xl overflow-hidden h-40 w-full block"
                         >
-                          <div className="font-semibold text-lg p-4 text-white"></div>
-                        </motion.div>
-                      </button>
-                    </motion.div>
-                  ))}
+                          <ImageView
+                            src={gallery.image.path}
+                            alt={`Image ${gallery.id}`}
+                            className="rounded-2xl shadow-lg w-full h-full"
+                          />
+                          {/* تأثير Hover على الصورة */}
+                          <motion.div
+                            initial={{ y: 15, opacity: 0 }}
+                            whileHover={{
+                              y: 0,
+                              opacity: 1,
+                              transition: { duration: 0.3 },
+                            }}
+                            className="absolute top-0 right-0 w-full font-semibold text-sm flex flex-col justify-end h-full"
+                            style={{
+                              background:
+                                "linear-gradient(0deg, rgba(0,0,0,0.87) 0%, rgba(0,0,0,0.41) 45%, rgba(229,229,229,0) 100%)",
+                            }}
+                          >
+                            <div className="font-semibold text-lg p-4 text-white"></div>
+                          </motion.div>
+                        </button>
+                      </motion.div>
+                    ))}
               </motion.div>
             )}
           </div>
