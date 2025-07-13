@@ -15,7 +15,8 @@
     "pdf": "/books/الفرائد الطريفة في شرح الصحيفة الشريفة.pdf",
     "series": null,
     "partNumber": null,
-    "totalParts": null
+    "totalParts": null,
+    "category": ["A"]
   },
   {
     "id": 2,

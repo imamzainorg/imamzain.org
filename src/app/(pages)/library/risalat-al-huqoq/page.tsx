@@ -11,6 +11,37 @@ import Image from "next/image";
 
 export default async function Page() {
   const libraryBooks = await dataFetcher<Book[]>("library.json");
+  
+  // وظيفة لتنظيف ومعالجة الفئات (معدلة للغة العربية)
+  const normalizeCategory = (category: string) => {
+    // إزالة المسافات والحروف غير الضرورية
+    return category
+      .trim()
+      .replace(/\s+/g, '') // إزالة جميع المسافات
+      .replace(/[ًٌٍَُِّْ]/g, ''); // إزالة التشكيل
+  };
+
+  // تصفية الكتب المراد عرضها
+  const filteredBooks = libraryBooks.filter(book => {
+    if (!book.category) return false;
+    
+    return book.category.some(cat => {
+      const normalizedCat = normalizeCategory(cat);
+      
+      // التحقق من الفئة A (مع مراعاة الاختلافات المحتملة)
+      if (normalizedCat === "A" || normalizedCat === "الفئةأ") return true;
+      
+      // التحقق من فئة الإصدارات (مع مراعاة الاختلافات الإملائية)
+      const isPublications = 
+        normalizedCat.includes("الإصدارات") || 
+        normalizedCat.includes("الاصدارات") || 
+        normalizedCat.includes("إصدارات") || 
+        normalizedCat.includes("اصدارات");
+      
+      return isPublications;
+    });
+  });
+
   return (
     <div className="">
       <Breadcrumbs
@@ -40,20 +71,20 @@ export default async function Page() {
           </Link>
         </div>
         <div className="w-80 max-md:hidden left-20 -top-20 absolute">
-           <Image
-                src={`/shapes/book-bg.svg`}
-                className="w-full  dark:hidden"
-                width={50}
-                height={50}
-                alt="al-sahifa cover"
-              />
-                  <Image
-                src={`/shapes/book-bg_Muharram.svg`}
-                className="w-full hidden dark:block "
-                width={50}
-                height={50}
-                alt="al-sahifa cover"
-              />
+          <Image
+            src={`/shapes/book-bg.svg`}
+            className="w-full  dark:hidden"
+            width={50}
+            height={50}
+            alt="غلاف رسالة الحقوق"
+          />
+          <Image
+            src={`/shapes/book-bg_Muharram.svg`}
+            className="w-full hidden dark:block "
+            width={50}
+            height={50}
+            alt="غلاف رسالة الحقوق"
+          />
         </div>
       </div>
 
@@ -65,22 +96,32 @@ export default async function Page() {
           route="/library/risalat-al-huqoq"
           showcaseBooks={libraryBooks.slice(0, 3)}
         />
+        
+        {/* قسم الكتب المصفاة حسب الفئة */}
         <div className="bg-secondary/40 dark:bg-Muharram_primary/20 bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
-          {libraryBooks.map((book) => (
-            <BooklibraryCard
-              route="/library/risalat-al-huqoq"
-              key={book.id}
-              publication={book}
-            />
-          ))}
+          {filteredBooks.length > 0 ? (
+            filteredBooks.map((book) => (
+              <BooklibraryCard
+                route="/library/risalat-al-huqoq"
+                key={book.id}
+                publication={book}
+              />
+            ))
+          ) : (
+            <div className="col-span-2 text-center py-10">
+              <p className="text-lg text-gray-500">
+                لا توجد كتب متاحة في هذا القسم حالياً
+              </p>
+            </div>
+          )}
         </div>
+        
         <div className="lg:hidden ">
           <RelatedBooks
             route="/library/risalat-al-huqoq"
             relatedBooks={libraryBooks.slice(1, 3)}
           />
         </div>
-
       </div>
     </div>
   );
