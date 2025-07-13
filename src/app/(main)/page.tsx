@@ -12,7 +12,10 @@ import { Post } from "@/types/post"
 import { YouTubePlaylist } from "@/types/youtubeData"
 import hadiths from "@/data/hadiths.json"
 import AnimatedTextSection from "@/components/animated-text"
-import { FeaturedContest } from "./_components/featured"
+import { Featured } from "./_components/featured"
+import Link from "next/link"
+import { ArrowLeft } from "lucide-react"
+import Image from "next/image"
 
 const desktopImages = [
 	"/images/albaqi.jpg",
@@ -46,7 +49,77 @@ export default async function page() {
 				mobileImages={mobileImages}
 				currentHadith={currentHadith}
 			/>
-			<FeaturedContest />
+			<div className="w-4/5 mx-auto flex justify-between">
+				<div className="w-1/4 bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+					{/* Contest Image */}
+					<div className="relative h-24 overflow-hidden">
+						<div className="absolute inset-0 bg-gradient-to-br from-emerald-500 to-teal-600 dark:from-Muharram_primary dark:to-Muharram_secondary opacity-90 z-10" />
+						<Image
+							src="/contests/khat/logo.png"
+							alt="مسابقة الخط العربي"
+							className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+							height={200}
+							width={400}
+						/>
+						<div className="w-full h-full text-xl text-white absolute inset-0 flex items-center justify-center z-20">
+							مسابقة الخط العربي
+						</div>
+					</div>
+
+					{/* Contest Content */}
+					<div className="p-6 text-center">
+						<h3 className="text-xl font-bold text-slate-800 mb-2">
+							الوقت المتبقي للمسابقة
+						</h3>
+						<p className="text-sm text-primary font-medium mb-3">
+							32:12:45:29
+						</p>
+
+						{/* Action Button */}
+						<Link href="/contests/khat">
+							<button className="w-full bg-gradient-to-r from-primary to-secondary dark:from-Muharram_primary dark:to-Muharram_secondary text-white text-sm rounded-xl py-2 px-4 font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 flex items-center justify-center gap-2 group">
+								تفاصيل المسابقة
+								<ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
+							</button>
+						</Link>
+					</div>
+				</div>
+				<div className="w-1/4 bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+					{/* Contest Image */}
+					<div className="relative h-24 overflow-hidden">
+						<div className="absolute inset-0 bg-gradient-to-br from-emerald-500 to-teal-600 dark:from-Muharram_primary dark:to-Muharram_secondary opacity-90 z-10" />
+						<Image
+							src="/contests/kitab/hero.jpg"
+							alt="مسابقة كتاب"
+							className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+							height={200}
+							width={400}
+						/>
+						<div className="w-full h-full text-xl text-white absolute inset-0 flex items-center justify-center z-20">
+							مسابقة كتاب
+						</div>
+					</div>
+
+					{/* Contest Content */}
+					<div className="p-6 text-center">
+						<h3 className="text-xl font-bold text-slate-800 mb-2">
+							الوقت المتبقي للمسابقة
+						</h3>
+						<p className="text-sm text-primary font-medium mb-3">
+							32:12:45:29
+						</p>
+
+						{/* Action Button */}
+						<Link href="/contests/kitab">
+							<button className="w-full bg-gradient-to-r from-primary to-secondary dark:from-Muharram_primary dark:to-Muharram_secondary text-white text-sm rounded-xl py-2 px-4 font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 flex items-center justify-center gap-2 group">
+								تفاصيل المسابقة
+								<ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
+							</button>
+						</Link>
+					</div>
+				</div>
+			</div>
+			<Featured />
 			<div className="container">
 				<AnimatedTextSection
 					title="رؤية المؤسسة"
