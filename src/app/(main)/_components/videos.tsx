@@ -78,7 +78,8 @@ export default function Videos({
 										whileHover="hover"
 										transition={{ duration: 0.3 }}
 									>
-										<Image
+
+									     	<Image
 											src={
 												playlist.videos[0].thumbnail ||
 												""
@@ -108,7 +109,7 @@ export default function Videos({
 													<PlayButtonIcon
 														fill="#231F20"
 														className="w-auto h-auto"
-													/>
+													/>	
 												</div>
 											</div>
 										</div>
@@ -168,26 +169,27 @@ export default function Videos({
 			</div>
 
 			{videoId && (
-				<div
-					className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center p-4 z-50"
-					aria-label="close window"
-					onClick={closeModal}
-				>
-					<div
-						className="relative bg-black rounded-lg overflow-hidden w-full max-w-4xl aspect-video"
-						aria-label=""
-						onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
-					>
-						{/* YouTube Video */}
-						<iframe
-							className="w-full h-full"
-							src={`https://www.youtube.com/embed/O33ZsudmqcU?autoplay=1`}
-							title="YouTube Video"
-							allow="autoplay; fullscreen"
-						></iframe>
-					</div>
-				</div>
-			)}
+  <div
+    className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center p-4 z-50"
+    aria-label="close window"
+    onClick={closeModal}
+  >
+    <div
+      className="relative bg-black rounded-lg overflow-hidden w-full max-w-4xl aspect-video"
+      aria-label=""
+      onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+    >
+      <iframe
+        className="w-full h-full"
+        src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+        title="YouTube Video"
+        allow="autoplay; fullscreen"
+      ></iframe>
+    </div>
+  </div>
+)}
+
+			
 		</>
 	)
 }

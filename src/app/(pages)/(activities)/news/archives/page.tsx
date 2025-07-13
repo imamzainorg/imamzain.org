@@ -35,7 +35,7 @@ export default function Page() {
 				]}
 			/>
 
-			<div className="flex gap-2 mb-6 overflow-x-scroll pl-10 lg:w-[90%] mx-auto">
+			<div className="flex gap-2 mb-6  overflow-x-scroll md:overflow-visible  pl-10 lg:w-[90%] mx-auto">
 				{categories.map((cat) => (
 					<button
 						key={cat}

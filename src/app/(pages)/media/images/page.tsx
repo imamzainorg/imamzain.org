@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+
 import { useState, useCallback, useRef } from "react";
 import Breadcrumbs from "@/components/breadcrumb";
 import SwiperCarousel from "@/components/swiper-carousel";
@@ -27,26 +27,8 @@ export default function GalleryPage() {
     document.body.style.overflow = "auto";
   }, []);
 
-  useEffect(() => {
-    const originalBackground = document.body.style.background;
-    document.body.style.background = "gradient-to-b";
 
-    return () => {
-      document.body.style.background = originalBackground;
-    };
-  }, []);
 
-  useEffect(() => {
-    if (lightboxOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [lightboxOpen]);
 
   return (
     <div className="min-h-screen text-white">
