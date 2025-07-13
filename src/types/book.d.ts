@@ -12,9 +12,9 @@ export type Book = {
 	views: number
 	image: string
 	pdf: string
-	partNumber : number
-	totalParts : number
+	partNumber: number
+	totalParts: number
 	series: string
-	category: string;
-	  description?: string
+	category?: string[]
+	description?: string
 }
