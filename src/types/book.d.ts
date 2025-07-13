@@ -15,6 +15,6 @@ export type Book = {
 	partNumber : number
 	totalParts : number
 	series: string
-	category: string;
+	category?: string[]
 	  description?: string
 }
