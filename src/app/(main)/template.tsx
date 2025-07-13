@@ -44,11 +44,11 @@ export default function Template({ children }: { children: React.ReactNode }) {
 								className="w-32 sm:w-40 xl:w-52 cursor-pointer dark:hidden"
 								alt="logo"
 							/>
-								<Image
+							<Image
 								src="/images/logo-muharram.png"
 								priority
-								width={100}
-								height={100}
+								width={400}
+								height={400}
 								className="w-32 sm:w-40 xl:w-52 cursor-pointer hidden dark:block"
 								alt="logo"
 							/>
