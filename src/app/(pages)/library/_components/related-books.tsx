@@ -14,7 +14,7 @@ export default function RelatedBooks({
 }) {
 	return (
 		<div className="flex flex-col">
-			<div>
+			  <div>
 				<h3 className="text-[0.6rem] text-left text-primary dark:text-Muharram_primary font-bold mt-4 xs:text-sm md:text-xl lg:text-base">
 					مواضيع ذات صلة
 				</h3>
