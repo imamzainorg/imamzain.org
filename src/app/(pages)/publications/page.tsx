@@ -56,8 +56,8 @@ export default function PublicationsPage() {
 		}
 
 		if (filterCategory !== "all") {
-			filtered = filtered.filter(
-				(publication) => publication.category === filterCategory,
+			filtered = filtered.filter((publication) =>
+				publication.category?.includes(filterCategory),
 			)
 		}
 
