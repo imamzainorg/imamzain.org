@@ -1,19 +1,18 @@
-import { Book } from "@/types/book"
-import Image from "next/image"
-import Link from "next/link"
+import { Book } from "@/types/book";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function BooklibraryCard({
   publication,
   route = "",
 }: {
-  publication: Book
-  downloadable?: boolean
-  route?: string
+  publication: Book;
+  downloadable?: boolean;
+  route?: string;
 }) {
-  // معالجة القيم الفارغة
   const printHouse = publication.printHouse || "غير محدد";
   const author = publication.author || "مؤلف غير معروف";
-  
+
   return (
     <Link
       href={`${route}/${publication.slug}`}
@@ -35,7 +34,7 @@ export default function BooklibraryCard({
           </div>
         )}
       </div>
-      
+
       <div className="w-2/3 flex flex-col h-5/6 pb-5 pt-3 gap-0 sm:gap-1 md:gap-5 xmd:gap-7 lg:gap-0 justify-between">
         <h2 className="text-primary dark:text-Muharram_primary text-[0.6rem] xs:text-lg sm:text-xl lg:text-base xl:text-xl font-bold">
           {publication.title}
@@ -51,15 +50,15 @@ export default function BooklibraryCard({
           <span>{publication.pages} صفحة</span>
           <span>{publication.views} مشاهدة</span>
         </div>
-        
-        {/* عرض معلومات السلسلة إذا كانت موجودة */}
+
         {publication.series && (
           <div className="mt-1 text-[0.5rem] xs:text-[10px] text-gray-500">
-            السلسلة: {publication.series} 
-            {publication.partNumber && ` (الجزء ${publication.partNumber} من ${publication.totalParts})`}
+            السلسلة: {publication.series}
+            {publication.partNumber &&
+              ` (الجزء ${publication.partNumber} من ${publication.totalParts})`}
           </div>
         )}
       </div>
-     </Link>
+    </Link>
   );
 }
