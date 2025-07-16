@@ -115,7 +115,7 @@ export function Featured() {
 						</div>
 
 						<h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-							المنصة السجادية للناشئة في الزيارة الأربعينية
+							الخيمة السجادية للناشئة في الزيارة الأربعينية
 						</h2>
 
 						<p className="text-lg text-gray-700 leading-relaxed">
