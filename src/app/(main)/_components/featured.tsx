@@ -111,18 +111,28 @@ export function Featured() {
 					<div className="lg:w-1/2 text-right space-y-6">
 						<div className="inline-flex items-center gap-2 text-primary dark:bg-Muharram_secondary/10 dark:text-Muharram_primary px-4 py-2 rounded-full text-sm font-medium">
 							<Sparkles className="w-4 h-4" />
-							فعّاليات مخصصة للناشئة
+							فعاليات الخيمة السجادية
 						</div>
 
 						<h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-							الخيمة السجادية للناشئة في الزيارة الأربعينية
+							الخيمة السجادية في زيارة الأربعين: منارة ثقافية
+							وتربوية على طريق يا حسين عليه السلام بين النجف
+							وكربلاء
 						</h2>
 
 						<p className="text-lg text-gray-700 leading-relaxed">
-							برنامج تربوي وتعليمي يحتوي على فقرات متنوعة لتوجيه
-							الأطفال والناشئة نحو تراث الإمام زين العابدين (ع).
+							برامج ثقافية وتربوية تقام سنوياً على طريق زيارة
+							الأربعين بين النجف الأشرف وكربلاء المقدسة، تحتفي
+							بفكر أهل البيت (عليهم السلام) وسيرة الإمام زين
+							العابدين (عليه السلام).
 						</p>
-
+						<p className="text-lg text-gray-700 leading-relaxed">
+							تقدم الخيمة برامج متنوعة تشمل المحاضرات، الفعاليات
+							التفاعلية، وورش العمل، وبرامج اخرى موجهة لجميع فئات
+							الزائرين (رجالاً، نساءً، صغاراً، وكباراً)، بهدف
+							تعميق الوعي الديني وترسيخ القيم الإيمانية والإنسانية
+							في رحلة الزيارة.&quot;
+						</p>
 						<div className="flex flex-wrap gap-4 mt-6">
 							<div className="flex items-center gap-2 bg-transparent border border-Muharram_secondary px-4 py-2 rounded-lg shadow-sm">
 								<Gift className="w-5 h-5 text-yellow-600 dark:text-Muharram_secondary" />
