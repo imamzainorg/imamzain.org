@@ -60,11 +60,7 @@ export default function PublicationsPage() {
       );
     }
 
-		if (filterCategory !== "all") {
-			filtered = filtered.filter(
-				(publication) => publication.category === filterCategory,
-			)
-		}
+		
 
 		setFilteredPublications(filtered)
 		setCurrentPage(1)
