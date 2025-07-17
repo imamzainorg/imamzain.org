@@ -1,101 +1,140 @@
-import Breadcrumbs from "@/components/breadcrumb";
-import { dataFetcher } from "@/lib/dataFetcher";
+{/*
+  import { dataFetcher } from "@/lib/dataFetcher";
+import { notFound } from "next/navigation";
 import { Research } from "@/types/research";
-import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FileText } from "lucide-react";
-import Link from "next/link";
+import Breadcrumbs from "@/components/breadcrumb";
+import SanitizedHtml from "../_components/SanitizedHtml";
 
-export default async function page({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const slug = (await params).slug;
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
 
-  const data: Research[] = await dataFetcher<Research[]>("research.json");
+export default async function Page({ params }: PageProps) {
+  const allResearch = await dataFetcher<Research[]>("research.json");
+  const research = allResearch.find((r) => r.slug === params.slug);
 
-  const research = data.filter((item: Research) => item.slug === slug)[0];
+  if (!research) return notFound();
 
- 
   return (
-    <div className="container  ">
+    <div className="py-14 px-4 max-w-5xl mx-auto space-y-8 container">
       <Breadcrumbs
+        className="text-primary dark:text-Muharram_primary"
         links={[
           { name: "الصفحة الرئيسية", url: "/" },
-          { name: "الصفحة العلمية", url: "/research" },
+          { name: "المرئيات", url: "/media/videos" },
         ]}
       />
 
-      <div className="w-full h-full p-5 flex flex-col gap-4">
-        <h1 className="text-3xl font-bold">{research.title}</h1>
-        <div className="text text-neutral-600 flex justify-start gap-7 items-center">
-          <p>اسم الؤلف : {research.author}</p>
-          <p>تاريخ النشر : {research.printDate}</p>
-        </div>
-        <p className="text-xl leading-8">{research.description}</p>
-        <hr className="border mt-20 border-neutral-400  w-full" />
-        <div className="w-full flex justify-end gap-2">
-          <Link
-            href={"/"}
-            className="px-10 py-2 text-white     bg-primary rounded-xl hover:bg-primary/95 dark:hover:bg-Muharram_primary/95 dark:bg-Muharram_primary"
-          >
-            <FontAwesomeIcon
-              icon={faFilePdf}
-              className="text-[20px] mt-1 ml-1"
-            />
-          </Link>
-          <Link
-            href={"/"}
-            className="px-10 py-2  text-white   text-xl bg-primary rounded-xl hover:bg-primary/95 dark:hover:bg-Muharram_primary/95 dark:bg-Muharram_primary"
-          >
-            <FileText strokeWidth={2} color="#ffffff" className="mt-0.5" />
-          </Link>
-        </div>
+      <h1 className="text-2xl font-bold text-primary text-center">{research.title}</h1>
+
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md border-2 border-black space-y-4 w-10/12 mx-auto">
+        {research.part && (
+          <p className="text-gray-600 dark:text-gray-300 tracking-wide leading-relaxed">
+            <strong className="mr-2">الجزء:</strong>{" "}
+            <SanitizedHtml html={research.part || ""} />
+          </p>
+        )}
+
+        {research.section && (
+          <p className="text-gray-600 dark:text-gray-300 tracking-wide leading-relaxed">
+            <strong className="mr-2">القسم:</strong>{" "}
+            <SanitizedHtml html={research.section || ""} />
+          </p>
+        )}
+
+        {research.topic && (
+          <p className="text-gray-600 dark:text-gray-300 tracking-wide leading-relaxed">
+            <strong className="mr-2">الموضوع:</strong>{" "}
+            <SanitizedHtml html={research.topic || ""} />
+          </p>
+        )}
+
+        <p className="text-gray-600 dark:text-gray-300 tracking-wide leading-relaxed">
+          <strong className="mr-2">المؤلف:</strong>{" "}
+          <SanitizedHtml html={research.author || ""} />
+        </p>
+
+        {research.colign && (
+          <p className="text-gray-600 dark:text-gray-300 tracking-wide leading-relaxed">
+            <strong className="mr-2">الكلية:</strong>{" "}
+            <SanitizedHtml html={research.colign || ""} />
+          </p>
+        )}
       </div>
 
-      <div className="mt-10">
-        <h1 className="text-primary dark:text-Muharram_primary text-3xl font-bold py-10">بحوث ذات صلة </h1>
+      <div>
+        <h2 className="text-xl font-semibold mt-6 mb-2">الملخص (بالعربية)</h2>
+        <SanitizedHtml html={research.abstract || ""} />
 
-        <div className="grid grid-cols-2  gap-4 ">
-          {data.slice(0 , 4).map((item, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl    w-full h-full p-5 flex flex-col gap-4
-               shadow-[0px_0px_2.7px_-10px_rgba(0,0,0,0.034),0px_0px_6.9px_-10px_rgba(0,0,0,0.049),0px_0px_14.2px_-10px_rgba(0,0,0,0.061),0px_0px_29.2px_-10px_rgba(0,0,0,0.076),0px_0px_80px_-10px_rgba(0,0,0,0.11)] "
-            >
-              <h1 className="text-xl font-bold">{item.title}</h1>
-              <div className="text-sm text-neutral-500 flex justify-between items-center">
-                <p>اسم الؤلف : {item.author}</p>
-                <p>تاريخ النشر : {item.printDate}</p>
-              </div>
-              <p>{item.description}</p>
-              <hr className="border border-neutral-400  w-full" />
-              <div className="w-full flex justify-end gap-2">
-                <Link
-                  href={"/"}
-                  className="px-4 py-2 text-white     bg-primary rounded-xl hover:bg-primary/95 dark:hover:bg-Muharram_primary/95 dark:bg-Muharram_primary"
-                >
-                  <FontAwesomeIcon
-                    icon={faFilePdf}
-                    className="text-[20px] mt-1 ml-1"
-                  />
-                </Link>
-                <Link
-                  href={"/"}
-                  className="px-4 py-2  text-white   text-xl bg-primary rounded-xl hover:bg-primary/95 dark:hover:bg-Muharram_primary/95 dark:bg-Muharram_primary"
-                >
-                  <FileText
-                    strokeWidth={2}
-                    color="#ffffff"
-                    className="mt-0.5"
-                  />
-                </Link>
-              </div>
+        {research.abstract_en && (
+          <>
+            <h2 className="text-xl font-semibold mt-6 mb-2">الملخص (بالإنجليزية)</h2>
+            <SanitizedHtml html={research.abstract_en || ""} />
+          </>
+        )}
+      </div>
+
+      {research.introduction && (
+        <div>
+          <h2 className="text-xl font-semibold mt-6 mb-2">المقدمة</h2>
+          <SanitizedHtml html={research.introduction || ""} />
+        </div>
+      )}
+
+      {Array.isArray(research.contentSections) && research.contentSections.length > 0 && (
+        <div>
+          <h2 className="text-xl font-semibold mt-6 mb-2">المحتوى</h2>
+          {research.contentSections.map((section, index) => (
+            <div key={index} className="mb-4">
+              <h3 className="text-lg font-bold text-primary dark:text-Muharram_primary">
+                <SanitizedHtml html={section.title || ""} />
+              </h3>
+              <SanitizedHtml html={section.content || ""} />
             </div>
           ))}
         </div>
-      </div>
+      )}
+
+      {research.results && (
+        <div>
+          <h2 className="text-xl font-semibold mt-6 mb-2">النتائج</h2>
+          <SanitizedHtml html={research.results || ""} />
+        </div>
+      )}
+
+      {Array.isArray(research.references) && research.references.length > 0 && (
+        <div>
+          <h2 className="text-xl font-semibold mt-6 mb-2">المصادر</h2>
+          <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300">
+            {research.references.map((ref, index) => (
+              <li key={index}>
+                <SanitizedHtml html={ref || ""} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {research.pdfUrl && (
+        <div className="mt-6">
+          <a
+            href={research.pdfUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-4 py-2 bg-primary dark:bg-Muharram_primary text-white rounded-lg hover:bg-primary/90 dark:hover:bg-Muharram_primary/90 transition"
+          >
+            تحميل البحث PDF
+          </a>
+        </div>
+      )}
     </div>
   );
+}
+
+  */}
+
+  export default function Page() {
+  return <div className="py-20 text-center text-gray-600">هذه الصفحة معطلة مؤقتاً.</div>;
 }

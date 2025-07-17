@@ -11,7 +11,7 @@ export default function Loading() {
 	return (
 		<motion.div
 			key="loader"
-			className="fixed  inset-0 flex justify-center items-center bg-white z-50"
+			className="fixed inset-0 flex justify-center items-center bg-white z-50"
 			initial="hidden"
 			animate="enter"
 			exit="exit"

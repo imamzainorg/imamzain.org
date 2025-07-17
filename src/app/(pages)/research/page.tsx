@@ -111,7 +111,7 @@ export default function Page() {
 				</div>
 			</div>
 			{/* Uploaded research */}
-			<UploadedResearch />
+			<UploadedResearch/>
 
 			{/* Faqs */}
 			<Faqs />
