@@ -1,14 +1,15 @@
 "use client"
 import { PlayButtonIcon } from "@/assets/icons/reusable"
-import {motion} from "framer-motion"
+import { motion } from "framer-motion"
 export default function Live() {
 	return (
 		<div className="pt-20">
-			<div className="container   flex flex-col justify-between md:flex-row items-center gap-4 md:gap-8 xl:gap-16  ">
+			<div className="container flex flex-col justify-between md:flex-row items-center gap-4 md:gap-8 xl:gap-16">
 				<motion.div
 					variants={{
 						hidden: {
-							opacity: 0, x: 100
+							opacity: 0,
+							x: 100,
 						},
 						visible: {
 							opacity: 1,
@@ -21,8 +22,9 @@ export default function Live() {
 					}}
 					initial="hidden"
 					whileInView="visible"
-					viewport={{once: true, amount: 0.3}}
-					className="text-center md:text-right space-y-3 lg:w-1/3 xl:text-right">
+					viewport={{ once: true, amount: 0.3 }}
+					className="text-center md:text-right space-y-3 lg:w-1/3 xl:text-right"
+				>
 					<h1 className="text-primary dark:text-Muharram_primary font-bold text-3xl md:text-5xl xl:text-7xl tracking-wide">
 						البــــــث <br className="hidden md:block" />
 						المباشر
@@ -50,10 +52,13 @@ export default function Live() {
 					}}
 					initial="hidden"
 					whileInView="visible"
-					viewport={{once: true, amount: 0.3}}
-					className="group text-center w-3/4 max-sm:w-full   flex justify-end items-end">
-					<div className="relative w-full h-[300px] md:w-[400px] md:h-[300px] lg:w-[500px] lg:h-[350px] xl:w-[700px] xl:h-[450px] 2xl:w-[800px] 2xl:h-[550px] bg-[url('/images/placeholder.jpg')] bg-center bg-cover
-					rounded-[25px] md:rounded-[30px] lg:rounded-[70px] shadow-2xl cursor-pointer group-hover:scale-105 duration-500 overflow-hidden flex items-center justify-center">
+					viewport={{ once: true, amount: 0.3 }}
+					className="group text-center w-3/4 max-sm:w-full   flex justify-end items-end"
+				>
+					<div
+						className="relative w-full h-[300px] md:w-[400px] md:h-[300px] lg:w-[500px] lg:h-[350px] xl:w-[700px] xl:h-[450px] 2xl:w-[800px] 2xl:h-[550px] bg-[url('/images/placeholder.jpg')] bg-center bg-cover
+					rounded-[25px] md:rounded-[30px] lg:rounded-[70px] shadow-2xl cursor-pointer group-hover:scale-105 duration-500 overflow-hidden flex items-center justify-center"
+					>
 						<div className="absolute inset-0 bg-gradient-to-t from-[#00663055] via-transparent to-transparent" />
 						<div className="flex flex-col items-center">
 							<div className="border-2 border-red-600 rounded-full p-2 group-hover:scale-105 duration-500">

@@ -60,24 +60,24 @@ export default function PublicationsPage() {
       );
     }
 
-    if (filterCategory !== "all") {
-      filtered = filtered.filter((publication) =>
-        publication.category?.includes(filterCategory)
-      );
-    }
+		if (filterCategory !== "all") {
+			filtered = filtered.filter(
+				(publication) => publication.category === filterCategory,
+			)
+		}
 
-    setFilteredPublications(filtered);
-    setCurrentPage(1);
-  }, [searchTerm, filterCategory, publications]);
+		setFilteredPublications(filtered)
+		setCurrentPage(1)
+	}, [searchTerm, filterCategory, publications])
 
-  const totalPages = Math.ceil(filteredPublications.length / itemsPerPage);
+	const totalPages = Math.ceil(filteredPublications.length / itemsPerPage)
 
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentPublications = filteredPublications.slice(
-    indexOfFirstItem,
-    indexOfLastItem
-  );
+	const indexOfLastItem = currentPage * itemsPerPage
+	const indexOfFirstItem = indexOfLastItem - itemsPerPage
+	const currentPublications = filteredPublications.slice(
+		indexOfFirstItem,
+		indexOfLastItem,
+	)
 
   const paginate = (pageNum: number) => {
     setCurrentPage(pageNum);

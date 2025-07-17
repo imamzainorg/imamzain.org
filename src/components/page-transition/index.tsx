@@ -8,7 +8,7 @@ export default function PageTransition({
 	children: React.ReactNode
 }) {
 	return (
-		<div className="relative ">
+		<div className="relative">
 			<AnimatePresence mode="wait">
 				{/* Main Page Content */}
 				{children}
