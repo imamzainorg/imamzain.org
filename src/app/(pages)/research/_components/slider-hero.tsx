@@ -7,17 +7,17 @@ import Image from "next/image";
 const slides = [
   {
     image: "/research/كتب-.jpg",
-    title: " ابدأ رحلتك البحثية معنا افكارك تستحق ان تنشر",
+    title: "ابدأ رحلتك البحثية معنا، أفكارك تستحق أن تُنشر",
     subtitle: "",
   },
   {
     image: "/images/hero-3.jpg",
-    title: "انضم الى مجتمع الباحثين نشر المعرفة مسؤولية",
+    title: "انضم إلى مجتمع الباحثين، نشر المعرفة مسؤولية",
     subtitle: "",
   },
   {
     image: "/images/imam-legacy-bg-symbol.jpg",
-    title: "دع افكارك ترى النور ابدأ معنا اليوم",
+    title: "دع أفكارك ترى النور، ابدأ معنا اليوم",
     subtitle: "",
   },
 ];
@@ -40,13 +40,13 @@ export default function ResearchSlider() {
 
   return (
     <div
-      className="relative w-full h-[30rem] mb-32  "
+      className="relative w-full h-[30rem] mb-32"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="flex h-full">
-        {/* Right Side: Text with slide-in */}
-        <div className="w-1/2 h-full flex items-center justify-start   pl-10 text-right ">
+      <div className="flex flex-col md:flex-row h-full">
+        {/* Right Side: Text */}
+        <div className="w-full md:w-1/2 h-1/2 md:h-full flex items-center justify-center md:justify-start px- md:pl-10 text-center md:text-right">
           <AnimatePresence mode="wait">
             <motion.div
               key={slides[currentIndex].title}
@@ -54,24 +54,25 @@ export default function ResearchSlider() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 1 }}
-              className="w-3/4 "
+              className="w-full md:w-3/4"
             >
-              <h2 className="text-3xl md:text-6xl font-bold text-gray-800 mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-800 mb-4 leading-snug">
                 {slides[currentIndex].title}
               </h2>
-              <p className="text-xl md:text-5xl text-gray-600">
+              <p className="text-lg md:text-2xl text-gray-600">
                 {slides[currentIndex].subtitle}
               </p>
             </motion.div>
           </AnimatePresence>
         </div>
-        {/* Left Side: Image with fade animation */}
-        <div className="relative w-1/2 h-full rounded-3xl overflow-hidden">
+
+        {/* Left Side: Image */}
+        <div className="relative w-full md:w-1/2 h-1/2 md:h-full rounded-3xl overflow-hidden mt-4 md:mt-0">
           <Image
             src={slides[prevIndex].image}
             alt="Previous Slide"
             fill
-            sizes="(max-width: 768px) 100vw, 100vw"
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover absolute inset-0 z-10 rounded-2xl"
             style={{ objectPosition: "center" }}
           />
@@ -86,7 +87,7 @@ export default function ResearchSlider() {
               src={slides[currentIndex].image}
               alt="Current Slide"
               fill
-              sizes="(max-width: 768px) 100vw, 100vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover rounded-2xl"
               style={{ objectPosition: "center" }}
             />
@@ -103,12 +104,12 @@ export default function ResearchSlider() {
               setPrevIndex(currentIndex);
               setCurrentIndex(index);
             }}
-            className={`w-3 h-3 rounded-full shadow-md border-[0.5px]  ${
+            className={`w-3 h-3 rounded-full shadow-md border border-gray-300 transition-colors duration-300 ${
               index === currentIndex ? "bg-gray-400" : "bg-white"
             }`}
           />
         ))}
-      </div>  
+      </div>
     </div>
   );
 }
