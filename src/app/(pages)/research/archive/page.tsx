@@ -6,7 +6,7 @@ import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SearchIcon, X } from "lucide-react";
 import { Dialog } from "@headlessui/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import researchData from "@/data/temporary.json";
 
 export default function Page() {
@@ -19,8 +19,8 @@ export default function Page() {
     return /[\u0600-\u06FF]/.test(text);
   };
 
-  // وظيفة البحث والتصفية مع التحقق من الخصائص الاختيارية
-  const handleSearch = (term: string) => {
+  // استخدام useCallback لتحسين الأداء ومنع إعادة التصيير غير الضرورية
+  const handleSearch = useCallback((term: string) => {
     setSearchTerm(term);
     
     if (!term.trim()) {
@@ -50,12 +50,12 @@ export default function Page() {
     });
     
     setFilteredResearch(results);
-  };
+  }, [research]);
 
-  // إعادة تعيين البحث عند تحميل الصفحة
+
   useEffect(() => {
     handleSearch(searchTerm);
-  }, []);
+  }, [handleSearch, searchTerm]);
 
   return (
     <div className="container px-4 md:px-0">
