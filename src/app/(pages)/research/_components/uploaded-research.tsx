@@ -41,7 +41,7 @@ export default function UploadedResearch() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {research.slice(0, 4).map((item, index) => (
+        {research.slice(0, 6).map((item, index) => (
           <div
             key={index}
             className="bg-white rounded-2xl w-full h-full min-h-[370px] xs:min-h-[300px] lg:min-h-[270px] p-5 flex flex-col shadow-md"
