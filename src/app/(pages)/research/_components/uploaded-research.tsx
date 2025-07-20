@@ -53,16 +53,17 @@ export default function UploadedResearch() {
             >
               {item.title}
             </h1>
-            <div className="text-sm text-neutral-500 flex justify-between items-center mt-2 mb-1">
+            <p className="text-sm text-gray-700 mt-2 mb-2">{item.conference}</p>
+
+            <p className="text-sm line-clamp-3 text-gray-600 mb-2">
+              {item.part}-{item.section} {item.topic}
+            </p>
+            <div className="text-sm text-neutral-500  flex flex-col lg:flex-row justify-between items-start lg:items-center mt-2 mb-2">
               <p>اسم الباحث: {item.author}</p>
               <p>تاريخ النشر: {item.publishedYear}</p>
             </div>
 
             <p className="text-sm text-gray-700 mb-2">{item.Description}</p>
-
-            <p className="text-sm line-clamp-3 text-gray-600 mb-2">
-              {item.part}-{item.section} {item.topic}
-            </p>
 
             <p className="text-sm text-gray-700 "> {item.authorDescription}</p>
             <div className="flex-grow" />
@@ -102,61 +103,59 @@ export default function UploadedResearch() {
         className="relative z-50"
       >
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
-   <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-  <Dialog.Panel className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden shadow-xl">
-    {/* رأس المربع */}
-    <div className="p-6 border-b border-gray-200 flex justify-between items-center">
-      <Dialog.Title className="text-xl font-bold text-gray-900">
-        ملخص البحث
-      </Dialog.Title>
-      <button
-        onClick={() => setSelectedSummary(null)}
-        className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-        title="إغلاق"
-      >
-        <X className="w-6 h-6 text-gray-800" />
-      </button>
-    </div>
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+            <Dialog.Panel className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden shadow-xl">
+              {/* رأس المربع */}
+              <div className="p-6 border-b border-gray-200 flex justify-between items-center">
+                <Dialog.Title className="text-xl font-bold text-gray-900">
+                  ملخص البحث
+                </Dialog.Title>
+                <button
+                  onClick={() => setSelectedSummary(null)}
+                  className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+                  title="إغلاق"
+                >
+                  <X className="w-6 h-6 text-gray-800" />
+                </button>
+              </div>
 
-    {/* محتوى الملخص */}
-    {selectedSummary && (
-      <div className="p-6 overflow-y-auto max-h-[60vh] space-y-4">
-        <h3 className="text-lg font-semibold text-gray-900">
-          {selectedSummary.title}
-        </h3>
-        <p className="text-sm text-gray-700">
-          الباحث: {selectedSummary.author}
-        </p>
-        <p className="text-gray-800 leading-relaxed whitespace-pre-line">
-          {selectedSummary.abstract}
-        </p>
-      </div>
-    )}
+              {/* محتوى الملخص */}
+              {selectedSummary && (
+                <div className="p-6 overflow-y-auto max-h-[60vh] space-y-4">
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    {selectedSummary.title}
+                  </h3>
+                  <p className="text-sm text-gray-700">
+                    الباحث: {selectedSummary.author}
+                  </p>
+                  <p className="text-gray-800 leading-relaxed whitespace-pre-line">
+                    {selectedSummary.abstract}
+                  </p>
+                </div>
+              )}
 
-    {/* أزرار أسفل المربع */}
-    <div className="p-6 border-t border-gray-200 flex justify-end gap-2">
-      <button
-        onClick={() => setSelectedSummary(null)}
-        className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
-      >
-        إغلاق
-      </button>
-      {selectedSummary?.pdfUrl && (
-        <a
-          href={selectedSummary.pdfUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-2 rounded-full hover:bg-gray-100 transition-colors text-red-600"
-          title="تنزيل PDF"
-        >
-          <FontAwesomeIcon icon={faFilePdf} className="text-lg" />
-        </a>
-      )}
-    </div>
-  </Dialog.Panel>
-</div>
-
-
+              {/* أزرار أسفل المربع */}
+              <div className="p-6 border-t border-gray-200 flex justify-end gap-2">
+                <button
+                  onClick={() => setSelectedSummary(null)}
+                  className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+                >
+                  إغلاق
+                </button>
+                {selectedSummary?.pdfUrl && (
+                  <a
+                    href={selectedSummary.pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-full hover:bg-gray-100 transition-colors text-red-600"
+                    title="تنزيل PDF"
+                  >
+                    <FontAwesomeIcon icon={faFilePdf} className="text-lg" />
+                  </a>
+                )}
+              </div>
+            </Dialog.Panel>
+          </div>
         </div>
       </Dialog>
 
