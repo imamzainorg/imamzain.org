@@ -7,8 +7,8 @@ import { ChevronRightArrowIcon } from "@/assets/icons/reusable";
 import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SearchIcon, X } from "lucide-react";
-import { Research } from "@/types/temporary";
-import researchData from "@/data/temporary.json";
+import { Research } from "@/types/research";
+import researchData from "@/data/research.json";
 
 export default function UploadedResearch() {
   const [research, setResearch] = useState<Research[]>([]);

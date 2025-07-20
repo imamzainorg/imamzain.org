@@ -1,13 +1,13 @@
 "use client";
 
 import Breadcrumbs from "@/components/breadcrumb";
-import { Research } from "@/types/temporary";
+import { Research } from "@/types/research";
 import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SearchIcon, X } from "lucide-react";
 import { Dialog } from "@headlessui/react";
 import { useState, useEffect, useCallback } from "react";
-import researchData from "@/data/temporary.json";
+import researchData from "@/data/research.json";
 
 export default function Page() {
   const [research] = useState<Research[]>(researchData);
