@@ -11,47 +11,51 @@ import researchData from "@/data/research.json";
 
 export default function Page() {
   const [research] = useState<Research[]>(researchData);
-  const [filteredResearch, setFilteredResearch] = useState<Research[]>(researchData);
+  const [filteredResearch, setFilteredResearch] =
+    useState<Research[]>(researchData);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [selectedSummary, setSelectedSummary] = useState<Research | null>(null);
-  
+
   const isArabic = (text: string) => {
     return /[\u0600-\u06FF]/.test(text);
   };
 
   // استخدام useCallback لتحسين الأداء ومنع إعادة التصيير غير الضرورية
-  const handleSearch = useCallback((term: string) => {
-    setSearchTerm(term);
-    
-    if (!term.trim()) {
-      setFilteredResearch(research);
-      return;
-    }
-    
-    const lowerCaseTerm = term.toLowerCase();
-    
-    const results = research.filter(item => {
-      // التحقق من وجود الحقول قبل استخدام toLowerCase()
-      const title = item.title?.toLowerCase() || '';
-      const author = item.author?.toLowerCase() || '';
-      const description = item.Description?.toLowerCase() || '';
-      const abstract = item.abstract?.toLowerCase() || '';
-      const authorDescription = item.authorDescription?.toLowerCase() || '';
-      const sectionInfo = `${item.part}-${item.section} ${item.topic}`.toLowerCase();
-      
-      return (
-        title.includes(lowerCaseTerm) ||
-        author.includes(lowerCaseTerm) ||
-        description.includes(lowerCaseTerm) ||
-        abstract.includes(lowerCaseTerm) ||
-        sectionInfo.includes(lowerCaseTerm) ||
-        authorDescription.includes(lowerCaseTerm)
-      );
-    });
-    
-    setFilteredResearch(results);
-  }, [research]);
+  const handleSearch = useCallback(
+    (term: string) => {
+      setSearchTerm(term);
 
+      if (!term.trim()) {
+        setFilteredResearch(research);
+        return;
+      }
+
+      const lowerCaseTerm = term.toLowerCase();
+
+      const results = research.filter((item) => {
+        // التحقق من وجود الحقول قبل استخدام toLowerCase()
+        const title = item.title?.toLowerCase() || "";
+        const author = item.author?.toLowerCase() || "";
+        const description = item.Description?.toLowerCase() || "";
+        const abstract = item.abstract?.toLowerCase() || "";
+        const authorDescription = item.authorDescription?.toLowerCase() || "";
+        const sectionInfo =
+          `${item.part}-${item.section} ${item.topic}`.toLowerCase();
+
+        return (
+          title.includes(lowerCaseTerm) ||
+          author.includes(lowerCaseTerm) ||
+          description.includes(lowerCaseTerm) ||
+          abstract.includes(lowerCaseTerm) ||
+          sectionInfo.includes(lowerCaseTerm) ||
+          authorDescription.includes(lowerCaseTerm)
+        );
+      });
+
+      setFilteredResearch(results);
+    },
+    [research]
+  );
 
   useEffect(() => {
     handleSearch(searchTerm);
@@ -67,7 +71,6 @@ export default function Page() {
         ]}
       />
 
-    
       <div className="flex flex-col sm:flex-row justify-between gap-4 mb-4">
         <div className="w-full sm:w-72 relative">
           <input
@@ -78,7 +81,7 @@ export default function Page() {
             placeholder="البحث عن البحوث"
           />
           <div className="absolute  text-primary dark:text-Muharram_primary left-0 top-0 pl-3 h-full flex justify-center items-center gap-4">
-            <div className="h-2/3 w-[1px] bg-slate-400 "   />
+            <div className="h-2/3 w-[1px] bg-slate-400 " />
             <SearchIcon size={20} strokeWidth={1.5} />
           </div>
         </div>
@@ -86,18 +89,20 @@ export default function Page() {
 
       <hr className="border-1 mb-5" />
 
-
       {filteredResearch.length === 0 && (
         <div className="text-center py-10">
           <div className="bg-gray-100 dark:bg-Muharram_primary/20 p-6 rounded-xl inline-block">
             <div className="w-16 h-16 mx-auto mb-4 bg-gray-200 dark:bg-gray-200 rounded-full flex items-center justify-center">
               <SearchIcon size={24} className="text-gray-500" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">لا توجد نتائج بحث</h3>
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+              لا توجد نتائج بحث
+            </h3>
             <p className="text-gray-600 dark:text-white font-semibold">
-              لم نتمكن من العثور على بحوث تطابق بحثك: <span className="font-medium">&quot;{searchTerm}&quot;</span>
+              لم نتمكن من العثور على بحوث تطابق بحثك:{" "}
+              <span className="font-medium">&quot;{searchTerm}&quot;</span>
             </p>
-            <button 
+            <button
               onClick={() => {
                 setSearchTerm("");
                 handleSearch("");
@@ -124,7 +129,11 @@ export default function Page() {
             >
               {item.title}
             </h1>
+            <p className="text-sm text-gray-700 mt-2 mb-2">{item.conference}</p>
 
+            <p className="text-sm line-clamp-3 text-gray-600 mb-2">
+              {item.part}-{item.section} {item.topic}
+            </p>
             <div className="text-sm text-neutral-500  flex flex-col lg:flex-row justify-between items-start lg:items-center mt-2 mb-2">
               <p>اسم الباحث: {item.author}</p>
               <p>تاريخ النشر: {item.publishedYear}</p>
@@ -137,7 +146,7 @@ export default function Page() {
             <p className="text-sm line-clamp-3 text-gray-600 mb-2">
               {item.part}-{item.section} {item.topic}
             </p>
-            
+
             {/* عرض وصف الباحث فقط إذا كان موجودًا */}
             {item.authorDescription && (
               <p className="text-sm text-gray-700"> {item.authorDescription}</p>
@@ -237,4 +246,4 @@ export default function Page() {
       </Dialog>
     </div>
   );
-} 
+}
