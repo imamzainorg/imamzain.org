@@ -13,8 +13,6 @@
     "views": 96,
     "image": "/books/الفرائد الطريفة في شرح الصحيفة الشريفة.jpg",
     "pdf": "/books/الفرائد الطريفة في شرح الصحيفة الشريفة.pdf"
-
- 
   },
   {
     "id": 2,
@@ -87,8 +85,8 @@
     "pdf": "/books/سيرة الامام السجاد.pdf",
     "series": null,
     "partNumber": null,
-    "totalParts": null,
-    "category": ["A"]
+    "totalParts": null
+  
   },
   {
     "id": 8,
