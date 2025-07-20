@@ -13,5 +13,6 @@ export interface Research  {
   publishedYear?:string; // سنة النشر (اختياري)
 Description?: string; // وصف البحث (اختياري)
  authorDescription?: string; // وصف الباحث (اختياري)
+ conference?: string; // اسم المؤتمر أو الحدث (اختياري)
 }
 
