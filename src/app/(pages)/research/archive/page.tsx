@@ -143,9 +143,7 @@ export default function Page() {
               <p className="text-sm text-gray-700 mb-2">{item.Description}</p>
             )}
 
-            <p className="text-sm line-clamp-3 text-gray-600 mb-2">
-              {item.part}-{item.section} {item.topic}
-            </p>
+       
 
             {/* عرض وصف الباحث فقط إذا كان موجودًا */}
             {item.authorDescription && (
