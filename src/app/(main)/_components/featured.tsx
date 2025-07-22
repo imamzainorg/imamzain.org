@@ -168,7 +168,7 @@ export function Featured() {
 								alt="المنصة السجادية للناشئة"
 								width={1200}
 								height={800}
-								className="w-full h-auto object-cover"
+								className="w-full  h-auto object-cover"
 							/>
 						</div>
 					</div>
