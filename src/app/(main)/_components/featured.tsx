@@ -108,7 +108,7 @@ export function Featured() {
 		<section className="relative py-16 border-b-2 bg-gradient-to-b from-transparent via-Muharram_primary/40 to-Muharram_primary/40 dark:via-transparent dark:to-Muharram_secondary/15 overflow-hidden my-20">
 			<div className="container mx-auto px-4 relative z-10">
 				<div className="flex flex-col lg:flex-row items-center gap-10">
-					<div className="lg:w-1/2 text-right space-y-6 ">
+					<div className="lg:w-1/2 text-right space-y-6">
 						<div className="inline-flex items-center gap-2 text-primary dark:bg-Muharram_secondary/10 dark:text-Muharram_primary px-4 py-2 rounded-full text-sm font-medium">
 							<Sparkles className="w-4 h-4" />
 							فعاليات الخيمة السجادية
