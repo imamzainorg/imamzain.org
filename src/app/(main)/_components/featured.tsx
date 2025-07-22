@@ -162,7 +162,7 @@ export function Featured() {
 
 					{/* Image */}
 					<div className="xs:w-2/4 mx-auto relative">
-						<div className="relative rounded-2xl overflow-hidden  transform -rotate-0 hover:rotate-3 transition-transform duration-500">
+						<div className="relative rounded-2xl scale-150 overflow-hidden  transform -rotate-0 hover:rotate-3 transition-transform duration-500">
 							<Image
 								src="/contests/khayma/logo.svg"
 								alt="المنصة السجادية للناشئة"
