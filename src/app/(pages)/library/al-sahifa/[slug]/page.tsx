@@ -5,18 +5,17 @@ import BookCard from "@/components/book-card";
 import { dataFetcher } from "@/lib/dataFetcher";
 import BooklibraryCard from "../../_components/book-library-card";
 
-
 export default async function Page({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
-
   const { slug } = await params;
   let LibraryBooks: Book[] = [];
 
   try {
-    LibraryBooks = await dataFetcher<Book[]>("library.json");
+    // ✅ التعديل هنا: استخدام al-sahifa.json بدلاً من library.json
+    LibraryBooks = await dataFetcher<Book[]>("al-sahifa.json");
   } catch (error) {
     console.error("فشل في جلب الكتب:", error);
     return <div>حدث خطأ أثناء تحميل الكتب</div>;
@@ -40,8 +39,11 @@ export default async function Page({
       />
 
       <div className="space-y-10 my-8">
-      
-        <BookCard key={book.id} publication={book} publications={LibraryBooks} />
+        <BookCard
+          key={book.id}
+          publication={book}
+          publications={LibraryBooks}
+        />
 
         <h2 className="text-center font-semibold border-t border-b p-4 sm:text-2xl xl:text-4xl">
           كتب ذات صلة
@@ -52,7 +54,7 @@ export default async function Page({
             .slice(0, 2)
             .map((libraryBook) => (
               <BooklibraryCard
-                route="/library"
+                route="/library/al-sahifa"
                 key={libraryBook.id}
                 publication={libraryBook}
                 downloadable
