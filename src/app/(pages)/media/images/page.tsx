@@ -13,7 +13,9 @@ export default function GalleryPage() {
   const [lightboxOpen, setLightboxOpen] = useState<boolean>(false);
   const galleryRef = useRef<HTMLDivElement>(null);
 
-  const categories = ["جميع الصور", "صور مسابقات", "صور أخبار", "صور مناسبات"];
+  {/*
+    const categories = ["جميع الصور", "صور مسابقات", "صور أخبار", "صور مناسبات"];
+    */}
   const images = galleryImages
     .filter((item) => item.title !== "khat")
     .map((item) => ({
@@ -51,6 +53,8 @@ export default function GalleryPage() {
           </p>
         </div>
 
+{/*
+
         <div className="mb-8">
           <SectionCta
             links={categories.map((category) => ({
@@ -61,6 +65,7 @@ export default function GalleryPage() {
             }))}
           />
         </div>
+*/}
 
         <div className="mb-8">
           <SwiperCarousel images={images} />

@@ -154,6 +154,7 @@ export default function Videos({
 						})}
 				</div>
 
+		{/*
 				<div className="hidden md:block">
 					<SectionCta
 						links={[
@@ -166,6 +167,7 @@ export default function Videos({
 						]}
 					/>
 				</div>
+		*/}
 			</div>
 
 			{videoId && (
