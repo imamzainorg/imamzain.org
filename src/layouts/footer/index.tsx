@@ -5,13 +5,14 @@ import Image from "next/image";
 import {
   faInstagram,
   faTiktok,
-  faTwitter,
+  faXTwitter,
   faFacebook,
 } from "@fortawesome/free-brands-svg-icons";
 import { SizeProp } from "@fortawesome/fontawesome-svg-core";
 import DropdownLang from "@/layouts/dropdown-lang";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Accordion, AccordionItem } from "@heroui/react";
+
 
 type Sublink =
   | { label: string; href: string; slug?: never }
@@ -87,7 +88,7 @@ const bigNavSocials = [
   { href: "https://www.instagram.com/imamzainorg/", icon: faInstagram },
   { href: "https://www.tiktok.com/@imamzainorg", icon: faTiktok },
   { href: "https://www.facebook.com/@imamzainorg", icon: faFacebook },
-  { href: "https://twitter.com/imamzainorg", icon: faTwitter },
+{ href: "https://twitter.com/imamzainorg", icon: faXTwitter },
 ];
 
 export default function Footer() {
