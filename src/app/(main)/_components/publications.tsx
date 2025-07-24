@@ -75,14 +75,7 @@ export default function Publications({
 				{publications.slice(0, booksToShow).map((book) => (
 					<Link key={book.id} href={`/publications/${book.slug}`}>
 						<motion.div
-className="
-  flex flex-col justify-between rounded-2xl h-3/4
-  bg-gradient-to-t from-[#e1e8d7] via-[#e1e8d7]/10 to-transparent
-  dark:from-Muharram_secondary/20 dark:via-Muharram_secondary/5 dark:to-transparent
-"
-
-  
-
+							className="flex flex-col justify-between rounded-2xl h-3/4 bg-gradient-to-t from-[#e1e8d7] via-[#e1e8d7]/10 to-transparent dark:from-Muharram_secondary/20 dark:via-Muharram_secondary/5 dark:to-transparent"
 							variants={parentVariants}
 							initial="rest"
 							animate="visible"
@@ -95,38 +88,37 @@ className="
 									variants={iconVariants}
 									className="absolute right-0 bottom-0 w-32 h-32"
 								>
-								<motion.div
-	variants={{
-		hidden: { opacity: 0, x: 20 },
-		visible: {
-			opacity: 1,
-			x: 0,
-			transition: {
-				duration: 1,
-				ease: "easeOut",
-			},
-		},
-	}}
-	className="absolute right-0 bottom-0 w-32 h-32"
->
-	
-	<Image
-		src="/shapes/book_icon.svg"
-		alt={`${book.title} icon`}
-		fill
-		sizes="100vw"
-		className="object-contain dark:hidden"
-	/>
+									<motion.div
+										variants={{
+											hidden: { opacity: 0, x: 20 },
+											visible: {
+												opacity: 1,
+												x: 0,
+												transition: {
+													duration: 1,
+													ease: "easeOut",
+												},
+											},
+										}}
+										className="absolute right-0 bottom-0 w-32 h-32">
 
-	
-	<Image
-		src="/shapes/book_icon_Muharram.svg"
-		alt={`${book.title} icon (dark)`}
-		fill
-		sizes="100vw"
-		className="object-contain hidden dark:block"
-	/>
-</motion.div>
+										<Image
+											src="/shapes/book_icon.svg"
+											alt={`${book.title} icon`}
+											fill
+											sizes="100vw"
+											className="object-contain dark:hidden"
+										/>
+
+
+										<Image
+											src="/shapes/book_icon_Muharram.svg"
+											alt={`${book.title} icon (dark)`}
+											fill
+											sizes="100vw"
+											className="object-contain hidden dark:block"
+										/>
+									</motion.div>
 
 								</motion.div>
 

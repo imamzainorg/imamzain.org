@@ -18,39 +18,41 @@ export default {
 				"2xl": "6rem",
 			},
 		},
-		screens: {
-			xxs: "280px",
-			xs: "500px",
-			s: "380px",
-			xmd: "900px",
-		},
-		boxShadow: {
-			custom: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)",
-		},
-		keyframes: {
-			fadeInUp: {
-				"0%": {
-					opacity: "0",
-					transform: "translateY(20px)",
-				},
-				"100%": {
-					opacity: "1",
-					transform: "translateY(0)",
+		extend: {
+			screens: {
+				xxs: "280px",
+				xs: "500px",
+				s: "380px",
+				xmd: "900px",
+			},
+			boxShadow: {
+				custom: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)",
+			},
+			keyframes: {
+				fadeInUp: {
+					"0%": {
+						opacity: "0",
+						transform: "translateY(20px)",
+					},
+					"100%": {
+						opacity: "1",
+						transform: "translateY(0)",
+					},
 				},
 			},
-		},
-		animation: {
-			"fade-in-up": "fadeInUp 0.5s ease-in-out",
-		},
-		colors: {
-			primary: "#006654",
-			secondary: "#bb9661",
-			Muharram_primary: "#231F20",
-			Muharram_secondary: "#a43232",
-			"dark-background": "rgb(37,52,63)",
-		},
-		listStyleType: {
-			"arabic-indic": "arabic-indic",
+			animation: {
+				"fade-in-up": "fadeInUp 0.5s ease-in-out",
+			},
+			colors: {
+				primary: "#006654",
+				secondary: "#bb9661",
+				Muharram_primary: "#231F20",
+				Muharram_secondary: "#a43232",
+				"dark-background": "rgb(37,52,63)",
+			},
+			listStyleType: {
+				"arabic-indic": "arabic-indic",
+			},
 		},
 	},
 	darkMode: "class",
