@@ -1,48 +1,46 @@
 [
-    
-  {  "title": "الملتقى الثاني البقيع: الهوية والتاريخ",
+  {
+    "title": "الملتقى الثاني البقيع: الهوية والتاريخ",
     "videos": [
-{
-  "title": "كلمة مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات في الملتقى الثاني البقيع",
-  "url": "pJt4S9yUKqg",
-  "date": "23‏/04‏/2025",
-  "desc": "",
-  "thumbnail": "/playlist-thumbnails/الملتقى الثاني البقيع الهوية والتاريخ.jpg",
-  "slug": "kalmat-muassasat-alimam-zain-alabidin-alayh-alsalam-lilbuhuth-waldirasat-fi-almultaqa-althani-albaqi"
-}
-,
-{
-  "title": "كلمة دار العلم للإمام الخوئي (قدس سره) في الملتقى الثاني البقيع: الهوية والتاريخ",
- "url": "pSPAuFRF31k",
-  "date": " 23‏/04‏/2025",
-  "desc": "",
-  "thumbnail": "/playlist-thumbnails/الملتقى الثاني البقيع الهوية والتاريخ.jpg",
-  "slug": "kalmat-dar-alilm-lilimam-alkhuway-qdds-srrh-fi-almultaqa-althani-albaqi-alhuwya-waltarikh"
-},
-{
-  "title": "هدم قبور البقيع.. المناشيء الفكرية والتداعيات الإجتماعية",
-   "url": "XAPZ6Bt3gwM",
-  "date": " 23‏/04‏/2025",
-  "desc": "",
-  "thumbnail": "/playlist-thumbnails/الملتقى الثاني البقيع الهوية والتاريخ.jpg",
-  "slug": "hadm-qubur-albaqi-almanashiya-alfikriya-waltadaei-alijtimaia"
-},
-{
-  "title": "هدم قبور البقيع الحدث والحديث",
-   "url": "XAPZ6Bt3gwM",
-  "date": " 23‏/04‏/2025",
-  "desc": "",
-  "thumbnail": "/playlist-thumbnails/الملتقى الثاني البقيع الهوية والتاريخ.jpg",
-  "slug": "hadm-qubur-albaqi-alhadath-walhadeeth"
-}
-
- ] },
+      {
+        "title": "كلمة مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات في الملتقى الثاني البقيع",
+        "url": "pJt4S9yUKqg",
+        "date": "23‏/04‏/2025",
+        "desc": "",
+        "thumbnail": "/playlist-thumbnails/الملتقى الثاني البقيع الهوية والتاريخ.jpg",
+        "slug": "kalmat-muassasat-alimam-zain-alabidin-alayh-alsalam-lilbuhuth-waldirasat-fi-almultaqa-althani-albaqi"
+      },
+      {
+        "title": "كلمة دار العلم للإمام الخوئي (قدس سره) في الملتقى الثاني البقيع: الهوية والتاريخ",
+        "url": "pSPAuFRF31k",
+        "date": " 23‏/04‏/2025",
+        "desc": "",
+        "thumbnail": "/playlist-thumbnails/الملتقى الثاني البقيع الهوية والتاريخ.jpg",
+        "slug": "kalmat-dar-alilm-lilimam-alkhuway-qdds-srrh-fi-almultaqa-althani-albaqi-alhuwya-waltarikh"
+      },
+      {
+        "title": "هدم قبور البقيع.. المناشيء الفكرية والتداعيات الإجتماعية",
+        "url": "XAPZ6Bt3gwM",
+        "date": " 23‏/04‏/2025",
+        "desc": "",
+        "thumbnail": "/playlist-thumbnails/الملتقى الثاني البقيع الهوية والتاريخ.jpg",
+        "slug": "hadm-qubur-albaqi-almanashiya-alfikriya-waltadaei-alijtimaia"
+      },
+      {
+        "title": "هدم قبور البقيع الحدث والحديث",
+        "url": "XAPZ6Bt3gwM",
+        "date": " 23‏/04‏/2025",
+        "desc": "",
+        "thumbnail": "/playlist-thumbnails/الملتقى الثاني البقيع الهوية والتاريخ.jpg",
+        "slug": "hadm-qubur-albaqi-alhadath-walhadeeth"
+      }
+    ]
+  },
 
   {
     "title": "مجالس عزاء",
     "videos": [
-
-            {
+      {
         "title": "الشيخ محمد امين العبادي | السادس من شهر محرم الحرام",
         "url": "4kmHJ_LRbdg",
         "date": "5 يوليو، 2025",
@@ -50,7 +48,7 @@
         "thumbnail": "/playlist-thumbnails/الشيخ-محمد-امين-العبادي-محرم.jpg",
         "slug": "al-sheikh-mohammad-amin-al-abadi-al-thani-min-shahr-muharram-al-haram"
       },
-         {
+      {
         "title": "مجلس عزاء شهادة الإمام الكاظم (عليه السلام) المقام في مؤسسة الإمام زين العابدين (عليه السلام)",
         "url": "mzQsvADV8sA",
         "date": "27 يناير، 2025",
@@ -66,7 +64,6 @@
         "thumbnail": "/playlist-thumbnails/جلس عزاء الامام علي الهادي.jpg",
         "slug": "mjls-azaa-shhadh-alimam-aly-alhady-(alyh-alslam)-almqam-fy-mussh-alimam-zyn-alaabdyn-(alyh-alslam)-llbhwth-waldrasat"
       }
-   
     ]
   },
   {
@@ -389,7 +386,8 @@
         "slug": "klmh-reys-mussh-alimam-zyn-alaabdyn-alsyd-ghsan-alkhrsan-fy-almltqa-altshawry-alawl-lkhtbaa-almnbr-alhsyny"
       }
     ]
-  },  {
+  },
+  {
     "title": "سيرة زين العابدين",
     "videos": [
       {
