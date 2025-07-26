@@ -31,42 +31,54 @@ export default function Page() {
 		fetchBooks()
 	}, [])
 
-	// Filter and sort books based on user input
+	// Filter and sort books
 	useEffect(() => {
 		let books = [...libraryBooks]
 
-		// Filter by search inputs
+		// ✅ إظهار فقط الجزء الأول من كل سلسلة
+		const seenSeries = new Set<string>()
+		books = books.filter((book) => {
+			if (book.series && book.totalParts && book.partNumber) {
+				if (book.partNumber !== 1) return false
+				if (seenSeries.has(book.series)) return false
+				seenSeries.add(book.series)
+				return true
+			}
+			return true // الكتب غير المتسلسلة تُعرض كالمعتاد
+		})
+
+		// 🔍 فلترة حسب العنوان
 		if (searchTitle) {
 			books = books.filter((book) =>
 				book.title.toLowerCase().includes(searchTitle.toLowerCase()),
 			)
 		}
+		// 🔍 فلترة حسب المؤلف
 		if (searchAuthor) {
 			books = books.filter((book) =>
-				book.author.toLowerCase().includes(searchAuthor.toLowerCase()),
+				book.author?.toLowerCase().includes(searchAuthor.toLowerCase()),
 			)
 		}
+		// 🔍 فلترة حسب الناشر
 		if (searchPublisher) {
 			books = books.filter((book) =>
-				book.printHouse
-					.toLowerCase()
-					.includes(searchPublisher.toLowerCase()),
+				book.printHouse?.toLowerCase().includes(searchPublisher.toLowerCase()),
 			)
 		}
+		// 🔍 فلترة حسب الأسماء الأخرى
 		if (searchTopic) {
 			books = books.filter((book) =>
-				book.otherNames.map((name) =>
+				book.otherNames?.some((name) =>
 					name.toLowerCase().includes(searchTopic.toLowerCase()),
 				),
 			)
 		}
 
-		// Sort books
+		// 🔄 ترتيب حسب الأحدث أو الأكثر مشاهدة
 		if (sortOption === "latest") {
 			books.sort(
 				(a, b) =>
-					new Date(b.printDate).getTime() -
-					new Date(a.printDate).getTime(),
+					new Date(b.printDate).getTime() - new Date(a.printDate).getTime(),
 			)
 		} else if (sortOption === "common") {
 			books.sort((a, b) => b.views - a.views)
@@ -102,7 +114,7 @@ export default function Page() {
 						className="border-none bg-transparent  focus:border-none active:border-none"
 						onChange={(e) => setSortOption(e.target.value)}
 					>
-						<option value="latest" className="  " defaultChecked>
+						<option value="latest" defaultChecked>
 							الأحدث
 						</option>
 						<option value="common">الأكثر شيوعا</option>
@@ -110,6 +122,7 @@ export default function Page() {
 				</div>
 			</div>
 
+			{/* حقول البحث */}
 			<div className="grid grid-cols-1 md:grid-cols-3 gap-3">
 				<div className="col-span-1 w-full md:col-span-3 md:w-1/2 relative lg:mb-4">
 					<input
@@ -125,21 +138,17 @@ export default function Page() {
 					</div>
 				</div>
 
-				{/* Filter by Topic */}
 				<div className="col-span-1">
-					<span className="font-semibold my-2 ">
-						محققين، مددقين، الخ...
-					</span>
+					<span className="font-semibold my-2 ">محققين، مدققين، الخ...</span>
 					<input
 						type="text"
 						value={searchTopic}
 						onChange={(e) => setSearchTopic(e.target.value)}
 						className="w-full rounded-xl md:text-sm p-1 lg:text-lg bg-transparent border border-primary dark:border-Muharram_primary"
-						placeholder="البحث عن اي اسم"
+						placeholder="البحث عن أي اسم"
 					/>
 				</div>
 
-				{/* Filter by Author */}
 				<div className="col-span-1">
 					<span className="font-semibold my-2">المؤلف</span>
 					<input
@@ -151,7 +160,6 @@ export default function Page() {
 					/>
 				</div>
 
-				{/* Filter by Publisher */}
 				<div className="col-span-1">
 					<span className="font-semibold my-2">الناشر</span>
 					<input
@@ -164,18 +172,8 @@ export default function Page() {
 				</div>
 			</div>
 
-			<div className="flex mx-auto justify-center items-center gap-4 my-8">
-				<div className="w-52 h-40 bg-[url('/shapes/button-bg.svg')] dark:bg-[url('/shapes/button-bg_Muharram.svg')] bg-contain bg-center bg-no-repeat flex justify-center items-center text-white">
-					رسائل
-				</div>
-				<div className="w-1 h-1 dark:bg-Muharram_secondary bg-secondary rounded-full" />
-				<div className="w-52 h-40 bg-[url('/shapes/button-bg.svg')]  dark:bg-[url('/shapes/button-bg_Muharram.svg')] bg-contain bg-center bg-no-repeat flex justify-center items-center text-white">
-					مجلات
-				</div>
-			</div>
-
-			{/* Display Filtered Books */}
-			<div className="bg-secondary/20 dark:bg-Muharram_primary/20  rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
+			{/* عرض النتائج */}
+			<div className="bg-secondary/20 dark:bg-Muharram_primary/20  rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10 mt-8">
 				{filteredBooks.length > 0 ? (
 					filteredBooks.map((book) => (
 						<BooklibraryCard
