@@ -32,8 +32,24 @@ export default function PublicationsPage() {
     const fetchData = async () => {
       try {
         const data = await dataFetcher<Book[]>("publications.json");
-        setPublications(data);
-        setFilteredPublications(data);
+
+ 
+        const uniqueSeriesMap = new Map<string, Book>();
+
+        data.forEach((book) => {
+          if (book.series && book.totalParts > 1) {
+            if (!uniqueSeriesMap.has(book.series) && book.partNumber === 1) {
+              uniqueSeriesMap.set(book.series, book);
+            }
+          } else {
+            uniqueSeriesMap.set(`${book.series ?? book.id}`, book);
+          }
+        });
+
+        const filteredData = Array.from(uniqueSeriesMap.values());
+
+        setPublications(filteredData);
+        setFilteredPublications(filteredData);
       } catch (error) {
         console.error("Error fetching publications: ", error);
       }
@@ -60,25 +76,20 @@ export default function PublicationsPage() {
       );
     }
 
-		
+    setFilteredPublications(filtered);
+    setCurrentPage(1);
+  }, [searchTerm, filterCategory, publications]);
 
-		setFilteredPublications(filtered)
-		setCurrentPage(1)
-	}, [searchTerm, filterCategory, publications])
-
-	const totalPages = Math.ceil(filteredPublications.length / itemsPerPage)
-
-	const indexOfLastItem = currentPage * itemsPerPage
-	const indexOfFirstItem = indexOfLastItem - itemsPerPage
-	const currentPublications = filteredPublications.slice(
-		indexOfFirstItem,
-		indexOfLastItem,
-	)
+  const totalPages = Math.ceil(filteredPublications.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentPublications = filteredPublications.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
 
   const paginate = (pageNum: number) => {
     setCurrentPage(pageNum);
-
-    // تمرير سلس لأعلى قسم الإصدارات
     setTimeout(() => {
       scrollRef.current?.scrollIntoView({ behavior: "smooth" });
     }, 100);
@@ -134,7 +145,7 @@ export default function PublicationsPage() {
               </div>
             </div>
 
-            <div className="w-full md:w-1/5  ">
+            <div className="w-full md:w-1/5">
               <Button
                 variant="outline"
                 className="w-full text-md md:text-lg  bg-white md:p-5"
@@ -143,7 +154,7 @@ export default function PublicationsPage() {
                   setFilterCategory("all");
                 }}
               >
-                <FilterIcon size={18} className="ml-2 bg-white " />
+                <FilterIcon size={18} className="ml-2 bg-white" />
                 إعادة الضبط
               </Button>
             </div>
@@ -186,7 +197,7 @@ export default function PublicationsPage() {
 
       {/* التقسيم الصفحي */}
       {totalPages > 1 && (
-        <div className="w-11/12 mx-auto flex justify-center my-8 ">
+        <div className="w-11/12 mx-auto flex justify-center my-8">
           <nav className="flex items-center gap-2">
             <Button
               variant="outline"

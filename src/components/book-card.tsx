@@ -30,7 +30,35 @@ export default function BookCard({
   return (
     <div className="space-y-16 my-12 max-w-screen-xl mx-auto px-4">
       <div className="relative rounded-3xl shadow-2xl border border-gray-200 bg-gradient-to-tr from-white via-secondary/10 to-secondary/30  dark:via-Muharram_secondary/10 dark:to-Muharram_secondary/30 overflow-hidden">
-        <div className="flex flex-col lg:flex-row items-center lg:items-start p-6 md:p-10 gap-8">
+          {seriesParts.length > 1 && (
+          <div className="px-6 md:px-10 py-6">
+            <div className="w-full h-[0.5px] mb-5 bg-gradient-to-r  from-transparent via-primary dark:via-Muharram_primary dark:to-transparent to-transparent" />
+            <h3 className="text-xl font-bold mb-4 text-gray-800 text-center">
+              أجزاء السلسلة
+            </h3>
+            <div className="flex flex-wrap gap-3 justify-center">
+              {seriesParts.map((part, index) => (
+                <Link
+                  key={part.id}
+                  href={`/publications/${part.slug}`}
+                  className={`px-5 py-2 rounded-full border-2 transition-all text-sm font-medium
+                    ${
+                      part.slug === publication.slug
+                        ? "bg-primary text-white border-primary dark:bg-Muharram_primary dark:border-Muharram_primary shadow-md"
+                        : "border-white text-gray-700 hover:bg-gray-100 hover:border-gray-400 "
+                    }
+                  `}
+								>
+									الجزء {index + 1}
+								</Link>
+							))}
+              
+						</div>
+          
+					</div>
+				)}
+      
+        <div className="flex flex-col lg:flex-row items-center lg:items-start p-6 md:p-10 gap-8 ">
           <div className="w-full lg:w-1/3 flex justify-center relative group">
             <div className="relative w-full max-w-xs aspect-[3/4] rounded-xl overflow-hidden bg-transparent">
               <Image
@@ -128,31 +156,7 @@ export default function BookCard({
             </div>
           </div>
         </div>
-        {seriesParts.length > 1 && (
-          <div className="px-6 md:px-10 py-6">
-            <div className="w-full h-[0.5px] mb-5 bg-gradient-to-r from-transparent via-primary dark:via-Muharram_primary dark:to-transparent to-transparent" />
-            <h3 className="text-xl font-bold mb-4 text-gray-800 text-center">
-              أجزاء السلسلة
-            </h3>
-            <div className="flex flex-wrap gap-3 justify-center">
-              {seriesParts.map((part, index) => (
-                <Link
-                  key={part.id}
-                  href={`/publications/${part.slug}`}
-                  className={`px-5 py-2 rounded-full border-2 transition-all text-sm font-medium
-                    ${
-                      part.slug === publication.slug
-                        ? "bg-primary text-white border-primary dark:bg-Muharram_primary dark:border-Muharram_primary shadow-md"
-                        : "border-white text-gray-700 hover:bg-gray-100 hover:border-gray-400"
-                    }
-                  `}
-								>
-									الجزء {index + 1}
-								</Link>
-							))}
-						</div>
-					</div>
-				)}
+      
 			</div>
 		</div>
 	)
