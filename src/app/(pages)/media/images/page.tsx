@@ -3,13 +3,16 @@
 import { useState, useCallback, useRef } from "react";
 import Breadcrumbs from "@/components/breadcrumb";
 import SwiperCarousel from "@/components/swiper-carousel";
-import SectionCta from "@/components/section-cta";
+{/*
+  import SectionCta from "@/components/section-cta";
+  const [activeCategory, setActiveCategory] = useState<string>("جميع الصور");
+  */}
 import ImageView from "@/components/image-view";
 
 import galleryImages from "@/data/gallery.json";
 
 export default function GalleryPage() {
-  const [activeCategory, setActiveCategory] = useState<string>("جميع الصور");
+
   const [lightboxOpen, setLightboxOpen] = useState<boolean>(false);
   const galleryRef = useRef<HTMLDivElement>(null);
 

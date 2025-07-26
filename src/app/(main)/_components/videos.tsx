@@ -7,7 +7,9 @@ import {
 	TimeIcon,
 	VideoRecordingIcon,
 } from "@/assets/icons/reusable"
-import SectionCta from "@/components/section-cta"
+{/*
+	import SectionCta from "@/components/section-cta"
+	*/}
 import HeaderSections from "@/components/header-sections"
 import { motion } from "framer-motion"
 import { YouTubePlaylist } from "@/types/youtubeData"
