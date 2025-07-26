@@ -51,13 +51,7 @@ export default function BooklibraryCard({
           <span>{publication.views} مشاهدة</span>
         </div>
 
-        {publication.series && (
-          <div className="mt-1 text-[0.5rem] xs:text-[10px] text-gray-500">
-            السلسلة: {publication.series}
-            {publication.partNumber &&
-              ` (الجزء ${publication.partNumber} من ${publication.totalParts})`}
-          </div>
-        )}
+     
       </div>
     </Link>
   );
