@@ -6,13 +6,21 @@ import { Book } from "@/types/book";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
-import { getBooksFromFile } from "@/lib/getBooksFromFile"; // ✅ استدعاء الدالة الجديدة
+import path from "path";
+import fs from "fs/promises";
 
 export default async function Page() {
-  const allBooks: Book[] = await getBooksFromFile();
+
+  const filePath = path.join(process.cwd(), "src", "data", "publications.json");
+  const data = await fs.readFile(filePath, "utf-8");
+  const allBooks: Book[] = JSON.parse(data);
+
+  const filteredBooks = allBooks.filter(
+    (book) => Array.isArray(book.category) && book.category.includes("risalat-al-huqoq")
+  );
 
   const uniqueSeriesMap = new Map<string, Book>();
-  allBooks.forEach((book) => {
+  filteredBooks.forEach((book) => {
     if (book.series && book.totalParts > 1) {
       if (!uniqueSeriesMap.has(book.series) && book.partNumber === 1) {
         uniqueSeriesMap.set(book.series, book);
@@ -74,10 +82,7 @@ export default async function Page() {
         ما كتب عن رسالة الحقوق
       </h2>
 
-      <ShowcaseSection
-        route="/library/risalat-al-huqoq"
-        showcaseBooks={libraryBooks.slice(0, 3)}
-      />
+      <ShowcaseSection route="/library/risalat-al-huqoq" showcaseBooks={libraryBooks.slice(0, 3)} />
 
       <div className="bg-secondary/20 dark:bg-Muharram_primary/20 bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
         {libraryBooks.map((book) => (
@@ -90,10 +95,7 @@ export default async function Page() {
       </div>
 
       <div className="lg:hidden">
-        <RelatedBooks
-          route="/library/risalat-al-huqoq"
-          relatedBooks={libraryBooks.slice(1, 3)}
-        />
+        <RelatedBooks route="/library/risalat-al-huqoq" relatedBooks={libraryBooks.slice(1, 3)} />
       </div>
     </div>
   );

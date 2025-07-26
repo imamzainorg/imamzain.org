@@ -10,15 +10,16 @@ import path from "path";
 import fs from "fs/promises";
 
 async function getBooksFromFile(): Promise<Book[]> {
-  const filePath = path.join(process.cwd(), "src", "data", "al-sahifa.json");
+  const filePath = path.join(process.cwd(), "src", "data", "publications.json");
   const data = await fs.readFile(filePath, "utf-8");
   return JSON.parse(data);
 }
 
 export default async function Page() {
-  const libraryBooks = await getBooksFromFile();
+  const libraryBooks = (await getBooksFromFile()).filter((book) =>
+    book.category?.includes("al-sahifa")
+  );
 
-  // تصفية لعرض الجزء الأول فقط من كل سلسلة تحتوي أكثر من جزء
   const uniqueSeriesMap = new Map<string, Book>();
 
   libraryBooks.forEach((book) => {

@@ -17,11 +17,11 @@ export default function Page() {
 	const [searchTopic, setSearchTopic] = useState("")
 	const [sortOption, setSortOption] = useState("latest")
 
-	// Fetch books on mount
+	// تحميل الكتب عند بداية الصفحة
 	useEffect(() => {
 		const fetchBooks = async () => {
 			try {
-				const books = await dataFetcher<Book[]>("library.json")
+				const books = await dataFetcher<Book[]>("publications.json")
 				setLibraryBooks(books)
 				setFilteredBooks(books)
 			} catch (error) {
@@ -31,11 +31,14 @@ export default function Page() {
 		fetchBooks()
 	}, [])
 
-	// Filter and sort books
+	// فلترة وفرز الكتب
 	useEffect(() => {
 		let books = [...libraryBooks]
 
-		// ✅ إظهار فقط الجزء الأول من كل سلسلة
+	
+		books = books.filter(book => book.category?.includes("imamzain"))
+
+	
 		const seenSeries = new Set<string>()
 		books = books.filter((book) => {
 			if (book.series && book.totalParts && book.partNumber) {
@@ -44,28 +47,28 @@ export default function Page() {
 				seenSeries.add(book.series)
 				return true
 			}
-			return true // الكتب غير المتسلسلة تُعرض كالمعتاد
+			return true 
 		})
 
-		// 🔍 فلترة حسب العنوان
+	
 		if (searchTitle) {
 			books = books.filter((book) =>
 				book.title.toLowerCase().includes(searchTitle.toLowerCase()),
 			)
 		}
-		// 🔍 فلترة حسب المؤلف
+		// فلترة حسب المؤلف
 		if (searchAuthor) {
 			books = books.filter((book) =>
 				book.author?.toLowerCase().includes(searchAuthor.toLowerCase()),
 			)
 		}
-		// 🔍 فلترة حسب الناشر
+		// فلترة حسب الناشر
 		if (searchPublisher) {
 			books = books.filter((book) =>
 				book.printHouse?.toLowerCase().includes(searchPublisher.toLowerCase()),
 			)
 		}
-		// 🔍 فلترة حسب الأسماء الأخرى
+		// فلترة حسب أسماء أخرى
 		if (searchTopic) {
 			books = books.filter((book) =>
 				book.otherNames?.some((name) =>
@@ -74,7 +77,7 @@ export default function Page() {
 			)
 		}
 
-		// 🔄 ترتيب حسب الأحدث أو الأكثر مشاهدة
+		// ترتيب حسب الأحدث أو الأكثر مشاهدة
 		if (sortOption === "latest") {
 			books.sort(
 				(a, b) =>

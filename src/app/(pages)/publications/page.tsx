@@ -33,10 +33,13 @@ export default function PublicationsPage() {
       try {
         const data = await dataFetcher<Book[]>("publications.json");
 
- 
+        const filteredByCategory = data.filter((book) =>
+          book.category?.includes("publications")
+        );
+
         const uniqueSeriesMap = new Map<string, Book>();
 
-        data.forEach((book) => {
+        filteredByCategory.forEach((book) => {
           if (book.series && book.totalParts > 1) {
             if (!uniqueSeriesMap.has(book.series) && book.partNumber === 1) {
               uniqueSeriesMap.set(book.series, book);

@@ -32,10 +32,10 @@ export default function BookCard({
       <div className="relative rounded-3xl shadow-2xl border border-gray-200 bg-gradient-to-tr from-white via-secondary/10 to-secondary/30  dark:via-Muharram_secondary/10 dark:to-Muharram_secondary/30 overflow-hidden">
           {seriesParts.length > 1 && (
           <div className="px-6 md:px-10 py-6">
-            <div className="w-full h-[0.5px] mb-5 bg-gradient-to-r  from-transparent via-primary dark:via-Muharram_primary dark:to-transparent to-transparent" />
-            <h3 className="text-xl font-bold mb-4 text-gray-800 text-center">
+  <h3 className="text-xl font-bold mb-4 text-gray-800 text-center">
               أجزاء السلسلة
             </h3>
+         
             <div className="flex flex-wrap gap-3 justify-center">
               {seriesParts.map((part, index) => (
                 <Link
@@ -54,7 +54,8 @@ export default function BookCard({
 							))}
               
 						</div>
-          
+          <div className="w-full h-[0.5px] mt-5 bg-gradient-to-r from-transparent via-primary dark:via-Muharram_primary dark:to-transparent to-transparent" />
+
 					</div>
 				)}
       
@@ -74,7 +75,7 @@ export default function BookCard({
           <div className="w-full lg:w-2/3 space-y-6 text-center lg:text-right">
             <div>
               <span className="inline-block bg-primary/10 text-primary dark:bg-Muharram_primary/10 dark:text-Muharram_primary px-3 py-1 rounded-full text-sm mb-2">
-                {publication.category}
+               
               </span>
               <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
                 {publication.title}
