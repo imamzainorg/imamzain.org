@@ -9,7 +9,7 @@
     "printDate": "2024",
     "language": "العربية",
     "pages": 397,
-    "parts": 2,
+    "parts": 1,
     "views": 96,
     "image": "/books/الفرائد الطريفة في شرح الصحيفة الشريفة.jpg",
     "pdf": "/books/الفرائد الطريفة في شرح الصحيفة الشريفة.pdf"
@@ -108,21 +108,7 @@
     "totalParts": 2
   },
 
-  {
-    "id": 7,
-    "slug": "al-faraid-al-tarifa-fi-sharh-al-sahifa-al-sharifa",
-    "title": "الفرائد الطريفة في شرح الصحيفة الشريفة",
-    "author": "محمد  باقر المجلسي",
-    "otherNames": ["السيد مهدي الرجائي"],
-    "printHouse": "دار الوارث للطبع",
-    "printDate": "2024",
-    "language": "العربية",
-    "pages": 375,
-    "parts": 1,
-    "views": 59,
-    "image": "/library/الفرائد الطريفة في شرح الصحيفة الشريفة (تحقيق السيد مهدي الرجائي).jpg",
-    "pdf": "/library/الفرائد الطريفة في شرح الصحيفة الشريفة (تحقيق السيد مهدي الرجائي).pdf"
-  },
+
   {
     "id": 8,
     "slug": "al-sahifa-al-sajjadiyya-al-dirasa-al-sanadiyya-al-bibliographia-al-nass",
@@ -136,7 +122,7 @@
     "parts": 1,
     "views": 64,
     "image": "/library/الموسوعة السجادية  - الصحيفة السجادية الدراسة السندية البيبلوغرافيا النص ج3.jpg",
-    "pdf": "/library/الموسوعة السجادية - الصحيفة السجادية الدراسة السندية البيبلوغرافيا النص ج3.pdf"
+    "pdf": "/library/الموسوعة السجادية  - الصحيفة السجادية الدراسة السندية الببليوغرافيا النص ج3.pdf"
   },
   {
     "id": 9,

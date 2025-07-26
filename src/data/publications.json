@@ -12,9 +12,8 @@
     "parts": 1,
     "views": 96,
     "image": "/books/الفرائد الطريفة في شرح الصحيفة الشريفة.jpg",
-    "pdf": "/books/الفرائد الطريفة في شرح الصحيفة الشريفة.pdf"
-
- 
+    "pdf": "/books/الفرائد الطريفة في شرح الصحيفة الشريفة.pdf",
+    "category": [ "al-sahifa", "publications"]
   },
   {
     "id": 2,
@@ -32,8 +31,8 @@
     "pdf": "/books/الفوائد الشريفة في شرح الصحيفة - الجزء الاول.pdf",
     "series": "الفوائد الشريفة في شرح الصحيفة",
     "partNumber": 1,
-    "totalParts": 2
-  
+    "totalParts": 2,
+    "category": ["al-sahifa", "publications"]
   },
   {
     "id": 3,
@@ -51,7 +50,8 @@
     "pdf": "/books/فوائد رياض السالكين.pdf",
     "series": null,
     "partNumber": null,
-    "totalParts": null
+    "totalParts": null,
+    "category": [ "al-sahifa", "publications"]
   },
   {
     "id": 4,
@@ -69,7 +69,8 @@
     "pdf": "/books/الشرح الكبير.pdf",
     "series": null,
     "partNumber": null,
-    "totalParts": null
+    "totalParts": null,
+    "category": [ "al-sahifa", "publications"]
   },
   {
     "id": 5,
@@ -87,11 +88,11 @@
     "pdf": "/books/سيرة الامام السجاد.pdf",
     "series": null,
     "partNumber": null,
-    "totalParts": null
-  
+    "totalParts": null,
+    "category": [ "publications", "imamzain"]
   },
   {
-    "id": 8,
+    "id": 6,
     "slug": "foundational-intellectual-methodology-legal-dimension",
     "title": "الاسس الفكرية والمنهجية عند الامام السجاد (عليه السلام) البعد القانوني",
     "author": "مجموعة كتاب",
@@ -106,10 +107,11 @@
     "pdf": "/books/الاسس الفكرية والمنهجية عند الامام السجاد (عليه السلام) البعد القانوني.pdf",
     "series": null,
     "partNumber": null,
-    "totalParts": null
+    "totalParts": null,
+    "category": [  "publications", "imamzain"]
   },
   {
-    "id": 10,
+    "id": 7,
     "slug": "building-inner-psychological-security",
     "title": "بناء الامن النفسي الداخلي عند الامام السجاد (عليه السلام)",
     "author": "الدكتور اسعد الامارة",
@@ -124,10 +126,11 @@
     "pdf": "/books/بناء الامن النفسي الداخلي عند الامام السجاد (عليه السلام).pdf",
     "series": null,
     "partNumber": null,
-    "totalParts": null
+    "totalParts": null,
+    "category": [ "publications", "imamzain"]
   },
   {
-    "id": 11,
+    "id": 8,
     "slug": "emancipation-imam-sajjad-president-lincoln",
     "title": "Emancipation of Slaves Between Imam al-Sajjad, (P.B.U.H.), And President Lincoln",
     "author": "Mundhir Kadhim Al Huraibid",
@@ -145,10 +148,11 @@
     "pdf": "/books/Emancipation of Slaves between Imam Al-Sajjad, (P.B.U.H), and President Lincoln.pdf",
     "series": null,
     "partNumber": null,
-    "totalParts": null
+    "totalParts": null,
+    "category": [  "publications", "imamzain"]
   },
   {
-    "id": 12,
+    "id": 9,
     "slug": "canticles-of-the-pious",
     "title": "تراتيل القانتين",
     "author": "الدكتور علي الشيخ",
@@ -163,10 +167,11 @@
     "pdf": "/books/تراتيل القانتين.pdf",
     "series": null,
     "partNumber": null,
-    "totalParts": null
+    "totalParts": null,
+    "category": ["al-sahifa", "publications"]
   },
   {
-    "id": 13,
+    "id": 10,
     "slug": "thirty-lessons-from-abu-hamza",
     "title": "ثلاثون درسا من دعاء ابي حمزة الثمالي",
     "author": "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات",
@@ -181,10 +186,11 @@
     "pdf": "/books/دعاء ابي حمزة الثمالي.pdf",
     "series": null,
     "partNumber": null,
-    "totalParts": null
+    "totalParts": null,
+    "category": [ "imamzain", "publications"]
   },
   {
-    "id": 14,
+    "id": 11,
     "slug": "first-international-scientific-conference-guide",
     "title": "دليل المؤتمر العلمي الدولي الاول",
     "author": "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات",
@@ -204,10 +210,11 @@
     "pdf": "/books/دليل المؤتمر العلمي الاول.pdf",
     "series": null,
     "partNumber": null,
-    "totalParts": null
+    "totalParts": null,
+    "category": [ "imamzain", "publications"]
   },
   {
-    "id": 15,
+    "id": 12,
     "slug": "insights-on-rights-treatise-part-1",
     "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) - الجزء الاول",
     "author": "الشيخ حسين عبد الرضا الاسدي",
@@ -222,10 +229,11 @@
     "pdf": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الاول.pdf",
     "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
     "partNumber": 1,
-    "totalParts": 5
+    "totalParts": 5,
+    "category": [ "risalat-al-huqoq", "publications"]
   },
   {
-    "id": 16,
+    "id": 13,
     "slug": "insights-on-rights-treatise-part-2",
     "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) - الجزء الثاني",
     "author": "الشيخ حسين عبد الرضا الاسدي",
@@ -240,10 +248,11 @@
     "pdf": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الثاني.pdf",
     "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
     "partNumber": 2,
-    "totalParts": 5
+    "totalParts": 5,
+    "category": ["risalat-al-huqoq", "publications"]
   },
   {
-    "id": 17,
+    "id": 14,
     "slug": "insights-on-rights-treatise-part-3",
     "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) - الجزء الثالث",
     "author": "الشيخ حسين عبد الرضا الاسدي",
@@ -258,10 +267,11 @@
     "pdf": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الثالث.pdf",
     "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
     "partNumber": 3,
-    "totalParts": 5
+    "totalParts": 5,
+    "category": [ "risalat-al-huqoq", "publications"]
   },
   {
-    "id": 18,
+    "id": 15,
     "slug": "insights-on-rights-treatise-part-4",
     "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) - الجزء الرابع",
     "author": "الشيخ حسين عبد الرضا الاسدي",
@@ -276,10 +286,11 @@
     "pdf": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الرابع.pdf",
     "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
     "partNumber": 4,
-    "totalParts": 5
+    "totalParts": 5,
+    "category": [ "risalat-al-huqoq", "publications"]
   },
   {
-    "id": 19,
+    "id": 16,
     "slug": "insights-on-rights-treatise-part-5",
     "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) - الجزء الخامس",
     "author": "الشيخ حسين عبد الرضا الاسدي",
@@ -294,10 +305,11 @@
     "pdf": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الخامس.pdf",
     "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
     "partNumber": 5,
-    "totalParts": 5
+    "totalParts": 5,
+    "category": [ "risalat-al-huqoq", "publications"]
   },
   {
-    "id": 20,
+    "id": 17,
     "slug": "political-principles-of-imam-sajjad",
     "title": "المباني السياسية الامامية عند الامام السجاد (عليه السلام)",
     "author": "الدكتورة راغدة محمد المصري",
@@ -312,10 +324,11 @@
     "pdf": "/books/المباني السياسية الامامية عند الامام السجاد (عليه السلام).pdf",
     "series": null,
     "partNumber": null,
-    "totalParts": null
+    "totalParts": null,
+    "category": [ "imamzain", "publications"]
   },
   {
-    "id": 9,
+    "id":18,
     "slug": "foundational-intellectual-methodology-social-dimension",
     "title": "الاسس الفكرية والمنهجية عند الامام السجاد (عليه السلام) البعد الاجتماعي",
     "author": "مجموعة كتاب",
@@ -330,10 +343,11 @@
     "pdf": "/books/الاسس الفكرية والمنهجية عند الامام السجاد (عليه السلام) البعد الاجتماعي.pdf",
     "series": null,
     "partNumber": null,
-    "totalParts": null
+    "totalParts": null,
+    "category": [ "imamzain", "publications"]
   },
   {
-    "id": 6,
+    "id": 19,
     "slug": "al-fawaid-al-sharifa-part-2",
     "title": "الفوائد الشريفة في شرح الصحيفة - الجزء الثاني",
     "author": "العلامة الشيخ تقي الدين بن علي الكفعمي",
@@ -348,6 +362,135 @@
     "pdf": "/books/الفوائد الشريفة في شرح الصحيفة - الجزء الثاني.pdf",
     "series": "الفوائد الشريفة في شرح الصحيفة",
     "partNumber": 2,
-    "totalParts": 2
+    "totalParts": 2,
+    "category": ["al-sahifa", "publications"]
+  },
+  {
+    "id": 20,
+    "slug": "asaleeb-al-islahat-al-ijtimaieh",
+    "title": "أساليب الإصلاحات الإجتماعية عند الإمام السجاد (عليه السلام)",
+    "author": "السيد محسن الجلالي",
+    "otherNames": [],
+    "printHouse": "العتبة الحسينية المقدسة",
+    "printDate": "2024",
+    "language": "العربية",
+    "pages": 377, 
+    "parts": 1,
+    "views": 1,
+    "image": "/library/أساليب الإصلاحات الإجتماعية عند الإمام السجاد (ع) - السيد محسن الجلالي.jpg",
+    "pdf": "/library/أساليب الإصلاحات الإجتماعية عند الإمام السجاد (ع) - السيد محسن الجلالي.pdf",
+    "category": ["imamzain"]
+  },
+  {
+    "id": 21,
+    "slug": "al-imam-al-rabie-ali-bin-al-hussein",
+    "title": "الامام الرابع علي بن الحسين زين العابدين (عليه السلام)",
+    "author": "لجنة التحرير في طريق الحق",
+    "otherNames": [],
+    "printHouse": "مؤسسة في طريق الحق",
+    "printDate": "2024",
+    "language": "العربية",
+    "pages": 52,
+    "parts": 1,
+    "views": 1,
+    "image": "/library/الامام الرابع علي بن الحسين زين العابدين ع.jpg",
+    "pdf": "/library/الامام الرابع علي بن الحسين زين العابدين ع.pdf",
+    "category": ["imamzain"]
+  },
+  {
+    "id": 22,
+    "slug": "al-imam-al-sajjad-wa-al-mafahim-al-tarbia",
+    "title": "الامام السجاد عليه السلام والمفاهيم التربوية",
+    "author": "قسم الشؤون الفكرية",
+    "otherNames": [],
+    "printHouse": "العتبة الكاظمية المقدسة",
+    "printDate": "2024",
+    "language": "العربية",
+    "pages": 46,
+    "parts": 1,
+    "views": 26,
+    "image": "/library/الامام السجاد ع والمفاهيم التربوية.jpg",
+    "pdf": "/library/الامام السجاد ع والمفاهيم التربوية.pdf",
+    "category": ["imamzain"]
+  },
+  {
+    "id": 23,
+    "slug": "al-imam-al-sajjad-wa-bina-al-insan",
+    "title": "الامام السجاد وبناء الانسان",
+    "author": "عبد الله احمد اليوسف",
+    "otherNames": [],
+    "printHouse": "أطياف للنشر",
+    "printDate": "2024",
+    "language": "العربية",
+    "pages": 68,
+    "parts": 1,
+    "views": 34,
+    "image": "/library/الامام السجاد وبناء الانسان.jpg",
+    "pdf": "/library/الامام السجاد وبناء الانسان.pdf",
+    "category": ["imamzain"]
+  },
+  {
+    "id": 24,
+    "slug": "imam-zain-alabideen-daaei-alwaai-wa-muhayir-al-tughah",
+    "title": "الامام زين العابدين داعية الوعي ومحير الطغاة",
+    "author": "السيد راضي الحسيني",
+    "otherNames": [],
+    "printHouse": "المجمع العالمي لأهل البيت",
+    "printDate": "2024",
+    "language": "العربية",
+    "pages": 69,
+    "parts": 1,
+    "views": 56,
+    "image": "/library/الامام زين العابدين داعية الوعي ومحير الطغاة.jpg",
+    "pdf": "/library/الامام زين العابدين داعية الوعي ومحير الطغاة.pdf",
+    "category": ["imamzain"]
+  },
+  {
+    "id": 25,
+    "slug": "al-faraid-al-tarifa-fi-sharh-al-sahifa-al-sharifa",
+    "title": "الفرائد الطريفة في شرح الصحيفة الشريفة",
+    "author": "محمد  باقر المجلسي",
+    "otherNames": ["السيد مهدي الرجائي"],
+    "printHouse": "دار الوارث للطبع",
+    "printDate": "2024",
+    "language": "العربية",
+    "pages": 375,
+    "parts": 1,
+    "views": 59,
+    "image": "/library/الفرائد الطريفة في شرح الصحيفة الشريفة (تحقيق السيد مهدي الرجائي).jpg",
+    "pdf": "/library/الفرائد الطريفة في شرح الصحيفة الشريفة (تحقيق السيد مهدي الرجائي).pdf",
+    "category": ["al-sahifa"]
+  },
+  {
+    "id": 26,
+    "slug": "al-sahifa-al-sajjadiyya-al-dirasa-al-sanadiyya-al-bibliographia-al-nass",
+    "title": "الصحيفة السجادية الدراسة السندية البيبلوغرافيا النص",
+    "author": "سمير خير الدين - محمد حسين حكيم",
+    "otherNames": [],
+    "printHouse": "مؤسسة الأمام زين العابدين للدراسات والبحوث",
+    "printDate": "2024",
+    "language": "العربية",
+    "pages": 375,
+    "parts": 1,
+    "views": 64,
+    "image": "/library/الموسوعة السجادية  - الصحيفة السجادية الدراسة السندية البيبلوغرافيا النص ج3.jpg",
+    "pdf": "/library/الموسوعة السجادية  - الصحيفة السجادية الدراسة السندية الببليوغرافيا النص ج3.pdf",
+    "category": ["al-sahifa"]
+  },
+  {
+    "id": 27,
+    "slug": "al-tahfah-ral-radiyah-lil-sahifah-al-sajadiyah",
+    "title": "التحفة الرضوية للصحيفة السجادية",
+    "author": "قاضي بن كاشف الدين اليزدي",
+    "otherNames": [],
+    "printHouse": "مركزابحاث باقر العلوم ع",
+    "printDate": "2024",
+    "language": "العربية",
+    "pages": 272,
+    "parts": 1,
+    "views": 31,
+    "image": "/library/التحفة الرضوية للصحيفة السجادية.jpg",
+    "pdf": "/library/التحفة الرضوية للصحيفة السجادية.pdf",
+    "category": ["al-sahifa"]
   }
 ]
