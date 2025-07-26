@@ -9,7 +9,20 @@ import { ArrowLeft } from "lucide-react";
 import { getBooksFromFile } from "@/lib/getBooksFromFile"; // ✅ استدعاء الدالة الجديدة
 
 export default async function Page() {
-  const libraryBooks: Book[] = await getBooksFromFile(); // ✅ استخدام الدالة لقراءة الملف
+  const allBooks: Book[] = await getBooksFromFile();
+
+  const uniqueSeriesMap = new Map<string, Book>();
+  allBooks.forEach((book) => {
+    if (book.series && book.totalParts > 1) {
+      if (!uniqueSeriesMap.has(book.series) && book.partNumber === 1) {
+        uniqueSeriesMap.set(book.series, book);
+      }
+    } else {
+      uniqueSeriesMap.set(`${book.series ?? book.id}`, book);
+    }
+  });
+
+  const libraryBooks = Array.from(uniqueSeriesMap.values());
 
   return (
     <div className="">
