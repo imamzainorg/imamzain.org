@@ -18,6 +18,21 @@ async function getBooksFromFile(): Promise<Book[]> {
 export default async function Page() {
   const libraryBooks = await getBooksFromFile();
 
+  // تصفية لعرض الجزء الأول فقط من كل سلسلة تحتوي أكثر من جزء
+  const uniqueSeriesMap = new Map<string, Book>();
+
+  libraryBooks.forEach((book) => {
+    if (book.series && book.totalParts > 1) {
+      if (!uniqueSeriesMap.has(book.series) && book.partNumber === 1) {
+        uniqueSeriesMap.set(book.series, book);
+      }
+    } else {
+      uniqueSeriesMap.set(`${book.series ?? book.id}`, book);
+    }
+  });
+
+  const filteredBooks = Array.from(uniqueSeriesMap.values());
+
   const dataCard = [
     {
       title: "ما الحقه الحر العاملي",
@@ -111,11 +126,11 @@ export default async function Page() {
 
       <ShowcaseSection
         route="/library/al-sahifa"
-        showcaseBooks={libraryBooks.slice(0, 3)}
+        showcaseBooks={filteredBooks.slice(0, 3)}
       />
 
       <div className="bg-secondary/20 dark:bg-Muharram_primary/20 bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
-        {libraryBooks.map((book) => (
+        {filteredBooks.map((book) => (
           <BooklibraryCard
             route="/library/al-sahifa"
             key={book.id}
@@ -127,7 +142,7 @@ export default async function Page() {
       <div className="lg:hidden">
         <RelatedBooks
           route="/library/al-sahifa"
-          relatedBooks={libraryBooks.slice(1, 3)}
+          relatedBooks={filteredBooks.slice(1, 3)}
         />
       </div>
     </div>
