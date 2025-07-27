@@ -18,7 +18,7 @@
   {
     "id": 2,
     "slug": "al-fawaid-al-sharifa-part-1",
-    "title": "الفوائد الشريفة في شرح الصحيفة - الجزء الاول",
+    "title": "الفوائد الشريفة في شرح الصحيفة ",
     "author": "العلامة الشيخ تقي الدين بن علي الكفعمي",
     "otherNames": [],
     "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
@@ -149,7 +149,7 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": [  "publications", "imamzain"]
+    "category": ["publications","imamzain"]
   },
   {
     "id": 9,
@@ -168,7 +168,7 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": ["al-sahifa", "publications"]
+    "category": ["al-sahifa","publications"]
   },
   {
     "id": 10,
@@ -187,7 +187,7 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": [ "imamzain", "publications"]
+    "category": ["imamzain","publications"]
   },
   {
     "id": 11,
@@ -211,12 +211,12 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": [ "imamzain", "publications"]
+    "category": ["imamzain","publications"]
   },
   {
     "id": 12,
     "slug": "insights-on-rights-treatise-part-1",
-    "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) - الجزء الاول",
+    "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام)",
     "author": "الشيخ حسين عبد الرضا الاسدي",
     "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
     "printHouse": "دار الوارث - كربلاء المقدسة",
@@ -235,7 +235,7 @@
   {
     "id": 13,
     "slug": "insights-on-rights-treatise-part-2",
-    "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) - الجزء الثاني",
+    "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) ",
     "author": "الشيخ حسين عبد الرضا الاسدي",
     "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
     "printHouse": "دار الوارث - كربلاء المقدسة",
@@ -254,7 +254,7 @@
   {
     "id": 14,
     "slug": "insights-on-rights-treatise-part-3",
-    "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) - الجزء الثالث",
+    "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) ",
     "author": "الشيخ حسين عبد الرضا الاسدي",
     "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
     "printHouse": "دار الوارث - كربلاء المقدسة",
@@ -273,7 +273,7 @@
   {
     "id": 15,
     "slug": "insights-on-rights-treatise-part-4",
-    "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) - الجزء الرابع",
+    "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام)",
     "author": "الشيخ حسين عبد الرضا الاسدي",
     "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
     "printHouse": "دار الوارث - كربلاء المقدسة",
@@ -292,7 +292,7 @@
   {
     "id": 16,
     "slug": "insights-on-rights-treatise-part-5",
-    "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) - الجزء الخامس",
+    "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) ",
     "author": "الشيخ حسين عبد الرضا الاسدي",
     "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
     "printHouse": "دار الوارث - كربلاء المقدسة",
@@ -349,7 +349,7 @@
   {
     "id": 19,
     "slug": "al-fawaid-al-sharifa-part-2",
-    "title": "الفوائد الشريفة في شرح الصحيفة - الجزء الثاني",
+    "title": "الفوائد الشريفة في شرح الصحيفة ",
     "author": "العلامة الشيخ تقي الدين بن علي الكفعمي",
     "otherNames": [],
     "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",

@@ -12,7 +12,7 @@ export default async function Page({
 	params: Promise<{ slug: string }>
 }) {
 	const slug = (await params).slug
-	const libraryBooks = await dataFetcher<Book[]>("library.json")
+	const libraryBooks = await dataFetcher<Book[]>("publications.json");
 
 	const book: Book | undefined = libraryBooks.find(
 		(book) => book.slug === slug,
