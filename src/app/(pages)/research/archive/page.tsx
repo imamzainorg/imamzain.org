@@ -81,7 +81,7 @@ export default function Page() {
             placeholder="البحث عن البحوث"
           />
           <div className="absolute  text-primary dark:text-Muharram_primary left-0 top-0 pl-3 h-full flex justify-center items-center gap-4">
-            <div className="h-2/3 w-[1px] bg-slate-400 " />
+               <div className="h-2/3 w-[1px] bg-slate-400 " />
             <SearchIcon size={20} strokeWidth={1.5} />
           </div>
         </div>
