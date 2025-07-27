@@ -12,7 +12,7 @@ import {
 	*/}
 import HeaderSections from "@/components/header-sections"
 import { motion } from "framer-motion"
-import { YouTubePlaylist } from "@/types/youtubeData"
+import  { YouTubePlaylist } from "@/types/youtubeData"
 
 export default function Videos({
 	playlists,
