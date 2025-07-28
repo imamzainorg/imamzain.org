@@ -21,7 +21,7 @@ export default function Page() {
 	useEffect(() => {
 		const fetchBooks = async () => {
 			try {
-				const books = await dataFetcher<Book[]>("publications.json")
+				const books = await dataFetcher<Book[]>("books.json")
 				setLibraryBooks(books)
 				setFilteredBooks(books)
 			} catch (error) {
@@ -35,10 +35,8 @@ export default function Page() {
 	useEffect(() => {
 		let books = [...libraryBooks]
 
-	
-		books = books.filter(book => book.category?.includes("imamzain"))
+		books = books.filter((book) => book.category?.includes("imamzain"))
 
-	
 		const seenSeries = new Set<string>()
 		books = books.filter((book) => {
 			if (book.series && book.totalParts && book.partNumber) {
@@ -47,10 +45,9 @@ export default function Page() {
 				seenSeries.add(book.series)
 				return true
 			}
-			return true 
+			return true
 		})
 
-	
 		if (searchTitle) {
 			books = books.filter((book) =>
 				book.title.toLowerCase().includes(searchTitle.toLowerCase()),
@@ -65,7 +62,9 @@ export default function Page() {
 		// فلترة حسب الناشر
 		if (searchPublisher) {
 			books = books.filter((book) =>
-				book.printHouse?.toLowerCase().includes(searchPublisher.toLowerCase()),
+				book.printHouse
+					?.toLowerCase()
+					.includes(searchPublisher.toLowerCase()),
 			)
 		}
 		// فلترة حسب أسماء أخرى
@@ -81,7 +80,8 @@ export default function Page() {
 		if (sortOption === "latest") {
 			books.sort(
 				(a, b) =>
-					new Date(b.printDate).getTime() - new Date(a.printDate).getTime(),
+					new Date(b.printDate).getTime() -
+					new Date(a.printDate).getTime(),
 			)
 		} else if (sortOption === "common") {
 			books.sort((a, b) => b.views - a.views)
@@ -142,7 +142,9 @@ export default function Page() {
 				</div>
 
 				<div className="col-span-1">
-					<span className="font-semibold my-2 ">محققين، مدققين، الخ...</span>
+					<span className="font-semibold my-2 ">
+						محققين، مدققين، الخ...
+					</span>
 					<input
 						type="text"
 						value={searchTopic}

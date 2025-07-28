@@ -14,7 +14,7 @@ export default async function Page({
 	let LibraryBooks: Book[] = []
 
 	try {
-	LibraryBooks = await dataFetcher<Book[]>("publications.json")
+		LibraryBooks = await dataFetcher<Book[]>("books.json")
 	} catch (error) {
 		console.error("فشل في جلب الكتب:", error)
 		return <div>حدث خطأ أثناء تحميل الكتب</div>

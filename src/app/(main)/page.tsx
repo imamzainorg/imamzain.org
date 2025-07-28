@@ -13,10 +13,12 @@ import { YouTubePlaylist } from "@/types/youtubeData"
 import hadiths from "@/data/hadiths.json"
 import AnimatedTextSection from "@/components/animated-text"
 import { Featured } from "./_components/featured"
-{/*import Link from "next/link"
+{
+	/*import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import Image from "next/image"
-*/}
+*/
+}
 const desktopImages = [
 	"/images/albaqi.jpg",
 	"/images/albaqi-2.png",
@@ -32,7 +34,7 @@ const mobileImages = [
 ]
 
 export default async function page() {
-	const publications = await dataFetcher<Book[]>("publications.json")
+	const publications = await dataFetcher<Book[]>("books.json")
 	const posts = await dataFetcher<Post[]>("posts.json")
 	const playlists = await dataFetcher<YouTubePlaylist[]>("youtube.json")
 
@@ -49,7 +51,7 @@ export default async function page() {
 				mobileImages={mobileImages}
 				currentHadith={currentHadith}
 			/>
-		{/*
+			{/*
 			<div className="w-4/5 mx-auto flex justify-between">
 				<div className="w-1/4 bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
 					 Contest Image 
