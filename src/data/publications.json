@@ -13,7 +13,10 @@
     "views": 96,
     "image": "/books/الفرائد الطريفة في شرح الصحيفة الشريفة.jpg",
     "pdf": "/books/الفرائد الطريفة في شرح الصحيفة الشريفة.pdf",
-    "category": [ "al-sahifa", "publications"]
+    "category": [
+      "al-sahifa",
+      "publications"
+    ]
   },
   {
     "id": 2,
@@ -32,7 +35,10 @@
     "series": "الفوائد الشريفة في شرح الصحيفة",
     "partNumber": 1,
     "totalParts": 2,
-    "category": ["al-sahifa", "publications"]
+    "category": [
+      "al-sahifa",
+      "publications"
+    ]
   },
   {
     "id": 3,
@@ -51,7 +57,10 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": [ "al-sahifa", "publications"]
+    "category": [
+      "al-sahifa",
+      "publications"
+    ]
   },
   {
     "id": 4,
@@ -70,7 +79,10 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": [ "al-sahifa", "publications"]
+    "category": [
+      "al-sahifa",
+      "publications"
+    ]
   },
   {
     "id": 5,
@@ -89,7 +101,10 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": [ "publications", "imamzain"]
+    "category": [
+      "publications",
+      "imamzain"
+    ]
   },
   {
     "id": 6,
@@ -108,7 +123,10 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": [  "publications", "imamzain"]
+    "category": [
+      "publications",
+      "imamzain"
+    ]
   },
   {
     "id": 7,
@@ -127,7 +145,10 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": [ "publications", "imamzain"]
+    "category": [
+      "publications",
+      "imamzain"
+    ]
   },
   {
     "id": 8,
@@ -149,14 +170,19 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": ["publications","imamzain"]
+    "category": [
+      "publications",
+      "imamzain"
+    ]
   },
   {
     "id": 9,
     "slug": "canticles-of-the-pious",
     "title": "تراتيل القانتين",
     "author": "الدكتور علي الشيخ",
-    "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات"],
+    "otherNames": [
+      "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات"
+    ],
     "printHouse": "دار الوارث - كربلاء المقدسة",
     "printDate": "2025",
     "language": "العربية",
@@ -168,14 +194,19 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": ["al-sahifa","publications"]
+    "category": [
+      "al-sahifa",
+      "publications"
+    ]
   },
   {
     "id": 10,
     "slug": "thirty-lessons-from-abu-hamza",
     "title": "ثلاثون درسا من دعاء ابي حمزة الثمالي",
     "author": "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات",
-    "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات"],
+    "otherNames": [
+      "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات"
+    ],
     "printHouse": "دار الوارث - كربلاء المقدسة",
     "printDate": "2025-",
     "language": "العربية",
@@ -187,7 +218,10 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": ["imamzain","publications"]
+    "category": [
+      "imamzain",
+      "publications"
+    ]
   },
   {
     "id": 11,
@@ -211,14 +245,19 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": ["imamzain","publications"]
+    "category": [
+      "imamzain",
+      "publications"
+    ]
   },
   {
     "id": 12,
     "slug": "insights-on-rights-treatise-part-1",
     "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام)",
     "author": "الشيخ حسين عبد الرضا الاسدي",
-    "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
+    "otherNames": [
+      "مؤسسة الامام زين العابدين (عليه السلام)"
+    ],
     "printHouse": "دار الوارث - كربلاء المقدسة",
     "printDate": "2025",
     "language": "العربية",
@@ -230,14 +269,19 @@
     "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
     "partNumber": 1,
     "totalParts": 5,
-    "category": [ "risalat-al-huqoq", "publications"]
+    "category": [
+      "risalat-al-huqoq",
+      "publications"
+    ]
   },
   {
     "id": 13,
     "slug": "insights-on-rights-treatise-part-2",
     "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) ",
     "author": "الشيخ حسين عبد الرضا الاسدي",
-    "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
+    "otherNames": [
+      "مؤسسة الامام زين العابدين (عليه السلام)"
+    ],
     "printHouse": "دار الوارث - كربلاء المقدسة",
     "printDate": "2025",
     "language": "العربية",
@@ -249,14 +293,19 @@
     "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
     "partNumber": 2,
     "totalParts": 5,
-    "category": ["risalat-al-huqoq", "publications"]
+    "category": [
+      "risalat-al-huqoq",
+      "publications"
+    ]
   },
   {
     "id": 14,
     "slug": "insights-on-rights-treatise-part-3",
     "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) ",
     "author": "الشيخ حسين عبد الرضا الاسدي",
-    "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
+    "otherNames": [
+      "مؤسسة الامام زين العابدين (عليه السلام)"
+    ],
     "printHouse": "دار الوارث - كربلاء المقدسة",
     "printDate": "2025",
     "language": "العربية",
@@ -268,14 +317,19 @@
     "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
     "partNumber": 3,
     "totalParts": 5,
-    "category": [ "risalat-al-huqoq", "publications"]
+    "category": [
+      "risalat-al-huqoq",
+      "publications"
+    ]
   },
   {
     "id": 15,
     "slug": "insights-on-rights-treatise-part-4",
     "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام)",
     "author": "الشيخ حسين عبد الرضا الاسدي",
-    "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
+    "otherNames": [
+      "مؤسسة الامام زين العابدين (عليه السلام)"
+    ],
     "printHouse": "دار الوارث - كربلاء المقدسة",
     "printDate": "2025",
     "language": "العربية",
@@ -287,14 +341,19 @@
     "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
     "partNumber": 4,
     "totalParts": 5,
-    "category": [ "risalat-al-huqoq", "publications"]
+    "category": [
+      "risalat-al-huqoq",
+      "publications"
+    ]
   },
   {
     "id": 16,
     "slug": "insights-on-rights-treatise-part-5",
     "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) ",
     "author": "الشيخ حسين عبد الرضا الاسدي",
-    "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
+    "otherNames": [
+      "مؤسسة الامام زين العابدين (عليه السلام)"
+    ],
     "printHouse": "دار الوارث - كربلاء المقدسة",
     "printDate": "2025",
     "language": "العربية",
@@ -306,14 +365,19 @@
     "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
     "partNumber": 5,
     "totalParts": 5,
-    "category": [ "risalat-al-huqoq", "publications"]
+    "category": [
+      "risalat-al-huqoq",
+      "publications"
+    ]
   },
   {
     "id": 17,
     "slug": "political-principles-of-imam-sajjad",
     "title": "المباني السياسية الامامية عند الامام السجاد (عليه السلام)",
     "author": "الدكتورة راغدة محمد المصري",
-    "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
+    "otherNames": [
+      "مؤسسة الامام زين العابدين (عليه السلام)"
+    ],
     "printHouse": "دار الوارث - كربلاء المقدسة",
     "printDate": "2025",
     "language": "العربية",
@@ -325,10 +389,13 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": [ "imamzain", "publications"]
+    "category": [
+      "imamzain",
+      "publications"
+    ]
   },
   {
-    "id":18,
+    "id": 18,
     "slug": "foundational-intellectual-methodology-social-dimension",
     "title": "الاسس الفكرية والمنهجية عند الامام السجاد (عليه السلام) البعد الاجتماعي",
     "author": "مجموعة كتاب",
@@ -344,7 +411,10 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": [ "imamzain", "publications"]
+    "category": [
+      "imamzain",
+      "publications"
+    ]
   },
   {
     "id": 19,
@@ -363,7 +433,10 @@
     "series": "الفوائد الشريفة في شرح الصحيفة",
     "partNumber": 2,
     "totalParts": 2,
-    "category": ["al-sahifa", "publications"]
+    "category": [
+      "al-sahifa",
+      "publications"
+    ]
   },
   {
     "id": 20,
@@ -374,12 +447,14 @@
     "printHouse": "العتبة الحسينية المقدسة",
     "printDate": "2024",
     "language": "العربية",
-    "pages": 377, 
+    "pages": 377,
     "parts": 1,
     "views": 1,
     "image": "/library/أساليب الإصلاحات الإجتماعية عند الإمام السجاد (ع) - السيد محسن الجلالي.jpg",
     "pdf": "/library/أساليب الإصلاحات الإجتماعية عند الإمام السجاد (ع) - السيد محسن الجلالي.pdf",
-    "category": ["imamzain"]
+    "category": [
+      "imamzain"
+    ]
   },
   {
     "id": 21,
@@ -395,7 +470,9 @@
     "views": 1,
     "image": "/library/الامام الرابع علي بن الحسين زين العابدين ع.jpg",
     "pdf": "/library/الامام الرابع علي بن الحسين زين العابدين ع.pdf",
-    "category": ["imamzain"]
+    "category": [
+      "imamzain"
+    ]
   },
   {
     "id": 22,
@@ -411,7 +488,9 @@
     "views": 26,
     "image": "/library/الامام السجاد ع والمفاهيم التربوية.jpg",
     "pdf": "/library/الامام السجاد ع والمفاهيم التربوية.pdf",
-    "category": ["imamzain"]
+    "category": [
+      "imamzain"
+    ]
   },
   {
     "id": 23,
@@ -427,7 +506,9 @@
     "views": 34,
     "image": "/library/الامام السجاد وبناء الانسان.jpg",
     "pdf": "/library/الامام السجاد وبناء الانسان.pdf",
-    "category": ["imamzain"]
+    "category": [
+      "imamzain"
+    ]
   },
   {
     "id": 24,
@@ -443,14 +524,18 @@
     "views": 56,
     "image": "/library/الامام زين العابدين داعية الوعي ومحير الطغاة.jpg",
     "pdf": "/library/الامام زين العابدين داعية الوعي ومحير الطغاة.pdf",
-    "category": ["imamzain"]
+    "category": [
+      "imamzain"
+    ]
   },
   {
     "id": 25,
     "slug": "al-faraid-al-tarifa-fi-sharh-al-sahifa-al-sharifa",
     "title": "الفرائد الطريفة في شرح الصحيفة الشريفة",
     "author": "محمد  باقر المجلسي",
-    "otherNames": ["السيد مهدي الرجائي"],
+    "otherNames": [
+      "السيد مهدي الرجائي"
+    ],
     "printHouse": "دار الوارث للطبع",
     "printDate": "2024",
     "language": "العربية",
@@ -459,7 +544,9 @@
     "views": 59,
     "image": "/library/الفرائد الطريفة في شرح الصحيفة الشريفة (تحقيق السيد مهدي الرجائي).jpg",
     "pdf": "/library/الفرائد الطريفة في شرح الصحيفة الشريفة (تحقيق السيد مهدي الرجائي).pdf",
-    "category": ["al-sahifa"]
+    "category": [
+      "al-sahifa"
+    ]
   },
   {
     "id": 26,
@@ -475,7 +562,9 @@
     "views": 64,
     "image": "/library/الموسوعة السجادية  - الصحيفة السجادية الدراسة السندية البيبلوغرافيا النص ج3.jpg",
     "pdf": "/library/الموسوعة السجادية  - الصحيفة السجادية الدراسة السندية الببليوغرافيا النص ج3.pdf",
-    "category": ["al-sahifa"]
+    "category": [
+      "al-sahifa"
+    ]
   },
   {
     "id": 27,
@@ -491,6 +580,8 @@
     "views": 31,
     "image": "/library/التحفة الرضوية للصحيفة السجادية.jpg",
     "pdf": "/library/التحفة الرضوية للصحيفة السجادية.pdf",
-    "category": ["al-sahifa"]
+    "category": [
+      "al-sahifa"
+    ]
   }
 ]

@@ -22,7 +22,7 @@ const SocialLinks = ({
 				href={social.href}
 				target="_blank"
 				rel="noopener noreferrer"
-				className="hover:scale-105 transition-transform h-fit "
+				className="hover:scale-105 transition-transform h-fit"
 			>
 				<FontAwesomeIcon icon={social.icon} size={size} />
 			</Link>
