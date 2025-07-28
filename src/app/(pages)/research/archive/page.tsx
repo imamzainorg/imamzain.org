@@ -8,7 +8,7 @@ import { SearchIcon, X } from "lucide-react";
 import { Dialog } from "@headlessui/react";
 import { useState, useEffect, useCallback } from "react";
 import researchData from "@/data/research.json";
-
+import { LuBookOpenText } from "react-icons/lu";
 export default function Page() {
   const [research] = useState<Research[]>(researchData);
   const [filteredResearch, setFilteredResearch] =
@@ -81,7 +81,7 @@ export default function Page() {
             placeholder="البحث عن البحوث"
           />
           <div className="absolute  text-primary dark:text-Muharram_primary left-0 top-0 pl-3 h-full flex justify-center items-center gap-4">
-               <div className="h-2/3 w-[1px] bg-slate-400 " />
+            <div className="h-2/3 w-[1px] bg-slate-400 " />
             <SearchIcon size={20} strokeWidth={1.5} />
           </div>
         </div>
@@ -143,8 +143,6 @@ export default function Page() {
               <p className="text-sm text-gray-700 mb-2">{item.Description}</p>
             )}
 
-       
-
             {/* عرض وصف الباحث فقط إذا كان موجودًا */}
             {item.authorDescription && (
               <p className="text-sm text-gray-700"> {item.authorDescription}</p>
@@ -161,7 +159,7 @@ export default function Page() {
              bg-primary/10 text-primary hover:bg-primary/20
              dark:bg-Muharram_primary/15 dark:text-Muharram_primary dark:hover:bg-Muharram_primary/25"
               >
-                قراءة الملخص
+                <LuBookOpenText /> قراءة الملخص
               </button>
 
               <a

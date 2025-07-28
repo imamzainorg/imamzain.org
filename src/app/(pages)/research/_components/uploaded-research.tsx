@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SearchIcon, X } from "lucide-react";
 import { Research } from "@/types/research";
 import researchData from "@/data/research.json";
-
+import { LuBookOpenText } from "react-icons/lu";
 export default function UploadedResearch() {
   const [research, setResearch] = useState<Research[]>([]);
   const [selectedSummary, setSelectedSummary] = useState<Research | null>(null);
@@ -76,7 +76,8 @@ export default function UploadedResearch() {
                 className="flex-1 min-w-[120px] px-4 py-2 rounded-lg transition-colors flex items-center justify-center gap-2
              bg-primary/10 text-primary hover:bg-primary/20
              dark:bg-Muharram_primary/15 dark:text-Muharram_primary dark:hover:bg-Muharram_primary/25"
-              >
+              ><LuBookOpenText />
+
                 قراءة الملخص
               </button>
 
