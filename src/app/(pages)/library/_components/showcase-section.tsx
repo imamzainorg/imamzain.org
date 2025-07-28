@@ -13,7 +13,7 @@ export default async function ShowcaseSection({
 	downloadable?: boolean
 	route: string
 }) {
-	const libraryBooks = await dataFetcher<Book[]>("library.json")
+	const libraryBooks = await dataFetcher<Book[]>("publications.json")
 
 	return (
 		<div className="flex flex-row  ">
