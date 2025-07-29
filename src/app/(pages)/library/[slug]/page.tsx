@@ -12,7 +12,7 @@ export default async function Page({
 	params: Promise<{ slug: string }>
 }) {
 	const slug = (await params).slug
-	const libraryBooks = await dataFetcher<Book[]>("publications.json");
+	const libraryBooks = await dataFetcher<Book[]>("books.json")
 
 	const book: Book | undefined = libraryBooks.find(
 		(book) => book.slug === slug,
@@ -32,9 +32,12 @@ export default async function Page({
 				]}
 			/>
 			{/* الكتاب المقصود */}
-		
-			
-			<BookCard key={book.id} publication={book} publications={libraryBooks} />
+
+			<BookCard
+				key={book.id}
+				publication={book}
+				publications={libraryBooks}
+			/>
 			{/* كتب ذات صلة */}
 			<h2 className="text-center font-semibold border-t border-b p-4 sm:text-2xl xl:text-4xl">
 				كتب ذات صلة

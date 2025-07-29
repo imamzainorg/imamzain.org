@@ -14,7 +14,7 @@ export default async function Page({
 	let LibraryBooks: Book[] = []
 
 	try {
-	LibraryBooks = await dataFetcher<Book[]>("publications.json")
+		LibraryBooks = await dataFetcher<Book[]>("books.json")
 	} catch (error) {
 		console.error("فشل في جلب الكتب:", error)
 		return <div>حدث خطأ أثناء تحميل الكتب</div>
@@ -27,40 +27,40 @@ export default async function Page({
 	}
 
 	return (
-    <div className="space-y-10 my-8">
-      <Breadcrumbs
-        links={[
-          { name: "الرئيسية", url: "/" },
-          { name: "المكتبة", url: "/library" },
-          { name: "رسالة الحقوق", url: "/library/risalat-al-huqoq" },
-          { name: book.title, url: "#" },
-        ]}
-      />
+		<div className="space-y-10 my-8">
+			<Breadcrumbs
+				links={[
+					{ name: "الرئيسية", url: "/" },
+					{ name: "المكتبة", url: "/library" },
+					{ name: "رسالة الحقوق", url: "/library/risalat-al-huqoq" },
+					{ name: book.title, url: "#" },
+				]}
+			/>
 
-      <div className="space-y-10 my-8">
-        <BookCard
-          key={book.id}
-          publication={book}
-          publications={LibraryBooks}
-        />
+			<div className="space-y-10 my-8">
+				<BookCard
+					key={book.id}
+					publication={book}
+					publications={LibraryBooks}
+				/>
 
-        <h2 className="text-center font-semibold border-t border-b p-4 sm:text-2xl xl:text-4xl">
-          كتب ذات صلة
-        </h2>
+				<h2 className="text-center font-semibold border-t border-b p-4 sm:text-2xl xl:text-4xl">
+					كتب ذات صلة
+				</h2>
 
-        <div className="bg-secondary dark:bg-Muharram_primary dark:bg-opacity-10 bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
-          {LibraryBooks.filter((b) => b.slug !== book.slug)
-            .slice(0, 2)
-            .map((libraryBook) => (
-              <BooklibraryCard
-                route="/library/al-sahifa"
-                key={libraryBook.id}
-                publication={libraryBook}
-                downloadable
-              />
-            ))}
-        </div>
-      </div>
-    </div>
-  );
+				<div className="bg-secondary dark:bg-Muharram_primary dark:bg-opacity-10 bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
+					{LibraryBooks.filter((b) => b.slug !== book.slug)
+						.slice(0, 2)
+						.map((libraryBook) => (
+							<BooklibraryCard
+								route="/library/al-sahifa"
+								key={libraryBook.id}
+								publication={libraryBook}
+								downloadable
+							/>
+						))}
+				</div>
+			</div>
+		</div>
+	)
 }
