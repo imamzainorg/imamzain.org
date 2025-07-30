@@ -18,7 +18,7 @@ export default function RelatedBooks({
 				<h3 className="text-[0.6rem] text-left text-primary dark:text-Muharram_primary font-bold mt-4 xs:text-sm md:text-xl lg:text-base">
 					مواضيع ذات صلة
 				</h3>
-				<div className="bg-secondary/30 dark:bg-Muharram_primary/30 bg-opacity-10 rounded-xl m-2 ">
+				<div className="bg-secondary/20 p-2 dark:bg-Muharram_primary/20 bg-opacity-10 rounded-xl m-2 ">
 					{relatedBooks.map((relatedBook) => (
 						<Link
 							href={`${route}/${relatedBook.slug}`}
