@@ -1,6 +1,6 @@
 import BooklibraryCard from "../_components/book-library-card"
 import Breadcrumbs from "@/components/breadcrumb"
-import RelatedBooks from "../_components/related-books"
+
 import ShowcaseSection from "../_components/showcase-section"
 import { Book } from "@/types/book"
 import Link from "next/link"
@@ -125,14 +125,11 @@ export default async function Page() {
 				</div>
 			</div>
 
-			<h2 className="text-xl lg:text-3xl font-semibold mt-10">
+			<h2 className="text-xl lg:text-3xl font-semibold mt-10 mb-5">
 				ما كتب عن الصحيفة السجادية
 			</h2>
 
-			<ShowcaseSection
-				route="/library/al-sahifa"
-				showcaseBooks={filteredBooks.slice(0, 3)}
-			/>
+		
 
 			<div className="bg-secondary/20 dark:bg-Muharram_primary/20 bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
 				{filteredBooks.map((book) => (
@@ -144,11 +141,11 @@ export default async function Page() {
 				))}
 			</div>
 
-			<div className="lg:hidden">
-				<RelatedBooks
-					route="/library/al-sahifa"
-					relatedBooks={filteredBooks.slice(1, 3)}
-				/>
+			<div className="">
+				<ShowcaseSection
+				route="/library/al-sahifa"
+				showcaseBooks={filteredBooks.slice(0, 3)}
+			/>
 			</div>
 		</div>
 	)

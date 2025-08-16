@@ -16,7 +16,7 @@ export default async function ShowcaseSection({
 	const libraryBooks = await dataFetcher<Book[]>("books.json")
 
 	return (
-		<div className="flex flex-row  ">
+		<div className="flex flex-col-reverse lg:flex-row ">
 			<div className="w-full  lg:w-4/6 ">
 				<Link
 					href={`${route}/${showcaseBooks[0].slug}`}
@@ -58,7 +58,7 @@ export default async function ShowcaseSection({
 				</Link>
 			</div>
 
-			<div className="hidden lg:block w-1/2">
+			<div className="w-full lg:w-1/2">
 				<RelatedBooks
 					route={route}
 					relatedBooks={libraryBooks.slice(1, 3)}
