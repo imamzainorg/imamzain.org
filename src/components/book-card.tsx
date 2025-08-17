@@ -229,7 +229,7 @@ function Detail({
 	english?: boolean
 }) {
 	return (
-		<div className="bg-gray-50 p-3 rounded-lg flex flex-col items-center lg:items-start">
+		<div className="bg-gray-50 p-3 rounded-lg flex flex-col items-center lg:items-start ">
 			<div className="flex items-center gap-2 text-gray-700">
 				{icon}
 				<span className="font-medium">{label}</span>
