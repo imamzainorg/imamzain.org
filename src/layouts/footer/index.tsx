@@ -103,12 +103,15 @@ export default function Footer() {
 
         <div className="flex justify-between gap-20 max-md:p-10 py-8  ">
           <div className="w-[200px]">
+    <Link href="/">
+                
             <Image
               src="/images/logo-vertical-white.svg"
               alt="Logo"
               width={250}
               height={200}
             />
+            </Link>
           </div>
 
           <div className="w-3/4 grid grid-cols-4 gap-4">
