@@ -523,11 +523,12 @@
     "parts": 1,
     "views": 56,
     "image": "/library/الامام زين العابدين داعية الوعي ومحير الطغاة.jpg",
-    "pdf": "",
+    "pdf": "/library/الامام زين العابدين داعية الوعي ومحير الطغاة.pdf",
     "category": [
       "imamzain"
     ]
   },
+ 
   {
     "id": 26,
     "slug": "al-sahifa-al-sajjadiyya-al-dirasa-al-sanadiyya-al-bibliographia-al-nass",
@@ -562,6 +563,79 @@
     "pdf": "/library/التحفة الرضوية للصحيفة السجادية.pdf",
     "category": [
       "al-sahifa"
+    ]
+  },
+  {
+    "id":28 ,
+    "slug": "ma3-al-imam-al-sajad-fi-risalat-al-hoquq",
+    "title": "مع الامام السجاد في رسالة الحقوق",
+    "author": " العتبة الكاظمية المقدسة",
+    "otherNames": [],
+    "printHouse": " العتبة الكاظمية المقدسة",
+    "printDate": 2012,
+    "language": "العربية",
+    "pages": 50,
+    "parts":1 ,
+    "views": 65,
+    "image":"/library/مع الامام السجاد في رسالة الحقوق.jpg",
+    
+    "category": [
+       "risalat-al-huqoq"
+    ]
+  },
+  {
+    "id":29 ,
+    "slug":"tafsil-al-hoquq" ,
+    "title":"تفصيل الحقوق" ,
+    "author":"الشيخ محمد حسن الرمزي الطبسي",
+   
+    "otherNames": [],
+    "printHouse": "مشهد المقدسة" ,
+    "printDate":"2005" ,
+    "language":"العربية" ,
+    "pages":297 ,
+    "parts":1 ,
+    "views": 40,
+    "image":"/library/تفصيل الحقوق, شرح روائي على رسالة الحقوق للإمام السجّاد (ع) - الشيخ محمد حسن الرمزي الطبسي.jpg",
+   
+    "category": [
+       "risalat-al-huqoq"
+    ]
+  },
+  {
+    "id":30 ,
+    "slug":"al-qanun-al-akhlaqi" ,
+    "title":"القانون الأخلاقي " ,
+    "author":"قدرت الله  مشايخي" ,
+    "otherNames": [],
+    "printHouse":"مؤسسة انصاريات للنشر والطباعة" ,
+    "printDate":2011 ,
+    "language":"العربية" ,
+    "pages": 670,
+    "parts":1 ,
+    "views":36,
+    "image":"/library/القانون الأخلاقي ، في رسالة الحقوق للإمام علي بن الحسين زين العابدين عليهما السلام - قدرت الله  مشايخي-.jpg",
+   
+    "category": [
+       "risalat-al-huqoq"
+    ]
+  },
+  {
+    "id":31 ,
+    "slug": "as-salat-fi-risalat-al-hoquq",
+    "title":"الصلاة في رسالة الحقوق" ,
+    "author":" العتبة الكاظمية المقدسة" ,
+    "otherNames": [],
+    "printHouse":"العتبة الكاظمية المقدسة" ,
+    "printDate":"" ,
+    "language":"العربية" ,
+    "pages":42 ,
+    "parts":1 ,
+    "views": 25,
+    "image":"/library/الصلاة في رسالة الحقوق.jpg",
+    
+    "category": [
+       "risalat-al-huqoq"
     ]
   }
 ]

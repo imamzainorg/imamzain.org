@@ -122,15 +122,22 @@ export default function BookCard({
 
 						{/* الأزرار */}
 						<div className="flex flex-wrap justify-center lg:justify-start items-center gap-4">
-							<Link
-								href={publication.pdf}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-emerald-700 hover:from-primary/90 hover:to-emerald-700/90 dark:from-Muharram_primary dark:to-Muharram_primary/70 dark:hover:to-Muharram_primary/20 transition-all text-white font-medium px-6 py-3 rounded-full shadow-md hover:shadow-lg"
-							>
-								<DownloadIcon fill="#ffffff" />
-								تنزيل الكتاب
-							</Link>
+					{publication.pdf ? (
+  <Link
+    href={publication.pdf}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-emerald-700 hover:from-primary/90 hover:to-emerald-700/90 dark:from-Muharram_primary dark:to-Muharram_primary/70 dark:hover:to-Muharram_primary/20 transition-all text-white font-medium px-6 py-3 rounded-full shadow-md hover:shadow-lg"
+  >
+    <DownloadIcon fill="#ffffff" />
+    تنزيل الكتاب
+  </Link>
+) : (
+  <span className="inline-flex items-center gap-2 bg-gray-400 dark:bg-gray-600 text-white font-medium px-6 py-3 rounded-full shadow-md cursor-not-allowed">
+    الكتاب غير متوفر
+  </span>
+)}
+
 
 							<Button
 								onClick={() => {
