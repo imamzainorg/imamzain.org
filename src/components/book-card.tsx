@@ -145,18 +145,17 @@ export default function BookCard({
               >
                 <NewsShare iconSize={20} />
                 مشاركة
-              </Button>
+               </Button>
 
-        {publication.category?.includes("publications") && (
-  <Link
-    href={`/services/stores`}
-    className="inline-flex items-center gap-2 bg-white border border-primary text-primary hover:bg-primary/10 dark:border-Muharram_primary dark:text-Muharram_primary dark:hover:bg-Muharram_primary/10 transition-all font-medium px-6 py-3 rounded-full shadow-sm"
-  >
-    <ShoppingCartIcon className="w-5 h-5" />
-    اماكن البيع المباشر
-  </Link>
-)}
-
+              {publication.category?.includes("publications") && (
+                <Link
+                  href={`/services/stores`}
+                  className="inline-flex items-center gap-2 bg-white border border-primary text-primary hover:bg-primary/10 dark:border-Muharram_primary dark:text-Muharram_primary dark:hover:bg-Muharram_primary/10 transition-all font-medium px-6 py-3 rounded-full shadow-sm"
+                >
+                  <ShoppingCartIcon className="w-5 h-5" />
+                  اماكن البيع المباشر
+                </Link>
+              )}
             </div>
 
             {/* التفاصيل */}
