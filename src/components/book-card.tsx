@@ -145,7 +145,7 @@ export default function BookCard({
               >
                 <NewsShare iconSize={20} />
                 مشاركة
-               </Button>
+              </Button>
 
               {publication.category?.includes("publications") && (
                 <Link
