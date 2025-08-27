@@ -26,11 +26,11 @@ export default function TopBar() {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Theme state
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
 
   // Load saved theme
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "dark";
+    const savedTheme = localStorage.getItem("theme") || "light";
     setTheme(savedTheme);
     document.documentElement.classList.add(savedTheme);
   }, []);
