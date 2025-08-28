@@ -5,6 +5,7 @@ interface SectionTitleProps {
 	children: React.ReactNode
 	className?: string
 }
+
 const SectionTitle = ({ children, className = "" }: SectionTitleProps) => (
 	<div className="flex flex-wrap justify-center items-center text-center">
 		<h2
