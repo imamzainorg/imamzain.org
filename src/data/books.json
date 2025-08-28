@@ -603,24 +603,6 @@
     ]
   },
   {
-    "id":30 ,
-    "slug":"al-qanun-al-akhlaqi" ,
-    "title":"القانون الأخلاقي " ,
-    "author":"قدرت الله  مشايخي" ,
-    "otherNames": [],
-    "printHouse":"مؤسسة انصاريات للنشر والطباعة" ,
-    "printDate":2011 ,
-    "language":"العربية" ,
-    "pages": 670,
-    "parts":1 ,
-    "views":36,
-    "image":"/library/القانون الأخلاقي ، في رسالة الحقوق للإمام علي بن الحسين زين العابدين عليهما السلام - قدرت الله  مشايخي-.jpg",
-   
-    "category": [
-       "risalat-al-huqoq"
-    ]
-  },
-  {
     "id":31 ,
     "slug": "as-salat-fi-risalat-al-hoquq",
     "title":"الصلاة في رسالة الحقوق" ,
@@ -636,6 +618,147 @@
     
     "category": [
        "risalat-al-huqoq"
+    ]
+  },
+  {
+    "id":32 ,
+    "slug": "risalat-al-huquq-llimam-alsajjad-a-walielan-alalami-lhuquq-alinsan-dirasah-muqaranah",
+    "title":"رسالة الحقوق للامام السجاد ع والاعلان العالمي لحقوق الانسان - دراسة مقارنة" ,
+    "author":"رافد حميد فرج" ,
+    "otherNames": [],
+    "printHouse":"دار الكفيل" ,
+    "printDate":"2015 م" ,
+    "language":"العربية" ,
+    "pages": 123,
+    "parts": 1,
+    "views": 23,
+    "image":"/library/51.jpg",
+    
+    "category": [
+       "risalat-al-huqoq"
+    ]
+  },
+  {
+    "id":33 ,
+    "slug": "alqanun-alakhlaqi-fi-risalat-alhuquq-llimam-ali-bin-alhussain-zayn-alabidin-a",
+    "title":"القانون الأخلاقي في رسالة الحقوق للامام علي بن الحسين زين العابدين ع" ,
+    "author":"قدرت الله مشايخي - ترجمة كمال السيد" ,
+    "otherNames": [],
+    "printHouse":"مؤسسة انصاريان" ,
+    "printDate":"2011 م " ,
+    "language":"العربية" ,
+    "pages": 670,
+    "parts":1 ,
+    "views":32 ,
+    "image":"/library/117.jpg",
+    
+    "category": [
+     "risalat-al-huqoq"
+    ]
+  },
+  {
+    "id":34 ,
+    "slug": "almoajam-aldalali-almawduey-lalfaz-risalat-alhuquq",
+    "title":"المعجم الدلالي الموضوعي لالفاظ رسالة الحقوق" ,
+    "author":"محمد جليل عباس الحسناوي" ,
+    "otherNames": [],
+    "printHouse":"دار الكفيل" ,
+    "printDate":"2015 م" ,
+    "language":"العربية" ,
+    "pages":552 ,
+    "parts":1 ,
+    "views":40 ,
+    "image":"/library/127.jpg",
+    
+    "category": [
+    "risalat-al-huqoq"
+    ]
+  },
+  {
+    "id":35 ,
+    "slug": "taamulat-fi-risalat-alhuquq-llimam-ali-bin-alhussain-a",
+    "title":"تأملات في رسالة الحقوق للامام علي بن الحسين ع" ,
+    "author":"محمد تقي المدرسي" ,
+    "otherNames": [],
+    "printHouse":"دار محبي الحسين ع" ,
+    "printDate":"2005 م" ,
+    "language":"العربية" ,
+    "pages":119 ,
+    "parts":1 ,
+    "views":21 ,
+    "image":"/library/161.jpg",
+    
+    "category": [
+     "risalat-al-huqoq"
+    ]
+  },
+  {
+    "id":37 ,
+    "slug": "tafsil-alhuquq-sharh-ruwai-ala-risalat-alhuquq-llimam-alsajjad-a",
+    "title":"تفصيل الحقوق شرح روائي على رسالة الحقوق للامام السجاد ع" ,
+    "author":"محمد حسن الطبسي" ,
+    "otherNames": [],
+    "printHouse":"نشر يوسف فاطمة ع" ,
+    "printDate":"1386 ش" ,
+    "language":"العربية" ,
+    "pages":297 ,
+    "parts": 1,
+    "views": 30,
+    "image":"/library/169.jpg",
+    
+    "category": [
+     "risalat-al-huqoq"
+    ]
+  },{
+    "id":38 ,
+    "slug": "haqq-allah-wa-haqq-alnafs-wa-haqq-alaadaa-ala-daw-risalat-alhuquq",
+    "title":"حق الله وحق النفس وحق الأعضاء - على ضوء رسالة الحقوق" ,
+    "author":"علي محمد عساكر" ,
+    "otherNames": [],
+    "printHouse":"" ,
+    "printDate":"2008 م" ,
+    "language":"العربية" ,
+    "pages":"" ,
+    "parts": 1,
+    "views":29 ,
+    "image":"/library/177.jpg",
+    
+    "category": [
+      "risalat-al-huqoq"
+    ]
+  },{
+    "id":39 ,
+    "slug": "rihla-huquqia-fi-risalat-alhuquq-llimam-zayn-alabidin-a",
+    "title":"رحلة حقوقية في رسالة الحقوق للإمام زين العابدين ع" ,
+    "author":"إبراهيم سلمان بو خمسين" ,
+    "otherNames": [],
+    "printHouse":"العتبة الحسينية المقدسة - مهرجان تراتيل سجادية العاشر - دار الوارث" ,
+    "printDate":"2024 م" ,
+    "language":"العربية" ,
+    "pages": 422,
+    "parts":1 ,
+    "views": 21,
+    "image":"/library/193.jpg",
+    
+    "category": [
+      "risalat-al-huqoq"
+    ]
+  },{
+    "id":40 ,
+    "slug": "risalat-alhuquq",
+    "title":"رسالة الحقوق" ,
+    "author":"باقر شريف القرشي" ,
+    "otherNames": [],
+    "printHouse":"الوردي" ,
+    "printDate":"2014 م " ,
+    "language":"العربية" ,
+    "pages": 175,
+    "parts":1 ,
+    "views":32 ,
+    "image":"/library/211.jpg",
+    
+    "category": [
+     "risalat-al-huqoq"
     ]
   }
 ]
