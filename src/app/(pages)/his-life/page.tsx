@@ -10,7 +10,7 @@ export default async function Page() {
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
-					{ name: "سيرة الإمام", url: "#" },
+					{ name: " سيرة الإمام زين العابدين (عليه السلام)", url: "#" },
 				]}
 			/>
 
