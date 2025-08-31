@@ -1,7 +1,7 @@
 import BooklibraryCard from "../_components/book-library-card"
 import Breadcrumbs from "@/components/breadcrumb"
 
-import ShowcaseSection from "../_components/showcase-section"
+
 import { Book } from "@/types/book"
 import Link from "next/link"
 import Image from "next/image"
@@ -141,12 +141,7 @@ export default async function Page() {
 				))}
 			</div>
 
-			<div className="">
-				<ShowcaseSection
-				route="/library/al-sahifa"
-				showcaseBooks={filteredBooks.slice(0, 3)}
-			/>
-			</div>
+		
 		</div>
 	)
 }

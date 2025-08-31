@@ -183,7 +183,7 @@ export default function RisalatAlHuquqPage() {
             </div>
             <h3 className="text-2xl font-semibold text-gray-700 mb-2">لا توجد نتائج</h3>
             <p className="text-gray-500 text-center max-w-md">
-              لم نعثر على أي إصدارات تطابق بحثك. حاول تغيير كلمات البحث أو إعادة ضبط الفلاتر.
+              لم نعثر على أي كتب تطابق بحثك. حاول تغيير كلمات البحث أو إعادة ضبط الفلاتر.
             </p>
           </div>
         ) : (
