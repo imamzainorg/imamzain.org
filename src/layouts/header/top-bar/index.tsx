@@ -28,11 +28,12 @@ export default function TopBar() {
   // Theme state
   const [theme, setTheme] = useState("light");
 
-  // Load saved theme
+  // Load saved theme or default to light
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "light";
-    setTheme(savedTheme);
-    document.documentElement.classList.add(savedTheme);
+    const savedTheme = localStorage.getItem("theme");
+    const initialTheme = savedTheme ? savedTheme : "light"; // default to light
+    setTheme(initialTheme);
+    document.documentElement.classList.add(initialTheme);
   }, []);
 
   // Apply theme on change
@@ -101,7 +102,6 @@ export default function TopBar() {
                     : "text-[#bb9661]"
                 }`}
               />
-
               <p>
                 <span
                   className={`text-sm p-0 mt-1 transition-colors duration-300 ${
@@ -115,17 +115,14 @@ export default function TopBar() {
                   {hijriDate
                     ? hijriDate.split("||")[0]
                     : error
-                      ? `⚠️ ${error}`
-                      : "جاري تحميل التاريخ..."}
+                    ? `⚠️ ${error}`
+                    : "جاري تحميل التاريخ..."}
                 </span>
               </p>
             </div>
 
-       
             <div className="flex justify-between items-center gap-5">
- 
-              {[
-                {
+              {[{
                   href: "https://www.instagram.com/imamzainorg/",
                   icon: faInstagram,
                   hoverColor: "dark:hover:text-[#E1306C] hover:text-[#E1306C]",
@@ -133,17 +130,17 @@ export default function TopBar() {
                 {
                   href: "https://www.tiktok.com/@imamzainorg",
                   icon: faTiktok,
-                  hoverColor: "dark:hover:text-black hover:text-black", 
+                  hoverColor: "dark:hover:text-black hover:text-black",
                 },
                 {
                   href: "https://www.facebook.com/@imamzainorg",
                   icon: faFacebook,
-                  hoverColor: "dark:hover:text-[#1877F2] hover:text-[#1877F2]", 
+                  hoverColor: "dark:hover:text-[#1877F2] hover:text-[#1877F2]",
                 },
                 {
                   href: "https://twitter.com/imamzainorg",
                   icon: faXTwitter,
-                  hoverColor: "dark:hover:text-black hover:text-black", 
+                  hoverColor: "dark:hover:text-black hover:text-black",
                 },
               ].map((social, index) => (
                 <Link
@@ -152,9 +149,9 @@ export default function TopBar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`text-xl hover:scale-105 transition-transform h-5 p-0 m-0
-      ${isScrolled || path !== "/" ? "text-primary dark:text-[#681717]" : "text-white"}
-      ${social.hoverColor}
-    `}
+                    ${isScrolled || path !== "/" ? "text-primary dark:text-[#681717]" : "text-white"}
+                    ${social.hoverColor}
+                  `}
                 >
                   <FontAwesomeIcon icon={social.icon} size="sm" />
                 </Link>
@@ -165,7 +162,7 @@ export default function TopBar() {
                 onClick={toggleTheme}
                 className={`p-1.5 rounded-full transition ${
                   isScrolled || path !== "/"
-                    ? "bg-secondary  dark:bg-Muharram_secondary text-white"
+                    ? "bg-secondary dark:bg-Muharram_secondary text-white"
                     : "bg-white text-primary dark:text-Muharram_primary"
                 }`}
                 title="تبديل الثيم"
