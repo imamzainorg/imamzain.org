@@ -75,7 +75,7 @@ const links = [
   {
     label: "الوسائط",
     subLinks: [
-      { label: "الصوتيات", href: "/media/audios" },
+   
       { label: "المرئيات", href: "/media/videos" },
       { label: "معرض الصور", href: "/media/images" },
     ],

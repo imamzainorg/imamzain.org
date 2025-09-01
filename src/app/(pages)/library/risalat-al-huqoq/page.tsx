@@ -147,7 +147,7 @@ export default function RisalatAlHuquqPage() {
           <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
             <div className="w-full md:w-1/2 relative">
               <input
-                placeholder="ابحث في الإصدارات..."
+                placeholder="ابحث في الكتب..."
                 className="pr-12 w-full md:w-11/12 text-lg bg-white rounded-xl border border-primary dark:border-Muharram_primary focus:ring-1"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
