@@ -182,6 +182,7 @@ export default function BookCard({
                 }
                 value={publication.printDate}
               />
+           
               <Detail
                 label="اللغة"
                 icon={
