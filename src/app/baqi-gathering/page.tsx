@@ -94,7 +94,7 @@ const ObjectivesSection = () => (
 					الوعي الجمعي.
 				</li>
 			</ul>
-			<h3 className="mt-8 sm:mt-10 text-xl sm:text-2xl text-[#1a3c40]">
+			<h3 className="mt-8 sm:mt-10 text-xl sm:text-2xl text-[#1a3c40] ">
 				الغاية العملية من النشاط:
 			</h3>
 			<ul className="list-disc list-inside space-y-3 sm:space-y-4 text-base sm:text-lg pr-2 sm:pr-5 mt-3 sm:mt-4">
