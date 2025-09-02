@@ -84,7 +84,7 @@ export default async function Page() {
 			</div>
 			<Posts newsPosts={posts} />
 
-			<div className="pt-20 ">
+			<div className="pt-20">
 				<div
 					className="bg-cover bg-top bg-no-repeat"
 					style={{
