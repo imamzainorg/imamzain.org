@@ -7,12 +7,14 @@ import {
 	TimeIcon,
 	VideoRecordingIcon,
 } from "@/assets/icons/reusable"
-{/*
+{
+	/*
 	import SectionCta from "@/components/section-cta"
-	*/}
+	*/
+}
 import HeaderSections from "@/components/header-sections"
 import { motion } from "framer-motion"
-import  { YouTubePlaylist } from "@/types/youtubeData"
+import { YouTubePlaylist } from "@/types/youtube-data"
 
 export default function Videos({
 	playlists,
@@ -80,8 +82,7 @@ export default function Videos({
 										whileHover="hover"
 										transition={{ duration: 0.3 }}
 									>
-
-									     	<Image
+										<Image
 											src={
 												playlist.videos[0].thumbnail ||
 												""
@@ -99,7 +100,7 @@ export default function Videos({
 													stroke="#fff"
 												/>
 											</div>
-											
+
 											<div className="h-1/2 w-full flex justify-start items-end p-3">
 												<div className="bg-white dark:hidden rounded-full rotate-180 p-2">
 													<PlayButtonIcon
@@ -107,11 +108,11 @@ export default function Videos({
 														className="w-auto h-auto"
 													/>
 												</div>
-													<div className="bg-white hidden dark:block rounded-full rotate-180 p-2">
+												<div className="bg-white hidden dark:block rounded-full rotate-180 p-2">
 													<PlayButtonIcon
 														fill="#231F20"
 														className="w-auto h-auto"
-													/>	
+													/>
 												</div>
 											</div>
 										</div>
@@ -156,7 +157,7 @@ export default function Videos({
 						})}
 				</div>
 
-		{/*
+				{/*
 				<div className="hidden md:block">
 					<SectionCta
 						links={[
@@ -173,27 +174,25 @@ export default function Videos({
 			</div>
 
 			{videoId && (
-  <div
-    className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center p-4 z-50"
-    aria-label="close window"
-    onClick={closeModal}
-  >
-    <div
-      className="relative bg-black rounded-lg overflow-hidden w-full max-w-4xl aspect-video"
-      aria-label=""
-      onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
-    >
-      <iframe
-        className="w-full h-full"
-        src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
-        title="YouTube Video"
-        allow="autoplay; fullscreen"
-      ></iframe>
-    </div>
-  </div>
-)}
-
-			
+				<div
+					className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center p-4 z-50"
+					aria-label="close window"
+					onClick={closeModal}
+				>
+					<div
+						className="relative bg-black rounded-lg overflow-hidden w-full max-w-4xl aspect-video"
+						aria-label=""
+						onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+					>
+						<iframe
+							className="w-full h-full"
+							src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+							title="YouTube Video"
+							allow="autoplay; fullscreen"
+						></iframe>
+					</div>
+				</div>
+			)}
 		</>
 	)
 }

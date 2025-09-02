@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Arrow from "@/components/Arrow"
+import Arrow from "@/components/arrow"
 const Page404Icon = () => (
 	<svg
 		className="w-1/2 md:1/3 lg:w-1/4 text-blue-600"
@@ -90,9 +90,7 @@ const Page404Icon = () => (
 	</svg>
 )
 
-
-
-export default function notFound() {
+export default function NotFound() {
 	return (
 		<div className="w-full h-screen flex flex-col items-center justify-center z-50">
 			<Page404Icon />

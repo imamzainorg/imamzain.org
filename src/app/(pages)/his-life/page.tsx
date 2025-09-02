@@ -1,7 +1,7 @@
 import Breadcrumbs from "@/components/breadcrumb"
 import HisLifeAccordion from "./components/accordion"
 import { dataFetcher } from "@/lib/dataFetcher"
-import { imamzainLife } from "@/types/imamzainLife"
+import { imamzainLife } from "@/types/imamzain-life"
 
 export default async function Page() {
 	const imamzainLife = await dataFetcher<imamzainLife[]>("imamzain.json")
@@ -10,7 +10,10 @@ export default async function Page() {
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
-					{ name: " سيرة الإمام زين العابدين (عليه السلام)", url: "#" },
+					{
+						name: " سيرة الإمام زين العابدين (عليه السلام)",
+						url: "#",
+					},
 				]}
 			/>
 

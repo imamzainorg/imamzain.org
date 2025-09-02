@@ -2,7 +2,7 @@ import Breadcrumbs from "@/components/breadcrumb"
 import { dataFetcher } from "@/lib/dataFetcher"
 import ModalButton from "../../../_components/modal-button"
 import Section from "@/components/section"
-import { Legacy } from "@/types/imamzainLegacy"
+import { Legacy } from "@/types/imamzain-legacy"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 

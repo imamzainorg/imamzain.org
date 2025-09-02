@@ -1,6 +1,5 @@
 "use client"
 import { motion, AnimatePresence } from "framer-motion"
-import { usePathname } from "next/navigation"
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Layouts from "@/layouts"
@@ -12,7 +11,6 @@ const variants = {
 }
 
 export default function Template({ children }: { children: React.ReactNode }) {
-	const path = usePathname()
 	const [loading, setLoading] = useState<boolean>(true)
 
 	useEffect(() => {
@@ -22,7 +20,6 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
 		return () => clearTimeout(timer)
 	}, [])
-	console.log("Template path", path)
 	return (
 		<AnimatePresence mode="wait">
 			{loading ? (
