@@ -6,38 +6,34 @@ import HeaderBaqi from "./_components/header-baqi"
 import FooterBaqi from "./_components/footer-baqi"
 
 const loaderVariants = {
-	hidden: { 
+	hidden: {
 		opacity: 0,
 		scale: 0.9,
 	},
-	enter: { 
-		opacity: 1, 
+	enter: {
+		opacity: 1,
 		scale: 1,
-		transition: { 
+		transition: {
 			duration: 0.4,
-			ease: [0.4, 0, 0.2, 1]
-		} 
+			ease: [0.4, 0, 0.2, 1],
+		},
 	},
-	exit: { 
+	exit: {
 		opacity: 0,
 		scale: 1.1,
-		transition: { 
+		transition: {
 			duration: 0.3,
-			ease: [0.4, 0, 1, 1]
-		} 
+			ease: [0.4, 0, 1, 1],
+		},
 	},
 }
 
 const pageVariants = {
 	hidden: {
 		opacity: 0,
-		y: 20,
-		scale: 0.98,
 	},
 	enter: {
 		opacity: 1,
-		y: 0,
-		scale: 1,
 		transition: {
 			duration: 0.5,
 			delay: 0.1,
@@ -68,7 +64,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
 					exit="exit"
 					variants={loaderVariants}
 				>
-					<motion.div 
+					<motion.div
 						className="flex flex-col items-center gap-6 px-4 sm:px-6"
 						initial={{ y: 10, opacity: 0 }}
 						animate={{ y: 0, opacity: 1 }}
@@ -91,7 +87,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
 							transition={{
 								duration: 1.5,
 								repeat: Infinity,
-								ease: "easeInOut"
+								ease: "easeInOut",
 							}}
 						/>
 					</motion.div>
