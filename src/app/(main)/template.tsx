@@ -8,12 +8,10 @@ const loaderVariants = {
 	hidden: {
 		opacity: 0,
 		scale: 0.9,
-		height: 0,
 	},
 	enter: {
 		opacity: 1,
 		scale: 1,
-		height: 1,
 		transition: {
 			duration: 0.4,
 			ease: [0.4, 0, 0.2, 1],
