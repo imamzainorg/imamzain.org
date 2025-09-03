@@ -20,6 +20,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
 		return () => clearTimeout(timer)
 	}, [])
+
 	return (
 		<AnimatePresence mode="wait">
 			{loading ? (
