@@ -1,6 +1,4 @@
-
 // KHAT CONTEST FEATURED SECTION
-
 
 import Link from "next/link"
 import Image from "next/image"
@@ -9,7 +7,7 @@ import { Palette, Award, Calendar } from "lucide-react"
 export function Featured() {
 	return (
 		<div className="">
-			<section className="relative py-16 border-b-2 bg-gradient-to-b from-transparent via-primary/5 to-primary/20 dark:via-Muharram_primary/5 dark:to-Muharram_primary/20  overflow-hidden my-20">
+			<section className="relative py-20 border-b bg-gradient-to-br from-primary/5 via-transparent to-primary/10 dark:from-Muharram_primary/5 dark:to-Muharram_primary/10 overflow-hidden my-24">
 				<div className="container mx-auto px-4 relative z-10">
 					<div className="flex flex-col lg:flex-row items-center gap-10">
 						<div className="lg:w-1/2 text-right space-y-6">
@@ -82,13 +80,45 @@ export function Featured() {
 								</div>
 							</div>
 
-							{/* Floating element */}
-							<div className="absolute -top-6 -left-6 bg-white p-4 rounded-xl shadow-lg border border-gray-100 animate-float">
-								<div className="bg-white border border-primary dark:border-Muharram_primary text-gray-900 font-bold px-3 py-1 rounded-full text-sm">
-									جائزة المركز الأول
+							{/* Prize Awards */}
+							<div className="absolute -top-8 -left-4 flex items-end gap-4">
+								{/* 3rd Place - Left */}
+								<div className="bg-white p-3 rounded-xl shadow-lg border-2 border-primary/40 dark:border-Muharram_secondary/40">
+									<div className="bg-primary/10 dark:bg-Muharram_secondary/10 border border-primary/60 dark:border-Muharram_secondary/60 text-primary dark:text-Muharram_secondary font-bold px-2 py-1 rounded-full text-xs">
+										المركز الثالث
+									</div>
+									<div className="mt-1 font-bold text-lg text-center text-primary dark:text-Muharram_secondary">
+										١,٠٠٠,٠٠٠
+									</div>
+									<div className="text-xs text-primary/70 dark:text-Muharram_secondary/70 text-center">
+										د.ع
+									</div>
 								</div>
-								<div className="mt-2 font-bold text-xl">
-									٣,٠٠٠,٠٠٠ د.ع
+
+								{/* 1st Place - Middle (Largest) */}
+								<div className="bg-white p-4 rounded-xl shadow-xl border-3 border-primary dark:border-Muharram_primary scale-110 -translate-y-6">
+									<div className="bg-primary/10 dark:bg-Muharram_primary/10 border-2 border-primary dark:border-Muharram_primary text-primary dark:text-Muharram_primary font-bold px-3 py-1 rounded-full text-sm">
+										🥇 المركز الأول
+									</div>
+									<div className="mt-2 font-bold text-2xl text-center text-primary dark:text-Muharram_primary">
+										٣,٠٠٠,٠٠٠
+									</div>
+									<div className="text-sm text-primary/80 dark:text-Muharram_primary/80 text-center font-medium">
+										د.ع
+									</div>
+								</div>
+
+								{/* 2nd Place - Right */}
+								<div className="bg-white p-3 rounded-xl shadow-lg border-2 border-primary/60 dark:border-Muharram_secondary/60 scale-100">
+									<div className="bg-primary/15 dark:bg-Muharram_secondary/15 border border-primary/80 dark:border-Muharram_secondary/80 text-primary dark:text-Muharram_secondary font-bold px-2 py-1 rounded-full text-xs">
+										المركز الثاني
+									</div>
+									<div className="mt-1 font-bold text-lg text-center text-primary dark:text-Muharram_secondary">
+										٢,٠٠٠,٠٠٠
+									</div>
+									<div className="text-xs text-primary/70 dark:text-Muharram_secondary/70 text-center">
+										د.ع
+									</div>
 								</div>
 							</div>
 						</div>
@@ -149,7 +179,7 @@ export function Featured() {
 // 						</div>
 // 						{/*  view more button
 // 						<div className="w-1/2 h-[1px] bg-gradient-to-t from-transparent via-slate-500 to-transparent"></div>
-						
+
 // 						<div className="flex flex-wrap gap-4 mt-8">
 // 							<Link
 // 								href="/kids-platform"
