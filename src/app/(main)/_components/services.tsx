@@ -18,8 +18,6 @@ const ZiaraForm = () => {
 		country: "" as string | number | null, // Allow country to be string, number, or null
 	})
 
-	console.log(formData)
-
 	// Validation function
 	const validate = () => {
 		const newErrors: string[] = []
@@ -71,28 +69,25 @@ const ZiaraForm = () => {
 						classNames={{
 							base: "",
 							input: "border-none focus:ring-0",
-							  
 						}}
-					startContent={
-  <>
-    {/* أيقونة الوضع العادي */}
-    <PersonIcon
-      stroke="#bb9661"
-      fill="#bb9661"
-      strokeWidth={0.1}
-      className="dark:hidden"
-    />
+						startContent={
+							<>
+								{/* أيقونة الوضع العادي */}
+								<PersonIcon
+									stroke="#bb9661"
+									fill="#bb9661"
+									strokeWidth={0.1}
+									className="dark:hidden"
+								/>
 
-  
-    <PersonIcon
-      stroke="#a43232"
-      fill="#a43232"
-      strokeWidth={0.1}
-      className="hidden dark:inline"
-    />
-  </>
-}
-
+								<PersonIcon
+									stroke="#a43232"
+									fill="#a43232"
+									strokeWidth={0.1}
+									className="hidden dark:inline"
+								/>
+							</>
+						}
 						type="text"
 					/>
 					{/* Input for Phone */}
@@ -108,24 +103,24 @@ const ZiaraForm = () => {
 						}
 						classNames={{
 							base: "",
-						 
+
 							input: "border-none focus:ring-0",
 						}}
-						startContent={<>
-									<MobileIcon
+						startContent={
+							<>
+								<MobileIcon
 									stroke="#bb9661"
-	fill="none"
-								strokeWidth={1.5}
-								className="dark:hidden"
-							/>
+									fill="none"
+									strokeWidth={1.5}
+									className="dark:hidden"
+								/>
 								<MobileIcon
 									stroke="#a43232"
-	fill="none"
-								strokeWidth={1.5}
-								className="hidden dark:inline"
-							/>
-						</>
-				
+									fill="none"
+									strokeWidth={1.5}
+									className="hidden dark:inline"
+								/>
+							</>
 						}
 						type="number"
 					/>
@@ -133,7 +128,6 @@ const ZiaraForm = () => {
 					<CountriesDropdown
 						onCountryChange={(e) =>
 							setFormData({ ...formData, country: e })
-							
 						}
 					/>
 					{errors && <p className="text-red-500 text-sm">{errors}</p>}{" "}
@@ -211,14 +205,14 @@ export default function Services() {
 									alt="title icon"
 									className="w-3 sm:w-4 xl:w-5 dark:hidden"
 								/>
-									<Image
+								<Image
 									src={"/shapes/title-icon_Muharram.svg"}
 									width={150}
 									height={150}
 									alt="title icon"
 									className="w-3 sm:w-4 xl:w-5 hidden dark:block"
 								/>
-								
+
 								<h1
 									className={
 										"mt-2 text-lg md:text-xl lg:text-2xl xl:text-3xl font-extrabold text-white text-justify"

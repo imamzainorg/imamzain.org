@@ -1,6 +1,6 @@
 import Breadcrumbs from "@/components/breadcrumb"
 import { dataFetcher } from "@/lib/dataFetcher"
-import { imamzainLife } from "@/types/imamzainLife"
+import { imamzainLife } from "@/types/imamzain-life"
 
 export default async function Page({
 	params,

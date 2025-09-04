@@ -100,8 +100,8 @@ export default function Publications({
 												},
 											},
 										}}
-										className="absolute right-0 bottom-0 w-32 h-32">
-
+										className="absolute right-0 bottom-0 w-32 h-32"
+									>
 										<Image
 											src="/shapes/book_icon.svg"
 											alt={`${book.title} icon`}
@@ -109,7 +109,6 @@ export default function Publications({
 											sizes="100vw"
 											className="object-contain dark:hidden"
 										/>
-
 
 										<Image
 											src="/shapes/book_icon_Muharram.svg"
@@ -119,7 +118,6 @@ export default function Publications({
 											className="object-contain hidden dark:block"
 										/>
 									</motion.div>
-
 								</motion.div>
 
 								{/* Book Image 1 */}

@@ -6,7 +6,7 @@ import Breadcrumbs from "@/components/breadcrumb"
 import PostCard from "./_components/news-card"
 import { dataFetcher } from "@/lib/dataFetcher"
 import { Post } from "@/types/post"
-import ButtonLink from "@/components/button"
+import { ChevronRightArrowIcon } from "@/assets/icons/reusable"
 
 export default async function Page() {
 	const data = await dataFetcher<Post[]>("posts.json")
@@ -27,11 +27,20 @@ export default async function Page() {
 					]}
 				/>
 
-  <div className="p-10">
-      <ButtonLink href="/news/archives" label="ارشيف الاخبار" />
-    </div>
-
-
+				<div className="p-10">
+					<Link
+						href="/news/archives"
+						className="inline-flex items-center justify-center px-6 py-2 rounded-xl bg-primary dark:bg-Muharram_primary text-white text-sm font-semibold hover:bg-primary/90 dark:hover:bg-Muharram_primary/90 transition-colors"
+					>
+						ارشيف الاخبار
+						<ChevronRightArrowIcon
+							className="rotate-180 relative right-2 p-0.5 md:p-1"
+							stroke="#ffffff"
+							strokeWidth={0.5}
+							fill="#ffffff"
+						/>
+					</Link>
+				</div>
 			</div>
 
 			{/* Latest Posts */}
@@ -132,44 +141,44 @@ export default async function Page() {
 					</div>
 				</Link>
 			</div>
-	
+
 			<SectionTitle title="اخبار العتبة الحسينية المقدسة" />
 			<div className="">
 				<div className="md:grid md:grid-cols-4 gap-5 p-2 mt-2">
-				    {[...imamHussainPosts]
-      .sort((a, b) => b.id - a.id)
-      .slice(0, 5)
-      .map((post, index) => (
-						<Link
-							href={`/news/${post.slug}`}
-							key={post.id}
-							className={`"xl:mt-4" ${index === 0 ? "col-span-2 row-span-2" : ""} `}
-						>
-							<div className="">
-								<div className="rounded-xl ">
-									<div className="relative w-full h-full overflow-hidden rounded-xl hover:cursor-pointer border-4 border-transparent transition-all  hover:border-secondary dark:hover:border-Muharram_secondary/80 duration-300 ease-in-out">
-										<Image
-											src={post.image}
-											alt={post.summary}
-											width={1500}
-											height={1500}
-											className="w-full h-full object-cover transform-origin:center duration-300 hover:scale-110"
-										/>
+					{[...imamHussainPosts]
+						.sort((a, b) => b.id - a.id)
+						.slice(0, 5)
+						.map((post, index) => (
+							<Link
+								href={`/news/${post.slug}`}
+								key={post.id}
+								className={`"xl:mt-4" ${index === 0 ? "col-span-2 row-span-2" : ""} `}
+							>
+								<div className="">
+									<div className="rounded-xl ">
+										<div className="relative w-full h-full overflow-hidden rounded-xl hover:cursor-pointer border-4 border-transparent transition-all  hover:border-secondary dark:hover:border-Muharram_secondary/80 duration-300 ease-in-out">
+											<Image
+												src={post.image}
+												alt={post.summary}
+												width={1500}
+												height={1500}
+												className="w-full h-full object-cover transform-origin:center duration-300 hover:scale-110"
+											/>
+										</div>
+
+										{index === 0 && (
+											<h2 className="hidden md:block xl:text-2xl text-lg pt-2 pr-3 font-bold text-gray-900">
+												{post.title}
+											</h2>
+										)}
+
+										<p className="text-lg pr-3 font-medium text-gray-700  mt-2 lg:text-lg mx-auto">
+											{post.summary}
+										</p>
 									</div>
-
-									{index === 0 && (
-										<h2 className="hidden md:block xl:text-2xl text-lg pt-2 pr-3 font-bold text-gray-900">
-											{post.title}
-										</h2>
-									)}
-
-									<p className="text-lg pr-3 font-medium text-gray-700  mt-2 lg:text-lg mx-auto">
-										{post.summary}
-									</p>
 								</div>
-							</div>
-						</Link>
-					))}
+							</Link>
+						))}
 				</div>
 			</div>
 		</div>

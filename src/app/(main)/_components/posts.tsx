@@ -45,7 +45,9 @@ export default function Posts({ newsPosts }: { newsPosts: Post[] }) {
 
 			<div
 				className={`flex w-full h-[65rem] sm:h-full gap-4 pt-10 ${
-					isSmallScreen ? "flex-col items-center" : "flex-row justify-center"
+					isSmallScreen
+						? "flex-col items-center"
+						: "flex-row justify-center"
 				}`}
 			>
 				{newsPosts.slice(0, visiblePosts).map((item, idx) => (
@@ -79,8 +81,10 @@ export default function Posts({ newsPosts }: { newsPosts: Post[] }) {
 												alt="title icon"
 												className="w-3 md:w-4 dark:hidden "
 											/>
-													<Image
-												src={"/shapes/title-icon_Muharram.svg"}
+											<Image
+												src={
+													"/shapes/title-icon_Muharram.svg"
+												}
 												width={10}
 												height={10}
 												alt="title icon"

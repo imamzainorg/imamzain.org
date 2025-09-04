@@ -10,7 +10,7 @@ import { Book } from "@/types/book"
 import BooklibraryCard from "../library/_components/book-library-card"
 
 import { AnimatePresence } from "framer-motion"
-import { Button } from "@/components/ui/button1"
+import { Button } from "@/components/button"
 import { SearchIcon, FilterIcon, ChevronLeft, ChevronRight } from "lucide-react"
 
 export default function PublicationsPage() {

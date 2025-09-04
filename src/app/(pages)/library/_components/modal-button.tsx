@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react"
 import Modal from "@/components/modal"
-import { Subject } from "@/types/imamzainLegacy"
+import { Subject } from "@/types/imamzain-legacy"
 import { cn } from "@/lib/utils"
 import { motion } from "framer-motion"
 
@@ -18,7 +18,7 @@ export default function ModalButton({ subject }: { subject: Subject }) {
 			<div
 				id={subject?.slug}
 				onClick={() => setOpen(true)}
-				className ="group relative w-full h-full overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100 border cursor-pointer rounded-3xl flex justify-between items-center p-3  border-slate-200 hover:border-secondary/60  dark:hover:border-Muharram_secondary/60 shadow-md hover:shadow-xl transition-all duration-300"
+				className="group relative w-full h-full overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100 border cursor-pointer rounded-3xl flex justify-between items-center p-3  border-slate-200 hover:border-secondary/60  dark:hover:border-Muharram_secondary/60 shadow-md hover:shadow-xl transition-all duration-300"
 			>
 				<div className="absolute -top-10 -right-10 z-0">
 					<div className="relative w-36 h-36">

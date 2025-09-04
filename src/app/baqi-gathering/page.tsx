@@ -320,7 +320,7 @@ const ScheduleSection = () => {
 	)
 }
 
-export default function page() {
+export default function Page() {
 	return (
 		<div className="bg-gray-100 text-gray-800 rtl">
 			<Hero />

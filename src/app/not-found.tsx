@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Arrow from "@/components/Arrow"
 const Page404Icon = () => (
 	<svg
 		className="w-1/2 md:1/3 lg:w-1/4 text-blue-600"
@@ -90,9 +89,7 @@ const Page404Icon = () => (
 	</svg>
 )
 
-
-
-export default function notFound() {
+export default function NotFound() {
 	return (
 		<div className="w-full h-screen flex flex-col items-center justify-center z-50">
 			<Page404Icon />
@@ -109,7 +106,23 @@ export default function notFound() {
 					title="الصفحة الرئيسية"
 				>
 					الرجوع الى الصفحة الرئيسية
-					<Arrow className="translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 duration-300" />
+					<svg
+						width={24}
+						height={24}
+						viewBox="0 0 24 24"
+						fill="none"
+						className="translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 duration-300"
+						strokeWidth={1}
+						color="currentColor"
+					>
+						<path
+							d="M5 12H19M5 12L11 6M5 12L11 18"
+							stroke="currentColor"
+							strokeWidth="2"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+						/>
+					</svg>
 				</Link>
 			</div>
 		</div>

@@ -99,7 +99,7 @@ export default function SwiperCarousel({ images }: { images: Attachment[] }) {
 
             "
 			>
-						<div
+				<div
 					onClick={handleNext}
 					className={`swiper-button-prev hidden dark:block ${styles.Muharram_secondary}`}
 				/>
@@ -107,15 +107,14 @@ export default function SwiperCarousel({ images }: { images: Attachment[] }) {
 					onClick={handleNext}
 					className={`swiper-button-prev dark:hidden ${styles.secondaryColor}`}
 				/>
-			
 			</div>
-			
+
 			<div
 				className="absolute bottom-0 top-0 right-0
             max-lg:hidden
             "
 			>
-					<div
+				<div
 					onClick={handlePrev}
 					className={`swiper-button-next hidden dark:block ${styles.Muharram_secondary}`}
 				/>
@@ -123,7 +122,6 @@ export default function SwiperCarousel({ images }: { images: Attachment[] }) {
 					onClick={handlePrev}
 					className={`swiper-button-next block dark:hidden ${styles.secondaryColor}`}
 				/>
-			
 			</div>
 		</div>
 	)

@@ -6,7 +6,7 @@ import Image from "next/image";
 import { VideoRecordingIcon } from "@/assets/icons/reusable";
 import { useState } from "react";
 import VideoComponent from "./_components/video-section";
-import {PlayButtonIcon} from "@/assets/icons/reusable"
+import { PlayButtonIcon } from "@/assets/icons/reusable";
 export default function Page() {
   const [videoId, setVideoId] = useState<string | null>(null);
   const [currentPlaylist, setCurrentPlaylist] = useState<{
