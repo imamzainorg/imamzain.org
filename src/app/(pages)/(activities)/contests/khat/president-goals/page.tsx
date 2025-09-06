@@ -10,6 +10,10 @@ export default function PresidentGoals() {
 
 					{
 						name: "مسابقة الإمام السجاد (عليه السلام) الدولية للخط العربي",
+						url: "/contests/khat",
+					},
+					{
+						name: "كلمة رئيس المؤسسة واهداف المسابقة",
 						url: "#",
 					},
 				]}
