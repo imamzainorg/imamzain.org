@@ -15,6 +15,8 @@ import {
 	LucideIcon,
 	Download,
 	ArrowLeft,
+	Calendar,
+	Globe,
 } from "lucide-react"
 
 // Types
@@ -255,9 +257,19 @@ function IconWrapper({
 	)
 }
 
-function ModernBadge({ icon: Icon, text }: { icon: LucideIcon; text: string }) {
+function ModernBadge({
+	icon: Icon,
+	text,
+	important,
+}: {
+	icon: LucideIcon
+	text: string
+	important?: boolean
+}) {
 	return (
-		<div className="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 text-emerald-800 px-6 py-3 rounded-2xl text-sm font-semibold shadow-sm">
+		<div
+			className={`inline-flex items-center gap-3 border px-6 py-3 rounded-2xl text-sm font-semibold shadow-sm ${important ? "bg-gradient-to-r from-emerald-50 to-teal-50 border-emerald-200 text-emerald-800" : "bg-gradient-to-r from-slate-50 to-slate-100 border-slate-200 text-slate-800"}`}
+		>
 			<Icon className="w-5 h-5" strokeWidth={2} />
 			{text}
 		</div>
@@ -492,7 +504,7 @@ function ModernTable() {
 
 export default function Page() {
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
+		<div className="min-h-screen">
 			{/* Breadcrumbs */}
 			<div className="px-4 sm:px-6 lg:px-8 pt-8">
 				<Breadcrumbs
@@ -511,11 +523,21 @@ export default function Page() {
 			<section className="px-4 sm:px-6 lg:px-8 py-16">
 				<div className="max-w-7xl mx-auto">
 					<div className="space-y-6 my-2">
-						<ModernBadge icon={Palette} text="مسابقة دولية محكمة" />
+						<div className="flex gap-4">
+							<ModernBadge
+								icon={Globe}
+								text="مسابقة دولية محكمة"
+							/>
+							<ModernBadge
+								icon={Calendar}
+								text="المسابقة مفتوحة لغاية 2026/1/5"
+								important
+							/>
+						</div>
 
 						<div className="space-y-6">
 							<h1 className="text-4xl lg:text-6xl font-bold text-slate-800 leading-tight">
-								مسابقة الإمام زين العابدين
+								مسابقة زين العابدين
 								<span className="block text-primary">
 									الدولية الأولى
 								</span>
@@ -573,7 +595,8 @@ export default function Page() {
 										الضغط على الرابط أدناه
 									</p>
 									<Link
-										href="/contests/khat/president-goals/#goals"
+										download
+										href="/contests/khat/contest.pdf"
 										className="text-sm lg:text-base group inline-flex items-center gap-3 text-primary hover:text-secondary font-semibold transition-colors duration-300"
 									>
 										<Download className="w-4 lg:w-5 h-4 lg:h-5 group-hover:scale-110 transition-transform duration-300" />
@@ -604,7 +627,7 @@ export default function Page() {
 			</section>
 
 			{/* Timeline Section - Modern Design */}
-			<section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-100 to-white">
+			<section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
 				<div className="max-w-6xl mx-auto">
 					<div className="text-center mb-10 sm:mb-16">
 						<h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-4 sm:mb-6">
@@ -723,7 +746,7 @@ export default function Page() {
 			</section>
 
 			{/* Personnel Section - Modern Grid */}
-			<section className="px-4 sm:px-6 lg:px-8 py-20 bg-gradient-to-br from-slate-100 to-white">
+			<section className="px-4 sm:px-6 lg:px-8 py-20">
 				<div className="max-w-7xl mx-auto">
 					{PERSONNEL.map((section, sectionIndex) => (
 						<div
