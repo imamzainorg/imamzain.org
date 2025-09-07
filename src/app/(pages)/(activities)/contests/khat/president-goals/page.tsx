@@ -10,12 +10,16 @@ export default function PresidentGoals() {
 
 					{
 						name: "مسابقة الإمام السجاد (عليه السلام) الدولية للخط العربي",
+						url: "/contests/khat",
+					},
+					{
+						name: "كلمة رئيس المؤسسة واهداف المسابقة",
 						url: "#",
 					},
 				]}
 			/>
 			{/* كلمة رئيس المؤسسة - First large text block */}
-			<div className="my-6 sm:my-8 lg:my-10">
+			<div className="my-6 sm:my-8 lg:my-10 ">
 				<div className="scroll-mt-64" id="president-message">
 					<Section title="كلمة رئيس المؤسسة" />
 				</div>
