@@ -41,7 +41,7 @@ export function Featured() {
       <section className="relative py-20 border-b bg-gradient-to-br from-primary/5 via-transparent to-primary/10 dark:from-Muharram_primary/5 dark:to-Muharram_primary/10 overflow-hidden my-24">
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-10">
-            <div className="lg:w-1/2 text-right space-y-6">
+            <div className="lg:w-1/2 text-right  space-y-6">
               <div className="inline-flex items-center gap-2 bg-primary/10 text-primary dark:bg-Muharram_primary/10 dark:text-Muharram_primary px-4 py-2 rounded-full text-sm font-medium">
                 <Palette className="w-4 h-4" />
                 مسابقة دولية محكمة
@@ -70,8 +70,8 @@ export function Featured() {
                 </div>
               </div>
 
-              <div className=" flex flex-row  justify-between items-center">
-                <div className="flex flex-wrap gap-4 mt-6 justify-center lg:justify-start">
+              <div className=" flex flex-col  md:flex-row   justify-between items-center">
+                <div className="flex flex-wrap gap-4 mt-6 mb-10 justify-center lg:justify-start">
                   <Link
                     href="/contests/khat#apply"
                     className="bg-primary dark:bg-Muharram_primary hover:bg-primary-dark text-white px-8 py-3 rounded-xl font-medium transition-colors shadow-lg hover:shadow-xl"
@@ -86,11 +86,11 @@ export function Featured() {
                   </Link>
                 </div>
 
-                <div className="relative top-10 right-16  text-white flex flex-col items-center justify-cente	animate-fade-in-up  ">
-                 	<h3 className="text-xl font-bold text-primary dark:text-Muharram_primary mb-4">
-									الوقت المتبقي :
-								</h3>	
-                  <div className="flex gap-4 justify-center lg:justify-end">
+                <div className="relative mb-10 md:top-0 lg:top-10 lg:right-16  text-white flex flex-col items-center justify-cente	animate-fade-in-up  ">
+                  <h3 className="text-md font-bold text-primary dark:text-Muharram_primary mb-4">
+                    الوقت المتبقي :
+                  </h3>
+                  <div className="flex gap-4 justify-center text-sm lg:justify-end">
                     {[
                       { label: "ثانية", value: timeLeft.seconds },
                       { label: "دقيقة", value: timeLeft.minutes },
@@ -99,12 +99,12 @@ export function Featured() {
                     ].map((unit, idx) => (
                       <div
                         key={idx}
-                        className="bg-white dark:bg-gray-800 rounded-xl shadow-md px-4 py-3 text-center min-w-[70px]"
+                        className="bg-white  rounded-xl shadow-md px-4 py-3 text-center min-w-[30px] lg:min-w-[60px] "
                       >
-                        <div className="text-2xl font-bold text-primary dark:text-Muharram_primary">
+                        <div className="text-sm md:text-base font-bold text-primary dark:text-Muharram_primary">
                           {unit.value}
                         </div>
-                        <div className="text-sm font-bold text-gray-600 dark:text-gray-300">
+                        <div className="text-sm md:text-base font-bold text-gray-600 dark:text-gray">
                           {unit.label}
                         </div>
                       </div>
@@ -116,13 +116,13 @@ export function Featured() {
 
             {/* Image */}
             <div className="xs:w-2/4 sm:w-1/4 mx-auto relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-8 border-white transform rotate-3 hover:rotate-0 transition-transform duration-500">
+              <div className="relative w-60 xs:w-80 xs:left-10 sm:left-32 md:left-24 lg:left-10 xl:right-8 rounded-2xl overflow-hidden shadow-2xl border-8 border-white transform rotate-3 hover:rotate-0 transition-transform duration-500">
                 <Image
                   src="/contests/khat/landing.jpg"
                   alt="مسابقة الخط العربي"
                   width={600}
                   height={400}
-                  className="w-full h-auto object-cover"
+                  className="w-full  h-auto object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                 <div className="absolute bottom-6 right-6 text-white">
