@@ -8,7 +8,9 @@ export type YouTubeVideo = {
 }
 
 export type YouTubePlaylist = {
-	playlistId: string
+	id: number
+	playlistId?: string
+	url: string
 	title: string
 	videos: YouTubeVideo[]
 }

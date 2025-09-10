@@ -1,27 +1,36 @@
+
+
+
 "use client";
 
-import playlists from "@/data/youtube.json";
-import { motion } from "framer-motion";
+import playlists from "@/data/youtube.json" assert { type: "json" };
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { VideoRecordingIcon } from "@/assets/icons/reusable";
-import { useState } from "react";
-import VideoComponent from "./_components/video-section";
 import { PlayButtonIcon } from "@/assets/icons/reusable";
+import { motion, AnimatePresence } from "framer-motion";
+import VideoComponent from "./_components/video-section";
+export type YouTubeVideo = {
+  title: string;
+  url: string;
+  date: string;
+  desc: string;
+  thumbnail: string;
+  slug: string;
+};
+
+export type YouTubePlaylist = {
+  playlistId?: string;
+  url: string;
+  title: string;
+  videos: YouTubeVideo[];
+};
+
 export default function Page() {
   const [videoId, setVideoId] = useState<string | null>(null);
-  const [currentPlaylist, setCurrentPlaylist] = useState<{
-    title: string;
-    videos: { url: string; thumbnail: string; title: string }[];
-  } | null>(null);
+  const [currentPlaylist, setCurrentPlaylist] = useState<YouTubePlaylist | null>(null);
 
-  // فتح المودال مع تحديد القائمة والفيديو
-  const openModal = (
-    playlist: {
-      title: string;
-      videos: { url: string; thumbnail: string; title: string }[];
-    },
-    videoUrl: string
-  ) => {
+  const openModal = (playlist: YouTubePlaylist, videoUrl: string) => {
     setCurrentPlaylist(playlist);
     setVideoId(videoUrl);
   };
@@ -31,135 +40,178 @@ export default function Page() {
     setCurrentPlaylist(null);
   };
 
+  // غلق المودال بزر Esc
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => e.key === "Escape" && closeModal();
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, []);
+
   return (
-    <div className="">
-      <VideoComponent />
-      <div className="container pb-32">
-        {playlists.map((playlist, index) => (
-          <div key={index} className="mt-16">
-            <p className="text-white font-bold text-center text-lg md:text-xl xl:text-2xl mt-10">
-              {playlist.title}
-            </p>
-            <div className="mt-8 p-4 rounded-3xl grid grid-cols-2 md:grid-cols-3 xmd:grid-cols-4 gap-4 grid-rows-1 bg-gray-600/35">
-              {playlist.videos.slice(0, 4).map((video, idx) => (
-                <div
-                  key={idx}
-                  onClick={() => openModal(playlist, video.url)}
-                  className="relative rounded-2xl overflow-hidden h-36 md:h-40 lg:h-48 cursor-pointer group"
-                >
+  <div>
+        <VideoComponent />
+    <div className="pb-32 container">
+      
+      {playlists.map((playlist: YouTubePlaylist, index: number) => (
+        <PlaylistSection key={index} playlist={playlist} openModal={openModal} />
+      ))}
+
+      {/* مودال الفيديو */}
+      <AnimatePresence>
+        {videoId && currentPlaylist && (
+          <VideoModal
+            videoId={videoId}
+            playlist={currentPlaylist}
+            setVideoId={setVideoId}
+            onClose={closeModal}
+          />
+        )}
+      </AnimatePresence>
+    </div>
+  </div>
+  );
+}
+
+/* ---------------- مكون PlaylistSection ---------------- */
+function PlaylistSection({
+  playlist,
+  openModal,
+}: {
+  playlist: YouTubePlaylist;
+  openModal: (playlist: YouTubePlaylist, videoUrl: string) => void;
+}) {
+  const displayedVideos = playlist.videos.slice(0, 4);
+
+  return (
+    <div className="mt-12">
+      <div className="flex flex-row items-end justify-between">
+        <h2 className="text-white font-bold text-lg md:text-xl xl:text-2xl">
+          {playlist.title}
+        </h2>
+
+        {playlist.videos.length > 4 && (
+          <a
+            href={playlist.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm font-semibold transition"
+          >
+            عرض المزيد
+          </a>
+        )}
+      </div>
+
+      <div className="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {displayedVideos.map((video, idx) => (
+          <VideoCard key={idx} video={video} onClick={() => openModal(playlist, video.url)} />
+        ))}
+      </div>
+
+      <div className="w-full h-[1px] my-6 bg-gradient-to-r from-primary via-white dark:via-Muharram_primary to-primary" />
+    </div>
+  );
+}
+
+/* ---------------- مكون VideoCard ---------------- */
+function VideoCard({ video, onClick }: { video: YouTubeVideo; onClick: () => void }) {
+  return (
+    <div className="cursor-pointer group" onClick={onClick}>
+      <div className="relative rounded-2xl overflow-hidden aspect-video">
+        <Image
+          src={video.thumbnail}
+          alt={video.title}
+          fill
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, 33vw"
+        />
+        <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 group-hover:opacity-100 transition">
+          <PlayButtonIcon
+            fill="rgba(255,255,255,0.9)"
+            className="bg-black/60 rounded-full p-3 w-16 h-16 transition-transform group-hover:scale-110"
+          />
+        </div>
+      </div>
+      <p className="mt-2 text-white font-semibold text-sm line-clamp-2">{video.title}</p>
+    </div>
+  );
+}
+
+/* ---------------- مكون VideoModal ---------------- */
+function VideoModal({
+  videoId,
+  playlist,
+  setVideoId,
+  onClose,
+}: {
+  videoId: string;
+  playlist: YouTubePlaylist;
+  setVideoId: (id: string) => void;
+  onClose: () => void;
+}) {
+  return (
+    <motion.div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+    >
+      <motion.div
+        className="relative bg-black rounded-xl w-full max-w-6xl h-[80vh] flex flex-col md:flex-row overflow-hidden"
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* الفيديو */}
+        <div className="flex-1">
+          <iframe
+            className="w-full h-full rounded-l-xl"
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`}
+            title="YouTube Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        </div>
+
+        {/* قائمة التشغيل */}
+        <div className="w-full md:w-72 bg-gray-900 overflow-y-auto border-l border-gray-700 flex flex-col">
+          <div className="flex items-center justify-between p-4 border-b border-gray-700">
+            <h3 className="text-white font-bold">{playlist.title}</h3>
+            <button
+              onClick={onClose}
+              aria-label="إغلاق"
+              className="text-white hover:text-red-500 text-lg font-bold"
+            >
+              ✕
+            </button>
+          </div>
+
+          <div className="space-y-2 p-2 flex-1 overflow-y-auto">
+            {playlist.videos.map((video, idx) => (
+              <div
+                key={idx}
+                onClick={() => setVideoId(video.url)}
+                className={`flex items-center gap-3 p-2 rounded-lg cursor-pointer transition ${
+                  videoId === video.url ? "bg-secondary text-white" : "hover:bg-gray-700"
+                }`}
+              >
+                <div className="relative w-24 aspect-video flex-shrink-0">
                   <Image
                     src={video.thumbnail}
                     alt={video.title}
                     fill
-                    className="rounded-2xl object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover rounded-md"
                   />
-
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className=" p-4 rounded-full opacity-0 group-hover:opacity-100 transition">
-                      <PlayButtonIcon
-                        fill="rgba(255,255,255,0.7)"
-                        className="bg-black/60  rounded-full p-6 shadow-lg w-20 h-20 transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  <motion.div
-                    initial={{ x: 0, y: 15, opacity: 0 }}
-                    whileHover={{
-                      y: 0,
-                      opacity: 1,
-                      transition: { duration: 0.3 },
-                    }}
-                    className="absolute top-0 right-0 w-full font-semibold text-sm flex flex-col justify-between h-full"
-                    style={{
-                      background:
-                        "linear-gradient(0deg, rgba(0,0,0,0.87) 0%, rgba(0,0,0,0.41) 45%, rgba(229,229,229,0) 100%)",
-                    }}
-                  >
-                    <div className="h-1/2 w-full flex justify-end items-start p-3">
-                      <VideoRecordingIcon fill="none" stroke="#fff" />
-                    </div>
-                    <div className="font-semibold text-sm p-4 text-white">
-                      {video.title}
-                    </div>
-                  </motion.div>
                 </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* مودال الفيديو + قائمة التشغيل */}
-      {videoId && currentPlaylist && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center mt-20 p-4 z-50"
-          onClick={closeModal}
-        >
-          <div
-            className="relative bg-black rounded-lg  w-full max-w-6xl h-[80vh] flex flex-col justify-center  md:flex-row"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* مشغل الفيديو */}
-            <div className="flex-1 bg-black">
-              <iframe
-                className="w-full h-full"
-                src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`}
-                title="YouTube Video in Playlist"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              />
-            </div>
-
-            {/* قائمة التشغيل */}
-            <div className="w-full md:w-72 bg-gray-900 overflow-y-auto border-l border-gray-700 flex flex-col">
-              {/* رأس القائمة */}
-              <div className="flex items-center justify-between p-4 border-b border-gray-700">
-                <h2 className="text-white font-bold">
-                  {currentPlaylist.title}
-                </h2>
-                <button
-                  onClick={closeModal}
-                  className="text-white hover:text-red-500 transition text-lg font-bold"
-                  aria-label="إغلاق"
-                >
-                  ✕
-                </button>
+                <p className="text-sm text-white line-clamp-2">{video.title}</p>
               </div>
-
-              {/* عناصر الفيديوهات */}
-              <div className="space-y-2 p-2 flex-1 overflow-y-auto">
-                {currentPlaylist.videos.map((video, idx) => (
-                  <div
-                    key={idx}
-                    onClick={() => setVideoId(video.url)}
-                    className={`flex items-center gap-3 p-2 rounded-lg cursor-pointer transition ${
-                      videoId === video.url
-                        ? "bg-secondary text-white"
-                        : "hover:bg-gray-700"
-                    }`}
-                  >
-                    <div className="relative w-24 h-16 flex-shrink-0">
-                      <Image
-                        src={video.thumbnail}
-                        alt={video.title}
-                        fill
-                        className="object-cover rounded-md"
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                      />
-                    </div>
-                    <p className="text-sm text-white line-clamp-2">
-                      {video.title}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
-      )}
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
