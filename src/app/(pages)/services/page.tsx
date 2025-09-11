@@ -164,7 +164,6 @@ export default function Page() {
 							}
 						/>
 						<CountriesDropdown className="w-full" />
-
 						<div className="relative w-full">
 							<textarea
 								className="w-full h-28 rounded-xl p-4 pr-10 focus:ring-2 focus:ring-secondary dark:focus:ring-Muharram_secondary resize-none"
