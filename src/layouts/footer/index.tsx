@@ -7,6 +7,7 @@ import {
   faTiktok,
   faXTwitter,
   faFacebook,
+  faYoutube as Youtube,
 } from "@fortawesome/free-brands-svg-icons";
 import { SizeProp } from "@fortawesome/fontawesome-svg-core";
 import DropdownLang from "@/layouts/dropdown-lang";
@@ -41,15 +42,15 @@ const links: LinkSection[] = [
     sublinks: [
       { label: "اتصل بنا", href: "/services" },
       { label: "نقاط البيع", href: "/services/stores" },
-      { label: "تطبيق انوار سجاديه", href: "/application" },
+      { label: "تطبيق انوار سجادية", href: "/application" },
     ],
   },
   {
     label: "المكتبة التخصصية",
     sublinks: [
       { label: "ما كتب عن الامام", href: "/library" },
-      { label: "الصحيفه السجاديه", href: "/library/al-sahifa" },
-      { label: "رساله الحقوق", href: "/library/risalat-al-huqoq" },
+      { label: "الصحيفه السجادية", href: "/library/al-sahifa" },
+      { label: "رسالة الحقوق", href: "/library/risalat-al-huqoq" },
     ],
   },
   {
@@ -78,17 +79,38 @@ const SocialLinks = ({
         rel="noopener noreferrer"
         className="hover:scale-105 transition-transform h-fit p-0 m-0"
       >
-        <FontAwesomeIcon icon={social.icon} size={size} />
+        <FontAwesomeIcon icon={social.icon} size={size}   className={social.hoverColor} />
       </Link>
     ))}
   </div>
 );
 
 const bigNavSocials = [
-  { href: "https://www.instagram.com/imamzainorg/", icon: faInstagram },
-  { href: "https://www.tiktok.com/@imamzainorg", icon: faTiktok },
-  { href: "https://www.facebook.com/@imamzainorg", icon: faFacebook },
-{ href: "https://twitter.com/imamzainorg", icon: faXTwitter },
+{
+                  href: "https://www.instagram.com/imamzainorg/",
+                  icon: faInstagram,
+                  hoverColor: "dark:hover:text-[#E1306C] hover:text-[#E1306C]",
+                },
+                {
+                  href: "https://www.tiktok.com/@imamzainorg",
+                  icon: faTiktok,
+                  hoverColor: "dark:hover:text-black hover:text-black",
+                },
+                {
+                  href: "https://www.facebook.com/@imamzainorg",
+                  icon: faFacebook,
+                  hoverColor: "dark:hover:text-[#1877F2] hover:text-[#1877F2]",
+                },
+                {
+                  href: "https://twitter.com/imamzainorg",
+                  icon: faXTwitter,
+                  hoverColor: "dark:hover:text-black hover:text-black",
+                },
+                { href: "https://www.youtube.com/@imamzainorg", 
+                  icon: Youtube,
+                   hoverColor: "dark:hover:text-[#FF0000] hover:text-[#FF0000]", 
+
+                }
 ];
 
 export default function Footer() {

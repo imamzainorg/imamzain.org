@@ -8,6 +8,7 @@ import {
   faInstagram,
   faTiktok,
   faXTwitter,
+  faYoutube as Youtube,
 } from "@fortawesome/free-brands-svg-icons";
 import { faCalendar, faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { Sun, Moon } from "lucide-react";
@@ -142,6 +143,11 @@ export default function TopBar() {
                   icon: faXTwitter,
                   hoverColor: "dark:hover:text-black hover:text-black",
                 },
+                { href: "https://www.youtube.com/@imamzainorg", 
+                  icon: Youtube,
+                   hoverColor: "dark:hover:text-[#FF0000] hover:text-[#FF0000]", 
+
+                }
               ].map((social, index) => (
                 <Link
                   key={index}

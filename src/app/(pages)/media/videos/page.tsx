@@ -1,6 +1,3 @@
-
-
-
 "use client";
 
 import playlists from "@/data/youtube.json" assert { type: "json" };
@@ -28,7 +25,8 @@ export type YouTubePlaylist = {
 
 export default function Page() {
   const [videoId, setVideoId] = useState<string | null>(null);
-  const [currentPlaylist, setCurrentPlaylist] = useState<YouTubePlaylist | null>(null);
+  const [currentPlaylist, setCurrentPlaylist] =
+    useState<YouTubePlaylist | null>(null);
 
   const openModal = (playlist: YouTubePlaylist, videoUrl: string) => {
     setCurrentPlaylist(playlist);
@@ -48,27 +46,30 @@ export default function Page() {
   }, []);
 
   return (
-  <div>
-        <VideoComponent />
-    <div className="pb-32 container">
-      
-      {playlists.map((playlist: YouTubePlaylist, index: number) => (
-        <PlaylistSection key={index} playlist={playlist} openModal={openModal} />
-      ))}
-
-      {/* مودال الفيديو */}
-      <AnimatePresence>
-        {videoId && currentPlaylist && (
-          <VideoModal
-            videoId={videoId}
-            playlist={currentPlaylist}
-            setVideoId={setVideoId}
-            onClose={closeModal}
+    <div>
+      <VideoComponent />
+      <div className="pb-32 container">
+        {playlists.map((playlist: YouTubePlaylist, index: number) => (
+          <PlaylistSection
+            key={index}
+            playlist={playlist}
+            openModal={openModal}
           />
-        )}
-      </AnimatePresence>
+        ))}
+
+        {/* مودال الفيديو */}
+        <AnimatePresence>
+          {videoId && currentPlaylist && (
+            <VideoModal
+              videoId={videoId}
+              playlist={currentPlaylist}
+              setVideoId={setVideoId}
+              onClose={closeModal}
+            />
+          )}
+        </AnimatePresence>
+      </div>
     </div>
-  </div>
   );
 }
 
@@ -103,7 +104,11 @@ function PlaylistSection({
 
       <div className="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {displayedVideos.map((video, idx) => (
-          <VideoCard key={idx} video={video} onClick={() => openModal(playlist, video.url)} />
+          <VideoCard
+            key={idx}
+            video={video}
+            onClick={() => openModal(playlist, video.url)}
+          />
         ))}
       </div>
 
@@ -113,7 +118,13 @@ function PlaylistSection({
 }
 
 /* ---------------- مكون VideoCard ---------------- */
-function VideoCard({ video, onClick }: { video: YouTubeVideo; onClick: () => void }) {
+function VideoCard({
+  video,
+  onClick,
+}: {
+  video: YouTubeVideo;
+  onClick: () => void;
+}) {
   return (
     <div className="cursor-pointer group" onClick={onClick}>
       <div className="relative rounded-2xl overflow-hidden aspect-video">
@@ -131,7 +142,9 @@ function VideoCard({ video, onClick }: { video: YouTubeVideo; onClick: () => voi
           />
         </div>
       </div>
-      <p className="mt-2 text-white font-semibold text-sm line-clamp-2">{video.title}</p>
+      <p className="mt-2 text-white font-semibold text-sm line-clamp-2">
+        {video.title}
+      </p>
     </div>
   );
 }
@@ -195,7 +208,9 @@ function VideoModal({
                 key={idx}
                 onClick={() => setVideoId(video.url)}
                 className={`flex items-center gap-3 p-2 rounded-lg cursor-pointer transition ${
-                  videoId === video.url ? "bg-secondary text-white" : "hover:bg-gray-700"
+                  videoId === video.url
+                    ? "bg-secondary text-white"
+                    : "hover:bg-gray-700"
                 }`}
               >
                 <div className="relative w-24 aspect-video flex-shrink-0">
