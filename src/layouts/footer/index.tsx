@@ -32,7 +32,7 @@ const links: LinkSection[] = [
 
     sublinks: [
       { label: "الولادة المباركة", slug: "birth-and-death" },
-      { label: "لقبه وكنايته", slug: "titles-and-nicknames" },
+      { label: "لقبه وكناه", slug: "titles-and-nicknames" },
       { label: "معالم شخصية", slug: "personality-traits" },
       { label: "الإمام في كربلاء", slug: "in-karbala" },
     ],
@@ -49,7 +49,7 @@ const links: LinkSection[] = [
     label: "المكتبة التخصصية",
     sublinks: [
       { label: "ما كتب عن الامام", href: "/library" },
-      { label: "الصحيفه السجادية", href: "/library/al-sahifa" },
+      { label: "الصحيفة السجادية", href: "/library/al-sahifa" },
       { label: "رسالة الحقوق", href: "/library/risalat-al-huqoq" },
     ],
   },
