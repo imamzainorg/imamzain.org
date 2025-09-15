@@ -36,7 +36,7 @@ export default function SwiperCarousel({ images }: { images: Attachment[] }) {
 	}
 
 	return (
-		<div className="relative ">
+		<div className="relative">
 			<SwiperComponent
 				ref={swiperRef}
 				onSwiper={setSwiperInstance}
