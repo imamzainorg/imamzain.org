@@ -564,7 +564,7 @@ export default function Page() {
 
             <div className="space-y-6">
               <h1 className="text-4xl lg:text-6xl font-bold text-slate-800 leading-tight">
-                (عليه السلام) مسابقة زين العابدين
+                مسابقة زين العابدين  (عليه السلام)
                 <span className="block text-primary">الدولية الأولى</span>
                 <span className="block text-2xl lg:text-4xl text-slate-600 mt-2">
                   في الخط العربي
