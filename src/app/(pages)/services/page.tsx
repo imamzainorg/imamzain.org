@@ -62,7 +62,7 @@ export default function Page() {
 	}
 
 	return (
-		<div className="  p-6 ">
+		<div className="  container  ">
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
@@ -94,6 +94,10 @@ export default function Page() {
 							<strong>ساعات العمل:</strong> من السبت إلى الخميس (8
 							صباحاً - 2 ظهراً)
 						</p>
+					<div className="flex flex-col gap-1 justify-center items-center xs:flex-row xs:gap-4">
+						<p> info@imamzain.org</p>
+						<p className="" dir="ltr"> +964 782 943 9996</p>
+					</div>
 						<iframe
 							className="rounded-2xl w-full h-60 shadow-lg"
 							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.679731674454!2d44.3607952!3d31.9966964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x155ed74306dd573d%3A0x16b7bd7757d9a76!2z2YXYpNiz2LPYqSDYp9mE2KfZhdin2YUg2LLZitmGINin2YTYudin2KjYr9mK2YYgKNi5KSDZhNmE2KjYrdmI2Ksg2YjYp9mE2K_Ysdin2LPYp9iq!5e0!3m2!1sen!2siq!4v1735032144406!5m2!1sen!2siq"

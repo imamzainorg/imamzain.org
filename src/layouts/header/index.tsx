@@ -12,7 +12,7 @@ import {
   faYoutube,
   faTiktok,
   faWhatsapp,
-  faTwitter,
+  faXTwitter,
   faFacebook,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
@@ -94,7 +94,7 @@ const socials = [
     href: "https://whatsapp.com/channel/0029VaKdHsJFCCocmkLhJA3L",
     icon: faWhatsapp,
   },
-  { href: "https://twitter.com/imamzainorg", icon: faTwitter },
+  { href: "https://twitter.com/imamzainorg", icon: faXTwitter },
 ];
 
 const navbarVariants = {
