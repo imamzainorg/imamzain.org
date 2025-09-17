@@ -42,9 +42,9 @@ export default async function page({
 			{/* Main Content */}
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 				<div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-					{/* Article Content - Main Column */}
+					{/* Post Content - Main Column */}
 					<article className="lg:col-span-8">
-						{/* Article Header */}
+						{/* Post Header */}
 						<header className="mb-8">
 							<h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 !leading-tight mb-6">
 								{post.title}
@@ -117,24 +117,12 @@ export default async function page({
 
 						{/* Post Body */}
 						<div className="prose prose-lg prose-gray max-w-none">
-							{post.body.lede && (
-								<div className="text-xl md:text-2xl font-medium text-gray-700 leading-relaxed mb-8 p-6 bg-gray-100 rounded-lg border-l-4 border-primary dark:border-Muharram_primary">
-									{post.body.lede}
-								</div>
-							)}
-
 							<div
-								className="post-content text-gray-800 leading-8 space-y-6"
+								className="text-gray-800 leading-8 space-y-6"
 								dangerouslySetInnerHTML={{
-									__html: post.body.content,
+									__html: post.content,
 								}}
 							/>
-
-							{post.body.tail && (
-								<div className="text-lg text-gray-700 leading-relaxed mt-8 p-4 bg-blue-50 rounded-lg">
-									{post.body.tail}
-								</div>
-							)}
 						</div>
 
 						{/* Gallery Section */}
