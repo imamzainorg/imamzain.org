@@ -24,11 +24,11 @@ export default function PostCard(post: Post) {
 							</time>
 						</div>
 
-						{post.body?.content && (
+						{post.content && (
 							<span className="text-xs text-gray-400">
 								قراءة:{" "}
 								{Math.ceil(
-									post.body.content
+									post.content
 										.replace(/<[^>]*>/g, "")
 										.split(" ").length / 200,
 								)}{" "}

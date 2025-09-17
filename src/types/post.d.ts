@@ -14,11 +14,7 @@ export type Post = {
 	image: string
 	title: string
 	summary: string
-	body: {
-		lede: string
-		content: string
-		tail: string
-	}
+	content: string
 	views: number
 	date: string
 	last_update: string
