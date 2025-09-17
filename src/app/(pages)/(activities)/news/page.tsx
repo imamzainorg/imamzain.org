@@ -122,7 +122,10 @@ export default async function Page() {
       <div className="mt-12">
 		       
         <SectionTitle title="اللقاءات" />
-       <MeetingsCarousel meetingsData={data} />
+
+    <div>
+         <MeetingsCarousel meetingsData={data} />
+    </div>
       </div>
 
       {/* أخبار العتبة الحسينية */}

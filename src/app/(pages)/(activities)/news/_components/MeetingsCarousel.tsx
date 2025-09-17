@@ -1,4 +1,3 @@
-// MeetingsCarousel.tsx
 "use client";
 
 import Link from "next/link";
@@ -40,11 +39,12 @@ export default function MeetingsCarousel({
 
   return (
     <div className="w-11/12 overflow-hidden mx-auto rounded-2xl bg-gradient-to-br from-gray-50 to-white shadow-sm border border-gray-100 p-6">
+      {/* أزرار التنقل */}
       <div className="flex items-center justify-end m-1 mb-6">
         <div className="flex space-x-2">
-          {latestMeetings.map((_, index) => (
+          {latestMeetings.map((post, index) => (
             <button
-              key={index}
+              key={post.id}
               onClick={() => setActiveIndex(index)}
               className={`h-2 w-8 rounded-full m-1 transition-all ${
                 index === activeIndex ? "bg-primary" : "bg-gray-300"
@@ -55,6 +55,7 @@ export default function MeetingsCarousel({
         </div>
       </div>
 
+      {/* الكاروسيل */}
       <div className="relative h-96 md:h-[500px] rounded-xl overflow-hidden">
         {latestMeetings.map((post, index) => (
           <div
@@ -76,7 +77,6 @@ export default function MeetingsCarousel({
                   priority
                   sizes="100vw"
                 />
-
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
               </div>
 
@@ -91,7 +91,7 @@ export default function MeetingsCarousel({
                 </p>
                 <div className="flex items-center justify-between mt-4">
                   <Link
-                    href={`/news/${post.slug}`}
+                    href={`/news/${latestMeetings[activeIndex].slug}`}
                     className="inline-flex items-center text-sm px-5 py-3 bg-white text-gray-900 rounded-xl font-medium hover:bg-gray-100 transition-colors group"
                   >
                     اقرأ اللقاء

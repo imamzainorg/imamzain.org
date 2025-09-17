@@ -722,14 +722,15 @@ export default function Page() {
         className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-100 to-white"
         id="apply"
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl min-h-[200px] mx-auto">
           <div className="text-center mb-10 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-4 sm:mb-6">
               خطوات الاشتراك في المسابقة
             </h2>
             <div className="w-24 sm:w-32 h-1 sm:h-1.5 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+           
           </div>
-          <ApplyStepper />
+        <ApplyStepper />
         </div>
       </section>
 
