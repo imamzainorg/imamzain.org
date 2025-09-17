@@ -3,12 +3,14 @@ import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+
 import {
   faFacebook,
   faInstagram,
   faTiktok,
   faXTwitter,
   faYoutube as Youtube,
+  faTelegram ,
 } from "@fortawesome/free-brands-svg-icons";
 import { faCalendar, faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { Sun, Moon } from "lucide-react";
@@ -147,7 +149,13 @@ export default function TopBar() {
                   icon: Youtube,
                    hoverColor: "dark:hover:text-[#FF0000] hover:text-[#FF0000]", 
 
+                },
+                {
+                  href: "https://t.me/imamzainorg",
+                  icon: faTelegram,
+                  hoverColor: "dark:hover:text-[#0088cc] hover:text-[#0088cc]",
                 }
+                
               ].map((social, index) => (
                 <Link
                   key={index}
