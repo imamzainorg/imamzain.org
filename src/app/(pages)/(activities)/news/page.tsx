@@ -16,7 +16,7 @@ export default async function Page() {
 	const foundationNews = data.filter((post) => post.category === "اخبار")
 	const conferences = data.filter((post) => post.category === " مؤتمرات")
 	const seminars = data.filter((post) => post.category === "ندوات")
-	const meetings = data.filter((post) => post.category === "لقاءات")
+	const meetings = data.filter((post) => post.category === "اجتماعات")
 	const majalis = data.filter((post) => post.category === "مجالس")
 
 	// Parent organization content
@@ -188,7 +188,7 @@ export default async function Page() {
 
 			{/* Meetings Section */}
 			<div className="mt-12">
-				<SectionTitle title="اللقاءات" />
+				<SectionTitle title="الاجتماعات" />
 				<MeetingsCarousel meetingsData={data} />
 			</div>
 

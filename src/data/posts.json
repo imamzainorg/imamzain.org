@@ -894,7 +894,7 @@
     "views": 19,
     "date": "2025-01-06",
     "last_update": "2025-01-06",
-    "category": "لقاءات",
+    "category": "اجتماعات",
     "attachments": [
       {
         "id": 1,
@@ -1046,7 +1046,7 @@
     "views": 78,
     "date": "2024-04-30",
     "last_update": "2024-02-20",
-    "category": "لقاءات"
+    "category": "اجتماعات"
   },
   {
     "id": 6,
@@ -1066,11 +1066,11 @@
     "image": "/news/institution-meeting-1.jpg",
     "title": "لقاء الأحبة يعمّق أواصر المحبة",
     "summary": "لقاء دوري يهدف لتعزيز العلاقات بين العاملين في المؤسسة ومناقشة المستجدات.",
-    "content": "<div class=\"text-xl md:text-2xl font-medium text-gray-700 leading-relaxed mb-8 p-6 bg-gray-100 rounded-lg border-l-4 border-primary dark:border-Muharram_primary\"> عقدت مؤسسة الإمام زين العابدين لقاءً دورياً لتعميق أواصر المحبة ومناقشة مستجدات المشاريع. </div> <div class=\"text-gray-800 leading-8 space-y-6\"> <p>جمع اللقاء العاملين والمنتسبين لمناقشة مستجدات العمل، استعراض المشاريع القائمة، وتوصيل الرسائل الضرورية.</p> </div> <div class=\"text-lg text-gray-700 leading-relaxed mt-8 p-4 bg-blue-50 rounded-lg\"> <p>تُظهر هذه اللقاءات أهمية التواصل الدوري في تعزيز الانتماء وروح العمل الجماعي.</p> </div>",
+    "content": "<div class=\"text-xl md:text-2xl font-medium text-gray-700 leading-relaxed mb-8 p-6 bg-gray-100 rounded-lg border-l-4 border-primary dark:border-Muharram_primary\"> عقدت مؤسسة الإمام زين العابدين لقاءً دورياً لتعميق أواصر المحبة ومناقشة مستجدات المشاريع. </div> <div class=\"text-gray-800 leading-8 space-y-6\"> <p>جمع اللقاء العاملين والمنتسبين لمناقشة مستجدات العمل، استعراض المشاريع القائمة، وتوصيل الرسائل الضرورية.</p> </div> <div class=\"text-lg text-gray-700 leading-relaxed mt-8 p-4 bg-blue-50 rounded-lg\"> <p>تُظهر هذه الاجتماعات أهمية التواصل الدوري في تعزيز الانتماء وروح العمل الجماعي.</p> </div>",
     "views": 52,
     "date": "2024-07-09",
     "last_update": "2024-02-20",
-    "category": "لقاءات"
+    "category": "اجتماعات"
   },
   {
     "id": 4,
