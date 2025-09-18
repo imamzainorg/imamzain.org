@@ -40,7 +40,7 @@ export const ApplyStepper = () => {
 	const methods = stepper.useStepper()
 
 	return (
-		<div className="w-full min-h-screen px-2 sm:px-4 md:px-6 lg:px-10 xl:px-20 flex flex-col justify-center items-center py-4 md:py-8">
+		<div className="w-full min-h-screen px-2 sm:px-4 md:px-6 lg:px-10 xl:px-20 flex flex-col  items-center py-4 md:py-8">
 			<div className="w-full max-w-7xl mx-auto">
 				{/* Desktop Stepper Navigation */}
 				<ol className="hidden lg:flex items-center w-full justify-center gap-2 xl:gap-4 mb-6">
@@ -170,7 +170,7 @@ export const ApplyStepper = () => {
 			</div>
 
 			{/* Content Section */}
-			<div className="flex flex-col gap-4 w-full max-w-6xl mx-auto p-3 sm:p-4 md:p-6 lg:p-8 bg-white/80 rounded-xl border border-slate-200 shadow-sm">
+			<div className="flex flex-col gap-4 min-h w-full max-w-6xl mx-auto p-3 sm:p-4 md:p-6 lg:p-8 bg-white/80 rounded-xl border border-slate-200 shadow-sm">
 				{methods.switch({
 					"1": () => (
 						<div className="animate-fade-in-up">

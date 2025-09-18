@@ -8,6 +8,7 @@ import {
   faXTwitter,
   faFacebook,
   faYoutube as Youtube,
+    faTelegram ,
 } from "@fortawesome/free-brands-svg-icons";
 import { SizeProp } from "@fortawesome/fontawesome-svg-core";
 import DropdownLang from "@/layouts/dropdown-lang";
@@ -110,6 +111,10 @@ const bigNavSocials = [
                   icon: Youtube,
                    hoverColor: "dark:hover:text-[#FF0000] hover:text-[#FF0000]", 
 
+                },{
+                  href: "https://t.me/imamzainorg",
+                  icon: faTelegram ,
+                  hoverColor: "dark:hover:text-[#0088cc] hover:text-[#0088cc]",
                 }
 ];
 

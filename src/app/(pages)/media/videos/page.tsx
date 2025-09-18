@@ -126,7 +126,7 @@ function VideoCard({
   onClick: () => void;
 }) {
   return (
-    <div className="cursor-pointer group" onClick={onClick}>
+    <div className="cursor-pointer group " onClick={onClick}>
       <div className="relative rounded-2xl overflow-hidden aspect-video">
         <Image
           src={video.thumbnail}
@@ -163,7 +163,7 @@ function VideoModal({
 }) {
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+      className="fixed inset-0 z-50 flex mt-10 md:mt-12 lg:mt-24 items-center justify-center bg-black/80 p-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -190,7 +190,7 @@ function VideoModal({
         </div>
 
         {/* قائمة التشغيل */}
-        <div className="w-full md:w-72 bg-gray-900 overflow-y-auto border-l border-gray-700 flex flex-col">
+        <div className="w-full md:w-4/12 bg-gray-900 overflow-y-auto border-l border-gray-700 flex flex-col">
           <div className="flex items-center justify-between p-4 border-b border-gray-700">
             <h3 className="text-white font-bold">{playlist.title}</h3>
             <button

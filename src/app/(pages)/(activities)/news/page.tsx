@@ -191,6 +191,7 @@ export default async function Page() {
 				<SectionTitle title="الاجتماعات" />
 				<MeetingsCarousel meetingsData={data} />
 			</div>
+      
 
 			{/* اخبار العتبة الحسينية المقدسة - Repositioned and Resized */}
 			<div className="mt-12 bg-gray-50 dark:bg-gray-800 rounded-xl p-4 md:p-6">
