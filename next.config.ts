@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
 				protocol: "https",
 				hostname: "d2pj6hgapx5040.cloudfront.net",
 			},
+			{
+				protocol: "https",
+				hostname: "res.cloudinary.com",
+			},
 		],
 	},
 	async rewrites() {

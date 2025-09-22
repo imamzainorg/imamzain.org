@@ -7,7 +7,14 @@ import { Post } from "@/types/post"
 import { dataFetcher } from "@/lib/dataFetcher"
 
 export default function Page() {
-	const categories = [ "الكل", "اخبار", "ندوات", "لقاءات", "مؤتمرات", "العتبة الحسينية" ]
+	const categories = [
+		"الكل",
+		"اخبار",
+		"ندوات",
+		"اجتماعات",
+		"مؤتمرات",
+		"العتبة الحسينية",
+	]
 	const [selectedCategory, setSelectedCategory] = useState("الكل")
 
 	const [newsPosts, setNewsPosts] = useState<Post[]>([])
@@ -45,10 +52,10 @@ export default function Page() {
                          
                               text-sm 
                               ${
-							selectedCategory === cat
-								? "bg-primary text-white border-primary dark:bg-Muharram_primary dark:border-Muharram_primary"
-								: "bg-white text-gray-700 border-gray-300"
-						}
+									selectedCategory === cat
+										? "bg-primary text-white border-primary dark:bg-Muharram_primary dark:border-Muharram_primary"
+										: "bg-white text-gray-700 border-gray-300"
+								}
                         `}
 					>
 						{cat}
@@ -69,7 +76,9 @@ export default function Page() {
 									<h2 className="font-bold lg:line-clamp-none text-lg sm:text-xl   pb-2 lg:pb-4">
 										{post.title}
 									</h2>
-									<p className="line-clamp-2 text-sm sm:text-lg lg:text-xl">{post.summary}</p>
+									<p className="line-clamp-2 text-sm sm:text-lg lg:text-xl">
+										{post.summary}
+									</p>
 								</div>
 								<p className="font-extralight">{post.date}</p>
 							</div>
