@@ -1,0 +1,1104 @@
+[
+  {
+    "id": 1,
+    "slug": "al-faraid-al-tarifa",
+    "printDate": "2024",
+    "language": ["العربية"],
+    "pages": 397,
+    "parts": 1,
+    "views": 96,
+    "image": "/books/الفرائد الطريفة في شرح الصحيفة الشريفة.jpg",
+    "pdf": "/books/الفرائد الطريفة في شرح الصحيفة الشريفة.pdf",
+    "category": ["al-sahifa", "publications"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الفرائد الطريفة في شرح الصحيفة الشريفة",
+        "author": "العلامة الشيخ محمد باقر المجلسي",
+        "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "otherNames": []
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "al-fawaid-al-sharifa-part-1",
+    "printDate": "2024",
+    "language": ["العربية"],
+    "pages": 463,
+    "parts": 2,
+    "views": 31,
+    "image": "/books/الفوائد الشريفة في شرح الصحيفة - الجزء الاول.jpg",
+    "pdf": "/books/الفوائد الشريفة في شرح الصحيفة - الجزء الاول.pdf",
+    "series": "الفوائد الشريفة في شرح الصحيفة",
+    "partNumber": 1,
+    "totalParts": 2,
+    "category": ["al-sahifa", "publications"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الفوائد الشريفة في شرح الصحيفة ",
+        "author": "العلامة الشيخ تقي الدين بن علي الكفعمي",
+        "otherNames": [],
+        "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "riadh-al-salqeen",
+    "printDate": "2024",
+    "language": ["العربية"],
+    "pages": 254,
+    "parts": 1,
+    "views": 77,
+    "image": "/books/فوائد رياض السالكين.jpg",
+    "pdf": "/books/فوائد رياض السالكين.pdf",
+    "series": null,
+    "partNumber": null,
+    "totalParts": null,
+    "category": ["al-sahifa", "publications"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "فوائد رياض السالكين",
+        "author": "العلامة السيد علي خان المدني الحسيني",
+        "otherNames": [],
+        "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "al-sharh-al-kabeer",
+    "printDate": "2024",
+    "language": ["العربية"],
+    "pages": 526,
+    "parts": 1,
+    "views": 72,
+    "image": "/books/الشرح الكبير.jpg",
+    "pdf": "/books/الشرح الكبير.pdf",
+    "series": null,
+    "partNumber": null,
+    "totalParts": null,
+    "category": ["al-sahifa", "publications"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الشرح الكبير",
+        "author": "السيد نعمة الله الجزائرِي",
+        "otherNames": [],
+        "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "slug": "sirah-al-imam-al-sajad",
+    "printDate": "2024",
+    "language": ["العربية"],
+    "pages": 589,
+    "parts": 1,
+    "views": 2,
+    "image": "/books/سيرة الامام السجاد.jpg",
+    "pdf": "/books/سيرة الامام السجاد.pdf",
+    "series": null,
+    "partNumber": null,
+    "totalParts": null,
+    "category": ["publications", "imamzain"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "سيرة الإمام السجاد",
+        "author": "الشيخ على الكوراني العاملي",
+        "otherNames": [],
+        "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "slug": "foundational-intellectual-methodology-legal-dimension",
+    "printDate": "2025",
+    "language": ["العربية"],
+    "pages": 278,
+    "parts": 1,
+    "views": 10,
+    "image": "/books/الاسس الفكرية والمنهجية عند الامام السجاد (عليه السلام) البعد القانوني.jpg",
+    "pdf": "/books/الاسس الفكرية والمنهجية عند الامام السجاد (عليه السلام) البعد القانوني.pdf",
+    "series": null,
+    "partNumber": null,
+    "totalParts": null,
+    "category": ["publications", "imamzain"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الاسس الفكرية والمنهجية عند الامام السجاد (عليه السلام) البعد القانوني",
+        "author": "مجموعة كتاب",
+        "otherNames": [],
+        "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "slug": "building-inner-psychological-security",
+    "printDate": "2025",
+    "language": ["العربية"],
+    "pages": 201,
+    "parts": 1,
+    "views": 5,
+    "image": "/books/بناء الامن النفسي الداخلي عند الامام السجاد (عليه السلام).jpg",
+    "pdf": "/books/بناء الامن النفسي الداخلي عند الامام السجاد (عليه السلام).pdf",
+    "series": null,
+    "partNumber": null,
+    "totalParts": null,
+    "category": ["publications", "imamzain"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "بناء الامن النفسي الداخلي عند الامام السجاد (عليه السلام)",
+        "author": "الدكتور اسعد الامارة",
+        "otherNames": [],
+        "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "slug": "emancipation-imam-sajjad-president-lincoln",
+    "printDate": "2025",
+    "language": ["English"],
+    "pages": 186,
+    "parts": 1,
+    "views": 43,
+    "image": "/books/Emancipation of Slaves between Imam Al-Sajjad, (P.B.U.H), and President Lincoln.jpg",
+    "pdf": "/books/Emancipation of Slaves between Imam Al-Sajjad, (P.B.U.H), and President Lincoln.pdf",
+    "series": null,
+    "partNumber": null,
+    "totalParts": null,
+    "category": ["publications", "imamzain"],
+    "translations": [
+      {
+        "languageid": 2,
+        "title": "Emancipation of Slaves Between Imam al-Sajjad, (P.B.U.H.), And President Lincoln",
+        "author": "Mundhir Kadhim Al Huraibid",
+        "otherNames": [
+          "Sajjad Jedi",
+          "Imam Zayn al-Abidin, (P.B.U.H.), Institution for Research and Studies."
+        ],
+        "printHouse": "Dar Alwarith for Printing and Publishing"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "slug": "canticles-of-the-pious",
+    "printDate": "2025",
+    "language": ["العربية"],
+    "pages": 182,
+    "parts": 1,
+    "views": 39,
+    "image": "/books/تراتيل القانتين.jpg",
+    "pdf": "/books/تراتيل القانتين.pdf",
+    "series": null,
+    "partNumber": null,
+    "totalParts": null,
+    "category": ["al-sahifa", "publications"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تراتيل القانتين",
+        "author": "الدكتور علي الشيخ",
+        "otherNames": [
+          "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات"
+        ],
+        "printHouse": "دار الوارث - كربلاء المقدسة"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "slug": "thirty-lessons-from-abu-hamza",
+    "printDate": "2025-",
+    "language": ["العربية"],
+    "pages": 520,
+    "parts": 1,
+    "views": 57,
+    "image": "/books/دعاء ابي حمزة الثمالي.jpg",
+    "pdf": "/books/دعاء ابي حمزة الثمالي.pdf",
+    "series": null,
+    "partNumber": null,
+    "totalParts": null,
+    "category": ["imamzain", "publications"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "ثلاثون درسا من دعاء ابي حمزة الثمالي",
+        "author": "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "otherNames": [
+          "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات"
+        ],
+        "printHouse": "دار الوارث - كربلاء المقدسة"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "slug": "first-international-scientific-conference-guide",
+    "printDate": "2025",
+    "language": ["العربية"],
+    "pages": 181,
+    "parts": 1,
+    "views": 86,
+    "image": "/books/دليل المؤتمر العلمي الاول.jpg",
+    "pdf": "/books/دليل المؤتمر العلمي الاول.pdf",
+    "series": null,
+    "partNumber": null,
+    "totalParts": null,
+    "category": ["imamzain", "publications"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دليل المؤتمر العلمي الدولي الاول",
+        "author": "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "otherNames": [
+          "الشيخ عبد المهدي الكربلائي",
+          "الدكتور نعيم العبودي",
+          "السيد غسان الخرسان",
+          "الدكتور مازن الحسني"
+        ],
+        "printHouse": "دار الوارث - كربلاء المقدسة"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "slug": "insights-on-rights-treatise-part-1",
+    "printDate": "2025",
+    "language": ["العربية"],
+    "pages": 273,
+    "parts": 5,
+    "views": 48,
+    "image": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الاول.jpg",
+    "pdf": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الاول.pdf",
+    "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
+    "partNumber": 1,
+    "totalParts": 5,
+    "category": ["risalat-al-huqoq", "publications"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام)",
+        "author": "الشيخ حسين عبد الرضا الاسدي",
+        "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
+        "printHouse": "دار الوارث - كربلاء المقدسة"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "slug": "insights-on-rights-treatise-part-2",
+    "printDate": "2025",
+    "language": ["العربية"],
+    "pages": 246,
+    "parts": 5,
+    "views": 57,
+    "image": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الثاني.jpg",
+    "pdf": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الثاني.pdf",
+    "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
+    "partNumber": 2,
+    "totalParts": 5,
+    "category": ["risalat-al-huqoq", "publications"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) ",
+        "author": "الشيخ حسين عبد الرضا الاسدي",
+        "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
+        "printHouse": "دار الوارث - كربلاء المقدسة"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "slug": "insights-on-rights-treatise-part-3",
+    "printDate": "2025",
+    "language": ["العربية"],
+    "pages": 201,
+    "parts": 5,
+    "views": 11,
+    "image": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الثالث.jpg",
+    "pdf": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الثالث.pdf",
+    "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
+    "partNumber": 3,
+    "totalParts": 5,
+    "category": ["risalat-al-huqoq", "publications"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) ",
+        "author": "الشيخ حسين عبد الرضا الاسدي",
+        "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
+        "printHouse": "دار الوارث - كربلاء المقدسة"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "slug": "insights-on-rights-treatise-part-4",
+    "printDate": "2025",
+    "language": ["العربية"],
+    "pages": 244,
+    "parts": 1,
+    "views": 14,
+    "image": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الرابع.jpg",
+    "pdf": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الرابع.pdf",
+    "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
+    "partNumber": 4,
+    "totalParts": 5,
+    "category": ["risalat-al-huqoq", "publications"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام)",
+        "author": "الشيخ حسين عبد الرضا الاسدي",
+        "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
+        "printHouse": "دار الوارث - كربلاء المقدسة"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "slug": "insights-on-rights-treatise-part-5",
+    "printDate": "2025",
+    "language": ["العربية"],
+    "pages": 217,
+    "parts": 5,
+    "views": 76,
+    "image": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الخامس.jpg",
+    "pdf": "/books/لمحات من رسالة الحقوق للإمام السجاد (عليه السلام) الجزء الخامس.pdf",
+    "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
+    "partNumber": 5,
+    "totalParts": 5,
+    "category": ["risalat-al-huqoq", "publications"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) ",
+        "author": "الشيخ حسين عبد الرضا الاسدي",
+        "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
+        "printHouse": "دار الوارث - كربلاء المقدسة"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "slug": "political-principles-of-imam-sajjad",
+    "printDate": "2025",
+    "language": ["العربية"],
+    "pages": 228,
+    "parts": 1,
+    "views": 45,
+    "image": "/books/المباني السياسية الامامية عند الامام السجاد (عليه السلام).jpg",
+    "pdf": "/books/المباني السياسية الامامية عند الامام السجاد (عليه السلام).pdf",
+    "series": null,
+    "partNumber": null,
+    "totalParts": null,
+    "category": ["imamzain", "publications"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المباني السياسية الامامية عند الامام السجاد (عليه السلام)",
+        "author": "الدكتورة راغدة محمد المصري",
+        "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
+        "printHouse": "دار الوارث - كربلاء المقدسة"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "slug": "foundational-intellectual-methodology-social-dimension",
+    "printDate": "2025",
+    "language": ["العربية"],
+    "pages": 436,
+    "parts": 1,
+    "views": 87,
+    "image": "/books/الاسس الفكرية والمنهجية عند الامام السجاد (عليه السلام) البعد الاجتماعي.jpg",
+    "pdf": "/books/الاسس الفكرية والمنهجية عند الامام السجاد (عليه السلام) البعد الاجتماعي.pdf",
+    "series": null,
+    "partNumber": null,
+    "totalParts": null,
+    "category": ["imamzain", "publications"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الاسس الفكرية والمنهجية عند الامام السجاد (عليه السلام) البعد الاجتماعي",
+        "author": "مجموعة كتاب",
+        "otherNames": [],
+        "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "slug": "al-fawaid-al-sharifa-part-2",
+    "printDate": "2024",
+    "language": ["العربية"],
+    "pages": 462,
+    "parts": 2,
+    "views": 87,
+    "image": "/books/الفوائد الشريفة في شرح الصحيفة - الجزء الثاني.jpg",
+    "pdf": "/books/الفوائد الشريفة في شرح الصحيفة - الجزء الثاني.pdf",
+    "series": "الفوائد الشريفة في شرح الصحيفة",
+    "partNumber": 2,
+    "totalParts": 2,
+    "category": ["al-sahifa", "publications"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الفوائد الشريفة في شرح الصحيفة ",
+        "author": "العلامة الشيخ تقي الدين بن علي الكفعمي",
+        "otherNames": [],
+        "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "slug": "asaleeb-al-islahat-al-ijtimaieh",
+    "printDate": "2024",
+    "language": ["العربية"],
+    "pages": 377,
+    "parts": 1,
+    "views": 1,
+    "image": "/library/أساليب الإصلاحات الإجتماعية عند الإمام السجاد (ع) - السيد محسن الجلالي.jpg",
+    "pdf": "/library/أساليب الإصلاحات الإجتماعية عند الإمام السجاد (ع) - السيد محسن الجلالي.pdf",
+    "category": ["imamzain"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "أساليب الإصلاحات الإجتماعية عند الإمام السجاد (عليه السلام)",
+        "author": "السيد محسن الجلالي",
+        "otherNames": [],
+        "printHouse": "العتبة الحسينية المقدسة"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "slug": "al-imam-al-rabie-ali-bin-al-hussein",
+    "printDate": "2024",
+    "language": ["العربية"],
+    "pages": 52,
+    "parts": 1,
+    "views": 1,
+    "image": "/library/الامام الرابع علي بن الحسين زين العابدين ع.jpg",
+    "category": ["imamzain"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام الرابع علي بن الحسين زين العابدين (عليه السلام)",
+        "author": "لجنة التحرير في طريق الحق",
+        "otherNames": [],
+        "printHouse": "مؤسسة في طريق الحق"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "slug": "al-imam-al-sajjad-wa-al-mafahim-al-tarbia",
+    "printDate": "2024",
+    "language": ["العربية"],
+    "pages": 46,
+    "parts": 1,
+    "views": 26,
+    "image": "/library/الامام السجاد ع والمفاهيم التربوية.jpg",
+    "category": ["imamzain"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام السجاد عليه السلام والمفاهيم التربوية",
+        "author": "قسم الشؤون الفكرية",
+        "otherNames": [],
+        "printHouse": "العتبة الكاظمية المقدسة"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "slug": "al--imam-al-sajjad--wa-bina-al-insan",
+    "printDate": "2024",
+    "language": ["العربية"],
+    "pages": 68,
+    "parts": 1,
+    "views": 34,
+    "image": "/library/الامام السجاد وبناء الانسان.jpg",
+    "category": ["imamzain"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام السجاد وبناء الانسان",
+        "author": "عبد الله احمد اليوسف",
+        "otherNames": [],
+        "printHouse": "أطياف للنشر"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "slug": "imam--zain--alabideen-daaei-alwaai-wa-muhayir-al-tughah",
+    "printDate": "2024",
+    "language": ["العربية"],
+    "pages": 69,
+    "parts": 1,
+    "views": 56,
+    "image": "/library/الامام زين العابدين داعية الوعي ومحير الطغاة.jpg",
+    "category": ["imamzain"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام زين العابدين داعية الوعي ومحير الطغاة",
+        "author": "السيد راضي الحسيني",
+        "otherNames": [],
+        "printHouse": "المجمع العالمي لأهل البيت"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "slug": "al--sahifa--al-sajjadiyya-al-dirasa-al-sanadiyya-al-bibliographia-al-nass",
+    "printDate": "2024",
+    "language": ["العربية"],
+    "pages": 375,
+    "parts": 1,
+    "views": 64,
+    "image": "/library/الموسوعة السجادية  - الصحيفة السجادية الدراسة السندية البيبلوغرافيا النص ج3.jpg",
+    "pdf": "/library/الموسوعة السجادية  - الصحيفة السجادية الدراسة السندية الببليوغرافيا النص ج3.pdf",
+    "category": ["al-sahifa"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الصحيفة السجادية الدراسة السندية البيبلوغرافيا النص",
+        "author": "سمير خير الدين - محمد حسين حكيم",
+        "otherNames": [],
+        "printHouse": "مؤسسة الأمام زين العابدين للدراسات والبحوث"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "slug": "al-tahfah--ral--radiyah-lil-sahifah-al-sajadiyah",
+    "printDate": "2024",
+    "language": ["العربية"],
+    "pages": 272,
+    "parts": 1,
+    "views": 31,
+    "image": "/library/التحفة الرضوية للصحيفة السجادية.jpg",
+    "category": ["al-sahifa"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التحفة الرضوية للصحيفة السجادية",
+        "author": "قاضي بن كاشف الدين اليزدي",
+        "otherNames": [],
+        "printHouse": "مركزابحاث باقر العلوم ع"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "slug": "ma3--al--imam-al--sajad-fi-risalat-al-hoquq",
+    "printDate": 2012,
+    "language": ["العربية"],
+    "pages": 50,
+    "parts": 1,
+    "views": 65,
+    "image": "/library/مع الامام السجاد في رسالة الحقوق.jpg",
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مع الامام السجاد في رسالة الحقوق",
+        "author": " العتبة الكاظمية المقدسة",
+        "otherNames": [],
+        "printHouse": " العتبة الكاظمية المقدسة"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "slug": "tafsil--al--hoquq",
+    "printDate": "1386 ش",
+    "language": ["العربية"],
+    "pages": 297,
+    "parts": 1,
+    "views": 40,
+    "image": "/library/تفصيل الحقوق, شرح روائي على رسالة الحقوق للإمام السجّاد (ع) - الشيخ محمد حسن الرمزي الطبسي.jpg",
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تفصيل الحقوق شرح روائي على رسالة الحقوق للامام السجاد ع",
+        "author": "محمد حسن الطبسي",
+        "otherNames": [],
+        "printHouse": "نشر يوسف فاطمة ع"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "slug": "as-salat--fi-risalat-al--hoquq",
+    "printDate": "",
+    "language": ["العربية"],
+    "pages": 42,
+    "parts": 1,
+    "views": 25,
+    "image": "/library/الصلاة في رسالة الحقوق.jpg",
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الصلاة في رسالة الحقوق",
+        "author": " العتبة الكاظمية المقدسة",
+        "otherNames": [],
+        "printHouse": "العتبة الكاظمية المقدسة"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "slug": "risalat--al--huquq-llimam-alsajjad-a-walielan-alalami-lhuquq-alinsan-dirasah-muqaranah",
+    "printDate": "2015 م",
+    "language": ["العربية"],
+    "pages": 123,
+    "parts": 1,
+    "views": 23,
+    "image": "/library/51.jpg",
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق للامام السجاد ع والاعلان العالمي لحقوق الانسان - دراسة مقارنة",
+        "author": "رافد حميد فرج",
+        "otherNames": [],
+        "printHouse": "دار الكفيل"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "slug": "alqanun-alakhlaqi--fi-risalat-alhuquq-llimam-ali-bin-alhussain-zayn-alabidin-a",
+    "printDate": "2011 م ",
+    "language": ["العربية"],
+    "pages": 670,
+    "parts": 1,
+    "views": 32,
+    "image": "/library/117.jpg",
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "القانون الأخلاقي في رسالة الحقوق للامام علي بن الحسين زين العابدين ع",
+        "author": "قدرت الله مشايخي - ترجمة كمال السيد",
+        "otherNames": [],
+        "printHouse": "مؤسسة انصاريان"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "slug": "almoajam-aldalali--almawduey--lalfaz-risalat-alhuquq",
+    "printDate": "2015 م",
+    "language": ["العربية"],
+    "pages": 552,
+    "parts": 1,
+    "views": 40,
+    "image": "/library/127.jpg",
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المعجم الدلالي الموضوعي لالفاظ رسالة الحقوق",
+        "author": "محمد جليل عباس الحسناوي",
+        "otherNames": [],
+        "printHouse": "دار الكفيل"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "slug": "taamulat--fi-risalat--alhuquq-llimam-ali-bin-alhussain-a",
+    "printDate": "2005 م",
+    "language": ["العربية"],
+    "pages": 119,
+    "parts": 1,
+    "views": 21,
+    "image": "/library/161.jpg",
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تأملات في رسالة الحقوق للامام علي بن الحسين ع",
+        "author": "محمد تقي المدرسي",
+        "otherNames": [],
+        "printHouse": "دار محبي الحسين ع"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "slug": "tafsil-alhuquq--sharh--ruwai-ala-risalat-alhuquq-llimam-alsajjad-a",
+    "printDate": "1386 ش",
+    "language": ["العربية"],
+    "pages": 297,
+    "parts": 1,
+    "views": 30,
+    "image": "/library/169.jpg",
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تفصيل الحقوق شرح روائي على رسالة الحقوق للامام السجاد ع",
+        "author": "محمد حسن الطبسي",
+        "otherNames": [],
+        "printHouse": "نشر يوسف فاطمة ع"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "slug": "haqq-allah--wa-haqq-alnafs-wa-haqq-alaadaa-ala-daw-risalat-alhuquq",
+    "printDate": "2008 م",
+    "language": ["العربية"],
+    "pages": "",
+    "parts": 1,
+    "views": 29,
+    "image": "/library/177.jpg",
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "حق الله وحق النفس وحق الأعضاء - على ضوء رسالة الحقوق",
+        "author": "علي محمد عساكر",
+        "otherNames": [],
+        "printHouse": ""
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "slug": "rihla--huquqia-fi-risalat-alhuquq-llimam-zayn-alabidin-a",
+    "printDate": "2024 م",
+    "language": ["العربية"],
+    "pages": 422,
+    "parts": 1,
+    "views": 21,
+    "image": "/library/193.jpg",
+    "pdf": "/library/رحلة حقوقية.pdf",
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رحلة حقوقية في رسالة الحقوق للإمام زين العابدين ع",
+        "author": "إبراهيم سلمان بو خمسين",
+        "otherNames": [],
+        "printHouse": "العتبة الحسينية المقدسة - مهرجان تراتيل سجادية العاشر - دار الوارث"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "slug": "risalat--alhuquq-",
+    "printDate": "2014 م ",
+    "language": ["العربية"],
+    "pages": 175,
+    "parts": 1,
+    "views": 32,
+    "image": "/library/211.jpg",
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق",
+        "author": "باقر شريف القرشي",
+        "otherNames": [],
+        "printHouse": "الوردي"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "slug": "risalat--al-huquq-imam-zain-al-abidin",
+    "printDate": "2002 م",
+    "language": ["العربية"],
+    "pages": 1297,
+    "parts": 2,
+    "views": 62,
+    "image": "/library/215.jpg",
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق للامام زين العابدين ع ",
+        "author": "حسن القبانجي ",
+        "otherNames": [],
+        "printHouse": "مؤسسة الاعلمي"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "slug": "risalat-al-huquq-imam-al--sajjad-and-universal-declaration-of-human-rights-comparative-educational-study",
+    "printDate": "2010",
+    "language": ["العربية"],
+    "pages": 685,
+    "parts": 1,
+    "views": 35,
+    "image": "/library/222.jpg",
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق للامام السجاد ع والاعلان العالمي لحقوق الانسان - دراسة تربوية مقارنة",
+        "author": "علي فاخر الجزائري",
+        "otherNames": [],
+        "printHouse": "جامعة بغداد - قسم العلوم التربوية والنفسية"
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "slug": "risalat--alhuquq",
+    "printDate": "2014 م",
+    "language": ["العربية"],
+    "pages": 313,
+    "parts": 1,
+    "views": 51,
+    "image": "/library/224.jpg",
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق للامام زين العابدين ع",
+        "author": "عباس علي الموسوي",
+        "otherNames": [],
+        "printHouse": "المرتضى"
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "slug": "explanation-of-legal-rulings-in-risalat-al-huquq--imam-zain-al-abidin",
+    "printDate": "",
+    "language": ["العربية"],
+    "pages": "",
+    "parts": 1,
+    "views": 32,
+    "image": "/library/251.jpg",
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "شرح الاحكام القانونية في رسالة الحقوق للامام زين العابدين ع ",
+        "author": "عباس العبودي",
+        "otherNames": [],
+        "printHouse": "منشورات الحلبي الحقوقية "
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "slug": "explanation--of-risalat-al-huquq-imam-zain-al-abidin",
+    "printDate": "2005 م",
+    "language": ["العربية"],
+    "pages": 864,
+    "parts": 1,
+    "views": 22,
+    "image": "/library/267.jpg",
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "شرح رسالة الحقوق للامام زين العابدين ع",
+        "author": "صالح مهدي صحين الساعدي النجفي",
+        "otherNames": [],
+        "printHouse": "المرتضى"
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "slug": "risalat-al-huquq-and-universal-declaration-of--human-rights",
+    "printDate": "2010 م",
+    "language": ["العربية"],
+    "pages": 263,
+    "parts": 1,
+    "views": 32,
+    "image": "/library/298.jpg",
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "قبسات من رسالة الحقوق - شرح مضموني تحليلي لبعض مفردات رسالة الحقوق المباركة",
+        "author": "ضياء عدنان الخباز القطيفي",
+        "otherNames": [],
+        "printHouse": "دار زين العابدين ع"
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "slug": "risalat-al--huquq-and-universal-declaration-of-human-rights",
+
+    "printDate": "2014 م ",
+    "language": ["العربية"],
+    "pages": 2163,
+    "parts": 3,
+    "views": 32,
+    "image": "/library/320.jpg",
+
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "معجم اعراب الفاظ الصحيفة السجادية ع",
+        "author": "محمد جليل عباس",
+        "otherNames": [],
+        "printHouse": "العتبة الحسينية المقدسة - مهرجان تراتيل سجادية الأول "
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "slug": "risalat-al-huquq--and-universal-declaration-of-human-rights",
+
+    "printDate": "2011 م",
+    "language": ["العربية"],
+    "pages": 571,
+    "parts": 1,
+    "views": 23,
+    "image": "/library/360.jpg",
+
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "سلوا زين العابدين عن حقوق العالمين ",
+        "author": "هشام ال قطيط ",
+        "otherNames": [],
+        "printHouse": "الفجر"
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "slug": "risalat--al-huquq-and-universal-declaration-of-human-rights",
+
+    "printDate": "2010 م",
+    "language": ["العربية"],
+    "pages": 293,
+    "parts": 1,
+    "views": 52,
+    "image": "/library/366.jpg",
+
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "قصص وعبر من رسالة الحقوق",
+        "author": "اشرف الزهيري الجعفري",
+        "otherNames": [],
+        "printHouse": "دار الاميرة للطباعة - بيروت"
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "slug": "risalat-al-huquq--for-youth",
+
+    "printDate": "2003 م",
+    "language": ["العربية"],
+    "pages": "",
+    "parts": 1,
+    "views": 32,
+    "image": "/library/376.jpg",
+
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "سلسلة رسالة الحقوق للامام زين العابدين ع - للناشئة ",
+        "author": "مركز دار العلم للدراسات ",
+        "otherNames": [],
+        "printHouse": "دار المحجة البيضاء "
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "slug": "imam-al-sajjad-life--and-philosophy-in-risalat-al-huquq",
+
+    "printDate": "2021 م",
+    "language": ["العربية"],
+    "pages": 592,
+    "parts": 1,
+    "views": 32,
+    "image": "/library/391.jpg",
+
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام السجاد ع - ملامح من حياته ونهجه وفلسفته في رسالة الحقوق",
+        "author": "حسين بركة الشامي",
+        "otherNames": [],
+        "printHouse": "دار السلام "
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "slug": "al-maniah-and-al--murad-rights-of-god-and-selves-explanation-of-risalat-al-huquq",
+
+    "printDate": "1398 ش",
+    "language": ["العربية"],
+    "pages": 224,
+    "parts": 1,
+    "views": 33,
+    "image": "/library/408.jpg",
+
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المنية والمراد من حق الله والانفس على العباد  شرح رسالة الحقوق للامام زين العابدين عليه السلام ",
+        "author": "خليل إبراهيم",
+        "otherNames": [],
+        "printHouse": "باقيات"
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "slug": "lessons-from-risalat-al-huquq-imam-zain-al-abidin-",
+
+    "printDate": "2023 م",
+    "language": ["العربية"],
+    "pages": 357,
+    "parts": 1,
+    "views": 39,
+    "image": "/library/428.jpg",
+
+    "category": ["risalat-al-huqoq"],
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دروس من رسالة الحقوق للامام زين العابدين عليه السلام ",
+        "author": "مركز المعارف والمنهاج والمتون",
+        "otherNames": [],
+        "printHouse": "دار المعارف الإسلامية"
+      }
+    ]
+  }
+]

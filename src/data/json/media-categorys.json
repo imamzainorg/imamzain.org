@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "translations": [
+      {
+        "id": 1,
+        "name": "خبر",
+        "language_id": 1
+      },
+      {
+        "id": 2,
+        "name": "   News",
+        "language_id": 2
+      },
+      {
+        "id": 3,
+        "name": "خبر",
+        "language_id": 3
+      },
+      {
+        "id": 4,
+        "name": "هه‌واڵ",
+        "language_id": 4
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "translations": [
+      {
+        "id": 1,
+        "name": "مسابقة",
+        "language_id": 1
+      },
+      {
+        "id": 2,
+        "name": "Contests",
+        "language_id": 2
+      },
+      {
+        "id": 3,
+        "name": "مسابقات",
+        "language_id": 3
+      },
+      {
+        "id": 4,
+        "name": "پێشبڕكێكان",
+        "language_id": 4
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "translations": [
+      {
+        "id": 1,
+        "name": "معرض الصور",
+        "language_id": 1
+      },
+      {
+        "id": 2,
+        "name": "Gallery",
+        "language_id": 2
+      },
+      {
+        "id": 3,
+        "name": "گالری تصاویر",
+        "language_id": 3
+      },
+      {
+        "id": 4,
+        "name": "گالەری وێنەکان",
+        "language_id": 4
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "translations": [
+      {
+        "id": 1,
+        "name": "غير مصنف",
+        "language_id": 1
+      },
+      {
+        "id": 2,
+        "name": "Uncategorized",
+        "language_id": 2
+      },
+      {
+        "id": 3,
+        "name": "بدون دسته‌بندی",
+        "language_id": 3
+      },
+      {
+        "id": 4,
+        "name": "نەسەرچاوەکراو",
+        "language_id": 4
+      }
+    ]
+  }
+]
