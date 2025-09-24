@@ -226,11 +226,13 @@ export default function Page() {
 								<p className="text-sm text-gray-700">
 									الباحث: {selectedSummary.author}
 								</p>
-								{selectedSummary.abstract && (
-									<p className="text-gray-800 leading-relaxed whitespace-pre-line">
-										{selectedSummary.abstract}
-									</p>
-								)}
+							{selectedSummary.abstract && (
+  <div
+    className="text-gray-800 leading-relaxed space-y-4"
+    dangerouslySetInnerHTML={{ __html: selectedSummary.abstract }}
+  />
+)}
+
 							</div>
 						)}
 

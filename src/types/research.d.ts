@@ -13,4 +13,5 @@ export interface Research {
 	Description?: string
 	authorDescription?: string
 	conference?: string
+	 summaryHtml?: string;
 }
