@@ -25,7 +25,7 @@ export default function GalleryPage() {
 	const images = galleryImages
 		.filter((item) => item.title !== "khat")
 		.map((item) => ({
-			id: item.id,
+			id: item.image.id,
 			path: item.image.path,
 			title: item.title || `Image ${item.id}`,
 		}))

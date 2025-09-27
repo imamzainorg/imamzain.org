@@ -170,7 +170,7 @@ function VideoModal({
       onClick={onClose}
     >
       <motion.div
-        className="relative bg-black rounded-xl w-full max-w-6xl h-[80vh] flex flex-col md:flex-row overflow-hidden"
+        className="relative bg-black rounded-xl w-full md:max-w-6xl xl:max-w-7xl h-[80vh] flex flex-col md:flex-row overflow-hidden"
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
@@ -194,7 +194,7 @@ function VideoModal({
           <div className="flex items-center justify-between p-4 border-b border-gray-700">
             <h3 className="text-white font-bold">{playlist.title}</h3>
             <button
-              onClick={onClose}
+              onClick={onClose} 
               aria-label="إغلاق"
               className="text-white hover:text-red-500 text-lg font-bold"
             >

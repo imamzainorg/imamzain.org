@@ -42,7 +42,7 @@ export default function GallerySection() {
 	const latestImages = filteredGallery
 		.slice(-10)
 		.reverse()
-		.map((image) => ({ id: image.id, path: image.image.path }))
+		.map((image) => ({ id: image.image.id, path: image.image.path }))
 	const gridClass =
 		showCount === 3
 			? "grid-cols-3"

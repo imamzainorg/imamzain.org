@@ -6,7 +6,7 @@ export default function Gallery() {
 	const images = galleryImages
 		.filter((item) => item.title === "khat")
 		.map((image) => {
-			return { id: image.id, path: image.image.path }
+			return { id: image.image.id, path: image.image.path }
 		})
 
 	return (
