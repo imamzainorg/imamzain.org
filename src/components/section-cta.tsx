@@ -41,7 +41,7 @@ export default function SectionCta({
 					whileTap={{ scale: 0.95 }}
 					whileHover={{ scale: 1.02 }}
 					transition={{ duration: 0.2, ease: "easeOut" }}
-					className="relative w-full sm:w-auto text-center"
+					className="relative w-full sm:w-auto text-center "
 				>
 					<Link
 						href={link.href}
