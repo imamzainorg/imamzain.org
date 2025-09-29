@@ -24,6 +24,7 @@ const desktopImages = [
 	"/images/hero-7.jpg", // بناء الامن النفسي
 	"/images/hero-8.jpg", // البعد القانوني
 ]
+
 const mobileImages = [
 	// "/images/albaqi.jpg",
 	// "/images/albaqi-2.png",
