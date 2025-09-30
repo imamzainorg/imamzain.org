@@ -61,7 +61,7 @@ export default function Page() {
 	}
 
 	return (
-		<div className="  container  ">
+		<div className="container">
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
