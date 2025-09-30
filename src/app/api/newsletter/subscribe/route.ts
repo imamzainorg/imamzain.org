@@ -3,31 +3,23 @@ import { NextRequest, NextResponse } from "next/server"
 export async function POST(request: NextRequest) {
 	try {
 		const body = await request.json()
+		const { subscriberEmail } = body
 
-		// Validate the data
-		const { visitorName, visitorPhone, visitorCountry } = body
-
-		if (!visitorName || !visitorPhone || !visitorCountry) {
+		if (!subscriberEmail || !/\S+@\S+\.\S+/.test(subscriberEmail)) {
 			return NextResponse.json(
-				{ error: "Missing required fields" },
+				{ error: "Invalid email format" },
 				{ status: 400 },
 			)
 		}
 
-		// Call your actual backend API
 		const response = await fetch(
-			`${process.env.API_URL}/api/v1/forms/proxy-visit`,
+			`${process.env.API_URL || "https://imamzain-api.onrender.com/api/v1"}/newsletter/subscribe`,
 			{
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
-					// 'Authorization': `Bearer ${process.env.API_KEY}`
 				},
-				body: JSON.stringify({
-					visitorName,
-					visitorPhone,
-					visitorCountry,
-				}),
+				body: JSON.stringify({ subscriberEmail }),
 			},
 		)
 
@@ -36,12 +28,11 @@ export async function POST(request: NextRequest) {
 		}
 
 		const data = await response.json()
-
 		return NextResponse.json(data, { status: 200 })
 	} catch (error) {
-		console.error("API Error:", error)
+		console.error("Newsletter Subscribe Error:", error)
 		return NextResponse.json(
-			{ error: "Failed to submit visit request" },
+			{ error: "Failed to subscribe" },
 			{ status: 500 },
 		)
 	}

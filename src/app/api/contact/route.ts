@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
 		}
 
 		const response = await fetch(
-			`${process.env.BACKEND_API_URL}/api/v1/forms/contact`,
+			`${process.env.API_URL}/api/v1/forms/contact`,
 			{
 				method: "POST",
 				headers: {
