@@ -31,7 +31,18 @@ export async function GET() {
 
 		// 3. Clean and return the date
 		const rawDate = dateElement.text.trim()
-		const hijriDate = rawDate.split("||")[0].trim()
+		let hijriDate = rawDate.split("||")[0].trim()
+
+		let repalcementIndex = hijriDate.search("-")
+		hijriDate =
+			hijriDate.substring(0, repalcementIndex) +
+			hijriDate.substring(repalcementIndex + 1, hijriDate.length)
+
+		repalcementIndex = hijriDate.search(" ")
+		hijriDate =
+			hijriDate.substring(0, repalcementIndex) +
+			" -" +
+			hijriDate.substring(repalcementIndex, hijriDate.length)
 
 		return NextResponse.json({ hijriDate })
 	} catch (error) {
