@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import SubscriptionForm from "./_components/subscripition-form"
+import Newsletter from "./_components/newsletter"
 import SectionTitle from "@/components/section"
 import Breadcrumbs from "@/components/breadcrumb"
 import PostCard from "./_components/news-card"
@@ -179,7 +179,7 @@ export default async function Page() {
 									النشرة البريدية الخاصة
 									<br /> بالأعلانات والنشاطات
 								</p>
-								<SubscriptionForm />
+								<Newsletter />
 							</div>
 						</div>
 					</div>
@@ -191,7 +191,6 @@ export default async function Page() {
 				<SectionTitle title="الاجتماعات" />
 				<MeetingsCarousel meetingsData={data} />
 			</div>
-      
 
 			{/* اخبار العتبة الحسينية المقدسة - Repositioned and Resized */}
 			<div className="mt-12 bg-gray-50 dark:bg-gray-800 rounded-xl p-4 md:p-6">

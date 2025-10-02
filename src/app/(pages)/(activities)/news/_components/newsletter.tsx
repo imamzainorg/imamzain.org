@@ -2,28 +2,26 @@
 import { useState } from "react"
 import { toast } from "sonner"
 
-const SubscriptionForm = () => {
-	const [email, setEmail] = useState("")
+const Newsletter = () => {
+	const [subscriberEmail, setSubscriberEmail] = useState("")
 
 	const handleSubmit = async (event: React.FormEvent) => {
 		event.preventDefault()
 
 		try {
-			const response = await fetch(
-				"https://api.imamzain.org/newsletter_subscribe",
-				{
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify({ email }),
+			const response = await fetch("/api/newsletter/subscribe", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
 				},
-			)
+				body: JSON.stringify({ subscriberEmail }),
+			})
 
 			if (response.ok) {
 				toast("شكراً لاشتراكك في صحيفتنا الاخبارية", {
-					description: email,
+					description: subscriberEmail,
 				})
+				setSubscriberEmail("")
 			} else {
 				toast("ادخل بريد الكتروني صحيح", {
 					description: "حدثت مشكلة في اضافة البريد الالكتروني",
@@ -44,12 +42,12 @@ const SubscriptionForm = () => {
 		>
 			<input
 				type="email"
-				id="email"
-				name="email"
-				value={email}
+				id="subscriberEmail"
+				name="subscriberEmail"
+				value={subscriberEmail}
 				className="rounded-md w-4/6 sm:w-5/6 mx-auto text-xs md:text-sm px-4 py-2 text-black"
 				placeholder="البريد الالكتروني"
-				onChange={(e) => setEmail(e.target.value)}
+				onChange={(e) => setSubscriberEmail(e.target.value)}
 				required
 			/>
 			<button
@@ -62,4 +60,4 @@ const SubscriptionForm = () => {
 	)
 }
 
-export default SubscriptionForm
+export default Newsletter

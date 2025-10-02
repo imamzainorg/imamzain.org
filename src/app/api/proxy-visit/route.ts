@@ -1,0 +1,48 @@
+import { NextRequest, NextResponse } from "next/server"
+
+export async function POST(request: NextRequest) {
+	try {
+		const body = await request.json()
+
+		// Validate the data
+		const { visitorName, visitorPhone, visitorCountry } = body
+
+		if (!visitorName || !visitorPhone || !visitorCountry) {
+			return NextResponse.json(
+				{ error: "Missing required fields" },
+				{ status: 400 },
+			)
+		}
+
+		// Call your actual backend API
+		const response = await fetch(
+			`${process.env.API_URL}/api/v1/forms/proxy-visit`,
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					// 'Authorization': `Bearer ${process.env.API_KEY}`
+				},
+				body: JSON.stringify({
+					visitorName,
+					visitorPhone,
+					visitorCountry,
+				}),
+			},
+		)
+
+		if (!response.ok) {
+			throw new Error("Backend API request failed")
+		}
+
+		const data = await response.json()
+
+		return NextResponse.json(data, { status: 200 })
+	} catch (error) {
+		console.error("API Error:", error)
+		return NextResponse.json(
+			{ error: "Failed to submit visit request" },
+			{ status: 500 },
+		)
+	}
+}
