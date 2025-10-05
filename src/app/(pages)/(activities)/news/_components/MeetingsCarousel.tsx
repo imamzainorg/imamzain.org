@@ -31,7 +31,7 @@ export default function MeetingsCarousel({
 
 	if (latestMeetings.length === 0) {
 		return (
-			<div className="flex items-center justify-center p-8 bg-gray-50 rounded-2xl">
+			<div className="flex items-center justify-center p-8 bg-gray-50 rounded-2xl ">
 				<p className="text-gray-500 text-lg">
 					لا توجد اجتماعات حتى الآن.
 				</p>
