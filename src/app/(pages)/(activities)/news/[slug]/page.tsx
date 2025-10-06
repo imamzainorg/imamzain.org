@@ -2,13 +2,13 @@ import Image from "next/image";
 import Breadcrumbs from "@/components/breadcrumb";
 import PostCard from "../_components/news-card";
 
-import { FacebookIcon, TwitterIcon } from "@/assets/icons/reusable";
-import Link from "next/link";
-import NewsShare from "../../../../../components/news-share";
-import { dataFetcher } from "@/lib/dataFetcher";
-import { Post } from "@/types/post";
-import SwiperGallery from "../_components/swiper-gallery";
-import HeaderSections from "@/components/header-sections";
+import { FacebookIcon, TwitterIcon } from "@/assets/icons/reusable"
+import Link from "next/link"
+import NewsShare from "@/components/news-share"
+import { dataFetcher } from "@/lib/dataFetcher"
+import { Post } from "@/types/post"
+import SwiperGallery from "../_components/swiper-gallery"
+import HeaderSections from "@/components/header-sections"
 
 export default async function page({
   params,

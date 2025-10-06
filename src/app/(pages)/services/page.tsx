@@ -36,12 +36,21 @@ export default function Page() {
 		return /\S+@\S+\.\S+/.test(email)
 	}
 
+	const isValidMessage = (message: string): boolean => {
+		return message.length > 10 && message.length < 2000
+	}
+
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault()
 		setError("")
 
 		if (!isValidEmail(formData.email)) {
 			setError("يرجى إدخال بريد إلكتروني صالح")
+			return
+		}
+
+		if (!isValidMessage(formData.message)) {
+			setError("يجب ان يكون طول الرسالة بين 10 و2000 حرف")
 			return
 		}
 

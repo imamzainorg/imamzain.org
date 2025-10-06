@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
 		}
 
 		const response = await fetch(
-			`${process.env.API_URL}/newsletter/unsubscribe`,
+			`${process.env.API_URL}/api/v1/newsletter/unsubscribe`,
 			{
 				method: "POST",
 				headers: {
