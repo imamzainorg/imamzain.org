@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
 		}
 
 		const response = await fetch(
-			`${process.env.API_URL}/newsletter/subscribe`,
+			`${process.env.API_URL}/api/v1/newsletter/subscribe`,
 			{
 				method: "POST",
 				headers: {
