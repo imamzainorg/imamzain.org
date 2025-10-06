@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
 		}
 
 		const response = await fetch(
-			`${process.env.API_URL || "https://imamzain-api.onrender.com/api/v1"}/newsletter/subscribe`,
+			`${process.env.API_URL}/newsletter/subscribe`,
 			{
 				method: "POST",
 				headers: {
