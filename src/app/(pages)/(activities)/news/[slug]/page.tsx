@@ -4,7 +4,7 @@ import PostCard from "../_components/news-card"
 
 import { FacebookIcon, TwitterIcon } from "@/assets/icons/reusable"
 import Link from "next/link"
-import NewsShare from "../../../../../components/news-share"
+import NewsShare from "@/components/news-share"
 import { dataFetcher } from "@/lib/dataFetcher"
 import { Post } from "@/types/post"
 import SwiperGallery from "../_components/swiper-gallery"
