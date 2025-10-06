@@ -27,7 +27,6 @@ const Newsletter = () => {
 				})
 				setSubscriberEmail("")
 			} else {
-				// Show server error message if available
 				const errorMessage =
 					data?.message || "حدثت مشكلة في اضافة البريد الالكتروني"
 				toast("ادخل بريد الكتروني صحيح", {
@@ -54,7 +53,7 @@ const Newsletter = () => {
 				id="subscriberEmail"
 				name="subscriberEmail"
 				value={subscriberEmail}
-				className="rounded-md w-4/6 sm:w-5/6 mx-auto text-xs md:text-sm px-4 py-2 text-black"
+				className="rounded-md w-4/6 sm:w-5/6 mx-auto text-xs md:text-sm px-4 py-2 text-black text-center"
 				placeholder="البريد الالكتروني"
 				onChange={(e) => setSubscriberEmail(e.target.value)}
 				disabled={isSubmitting}
