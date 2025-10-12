@@ -19,7 +19,6 @@ import { Attachment } from "@/types/attachments"
 interface SwiperGalleryProps {
 	images: Attachment[]
 }
-
 export default function SwiperGallery({ images }: SwiperGalleryProps) {
 	return (
 		<div className="w-full">

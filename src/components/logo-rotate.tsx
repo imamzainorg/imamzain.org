@@ -12,7 +12,6 @@ interface WordRotateProps {
 	motionProps?: MotionProps
 	className?: string
 }
-
 export function LogoRotate({
 	paths,
 	durations = [5000, 3000],
