@@ -12,29 +12,32 @@ export default function Breadcrumbs({
 }) {
 	return (
 		<div className="pt-8 sm:pt-8 lg:pt-32 pb-5 sm:pb-6 lg:pb-6">
-			<div
-				className={cn(
-					"flex text-xs sm:text-sm lg:text-lg mt-14",
-					className,
-				)}
-			>
-				{links.map((link, index) => (
-					<div key={index} className="flex items-center">
-						<span
-							className={`w-1 h-1 md:w-1.5 md:h-1.5 lg:h-2 lg:w-2   rounded-full ${index === 0 ? "ml-3" : "mx-3"} ${dotColor}`}
-						/>
-						<Link
-							href={link.url}
-							className={cn(
-								"hover:text-primary dark:hover:text-Muharram_primary duration-150 line-clamp-1",
-								index === links.length - 1 && "font-bold",
-							)}
-						>
-							{link.name}
-						</Link>
-					</div>
-				))}
-			</div>
+			<div className={cn("flex text-xs sm:text-sm lg:text-lg mt-14", className)}>
+  {links.map((link, index) => {
+    const isLast = index === links.length - 1;
+    return (
+      <div key={index} className="flex items-center">
+        <span
+          className={`w-1 h-1 md:w-1.5 md:h-1.5 lg:h-2 lg:w-2 rounded-full ${
+            index === 0 ? "ml-3" : "mx-3"
+          } ${dotColor}`}
+        />
+        <Link
+          href={link.url}
+          className={cn(
+            "hover:text-primary dark:hover:text-Muharram_primary duration-150",
+            isLast
+              ? "line-clamp-1 font-bold overflow-hidden text-ellipsis max-w-fit" 
+              : "whitespace-nowrap " 
+          )}
+        >
+          {link.name}
+        </Link>
+      </div>
+    );
+  })}
+</div>
+
 		</div>
 	)
 }

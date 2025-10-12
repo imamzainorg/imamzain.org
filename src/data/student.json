@@ -1,0 +1,48 @@
+[
+    
+  {
+    "id": "1",
+    "slug":"jo",
+      "translations": [
+      {
+        "languageid": 1,
+        "title": "بحث  بكالوريس",
+        "authors": ["علي"],
+        "publicationVenue": "جامعة الصادق",
+        "category" :"بكالوريوس"
+        }
+    ],
+    "publishedYear": "144",
+    "pdfUrl": "edasdf"
+  },
+  {
+    "id": "2",
+    "slug":"josdsd",
+      "translations": [
+      {
+        "languageid": 1,
+        "title": "بحث ماجستير",
+        "authors": ["محمد"],
+        "publicationVenue": "المساتصرية",
+        "category" :"ماجستير"
+        }
+    ],
+    "publishedYear": "144",
+    "pdfUrl": "edasdf"
+  },
+   {
+    "id": "3",
+    "slug":"jrro",
+      "translations": [
+      {
+        "languageid": 1,
+        "title": "بحث الدكتوراه",
+        "authors": ["حسن"],
+        "publicationVenue": "بغداد",
+        "category" :"دكتوراه"
+        }
+    ],
+    "publishedYear": "144",
+    "pdfUrl": "edasdf"
+  }
+]
