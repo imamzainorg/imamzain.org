@@ -79,6 +79,7 @@ export default function Page() {
                     {section.icon}
                   </motion.div>
 
+
                   {/* العنوان والسهم */}
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <h2 className="text-xl font-bold text-primary dark:text-Muharram_primary">
