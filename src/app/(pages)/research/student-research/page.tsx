@@ -14,19 +14,7 @@ import { FaFilePdf } from "react-icons/fa";
 import studentData from "@/data/student.json";
 import Breadcrumbs from "@/components/breadcrumb";
 
-type StudentResearch = {
-  id: string;
-  slug: string;
-  translations: {
-    languageid: number;
-    title: string;
-    authors: string[];
-    publicationVenue: string;
-    category: string;
-  }[];
-  publishedYear: string;
-  pdfUrl: string;
-};
+
 
 export default function StudentResearchPage() {
   const [activeTab, setActiveTab] = useState("all");
@@ -58,7 +46,7 @@ export default function StudentResearchPage() {
   const getDataByTab = useCallback(() => {
     const mapCategory: Record<string, string> = {
       bachelor: "بكالوريوس",
-      master: "ماجستير",
+      master: "رسالة ماجستير",
       phd: "دكتوراه",
     };
 
@@ -91,12 +79,12 @@ export default function StudentResearchPage() {
         const title = t.title.toLowerCase();
         const authors = t.authors.join(", ").toLowerCase();
         const venue = t.publicationVenue.toLowerCase();
-        const category = t.category.toLowerCase();
+  
+      
         return (
           title.includes(term) ||
           authors.includes(term) ||
-          venue.includes(term) ||
-          category.includes(term)
+          venue.includes(term) 
         );
       })
     );
@@ -221,11 +209,13 @@ export default function StudentResearchPage() {
                 <thead>
                   <tr className="text-sm font-semibold   text-gray-700 dark:text-gray-200 border-b">
                      <th className="px-4 py-3 text-center w-12">ت</th>
-                    <th className="px-4 py-3 text-right">العنوان</th>
-                    <th className="px-4 py-3 text-right">المؤلف</th>
+                    <th className="px-4 py-3 text-right w-80">اسم البحث</th>
+                    <th className="px-4 py-3 text-right w-56">المؤلف</th>
                     <th className="px-4 py-3 text-right">الناشر</th>
-                    <th className="px-4 py-3 text-right">الدرجة</th>
-                    <th className="px-4 py-3 text-right">السنة</th>
+                       <th className="px-4 py-3 text-right">اللغة</th>
+                    <th className="px-4 py-3 text-right">المستوى العلمي</th>
+                    <th className="px-4 py-3 text-right">تاريخ الاصدار</th>
+                       <th className="px-4 py-3 text-right">عدد الصفحات</th>
                     <th className="px-4 py-3 text-center"></th>
                   </tr>
                 </thead>
@@ -262,11 +252,14 @@ export default function StudentResearchPage() {
                             <td className="px-4 py-3 text-right">
                               {t.authors.join(", ")}
                             </td>
+                       
                             <td className="px-4 py-3 text-right">{t.publicationVenue}</td>
+                                 <td className="px-4 py-3 text-right">{t.language} </td>
                             <td className="px-4 py-3 text-right">{t.category}</td>
                             <td className="px-4 py-3  text-right">
                               {item.publishedYear}
                             </td>
+                            <td className="px-4 py-3 text-right" >{t.pagenam} </td>
                             <td className="px-4 py-3 flex justify-center  ">
                               <button
                                 onClick={(e) => {
@@ -306,7 +299,9 @@ export default function StudentResearchPage() {
                       <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-transparent opacity-60 pointer-events-none" />
 
                       {/* محتوى البطاقة */}
-                      <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+                 <div className="flex flex-col justify-between h-full ">
+                     <div>
+                        <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
                         {t.title}
                       </h3>
                       <div className="">
@@ -321,10 +316,11 @@ export default function StudentResearchPage() {
                           {t.publicationVenue}
                         </p>
                         <p className="text-gray-500 dark:text-gray-400">
-                          <span className="text-secondary"> الدرجة </span> :{" "}
+                          <span className="text-secondary">  الدرجة العلمية</span> :{" "}
                           {t.category}
                         </p>
                       </div>
+                    </div>
 
                       {/* الزر */}
                       <motion.button
@@ -346,6 +342,7 @@ export default function StudentResearchPage() {
                         <FaFilePdf className="text-lg " />
                         <span>عرض PDF</span>
                       </motion.button>
+                 </div>
                     </motion.div>
                   ))
                 )}

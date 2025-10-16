@@ -1,48 +1,2128 @@
 [
-    
   {
     "id": "1",
-    "slug":"jo",
-      "translations": [
+
+    "translations": [
       {
         "languageid": 1,
-        "title": "بحث  بكالوريس",
-        "authors": ["علي"],
-        "publicationVenue": "جامعة الصادق",
-        "category" :"بكالوريوس"
-        }
+        "title": "الاثم بين القران والصحيفة السجادية ",
+        "authors": ["نور نبيل خيري"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 41
+      }
     ],
-    "publishedYear": "144",
-    "pdfUrl": "edasdf"
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الاثم بين القران الكريم والصحيفة السجادية.pdf"
   },
   {
     "id": "2",
-    "slug":"josdsd",
-      "translations": [
+
+    "translations": [
       {
         "languageid": 1,
-        "title": "بحث ماجستير",
-        "authors": ["محمد"],
-        "publicationVenue": "المساتصرية",
-        "category" :"ماجستير"
-        }
+        "title": "التنظيم الاسري في فكر الامامين السجاد والباقر ع ",
+        "authors": ["علي عبد الستار فاضل صيوان"],
+        "publicationVenue": "جامعة كربلاء - كلية التربية  للعلوم الإنسانية - قسم التاريخ",
+        "category": "دكتوراه",
+        "language": "العربية",
+        "pagenam": 314
+      }
     ],
-    "publishedYear": "144",
-    "pdfUrl": "edasdf"
+    "publishedYear": "2019 م",
+    "pdfUrl": "/research/student/phd/التنظيم الاسري في فكر الامامين السجاد والباقر  ع - علي عبد الستار الصيوان.pdf "
   },
-   {
+  {
     "id": "3",
-    "slug":"jrro",
-      "translations": [
+
+    "translations": [
       {
         "languageid": 1,
-        "title": "بحث الدكتوراه",
-        "authors": ["حسن"],
+        "title": " من البحوث الهامة والهادفة في تحسين الحسيات الانسانية لكبار السن والمعاقين بحث الدكتوراه",
+        "authors": ["   حسون علي محمد رضا  حسن"],
         "publicationVenue": "بغداد",
-        "category" :"دكتوراه"
-        }
+        "category": "دكتوراه",
+        "language": "العربية",
+        "pagenam": 441
+      }
     ],
     "publishedYear": "144",
-    "pdfUrl": "edasdf"
+    "pdfUrl": "edasضصثصضثdf"
+  },
+  {
+    "id": "4",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الاجارة بين القران الكريم والصحيفة السجادية ",
+        "authors": ["وداد وحيد عبد الحسين عسكر"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 38
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الإجارة بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "5",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الاجر بين القران الكريم والصحيفة السجادية ",
+        "authors": ["سجى علي محيسن ديوان"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 40
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الاجر بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "6",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الاجل بين القران الكريم والصحيفة السجادية ",
+        "authors": ["اكرم علي عداي"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 29
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الأجل بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "7",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الاحسان في القران الكريم والصحيفة السجادية ",
+        "authors": ["رويده احمد عبد"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 39
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الإحسان بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "8",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الاختصاص بين القران الكريم والصحيفة السجادية ",
+        "authors": ["سامي محسن جعوال"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 31
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الاختصاص بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "9",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الادبار بين القران الكريم والصحيفة السجادية ",
+        "authors": ["طيبة كريم جعفر"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 30
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الإدبار بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "10",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الاذن بين القران الكريم والصحيفة السجادية ",
+        "authors": ["حوراء سعد ادعين "],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 30
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الإذن بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "11",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الأذى بين القران الكريم والصحيفة السجادية ",
+        "authors": ["حيدر عبد سرحان"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 28
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الأذى بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "12",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الألم بين القران الكريم والصحيفة السجادية ",
+        "authors": ["بنين محمد نجم عبد"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 29
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الألم بين الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "13",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامن  بين القران الكريم والصحيفة السجادية ",
+        "authors": ["نور الهدى صبري فاضل"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 29
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الأمن بين القران الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "14",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الأسماء الستة في الصحيفة السجادية",
+        "authors": ["بتول زامل عنبار"],
+        "publicationVenue": "جامعة ميسان- كلية التربية الأساسية - قسم اللغة العربية ",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 30
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الاسماء الستة في الصحيفة السجادية.pdf"
+  },
+  {
+    "id": "15",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "البأس بين القران الكريم والصحيفة السجادية ",
+        "authors": ["حيدر محسن عليوي"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 32
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/البأس بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "16",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الباطل بين القران الكريم والصحيفة السجادية",
+        "authors": ["مريم فالح مهدي"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 33
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الباطل بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "17",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "البر بين القران الكريم والصحيفة السجادية ",
+        "authors": ["زهراء حسن محمد"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 53
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/البر بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "18",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "البركة بين القران الكريم والصحيفة السجادية ",
+        "authors": ["هجران سوادي جبار"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 43
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/البركة بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "19",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "البشر بين القران الكريم والصحيفة السجادية ",
+        "authors": ["احمد مطر محمد"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 25
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/البشر بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "20",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "البصر بين القران الكريم والصحيفة السجادية ",
+        "authors": ["سارة حمزة وحيد"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 39
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/البصر بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "21",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "البعث بين القران الكريم والصحيفة السجادية ",
+        "authors": ["هبة ستار جبار وليد"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 31
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/البعث بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "22",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "البغي بين القران الكريم والصحيفة السجادية ",
+        "authors": ["مهند علي منسي"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 29
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/البغي بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "23",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التضرع بين القران الكريم والصحيفة السجادية ",
+        "authors": ["اسراء علي حسين"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 37
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/التضرع بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "24",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التوبة بين القران الكريم والصحيفة السجادية ",
+        "authors": ["مروة عبد الله عبد عون"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 36
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/التوبة بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "25",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التوكيد في الصحيفة السجادية ",
+        "authors": ["عقيل حسين صالح"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 40
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/التوكيد في الصحيفة السجادية دراسة بلاغية.pdf"
+  },
+  {
+    "id": "26",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الثبات بين القران الكريم والصحيفة السجادية ",
+        "authors": ["انتظار محمد عبد الزهرة"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 39
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الثبات بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "27",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الجزاء بين القران الكريم والصحيفة السجادية ",
+        "authors": ["ورقاء فاهم دحام"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 33
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الجزاء بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "28",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الجهد بين الاستعمال اللغوي والقراني والصحيفة السجادية ",
+        "authors": ["مهدي صالح حبيب"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 40
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الجهد بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "29",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الجهل بين القران الكريم والصحيفة السجادية ",
+        "authors": ["زهراء مسلم دغيم"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 38
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الجهل بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "30",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الحاجة بين القران الكريم والصحيفة السجادية ",
+        "authors": ["صفاء سلمان صبيح"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 31
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الحاجة بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "31",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الحب بين القران الكريم والصحيفة السجادية ",
+        "authors": ["حسنين عباس شمخي"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 27
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الحب بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "32",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الحرب بين القران الكريم والصحيفة السجادية ",
+        "authors": ["دنيا محمد ساجت عباس"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 34
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الحرب بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "33",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الحرص بين القران الكريم والصحيفة السجادية ",
+        "authors": ["ليث راضي كريم"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 21
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الحرص بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "34",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الحرمة بين القران الكريم والصحيفة السجادية ",
+        "authors": ["حوراء جميل يوسف عباس"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 36
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الحرمة بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "35",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الحسد بين القران الكريم والصحيفة السجادية ",
+        "authors": ["فاطمة فارس داخل"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 27
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الحسد بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "36",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الحسرة بين القران الكريم والصحيفة السجادية ",
+        "authors": ["انعام مصطاح محسن"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 44
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الحسد بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "37",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الحظ بين القران الكريم والصحيفة السجادية ",
+        "authors": ["امير محمد مهدي "],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 40
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الحظ بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "38",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الحفظ بين القران الكريم والصحيفة السجادية ",
+        "authors": ["مهند عبد الحسين لفته"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 34
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الحفظ بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "39",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الحياة بين القران الكريم والصحيفة السجادية ",
+        "authors": ["افراح فيصل وحيد"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 29
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الحياة بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "40",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الختم بين القران الكريم والصحيفة السجادية ",
+        "authors": ["إيهاب كريم جهاد الحميداوي"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 32
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الختم بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "41",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الخداع بين القران الكريم والصحيفة السجادية ",
+        "authors": ["سارة سالم فليح"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 33
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الخداع بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "42",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الخذلان في القران الكريم والصحيفة السجادية ",
+        "authors": ["شيماء علي عباس"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 33
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الخذلان بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "43",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الخشية بين القران الكريم والصحيفة السجادية ",
+        "authors": ["حوراء رحيم حمزة "],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 33
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الخشية بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "44",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الخلوص بين القران الكريم والصحيفة السجادية ",
+        "authors": ["حسين جميل"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 35
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الخلوص بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "45",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الخوف بين القران الكريم والصحيفة السجادية ",
+        "authors": ["غدير حمزة شهيد"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 54
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الخوف بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "46",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الخيبة بين القران الكريم والصحيفة السجادية ",
+        "authors": ["زينب علي حمزة"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 29
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الخيبة بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "47",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الدلالة بين القران الكريم والصحيفة السجادية ",
+        "authors": ["ثامر عبد الحسن راضي"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 23
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الدلالة بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "48",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الذنب في القران الكريم والصحيفة السجادية ",
+        "authors": ["مروة شهيد عكاب"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 27
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الذنب بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "49",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الرأفة  في القران الكريم والصحيفة السجادية ",
+        "authors": ["فيات محمد رضا ناصر"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 33
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الرأفة بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "50",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الربح في القران الكريم والصحيفة السجادية ",
+        "authors": ["نور طه فلوح"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 31
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الربح بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "51",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "السقط بين القران الكريم والصحيفة السجادية ",
+        "authors": ["انوار غازي مجدي"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 25
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/السقط بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "52",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الرشد بين القران الكريم والصحيفة السجادية ",
+        "authors": ["زينب عصام كاظم"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 37
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الرشد بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "53",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الرهب بين القران الكريم والصحيفة السجادية ",
+        "authors": ["عبد الله خضير خنجر   "],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 29
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الرهب بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "54",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الزوال بين القران الكريم والصحيفة السجادية ",
+        "authors": ["رافد صكبان زبير"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 37
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الزوال بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "55",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الزيادة في القران الكريم والصحيفة السجادية ",
+        "authors": ["عباس نعمان حاجم"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 26
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الزيادة بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "56",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "السبق في القران الكريم والصحيفة السجادية ",
+        "authors": ["عامر طالب سربوت"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 29
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/السبق بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "57",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "سبغ بين القران الكريم والصحيفة السجادية ",
+        "authors": ["ضرغام جبار فنيخ"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 25
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/السبوغ بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "58",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "السخط بين القران الكريم والصحيفة السجادية ",
+        "authors": ["حيدر عادل جميل"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 30
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/السخط بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "59",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "السقي بين القران الكريم والصحيفة السجادية ",
+        "authors": ["دعاء ماجد رياح"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 31
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/السقي بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "60",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "السكون بين القران الكريم والصحيفة السجادية ",
+        "authors": ["اكرم ناصر حسين"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 22
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/السكون بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "61",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الشفاعة بين القران الكريم والصحيفة السجادية ",
+        "authors": ["غفران عبد الحسين عبد الحسن "],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 35
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الشفاعة بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "62",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الشكوى بين القران الكريم والصحيفة السجادية ",
+        "authors": ["براء محسن هاشم "],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 46
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الشكوى بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "63",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الصبر في القران الكريم والصحيفة السجادية ",
+        "authors": ["رنده حسن عبد زيد"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 36
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الصبر بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "64",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "العلم بين القران الكريم والصحيفة السجادية",
+        "authors": ["زهراء حسين جابر  "],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 35
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/العلم بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "65",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الطمع بين القران الكريم والصحيفة السجادية ",
+        "authors": ["دعاء سلمان شمام"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 42
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الطمع بين القران الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "66",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "العجز بين القران الكريم والصحيفة السجادية ",
+        "authors": ["عبد الله إبراهيم"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 40
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/العجز بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "67",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "العفو بين القران الكريم والصحيفة السجادية ",
+        "authors": ["زهور حسن غانم"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 44
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/العفو بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "68",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "العقل في القران الكريم والصحيفة السجادية ",
+        "authors": ["زينب ميري عبد السادة"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 40
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/العقل بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "69",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "العهد بين القران الكريم والصحيفة السجادية ",
+        "authors": ["مروة عبد الله سرحان "],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 24
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/العهد بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "70",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الغضب القران الكريم والصحيفة السجادية ",
+        "authors": ["دعاء جاسم محم دحرف"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 39
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الغضب بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "71",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الفزع بين القران الكريم والصحيفة السجادية ",
+        "authors": ["نبأ رياض جبر"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 40
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الفزع بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "72",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الفوز بين القران الكريم والصحيفة السجادية ",
+        "authors": ["زهراء صالح حسين"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 28
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الفوز بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "73",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "اللحاق بين القران الكريم والصحيفة السجادية ",
+        "authors": ["علي عباس كاظم    "],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 23
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/اللحاق بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "74",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المصاحبة بين القران الكريم والصحيفة السجادية ",
+        "authors": ["عبد الله بدر محيل "],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 28
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/المصاحبة بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "75",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "النواسخ الفعلية الصحيفة السجادية ",
+        "authors": ["ميساء عبد الأمير عيسى"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 37
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/النواسخ الفعلية في الصحيفة السجادية دراسة نحوية دلالية.pdf"
+  },
+  {
+    "id": "76",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الايثار بين القران الكريم والصحيفة السجادية ",
+        "authors": ["فاطمة سمير محمد علي"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 31
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الإيثار بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "77",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الايمان بين القران الكريم والصحيفة السجادية ",
+        "authors": ["زهراء صالح طاهر"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 31
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الايمان بين القران الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "78",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الثواب بين القران الكريم والصحيفة السجادية ",
+        "authors": ["فاطمة علي نعمة"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 33
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الثبات بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "79",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الحمل بين القران الكريم والصحيفة السجادية ",
+        "authors": ["حيدر محمد سرحان كاظم"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 35
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الحمل بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "80",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الحياء بين القران الكريم والصحيفة السجادية ",
+        "authors": ["اسراء نجاح حسن"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 29
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الحياء بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "81",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الرجاء في القران الكريم والصحيفة السجادية ",
+        "authors": ["لقاء محمد جبار "],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 37
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الرجاء بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "82",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الرجوع بين القران الكريم والصحيفة السجادية ",
+        "authors": ["سرور عبد السلام ياسر"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 40
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الرجوع بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "83",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الرد بين القران الكريم والصحيفة السجادية ",
+        "authors": ["حسن كاطع ورور"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 37
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الرد بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "84",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الضعف بين القران الكريم والصحيفة السجادية ",
+        "authors": ["منتظر احسان غازي"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 37
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الضعف بين القران الكريم والصحيفة الصحيفة السجادية.pdf"
+  },
+  {
+    "id": "85",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الضيق بين القران الكريم والصحيفة السجادية ",
+        "authors": ["دعاء حسين حديد"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 38
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/الضيق بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "86",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "جهنم بين القران الكريم والصحيفة السجادية ",
+        "authors": ["امال حميد طالب"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 28
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/جهنم بين القرآن الكريم والصحيفة السجادية.pdf"
+  },
+  {
+    "id": "87",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "حقوق الانسان في الصحيفة السجادية - رسالة الحقوق انموذجا",
+        "authors": ["محمد لطيف عبد"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم علوم القران والتربية الإسلامية",
+        "category": "بكالوريوس",
+        "language": "العربية",
+        "pagenam": 35
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/bachelors/حقوق الانسان في الصحيفة السجادية (رسالة الحقوق انموذجاً).pdf"
+  },
+  {
+    "id": "88",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "A Contrastive Critical Discourse Analysis of the Universal Declaration of Human Rights and Risalat Al-Huquq of Imam Ali Al-Sajjad (P.B.U.H.)",
+        "authors": [
+          "Asst. Prof. Firas Abdul-Munim Jawad (M.A.), Noor Othman Adday"
+        ],
+        "publicationVenue": "جامعة بابل - كلية التربية للعلوم الإنسانية - قسم الإنجليزي",
+        "category": "رسالة ماجستير",
+        "language": "العربية  - انجليزي",
+        "pagenam": 244
+      }
+    ],
+    "publishedYear": "2017 م",
+    "pdfUrl": "/research/student/master/نحليل خطاب نقدي  نور عثمان.pdf "
+  },
+  {
+    "id": "89",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التربية الاسرية عند الامام السجاد ع وتطبيقاتها التربوية ",
+        "authors": ["عذبة باسم محمود"],
+        "publicationVenue": "جامعة بغداد - كلية التربية - ابن رشد ",
+        "category": " رسالة ماجستير ",
+        "language": "العربية",
+        "pagenam": 145
+      }
+    ],
+    "publishedYear": "2015 م",
+    "pdfUrl": "/research/student/master/3710. التربية الاسرية عند الامام السجاد (عليه السلام) وتطبيقاتها التربوية.pdf "
+  },
+  {
+    "id": "90",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "اثر نصوص منتقاة من الصحيفة السجادية ورسالة الحقوق في التعبير الإبداعي والتفكير الأخلاقي عند طالبات الصف الخامس الاعدادي",
+        "authors": ["زينة جاسم محمد الربيعي"],
+        "publicationVenue": "جامعة القادسية - كلية التربية - قسم اللغة عربي",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 199
+      }
+    ],
+    "publishedYear": "2023 م",
+    "pdfUrl": "/research/student/master/اثر نصوص منتقاة من الصحيفة السجادية ورسالة الحقوق في التعبير الإبداعي والتفكير الأخلاقي عند طالبات الصف الخامس الاعدادي.pdf "
+  },
+  {
+    "id": "91",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الاتساق في الصحيفة السجادية - دراسةٌ في ضوء لسانيات النص",
+        "authors": ["حيدر فاضل عباس العزاوي"],
+        "publicationVenue": "جامعة كربلاء كلية التربية للعلوم الإنسانية قسم اللغة عربي",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 262
+      }
+    ],
+    "publishedYear": "2014 م",
+    "pdfUrl": "/research/student/master/الاتساق في الصحيفة السجادية دراسة في ضوء لسانيات النص.pdf "
+  },
+  {
+    "id": "92",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الأثر القراني في الصحيفة السجادية",
+        "authors": ["رؤى خضير فليح الخفاجي"],
+        "publicationVenue": "جامعة ذي قار - كلية التربية ",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 170
+      }
+    ],
+    "publishedYear": "2012 م",
+    "pdfUrl": "/research/student/master/الاثر القراني ف يالصحيفة السجادية - رؤى فليح.pdf "
+  },
+  {
+    "id": "93",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الارشاد في فكر الامام زين العابدين علي بن الحسين ع رسالة الحقوق انموذجا",
+        "authors": ["فلاح جواد كاظم الطالقاني"],
+        "publicationVenue": "جامعة المستنصرية - كلية التربية",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 140
+      }
+    ],
+    "publishedYear": "2015 م",
+    "pdfUrl": "/research/student/master/الارشاد في فكر الامام زين العابدين علي بن الحسين ع رسالة الحقوق انموذجا.pdf "
+  },
+  {
+    "id": "94",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الإمام السجاد زين العابدين ع شيوخه وتلامذته من خلال كتاب تهذيب الكمال في أسماء الرجال للمزي",
+        "authors": ["صدام حسين خضير"],
+        "publicationVenue": "جامعة ديالى - كلية التربية للعلوم الإنسانية",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 200
+      }
+    ],
+    "publishedYear": "2015 م  ",
+    "pdfUrl": "/research/student/master/الإمام السجاد زين العابدين ع شيوخه وتلامذته من خلال كتاب تهذيب الكمال في أسماء الرجال للمزي.pdf "
+  },
+  {
+    "id": "95",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام السجاد ورسالة الحقوق ",
+        "authors": ["ولاء حسن علي الجبوري"],
+        "publicationVenue": "جامعة المستنصرية - كلية التربية الأساسية",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 295
+      }
+    ],
+    "publishedYear": "2012 م ",
+    "pdfUrl": "/research/student/master/الامام السجاد ورسالة الحقوق - ولاء حسن .pdf "
+  },
+  {
+    "id": "96",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الدلالة الصرفية في الصحيفة السجادية",
+        "authors": ["حميد يوسف إبراهيم الحسني"],
+        "publicationVenue": "جامعة ذي قار - كلية الاداب قسم اللغة عربي ",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 230
+      }
+    ],
+    "publishedYear": "2009 م",
+    "pdfUrl": "/research/student/master/الدلالة الصرفية في الصحيفة السجادية.pdf "
+  },
+  {
+    "id": "97",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الزهد عند الإمام علي بن الحسين زين العابدين عليهما السلام (دراسة فكرية)",
+        "authors": ["نداء كريم وهاب "],
+        "publicationVenue": "جامعة بغداد - كلية التربية - علوم القران",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 240
+      }
+    ],
+    "publishedYear": "2016 م",
+    "pdfUrl": "/research/student/master/الزهد عند الإمام علي بن الحسين زين العابدين عليهما السلام.pdf "
+  },
+  {
+    "id": "98",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الصحيفة السجادية شاهدا نحويا دراسة تطبيقية",
+        "authors": ["ندى عبد الله غني السعدي"],
+        "publicationVenue": "جامعة كربلاء - كلية التربية",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 290
+      }
+    ],
+    "publishedYear": "2013 م",
+    "pdfUrl": "/research/student/master/الصحيفة السجادية شاهدا نحويا .pdf "
+  },
+  {
+    "id": "99",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الفعل وما يعمل عمله في كلام الامام السجاد ع - دراسة صرفية نحوية",
+        "authors": ["سامرة عدنان محمد حسين الموسوي"],
+        "publicationVenue": "جامعة كربلاء - كلية التربية  للعلوم الإنسانية - قسم اللغة عربي",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 231
+      }
+    ],
+    "publishedYear": "2022 م",
+    "pdfUrl": "/research/student/master/الفعل_وما_يعمل_عمله_في_كلام_الإمام_السجاد.pdf "
+  },
+  {
+    "id": "100",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "القيم التربوية في فكر الإمام زين العابدين - رسالة",
+        "authors": ["ميادة إبراهيم طالب حياوي القيسي"],
+        "publicationVenue": "جامعة بغداد - كلية ابن رشد",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 220
+      }
+    ],
+    "publishedYear": "2008 م",
+    "pdfUrl": "/research/student/master/القيم التربوية في فكر الإمام زين العابدين.pdf "
+  },
+  {
+    "id": "101",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المحسنات المعنوية في ادعية الصحيفة السجادية ",
+        "authors": ["اسعد جساب مغامس محيي"],
+        "publicationVenue": "جامعة البصرة - كلية التربية",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 248
+      }
+    ],
+    "publishedYear": "2016 م",
+    "pdfUrl": "/research/student/master/المحسنات المعنوية في ادعية الصحيفة السجادية.pdf "
+  },
+  {
+    "id": "102",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المسائل العقدية في الصحيفة السجادية",
+        "authors": ["حازم عباس نعمان"],
+        "publicationVenue": "جامعة بغداد - كلية العلوم الإسلامية",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 350
+      }
+    ],
+    "publishedYear": "2018 م",
+    "pdfUrl": "/research/student/master/المسائل العقدية في الصحيفة السجادية.pdf "
+  },
+  {
+    "id": "103",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المضامين العقدية في دعاء الصباح والمساء للامام علي بن الحسين ع ",
+        "authors": ["منتظر مهدي لفته الزبيدي"],
+        "publicationVenue": "جامعة بغداد - كلية التربية - ابن رشد - قسم علوم القران ",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 230
+      }
+    ],
+    "publishedYear": "2022 م",
+    "pdfUrl": "/research/student/master/المضامين العقدية في دعاء الصباح.pdf "
+  },
+  {
+    "id": "104",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المقاصد القرانية في ادعية الامام علي السجاد ع ومناجياته - دراسة موضوعية",
+        "authors": ["دلال طالب حمزة "],
+        "publicationVenue": "جامعة بابل - كلية العلوم الإسلامية - قسم علوم القران",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 292
+      }
+    ],
+    "publishedYear": "2025 م",
+    "pdfUrl": "/research/student/master/المقاصد_القرآنية_في_أدعية_الإمام_علي_السجادعلية_السلام_ومناجاته.pdf "
+  },
+  {
+    "id": "105",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الصحيفة السجادية دراسة نحوية",
+        "authors": ["بسمان ريس فيحان المعموري"],
+        "publicationVenue": "جامعة المستنصرية - كلية الاداب",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 235
+      }
+    ],
+    "publishedYear": "2019 م",
+    "pdfUrl": "/research/student/master/الصحيفة السجادية بسمان ريس فيحان المعموري.pdf "
+  },
+  {
+    "id": "106",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الجملة في رسائل الامام علي بن الحسين ع وخطبه واقواله الماثورة",
+        "authors": ["دنيا محمد حسن"],
+        "publicationVenue": "كلية الاداب جامعة الكوفة",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 39
+      }
+    ],
+    "publishedYear": "2011 م",
+    "pdfUrl": "/research/student/master/الجملة في رسائل الامام علي بن الحسين ع وخطبه واقواله الماثورة.pdf "
+  },
+  {
+    "id": "107",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دور الصحيفة السجادية في تربية الفرد والمجتمع ",
+        "authors": ["عصرى فاضل الباني"],
+        "publicationVenue": "جامعة ال البيت ع العالمية",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 230
+      }
+    ],
+    "publishedYear": "1385 ش",
+    "pdfUrl": "/research/student/master/دور الصحيفة السجادية في تربية الفرد والمجتمع.pdf "
+  },
+  {
+    "id": "108",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تعدد الأوجه النحوية في شروح الصحيفة السجادية",
+        "authors": ["زياد قاسم دريس الطائي"],
+        "publicationVenue": "جامعة بابل - كلية التربية ",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 217
+      }
+    ],
+    "publishedYear": "2017 م",
+    "pdfUrl": "/research/student/master/تعدد الأوجه النحوية في شروح الصحيفة السجادية.pdf "
+  },
+  {
+    "id": "109",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الفروق اللغوية في الصحيفة السجادية",
+        "authors": ["عزيز جابر علو النصراوي"],
+        "publicationVenue": "جامعة المثنى - كلية التربية للعلوم الإنسانية",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 201
+      }
+    ],
+    "publishedYear": "2019 م",
+    "pdfUrl": "/research/student/master/3826. الفروق اللغوية في الصحيفة السجادية.pdf "
+  },
+  {
+    "id": "110",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "قراءة زين العابدين ع - علي بن الحسين - دراسة نحوية لغوية",
+        "authors": ["محمد هاشم عارف الامارة"],
+        "publicationVenue": "جامعة بغداد - كلية العلوم الإسلامية  ",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 116
+      }
+    ],
+    "publishedYear": "2003 م",
+    "pdfUrl": "/research/student/master/قراءة زين العابدين ع - علي بن الحسين - دراسة نحوية لغوية.pdf "
+  },
+  {
+    "id": "111",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المباحث الدلالية لشروح رسالة الحقوق للامام زين العابدين ع ",
+        "authors": ["علي احمد يوسف إسماعيل الموسوي"],
+        "publicationVenue": "جامعة المستنصرية - كلية الاداب - اللغة عربي",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 140
+      }
+    ],
+    "publishedYear": "2021 م",
+    "pdfUrl": "/research/student/master/المباحث الدلالية لشروح رسالة الحقوق للامام زين العابدين ع.pdf "
+  },
+  {
+    "id": "112",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مدرسة المدينة في التفسير، مرويات الإمام السجاد ع",
+        "authors": ["ايات سالم جبار عزوز الجبوري"],
+        "publicationVenue": "كلية العلوم الإسلامية - جامعة بابل",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 165
+      }
+    ],
+    "publishedYear": "2021 م",
+    "pdfUrl": "/research/student/master/مدرسة المدينة في التفسير، مرويات الإمام السجاد ع.pdf "
+  },
+  {
+    "id": "113",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مرويات الامام زين العابدين ع في النهضة الحسنية دراسة تحليلية",
+        "authors": ["محمد تركي عبد العزيز المسلماوي"],
+        "publicationVenue": "جامعة كربلاء - كلية التربية",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 235
+      }
+    ],
+    "publishedYear": "2021 م",
+    "pdfUrl": "/research/student/master/مرويات الامام زين العابدين في النهضة الحسينية دراسة تحليلية-حذف الصور.pdf "
+  },
+  {
+    "id": "114",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مرويات الامام علي بن الحسين ع (زين العابدين) في الكتب التسعة ( دراسة تحليلية ) ",
+        "authors": ["عمر علي طه عبد الله الحياتي"],
+        "publicationVenue": "الجامعة الإسلامية - بغداد - كلية أصول الدين ",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 281
+      }
+    ],
+    "publishedYear": "2006 م",
+    "pdfUrl": "/research/student/master/مرويات الامام زين العابدين في النهضة الحسينية دراسة تحليلية-حذف الصور.pdf "
+  },
+  {
+    "id": "115",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "حروف المعاني في الصحيفة السجادية - دراسة نحوية تطبيقية",
+        "authors": ["مها إسماعيل علوان"],
+        "publicationVenue": "جامعة كربلاء - كلية التربية",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 210
+      }
+    ],
+    "publishedYear": "2016 م",
+    "pdfUrl": "/research/student/master/3982. حروف المعاني في الصحيفة السجادية (دراسة نحوية تطبيقية).pdf "
+  },
+  {
+    "id": "116",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "جمالية الأسلوب في نبذ الذات والأخر في كتابي نهج البلاغة والصحيفة السجادية - دراسة موازنة",
+        "authors": ["اسراء علاء عبد الكريم صالح "],
+        "publicationVenue": "جامعة الكوفة - كلية التربية الأساسية - قسم اللغة العربية",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 200
+      }
+    ],
+    "publishedYear": "2025 م",
+    "pdfUrl": "/research/student/master/جماليات_الأسلوب_لنبذ_الذّات_والآخر_في_كتابي_نهج_البلاغة_والصّحيفة.pdf "
+  },
+  {
+    "id": "117",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "خطب الامام علي بن الحسين ع ورسائله واشعاره ",
+        "authors": ["فهمي بوهان جاسم الاسدي"],
+        "publicationVenue": "جامعة المستنصرية - كلية التربية الأساسية",
+        "category": "رسالة ماجستير",
+        "language": "العربية",
+        "pagenam": 176
+      }
+    ],
+    "publishedYear": "2009 م",
+    "pdfUrl": "/research/student/master/خطب_الامام_علي_بن_الحسين_ع_ورسائله_واشعاره.pdf "
+  },
+  {
+    "id": "118",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "The Rhetorical Organisation of the Holy Bible and As-Sahifatus Sajjadiyah",
+        "authors": ["Raed Dakhil Kareem"],
+        "publicationVenue": "جامعة بغداد - كلية الاداب - قسم اللغة الانكليزية",
+        "category": "دكتوراه",
+        "language": " العربية  - انجليزي",
+        "pagenam": 504
+      }
+    ],
+    "publishedYear": "2016 م",
+    "pdfUrl": "/research/student/phd/التنظيم البلاغي للكتاب المقدس والصحيفة السجادية - انجليزي.pdf"
+  },
+  {
+    "id": "119",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "سيمياء العواطف في الصحيفة السجادية",
+        "authors": ["زهراء عبد الحميد غالي"],
+        "publicationVenue": "جامعة كربلاء- كلية التربية للعلوم الإنسانية - قسم اللغة عربي",
+        "category": "دكتوراه",
+        "language": "العربية",
+        "pagenam": 274
+      }
+    ],
+    "publishedYear": "2023 م",
+    "pdfUrl": "/research/student/phd/سيمياء_العواطف_في_الصحيفة_السجادية.pdf "
+  },
+  {
+    "id": "120",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "ادعية الصحيفة السجادية دراسة في علم اللغة النصي",
+        "authors": ["منتهى عناد تمل الموسوي"],
+        "publicationVenue": "جامعة البصرة - كلية التربية للعلوم الإنسانية - اللغة عربي ",
+        "category": "دكتوراه",
+        "language": "العربية",
+        "pagenam": 335
+      }
+    ],
+    "publishedYear": "2014 م",
+    "pdfUrl": "/research/student/phd/ادعية الصحيفة السجادية دراسة في علم اللغة النصي - منتهى عناد الموسوي.pdf "
+  },
+  {
+    "id": "121",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام علي بن الحسين ع في روايات العامة",
+        "authors": ["احمد فائق حميد الحطيطاوي"],
+        "publicationVenue": "جامعة البصرة - كلية التربية",
+        "category": "دكتوراه",
+        "language": "العربية",
+        "pagenam": 261
+      }
+    ],
+    "publishedYear": "2020 م",
+    "pdfUrl": "/research/student/phd/الامام علي بن الحسين ع في روايات العامة.pdf "
+  },
+  {
+    "id": "122",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "البحث الدلالي في غريب الصحيفة السجادية",
+        "authors": ["عبد الحسين موسى وادي"],
+        "publicationVenue": "جامعة بغداد - كلية الادب - قسم اللغة عربي",
+        "category": "دكتوراه",
+        "language": "العربية",
+        "pagenam": 282
+      }
+    ],
+    "publishedYear": "2015 م",
+    "pdfUrl": "/research/student/phd/البحث الدلالي في غريب الصحيفة السجادية.pdf "
+  },
+  {
+    "id": "123",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "أصول الفكر التربوي عند الامام زين العابدين علي بن الحسين بن علي بن ابي طالب ع في ضوء القران الكرم والسنة النبوية الشريفة ",
+        "authors": ["احمد موسى عبد الكريم خوالده"],
+        "publicationVenue": "جامعة اليرموك - الاردن - كلية التربية - قسم الإدارة واصول التربية",
+        "category": "دكتوراه",
+        "language": "العربية",
+        "pagenam": 210
+      }
+    ],
+    "publishedYear": "2010 م",
+    "pdfUrl": "/research/student/phd/tarbyah03660_أصول_الفكر_التربوي_عند_الإمام_زين_العابدين_في_ضوء_القرآن.pdf "
+  },
+  {
+    "id": "124",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الفكر الكلامي في مرويات الامام  علي بن الحسين ع / الصحيفة السجادية انموذجا",
+        "authors": ["شاكر جابر سلطان الاسدي"],
+        "publicationVenue": "جامعة الكوفة - كلية الفقه",
+        "category": "دكتوراه",
+        "language": "العربية",
+        "pagenam": 225
+      }
+    ],
+    "publishedYear": "2014 م ",
+    "pdfUrl": "/research/student/phd/الفكر الكلامي في مرويات الامام  علي بن الحسين ع  الصحيفة السجادية انموذجا.pdf "
+  },
+  {
+    "id": "125",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "قـرائــن التعـليـق  في الصـحـيفـة السـجـاديـة ",
+        "authors": ["بدر حسين علي المحمداوي"],
+        "publicationVenue": "جامعة القادسية - كلية الاداب - كلية اللغة عربي وادابها",
+        "category": "دكتوراه",
+        "language": "العربية",
+        "pagenam": 210
+      }
+    ],
+    "publishedYear": "2016 م",
+    "pdfUrl": "/research/student/phd/قـرائــن التعـليـق  في الصـحـيفـة السـجـاديـة.pdf "
   }
 ]

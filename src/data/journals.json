@@ -1,0 +1,53 @@
+[
+  {
+    "id": "1",
+    "slug": "jo",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "بحث  بكالوريس",
+        "authors": ["علي"],
+        "publicationVenue": "جامعة الصادق",
+       
+        "language": "العربية",
+        "pagenam": 1441
+      }
+    ],
+    "publishedYear": "315648941864",
+    "pdfUrl": "edasdf"
+  },
+  {
+    "id": "2",
+    "slug": "josdsd",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "بحث ماجستير",
+        "authors": ["محمد"],
+        "publicationVenue": "المساتصرية",
+    
+        "language": "العربية",
+        "pagenam": 1441
+      }
+    ],
+    "publishedYear": "144",
+    "pdfUrl": "edasdf"
+  },
+  {
+    "id": "3",
+    "slug": "jrro",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " من البحوث الهامة والهادفة في تحسين الحسيات الانسانية لكبار السن والمعاقين بحث الدكتوراه" ,
+        "authors": ["   حسون علي محمد رضا  حسن" ],
+        "publicationVenue": "بغداد",
+      
+        "language": "العربية",
+        "pagenam": 1441
+      }
+    ],
+    "publishedYear": "144",
+    "pdfUrl": "edasdf"
+  }
+]
