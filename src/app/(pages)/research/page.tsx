@@ -19,7 +19,7 @@ const sections = [
       },
     ],
   }          
-  /*,
+  ,
   {
     title: "بحوث التخرج",
     description: "بحوث التخرج لطلبة البكالوريوس والماجستير والدكتوراه.",
@@ -37,7 +37,7 @@ const sections = [
     href: "/research/journals",
     icon: "📚",
     subLinks: [{ label: "دوريات عامة", href: "/research/journals" }],
-  },*/
+  },
 ];
 
 export default function Page() {
@@ -59,7 +59,7 @@ export default function Page() {
         <h1 className="text-3xl md:text-4xl font-bold text-center text-primary dark:text-Muharram_primary mb-16">
           الارشفة والتوثيق
         </h1>
-        <div className=" gap-10">
+        <div className=" gap-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
           {sections.map((section, index) => (
             <motion.div
               key={index}
@@ -105,7 +105,7 @@ export default function Page() {
 
               {/* القوائم الفرعية - تظهر دائمًا بشكل واضح */}
               {section.subLinks && section.subLinks.length > 0 && (
-                <div className="px-6 pb-6">
+                <div className="px-6 pb-6 ">
                   <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
                     <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3 text-center">
                       أقسام فرعية
