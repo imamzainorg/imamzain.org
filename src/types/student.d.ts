@@ -1,15 +1,14 @@
-export interface Translation {
-  languageid: number;
-  title: string;
-  authors: string[];
-  publicationVenue: string;
-  category: string;
-}
-
-export interface Research {
+type StudentResearch = {
   id: string;
-  slug: string;
-  translations: Translation[];
+  translations: {
+    languageid: number;
+    language: string;
+    title: string;
+    authors: string[];
+    publicationVenue: string;
+    category: string;
+    pagenam?: number; 
+  }[];
   publishedYear: string;
   pdfUrl: string;
-}
+};

@@ -119,6 +119,7 @@ export default function UploadedResearch() {
               </button>
             </div>
 
+
             {/* محتوى الملخص */}
             {selectedSummary && (
               <div className="p-6 overflow-y-auto max-h-[60vh] space-y-4">
