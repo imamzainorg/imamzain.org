@@ -254,7 +254,7 @@ export default function JounalsResearchPage() {
                                   </td>
                                   <td className="px-4 py-3 text-right">
                                     {t.authors?.join(", ")}
-                                  </td>{" "}
+                                  </td>
                                   {/* ✅ إضافة ? للتحقق */}
                                   <td className="px-4 py-3 text-right">
                                     {t.publicationVenue}
