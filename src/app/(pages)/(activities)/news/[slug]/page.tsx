@@ -46,7 +46,7 @@ export default async function page({
 					<article className="lg:col-span-8">
 						{/* Post Header */}
 						<header className="mb-8">
-							<h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 !leading-tight mb-6">
+							<h1 className="text-2xl sm:text-3xl  font-bold text-gray-900 !leading-tight mb-6">
 								{post.title}
 							</h1>
 
