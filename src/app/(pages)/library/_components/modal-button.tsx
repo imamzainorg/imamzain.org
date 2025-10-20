@@ -13,8 +13,20 @@ export default function ModalButton({ subject }: { subject: Subject }) {
   const [open, setOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const [fontSize, setFontSize] = useState(18);
+  const [copied, setCopied] = useState(false);
+
   const increaseFont = () => setFontSize((prev) => Math.min(prev + 2, 32));
   const decreaseFont = () => setFontSize((prev) => Math.max(prev - 2, 12));
+
+  // ✅ دالة النسخ لجميع العبارات
+  const copyAll = async () => {
+    const allText = subject.phrases
+      .map((p, i) => `${i + 1}. ${p.content.replace(/<[^>]+>/g, "")}`)
+      .join("\n\n");
+    await navigator.clipboard.writeText(allText);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 20000);
+  };
 
   return (
     <>
@@ -59,65 +71,66 @@ export default function ModalButton({ subject }: { subject: Subject }) {
               <h3 className="text-lg md:text-xl font-bold text-gray-800">
                 {subject.title}
               </h3>
-           <div className="flex flex-col items-end gap-4">
-  <span className="px-3 py-1 bg-white top-2 rounded-full absolute text-sm font-semibold text-primary dark:text-Muharram_primary dark:border-Muharram_primary/20 border border-primary/20">
-    {subject.id}
-  </span>
-  <div className="flex mt-5 self-end">
-    <div className="flex gap-3 items-center border rounded-xl px-2 py-1 bg-white shadow-sm dark:bg-gray-900 dark:border-gray-700">
-      {/* زر تصغير */}
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          decreaseFont();
-        }}
-        className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full hover:bg-secondary/20 text-gray-700 dark:text-gray-200 dark:bg-gray-800 dark:hover:bg-Muharram_secondary/20 transition-all shadow-sm"
-        title="تصغير النص"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="size-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607ZM13.5 10.5h-6"
-          />
-        </svg>
-      </button>
-      <p className="text-sm"> حجم الخط</p>
-      {/* زر تكبير */}
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          increaseFont();
-        }}
-        className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full hover:bg-secondary/20 text-gray-700 dark:text-gray-200 dark:bg-gray-800 dark:hover:bg-Muharram_secondary/20 transition-all shadow-sm"
-        title="تكبير النص"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="size-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607ZM10.5 7.5v6m3-3h-6"
-          />
-        </svg>
-      </button>
-    </div>
-  </div>
-</div>
+              <div className="flex flex-col items-end gap-4">
+                <span className="px-3 py-1 bg-white top-2 rounded-full absolute text-sm font-semibold text-primary dark:text-Muharram_primary dark:border-Muharram_primary/20 border border-primary/20">
+                  {subject.id}
+                </span>
+                <div className="flex mt-5 self-end gap-3 items-center">
+                  {/* ✅ زر النسخ */}
 
+                  <div className="flex gap-3 items-center border rounded-xl px-2 py-1 bg-white shadow-sm dark:bg-gray-900 dark:border-gray-700">
+                    {/* زر تصغير */}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        decreaseFont();
+                      }}
+                      className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full hover:bg-secondary/20 text-gray-700 dark:text-gray-200 dark:bg-gray-800 dark:hover:bg-Muharram_secondary/20 transition-all shadow-sm"
+                      title="تصغير النص"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="size-6"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607ZM13.5 10.5h-6"
+                        />
+                      </svg>
+                    </button>
+                    <p className="text-sm">حجم الخط</p>
+                    {/* زر تكبير */}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        increaseFont();
+                      }}
+                      className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full hover:bg-secondary/20 text-gray-700 dark:text-gray-200 dark:bg-gray-800 dark:hover:bg-Muharram_secondary/20 transition-all shadow-sm"
+                      title="تكبير النص"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="size-6"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607ZM10.5 7.5v6m3-3h-6"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -148,7 +161,18 @@ export default function ModalButton({ subject }: { subject: Subject }) {
           </div>
 
           {/* زر الإغلاق */}
-          <div className="bg-gray-50 p-5 border-t border-gray-100 rounded-b-3xl flex justify-end">
+
+          <div className="bg-gray-50 p-5 border-t border-gray-100 rounded-b-3xl flex justify-between ">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                copyAll();
+              }}
+              className="px-5 py-2 bg-primary dark:bg-Muharram_primary text-white font-medium rounded-xl hover:bg-primary/90  dark:hover:bg-Muharram_primary/90 transition-all"
+              title="نسخ جميع العبارات"
+            >
+              {copied ? "✅ تم النسخ" : " نسخ "}
+            </button>
             <button
               onClick={() => setOpen(false)}
               className="px-5 py-2 bg-primary dark:bg-Muharram_primary text-white font-medium rounded-xl hover:bg-primary/90  dark:hover:bg-Muharram_primary/90 transition-all"

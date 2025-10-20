@@ -281,73 +281,82 @@ export default function StudentResearchPage() {
             </div>
           ) : (
             // ======= بطاقات =======
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <AnimatePresence>
-                {filteredData.map((item) =>
-                  item.translations.map((t) => (
-                    <motion.div
-                      key={item.id}
-                      layout
-                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
-                      className="relative bg-white dark:bg-gray-900 rounded-2xl p-6 border border-secondary/30 dark:border-secondary/20 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
-                    >
-                      {/* خلفية زخرفية خفيفة */}
-                      <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-transparent opacity-60 pointer-events-none" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+  <AnimatePresence>
+    {filteredData.map((item) =>
+      item.translations.map((t) => (
+        <motion.div
+          key={`${item.id}-${t.languageid}`}
+          layout
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          whileHover={{ y: -6 }}
+          className="relative bg-white/90 dark:bg-gray-900/90 
+                     border border-secondary/30 dark:border-secondary/20 
+                     rounded-2xl shadow-md hover:shadow-xl 
+                     transition-all duration-300 overflow-hidden"
+        >
+          {/* خلفية هوية بصرية */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-70 pointer-events-none" />
 
-                      {/* محتوى البطاقة */}
-                 <div className="flex flex-col justify-between h-full ">
-                     <div>
-                        <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
-                        {t.title}
-                      </h3>
-                      <div className="">
-                        <p className="text-gray-500 dark:text-gray-400 mb-1">
-                          <span className="text-secondary"> المؤلف </span>:{" "}
-                          {t.authors.join(", ")}
-                        </p>
-                      </div>
-                      <div className="flex justify-between">
-                        <p className="text-gray-500 dark:text-gray-400 mb-1">
-                          <span className="text-secondary"> الناشر </span> :{" "}
-                          {t.publicationVenue}
-                        </p>
-                        <p className="text-gray-500 dark:text-gray-400">
-                          <span className="text-secondary">  الدرجة العلمية</span> :{" "}
-                          {t.category}
-                        </p>
-                      </div>
-                    </div>
+          {/* المحتوى */}
+          <div className="relative p-6 flex flex-col justify-between h-full">
+            {/* العنوان */}
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4 leading-snug line-clamp-2">
+              {t.title}
+            </h3>
 
-                      {/* الزر */}
-                      <motion.button
-                        whileTap={{ scale: 0.96 }}
-                        whileHover={{
-                          backgroundPosition: "100% 0",
-                          transition: { duration: 0.4 },
-                        }}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          openPdf(item);
-                        }}
-                        className="mt-6 flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl 
-                                   bg-gradient-to-r from-primary via-secondary/90 to-primary
-                                   bg-[length:200%_100%] text-white font-medium 
-                                   shadow-md hover:shadow-lg w-full
-                                   transition-all duration-300 disabled:opacity-50"
-                      >
-                        <FaFilePdf className="text-lg " />
-                        <span>عرض PDF</span>
-                      </motion.button>
-                 </div>
-                    </motion.div>
-                  ))
-                )}
-              </AnimatePresence>
+            {/* التفاصيل */}
+            <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+              <p>
+                <span className="font-semibold text-secondary">المؤلف:</span>{" "}
+                {t.authors.join(", ")}
+              </p>
+              <p>
+                <span className="font-semibold text-secondary">الناشر:</span>{" "}
+                {t.publicationVenue}
+              </p>
+              {t.category && (
+                <p>
+                  <span className="font-semibold text-secondary">
+                    الدرجة العلمية:
+                  </span>{" "}
+                  {t.category}
+                </p>
+              )}
             </div>
+
+            {/* فاصل زخرفي */}
+            <div className="my-5 border-t border-secondary/20" />
+
+            {/* الزر */}
+            <motion.button
+              whileTap={{ scale: 0.97 }}
+              whileHover={{
+                backgroundPosition: "100% 0",
+                transition: { duration: 0.4 },
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                openPdf(item);
+              }}
+              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 
+                         rounded-xl bg-primary hover:border-secondary border-3
+                         bg-[length:200%_100%] text-white font-medium 
+                         shadow hover:shadow-lg transition-all duration-300"
+            >
+              <FaFilePdf className="text-lg" />
+              <span>عرض PDF</span>
+            </motion.button>
+          </div>
+        </motion.div>
+      ))
+    )}
+  </AnimatePresence>
+</div>
+
           )}
         </div>
       </div>
