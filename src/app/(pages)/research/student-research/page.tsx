@@ -14,8 +14,6 @@ import { FaFilePdf } from "react-icons/fa";
 import studentData from "@/data/student.json";
 import Breadcrumbs from "@/components/breadcrumb";
 
-
-
 export default function StudentResearchPage() {
   const [activeTab, setActiveTab] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
@@ -79,12 +77,9 @@ export default function StudentResearchPage() {
         const title = t.title.toLowerCase();
         const authors = t.authors.join(", ").toLowerCase();
         const venue = t.publicationVenue.toLowerCase();
-  
-      
+
         return (
-          title.includes(term) ||
-          authors.includes(term) ||
-          venue.includes(term) 
+          title.includes(term) || authors.includes(term) || venue.includes(term)
         );
       })
     );
@@ -208,14 +203,14 @@ export default function StudentResearchPage() {
               <table className="w-full table-auto">
                 <thead>
                   <tr className="text-sm font-semibold   text-gray-700 dark:text-gray-200 border-b">
-                     <th className="px-4 py-3 text-center w-12">ت</th>
+                    <th className="px-4 py-3 text-center w-12">ت</th>
                     <th className="px-4 py-3 text-right w-80">اسم البحث</th>
                     <th className="px-4 py-3 text-right w-56">المؤلف</th>
                     <th className="px-4 py-3 text-right">الناشر</th>
-                       <th className="px-4 py-3 text-right">اللغة</th>
+                    <th className="px-4 py-3 text-right">اللغة</th>
                     <th className="px-4 py-3 text-right">المستوى العلمي</th>
                     <th className="px-4 py-3 text-right">تاريخ الاصدار</th>
-                       <th className="px-4 py-3 text-right">عدد الصفحات</th>
+                    <th className="px-4 py-3 text-right">عدد الصفحات</th>
                     <th className="px-4 py-3 text-center"></th>
                   </tr>
                 </thead>
@@ -241,7 +236,7 @@ export default function StudentResearchPage() {
                               rowRefs.current[item.id] = el;
                             }}
                           >
-                               <td className="px-4 py-4 text-center align-top">
+                            <td className="px-4 py-4 text-center align-top">
                               <div
                                 className={`w-8 h-8  rounded-full flex items-center justify-center text-sm font-medium bg-gray-100 dark:bg-gray-700`}
                               >
@@ -252,14 +247,22 @@ export default function StudentResearchPage() {
                             <td className="px-4 py-3 text-right">
                               {t.authors.join(", ")}
                             </td>
-                       
-                            <td className="px-4 py-3 text-right">{t.publicationVenue}</td>
-                                 <td className="px-4 py-3 text-right">{t.language} </td>
-                            <td className="px-4 py-3 text-right">{t.category}</td>
+
+                            <td className="px-4 py-3 text-right">
+                              {t.publicationVenue}
+                            </td>
+                            <td className="px-4 py-3 text-right">
+                              {t.language}{" "}
+                            </td>
+                            <td className="px-4 py-3 text-right">
+                              {t.category}
+                            </td>
                             <td className="px-4 py-3  text-right">
                               {item.publishedYear}
                             </td>
-                            <td className="px-4 py-3 text-right" >{t.pagenam} </td>
+                            <td className="px-4 py-3 text-right">
+                              {t.pagenam}{" "}
+                            </td>
                             <td className="px-4 py-3 flex justify-center  ">
                               <button
                                 onClick={(e) => {
@@ -267,7 +270,7 @@ export default function StudentResearchPage() {
                                   openPdf(item);
                                 }}
                                 className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r  disabled:opacity-50 text-secondary font-medium  hover:shadow-lg  transform"
-                                >
+                              >
                                 <FaFilePdf /> PDF
                               </button>
                             </td>
@@ -281,82 +284,85 @@ export default function StudentResearchPage() {
             </div>
           ) : (
             // ======= بطاقات =======
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-  <AnimatePresence>
-    {filteredData.map((item) =>
-      item.translations.map((t) => (
-        <motion.div
-          key={`${item.id}-${t.languageid}`}
-          layout
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          whileHover={{ y: -6 }}
-          className="relative bg-white/90 dark:bg-gray-900/90 
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              <AnimatePresence>
+                {filteredData.map((item) =>
+                  item.translations.map((t) => (
+                    <motion.div
+                      key={`${item.id}-${t.languageid}`}
+                      layout
+                      initial={{ opacity: 0, y: 25 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
+                      whileHover={{ y: -6 }}
+                      className="relative bg-white/90 dark:bg-gray-900/90 
                      border border-secondary/30 dark:border-secondary/20 
                      rounded-2xl shadow-md hover:shadow-xl 
                      transition-all duration-300 overflow-hidden"
-        >
-          {/* خلفية هوية بصرية */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-70 pointer-events-none" />
+                    >
+                      {/* خلفية هوية بصرية */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-70 pointer-events-none" />
 
-          {/* المحتوى */}
-          <div className="relative p-6 flex flex-col justify-between h-full">
-            {/* العنوان */}
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4 leading-snug line-clamp-2">
-              {t.title}
-            </h3>
+                      {/* المحتوى */}
+                      <div className="relative p-6 flex flex-col justify-between h-full">
+                        {/* العنوان */}
+                        <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4 leading-snug line-clamp-2">
+                          {t.title}
+                        </h3>
 
-            {/* التفاصيل */}
-            <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-              <p>
-                <span className="font-semibold text-secondary">المؤلف:</span>{" "}
-                {t.authors.join(", ")}
-              </p>
-              <p>
-                <span className="font-semibold text-secondary">الناشر:</span>{" "}
-                {t.publicationVenue}
-              </p>
-              {t.category && (
-                <p>
-                  <span className="font-semibold text-secondary">
-                    الدرجة العلمية:
-                  </span>{" "}
-                  {t.category}
-                </p>
-              )}
-            </div>
+                        {/* التفاصيل */}
+                        <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                          <p>
+                            <span className="font-semibold text-secondary">
+                              المؤلف:
+                            </span>{" "}
+                            {t.authors.join(", ")}
+                          </p>
+                          <p>
+                            <span className="font-semibold text-secondary">
+                              الناشر:
+                            </span>{" "}
+                            {t.publicationVenue}
+                          </p>
+                          {t.category && (
+                            <p>
+                              <span className="font-semibold text-secondary">
+                                الدرجة العلمية:
+                              </span>{" "}
+                              {t.category}
+                            </p>
+                          )}
+                        </div>
 
-            {/* فاصل زخرفي */}
-            <div className="my-5 border-t border-secondary/20" />
+                        {/* فاصل زخرفي */}
+                        <div className="my-5 border-t border-secondary/20" />
 
-            {/* الزر */}
-            <motion.button
-              whileTap={{ scale: 0.97 }}
-              whileHover={{
-                backgroundPosition: "100% 0",
-                transition: { duration: 0.4 },
-              }}
-              onClick={(e) => {
-                e.stopPropagation();
-                openPdf(item);
-              }}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 
+                        {/* الزر */}
+                        <motion.button
+                          whileTap={{ scale: 0.97 }}
+                          whileHover={{
+                            backgroundPosition: "100% 0",
+                            transition: { duration: 0.4 },
+                          }}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            openPdf(item);
+                          }}
+                          className="w-full flex items-center justify-center gap-2 px-4 py-2.5 
                          rounded-xl bg-primary hover:border-secondary border-3
                          bg-[length:200%_100%] text-white font-medium 
                          shadow hover:shadow-lg transition-all duration-300"
-            >
-              <FaFilePdf className="text-lg" />
-              <span>عرض PDF</span>
-            </motion.button>
-          </div>
-        </motion.div>
-      ))
-    )}
-  </AnimatePresence>
-</div>
-
+                        >
+                          <FaFilePdf className="text-lg" />
+                          <span>عرض PDF</span>
+                        </motion.button>
+                      </div>
+                    </motion.div>
+                  ))
+                )}
+              </AnimatePresence>
+            </div>
           )}
         </div>
       </div>

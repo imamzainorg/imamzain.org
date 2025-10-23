@@ -1,33 +1,36 @@
 "use client";
 
-import Breadcrumbs from "@/components/breadcrumb";
-import { Research } from "@/types/research";
-import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { SearchIcon, X } from "lucide-react";
-import { Dialog } from "@headlessui/react";
 import { useState, useEffect } from "react";
-import researchData from "@/data/research.json";
+import { Dialog } from "@headlessui/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
+import { SearchIcon, X, Calendar, User, Building } from "lucide-react";
 import { LuBookOpenText } from "react-icons/lu";
 
+import Breadcrumbs from "@/components/breadcrumb";
+import { Research } from "@/types/research";
+import researchData from "@/data/research.json";
 
 export default function UploadedResearchPage() {
+  //  الحالة
   const [research, setResearch] = useState<Research[]>([]);
-  const [searchTerm, setSearchTerm] = useState("");
   const [filteredResearch, setFilteredResearch] = useState<Research[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [selectedSummary, setSelectedSummary] = useState<Research | null>(null);
 
+  //  تحميل البيانات
   useEffect(() => {
     setResearch(researchData);
     setFilteredResearch(researchData);
   }, []);
 
-  // البحث
+  //  البحث
   useEffect(() => {
     if (!searchTerm.trim()) {
       setFilteredResearch(research);
       return;
     }
+
     const term = searchTerm.toLowerCase();
     const results = research.filter((item) =>
       [item.title, item.author, item.conference, item.section, item.topic]
@@ -35,13 +38,16 @@ export default function UploadedResearchPage() {
         .toLowerCase()
         .includes(term)
     );
+
     setFilteredResearch(results);
   }, [searchTerm, research]);
 
+  //  كشف اللغة العربية
   const isArabic = (text: string) => /[\u0600-\u06FF]/.test(text);
 
   return (
-    <div className="py-14 px-4">
+    <div className="container dark:bg-gray-900">
+      {/*  المسار */}
       <Breadcrumbs
         links={[
           { name: "الصفحة الرئيسية", url: "/" },
@@ -49,108 +55,302 @@ export default function UploadedResearchPage() {
         ]}
       />
 
-      {/* العنوان وشريط البحث */}
-      <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 pb-5">
-        <h1 className="text-primary dark:text-Muharram_primary text-3xl font-bold">
+      {/*  العنوان الرئيسي */}
+      <div className="text-center mb-12 mt-6">
+        <h1 className="text-4xl font-bold text-primary dark:text-Muharram_primary mb-4">
           البحوث المرفوعة
         </h1>
-        <div className="col-span-1 w-full md:col-span-3 md:w-72 relative lg:mb-4">
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full rounded-2xl md:text-sm lg:text-lg p-2 bg-transparent border border-primary focus:border-primary dark:border-Muharram_primary dark:focus:border-Muharram_primary outline-none"
-            placeholder="البحث عن البحوث"
-          />
-          <div className="absolute text-primary dark:text-Muharram_primary left-0 top-0 pl-3 h-full flex justify-center items-center gap-4">
-            <div className="h-2/3 w-[1px] bg-slate-400" />
-            <SearchIcon size={20} strokeWidth={1.5} />
+      </div>
+
+      <div className="bg-white/70 border-2 rounded-3xl">
+        {/*  شريط البحث */}
+
+        <div className="  overflow-hidden ">
+          <div className="px-6 py-4 ">
+            <div className="flex flex-col lg:flex-row  justify-between items-center gap-6">
+              <div className="relative w-full lg:w-96">
+                <SearchIcon
+                  size={20}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-300"
+                />
+                {searchTerm && (
+                  <button
+                    onClick={() => setSearchTerm("")}
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
+                  >
+                    <X size={18} />
+                  </button>
+                )}
+                <input
+                  type="text"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  placeholder="ابحث في البحوث بالمؤلف، العنوان، أو المجال..."
+                  className="w-full rounded-xl text-lg p-4 pl-10 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:border-primary dark:focus:border-Muharram_primary focus:ring-2 focus:ring-primary/20 dark:focus:ring-Muharram_primary/20 outline-none transition-all duration-200"
+                />
+              </div>
+              <div className="text-right mb-4">
+                <span className="text-gray-700 dark:text-gray-200 border-b-2 font-medium">
+                  عدد البحوث : {filteredResearch.length}
+                </span>
+              </div>
+              <div className="text-sm text-gray-500 dark:text-gray-400">
+                انقر على الصف لتحديده - انقر مرتين لفتح الملف
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* البحوث */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {filteredResearch.map((item, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-2xl w-full h-full min-h-[270px] p-5 flex flex-col shadow-md"
-          >
-            <h1 className={`text-xl font-bold ${isArabic(item.title) ? "text-right" : "text-left"}`}>
-              {item.title}
-            </h1>
-            <p className="text-sm text-gray-700 mt-2 mb-2">{item.conference}</p>
-            <p className="text-sm line-clamp-3 text-gray-600 mb-2">
-              {item.part} - {item.section} {item.topic}
-            </p>
-            <div className="text-sm text-neutral-500 flex flex-col lg:flex-row justify-between items-start lg:items-center mt-2 mb-2">
-              <p>اسم الباحث: {item.author}</p>
-              <p>تاريخ النشر: {item.publishedYear}</p>
-            </div>
-            <p className="text-sm text-gray-700">{item.authorDescription}</p>
-            <div className="flex-grow" />
-            <hr className="border border-neutral-400 w-full my-4" />
-            <div className="mt-auto w-full flex flex-col sm:flex-row justify-end gap-2">
-              <button
-                onClick={() => setSelectedSummary(item)}
-                className="flex-1 min-w-[120px] px-4 py-2 rounded-lg transition-colors flex items-center justify-center gap-2
-                 bg-primary/10 text-primary hover:bg-primary/20
-                 dark:bg-Muharram_primary/15 dark:text-Muharram_primary dark:hover:bg-Muharram_primary/25"
+        <hr></hr>
+        {/*  عرض البحوث */}
+        {filteredResearch.length > 0 ? (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-3  rounded-2xl mt-6">
+            {filteredResearch.map((item, index) => (
+              <div
+                key={index}
+                className="group bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 hover:border-primary/20 dark:hover:border-Muharram_primary/20"
               >
-                <LuBookOpenText />
-                قراءة الملخص
-              </button>
-              <a
-                href={item.pdfUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 min-w-[100px] px-4 py-2 rounded-lg transition-colors flex items-center justify-center gap-2
-                 bg-primary text-white hover:bg-primary/90
-                 dark:bg-Muharram_primary dark:hover:bg-Muharram_primary/60"
-              >
-                <FontAwesomeIcon icon={faFilePdf} className="text-[16px]" />
-                PDF
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
+                <div className="p-6 flex flex-col h-full">
+                  {/*  رأس البطاقة */}
+                  <div className="flex-1">
+                    <div className="flex items-start justify-between mb-3">
+                      <span className="px-3 py-1 bg-primary/10 dark:bg-Muharram_primary/20 text-primary dark:text-Muharram_primary rounded-full text-xs font-medium">
+                        {item.conference}
+                      </span>
+                    </div>
 
-      {/* نافذة الملخص */}
-      <Dialog open={!!selectedSummary} onClose={() => setSelectedSummary(null)} className="relative z-50">
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
-          <Dialog.Panel className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden shadow-xl">
-            <div className="p-6 border-b border-gray-200 flex justify-between items-center">
-              <Dialog.Title className="text-xl font-bold text-gray-900">ملخص البحث</Dialog.Title>
-              <button onClick={() => setSelectedSummary(null)} className="p-2 rounded-full hover:bg-gray-100 transition-colors">
-                <X className="w-6 h-6 text-gray-800" />
-              </button>
-            </div>
-            {selectedSummary && (
-              <div className="p-6 overflow-y-auto max-h-[60vh] space-y-4">
-                <h3 className="text-lg font-semibold text-gray-900">{selectedSummary.title}</h3>
-                <p className="text-sm text-gray-700">الباحث: {selectedSummary.author}</p>
-                <p className="text-gray-800 leading-relaxed whitespace-pre-line">{selectedSummary.abstract}</p>
+                    {/*  عنوان البحث */}
+                    <h3
+                      className={`text-lg font-bold text-gray-900 dark:text-white mb-3 line-clamp-2 leading-relaxed ${
+                        isArabic(item.title) ? "text-right" : "text-left"
+                      }`}
+                    >
+                      {item.title}
+                    </h3>
+
+                    {/*  تفاصيل البحث */}
+                    <div className="space-y-2 mb-4">
+                      <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+                        <User
+                          size={16}
+                          className="text-primary dark:text-Muharram_primary"
+                        />
+                        <span>الباحث: {item.author}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+                        <Calendar
+                          size={16}
+                          className="text-primary dark:text-Muharram_primary"
+                        />
+                        <span>تاريخ النشر: {item.publishedYear}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+                        <Building
+                          size={16}
+                          className="text-primary dark:text-Muharram_primary"
+                        />
+                        <span className="line-clamp-1">
+                          {item.part} - {item.section} {item.topic}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/*  وصف الباحث */}
+                    {item.authorDescription && (
+                      <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-4 leading-relaxed">
+                        {item.authorDescription}
+                      </p>
+                    )}
+                  </div>
+
+                  {/*  الأزرار */}
+                  <div className="pt-4 border-t-[3.5px] border-gray-100 dark:border-gray-700">
+                    <div className="flex flex-col sm:flex-row gap-2">
+                      <button
+                        onClick={() => setSelectedSummary(item)}
+                        className="flex-1 px-10 h-10 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-primary/10 hover:text-primary dark:hover:bg-Muharram_primary/20 dark:hover:text-Muharram_primary font-medium"
+                      >
+                        <LuBookOpenText className="text-lg" />
+                        قراءة الملخص
+                      </button>
+
+                      <a
+                        href={item.pdfUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 px-4  rounded-xl transition-all duration-200 flex items-center justify-center gap-2 bg-primary dark:bg-Muharram_primary text-white hover:bg-primary/90 dark:hover:bg-Muharram_primary/90 font-medium shadow-md hover:shadow-lg"
+                      >
+                        <FontAwesomeIcon
+                          icon={faFilePdf}
+                          className="text-[16px]"
+                        />
+                        عرض PDF
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
-            )}
-            <div className="p-6 border-t border-gray-200 flex justify-end gap-2">
+            ))}
+          </div>
+        ) : (
+          //  لا توجد نتائج
+          <div className="flex flex-col items-center justify-center text-center py-16 bg-white dark:bg-gray-800 rounded-2xl shadow-lg mt-6">
+            <div className="w-24 h-24 bg-red-50 dark:bg-red-900/20 rounded-full flex items-center justify-center mb-6">
+              <SearchIcon size={40} className="text-red-500" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+              لا توجد بحوث مطابقة
+            </h3>
+            <p className="text-gray-500 dark:text-gray-400 max-w-md mb-6 leading-relaxed">
+              لم نتمكن من العثور على بحوث تطابق بحثك. حاول استخدام كلمات بحث
+              مختلفة أو تصفح جميع البحوث المتاحة.
+            </p>
+            <button
+              onClick={() => setSearchTerm("")}
+              className="px-8 py-3 rounded-xl bg-primary dark:bg-Muharram_primary text-white hover:bg-primary/90 dark:hover:bg-Muharram_primary/90 transition-colors font-medium shadow-md hover:shadow-lg"
+            >
+              عرض كل البحوث
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/*  نافذة الملخص */}
+      <Dialog
+        open={!!selectedSummary}
+        onClose={() => setSelectedSummary(null)}
+        className="relative z-50"
+      >
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+          <Dialog.Panel className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
+            {/* العنوان */}
+            <div className="p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center bg-gradient-to-r from-primary/5 to-Muharram_primary/5 dark:from-primary/10 dark:to-Muharram_primary/10">
+              <div>
+                <Dialog.Title className="text-2xl font-bold text-gray-900 dark:text-white">
+                  ملخص البحث
+                </Dialog.Title>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  تفاصيل البحث العلمي
+                </p>
+              </div>
               <button
                 onClick={() => setSelectedSummary(null)}
-                className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+                className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400"
               >
-                إغلاق
+                <X size={24} />
               </button>
-              {selectedSummary?.pdfUrl && (
-                <a
-                  href={selectedSummary.pdfUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-full hover:bg-gray-100 transition-colors text-red-600"
-                  title="تنزيل PDF"
-                >
-                  <FontAwesomeIcon icon={faFilePdf} className="text-lg" />
-                </a>
-              )}
+            </div>
+
+            {/* المحتوى */}
+            {selectedSummary && (
+              <div className="p-6 overflow-y-auto max-h-[60vh] space-y-6">
+                {/* معلومات البحث */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                  <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                      معلومات البحث
+                    </h4>
+                    <div className="space-y-2 text-sm">
+                      <div className="">
+                        <span className="text-gray-500 dark:text-gray-400">
+                          المؤتمر:
+                        </span>
+                        <span className="text-gray-900 mr-2 dark:text-white">
+                          {selectedSummary.conference}
+                        </span>
+                      </div>
+                      <div className="">
+                        <span className="text-gray-500 dark:text-gray-400">
+                          القسم:
+                        </span>
+                        <span className="text-gray-900 mr-2 dark:text-white">
+                          {selectedSummary.section}
+                        </span>
+                      </div>
+                      <div className="">
+                        <span className="text-gray-500 dark:text-gray-400">
+                          الجزء:
+                        </span>
+                        <span className="text-gray-900 mr-2 dark:text-white">
+                          {selectedSummary.part}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                      معلومات النشر
+                    </h4>
+                    <div className="space-y-2 text-sm">
+                      <div className="">
+                        <span className="text-gray-500 dark:text-gray-400">
+                          الباحث:
+                        </span>
+                        <span className="text-gray-900 mr-2 dark:text-white">
+                          {selectedSummary.author}
+                        </span>
+                      </div>
+                      <div className="">
+                        <span className="text-gray-500 dark:text-gray-400">
+                          سنة النشر : 
+                        </span>
+                        <span className="text-gray-900 mr-2 dark:text-white">
+                           {selectedSummary.publishedYear}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* العنوان */}
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 leading-relaxed">
+                  {selectedSummary.title}
+                </h3>
+
+                {/* الملخص */}
+            <div>
+  <h4 className="font-semibold text-gray-900 dark:text-white mb-3 text-lg">
+    الملخص
+  </h4>
+  <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
+    <div
+      className="text-gray-800 dark:text-gray-200 leading-relaxed whitespace-pre-line text-justify"
+      dangerouslySetInnerHTML={{ __html: selectedSummary.abstract }}
+    />
+  </div>
+</div>
+
+              </div>
+            )}
+
+            {/* الفوتر */}
+            <div className="p-6 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700/50">
+              <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div className="text-sm text-gray-500 dark:text-gray-400">
+                  اضغط على زر PDF لتنزيل البحث الكامل
+                </div>
+
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => setSelectedSummary(null)}
+                    className="px-6 py-2 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors font-medium"
+                  >
+                    إغلاق
+                  </button>
+
+                  {selectedSummary?.pdfUrl && (
+                    <a
+                      href={selectedSummary.pdfUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-6 py-2 bg-primary dark:bg-Muharram_primary text-white rounded-xl hover:bg-primary/90 dark:hover:bg-Muharram_primary/90 transition-colors font-medium flex items-center gap-2 shadow-md hover:shadow-lg"
+                    >
+                      <FontAwesomeIcon icon={faFilePdf} className="text-lg" />
+                      فتح البحث الكامل (PDF)
+                    </a>
+                  )}
+                </div>
+              </div>
             </div>
           </Dialog.Panel>
         </div>
@@ -159,7 +359,8 @@ export default function UploadedResearchPage() {
   );
 }
 
-{/*
+{
+  /*
 export default function Page() {
   // فلترة البحوث حسب الفئة
   const conferenceResearch = researchData.filter(
@@ -214,8 +415,13 @@ export default function Page() {
           { name: "ارشيف البحوث", url: "/research/Conference-Papers" },
         ]}
       />
-*/}
-      {/* شريط البحث */}{/*
+*/
+}
+{
+  /* شريط البحث */
+}
+{
+  /*
       <div className="flex flex-col sm:flex-row justify-between gap-4 mb-4 items-center">
         <div className="w-full sm:w-72 relative">
           <input
@@ -247,8 +453,13 @@ export default function Page() {
       </div>
 
       <hr className="border-1 mb-5" />
-*/}
-      {/* لا توجد نتائج */}{/*
+*/
+}
+{
+  /* لا توجد نتائج */
+}
+{
+  /*
       {filteredResearch.length === 0 && (
         <div className="text-center py-10">
           <div className="bg-gray-100 dark:bg-Muharram_primary/20 p-6 rounded-xl inline-block">
@@ -265,8 +476,13 @@ export default function Page() {
           </div>
         </div>
       )}
-*/}
-      {/* قائمة البحوث */} {/*
+*/
+}
+{
+  /* قائمة البحوث */
+}
+{
+  /*
       <div className="grid grid-cols-1 sm:grid-cols-2  gap-6">
         <AnimatePresence>
           {filteredResearch.map((researchItem) =>
@@ -277,8 +493,13 @@ export default function Page() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 className="relative bg-white dark:bg-gray-800 rounded-2xl w-full min-h-[200px]  flex flex-col shadow-md hover:shadow-xl transition-shadow cursor-pointer overflow-hidden"
-              >*/} 
-            {/* العنوان داخل الـ Gradient الأخضر */}{/*
+              >*/
+}
+{
+  /* العنوان داخل الـ Gradient الأخضر */
+}
+{
+  /*
 <div className="w-full bg-gradient-to-r from-primary to-primary/40 dark:from-Muharram_primary/50 dark:to-Muharram_primary/20 rounded-t-2xl flex items-center justify-center p-2 h-24">
   <h1
     className="text-lg m-2 font-bold text-white text-center break-words"
@@ -286,13 +507,23 @@ export default function Page() {
     {t.title}
   </h1>
 </div>
-*/}
-                {/* جهة النشر */}{/* 
+*/
+}
+{
+  /* جهة النشر */
+}
+{
+  /* 
                 <p className="text-sm text-gray-600 dark:text-gray-300 mt-3 p-2 mb-3">
                   جهة النشر: {t.publicationVenue || "غير محدد"}
                 </p>
-*/}
-                {/* الباحث وتاريخ النشر مع أيقونات */} {/*
+*/
+}
+{
+  /* الباحث وتاريخ النشر مع أيقونات */
+}
+{
+  /*
                 <div className="flex flex-col p-2 sm:flex-row items-start sm:items-center justify-between gap-2 mb-3 text-neutral-600 dark:text-gray-300">
                   <div className="flex items-center gap-2">
                     <span className="text-primary dark:text-Muharram_primary">
@@ -312,7 +543,10 @@ export default function Page() {
                   </div>
                 </div>
 
-                {/* كلمات مفتاحية */} {/*
+                {/* كلمات مفتاحية */
+}
+{
+  /*
                 {t.keywords && t.keywords.length > 0 && (
                   <div className="flex flex-wrap gap-1 sm:gap-2 mb-3">
                     {t.keywords.map((kw, i) => (
@@ -326,7 +560,10 @@ export default function Page() {
                   </div>
                 )}
 
-                {/* أزرار التفاعل */} {/*
+                {/* أزرار التفاعل */
+}
+{
+  /*
                 <div className="mt-auto w-full flex flex-col  p-2 sm:flex-row justify-end gap-2 z-10 relative">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
@@ -364,7 +601,10 @@ export default function Page() {
         </AnimatePresence>
       </div>
 
-      {/* نافذة الملخص */} {/*
+      {/* نافذة الملخص */
+}
+{
+  /*
       <Dialog
         open={!!selectedSummary}
         onClose={() => setSelectedSummary(null)}
@@ -402,7 +642,10 @@ export default function Page() {
                   ].authors?.join(", ")}
                 </p>
 
-                {/* كلمات مفتاحية */} {/*
+                {/* كلمات مفتاحية */
+}
+{
+  /*
                 {selectedSummary.researchItem.translations[
                   selectedSummary.translationIndex
                 ].keywords?.length > 0 && (
@@ -461,4 +704,5 @@ export default function Page() {
     </div>
   );
 }
-                */}
+                */
+}

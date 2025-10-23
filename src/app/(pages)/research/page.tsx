@@ -29,9 +29,11 @@ const sections = [
 			{ label: "ماجستير", href: "/research/student-research#master" },
 			{ label: "دكتوراه", href: "/research/student-research#phd" },
 		],
-	},
-
+	}
 	/*
+	,
+
+	
 	 {
 		title: "الدوريات العربية",
 		description: "اطّلع على مجموعة من الدوريات والمجلات العربية المحكمة.",
