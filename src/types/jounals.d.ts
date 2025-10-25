@@ -1,7 +1,7 @@
 declare module "@/types/jounals" {
 export type Jounals = {
   id: string;
-  slug: string;
+
   translations: {
     languageid: number;
     language: string;

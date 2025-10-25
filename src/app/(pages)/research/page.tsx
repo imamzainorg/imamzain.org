@@ -30,7 +30,7 @@ const sections = [
 			{ label: "دكتوراه", href: "/research/student-research#phd" },
 		],
 	}
-	/*
+
 	,
 
 	
@@ -41,7 +41,7 @@ const sections = [
 		icon: "📚",
 		subLinks: [{ label: "دوريات عامة", href: "/research/journals" }],
 	},
-	*/
+
 ]
 
 export default function Page() {
@@ -63,7 +63,7 @@ export default function Page() {
 				<h1 className="text-3xl md:text-4xl font-bold text-center text-primary dark:text-Muharram_primary mb-16">
 					الارشفة والتوثيق
 				</h1>
-				<div className=" gap-10 grid grid-cols-1 md:grid-cols-2">
+				<div className=" gap-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
 					{sections.map((section, index) => (
 						<motion.div
 							key={index}
