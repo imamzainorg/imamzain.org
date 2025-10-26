@@ -70,7 +70,7 @@ export default function Page() {
 							initial={{ opacity: 0, y: 40 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ delay: index * 0.2 }}
-							className="relative bg-white dark:bg-gray-900 rounded-3xl shadow-xl overflow-hidden cursor-pointer group/card"
+							className="relative bg-white dark:bg-Muharram_primary rounded-3xl shadow-xl overflow-hidden cursor-pointer group/card"
 							whileHover={{ scale: 1.03, y: -5 }}
 						>
 							<Link href={section.href}>
@@ -85,7 +85,7 @@ export default function Page() {
 
 									{/* العنوان والسهم */}
 									<div className="flex items-center justify-center gap-2 mb-2">
-										<h2 className="text-xl font-bold text-primary dark:text-Muharram_primary">
+										<h2 className="text-xl font-bold text-primary dark:text-white">
 											{section.title}
 										</h2>
 										{section.subLinks &&
@@ -110,12 +110,12 @@ export default function Page() {
 								</div>
 							</Link>
 
-							{/* القوائم الفرعية - تظهر دائمًا بشكل واضح */}
+							{/* القوائم الفرعية  */}
 							{section.subLinks &&
 								section.subLinks.length > 0 && (
 									<div className="px-6 pb-6 ">
 										<div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-											<h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3 text-center">
+											<h3 className="text-sm font-medium text-gray-500 dark:text-white mb-3 text-center">
 												أقسام فرعية
 											</h3>
 											<div className="flex flex-col gap-2">
@@ -137,7 +137,7 @@ export default function Page() {
 														>
 															<Link
 																href={sub.href}
-																className="flex items-center justify-between w-full py-2 px-4 rounded-xl bg-gray-50 hover:bg-primary/10 dark:bg-gray-800 dark:hover:bg-primary/20 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-Muharram_primary transition-all duration-300 group/link"
+																className="flex items-center justify-between w-full py-2 px-4 rounded-xl bg-gray-50 hover:bg-primary/10 dark:bg-Muharram_secondary dark:hover:bg-Muharram_secondary/20 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-all duration-300 group/link"
 															>
 																<span className="text-sm font-medium">
 																	{sub.label}
@@ -216,7 +216,7 @@ export default function Page() {
 									size={70}
 									strokeWidth={1}
 									className="mb-5"
-									color="#BA9560"
+									color="#BA9560 "
 								/>
 							),
 						},
@@ -224,7 +224,7 @@ export default function Page() {
 						<motion.div
 							key={index}
 							whileHover={{ scale: 1.05 }}
-							className="text-center flex flex-col items-center w-72 p-6 rounded-2xl bg-white dark:bg-gray-900 shadow hover:shadow-xl transition"
+							className="text-center flex flex-col items-center w-72 p-6 text-Muharram_secondary rounded-2xl bg-white dark:bg-Muharram_primary dark:text-white shadow hover:shadow-xl transition"
 						>
 							{item.icon}
 							<h1 className="text-xl font-bold">{item.title}</h1>
