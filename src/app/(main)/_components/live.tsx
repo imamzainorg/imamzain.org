@@ -62,7 +62,7 @@ export default function Live() {
 						<div className="absolute inset-0 bg-gradient-to-t from-[#00663055] via-transparent to-transparent" />
 						<div className="flex flex-col items-center">
 							<div className="border-2 border-red-600 rounded-full p-2 group-hover:scale-105 duration-500">
-								<div className="bg-white rounded-full p-4">
+								<div className="bg-white transform scale-x-[-1] rounded-full p-4">
 									<PlayButtonIcon
 										className="rotate-180 w-4 lg:w-6 xl:w-8 h-auto"
 										fill="#ff0000"

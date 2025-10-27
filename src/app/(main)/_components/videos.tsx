@@ -102,13 +102,13 @@ export default function Videos({
 											</div>
 
 											<div className="h-1/2 w-full flex justify-start items-end p-3">
-												<div className="bg-white dark:hidden rounded-full rotate-180 p-2">
+												<div className="bg-white transform scale-x-[-1] dark:hidden rounded-full rotate-180 p-2">
 													<PlayButtonIcon
 														fill="#006654"
 														className="w-auto h-auto"
 													/>
 												</div>
-												<div className="bg-white hidden dark:block rounded-full rotate-180 p-2">
+												<div className="bg-white transform scale-x-[-1]  hidden  dark:block rounded-full rotate-180 p-2">
 													<PlayButtonIcon
 														fill="#231F20"
 														className="w-auto h-auto"
