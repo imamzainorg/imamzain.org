@@ -14,7 +14,9 @@ import hadiths from "@/data/hadiths.json";
 import AnimatedTextSection from "@/components/animated-text";
 import { Featured } from "./_components/featured";
 const desktopImages = [
-  "/images/majls-aza.jpg",
+ // "/images/majls-aza.jpg",
+  "/images/Fatima-'s-martyrdom-2.jpg",
+"/images/Fatima-'s-martyrdom-1.jpg",
   "/images/albaqi.jpg",
   // "/images/albaqi-2.png",
   // "/images/hero-3.jpg", // لمحات
@@ -27,7 +29,9 @@ const desktopImages = [
 ];
 
 const mobileImages = [
-  "/images/majls-aza-1.jpg",
+  //"/images/majls-aza-1.jpg",
+    "/images/Fatima-'s-martyrdom-2.jpg",
+"/images/Fatima-'s-martyrdom-1.jpg",
   "/images/albaqi.jpg",
   // "/images/albaqi-2.png",
   // "/images/hero-3-vertical.jpg", // لمحات
