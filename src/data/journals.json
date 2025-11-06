@@ -1,5 +1,262 @@
 [
   {
+    "id": "113",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " ظاهرة البكاء عند الإمام السجاد (عليه‌ السلام) بالدراسة والتحليل, ودورها في التربية وتهذيب النفس . ",
+        "authors": ["ميثم خلف موسى"],
+        "publicationVenue": "مجلة القادسية للعلوم الإنسانية العدد 20 - مجلد 1",
+        "language": " عربي ",
+        "pagenam": 29
+      }
+    ],
+    "publishedYear": "2017 م",
+    "pdfUrl": "/research/journals/ظاهرة البكاء عند الامام السجاد ع.pdf"
+  },
+  {
+    "id": "114",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " الامامية عند الامام زين العابدين (عليه السلام) / دراسة تاريخية ",
+        "authors": ["رنا جبوري موسى"],
+        "publicationVenue": "مجلة القادسية - العدد 1- مجلد 20",
+
+        "language": " عربي ",
+        "pagenam": 12
+      }
+    ],
+    "publishedYear": "2017 م",
+    "pdfUrl": "/research/journals/الامامية عند الامام زين العابدين ع دراسة تاريخية.pdf"
+  },
+  {
+    "id": "115",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " ثقافة التسامح في فكر الامام السجاد  ( عليه السلام ) دراسة تحليلية  ",
+        "authors": ["طالب عبد الرضا كيطان"],
+        "publicationVenue": "مجلة القادسية للعلوم الإنسانية - العدد 1 -2017",
+
+        "language": " عربي ",
+        "pagenam": 21
+      }
+    ],
+    "publishedYear": "2017 م ",
+    "pdfUrl": "/research/journals/ثقافة التسامح في فكر الامام السجاد ع.pdf"
+  },
+  {
+    "id": "116",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  أسس نقد الأوجه النحوية في شروح الصحيفة السجادية ",
+        "authors": ["شعلان عبد علي سلطان ", " زياد قاسم دريس"],
+        "publicationVenue": "مجلة العلوم الإنسانية - العدد 2 - مجلد 24",
+
+        "language": " عربي ",
+        "pagenam": 19
+      }
+    ],
+    "publishedYear": "2017 م ",
+    "pdfUrl": "/research/journals/اسس نقد الاوجه النحوية في شروح الصحيفة السجادية.pdf"
+  },
+  {
+    "id": "117",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " الفكر السياسي عند الامام السجاد  ( عليه السلام )  ",
+        "authors": ["مازن قاسم مهلهل"],
+        "publicationVenue": "مجلة التراث العلمي العربي / العدد 4 - 2017 ",
+
+        "language": " عربي ",
+        "pagenam": 17
+      }
+    ],
+    "publishedYear": "2017 م",
+    "pdfUrl": "/research/journals/الفكر السياسي عند الامام السجاد ع.pdf"
+  },
+  {
+    "id": "118",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " القصدية التواصلية في دعاء عرفة للامام السجاد  ( عليه السلام ) مقاربة تداولية   ",
+        "authors": ["علي كاظم محمد المصلاوي", " عمار حسن الخزاعي"],
+        "publicationVenue": "مجلة العميد - العدد الخاص 6 - سنة 6 - مجلد 6 - 2017",
+
+        "language": " عربي ",
+        "pagenam": 38
+      }
+    ],
+    "publishedYear": "2017 م ",
+    "pdfUrl": "/research/journals/القصدية التواصلية في دعاء الامام السجاد ع.pdf"
+  },
+  {
+    "id": "119",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " التوجيه القيادي للإنسان في خطاب الامام السجاد ع ",
+        "authors": ["سلافة صائب العزاوي"],
+        "publicationVenue": "مجلة العميد - العدد الخاص 6 - سنة 6 - مجلد 6 - 2017",
+
+        "language": " عربي ",
+        "pagenam": 30
+      }
+    ],
+    "publishedYear": "2017 م ",
+    "pdfUrl": "/research/journals/التوجيه القيادي للانسان في خطاب الامام السجاد ع.pdf"
+  },
+  {
+    "id": "120",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  ملامح جغرافية في الصحيفة السجادية للامام علي بن الحسين بي علي بن ابي طالب ع",
+        "authors": ["رياض محمد علي المسعودي"],
+        "publicationVenue": "مجلة العميد - العدد الخاص 6 - سنة 6 - مجلد 6 - 2017",
+
+        "language": " عربي ",
+        "pagenam": 30
+      }
+    ],
+    "publishedYear": "2017 م ",
+    "pdfUrl": "/research/journals/ملامح جغرافية في الصحيفة السجادية للامام علي بن الحسين ع.pdf"
+  },
+  {
+    "id": "121",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " الروابط الحجاجية في رسالة الامام زين العابدين  ( عليه السلام ) الى محمد بن مسلم الزهري ",
+        "authors": ["عبد الاله عبد الوهاب العرداوي"],
+        "publicationVenue": "مجلة العميد - العدد الخاص 6 - سنة 6 - مجلد 6 - 2017 // كذلك مجلة القادسية - العدد 1- مجلد 20",
+
+        "language": " عربي ",
+        "pagenam": 25
+      }
+    ],
+    "publishedYear": "2017 م",
+    "pdfUrl": "/research/journals/الروابط الحجاجية في رسالة الامام زين العابدين ع الى محمد بن مسلم الزهري.pdf"
+  },
+  {
+    "id": "122",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " العناية بالقران الكريم عند الامام  السجاد  ( عليه السلام )  ",
+        "authors": ["عبد الله اليوسف"],
+        "publicationVenue": "مجلة العميد - العدد الخاص 6 - سنة 6 - مجلد 6 - 2017",
+
+        "language": " عربي ",
+        "pagenam": 70
+      }
+    ],
+    "publishedYear": "2017 م ",
+    "pdfUrl": "/research/journals/العناية بالقران الكريم عند الامام السجاد ع.pdf"
+  },
+  {
+    "id": "123",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  موقف الامام زين العابدين  ( عليه السلام ) من التعصب الديني دراسة تحليلية ",
+        "authors": ["نور مهدي كاظم الساعدي"],
+        "publicationVenue": "مجلة العميد - العدد الخاص 6 - سنة 6 - مجلد 6 - 2017",
+
+        "language": " عربي ",
+        "pagenam": 25
+      }
+    ],
+    "publishedYear": "2017 م",
+    "pdfUrl": "/research/journals/موقف الامام زين العابدين ع من التعصب الديني.pdf"
+  },
+  {
+    "id": "124",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " التماثل الدلالي للفعل في الصحيفة السجادية  ",
+        "authors": ["جعفر موسى عذيب"],
+        "publicationVenue": "مجلة العميد - العدد الخاص 6 - سنة 6 - مجلد 6 - 2017",
+
+        "language": " عربي ",
+        "pagenam": 40
+      }
+    ],
+    "publishedYear": "2017 م ",
+    "pdfUrl": "/research/journals/التماثل الدلالي للفعل في الصحيفة السجادية.pdf"
+  },
+  {
+    "id": "125",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام السجاد رائد الإصلاح الاجتماعي في العصر الاموي - دراسة من خلال رسالته   ",
+        "authors": ["حيدر لفته سعيد"],
+        "publicationVenue": "مجلة العميد - العدد 22- مجلد 6 - سنة 6 - 2017 ",
+
+        "language": " عربي ",
+        "pagenam": 54
+      }
+    ],
+    "publishedYear": "2017 م ",
+    "pdfUrl": "/research/journals/الامام السجاد ع رائد الاصلاح الاجتماعي في العصر الاموي.pdf"
+  },
+  {
+    "id": "126",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " اثر السبك في بناء النص النثري ",
+        "authors": ["عبد الكريم جديع النفاخ "],
+        "publicationVenue": "مجلة كلية الفقه العدد 25",
+
+        "language": " عربي ",
+        "pagenam": 20
+      }
+    ],
+    "publishedYear": "2017 م",
+    "pdfUrl": "/research/journals/اثر السبك في بناص النص النثري الصحيفة السجادية انموذجا.pdf"
+  },
+  {
+    "id": "127",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " الامام السجاد  ( عليه السلام ) ودوره في اصلاح المجتمع الإسلامي ",
+        "authors": ["لينا امير عبد الحسين "],
+        "publicationVenue": "مجلة ينابيع - السنة 14 - العدد 78 ",
+
+        "language": " عربي ",
+        "pagenam": 12
+      }
+    ],
+    "publishedYear": "2017 م",
+    "pdfUrl": "/research/journals/الامام السجاد ع ودوره في اصلاح المجتمع الاسلامي.pdf"
+  },
+  {
+    "id": "128",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " الكسب الغير المشروع في دعاء مكارم الاخلاق  ",
+        "authors": ["مرتضى علي الحلي"],
+        "publicationVenue": "مجلة الولاية - العدد 109 - السنة 11",
+
+        "language": " عربي ",
+        "pagenam": 2
+      }
+    ],
+    "publishedYear": "2017 م",
+    "pdfUrl": "/research/journals/الكسب غير المشروع في دعاء الامام السجاد ع.pdf"
+  },
+
+
+  {
     "id": "143",
     "translations": [
       {
@@ -157,7 +414,8 @@
       }
     ],
     "publishedYear": "2018 م",
-    "pdfUrl": "/research/journals/11- وحدة المسلمين عند  الإمام زين العابدين عليه السلام.pdf"  },
+    "pdfUrl": "/research/journals/11- وحدة المسلمين عند  الإمام زين العابدين عليه السلام.pdf"
+  },
   {
     "id": "153",
     "translations": [
@@ -3448,7 +3706,7 @@
     ],
     "publishedYear": "2025 م",
     "pdfUrl": "/research/journals/جمالية العنوان في الصحيفة السجادية.pdf"
-  }  ,
+  },
   {
     "id": "416",
     "translations": [
@@ -4453,5 +4711,4 @@
     "publishedYear": "",
     "pdfUrl": "/research/journals/الامام زين العابدين ع تجسيد لحقيقة الإسلام.pdf"
   }
-
 ]
