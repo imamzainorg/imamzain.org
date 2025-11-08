@@ -14,14 +14,13 @@ import hadiths from "@/data/hadiths.json";
 import AnimatedTextSection from "@/components/animated-text";
 import { Featured } from "./_components/featured";
 const desktopImages = [
- // "/images/majls-aza.jpg",
   "/images/Fatima-'s-martyrdom-2.jpg",
-"/images/Fatima-'s-martyrdom-1.jpg",
+  //"/images/Fatima-'s-martyrdom-1.jpg",
   "/images/albaqi.jpg",
   // "/images/albaqi-2.png",
   // "/images/hero-3.jpg", // لمحات
   // "/images/hero-9.jpg", // المباني السياسية
- // "/images/hero-4.jpg", // تراتيل القانتين
+  "/images/hero-4.jpg", // تراتيل القانتين
   "/images/hero-5.jpg", // البعد الاجتماعي
   "/images/hero-6.jpg", // ابي حمزة الثمالي
   "/images/hero-7.jpg", // بناء الامن النفسي
@@ -29,14 +28,13 @@ const desktopImages = [
 ];
 
 const mobileImages = [
-  //"/images/majls-aza-1.jpg",
-    "/images/Fatima-'s-martyrdom-2.jpg",
-"/images/Fatima-'s-martyrdom-1.jpg",
+  "/images/Fatima-'s-martyrdom-2.jpg",
+  //"/images/Fatima-'s-martyrdom-1.jpg",
   "/images/albaqi.jpg",
   // "/images/albaqi-2.png",
   // "/images/hero-3-vertical.jpg", // لمحات
   // "/images/hero-9-vertical.jpg", // المباني السياسية
-  //"/images/hero-4-vertical.jpg", // تراتيل القانتين
+  "/images/hero-4-vertical.jpg", // تراتيل القانتين
   "/images/hero-5-vertical.jpg", // البعد الاجتماعي
   "/images/hero-6-vertical.jpg", // ابي حمزة الثمالي
   "/images/hero-7-vertical.jpg", // بناء الامن النفسي
