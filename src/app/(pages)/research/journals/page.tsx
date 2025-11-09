@@ -99,7 +99,7 @@ export default function JounalsResearchPage() {
                 { name: "الصفحة الرئيسية", url: "/" },
                 { name: "البحث العلمي", url: "/research" },
                 {
-                  name: "موسوعة الإمام السجاد",
+                  name: "موسوعة الإمام السجاد (عليه السلام)",
                   url: "/research/imam-sajjad-encyclopedia",
                 },
               ]}
@@ -110,8 +110,7 @@ export default function JounalsResearchPage() {
                 <div className="flex items-center gap-4 mb-4">
                   <div>
                     <h1 className="text-3xl md:text-4xl font-extrabold leading-tight">
-                      موسوعة الإمام السجاد
-                    </h1>
+                      موسوعة الإمام السجاد (عليه السلام)                    </h1>
                     <p className="text-sm text-gray-500 dark:text-gray-300 mt-3">
                       الفهرس الشامل للمقالات والدراسات في الدوريات العربية
                     </p>
