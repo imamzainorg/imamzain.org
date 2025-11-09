@@ -1632,6 +1632,550 @@
     "publishedYear": "2018 م",
     "pdfUrl": "/research/journals/73- الرجوع الى الله تعالى.pdf"
   },
+{
+    "id": "215",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " مناجاة المريدين للامام زين العابدين  ( عليه السلام ) دراسة وتحليل ",
+        "authors": ["حسين جودي"],
+        "publicationVenue": "مجلة ينابيع",
+
+        "language": " عربي ",
+        "pagenam": 8
+      }
+    ],
+    "publishedYear": "2019 م",
+    "pdfUrl": "/research/journals/مناجاة المريدين للامام زين العابدين  ع دراسة وتحليل.pdf"
+  },
+  {
+    "id": "216",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  دلالة اسم الفاعل في دعاء الامام السجاد  ( عليه السلام ) في التضرع والاستكانة ",
+        "authors": ["فاطمة موسى عبد العباس "],
+        "publicationVenue": "مجلة كلية التربية الأساسية للعلوم الإنسانية - جامعة بابل - العدد 43 ",
+
+        "language": " عربي ",
+        "pagenam": 5
+      }
+    ],
+    "publishedYear": "2019 م",
+    "pdfUrl": "/research/journals/دلالة اسم الفاعل في دعاء الامام السجاد ع  في التضرع والاستكانة.pdf"
+  },
+  {
+    "id": "217",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التربية الاجتماعية والرواسب الجاهلية - دراسة اجتماعية للمعالجات الأخلاقية في فكر الامام السجاد  ( عليه السلام ) ",
+        "authors": ["سامي جبار محمد"],
+        "publicationVenue": "مجلة جله لارك للدراسات واللسانيات والعلوم الاجتماعية - العدد 35 - 2019 ",
+
+        "language": " عربي ",
+        "pagenam": 15
+      }
+    ],
+    "publishedYear": "2019 م",
+    "pdfUrl": "/research/journals/التربية الاجتماعية والرواسب الجاهلية - دراسة اجتماعية للمعالجات الأخلاقية في فكر الامام السجاد ع.pdf"
+  },
+  {
+    "id": "218",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " الإحالة النصية في ميمية الفرزدق في مدح زين العابدين ع ",
+        "authors": ["يسرى سالم مزهر"],
+        "publicationVenue": "مجلة كلية التربية للبنات - الجامعة العراقية - العدد 2 - مجلد 10 ",
+
+        "language": " عربي ",
+        "pagenam": 10
+      }
+    ],
+    "publishedYear": "2019 م",
+    "pdfUrl": "/research/journals/الإحالة النصية في ميمية الفرزدق في مدح زين العابدين ع.pdf"
+  },
+  {
+    "id": "219",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الحقيقة البلاغية في مدح الامام السجاد  ( عليه السلام ) في قصيدة الفرزدق  ",
+        "authors": ["ثائر سمير حسن الشمري ", " حسن عبد الهادي الدجيلي"],
+        "publicationVenue": "مجلة جامعة بابل للعلوم الإنسانية العدد4 مجلد 17 ",
+
+        "language": " عربي ",
+        "pagenam": 13
+      }
+    ],
+    "publishedYear": "2009 م",
+    "pdfUrl": "/research/journals/الراي الحر في قصيدة الفرزدق في مدح الامام السجاد ع.pdf"
+  },
+  {
+    "id": "220",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  المنهج النحوي للسيد ابن معصوم المدني في كتابه رياض السالكين في شرح صحيفة سيد الساجدين ",
+        "authors": ["فائزة ثعبان منسي "],
+        "publicationVenue": "مجلة دواة - العدد 44 - السنة 11",
+
+        "language": " عربي ",
+        "pagenam": 30
+      }
+    ],
+    "publishedYear": "2025 م",
+    "pdfUrl": "/research/journals/الحذف التداولي في الصحيفة السجادية.pdf"
+  },
+  {
+    "id": "221",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " دعاء اهل الثغور للامام زين العابدين  ( عليه السلام ) دراسة دلالية ",
+        "authors": ["احمد راضي جبر"],
+        "publicationVenue": "مجلة دواة مجلد 6 - العدد 22 - السنة 6",
+
+        "language": " عربي ",
+        "pagenam": 65
+      }
+    ],
+    "publishedYear": "2019 م",
+    "pdfUrl": "/research/journals/دعاء اهل الثغور للامام زين العابدين ع دراسة تداولية.pdf"
+  },
+  {
+    "id": "222",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " فكر الامام علي بن الحسين  ( عليه السلام ) واهميته مقاربة تربوية  ",
+        "authors": ["وسام علي حاتم المذخوري"],
+        "publicationVenue": "مجلة أبحاث ميسان العدد 29 -2019",
+
+        "language": " عربي ",
+        "pagenam": 28
+      }
+    ],
+    "publishedYear": "2019 م",
+    "pdfUrl": "/research/journals/فكر الامام علي بن الحسين ع واهميته مقاربة تربوية.pdf"
+  },
+  {
+    "id": "223",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " النفي في المناجاة الخمس عشرة الملحقة بالصحيفة السجادية - دراسة نحوية  ",
+        "authors": ["وداد حامد عطشان السلامي"],
+        "publicationVenue": "مجلة كلية الفقه العدد 31 - السنة 11",
+
+        "language": " عربي ",
+        "pagenam": 17
+      }
+    ],
+    "publishedYear": "2019 م",
+    "pdfUrl": "/research/journals/النفي في المناجاة الخمس عشرة الملحقة بالصحيفة السجادية - دراسة نحوية.pdf"
+  },
+  {
+    "id": "224",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " جمالية التكرار والياته في دعاء أبو حمزه الثمالي ",
+        "authors": ["الهام صالحي نجف ابادي ", " نصر الله شاملي"],
+        "publicationVenue": "مجلة الاداب العدد 130- ملحق 1",
+
+        "language": " عربي ",
+        "pagenam": 22
+      }
+    ],
+    "publishedYear": "2019 م",
+    "pdfUrl": "/research/journals/جمالية التكرار والياته في دعاء ابي حمزة الثمالي.pdf"
+  },
+  {
+    "id": "225",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " الموازنة بين نهج البلاغة والصحيفة السجادية وفقا لنظريتي بوزيمان وجونسون ",
+        "authors": ["عيسى متقي زاده ", " علي حاجي خاني ", " سمية مديري"],
+        "publicationVenue": "مجلة افاق الحضارة الإسلامية - العدد 2 - السنة 22 - 1441 هـ",
+
+        "language": " عربي ",
+        "pagenam": 26
+      }
+    ],
+    "publishedYear": "1441 هـ",
+    "pdfUrl": "/research/journals/الموازنة بين نهج البلاغة والصحيفة السجادية وفقا لنظريتي بوزيمان وجونسون.pdf"
+  },
+  {
+    "id": "226",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " تعدد التوجيه النحوي لشبه الجملة في شروح الصحيفة السجادية  ",
+        "authors": ["زياد قاسم دريس الطائي"],
+        "publicationVenue": "مجلة تسليم العدد 13,14-مجلد 7 - سنة 4 - 2020",
+
+        "language": " عربي ",
+        "pagenam": 27
+      }
+    ],
+    "publishedYear": "2020 م",
+    "pdfUrl": "/research/journals/تعدد التوجيه النحوي لشبه الجملة في شروح الصحيفة السجادية.pdf"
+  },
+  {
+    "id": "227",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " معيار المجاهدين لدى الإمام زين العابدين من القرآن المبين مقدمة في التربية العسكرية ",
+        "authors": ["علي فاخر محسن الجزائري "],
+        "publicationVenue": "مجلة كلية التربية للبنات للعلوم الإنسانية - الكوفة  - العدد 26- مجلد 2",
+
+        "language": " عربي ",
+        "pagenam": 22
+      }
+    ],
+    "publishedYear": "2020 م",
+    "pdfUrl": "/research/journals/معيار المجاهدين لدى الامام زين العابدين ع من القران المبن مقدمة في التربية العسكرية.pdf"
+  },
+  {
+    "id": "228",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " العفو عند الامام السجاد  ( عليه السلام ) انموذجا",
+        "authors": [""],
+        "publicationVenue": "جريدة الصباح العراقية",
+
+        "language": " عربي ",
+        "pagenam": 3
+      }
+    ],
+    "publishedYear": "",
+    "pdfUrl": "/research/journals/العفو عند الامام السجاد ع.pdf"
+  },
+  {
+    "id": "229",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " تربية الأولاد في الصحيفة السجادية  ",
+        "authors": ["جواد مطر الموسوي"],
+        "publicationVenue": "مجلة ينابيع - السنة 14 - العدد 75",
+
+        "language": " عربي ",
+        "pagenam": 3
+      }
+    ],
+    "publishedYear": "2017 م",
+    "pdfUrl": "/research/journals/تربية الاولاد في الصحيفة السجادية.pdf"
+  },
+  {
+    "id": "230",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  شعرية الاداء التصويري في كلام علي بن الحسين - المناجات الخمس عشرة اختيارا",
+        "authors": ["عقيل جاسم دهش"],
+        "publicationVenue": "مجلة مركز دراسات الكوفة العدد 57- مجلد 1",
+
+        "language": " عربي ",
+        "pagenam": 38
+      }
+    ],
+    "publishedYear": "2020 م",
+    "pdfUrl": "/research/journals/شعرية الاداء التصويري في كلام علي بن الحسين ع المناجاة الخمس عشرة اختيارا.pdf"
+  },
+  {
+    "id": "231",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " الاستمالات الايقاعية في خطبة الامام السجاد  ( عليه السلام ) في الكوفة",
+        "authors": ["صفاء حسين لطيف ", " حيدر شلال متعب"],
+        "publicationVenue": "مجلة دراسات إسلامية معاصرة - العدد 25 - 2022 ",
+
+        "language": " عربي ",
+        "pagenam": 18
+      }
+    ],
+    "publishedYear": "2020 م",
+    "pdfUrl": "/research/journals/الاستمالات الايقاعية في خطبة الامام السجاد ع في الكوفة.pdf"
+  },
+  {
+    "id": "232",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " الفقه السياسي للمنظومة الحركية للإمام زين العابدين ع ",
+        "authors": ["حيدر محمد علي السهلاني"],
+        "publicationVenue": "مجلة حولية المنتدى - جمعية المنتدى الوطني - العدد 43",
+
+        "language": " عربي ",
+        "pagenam": 50
+      }
+    ],
+    "publishedYear": "2020 م",
+    "pdfUrl": "/research/journals/الفقه السياسي للمنظومة الحركية للامام زين العابدين ع.pdf"
+  },
+  {
+    "id": "233",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " فضاءات التفكر والتأمل في دعاء المعصوم قراءة في نموذج من الصحيفة السجادية  ",
+        "authors": ["علي مجيد البديري"],
+        "publicationVenue": "مجلة ينابيع - السنة 14 - العدد 75",
+
+        "language": " عربي ",
+        "pagenam": 7
+      }
+    ],
+    "publishedYear": "2017 م",
+    "pdfUrl": "/research/journals/"
+  },
+  {
+    "id": "234",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " دلالة المشترك اللفظي في دعاء مكارم الاخلاق للإمام زين العابدين علي بن الحسين ع ",
+        "authors": ["حوراء مهدي الكوفي"],
+        "publicationVenue": "مجلة مركز دراسات الكوفة العدد 60- مجلد 1",
+
+        "language": " عربي ",
+        "pagenam": 25
+      }
+    ],
+    "publishedYear": "2021 م",
+    "pdfUrl": "/research/journals/"
+  },
+  {
+    "id": "235",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  العقل السيادي فكر إسلامي يصب في رسالة الحقوق ",
+        "authors": ["زينة عبد الكاظم داود "],
+        "publicationVenue": "مجلة الدراسات التاريخية والحضارية - العدد 50- مجلد 1 - 2021 ",
+
+        "language": " عربي ",
+        "pagenam": 26
+      }
+    ],
+    "publishedYear": "2021 م",
+    "pdfUrl": "/research/journals/"
+  },
+  {
+    "id": "236",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  الاقتضاء التداولي في خطبة الإمام علي بن الحسين السجاد   ( عليه السلام ) في مجلس يزيد",
+        "authors": ["كاظم جاسم منصور العزاوي"],
+        "publicationVenue": "مجلة جامعة بابل للدراسات الإنسانية العدد 12 - مجلد 29",
+
+        "language": " عربي ",
+        "pagenam": 10
+      }
+    ],
+    "publishedYear": "2021 م",
+    "pdfUrl": "/research/journals/"
+  },
+  {
+    "id": "237",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " صفات النبي محمد ص في الصحيفة السجادية - دراسة لغوية  ",
+        "authors": ["حميد يوسف إبراهيم"],
+        "publicationVenue": "مجلة تسليم العدد 17،18-مجلد 9 - سنة 5 - 2021",
+
+        "language": " عربي ",
+        "pagenam": 32
+      }
+    ],
+    "publishedYear": "2021 م",
+    "pdfUrl": "/research/journals/"
+  },
+  {
+    "id": "238",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " المذهب الكلامي في الخطاب السياسي الديني - خطبة الامام السجاد في الشام - مقاربة حجاجية ",
+        "authors": ["امل سلمان حسان"],
+        "publicationVenue": "مجلة تسليم العدد 17،18-مجلد 9 - سنة 5 - 2021 ",
+
+        "language": " عربي ",
+        "pagenam": 25
+      }
+    ],
+    "publishedYear": "2021 م",
+    "pdfUrl": "/research/journals/"
+  },
+  {
+    "id": "239",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " توظيف الصورة الفنية لدلالة الانا والأخر في الصحيفة السجادية ",
+        "authors": ["عبود جودي الحلي ", " حسن هادي مجيد"],
+        "publicationVenue": "مجلة دواة  - العدد 27 - مجلد 7 ",
+
+        "language": " عربي ",
+        "pagenam": 17
+      }
+    ],
+    "publishedYear": "2021 م",
+    "pdfUrl": "/research/journals/"
+  },
+  {
+    "id": "240",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  فحص معاني الحروف في الدعاء الثاني والاربعون في الصحيفة السجادية دراسة حالة تستند الى المخططات التصويرية في نظرية جونسون",
+        "authors": ["ليلا مريدي زاده"],
+        "publicationVenue": "مجلة اداب الكوفة العدد 47 - ج1 ",
+
+        "language": " عربي ",
+        "pagenam": 16
+      }
+    ],
+    "publishedYear": "2021 م",
+    "pdfUrl": "/research/journals/"
+  },
+  {
+    "id": "241",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  حقوق الانسان في منهج اهل البيت  ( عليه السلام ) الامام علي بن الحسين السجاد  ( عليه السلام ) انموذجا ",
+        "authors": ["سلمى داود سلمان "],
+        "publicationVenue": "مجلة الترا ث العلمي العربي - العدد 50 - 2021 ",
+
+        "language": " عربي ",
+        "pagenam": 42
+      }
+    ],
+    "publishedYear": "2021 م",
+    "pdfUrl": "/research/journals/"
+  },
+  {
+    "id": "242",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  نظرة على النموذج الإسلامي للشخصية المثالية في دعاء مكارم الاخلاق للامام السجاد  ( عليه السلام ) ",
+        "authors": ["زهرا دهقان بنادكي"],
+        "publicationVenue": "مجلة الكلية الإسلامية الجامعة العدد 59 - ج1",
+
+        "language": " عربي ",
+        "pagenam": 28
+      }
+    ],
+    "publishedYear": "2021 م",
+    "pdfUrl": "/research/journals/"
+  },
+  {
+    "id": "243",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " اثار الاعتقاد بالمعاد وطرق اثباته عند الامام السجاد  ( عليه السلام ) الصحيفة السجادية انموذجا ",
+        "authors": ["جاسم حسن طعمة"],
+        "publicationVenue": "مجلة الكلية الإسلامية الجامعة العدد 59 -مجلد 2",
+
+        "language": " عربي ",
+        "pagenam": 22
+      }
+    ],
+    "publishedYear": "2021 م",
+    "pdfUrl": "/research/journals/"
+  },
+  {
+    "id": "244",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "اليات الحجاج في خطاب الامام السجاد  ( عليه السلام ) رسالة الحقوق انموذجا  ",
+        "authors": ["فراس نوري إبراهيم"],
+        "publicationVenue": "مجلة الكلية الإسلامية الجامعة العدد 60 - مجلد 2 ",
+
+        "language": " عربي ",
+        "pagenam": 18
+      }
+    ],
+    "publishedYear": "2021 م",
+    "pdfUrl": "/research/journals/"
+  },
+  {
+    "id": "245",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  صورة الامام السجاد  ( عليه السلام ) في شعر شعراء الشيعة المعاصرين في العراق بالاعتماد على التقنيات التعبيرية للتشبيه والاستعارة والكناية",
+        "authors": ["رضا مظفر نيا "],
+        "publicationVenue": "مجلة الكلية الإسلامية الجامعة العدد 63 - مجلد 2 ",
+
+        "language": " عربي ",
+        "pagenam": 20
+      }
+    ],
+    "publishedYear": "2021",
+    "pdfUrl": "/research/journals/"
+  },
+  {
+    "id": "246",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " دلالة الإيحاء النصي في مناجات العارفين للامام علي بن الحسين  ( عليه السلام )  ",
+        "authors": ["قاسم صاحب كريم الاسدي "],
+        "publicationVenue": "مجلة اداب المستنصرية - العدد 93 - مجلد 45",
+
+        "language": " عربي ",
+        "pagenam": 21
+      }
+    ],
+    "publishedYear": "2021 م",
+    "pdfUrl": "/research/journals/"
+  },
+  {
+    "id": "247",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  الرقي الأخلاقي في شخصية الامام السجاد ع",
+        "authors": ["عمار كاظم عبد الحسين "],
+        "publicationVenue": "مجلة الولاية - العدد 154 - السنة 13",
+
+        "language": " عربي ",
+        "pagenam": 1
+      }
+    ],
+    "publishedYear": "2021 م",
+    "pdfUrl": "/research/journals/"
+  },
+  {
+    "id": "248",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " سلطة اللغة في الصحيفة السجادية مقاربة تداولية  ",
+        "authors": ["صادق عباس الطريحي"],
+        "publicationVenue": "كلية التربية جامعة القادسية ",
+
+        "language": " عربي ",
+        "pagenam": 18
+      }
+    ],
+    "publishedYear": "2021 م",
+    "pdfUrl": "/research/journals/"
+  },
 
   {
     "id": "269",
