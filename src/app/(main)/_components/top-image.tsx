@@ -65,7 +65,7 @@ export default function TopImage({
 	}, [desktopImages, mobileImages])
 
 	// Hadith should show only on first Image
-	const showHadith = currentImageIndex === 1 //|| currentImageIndex === 1
+	const showHadith = currentImageIndex === 0 //|| currentImageIndex === 1
 
 	const nextImage = useCallback(() => {
 		setPrevImageIndex(currentImageIndex)
