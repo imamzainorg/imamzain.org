@@ -1,5 +1,1049 @@
 [
   {
+    "id": "1",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  لمع من كلام الامام علي بن الحسين  ( عليه السلام ) ",
+        "authors": [""],
+        "publicationVenue": "مجلة العدل الإسلامي العدد 5 - السنة 1",
+
+        "language": "عربي",
+        "pagenam": 1
+      }
+    ],
+    "publishedYear": "1947 م",
+    "pdfUrl": "/research/journals/لمع من كلام الامام علي بن الحسين ع.pdf"
+  },
+  {
+    "id": "2",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "نبذة من مواعظ الامام الرابع الامام علي بن الحسين  ( عليه السلام )   ",
+        "authors": ["الداعي بهاء الدين اللاري"],
+        "publicationVenue": "مجلة اجوبة المسائل الدينية العدد 3 السنة 2",
+
+        "language": "عربي",
+        "pagenam": 1
+      }
+    ],
+    "publishedYear": "1377 هـ",
+    "pdfUrl": "/research/journals/نبذة من مواعظ الامام الرابع الامام علي بن الحسين ع.pdf"
+  },
+  {
+    "id": "3",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  النبي ص يستقبل شهر رمضان ويقدمه للمسلمين - دعاء الامام زين العابدين  ( عليه السلام ) في استقبال شهر رمضان ",
+        "authors": [""],
+        "publicationVenue": "مجلة النجف الاشرف ",
+
+        "language": "عربي",
+        "pagenam": 6
+      }
+    ],
+    "publishedYear": "1963 م",
+    "pdfUrl": "/research/journals/النبي ص يستقبل شهر رمضان ويقدمه للمسلمين.pdf"
+  },
+  {
+    "id": "4",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " الى متى تبقى قبور أئمة المسلمين مهدومة في البقيع ",
+        "authors": ["مجتبى الحسيني "],
+        "publicationVenue": "نشرت صوت المبلغين - العدد 6 - كربلاء",
+
+        "language": "عربي",
+        "pagenam": 4
+      }
+    ],
+    "publishedYear": "1382 ه",
+    "pdfUrl": "/research/journals/الى متى تبقى قبور ائمة المسلمين مهدومة في البقيع.pdf"
+  },
+  {
+    "id": "5",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " ذكرى وفاة الامام زين العابدين  ( عليه السلام )  ",
+        "authors": ["لفيف من الروحانين في كربلاء المقدسة"],
+        "publicationVenue": "مجلة ذكريات المعصومين  ( عليه السلام ) خاصة بمواليد الائمة ووفياتهم العدد 6 - السنة الأولى ",
+
+        "language": "عربي",
+        "pagenam": 35
+      }
+    ],
+    "publishedYear": "1385 هـ - 1389 هـ",
+    "pdfUrl": "/research/journals/ذكرى وفاة الامام زين العابدين ع.pdf"
+  },
+  {
+    "id": "6",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " الصحيفة السجادية  ",
+        "authors": ["حسين علي محفوظ الكاظمي البغدادي"],
+        "publicationVenue": "مجلة البلاغ العدد / 6 - 7 - 8-10",
+
+        "language": "عربي",
+        "pagenam": 68
+      }
+    ],
+    "publishedYear": "1966 م",
+    "pdfUrl": "/research/journals/الصحيفة السجادية.pdf"
+  },
+  {
+    "id": "7",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " اثر القران في الصحيفة السجادية  ",
+        "authors": ["كاصد الزيدي"],
+        "publicationVenue": "رسالة الإسلام العدد1+2 / السنة 5",
+
+        "language": "عربي",
+        "pagenam": 17
+      }
+    ],
+    "publishedYear": "",
+    "pdfUrl": "/research/journals/اثر القران في الصحيفة السجادية.pdf"
+  },
+  {
+    "id": "8",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  طريق الهداية خلال الصحيفة السجادية ",
+        "authors": ["جودت القزويني"],
+        "publicationVenue": "مجلة رسالة الإسلام العدد 1+26 / السنة 6",
+
+        "language": "عربي",
+        "pagenam": 16
+      }
+    ],
+    "publishedYear": "1972 م",
+    "pdfUrl": "/research/journals/طريق الهداية خلال الصحيفة السجادية.pdf"
+  },
+  {
+    "id": "9",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " صفحة من المصحف المنسوب للامام زين العابدين  ( عليه السلام )  ",
+        "authors": [""],
+        "publicationVenue": "مجلة الموسم - اكاديمية الكوفة ",
+
+        "language": "عربي",
+        "pagenam": 1
+      }
+    ],
+    "publishedYear": "",
+    "pdfUrl": "/research/journals/صفحة من المصحف المنسوب للامام زين  زين العابدين ع.pdf"
+  },
+  {
+    "id": "10",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " جهاد الامام السجاد ع ",
+        "authors": ["رعد المظفر"],
+        "publicationVenue": "مجلة الفكر الإسلامي - السنة 2 - العدد 5 - مجلد 13 ",
+
+        "language": "عربي",
+        "pagenam": 8
+      }
+    ],
+    "publishedYear": "1415 هـ",
+    "pdfUrl": "/research/journals/جهاد الامام السجاد ع - حياة الامام زين العابدين ع.pdf"
+  },
+  {
+    "id": "11",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " مشاركة شعرية بمناسبة ميلاد الامام السجاد  ( عليه السلام )  ",
+        "authors": ["مهند رياض الياسري"],
+        "publicationVenue": "جريدة الكوثر - العدد 9 - السنة 3",
+
+        "language": "عربي",
+        "pagenam": 1
+      }
+    ],
+    "publishedYear": "1998 م",
+    "pdfUrl": "/research/journals/مشاركة شعرية بمناسبة ميلاد الامام السجاد ع.pdf"
+  },
+  {
+    "id": "12",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  الامام زين العابدين  ( عليه السلام ) ",
+        "authors": ["نجاح مرزه أبو صيبع "],
+        "publicationVenue": "مجلة ندوة اهل البيت الاطهار  ( عليه السلام ) العدد 6- السنة 1",
+
+        "language": "عربي",
+        "pagenam": 2
+      }
+    ],
+    "publishedYear": "1425 هـ",
+    "pdfUrl": "/research/journals/الامام زين العابدين ع.pdf"
+  },
+  {
+    "id": "13",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " الندبة الأولى للامام علي بن الحسين  ( عليه السلام )  ",
+        "authors": ["فارس حسون كريم"],
+        "publicationVenue": "مجلة تراثنا - العدد 58 - سنة 14 - 1420 هـ ",
+
+        "language": "عربي",
+        "pagenam": 30
+      }
+    ],
+    "publishedYear": "1420 هـ",
+    "pdfUrl": "/research/journals/الندبة الاولى للامام علي بن الحسين ع.pdf"
+  },
+  {
+    "id": "14",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " قراءة في رسالة الحقوق للامام زين العابدين  ( عليه السلام )  ",
+        "authors": ["حيدر عادل "],
+        "publicationVenue": "مجلة النبأ - العدد 63 - 2001 م",
+
+        "language": "عربي",
+        "pagenam": 16
+      }
+    ],
+    "publishedYear": "2001 م",
+    "pdfUrl": "/research/journals/قراءة في رسالة الحقوق للامام زين العابدين ع.pdf"
+  },
+  {
+    "id": "15",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " الادب السياسي عند الامام زين العابدين  ( عليه السلام )  ",
+        "authors": [""],
+        "publicationVenue": "مجلة فيض الكوثر - السنة 5 - العدد 74",
+
+        "language": "عربي",
+        "pagenam": 1
+      }
+    ],
+    "publishedYear": "2003 م",
+    "pdfUrl": "/research/journals/الادب السياسي عند الامام زين العابدين ع.pdf"
+  },
+  {
+    "id": "16",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " الاغتراب في شعر الامام السجاد  ( عليه السلام )  ",
+        "authors": ["عامر صلال راهي الحسناوي"],
+        "publicationVenue": "مجلة القادسية - العدد 1-2- مجلد 8  ",
+
+        "language": "عربي",
+        "pagenam": 14
+      }
+    ],
+    "publishedYear": "2005 م",
+    "pdfUrl": "/research/journals/الاغتراب في شعر الامام السجاد ع.pdf"
+  },
+  {
+    "id": "17",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " سجاد البقيع ثرى بلا قباب  ",
+        "authors": ["نوال هاشم الحسيني"],
+        "publicationVenue": "مجلة الصديقة العدد 15 - السنة 2",
+
+        "language": "عربي",
+        "pagenam": 2
+      }
+    ],
+    "publishedYear": "1426 هـ",
+    "pdfUrl": "/research/journals/سجاد البقيع ثرى بلا قباب.pdf"
+  },
+  {
+    "id": "18",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " الدعاء واللغة الايحائية سلاح الامام السجاد  ( عليه السلام ) بوجه الطغيان الاموي  ",
+        "authors": ["وسن محمد موسى العابدي "],
+        "publicationVenue": "مجلة الصديقة العدد 34 - السنة 3",
+
+        "language": "عربي",
+        "pagenam": 2
+      }
+    ],
+    "publishedYear": "1427 هـ",
+    "pdfUrl": "/research/journals/الدعاء واللغة الايحائية سلام الامام السجاد ع.pdf"
+  },
+  {
+    "id": "19",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " في رحاب الامام علي بن الحسين  ( عليه السلام )  ",
+        "authors": ["لمياء والي حسين "],
+        "publicationVenue": "مجلة الصديقة العدد 39 - السنة 4",
+
+        "language": "عربي",
+        "pagenam": 2
+      }
+    ],
+    "publishedYear": "1428 هـ",
+    "pdfUrl": "/research/journals/في رحاب الامام علي بن الحسين ع.pdf"
+  },
+  {
+    "id": "20",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " في ذكرى وفاة الامام السجاد  ( عليه السلام )  ",
+        "authors": ["مريم عطشان كاظم"],
+        "publicationVenue": "مجلة الصديقة العدد 51 - السنة 5",
+
+        "language": "عربي",
+        "pagenam": 1
+      }
+    ],
+    "publishedYear": "1429 هـ",
+    "pdfUrl": "/research/journals/في ذكرى وفاة الامام السجاد ع.pdf"
+  },
+  {
+    "id": "21",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "كتاب سليم بن قيس   ",
+        "authors": ["محمد علي الحلو"],
+        "publicationVenue": "مجلة ينابيع - السنة 3 - العدد 12 ",
+
+        "language": "عربي",
+        "pagenam": 1
+      }
+    ],
+    "publishedYear": "2006 م",
+    "pdfUrl": "/research/journals/كتاب سليم بن قيس  الهلالي.pdf"
+  },
+  {
+    "id": "22",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الصحيفة السجادية للامام زين العابدين  ( عليه السلام ) ملحمة المعارف وذخيرة العطاء  الحي   ",
+        "authors": ["محمد علي الحلو"],
+        "publicationVenue": "مجلة ينابيع - السنة 3 - العدد 13 ",
+
+        "language": "عربي",
+        "pagenam": 6
+      }
+    ],
+    "publishedYear": "2006 م",
+    "pdfUrl": "/research/journals/الصحيفة السجادية للامام زين العابدين ع ملحمة المعارف وذخيرة العطاء الحي.pdf"
+  },
+  {
+    "id": "23",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " الاعلام الجلية في اصالة نسخة الشهيد  للصحيفة السجادية ",
+        "authors": ["حسن البروجردي"],
+        "publicationVenue": "مجلة تراثنا - العدد 89-90- السنة 23- 1428 هـ",
+
+        "language": "عربي",
+        "pagenam": 115
+      }
+    ],
+    "publishedYear": "1428 هـ ",
+    "pdfUrl": "/research/journals/الاعلام الجلية في اصالة نسخة الشهيد للصحيفة السجادية.pdf"
+  },
+  {
+    "id": "24",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " زين العابدين علي بن الحسين  ( عليه السلام )  ",
+        "authors": [""],
+        "publicationVenue": "مجلة الولاية العدد 8 - السنة 1",
+
+        "language": "عربي",
+        "pagenam": 1
+      }
+    ],
+    "publishedYear": "1428 هـ",
+    "pdfUrl": "/research/journals/زين العابدين ع علي بن الحسين ع.pdf"
+  },
+  {
+    "id": "25",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  في رحاب الصحيفة السجادية ",
+        "authors": ["مهدي ذيبان علي"],
+        "publicationVenue": "مجلة انصار الحجة العدد 3-4-5-6 - السنة 1",
+
+        "language": "عربي",
+        "pagenam": 6
+      }
+    ],
+    "publishedYear": "1425 هـ",
+    "pdfUrl": "/research/journals/في رحاب الصحيفة السجادية.pdf"
+  },
+  {
+    "id": "26",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " أدوار مضيئة في حياة الامام السجاد  ( عليه السلام )  ",
+        "authors": ["ثائر عبد السادة شامخ "],
+        "publicationVenue": "مجلة انصار الحجة العدد 5 - السنة 1",
+
+        "language": "عربي",
+        "pagenam": 1
+      }
+    ],
+    "publishedYear": "1425 هـ ",
+    "pdfUrl": "/research/journals/انوار مضيئة في حياة الامام السجاد ع.pdf"
+  },
+  {
+    "id": "27",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " الامام السجاد  ( عليه السلام ) احزان سيد الساجدين  ( عليه السلام )  ",
+        "authors": [""],
+        "publicationVenue": "مجلة الولاية العدد 13 - السنة 2",
+
+        "language": "عربي",
+        "pagenam": 2
+      }
+    ],
+    "publishedYear": "1429 هـ",
+    "pdfUrl": "/research/journals/الامام السجاد ع احزان سيد الساجدين ع.pdf"
+  },
+  {
+    "id": "28",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " زين العابدين علي بن الحسين  ( عليه السلام )  ",
+        "authors": [""],
+        "publicationVenue": "مجلة الولاية العدد 8 - السنة 1",
+
+        "language": "عربي",
+        "pagenam": 1
+      }
+    ],
+    "publishedYear": "1428 هـ",
+    "pdfUrl": "/research/journals/زين العابدين ع علي بن الحسين ع.pdf"
+  },
+  {
+    "id": "29",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " ملامح من الحياة الاسرية علاقة الإباء والابناء - دراسة في ضوء الصحيفة السجادية للامام زين العابدين  ( عليه السلام )  ",
+        "authors": ["شكري ناصر عبد الحسن "],
+        "publicationVenue": "مجلة دراسات تاريخية - العدد 7 - 2009",
+
+        "language": "عربي",
+        "pagenam": 21
+      }
+    ],
+    "publishedYear": "2009 م",
+    "pdfUrl": "/research/journals/ملامح من الحياة الاسرية علاقة الاباء والابناء.pdf"
+  },
+  {
+    "id": "30",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " المكون القصري الآخر  - ضمير الفصل - دراسة تحليلية مقاربة في دلالة التركيب القصري في الصحيفة السجادية",
+        "authors": ["عماد جبار كاظم"],
+        "publicationVenue": "مجلة كلية التربية - جامعة واسط  - العدد 5 - مجلد 1",
+
+        "language": "عربي",
+        "pagenam": 20
+      }
+    ],
+    "publishedYear": "2009 م",
+    "pdfUrl": "/research/journals/المكون القصري الاخر ضمير الفصل.pdf"
+  },
+  {
+    "id": "31",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " تاملات قانونية في رسالة الحقوق للامام زين العابدين  ( عليه السلام )  ",
+        "authors": ["عباس زبون العبودي"],
+        "publicationVenue": "مجلة رسالة الحقوق العلمية - العدد 1 - 2009 ",
+
+        "language": "عربي",
+        "pagenam": 15
+      }
+    ],
+    "publishedYear": "2009 م",
+    "pdfUrl": "/research/journals/تاملات قانونية في رسالة الحقوق.pdf"
+  },
+  {
+    "id": "32",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " حقوق الانسان في رسالة الحقوق للامام زين العابدين  ( عليه السلام )  ",
+        "authors": ["عبد الخالق حسين احمد"],
+        "publicationVenue": "مجلة كلية التربية الأساسية - العدد 65 - 2010 ",
+
+        "language": "عربي",
+        "pagenam": 24
+      }
+    ],
+    "publishedYear": "2010 م",
+    "pdfUrl": "/research/journals/حقوق الانسان في رسالة الحقوق.pdf"
+  },
+  {
+    "id": "33",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " ولادة الامام السجاد  ( عليه السلام ) في الكوفة  ",
+        "authors": ["رسول عبد السادة"],
+        "publicationVenue": "مجلة السفير - السنة 1 - العدد 4",
+
+        "language": "عربي",
+        "pagenam": 2
+      }
+    ],
+    "publishedYear": "2010 م",
+    "pdfUrl": "/research/journals/ولادة الامام السجاد ع في الكوفة.pdf"
+  },
+  {
+    "id": "34",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " مناجات التائبين والراجين للامام زين العابدين  ( عليه السلام ) - دراسة اسلوبية موازنة ",
+        "authors": ["حسن حميد محسن فياض - اسلام فاروق البياتي"],
+        "publicationVenue": "مجلة جامعة كربلاء العلمية العدد 1 - مجلد 9",
+
+        "language": "عربي",
+        "pagenam": 9
+      }
+    ],
+    "publishedYear": "2011 م",
+    "pdfUrl": "/research/journals/مناجات التائبين والراجين للامام زين العابدين ع.pdf"
+  },
+  {
+    "id": "35",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  اهل البيت  ( عليه السلام ) في الصحيفة السجادية قراءة تاويلية",
+        "authors": ["حاكم حبيب الكريطي "],
+        "publicationVenue": "مجلة اهل البيت  ( عليه السلام ) - العدد 12",
+
+        "language": "عربي",
+        "pagenam": 10
+      }
+    ],
+    "publishedYear": "2012 م",
+    "pdfUrl": "/research/journals/اهل البيت ع في الصحيفة السجادية.pdf"
+  },
+  {
+    "id": "36",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " أساليب الامر والنهي والاستفهام في جزء من الصحيفة السجادية الأيام المباركة انموذجا ",
+        "authors": ["باقر جواد الزجاجي ", " محمد حسن الاسدي"],
+        "publicationVenue": "مجلة اهل البيت العدد 12",
+
+        "language": "عربي",
+        "pagenam": 12
+      }
+    ],
+    "publishedYear": "2012 م",
+    "pdfUrl": "/research/journals/اساليب الامر والنهي والاستفهام.pdf"
+  },
+  {
+    "id": "37",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " تحقيق وتوثيق شعر الامام علي بن الحسين السجاد  ( عليه السلام ) - ت 95 هـ  ",
+        "authors": ["عادل لعيبي سلمان الربيعي"],
+        "publicationVenue": "مجلة حولية المنتدى - العدد 9-10 / مجلد 1",
+
+        "language": "عربي",
+        "pagenam": 42
+      }
+    ],
+    "publishedYear": "2012 م",
+    "pdfUrl": "/research/journals/تحقيق وتوثيق  شعر الامام علي بن الحسين ع.pdf"
+  },
+  {
+    "id": "38",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " فكرة الخصومة في رسالة الحقوق للامام زين العابدين  ( عليه السلام )  ",
+        "authors": ["عباس زبون العبودي"],
+        "publicationVenue": "مجلة العلوم القانونية - العدد 1- مجلد 28",
+
+        "language": "عربي",
+        "pagenam": 22
+      }
+    ],
+    "publishedYear": "2013 م",
+    "pdfUrl": "/research/journals/فكرة الخصومة في رسالة الحقوق.pdf"
+  },
+  {
+    "id": "39",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " التقابل في الصحيفة السجادية واثره في الانسجام ",
+        "authors": ["مجيد محمد بايزيدي", " عيسى متقي زاده ", "  علي رضا رضايي"],
+        "publicationVenue": "مجلة دراسات في اللغة عربي وادابها - العدد 15 - 2013",
+
+        "language": "عربي",
+        "pagenam": 27
+      }
+    ],
+    "publishedYear": "2013 م",
+    "pdfUrl": "/research/journals/التقابل في الصحيفة السجادية واثره في الانسجام.pdf"
+  },
+  {
+    "id": "40",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تقنيات الأداء التصويري في مناجاة الامام علي بن الحسين  ( عليه السلام )   ",
+        "authors": ["عقيل جاسم دهش"],
+        "publicationVenue": "مجلة ينابيع العدد 57-58 - 1435 ",
+
+        "language": "عربي",
+        "pagenam": 5
+      }
+    ],
+    "publishedYear": "1435-2014",
+    "pdfUrl": "/research/journals/تقنيات الاداء التصويري في مناجاة الامام علي بن الحسين ع.pdf"
+  },
+  {
+    "id": "41",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مقام الامام زين العابدين  ( عليه السلام ) بين الامس واليوم   ",
+        "authors": ["حيدر الجد"],
+        "publicationVenue": "مجلة ينابيع العدد 57-58 - 1435 ",
+
+        "language": "عربي",
+        "pagenam": 8
+      }
+    ],
+    "publishedYear": "1435-2014",
+    "pdfUrl": "/research/journals/مقام الامام زين العابدين ع بين الامس واليوم.pdf"
+  },
+  {
+    "id": "42",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " الامام علي بن الحسين السجاد  ( عليه السلام ) وفريضة الحج  ",
+        "authors": ["طالب علي الشرقي"],
+        "publicationVenue": "مجلة ينابيع العدد 57-58 - 1435 ",
+
+        "language": "عربي",
+        "pagenam": 5
+      }
+    ],
+    "publishedYear": "1435 هـ",
+    "pdfUrl": "/research/journals/الامام زين العابدين ع وفريضة الحج.pdf"
+  },
+  {
+    "id": "43",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " وسائل الحجاج في خطب الامام علي بن الحسين  ( عليه السلام )  ",
+        "authors": ["هادي سعدون هنون العارضي"],
+        "publicationVenue": "مجلة مركز دراسات الكوفة العدد 33- مجلد 1",
+
+        "language": "عربي",
+        "pagenam": 30
+      }
+    ],
+    "publishedYear": "2014 م",
+    "pdfUrl": "/research/journals/وسائل الحجاج في خطب الامام علي بن الحسين ع.pdf"
+  },
+  {
+    "id": "44",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " دعاء الامام زين العابدين  ( عليه السلام ) لاهل الثغور",
+        "authors": ["حسن عبد الأمير الظالمي"],
+        "publicationVenue": "مجلة الولاية - العدد 83 - السنة 8",
+
+        "language": "عربي",
+        "pagenam": 2
+      }
+    ],
+    "publishedYear": "2014 م",
+    "pdfUrl": "/research/journals/دعاء الامام زين العابدين ع لاهل الثغور.pdf"
+  },
+  {
+    "id": "45",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " تجليات الانزياح في الصحيفة السجادية - دراسة اسلوبية  ",
+        "authors": [
+          "زهرا قاسم بيوندي",
+          " سيد محمد رضا ابن رسول ",
+          " محمد خاقاني"
+        ],
+        "publicationVenue": "مجلة اللغة عربي وادابها - العدد 3 - السنة 10- 1435 هـ",
+
+        "language": "عربي",
+        "pagenam": 16
+      }
+    ],
+    "publishedYear": "1435 هـ",
+    "pdfUrl": "/research/journals/تجليات الانزياح في الصحيفة السجادية.pdf"
+  },
+  {
+    "id": "46",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  قراءة في فقرات من دعاء مكارم الاخلاق",
+        "authors": ["ضياء زين الدين "],
+        "publicationVenue": "مجلة الولاية - العدد 77 - السنة 8",
+
+        "language": "عربي",
+        "pagenam": 1
+      }
+    ],
+    "publishedYear": "2014 م",
+    "pdfUrl": "/research/journals/قراءة في فقرات من دعاء مكارم الاخلاق.pdf"
+  },
+  {
+    "id": "47",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " منطق الطير عند الائمة  - السجاد - الباقر - الصادق عليهم السلام ",
+        "authors": ["رحيم مزهر جبر العتابي"],
+        "publicationVenue": "مجلة اداب المستنصرية  - العدد 69 - المجلد 39",
+
+        "language": "عربي  ",
+        "pagenam": 28
+      }
+    ],
+    "publishedYear": "2015 م  ",
+    "pdfUrl": "/research/journals/منطق الطير عند الائمة ع -  السجاد والباقر والصادق.pdf"
+  },
+  {
+    "id": "48",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " فلسفة الاحياء عند الامام علي بن الحسين  ( عليه السلام )  ",
+        "authors": ["رزاق عبد الأمير مهدي الطيار"],
+        "publicationVenue": "مجلة العميد - العدد 13 - 2015م",
+
+        "language": "عربي",
+        "pagenam": 70
+      }
+    ],
+    "publishedYear": "2015 م ",
+    "pdfUrl": "/research/journals/فلسفة الاحياء عند الامام علي بن الحسين ع.pdf"
+  },
+  {
+    "id": "49",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " في اسلوبية النص السجادي المناجيات وادعية الأيام مثالا  ",
+        "authors": ["ادريس طارق حسين "],
+        "publicationVenue": "مجلة العميد / العدد 13 مجلد 4 - سنة4 - 2015",
+
+        "language": "عربي",
+        "pagenam": 40
+      }
+    ],
+    "publishedYear": "2015 م ",
+    "pdfUrl": "/research/journals/في اسلوبية النص السجادي المناجيات وادعية الايام.pdf"
+  },
+  {
+    "id": "50",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " استهلالات مطالع ادعية الصحيفة السجادية للامام زين العابدين  ( عليه السلام )  ",
+        "authors": ["حيدر محمود شاكر الجديع"],
+        "publicationVenue": "مجلة العميد / العدد 13 مجلد 4 - سنة4 - 2015",
+
+        "language": "عربي",
+        "pagenam": 30
+      }
+    ],
+    "publishedYear": "2015 م",
+    "pdfUrl": "/research/journals/استهلالات مطلع ادعية الصحيفة السجادية للامام زين العابدين ع.pdf"
+  },
+  {
+    "id": "51",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " ما في الصحيفة السجّادية ",
+        "authors": ["عماد فاضل عبد"],
+        "publicationVenue": "مجلة جامعة بابل - العلوم الإنسانية - مجلد 23 - العدد 2",
+
+        "language": "عربي",
+        "pagenam": 19
+      }
+    ],
+    "publishedYear": "2015 م ",
+    "pdfUrl": "/research/journals/ما في الصحيفة السجادية.pdf"
+  },
+  {
+    "id": "52",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "من تراث االامامة للامام زين العابدين  ( عليه السلام ) - رسالة الحقوق  ",
+        "authors": ["سهى عدنان إبراهيم "],
+        "publicationVenue": "مجلة الاداب المستنصرية العدد 72 - مجلد 39",
+
+        "language": "عربي",
+        "pagenam": 35
+      }
+    ],
+    "publishedYear": "2016 م",
+    "pdfUrl": "/research/journals/من تراث الامامة للامام زين العابدين ع.pdf"
+  },
+  {
+    "id": "53",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " المخططات التصورية ودورها في فهم مضامين الصحيفة السجادية الأخلاقية على ضوء اللسانيات الادراكية  ",
+        "authors": ["سيده فاطمة سليمي ", " كبرى راستكو"],
+        "publicationVenue": "مجلة اللغة عربي وادابها المحكمة ",
+
+        "language": "عربي",
+        "pagenam": 25
+      }
+    ],
+    "publishedYear": "1438 هـ",
+    "pdfUrl": "/research/journals/المخططات التصورية ودورها في فهم مضامين الصحيفة السجادية الاخلاقية على ضوء اللسانيات الادراكية.pdf"
+  },
+  {
+    "id": "54",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "    قراءة علي بن الحسين عليهما السلام ( دراسة لغوية)",
+        "authors": ["قاسم محمد اسود ", " محمد قاسم سعيد"],
+        "publicationVenue": "مجلة كلية العلوم الإنسانية - جامعة بغداد - كلية العلوم الإنسانية - العدد 47",
+
+        "language": "عربي",
+        "pagenam": 35
+      }
+    ],
+    "publishedYear": "2016 م",
+    "pdfUrl": "/research/journals/قراءة علي بن الحسين ع.pdf"
+  },
+  {
+    "id": "55",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " أسلوب التكرار ومثيراته الدلالية في الصحيفة السجادية   ",
+        "authors": ["رسول بلاوي"],
+        "publicationVenue": "مجلة اداب الكوفة - العدد 1- نوفمبر 2016 م // مجلة جامعة الانبار للغات والاداب العدد 22 - 2016",
+
+        "language": "عربي",
+        "pagenam": 18
+      }
+    ],
+    "publishedYear": "2016م",
+    "pdfUrl": "/research/journals/اسلوب التكرار ومثيراته الدلالية في الصحيفة السجادية.pdf"
+  },
+  {
+    "id": "56",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مفهوم العبادة عند الامام السجاد  ( عليه السلام )   ",
+        "authors": ["احسان عمر الحديثي ", " نداء كريم وهاب "],
+        "publicationVenue": "مجلة التراث العلمي العربي - العدد 4 - 2016",
+
+        "language": "عربي",
+        "pagenam": 24
+      }
+    ],
+    "publishedYear": "2016 م",
+    "pdfUrl": "/research/journals/مفهوم العبادة عند الامام السجاد ع.pdf"
+  },
+  {
+    "id": "57",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  توجيه العلاقة بين بنية التركيب النحويّ والمعنى في قصيدة الفرزدق في مدح الإمام زين العابدين  ( عليه السلام ) ",
+        "authors": ["منى منشد كاظم"],
+        "publicationVenue": "مجلة كلية التربية - جامعة المستنصرية - العدد 6 - مجلد 2",
+
+        "language": " عربي ",
+        "pagenam": 20
+      }
+    ],
+    "publishedYear": "2016 م",
+    "pdfUrl": "/research/journals/توجيه العلاقة بين بنية التركيب النحوي والمعنى في قصيدة الفرزدق في مدح الامام زين العابدين ع.pdf"
+  },
+  {
+    "id": "58",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " ابن شهاب الزهري(ت124هـ) بين النقد والتوجيه دراسة تحليلية في ضوء خطاب الإمام علي بن الحسين (عليه السلام ",
+        "authors": ["مخلد ذياب فيصل"],
+        "publicationVenue": "مجلة اداب ذي قار  - العدد 17 - مجلد 1",
+
+        "language": " عربي ",
+        "pagenam": 20
+      }
+    ],
+    "publishedYear": "2016 م",
+    "pdfUrl": "/research/journals/ابن شهاب الزهري بين النقد والتوجيه.pdf"
+  },
+  {
+    "id": "59",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " المحسنات البديعية في الصحيفة السجادية  ",
+        "authors": ["صديقة مظهراي"],
+        "publicationVenue": "مجلة العميد - العدد 20 - سنة 5 - مجلد 5 - 2016  //  دانشكاه أصفهان رشته زبان وادبيات عرب ",
+
+        "language": " عربي ",
+        "pagenam": 46
+      }
+    ],
+    "publishedYear": "2016 م // 1387 ش",
+    "pdfUrl": "/research/journals/المحسنات البديعية في الصحيفة السجادية.pdf"
+  },
+  {
+    "id": "60",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " الصلاة على النبي محمد ص في الصحيفة السجادية  ",
+        "authors": ["باسم باقر جريو"],
+        "publicationVenue": "مجلة كلية الفقه - جامعة الكوفة - العدد 22- مجلد 22",
+
+        "language": " عربي ",
+        "pagenam": 15
+      }
+    ],
+    "publishedYear": "2016 م",
+    "pdfUrl": "/research/journals/الصلاة علي النبي محمد ص في الصحيفة السجادية.pdf"
+  },
+  {
+    "id": "61",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الإمامة الإلهية في الصحيفة السجادية  ",
+        "authors": ["باسم باقر جريو"],
+        "publicationVenue": "مجلة كلية الفقه - جامعة الكوفة - العدد 23- مجلد 23",
+
+        "language": " عربي ",
+        "pagenam": 20
+      }
+    ],
+    "publishedYear": "2016",
+    "pdfUrl": "/research/journals/الامامة الالهية في الصحيفة السجادية.pdf"
+  },
+  {
+    "id": "62",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  توظيف الامام علي بن الحسين  ( عليه السلام ) القصص القراني في كلماته ومواعظه",
+        "authors": ["جاسم محمد الغرابي"],
+        "publicationVenue": "مجلة المصباح / العدد 24 -السنة 6 ",
+
+        "language": " عربي ",
+        "pagenam": 25
+      }
+    ],
+    "publishedYear": "2016 م",
+    "pdfUrl": "/research/journals/توظيف الامام علي بن الحسين ع القصص القراني.pdf"
+  },
+  {
+    "id": "63",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " من النتاج الفكري للامام علي بن الحسين (عليه السلام) تفسير القران الكريم انموذجا ",
+        "authors": ["صادق فوزي العبادي"],
+        "publicationVenue": "مجلة المصباح / العدد 24 -السنة 6 ",
+
+        "language": " عربي ",
+        "pagenam": 20
+      }
+    ],
+    "publishedYear": "2016 م",
+    "pdfUrl": "/research/journals/من النتاج الفكري للامام علي بن الحسين ع تفسير القران.pdf"
+  },
+  {
+    "id": "64",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام زين العابدين وأسلوب مواجهة اعدائه (دراسة تاريخية) (زين العابدين - الاسر - المدينة)  ",
+        "authors": ["محمد عبد الرضا شنير ", " حامد عبد الصاحب خليف العقابي"],
+        "publicationVenue": "مجلة اداب المستنصرية العدد 72 - 73 - مجلد 39",
+
+        "language": " عربي ",
+        "pagenam": 24
+      }
+    ],
+    "publishedYear": "2016 م",
+    "pdfUrl": "/research/journals/الامام زين العابدين ع واسلوب مواجهة اعدائه.pdf"
+  },
+  {
+    "id": "65",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التأثر بالقرآن الكريم عند الإمام السجاد  ( عليه السلام ) في الصحيفة السجادية  ",
+        "authors": ["خولة مهدي شاكر الجراح"],
+        "publicationVenue": "مجلة القادسية للعلوم الإنسانية العدد 1 - مجلد 20",
+
+        "language": " عربي ",
+        "pagenam": 20
+      }
+    ],
+    "publishedYear": "2017 م",
+    "pdfUrl": "/research/journals/الاقتباس القراني في ادعية الصحيفة السجادية.pdf"
+  },
+  {
     "id": "66",
     "translations": [
       {
@@ -6549,5 +7593,37 @@
     ],
     "publishedYear": "",
     "pdfUrl": "/research/journals/الامام زين العابدين ع تجسيد لحقيقة الإسلام.pdf"
+  },
+  {
+    "id": "479",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "  دعاء الامام زين العابدين لاهل الثغور",
+        "authors": [""],
+        "publicationVenue": "السنة 14/ العدد 75 شهر رجب -شعبان 1438 هـ مجلة ينابيع",
+
+        "language": " عربي ",
+        "pagenam": 2
+      }
+    ],
+    "publishedYear": "2017 م",
+    "pdfUrl": "/research/journals/من ادعية الصحيفة السجادية - دعاء اهل الثغور.pdf"
+  },
+  {
+    "id": "480",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مناجاة المريدين في الصحيفة السجادية ",
+        "authors": [""],
+        "publicationVenue": "السنة 14/ العدد 75 شهر رجب -شعبان 1438 هـ مجلة ينابيع",
+
+        "language": " عربي",
+        "pagenam": 2
+      }
+    ],
+    "publishedYear": "2017 م",
+    "pdfUrl": "/research/journals/مناجات المريدين في الصحيفة السجادية.pdf"
   }
 ]
