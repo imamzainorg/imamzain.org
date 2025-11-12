@@ -43,7 +43,7 @@ export default function JounalsResearchPage() {
     const dataToSearch = getDataByTab;
     if (!searchTerm.trim()) {
       setFilteredData(dataToSearch);
-      setCurrentPage(1); 
+      setCurrentPage(1);
       return;
     }
     const term = searchTerm.toLowerCase();
@@ -58,7 +58,7 @@ export default function JounalsResearchPage() {
       })
     );
     setFilteredData(results);
-    setCurrentPage(1); 
+    setCurrentPage(1);
   }, [searchTerm, getDataByTab]);
 
   // ترتيب البيانات
@@ -111,7 +111,7 @@ export default function JounalsResearchPage() {
             <Breadcrumbs
               links={[
                 { name: "الصفحة الرئيسية", url: "/" },
-                { name: "البحث العلمي", url: "/research" },
+                { name: "الصفحة العلمية", url: "/research" },
                 {
                   name: "موسوعة الإمام السجاد (عليه السلام)",
                   url: "/research/imam-sajjad-encyclopedia",

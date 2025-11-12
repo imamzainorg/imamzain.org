@@ -141,6 +141,7 @@ export default function StudentResearchPage() {
         links={[
           { name: "الصفحة الرئيسية", url: "/" },
           { name: "الصفحة العلمية", url: "/research" },
+           { name: "بحوث التخرج ", url: "/research/student-research" },
         ]}
       />
 

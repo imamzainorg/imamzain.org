@@ -51,7 +51,11 @@ export default function UploadedResearchPage() {
       <Breadcrumbs
         links={[
           { name: "الصفحة الرئيسية", url: "/" },
-          { name: "البحوث", url: "/research" },
+          { name: "الصفحة العلمية", url: "/research" },
+          {
+            name: " بحوث المؤتمرات",
+            url: "/research/conference-papers",
+          },
         ]}
       />
 
