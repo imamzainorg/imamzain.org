@@ -141,7 +141,7 @@ export default function StudentResearchPage() {
         links={[
           { name: "الصفحة الرئيسية", url: "/" },
           { name: "الصفحة العلمية", url: "/research" },
-           { name: "بحوث التخرج ", url: "/research/student-research" },
+          { name: "بحوث التخرج ", url: "/research/student-research" },
         ]}
       />
 
@@ -285,11 +285,21 @@ export default function StudentResearchPage() {
                             <td className="px-4 py-3 text-right">
                               {t.authors.join(", ")}
                             </td>
-                            <td className="px-4 py-3 text-right">{t.publicationVenue}</td>
-                            <td className="px-4 py-3 text-right">{t.language}</td>
-                            <td className="px-4 py-3 text-right">{t.category}</td>
-                            <td className="px-4 py-3 text-right">{item.publishedYear}</td>
-                            <td className="px-4 py-3 text-right">{t.pagenam}</td>
+                            <td className="px-4 py-3 text-right">
+                              {t.publicationVenue}
+                            </td>
+                            <td className="px-4 py-3 text-right">
+                              {t.language}
+                            </td>
+                            <td className="px-4 py-3 text-right">
+                              {t.category}
+                            </td>
+                            <td className="px-4 py-3 text-right">
+                              {item.publishedYear}
+                            </td>
+                            <td className="px-4 py-3 text-right">
+                              {t.pagenam}
+                            </td>
                             <td className="px-4 py-3 flex justify-center">
                               <button
                                 onClick={(e) => {
@@ -331,16 +341,22 @@ export default function StudentResearchPage() {
                         </h3>
                         <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                           <p>
-                            <span className="font-semibold text-secondary">المؤلف:</span>{" "}
+                            <span className="font-semibold text-secondary">
+                              المؤلف:
+                            </span>{" "}
                             {t.authors.join(", ")}
                           </p>
                           <p>
-                            <span className="font-semibold text-secondary">الناشر:</span>{" "}
+                            <span className="font-semibold text-secondary">
+                              الناشر:
+                            </span>{" "}
                             {t.publicationVenue}
                           </p>
                           {t.category && (
                             <p>
-                              <span className="font-semibold text-secondary">الدرجة العلمية:</span>{" "}
+                              <span className="font-semibold text-secondary">
+                                الدرجة العلمية:
+                              </span>{" "}
                               {t.category}
                             </p>
                           )}
@@ -348,7 +364,10 @@ export default function StudentResearchPage() {
                         <div className="my-5 border-t border-secondary/20" />
                         <motion.button
                           whileTap={{ scale: 0.97 }}
-                          whileHover={{ backgroundPosition: "100% 0", transition: { duration: 0.4 } }}
+                          whileHover={{
+                            backgroundPosition: "100% 0",
+                            transition: { duration: 0.4 },
+                          }}
                           onClick={(e) => {
                             e.stopPropagation();
                             openPdf(item);
@@ -385,7 +404,8 @@ export default function StudentResearchPage() {
               {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
                 let pageNum;
                 if (currentPage <= 3) pageNum = i + 1;
-                else if (currentPage > totalPages - 3) pageNum = totalPages - 4 + i;
+                else if (currentPage > totalPages - 3)
+                  pageNum = totalPages - 4 + i;
                 else pageNum = currentPage - 2 + i;
 
                 if (pageNum < 1 || pageNum > totalPages) return null;
