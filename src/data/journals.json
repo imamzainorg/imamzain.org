@@ -3505,7 +3505,7 @@
       }
     ],
     "publishedYear": "2009 م",
-    "pdfUrl": "/research/journals/الراي الحر في قصيدة الفرزدق في مدح الامام السجاد ع.pdf"
+    "pdfUrl": "/research/journals/الحقيقة البلاغية.pdf"
   },
   {
     "id": "220",
@@ -3521,7 +3521,7 @@
       }
     ],
     "publishedYear": "2025 م",
-    "pdfUrl": "/research/journals/الحذف التداولي في الصحيفة السجادية.pdf"
+    "pdfUrl": "/research/journals/المنهج النحوي للسيد 2025 ابن معصوم المدني في كتابه رياض السالكين في شرح صحيفة سيد الساجدين.pdf"
   },
   {
     "id": "221",
@@ -3937,7 +3937,7 @@
       }
     ],
     "publishedYear": "2021 م",
-    "pdfUrl": "/research/journals/دلالة المشترك اللفظي في دعاء مكارم الاخلاق للامام زين العابدين ع.pdf"
+    "pdfUrl": "/research/journals/دلالة الايحاء النصي في مناجاة العارفين للامام السجاد ع.pdf"
   },
   {
     "id": "247",
@@ -4321,7 +4321,7 @@
       }
     ],
     "publishedYear": " 1949 م",
-    "pdfUrl": "/research/journals/"
+    "pdfUrl": "/research/journals/الامام ابو محمد زين العابدين.pdf"
   },  {
     "id": "271",
     "translations": [
@@ -4335,7 +4335,7 @@
       }
     ],
     "publishedYear": "1958 م ",
-    "pdfUrl": "/research/journals/"
+    "pdfUrl": "/research/journals/علي بن الحسين زين العابدين  ع --.pdf"
   },
   {
     "id": "272",
@@ -5038,7 +5038,7 @@
       }
     ],
     "publishedYear": " 2024 م",
-    "pdfUrl": "/research/journals/"
+    "pdfUrl": "/research/journals/ومنظومته الدعائية ديمومة الحضور السجادي في قصة القديس يغادر اللوحة للقاص طاهر حسن الكعبي  - -.pdf"
   },
   {
     "id": "316",
@@ -5779,21 +5779,22 @@
     "publishedYear": "2025 م",
     "pdfUrl": "/research/journals/الاستبدال 2025 ودوره في الاتساق النصي في  الصحيفة السجادية.pdf"
   },
+  
   {
     "id": "362",
     "translations": [
       {
         "languageid": 1,
-        "title": " المنهج النحوي للسيد ابن معصوم المدني في كتابه رياض السالكين في شرح صحيفة سيد الساجدين  ",
-        "authors": ["فائزة ثعبان منسي "],
-        "publicationVenue": "مجلة دواة - العدد 44 - السنة 11",
+        "title": "مناجاة المريدين في الصحيفة السجادية ",
+        "authors": [""],
+        "publicationVenue": "السنة 14/ العدد 75 شهر رجب -شعبان 1438 هـ مجلة ينابيع",
 
-        "language": " عربي ",
-        "pagenam": 30
+        "language": " عربي",
+        "pagenam": 2
       }
     ],
-    "publishedYear": "2025 م",
-    "pdfUrl": "/research/journals/الشاهد القراني في 2022رياض السالكين في شرح صحيفة سيد الساجدين.pdf"
+    "publishedYear": "2017 م",
+    "pdfUrl": "/research/journals/مناجات المريدين في الصحيفة السجادية.pdf"
   },
   {
     "id": "363",
@@ -6327,7 +6328,7 @@
       }
     ],
     "publishedYear": " 2025 م",
-    "pdfUrl": "/research/journals/"
+    "pdfUrl": "/research/journals/مستوى تطبيق طلبة 2025 قسم التاريخ لحقوق المعلم في الفكر الإسلامي رسالة الحقوق للامام زين العابدين ع ا.pdf"
   },
   {
     "id": "396",
@@ -7668,21 +7669,5 @@
     ],
     "publishedYear": "2017 م",
     "pdfUrl": "/research/journals/من ادعية الصحيفة السجادية - دعاء اهل الثغور.pdf"
-  },
-  {
-    "id": "480",
-    "translations": [
-      {
-        "languageid": 1,
-        "title": "مناجاة المريدين في الصحيفة السجادية ",
-        "authors": [""],
-        "publicationVenue": "السنة 14/ العدد 75 شهر رجب -شعبان 1438 هـ مجلة ينابيع",
-
-        "language": " عربي",
-        "pagenam": 2
-      }
-    ],
-    "publishedYear": "2017 م",
-    "pdfUrl": "/research/journals/مناجات المريدين في الصحيفة السجادية.pdf"
   }
 ]
