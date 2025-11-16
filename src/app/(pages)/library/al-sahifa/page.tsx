@@ -1,146 +1,146 @@
-"use client"
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
-import { useState, useEffect, useRef } from "react"
-import Breadcrumbs from "@/components/breadcrumb"
-import BooklibraryCard from "../_components/book-library-card"
-import { Book } from "@/types/book"
-import { dataFetcher } from "@/lib/dataFetcher"
-import { AnimatePresence } from "framer-motion"
-import { Button } from "@/components/button"
-import { SearchIcon, FilterIcon, ChevronLeft, ChevronRight } from "lucide-react"
-
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import Breadcrumbs from "@/components/breadcrumb";
+import BooklibraryCard from "../_components/book-library-card";
+import { Book } from "@/types/book";
+import { dataFetcher } from "@/lib/dataFetcher";
+import { AnimatePresence } from "framer-motion";
+import { Button } from "@/components/button";
+import {
+  SearchIcon,
+  FilterIcon,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import { DownloadIcon } from "lucide-react";
 export default function RisalatAlHuquqPage() {
-  const [publications, setPublications] = useState<Book[]>([])
-  const [filteredPublications, setFilteredPublications] = useState<Book[]>([])
-  const [searchTerm, setSearchTerm] = useState("")
-  const [currentPage, setCurrentPage] = useState(1)
-  const itemsPerPage = 8
-  const scrollRef = useRef<HTMLDivElement>(null)
+  const [publications, setPublications] = useState<Book[]>([]);
+  const [filteredPublications, setFilteredPublications] = useState<Book[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await dataFetcher<Book[]>("books.json")
+        const data = await dataFetcher<Book[]>("books.json");
 
         const filteredByCategory = data.filter(
           (book) =>
-            Array.isArray(book.category) &&
-            book.category.includes("al-sahifa"),
-        )
+            Array.isArray(book.category) && book.category.includes("al-sahifa")
+        );
 
-        const uniqueSeriesMap = new Map<string, Book>()
+        const uniqueSeriesMap = new Map<string, Book>();
         filteredByCategory.forEach((book) => {
           if (book.series && book.totalParts > 1) {
-            if (
-              !uniqueSeriesMap.has(book.series) &&
-              book.partNumber === 1
-            ) {
-              uniqueSeriesMap.set(book.series, book)
+            if (!uniqueSeriesMap.has(book.series) && book.partNumber === 1) {
+              uniqueSeriesMap.set(book.series, book);
             }
           } else {
-            uniqueSeriesMap.set(`${book.series ?? book.id}`, book)
+            uniqueSeriesMap.set(`${book.series ?? book.id}`, book);
           }
-        })
+        });
 
-        const filteredData = Array.from(uniqueSeriesMap.values())
-        setPublications(filteredData)
-        setFilteredPublications(filteredData)
+        const filteredData = Array.from(uniqueSeriesMap.values());
+        setPublications(filteredData);
+        setFilteredPublications(filteredData);
       } catch (error) {
-        console.error("Error fetching publications: ", error)
+        console.error("Error fetching publications: ", error);
       }
-    }
+    };
 
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
   useEffect(() => {
-    let filtered = [...publications]
+    let filtered = [...publications];
 
     if (searchTerm) {
-      const lowerSearch = searchTerm.toLowerCase().trim()
+      const lowerSearch = searchTerm.toLowerCase().trim();
 
-    filtered = filtered.filter((publication) => {
-  const inTitle =
-    typeof publication.title === "string" &&
-    publication.title.toLowerCase().includes(lowerSearch)
+      filtered = filtered.filter((publication) => {
+        const inTitle =
+          typeof publication.title === "string" &&
+          publication.title.toLowerCase().includes(lowerSearch);
 
-  const inAuthor =
-    typeof publication.author === "string" &&
-    publication.author.toLowerCase().includes(lowerSearch)
+        const inAuthor =
+          typeof publication.author === "string" &&
+          publication.author.toLowerCase().includes(lowerSearch);
 
-  const inOtherNames =
-    Array.isArray(publication.otherNames) &&
-    publication.otherNames.some(
-      (name) =>
-        typeof name === "string" &&
-        name.toLowerCase().includes(lowerSearch),
-    )
+        const inOtherNames =
+          Array.isArray(publication.otherNames) &&
+          publication.otherNames.some(
+            (name) =>
+              typeof name === "string" &&
+              name.toLowerCase().includes(lowerSearch)
+          );
 
-  const inPrintHouse =
-    typeof publication.printHouse === "string" &&
-    publication.printHouse.toLowerCase().includes(lowerSearch)
+        const inPrintHouse =
+          typeof publication.printHouse === "string" &&
+          publication.printHouse.toLowerCase().includes(lowerSearch);
 
-  const inLanguage = Array.isArray(publication.language)
-    ? publication.language.some(
-        (lang) =>
-          typeof lang === "string" &&
-          lang.toLowerCase().includes(lowerSearch),
-      )
-    : typeof publication.language === "string" &&
-      publication.language.toLowerCase().includes(lowerSearch)
+        const inLanguage = Array.isArray(publication.language)
+          ? publication.language.some(
+              (lang) =>
+                typeof lang === "string" &&
+                lang.toLowerCase().includes(lowerSearch)
+            )
+          : typeof publication.language === "string" &&
+            publication.language.toLowerCase().includes(lowerSearch);
 
-  return inTitle || inAuthor || inOtherNames || inPrintHouse || inLanguage
-})
-
+        return (
+          inTitle || inAuthor || inOtherNames || inPrintHouse || inLanguage
+        );
+      });
     }
 
-    setFilteredPublications(filtered)
-    setCurrentPage(1)
-  }, [searchTerm, publications])
+    setFilteredPublications(filtered);
+    setCurrentPage(1);
+  }, [searchTerm, publications]);
 
-  const totalPages = Math.ceil(filteredPublications.length / itemsPerPage)
-  const indexOfLastItem = currentPage * itemsPerPage
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage
+  const totalPages = Math.ceil(filteredPublications.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentPublications = filteredPublications.slice(
     indexOfFirstItem,
-    indexOfLastItem,
-  )
+    indexOfLastItem
+  );
 
   const paginate = (pageNum: number) => {
-    setCurrentPage(pageNum)
+    setCurrentPage(pageNum);
     setTimeout(() => {
-      scrollRef.current?.scrollIntoView({ behavior: "smooth" })
-    }, 100)
-  }
+      scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
 
-	
+  const dataCard = [
+    {
+      title: "ما الحقه الحر العاملي",
+      description: " ",
+      URL: "/library/al-sahifa/read/ma-alhaqahu-al-hur-al-amili",
+    },
+    {
+      title: "ما ألحقه الميرزا عبد الله الافندي",
+      description: " ",
+      URL: "/library/al-sahifa/read/ma-alhaqahu-al-mirza-abdullah-al-afandi",
+    },
+    {
+      title: "ما ألحقه الميرزا حسين النوري",
+      description: " ",
+      URL: "/library/al-sahifa/read/ma-alhaqahu-al-mirza-husayn-al-nuri",
+    },
+    {
+      title: "ما ألحقه السيد محسن الأمين العاملي",
+      description: " ",
+      URL: "/library/al-sahifa/read/ma-alhaqahu-al-sayyid-muhsin-al-amin-al-amili",
+    },
+  ];
 
-	const dataCard = [
-		{
-			title: "ما الحقه الحر العاملي",
-			description: " ",
-			URL: "/library/al-sahifa/read/ma-alhaqahu-al-hur-al-amili",
-		},
-		{
-			title: "ما ألحقه الميرزا عبد الله الافندي",
-			description: " ",
-			URL: "/library/al-sahifa/read/ma-alhaqahu-al-mirza-abdullah-al-afandi",
-		},
-		{
-			title: "ما ألحقه الميرزا حسين النوري",
-			description: " ",
-			URL: "/library/al-sahifa/read/ma-alhaqahu-al-mirza-husayn-al-nuri",
-		},
-		{
-			title: "ما ألحقه السيد محسن الأمين العاملي",
-			description: " ",
-			URL: "/library/al-sahifa/read/ma-alhaqahu-al-sayyid-muhsin-al-amin-al-amili",
-		},
-	]
-
-	return (
+  return (
     <div>
       <Breadcrumbs
         links={[
@@ -155,17 +155,30 @@ export default function RisalatAlHuquqPage() {
           <h1 className="text-base md:text-3xl lg:text-4xl xl:text-5xl font-semibold">
             الصحيفة السجادية الكاملة
           </h1>
+
           <p className="w-3/4 text-sm md:text-xl lg:text-3xl leading-10 pb-5">
             مجموعة من الأدعية والمناجيات للإمام زين العابدين، تجسد أسمى معاني
             الإيمان والخشوع.
           </p>
-          <Link
-            href="/library/al-sahifa/read/al-sahifa-al-sajjadiya"
-            className="w-full xs:w-fit text-sm md:text-xl py-2 px-4 border-2 rounded-xl border-primary dark:border-Muharram_primary flex items-center gap-4 group"
-          >
-            تصفح الصحيفة الكاملة
-            <ArrowLeft className="opacity-0 translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 duration-150" />
-          </Link>
+          <div className="flex flex-row p-2">
+            <Link
+              href="/library/al-sahifa/read/al-sahifa-al-sajjadiya"
+              className="w-full xs:w-fit text-sm md:text-xl py-2 px-4 m-2 border-2 rounded-xl border-primary dark:border-Muharram_primary flex items-center gap-4 group"
+            >
+              تصفح الصحيفة الكاملة
+              <ArrowLeft className="opacity-0 translate-x-3  group-hover:opacity-100 group-hover:translate-x-0 duration-150" />
+            </Link>
+            <Link
+              href="/books/الصحيفة رقعي.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+                className="w-full xs:w-fit text-sm md:text-xl py-2 px-4 m-2 border-2 rounded-xl border-primary dark:border-Muharram_primary flex items-center gap-4 group"
+         >
+             
+              تحميل الصحيفة كاملة
+			   <DownloadIcon stroke="#006654"  />
+            </Link>
+          </div>
         </div>
 
         <div className="w-64 max-md:hidden left-28 -top-16 absolute">
@@ -208,142 +221,121 @@ export default function RisalatAlHuquqPage() {
         ما كتب عن الصحيفة السجادية
       </h2>
 
-  		{/* البحث */}
-			<div className="w-11/12 mx-auto my-8">
-				<div className="bg-white rounded-xl shadow-md p-4 md:p-6">
-					<div className="flex flex-col md:flex-row gap-4 justify-between items-center">
-						<div className="w-full md:w-1/2 relative">
-							<input
-								placeholder="ابحث في الكتب..."
-								className="pr-12 w-full md:w-11/12 text-lg bg-white rounded-xl border border-primary dark:border-Muharram_primary focus:ring-1"
-								value={searchTerm}
-								onChange={(e) => setSearchTerm(e.target.value)}
-								style={{ direction: "rtl" }}
-							/>
-							<div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-primary dark:text-Muharram_primary">
-								<SearchIcon size={20} />
-							</div>
-						</div>
+      {/* البحث */}
+      <div className="w-11/12 mx-auto my-8">
+        <div className="bg-white rounded-xl shadow-md p-4 md:p-6">
+          <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
+            <div className="w-full md:w-1/2 relative">
+              <input
+                placeholder="ابحث في الكتب..."
+                className="pr-12 w-full md:w-11/12 text-lg bg-white rounded-xl border border-primary dark:border-Muharram_primary focus:ring-1"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                style={{ direction: "rtl" }}
+              />
+              <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-primary dark:text-Muharram_primary">
+                <SearchIcon size={20} />
+              </div>
+            </div>
 
-						<div className="w-full md:w-1/5">
-							<Button
-								variant="outline"
-								className="w-full text-md md:text-lg bg-white md:p-5"
-								onClick={() => {
-									setSearchTerm("")
-								}}
-							>
-								<FilterIcon
-									size={18}
-									className="ml-2 bg-white"
-								/>
-								إعادة الضبط
-							</Button>
-						</div>
-					</div>
-				</div>
-			</div>
+            <div className="w-full md:w-1/5">
+              <Button
+                variant="outline"
+                className="w-full text-md md:text-lg bg-white md:p-5"
+                onClick={() => {
+                  setSearchTerm("");
+                }}
+              >
+                <FilterIcon size={18} className="ml-2 bg-white" />
+                إعادة الضبط
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-			{/* الكتب */}
-			<div ref={scrollRef} className="w-11/12 mx-auto mb-8">
-				{currentPublications.length === 0 ? (
-					<div className="bg-secondary dark:bg-Muharram_secondary/20 bg-opacity-10 rounded-xl flex flex-col items-center justify-center py-16">
-						<div className="text-gray-500 mb-4">
-							<SearchIcon size={48} strokeWidth={1} />
-						</div>
-						<h3 className="text-2xl font-semibold text-gray-700 mb-2">
-							لا توجد نتائج
-						</h3>
-						<p className="text-gray-500 text-center max-w-md">
-							لم نعثر على أي كتب تطابق بحثك. حاول تغيير كلمات
-							البحث أو إعادة ضبط الفلاتر.
-						</p>
-					</div>
-				) : (
-					<div className="bg-secondary/20 dark:bg-Muharram_primary/20 bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
-						<AnimatePresence mode="wait">
-							{currentPublications.map((publication) => (
-								<BooklibraryCard
-									route="/library/risalat-al-huqoq"
-									publication={publication}
-									key={publication.id}
-								/>
-							))}
-						</AnimatePresence>
-					</div>
-				)}
-			</div>
+      {/* الكتب */}
+      <div ref={scrollRef} className="w-11/12 mx-auto mb-8">
+        {currentPublications.length === 0 ? (
+          <div className="bg-secondary dark:bg-Muharram_secondary/20 bg-opacity-10 rounded-xl flex flex-col items-center justify-center py-16">
+            <div className="text-gray-500 mb-4">
+              <SearchIcon size={48} strokeWidth={1} />
+            </div>
+            <h3 className="text-2xl font-semibold text-gray-700 mb-2">
+              لا توجد نتائج
+            </h3>
+            <p className="text-gray-500 text-center max-w-md">
+              لم نعثر على أي كتب تطابق بحثك. حاول تغيير كلمات البحث أو إعادة ضبط
+              الفلاتر.
+            </p>
+          </div>
+        ) : (
+          <div className="bg-secondary/20 dark:bg-Muharram_primary/20 bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
+            <AnimatePresence mode="wait">
+              {currentPublications.map((publication) => (
+                <BooklibraryCard
+                  route="/library/risalat-al-huqoq"
+                  publication={publication}
+                  key={publication.id}
+                />
+              ))}
+            </AnimatePresence>
+          </div>
+        )}
+      </div>
 
-			{/* الصفحات */}
-			{totalPages > 1 && (
-				<div className="w-11/12 mx-auto flex justify-center my-8">
-					<nav className="flex items-center gap-2">
-						<Button
-							variant="outline"
-							size="icon"
-							onClick={() =>
-								paginate(Math.max(1, currentPage - 1))
-							}
-							disabled={currentPage === 1}
-							className="bg-white text-primary dark:text-Muharram_primary hover:bg-primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
-						>
-							<ChevronRight size={20} />
-						</Button>
+      {/* الصفحات */}
+      {totalPages > 1 && (
+        <div className="w-11/12 mx-auto flex justify-center my-8">
+          <nav className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => paginate(Math.max(1, currentPage - 1))}
+              disabled={currentPage === 1}
+              className="bg-white text-primary dark:text-Muharram_primary hover:bg-primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
+            >
+              <ChevronRight size={20} />
+            </Button>
 
-						{Array.from(
-							{ length: Math.min(5, totalPages) },
-							(_, i) => {
-								let pageNum
-								if (currentPage <= 3) pageNum = i + 1
-								else if (currentPage > totalPages - 3)
-									pageNum = totalPages - 4 + i
-								else pageNum = currentPage - 2 + i
+            {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+              let pageNum;
+              if (currentPage <= 3) pageNum = i + 1;
+              else if (currentPage > totalPages - 3)
+                pageNum = totalPages - 4 + i;
+              else pageNum = currentPage - 2 + i;
 
-								if (pageNum < 1 || pageNum > totalPages)
-									return null
+              if (pageNum < 1 || pageNum > totalPages) return null;
 
-								return (
-									<Button
-										key={pageNum}
-										variant={
-											currentPage === pageNum
-												? "default"
-												: "outline"
-										}
-										onClick={() => paginate(pageNum)}
-										className={`w-10 h-10 rounded-lg transition-colors duration-300 ${
-											currentPage === pageNum
-												? "bg-primary dark:bg-Muharram_primary text-white"
-												: "bg-white text-primary hover:bg-primary dark:text-Muharram_primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
-										}`}
-										aria-current={
-											currentPage === pageNum
-												? "page"
-												: undefined
-										}
-									>
-										{pageNum}
-									</Button>
-								)
-							},
-						)}
+              return (
+                <Button
+                  key={pageNum}
+                  variant={currentPage === pageNum ? "default" : "outline"}
+                  onClick={() => paginate(pageNum)}
+                  className={`w-10 h-10 rounded-lg transition-colors duration-300 ${
+                    currentPage === pageNum
+                      ? "bg-primary dark:bg-Muharram_primary text-white"
+                      : "bg-white text-primary hover:bg-primary dark:text-Muharram_primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
+                  }`}
+                  aria-current={currentPage === pageNum ? "page" : undefined}
+                >
+                  {pageNum}
+                </Button>
+              );
+            })}
 
-						<Button
-							variant="outline"
-							size="icon"
-							onClick={() =>
-								paginate(Math.min(totalPages, currentPage + 1))
-							}
-							disabled={currentPage === totalPages}
-							className="bg-white text-primary dark:text-Muharram_primary hover:bg-primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
-						>
-							<ChevronLeft size={20} />
-						</Button>
-					</nav>
-				</div>
-			)}
-
-   
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => paginate(Math.min(totalPages, currentPage + 1))}
+              disabled={currentPage === totalPages}
+              className="bg-white text-primary dark:text-Muharram_primary hover:bg-primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
+            >
+              <ChevronLeft size={20} />
+            </Button>
+          </nav>
+        </div>
+      )}
     </div>
   );
 }
