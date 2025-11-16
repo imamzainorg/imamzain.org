@@ -168,16 +168,25 @@ export default function RisalatAlHuquqPage() {
               تصفح الصحيفة الكاملة
               <ArrowLeft className="opacity-0 translate-x-3  group-hover:opacity-100 group-hover:translate-x-0 duration-150" />
             </Link>
-            <Link
-              href="/books/الصحيفة رقعي.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-                className="w-full xs:w-fit text-sm md:text-xl py-2 px-4 m-2 border-2 rounded-xl border-primary dark:border-Muharram_primary flex items-center gap-4 group"
-         >
-             
-              تحميل الصحيفة كاملة
-			   <DownloadIcon stroke="#006654"  />
-            </Link>
+     <Link
+  href="/books/الصحيفة رقعي.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    w-full xs:w-fit text-sm md:text-xl py-2 px-4 m-2 
+    border-2 rounded-xl border-primary dark:border-Muharram_primary 
+    flex items-center gap-4 group
+    hover:bg-primary hover:text-white transition-all duration-300
+  "
+>
+  تحميل الصحيفة كاملة
+
+  <DownloadIcon
+    className="transition-all duration-300 group-hover:stroke-white"
+    stroke="#006654"
+  />
+</Link>
+
           </div>
         </div>
 
