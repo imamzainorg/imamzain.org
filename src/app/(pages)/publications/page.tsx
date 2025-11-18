@@ -11,7 +11,7 @@ import BooklibraryCard from "../library/_components/book-library-card"
 
 import { AnimatePresence } from "framer-motion"
 import { Button } from "@/components/button"
-import { SearchIcon, FilterIcon, ChevronLeft, ChevronRight } from "lucide-react"
+import { SearchIcon, ChevronLeft, ChevronRight } from "lucide-react"
 
 export default function PublicationsPage() {
 	const [publications, setPublications] = useState<Book[]>([])
@@ -155,10 +155,7 @@ export default function PublicationsPage() {
 									setFilterCategory("all")
 								}}
 							>
-								<FilterIcon
-									size={18}
-									className="ml-2 bg-white"
-								/>
+								
 								إعادة الضبط
 							</Button>
 						</div>

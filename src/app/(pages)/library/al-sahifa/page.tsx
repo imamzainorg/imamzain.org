@@ -11,7 +11,7 @@ import { AnimatePresence } from "framer-motion";
 import { Button } from "@/components/button";
 import {
   SearchIcon,
-  FilterIcon,
+ 
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -255,7 +255,7 @@ export default function RisalatAlHuquqPage() {
                   setSearchTerm("");
                 }}
               >
-                <FilterIcon size={18} className="ml-2 bg-white" />
+                
                 إعادة الضبط
               </Button>
             </div>
