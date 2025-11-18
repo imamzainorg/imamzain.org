@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Breadcrumbs from "@/components/breadcrumb";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,17 +8,15 @@ import {
   BookOpen as BookOpenIcon,
   Grid as GridIcon,
   List as ListIcon,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { FaFilePdf } from "react-icons/fa";
 import { Jounals } from "@/types/jounals";
-
-
-import JournalsData from "@/data/journals.json"; 
-
+import { Button } from "@/components/button";
+import JournalsData from "@/data/journals.json";
+import { usePathname } from "next/navigation";
 type JounalsResearch = Jounals;
-
-
-
 
 export default function JounalsResearchPage() {
   const [activeTab] = useState("all");
@@ -27,15 +25,16 @@ export default function JounalsResearchPage() {
   const [viewMode, setViewMode] = useState<"cards" | "table">("cards");
   const [sortBy, setSortBy] = useState("default");
   const [highlightId, setHighlightId] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 21;
+
   const rowRefs = useRef<Record<string, HTMLTableRowElement | null>>({});
 
+  // جلب البيانات حسب التبويب
   const getDataByTab = useMemo(() => {
-    if (activeTab === "all") return JournalsData as JounalsResearch[]; // ✅ تصحيح اسم المتغير
-    
-    return (JournalsData as Jounals[]).filter(
-      (
-        item // ✅ تصحيح اسم المتغير
-      ) => item.translations.some((t) => t.category )
+    if (activeTab === "all") return JournalsData as JounalsResearch[];
+    return (JournalsData as Jounals[]).filter((item) =>
+      item.translations.some((t) => t.category)
     );
   }, [activeTab]);
 
@@ -44,6 +43,7 @@ export default function JounalsResearchPage() {
     const dataToSearch = getDataByTab;
     if (!searchTerm.trim()) {
       setFilteredData(dataToSearch);
+      setCurrentPage(1);
       return;
     }
     const term = searchTerm.toLowerCase();
@@ -58,12 +58,12 @@ export default function JounalsResearchPage() {
       })
     );
     setFilteredData(results);
+    setCurrentPage(1);
   }, [searchTerm, getDataByTab]);
 
-  // ✅ تطبيق الترتيب
+  // ترتيب البيانات
   const sortedData = useMemo(() => {
     const data = [...filteredData];
-
     switch (sortBy) {
       case "year":
         return data.sort(
@@ -76,41 +76,94 @@ export default function JounalsResearchPage() {
           return titleA.localeCompare(titleB);
         });
       case "popularity":
-        // يمكن إضافة منطق الشعبية هنا
-        return data;
+        return data; // يمكن إضافة منطق الشعبية لاحقًا
       default:
         return data;
     }
   }, [filteredData, sortBy]);
+
+  // تقسيم الصفحات
+  const totalPages = Math.ceil(sortedData.length / itemsPerPage);
+  const paginatedData = useMemo(() => {
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    return sortedData.slice(start, end);
+  }, [currentPage, sortedData]);
+
+  const paginate = (page: number) => {
+    setCurrentPage(page);
+    setHighlightId(null);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const openPdf = (item: JounalsResearch) => {
     if (item.pdfUrl) window.open(item.pdfUrl, "_blank");
   };
 
   const handleRowClick = (id: string) => setHighlightId(id);
+  const pathname = usePathname();
 
+  const links = [
+    { title: "📚 الدوريات العربية", href: "/research/journals" },
+    { title: "📑 بحوث المؤتمرات", href: "/research/conference-papers" },
+    { title: "🎓 بحوث التخرج", href: "/research/student-research" },
+  ];
   return (
     <div className="container">
       <div className="min-h-screen py-10">
         <div className="mx-auto px-4">
+          {/* Breadcrumbs */}
           <div className="mb-8">
             <Breadcrumbs
               links={[
                 { name: "الصفحة الرئيسية", url: "/" },
-                { name: "البحث العلمي", url: "/research" },
+                { name: "الصفحة العلمية", url: "/research" },
                 {
-                  name: "موسوعة الإمام السجاد",
+                  name: "موسوعة الإمام السجاد (عليه السلام)",
                   url: "/research/imam-sajjad-encyclopedia",
                 },
               ]}
             />
+            <div className="flex flex-wrap justify-center items-center gap-4  mb-16 mt-6">
+              {links.map((link, i) => {
+                const isActive = pathname === link.href;
 
+                return (
+                  <motion.div
+                    key={i}
+                    whileHover={{ scale: 1.07, y: -3 }}
+                    whileTap={{ scale: 0.96 }}
+                    transition={{ type: "spring", stiffness: 250, damping: 15 }}
+                  >
+                    <Link
+                      href={link.href}
+                      className={`group relative flex items-center justify-center px-6 py-3 h-14 rounded-xl font-medium text-lg shadow-lg border transition-all duration-300 overflow-hidden 
+              ${
+                isActive
+                  ? "bg-primary text-white border-primary" // اللون عند التفعيل
+                  : "bg-primary/15 text-primary hover:border-primary border-transparent"
+              }`}
+                    >
+                      {/* تأثير الإضاءة عند المرور */}
+                      <span
+                        className={`absolute inset-0 bg-gradient-to-r from-secondary/0 via-primary/20 to-secondary/0 opacity-0 group-hover:opacity-100 blur-lg transition duration-500 ${
+                          isActive ? "opacity-100" : ""
+                        }`}
+                      ></span>
+
+                      {/* النص */}
+                      <span className="relative z-10">{link.title}</span>
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </div>
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mt-6">
               <div className="flex-1">
-                <div className="flex items-center gap-4 mb-4">
+                <div className="flex items-center gap-4 ">
                   <div>
                     <h1 className="text-3xl md:text-4xl font-extrabold leading-tight">
-                      موسوعة الإمام السجاد
+                      موسوعة الإمام السجاد (عليه السلام)
                     </h1>
                     <p className="text-sm text-gray-500 dark:text-gray-300 mt-3">
                       الفهرس الشامل للمقالات والدراسات في الدوريات العربية
@@ -183,16 +236,15 @@ export default function JounalsResearchPage() {
             </div>
           </motion.div>
 
-          {/* النتائج: جدول أو بطاقات */}
+          {/* النتائج */}
           <div className="rounded-2xl shadow-lg border overflow-hidden bg-opacity-50 bg-gray-50">
             <div className="px-6 py-4 bg-gradient-to-r border-b">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
                   <BookOpenIcon size={18} />
                   <span className="font-medium">
-                    النتائج: {sortedData.length} مقالة
-                  </span>{" "}
-                  {/* ✅ استخدام sortedData */}
+                    النتائج: {sortedData.length} مقالة {/* العدد الكلي */}
+                  </span>
                 </div>
                 <div className="text-sm text-gray-500 dark:text-gray-400">
                   انقر على المقال للتمييز - انقر مزدوج لفتح الملف
@@ -213,187 +265,191 @@ export default function JounalsResearchPage() {
                         <th className="px-4 py-3 text-right">اللغة</th>
                         <th className="px-4 py-3 text-right">تاريخ الاصدار</th>
                         <th className="px-4 py-3 text-right">عدد الصفحات</th>
-                        <th className="px-4 py-3 text-center"></th>
+                        <th className="px-4 py-3 text-center">التحميل</th>
                       </tr>
                     </thead>
                     <tbody>
                       <AnimatePresence>
-                        {sortedData.map(
-                          (
-                            item,
-                            idx // ✅ استخدام sortedData
-                          ) =>
-                            item.translations.map((t, i) => {
-                              const isHighlighted = highlightId === item.id;
-                              return (
-                                <motion.tr
-                                  key={`${item.id}-${i}`}
-                                  initial={{ opacity: 0, y: 6 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  exit={{ opacity: 0, y: -6 }}
-                                  className={`cursor-pointer ${
-                                    isHighlighted
-                                      ? "bg-primary/10 ring-2 ring-primary/20"
-                                      : "hover:bg-gray-50 dark:hover:bg-gray-700/40"
-                                  }`}
-                                  onClick={() => handleRowClick(item.id)}
-                                  onDoubleClick={() => openPdf(item)}
-                                  ref={(el) => {
-                                    if (el) {
-                                      rowRefs.current[item.id] = el;
-                                    }
-                                  }}
-                                >
-                                  <td className="px-4 py-4 text-center align-top">
-                                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium bg-gray-100 dark:bg-gray-700">
-                                      {idx + 1}
-                                    </div>
-                                  </td>
-                                  <td className="px-4 py-3 text-right">
-                                    {t.title}
-                                  </td>
-                                  <td className="px-4 py-3 text-right">
-                                    {t.authors?.join(", ")}
-                                  </td>
-                                  {/* ✅ إضافة ? للتحقق */}
-                                  <td className="px-4 py-3 text-right">
-                                    {t.publicationVenue}
-                                  </td>
-                                  <td className="px-4 py-3 text-right">
-                                    {t.language}
-                                  </td>
-                                  <td className="px-4 py-3 text-right">
-                                    {item.publishedYear}
-                                  </td>
-                                  <td className="px-4 py-3 text-right">
-                                    {t.pagenam}
-                                  </td>
-                                  {/* ✅ التعامل مع كلا الاسمين */}
-                                  <td className="px-4 py-3 flex justify-center">
-                                       <button
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  openPdf(item);
+                        {paginatedData.map((item, idx) =>
+                          item.translations.map((t, i) => {
+                            const isHighlighted = highlightId === item.id;
+                            return (
+                              <motion.tr
+                                key={`${item.id}-${i}`}
+                                initial={{ opacity: 0, y: 6 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -6 }}
+                                className={`cursor-pointer  ${
+                                  isHighlighted
+                                    ? "bg-primary/10 ring-2 ring-primary/20"
+                                    : "hover:bg-gray-50 dark:hover:bg-gray-700/40"
+                                }`}
+                                onClick={() => handleRowClick(item.id)}
+                                onDoubleClick={() => openPdf(item)}
+                                ref={(el) => {
+                                  if (el) {
+                                    rowRefs.current[item.id] = el;
+                                  }
                                 }}
-                                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r  disabled:opacity-50 text-secondary font-medium  hover:shadow-lg  transform"
-                                >
-                                <FaFilePdf /> PDF
-                              </button>
-                                  </td>
-                                </motion.tr>
-                              );
-                            })
+                              >
+                                <td className="px-4 py-4 text-center align-top">
+                                  <div className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium bg-gray-100 dark:bg-gray-700">
+                                    {(currentPage - 1) * itemsPerPage + idx + 1}
+                                  </div>
+                                </td>
+                                <td className="px-4 py-3 text-right">
+                                  {t.title}
+                                </td>
+                                <td className="px-4 py-3 text-right">
+                                  {t.authors?.join(", ")}
+                                </td>
+                                <td className="px-4 py-3 text-right">
+                                  {t.publicationVenue}
+                                </td>
+                                <td className="px-4 py-3 text-right">
+                                  {t.language}
+                                </td>
+                                <td className="px-4 py-3 text-right">
+                                  {item.publishedYear}
+                                </td>
+                                <td className="px-4 py-3 text-right">
+                                  {t.pagenam}
+                                </td>
+                                <td className="px-4 py-3  justify-center">
+                                  <button
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      openPdf(item);
+                                    }}
+                                    className="flex items-center   gap-2 px-4 py-2 rounded-lg bg-gradient-to-r text-secondary font-medium hover:shadow-lg transform"
+                                  >
+                                    <FaFilePdf /> PDF
+                                  </button>
+                                </td>
+                              </motion.tr>
+                            );
+                          })
                         )}
                       </AnimatePresence>
                     </tbody>
                   </table>
                 </div>
               ) : (
-                // بطاقات
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              <AnimatePresence>
-                {filteredData.map((item) =>
-                  item.translations.map((t) => (
-                    <motion.div
-                      key={`${item.id}-${t.languageid}`}
-                      layout
-                      initial={{ opacity: 0, y: 25 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.4, ease: "easeOut" }}
-                      whileHover={{ y: -6 }}
-                      className="relative bg-white/90 dark:bg-gray-900/90 
-                     border border-secondary/30 dark:border-secondary/20 
-                     rounded-2xl shadow-md hover:shadow-xl 
-                     transition-all duration-300 overflow-hidden"
-                    >
-                      {/* خلفية هوية بصرية */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-70 pointer-events-none" />
-
-                      {/* المحتوى */}
-                      <div className="relative p-6 flex flex-col justify-between h-full">
-                        {/* العنوان */}
-                        <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4 leading-snug line-clamp-2">
-                          {t.title}
-                        </h3>
-
-                        {/* التفاصيل */}
-                        <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                          <p>
-                            <span className="font-semibold text-secondary">
-                              المؤلف:
-                            </span>{" "}
-                            {t.authors.join(", ")}
-                          </p>
-                          <p>
-                            <span className="font-semibold text-secondary">
-                              الناشر:
-                            </span>{" "}
-                            {t.publicationVenue}
-                          </p>
-                       
-                        </div>
-
-                        {/* فاصل زخرفي */}
-                        <div className="my-5 border-t border-secondary/20" />
-
-                        {/* الزر */}
-                        <motion.button
-                          whileTap={{ scale: 0.97 }}
-                          whileHover={{
-                            backgroundPosition: "100% 0",
-                            transition: { duration: 0.4 },
-                          }}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            openPdf(item);
-                          }}
-                          className="w-full flex items-center justify-center gap-2 px-4 py-2.5 
-                         rounded-xl bg-primary hover:border-secondary border-3
-                         bg-[length:200%_100%] text-white font-medium 
-                         shadow hover:shadow-lg transition-all duration-300"
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <AnimatePresence>
+                    {paginatedData.map((item) =>
+                      item.translations.map((t) => (
+                        <motion.div
+                          key={`${item.id}-${t.languageid}`}
+                          layout
+                          initial={{ opacity: 0, y: 25 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.4, ease: "easeOut" }}
+                          whileHover={{ y: -6 }}
+                          className="relative bg-white/90 dark:bg-gray-900/90 border border-secondary/30 dark:border-secondary/20 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
                         >
-                          <FaFilePdf className="text-lg" />
-                          <span>عرض PDF</span>
-                        </motion.button>
-                      </div>
-                    </motion.div>
-                  ))
-                )}
-              </AnimatePresence>
-            </div>
+                          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-70 pointer-events-none" />
+                          <div className="relative p-6 flex flex-col justify-between h-full">
+                            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4 leading-snug line-clamp-2">
+                              {t.title}
+                            </h3>
+                            <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                              <p>
+                                <span className="font-semibold text-secondary">
+                                  المؤلف:
+                                </span>{" "}
+                                {t.authors.join(", ")}
+                              </p>
+                              <p>
+                                <span className="font-semibold text-secondary">
+                                  الناشر:
+                                </span>{" "}
+                                {t.publicationVenue}
+                              </p>
+                            </div>
+                            <div className="my-5 border-t border-secondary/20" />
+                            <motion.button
+                              whileTap={{ scale: 0.97 }}
+                              whileHover={{
+                                backgroundPosition: "100% 0",
+                                transition: { duration: 0.4 },
+                              }}
+                              onClick={() => openPdf(item)}
+                              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary hover:border-secondary border-3 bg-[length:200%_100%] text-white font-medium shadow hover:shadow-lg transition-all duration-300"
+                            >
+                              <FaFilePdf className="text-lg" />
+                              <span>عرض PDF</span>
+                            </motion.button>
+                          </div>
+                        </motion.div>
+                      ))
+                    )}
+                  </AnimatePresence>
+                </div>
               )}
             </div>
           </div>
 
-        <motion.div
-  initial={{ opacity: 0, y: 8 }}
-  animate={{ opacity: 1, y: 0 }}
-  className="mt-8 bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 dark:bg-gray-900/50 border border-primary/30 dark:border-gray-700/50 rounded-2xl p-6 backdrop-blur-sm"
->
-  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-    {/* أيقونة PDF */}
-    <div className="flex-shrink-0 p-4 bg-gradient-to-br from-primary via-secondary to-primary-700 dark:from-primary-900 dark:via-secondary/50 dark:to-primary-800 rounded-xl shadow-md">
-      <FaFilePdf className="text-3xl text-white" />
-    </div>
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="w-11/12 mx-auto flex justify-center my-8">
+              <nav className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => paginate(Math.max(1, currentPage - 1))}
+                  disabled={currentPage === 1}
+                  aria-label="الصفحة السابقة"
+                  className="bg-white text-primary hover:bg-primary dark:text-Muharram_primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
+                >
+                  <ChevronRight size={20} />
+                </Button>
 
-    {/* النصوص */}
-    <div className="flex-1">
-      <h3 className="text-xl font-bold text-primary dark:text-white mb-2">
-        معلومات التحميل
-      </h3>
-      <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
-        جميع المجلدات متاحة للتحميل بصيغة PDF. انقر على أيقونة PDF لفتح المجلد مباشرةً في نافذة جديدة.
-      </p>
-    </div>
-  </div>
-</motion.div>
+                {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                  let pageNum;
+                  if (currentPage <= 3) {
+                    pageNum = i + 1;
+                  } else if (currentPage > totalPages - 3) {
+                    pageNum = totalPages - 4 + i;
+                  } else {
+                    pageNum = currentPage - 2 + i;
+                  }
 
+                  return (
+                    <Button
+                      key={pageNum}
+                      variant={currentPage === pageNum ? "default" : "outline"}
+                      onClick={() => paginate(pageNum)}
+                      className={`w-10 h-10 rounded-lg transition-colors duration-300 ${
+                        currentPage === pageNum
+                          ? "bg-primary dark:bg-Muharram_primary text-white"
+                          : "bg-white text-primary hover:bg-primary dark:text-Muharram_primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
+                      }`}
+                      aria-current={
+                        currentPage === pageNum ? "page" : undefined
+                      }
+                    >
+                      {pageNum}
+                    </Button>
+                  );
+                })}
 
-          <div className="mt-8 text-center text-sm text-gray-500 dark:text-gray-400">
-            © {new Date().getFullYear()} موسوعة الإمام السجاد - جميع الحقوق
-            محفوظة
-          </div>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() =>
+                    paginate(Math.min(totalPages, currentPage + 1))
+                  }
+                  disabled={currentPage === totalPages}
+                  aria-label="الصفحة التالية"
+                  className="bg-white text-primary dark:text-Muharram_primary hover:bg-primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
+                >
+                  <ChevronLeft size={20} />
+                </Button>
+              </nav>
+            </div>
+          )}
         </div>
       </div>
     </div>

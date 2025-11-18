@@ -224,7 +224,7 @@ export default function Page() {
 						<motion.div
 							key={index}
 							whileHover={{ scale: 1.05 }}
-							className="text-center flex flex-col items-center w-72 p-6 text-Muharram_secondary rounded-2xl bg-white dark:bg-Muharram_primary dark:text-white shadow hover:shadow-xl transition"
+							className="text-center flex flex-col items-center w-72 p-6 dark:text-Muharram_secondary rounded-2xl bg-white dark:bg-Muharram_primary/30 text-black shadow hover:shadow-xl transition"
 						>
 							{item.icon}
 							<h1 className="text-xl font-bold">{item.title}</h1>
