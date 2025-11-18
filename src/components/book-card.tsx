@@ -1,7 +1,6 @@
 "use client"
 
 import { useRouter, usePathname } from "next/navigation"
-import { useEffect, useState } from "react"
 import { DownloadIcon } from "@/assets/icons/reusable"
 import { Book } from "@/types/book"
 import Image from "next/image"
@@ -28,16 +27,6 @@ export default function BookCard({
 }) {
 	const router = useRouter()
 	const pathname = usePathname()
-	const [prevPageUrl, setPrevPageUrl] = useState("")
-
-	useEffect(() => {
-		if (
-			document.referrer &&
-			!document.referrer.includes(window.location.href)
-		) {
-			setPrevPageUrl(document.referrer)
-		}
-	}, [])
 
 	const seriesParts = publication.series
 		? publications.filter((book) => book.series === publication.series)
@@ -45,18 +34,6 @@ export default function BookCard({
 
 	return (
 		<div className="space-y-16 my-12 max-w-screen-xl mx-auto px-4">
-			{prevPageUrl && (
-				<div className="mb-4">
-					<Button
-						onClick={() => router.back()}
-						variant="outline"
-						className="inline-flex px-5 py-2 text-sm items-center gap-2 bg-white border border-primary text-primary hover:bg-primary/10 dark:border-Muharram_primary dark:text-Muharram_primary dark:hover:bg-Muharram_primary/10 transition-all font-medium rounded-full shadow-sm"
-					>
-						← الرجوع إلى الصفحة السابقة
-					</Button>
-				</div>
-			)}
-
 			<div className="relative rounded-3xl shadow-2xl border border-gray-200 bg-gradient-to-tr from-white via-secondary/10 to-secondary/30 dark:via-Muharram_secondary/10 dark:to-Muharram_secondary/30 overflow-hidden">
 				{/* أجزاء السلسلة */}
 				{seriesParts.length > 1 && (
