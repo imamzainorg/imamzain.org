@@ -167,7 +167,7 @@ export default async function page({
 									<input
 										type="email"
 										placeholder="بريدك الإلكتروني"
-										className="flex-1 px-3 py-2  rounded-lg text-gray-900 text-sm"
+										className="flex-1 px-3 py-2 w-2/3 rounded-lg text-gray-900 text-sm"
 									/>
 									<button className="px-4 py-2 bg-white text-primary dark:text-Muharram_primary rounded-lg font-medium text-sm  hover:bg-gray-100 transition-colors">
 										اشتراك
