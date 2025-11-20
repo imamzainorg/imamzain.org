@@ -1,33 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import StudentResearch from "./Components/student-research";
-import Journals from "./Components/journals";
-import ConferencePapers from "./Components/conference-papers";
+import StudentResearch from "./components/student-research";
+import Journals from "./components/journals";
+import ConferencePapers from "./components/conference-papers";
 import Breadcrumbs from "@/components/breadcrumb";
 
 export default function Page() {
-  const [activeView, setActiveView] = useState("one");
+  const [activeView, setActiveView] = useState<"one" | "two" | "three">("one");
 
- 
+  useEffect(() => {
+    setActiveView(
+      (window.location.hash.replace("#", "") as "one" | "two" | "three") ||
+        "one"
+    );
+  }, [setActiveView]);
 
   return (
     <div className="p-6 ">
       {/* Breadcrumbs الديناميكي */}
-     <Breadcrumbs
-          links={[
-            { name: "الصفحة الرئيسية", url: "/" },
-            { name: "الصفحة العلمية", url: "/research" },
-          ]}
-        />
+      <Breadcrumbs
+        links={[
+          { name: "الصفحة الرئيسية", url: "/" },
+          { name: "الصفحة العلمية", url: "/research" },
+        ]}
+      />
       {/* الأزرار بتصميم الروابط */}
       <div className="flex flex-wrap justify-center items-center gap-4 mb-16 mt-6">
-
-        {[{ id: "one", title: "📑 بحوث المؤتمرات"},
-         { id: "two", title: "🎓 بحوث التخرج" },
+        {[
+          { id: "one", title: "📑 بحوث المؤتمرات" },
+          { id: "two", title: "🎓 بحوث التخرج" },
           { id: "three", title: "📚 الدوريات العربية" },
-       
         ].map((btn) => {
           const isActive = activeView === btn.id;
 
@@ -39,7 +43,7 @@ export default function Page() {
               transition={{ type: "spring", stiffness: 250, damping: 15 }}
             >
               <button
-                onClick={() => setActiveView(btn.id)}
+                onClick={() => setActiveView(btn.id as "one" | "two" | "three")}
                 className={`group relative flex items-center justify-center px-6 py-3 h-14 rounded-xl font-medium text-lg shadow-lg border transition-all duration-300 overflow-hidden 
                   ${
                     isActive
@@ -64,7 +68,7 @@ export default function Page() {
       {/* عرض الواجهة */}
       <div>
         {activeView === "one" && <ConferencePapers />}
-        {activeView === "two" && < StudentResearch/>}
+        {activeView === "two" && <StudentResearch />}
         {activeView === "three" && <Journals />}
       </div>
     </div>

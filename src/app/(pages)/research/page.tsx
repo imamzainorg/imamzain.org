@@ -10,24 +10,24 @@ const sections = [
 	{
 		title: "بحوث المؤتمرات",
 		description: "استعرض البحوث المقدمة في المؤتمرات العلمية المختلفة.",
-		href: "/research/scientific-platform",
+		href: "/research/scientific-platform#one",
 		icon: "📑",
 		subLinks: [
 			{
 				label: "المؤتمر العلمي الدولي الأول",
-				href: "/research/scientific-platform",
+				href: "/research/scientific-platform#one",
 			},
 		],
 	},
 	{
 		title: "بحوث التخرج",
 		description: "بحوث التخرج لطلبة البكالوريوس والماجستير والدكتوراه.",
-		href: "/research/scientific-platform",
+		href: "/research/scientific-platform#tow",
 		icon: "🎓",
 		subLinks: [
-			{ label: "بكالوريوس", href: "/research/scientific-platform#bachelor" },
-			{ label: "ماجستير", href: "/research/scientific-platform#master" },
-			{ label: "دكتوراه", href: "/research/scientific-platform#phd" },
+			{ label: "بكالوريوس", href: "/research/scientific-platform#two" },
+			{ label: "ماجستير", href: "/research/scientific-platform#two" },
+			{ label: "دكتوراه", href: "/research/scientific-platform#two" },
 		],
 	}
 
@@ -37,9 +37,9 @@ const sections = [
 	 {
 		title: "الدوريات العربية",
 		description: "اطّلع على مجموعة من الدوريات والمجلات العربية المحكمة.",
-		href: "/research/scientific-platform",
+		href: "/research/scientific-platform#three",
 		icon: "📚",
-		subLinks: [{ label: "دوريات عامة", href: "/research/scientific-platform" }],
+		subLinks: [{ label: "دوريات عامة", href: "/research/scientific-platform#three" }],
 	},
 
 ]
