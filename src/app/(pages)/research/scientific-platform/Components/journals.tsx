@@ -1,7 +1,7 @@
 "use client";
-import Link from "next/link";
+
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import Breadcrumbs from "@/components/breadcrumb";
+
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Search as SearchIcon,
@@ -15,7 +15,7 @@ import { FaFilePdf } from "react-icons/fa";
 import { Jounals } from "@/types/jounals";
 import { Button } from "@/components/button";
 import JournalsData from "@/data/journals.json";
-import { usePathname } from "next/navigation";
+
 type JounalsResearch = Jounals;
 
 export default function JounalsResearchPage() {
@@ -101,78 +101,13 @@ export default function JounalsResearchPage() {
   };
 
   const handleRowClick = (id: string) => setHighlightId(id);
-  const pathname = usePathname();
 
-  const links = [
-    { title: "📚 الدوريات العربية", href: "/research/journals" },
-    { title: "📑 بحوث المؤتمرات", href: "/research/conference-papers" },
-    { title: "🎓 بحوث التخرج", href: "/research/student-research" },
-  ];
   return (
     <div className="container">
       <div className="min-h-screen py-10">
         <div className="mx-auto px-4">
           {/* Breadcrumbs */}
-          <div className="mb-8">
-            <Breadcrumbs
-              links={[
-                { name: "الصفحة الرئيسية", url: "/" },
-                { name: "الصفحة العلمية", url: "/research" },
-                {
-                  name: "موسوعة الإمام السجاد (عليه السلام)",
-                  url: "/research/imam-sajjad-encyclopedia",
-                },
-              ]}
-            />
-            <div className="flex flex-wrap justify-center items-center gap-4  mb-16 mt-6">
-              {links.map((link, i) => {
-                const isActive = pathname === link.href;
-
-                return (
-                  <motion.div
-                    key={i}
-                    whileHover={{ scale: 1.07, y: -3 }}
-                    whileTap={{ scale: 0.96 }}
-                    transition={{ type: "spring", stiffness: 250, damping: 15 }}
-                  >
-                    <Link
-                      href={link.href}
-                      className={`group relative flex items-center justify-center px-6 py-3 h-14 rounded-xl font-medium text-lg shadow-lg border transition-all duration-300 overflow-hidden 
-              ${
-                isActive
-                  ? "bg-primary text-white border-primary" // اللون عند التفعيل
-                  : "bg-primary/15 text-primary hover:border-primary border-transparent"
-              }`}
-                    >
-                      {/* تأثير الإضاءة عند المرور */}
-                      <span
-                        className={`absolute inset-0 bg-gradient-to-r from-secondary/0 via-primary/20 to-secondary/0 opacity-0 group-hover:opacity-100 blur-lg transition duration-500 ${
-                          isActive ? "opacity-100" : ""
-                        }`}
-                      ></span>
-
-                      {/* النص */}
-                      <span className="relative z-10">{link.title}</span>
-                    </Link>
-                  </motion.div>
-                );
-              })}
-            </div>
-            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mt-6">
-              <div className="flex-1">
-                <div className="flex items-center gap-4 ">
-                  <div>
-                    <h1 className="text-3xl md:text-4xl font-extrabold leading-tight">
-                      موسوعة الإمام السجاد (عليه السلام)
-                    </h1>
-                    <p className="text-sm text-gray-500 dark:text-gray-300 mt-3">
-                      الفهرس الشامل للمقالات والدراسات في الدوريات العربية
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+     
 
           {/* البحث والتصفية */}
           <motion.div
