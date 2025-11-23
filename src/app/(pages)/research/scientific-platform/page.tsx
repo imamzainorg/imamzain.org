@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react"
 import { useSearchParams } from "next/navigation"
 import { motion } from "framer-motion"
-import StudentResearch from "./components/student-research"
-import Journals from "./components/journals"
-import ConferencePapers from "./components/conference-papers"
+import StudentResearch from "./_components/student-research"
+import Journals from "./_components/journals"
+import ConferencePapers from "./_components/conference-papers"
 import Breadcrumbs from "@/components/breadcrumb"
 
 type ActiveView = "student-research" | "conferences" | "journals"
