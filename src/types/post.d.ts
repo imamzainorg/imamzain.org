@@ -1,13 +1,10 @@
 import { Attachment } from "./attachments"
 
 export type PostCategory =
-	| "العتبة الحسينية"
-	| " مؤتمرات"
-	| "اخبار"
-	| "اجتماعات"
-	| "ندوات"
-	| "مجالس"
-
+	| "فعاليات"
+	|"مجالس"
+	| "نشاطات"
+| "العتبة الحسينية"
 export type Post = {
 	id: number
 	slug: string
