@@ -110,7 +110,7 @@ export default async function Page() {
           {/* Conferences */}
           {activities.length > 0 && (
             <div className="space-y-4">
-              <div className="space-y-3 grid grid-cols-3 gap-4">
+              <div className="space-y-3 grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4">
                 {activities.slice(0,6).map((post) => (
                   <PostCard key={post.id} {...post} />
                 ))}

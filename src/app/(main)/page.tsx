@@ -15,27 +15,31 @@ import AnimatedTextSection from "@/components/animated-text";
 import { Featured } from "./_components/featured";
 const desktopImages = [
 "/images/Fatima-al-Zahra-Mourning Majlis -Third-Report (1).jpg",
+"/images/The-Martyrdom-of-Fatima-al-Zahra.jpg",
+"/images/The-Martyrdom-of-Fatima-al-Zahra2.jpg",
   "/images/albaqi.jpg",
   // "/images/albaqi-2.png",
   // "/images/hero-3.jpg", // لمحات
    "/images/hero-9.jpg", // المباني السياسية
-  "/images/hero-4.jpg", // تراتيل القانتين
-  "/images/hero-5.jpg", // البعد الاجتماعي
+  //"/images/hero-4.jpg", // تراتيل القانتين
+ // "/images/hero-5.jpg", // البعد الاجتماعي
   "/images/hero-6.jpg", // ابي حمزة الثمالي
-  "/images/hero-7.jpg", // بناء الامن النفسي
+ // "/images/hero-7.jpg", // بناء الامن النفسي
  // "/images/hero-8.jpg", // البعد القانوني
 ];
 
 const mobileImages = [
  "/images/Fatima-al-Zahra-Mourning Majlis -Third-Report (2).jpg",
+ "/images/The-Martyrdom-of-Fatima-al-Zahra1.jpg",
+ "/images/The-Martyrdom-of-Fatima-al-Zahra3.jpg",
   "/images/albaqi.jpg",
   // "/images/albaqi-2.png",
    //"/images/hero-3-vertical.jpg", // لمحات
   "/images/hero-9-vertical.jpg", // المباني السياسية
   "/images/hero-4-vertical.jpg", // تراتيل القانتين
-  "/images/hero-5-vertical.jpg", // البعد الاجتماعي
-  "/images/hero-6-vertical.jpg", // ابي حمزة الثمالي
-  "/images/hero-7-vertical.jpg", // بناء الامن النفسي
+  //"/images/hero-5-vertical.jpg", // البعد الاجتماعي
+  //"/images/hero-6-vertical.jpg", // ابي حمزة الثمالي
+ // "/images/hero-7-vertical.jpg", // بناء الامن النفسي
  // "/images/hero-8-vertical.jpg", // البعد القانوني
 ];
 
