@@ -1,21 +1,27 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import StudentResearch from "./components/student-research";
 import Journals from "./components/journals";
 import ConferencePapers from "./components/conference-papers";
 import Breadcrumbs from "@/components/breadcrumb";
 
+type ActiveView = "student-research" | "conferences" | "journals";
+
 export default function Page() {
-  const [activeView, setActiveView] = useState<"one" | "two" | "three">("one");
+  const searchParams = useSearchParams();
+  const [activeView, setActiveView] = useState<ActiveView>("student-research");
 
   useEffect(() => {
-    setActiveView(
-      (window.location.hash.replace("#", "") as "one" | "two" | "three") ||
-        "one"
-    );
-  }, [setActiveView]);
+    // Get type param
+    const typeParam = (searchParams.get("type") ||
+      "student-research") as ActiveView;
+    setActiveView(typeParam);
+
+    console.log("type from query:", typeParam);
+  }, [searchParams]);
 
   return (
     <div className="p-6 ">
@@ -29,9 +35,9 @@ export default function Page() {
       {/* الأزرار بتصميم الروابط */}
       <div className="flex flex-wrap justify-center items-center gap-4 mb-16 mt-6">
         {[
-          { id: "one", title: "📑 بحوث المؤتمرات" },
-          { id: "two", title: "🎓 بحوث التخرج" },
-          { id: "three", title: "📚 الدوريات العربية" },
+          { id: "conferences", title: "📑 بحوث المؤتمرات" },
+          { id: "student-research", title: "🎓 بحوث التخرج" },
+          { id: "journals", title: "📚 الدوريات العربية" },
         ].map((btn) => {
           const isActive = activeView === btn.id;
 
@@ -43,7 +49,7 @@ export default function Page() {
               transition={{ type: "spring", stiffness: 250, damping: 15 }}
             >
               <button
-                onClick={() => setActiveView(btn.id as "one" | "two" | "three")}
+                onClick={() => setActiveView(btn.id as ActiveView)}
                 className={`group relative flex items-center justify-center px-6 py-3 h-14 rounded-xl font-medium text-lg shadow-lg border transition-all duration-300 overflow-hidden 
                   ${
                     isActive
@@ -67,9 +73,11 @@ export default function Page() {
 
       {/* عرض الواجهة */}
       <div>
-        {activeView === "one" && <ConferencePapers />}
-        {activeView === "two" && <StudentResearch />}
-        {activeView === "three" && <Journals />}
+        {activeView === "conferences" && <ConferencePapers />}
+        {activeView === "student-research" && (
+          <StudentResearch/>
+        )}
+        {activeView === "journals" && <Journals />}
       </div>
     </div>
   );

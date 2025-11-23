@@ -16,9 +16,21 @@ import { FaFilePdf } from "react-icons/fa";
 import studentData from "@/data/student.json";
 
 import { Button } from "@/components/button";
+import { useSearchParams } from "next/navigation";
+
+type DegreeType = "bachelor" | "master" | "phd" | "all";
+
+const tabs = [
+  { id: "all", label: "الكل" },
+  { id: "bachelor", label: "بكالوريوس" },
+  { id: "master", label: "ماجستير" },
+  { id: "phd", label: "دكتوراه" },
+];
 
 export default function StudentResearchPage() {
-  const [activeTab, setActiveTab] = useState("all");
+  const searchParams = useSearchParams();
+
+  const [activeTab, setActiveTab] = useState<DegreeType>("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState<StudentResearch[]>([]);
   const [viewMode, setViewMode] = useState<"cards" | "table">("cards");
@@ -29,23 +41,16 @@ export default function StudentResearchPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 21;
 
-  const tabs = [
-    { id: "all", label: "الكل" },
-    { id: "bachelor", label: "بكالوريوس" },
-    { id: "master", label: "ماجستير" },
-    { id: "phd", label: "دكتوراه" },
-  ];
-
-  useEffect(() => {
-    const hash = window.location.hash.replace("#", "");
-    if (hash && tabs.some((t) => t.id === hash)) setActiveTab(hash);
-  }, []);
+useEffect(() => {
+    const degree = searchParams.get("degree") as DegreeType || "all";
+    setActiveTab(degree);
+    console.log("degree from query:", degree);
+  }, [searchParams]);
 
   const handleTabClick = (id: string) => {
-    setActiveTab(id);
+    setActiveTab(id as DegreeType);
     setSearchTerm("");
     setCurrentPage(1);
-    window.history.replaceState(null, "", `#${id}`);
   };
 
   // جلب البيانات حسب التبويب
@@ -134,11 +139,9 @@ export default function StudentResearchPage() {
   };
 
   const handleRowClick = (id: string) => setHighlightId(id);
-  
+
   return (
     <div className="container">
- 
-
       {/* العنوان */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
