@@ -14,7 +14,7 @@ import hadiths from "@/data/hadiths.json";
 import AnimatedTextSection from "@/components/animated-text";
 import { Featured } from "./_components/featured";
 const desktopImages = [
-
+"/images/Fatima-al-Zahra-Mourning Majlis -Third-Report (1).jpg",
   "/images/albaqi.jpg",
   // "/images/albaqi-2.png",
   // "/images/hero-3.jpg", // لمحات
@@ -23,11 +23,11 @@ const desktopImages = [
   "/images/hero-5.jpg", // البعد الاجتماعي
   "/images/hero-6.jpg", // ابي حمزة الثمالي
   "/images/hero-7.jpg", // بناء الامن النفسي
-  "/images/hero-8.jpg", // البعد القانوني
+ // "/images/hero-8.jpg", // البعد القانوني
 ];
 
 const mobileImages = [
- 
+ "/images/Fatima-al-Zahra-Mourning Majlis -Third-Report (2).jpg",
   "/images/albaqi.jpg",
   // "/images/albaqi-2.png",
    //"/images/hero-3-vertical.jpg", // لمحات
@@ -36,7 +36,7 @@ const mobileImages = [
   "/images/hero-5-vertical.jpg", // البعد الاجتماعي
   "/images/hero-6-vertical.jpg", // ابي حمزة الثمالي
   "/images/hero-7-vertical.jpg", // بناء الامن النفسي
-  "/images/hero-8-vertical.jpg", // البعد القانوني
+ // "/images/hero-8-vertical.jpg", // البعد القانوني
 ];
 
 export default async function Page() {
