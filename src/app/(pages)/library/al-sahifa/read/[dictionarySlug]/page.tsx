@@ -4,7 +4,7 @@ import Link from "next/link"
 export default async function Page({
 	params,
 }: {
-	params: { dictionarySlug: string }
+	params: Promise<{ dictionarySlug: string }>
 }) {
 	const { dictionarySlug } = await params
 	const activeDictionary = getDictionary("al-sahifa", dictionarySlug)

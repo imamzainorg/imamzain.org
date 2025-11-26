@@ -8,10 +8,10 @@ export default async function Layout({
 	params,
 }: {
 	children: React.ReactNode
-	params: { dictionarySlug: string }
+	params: Promise<{ dictionarySlug: string }>
 }) {
-	const dictionaries = await getDictionaries("al-sahifa")
 	const { dictionarySlug } = await params
+	const dictionaries = getDictionaries("al-sahifa")
 
 	return (
 		<div className="px-4 sm:px-10 py-10 bg-gradient-to-br min-h-screen">

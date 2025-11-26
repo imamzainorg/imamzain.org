@@ -5,7 +5,7 @@ import type { Dictionary, Subject } from "@/types/imamzain-legacy"
 const alSahifa = alSahifaData as Dictionary[]
 const risalatAlHuqoq = risalatData as Dictionary[]
 
-export const legacies = [
+const legacies = [
 	{ slug: "al-sahifa", title: "الصحيفة السجادية", dictionaries: alSahifa },
 	{
 		slug: "risalat-al-huqoq",
@@ -14,7 +14,7 @@ export const legacies = [
 	},
 ] as const
 
-export function getLegacy(slug: string) {
+function getLegacy(slug: string) {
 	return legacies.find((b) => b.slug === slug) || null
 }
 
@@ -28,12 +28,6 @@ export function getDictionary(legacySlug: string, dictionarySlug: string) {
 	const legacy = getLegacy(legacySlug)
 	if (!legacy) return null
 	return legacy.dictionaries.find((d) => d.slug === dictionarySlug) || null
-}
-
-export function getSubjects(legacySlug: string, dictionarySlug: string) {
-	const dict = getDictionary(legacySlug, dictionarySlug)
-	if (!dict) return []
-	return dict.subjects.map((s) => ({ slug: s.slug, title: s.title }))
 }
 
 export function getSubject(
