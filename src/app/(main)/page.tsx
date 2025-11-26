@@ -1,19 +1,20 @@
-import Live from "./_components/live";
-import Posts from "./_components/posts";
-import Publications from "./_components/publications";
-import Services from "./_components/services";
-import Videos from "./_components/videos";
-import TopImage from "./_components/top-image";
-import GallerySection from "./_components/gallery";
-import Application from "./_components/application";
-import { dataFetcher } from "@/lib/dataFetcher";
-import { Book } from "@/types/book";
-import { Post } from "@/types/post";
-import { YouTubePlaylist } from "@/types/youtube-data";
-import hadiths from "@/data/hadiths.json";
-import AnimatedTextSection from "@/components/animated-text";
-import { Featured } from "./_components/featured";
+import Live from "./_components/live"
+import Posts from "./_components/posts"
+import Publications from "./_components/publications"
+import Services from "./_components/services"
+import Videos from "./_components/videos"
+import TopImage from "./_components/top-image"
+import GallerySection from "./_components/gallery"
+import Application from "./_components/application"
+import { dataFetcher } from "@/lib/dataFetcher"
+import { Book } from "@/types/book"
+import { Post } from "@/types/post"
+import { YouTubePlaylist } from "@/types/youtube-data"
+import hadiths from "@/data/hadiths.json"
+import AnimatedTextSection from "@/components/animated-text"
+import { Featured } from "./_components/featured"
 const desktopImages = [
+<<<<<<< HEAD
 
   "/images/albaqi.jpg",
    //"/images/albaqi-2.png",
@@ -38,31 +39,55 @@ const mobileImages = [
   "/images/hero-7-vertical.jpg", // بناء الامن النفسي
  // "/images/hero-8-vertical.jpg", // البعد القانوني
 ];
+=======
+	"/images/albaqi.jpg",
+	"/images/albaqi-2.png",
+	"/images/hero-3.jpg", // لمحات
+	"/images/hero-9.jpg", // المباني السياسية
+	//"/images/hero-4.jpg", // تراتيل القانتين
+	// "/images/hero-5.jpg", // البعد الاجتماعي
+	"/images/hero-6.jpg", // ابي حمزة الثمالي
+	"/images/hero-7.jpg", // بناء الامن النفسي
+	// "/images/hero-8.jpg", // البعد القانوني
+]
+
+const mobileImages = [
+	"/images/albaqi.jpg",
+	"/images/albaqi-2.png",
+	"/images/hero-3-vertical.jpg", // لمحات
+	"/images/hero-9-vertical.jpg", // المباني السياسية
+	// "/images/hero-4-vertical.jpg", // تراتيل القانتين
+	//"/images/hero-5-vertical.jpg", // البعد الاجتماعي
+	"/images/hero-6-vertical.jpg", // ابي حمزة الثمالي
+	"/images/hero-7-vertical.jpg", // بناء الامن النفسي
+	// "/images/hero-8-vertical.jpg", // البعد القانوني
+]
+>>>>>>> 7e82bffd2d5a5df9e48dbd33ccafe35c8ba23fb5
 
 export default async function Page() {
-  const publications = await dataFetcher<Book[]>("books.json");
-  const posts = await dataFetcher<Post[]>("posts.json");
-  const playlists = await dataFetcher<YouTubePlaylist[]>("youtube.json");
+	const publications = await dataFetcher<Book[]>("books.json")
+	const posts = await dataFetcher<Post[]>("posts.json")
+	const playlists = await dataFetcher<YouTubePlaylist[]>("youtube.json")
 
-  // Select Proper Hadith Based on Date
-  const today = new Date();
-  const dayOfMonth = today.getDate();
-  const currentHadithIndex = (dayOfMonth - 1) % hadiths.length;
-  const currentHadith = hadiths[currentHadithIndex];
+	// Select Proper Hadith Based on Date
+	const today = new Date()
+	const dayOfMonth = today.getDate()
+	const currentHadithIndex = (dayOfMonth - 1) % hadiths.length
+	const currentHadith = hadiths[currentHadithIndex]
 
-  return (
-    <div className="">
-      <TopImage
-        desktopImages={desktopImages}
-        mobileImages={mobileImages}
-        currentHadith={currentHadith}
-      />
+	return (
+		<div className="">
+			<TopImage
+				desktopImages={desktopImages}
+				mobileImages={mobileImages}
+				currentHadith={currentHadith}
+			/>
 
-      <Featured />
-      <div className="container">
-        <AnimatedTextSection
-          title="رؤية المؤسسة"
-          text="
+			<Featured />
+			<div className="container">
+				<AnimatedTextSection
+					title="رؤية المؤسسة"
+					text="
 					انطلاقاً من العمق الديني والعلمي والإجتماعي لأهل بيت النبوة
 					وأنوار الهداية الإلهية (عليهم السلام جميعاً) ، وسعياً الى
 					تعريف المجتمع الإنساني بمآثر العترة الطاهرة لنبي الرحمة (صلى
@@ -74,32 +99,32 @@ export default async function Page() {
 					فكر أئمة البقيع وفقههم والعمل على إلفات الأنظار الى سمو
 					مرتبتهم (عليهم السلام) وجلالة قدرهم في الإسلام فجزى الله
 					العاملين كل خير."
-          ctaLinks={[
-            {
-              label: "اهداف المؤسسة",
-              href: "/about/vision-and-goals#vision",
-            },
-            {
-              label: "رسالة المؤسسة",
-              href: "/about/vision-and-goals#message",
-            },
-          ]}
-        />
-      </div>
-      <Posts newsPosts={posts} />
+					ctaLinks={[
+						{
+							label: "اهداف المؤسسة",
+							href: "/about/vision-and-goals#vision",
+						},
+						{
+							label: "رسالة المؤسسة",
+							href: "/about/vision-and-goals#message",
+						},
+					]}
+				/>
+			</div>
+			<Posts newsPosts={posts} />
 
-      <div className="pt-20">
-        <div
-          className="bg-cover bg-top bg-no-repeat"
-          style={{
-            backgroundImage: "url('/images/albaqi.jpg') ",
-          }}
-        >
-          <div className="bg-secondary/25 dark:bg-Muharram_secondary/25 backdrop-blur-sm text-white py-20">
-            <div className="container">
-              <AnimatedTextSection
-                title="الإمام زين العابدين (عليه السلام)"
-                text='
+			<div className="pt-20">
+				<div
+					className="bg-cover bg-top bg-no-repeat"
+					style={{
+						backgroundImage: "url('/images/albaqi.jpg') ",
+					}}
+				>
+					<div className="bg-secondary/25 dark:bg-Muharram_secondary/25 backdrop-blur-sm text-white py-20">
+						<div className="container">
+							<AnimatedTextSection
+								title="الإمام زين العابدين (عليه السلام)"
+								text='
 							الإمام علي بن الحسين (عليه السلام) هو الإمام الرابع
 							من سلسلة الأئمة الأطهار (عليهم السلام) من آل بيت
 							النبي (صلى الله عليه وآله)، أطل على هذه الدنيا في
@@ -114,27 +139,27 @@ export default async function Page() {
 							مروان" ورحل عن هذه الدنيا في سنة 95 للهجرة بعد
 							حياة حافلة بالبذل والعطاء في سبيل إعلاء شأن الرسالة
 							وخدمة الأمة الإسلامية.'
-                ctaLinks={[
-                  {
-                    label: "حياته الكريمة",
-                    href: "/his-life/birth-and-death",
-                  },
-                  {
-                    label: "تراث الإمام",
-                    href: "/library",
-                  },
-                ]}
-                textClassName="leading-7 md:leading-9 lg:leading-10"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+								ctaLinks={[
+									{
+										label: "حياته الكريمة",
+										href: "/his-life/birth-and-death",
+									},
+									{
+										label: "تراث الإمام",
+										href: "/library",
+									},
+								]}
+								textClassName="leading-7 md:leading-9 lg:leading-10"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
 
-      <div className="container">
-        <AnimatedTextSection
-          title="رسالة الحقوق"
-          text="
+			<div className="container">
+				<AnimatedTextSection
+					title="رسالة الحقوق"
+					text="
 					رسالة الحقوق منظومة حقوقية دونها الامام زين العابدين ع قبل
 					اربعة عشر قرنا ... تمتاز عن غيرها : بالشمولية لجميع الحقوق
 					التي جاء بها الاسلام ابتداء من نفس الإنسان وجوارحه وعلاقته
@@ -147,24 +172,24 @@ export default async function Page() {
 					الطائفية ومحققة للعدالة الإجتماعية وموجدة للتوازن بين جميع
 					مكونات المجتمع الانساني بالغة به حد الامن والسلم المجتمعي
 					والحياة الكريمة لو تمت مراعاتها وتطبيقها."
-          ctaLinks={[
-            {
-              label: "شروح رسالة الحقوق",
-              href: "/library/risalat-al-huqoq",
-            },
-            {
-              label: "قراءة رسالة الحقوق",
-              href: "/library/risalat-al-huqoq/read/introduction",
-            },
-          ]}
-        />
-      </div>
-      <Services />
-      <Publications publications={publications} />
-      <Application />
-      <GallerySection />
-      <Videos playlists={playlists} />
-      <Live />
-    </div>
-  );
+					ctaLinks={[
+						{
+							label: "شروح رسالة الحقوق",
+							href: "/library/risalat-al-huqoq",
+						},
+						{
+							label: "قراءة رسالة الحقوق",
+							href: "/library/risalat-al-huqoq/read/introduction",
+						},
+					]}
+				/>
+			</div>
+			<Services />
+			<Publications publications={publications} />
+			<Application />
+			<GallerySection />
+			<Videos playlists={playlists} />
+			<Live />
+		</div>
+	)
 }

@@ -148,7 +148,7 @@ export default function TopImage({
 						src={images[prevImageIndex]}
 						alt="Background image"
 						fill
-						quality={100}
+						quality={30}
 						className="object-cover absolute inset-0"
 						style={{ objectPosition: "center" }}
 						priority={prevImageIndex === 0}
