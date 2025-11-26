@@ -20,7 +20,7 @@ import { motion } from "framer-motion";
 import useWindowEvents from "@/hooks/window-events";
 import TopBar from "@/layouts/header/top-bar";
 import { LogoRotate } from "@/layouts/header/logo-rotate";
-
+import { Sun, Moon } from "lucide-react";
 const links = [
   {
     label: "سيرة الإمام زين العابدين (ع)",
@@ -140,7 +140,18 @@ export default function Header() {
   const handleExpand = (index: number) => {
     setExpandedIndex((prev) => (prev === index ? null : index));
   };
+    const [theme, setTheme] = useState("light");  // <-- مهم جداً
+useEffect(() => {
+  if (theme === "dark") {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+}, [theme]);
 
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
   return (
     <motion.div className="text-white">
       {/* Header */}
@@ -237,17 +248,43 @@ export default function Header() {
             </nav>
 
             {/* Mobile Hamburger Icon */}
-            <button
-              className="lg:hidden"
-              onClick={toggleMenu}
-              aria-label={isMenuVisible ? "Close Menu" : "Open Menu"}
-            >
-              {!isMenuVisible ? (
-                <MenuIcon stroke={"#ffffff"} />
-              ) : (
-                <XIcon stroke={"#ffffff"} />
-              )}
-            </button>
+<div className="flex flex-row-reverse gap-4">
+  {/* زر القائمة (Menu / X) */}
+  <button
+    className="lg:hidden"
+    onClick={toggleMenu}
+    aria-label={isMenuVisible ? "Close Menu" : "Open Menu"}
+  >
+    {!isMenuVisible ? (
+      <MenuIcon stroke="#ffffff" />
+    ) : (
+      <>
+    <div className="flex-row-reverse flex gap-5 p-2 items-center">
+      <div>
+         <XIcon stroke="#ffffff" />
+      </div>
+
+        {/* زر الثيم يظهر فقط مع X */}
+        <button
+          onClick={toggleTheme}
+          className={`p-1.5 rounded-full  transition ${
+            isScrolled || path !== "/"
+              ? "bg-secondary dark:bg-Muharram_secondary text-white"
+              : "bg-white text-primary dark:text-Muharram_primary"
+          } ml-2`}
+          title="تبديل الثيم"
+        > 
+          {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+        </button>
+    </div>
+      </>
+    )}
+  </button>
+
+
+</div>
+
+
           </div>
         </div>
       </motion.div>
