@@ -2141,5 +2141,85 @@
     ],
     "publishedYear": "2025 م",
     "pdfUrl": "/research/student/master/رشا (الرسالة).pdf"
+  },{
+   "id": "127",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "A Pragmatic Study of Supplication in the Scripture of Imam Al-Sajjad (Al-Sahifa Al-Sajjadiyya)",
+        "authors": [" Baraa Kareem Ghazi"],
+        "publicationVenue": "جامعة بابل، كلية التربية للعلوم الإنسانية، قسم اللغة الإنجليزية ",
+        "category": "رسالة ماجستير",
+        "language": " انجليزي",
+        "pagenam": 144
+      }
+    ],
+    "publishedYear": "2024",
+    "pdfUrl": "A_Pragmatic_Study_of_Supplication_in_the_Scripture_of_Imam_Al_Sajjad.pdf"
+  },{
+   "id": "128",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "Alone with the Beloved: The words of Ali b. al-Husayn in The Sahifa Sajjadiyya",
+        "authors": ["Mahmood G. Dhalla, Supervisor"],
+        "publicationVenue": "جامعة برمنجهام، قسم اللاهوت والأديان",
+        "category": "رسالة ماجستير",
+        "language": " انجليزي",
+        "pagenam": 100
+      }
+    ],
+    "publishedYear": "2012",
+    "pdfUrl": "Alone_with_the_Beloved_The_words_of_Ali_b_al_Husayn_in_The_Sahifa.pdf"
+  },{
+   "id": "129",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "Supplications of Imam Sajjad at the Beginning of the Blessed Month of Ramadan (The 44th supplication of al-Sahifah al-Sajjadiyah)",
+        "authors": ["Yasar Ebrahim"],
+        "publicationVenue": "جامعة المصطفى العالمية، المدرسة الحجتية - المعهد العالي للفقه",
+        "category": "رسالة ماجستير",
+        "language": " انجليزي",
+        "pagenam": 138
+      }
+    ],
+    "publishedYear": " 2017",
+    "pdfUrl": "Yasar Ebrahim.pdf"
+  },{
+   "id": "130",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "The Life and Political Thought of Ali ibn al-Husayn",
+        "authors": ["Dr. Hamed Hafez Al-Abdullah"],
+        "publicationVenue": "جامعة فيكتوريا في مانشستر (سابقاً) جامعة مانشستر (حالياً)، قسم دراسات الشرق الأوسط ",
+        "category": "رسالة ماجستير",
+        "language": "",
+        "pagenam": 179
+      }
+    ],
+    "publishedYear": " 1986",
+    "pdfUrl": "The Life and Political Thought of Ali ibn al-Husayn.pdf"
+  },{
+   "id": "131",
+
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "Ukhat al Quran: Divine Mercy and the Quran in the Sahifah al Sajjadiyyah",
+        "authors": ["Syeda Mehr Mustafa"],
+        "publicationVenue": "بكالوريوس آداب (مرتبة الشرف) في العلوم الإنسانية - تخصص الدراسات الثقافية، جامعة بيكونهاوس الوطنية ",
+        "category": "رسالة ماجستير",
+        "language": "",
+        "pagenam": 141
+      }
+    ],
+    "publishedYear": " 2015",
+    "pdfUrl": "Mustafa_gwu_0075M_16874.pdf"
   }
 ]

@@ -3,15 +3,15 @@
 import { useState, useCallback, useRef } from "react";
 import Breadcrumbs from "@/components/breadcrumb";
 import SwiperCarousel from "@/components/swiper-carousel";
-import SectionCta from "@/components/section-cta";
+//import SectionCta from "@/components/section-cta";
 import ImageView from "@/components/image-view";
 import galleryImages from "@/data/gallery.json";
 
 export default function GalleryPage() {
   const [lightboxOpen, setLightboxOpen] = useState<boolean>(false);
   const galleryRef = useRef<HTMLDivElement>(null);
-  const [activeCategory, setActiveCategory] = useState<string>("جميع الصور");
-  const categories = ["جميع الصور", "صور مسابقات", "صور أخبار", "صور مناسبات"];
+  //const [activeCategory, setActiveCategory] = useState<string>("جميع الصور");
+  //const categories = ["جميع الصور", "صور مسابقات", "صور أخبار", "صور مناسبات"];
   const images = galleryImages
     .filter((item) => item.title !== "khat")
     .map((item) => ({
@@ -46,7 +46,7 @@ export default function GalleryPage() {
           </p>
         </div>
 
-        <div className="mb-8">
+{/*        <div className="mb-8">
           <SectionCta
             links={categories.map((category) => ({
               label: category,
@@ -55,7 +55,7 @@ export default function GalleryPage() {
               onClick: () => setActiveCategory(category),
             }))}
           />
-        </div>
+        </div> */}
 
         <div className="mb-8">
           <SwiperCarousel images={images} />
