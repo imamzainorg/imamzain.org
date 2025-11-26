@@ -14,7 +14,7 @@ export default function MeetingsCarousel({
 }: MeetingsCarouselProps) {
 	// آخر 3 اجتماعات
 	const latestMeetings = meetingsData
-		.filter((item) => item.category === "اجتماعات")
+		.filter((item) => item.category === "مجالس")
 		.slice(-3)
 		.reverse()
 	const [activeIndex, setActiveIndex] = useState(0)
@@ -33,7 +33,7 @@ export default function MeetingsCarousel({
 		return (
 			<div className="flex items-center justify-center p-8 bg-gray-50 rounded-2xl ">
 				<p className="text-gray-500 text-lg">
-					لا توجد اجتماعات حتى الآن.
+					لا توجد مجالس حتى الآن.
 				</p>
 			</div>
 		)
@@ -98,7 +98,7 @@ export default function MeetingsCarousel({
 										href={`/news/${latestMeetings[activeIndex].slug}`}
 										className="inline-flex items-center text-sm px-5 py-3 bg-white text-gray-900 rounded-xl font-medium hover:bg-gray-100 transition-colors group"
 									>
-										اقرأ اللقاء
+									
 										<svg
 											className="mr-1 md:mr-2 h-4 w-4 md:h-5 md:w-4 transition-transform group-hover:-translate-x-1"
 											fill="none"
