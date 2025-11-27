@@ -18,14 +18,10 @@ export default function Publications({
 	// Function to update the number of books based on screen width
 	const updateBooksToShow = () => {
 		const width = window.innerWidth
-		if (width >= 1280)
-			setBooksToShow(10) //   (xl+)
-		else if (width >= 1024)
-			setBooksToShow(8) //   (lg)
-		else if (width >= 768)
-			setBooksToShow(6) //   (md)
-		else if (width >= 640)
-			setBooksToShow(4) //   (sm)
+		if (width >= 1280) setBooksToShow(10) //   (xl+)
+		else if (width >= 1024) setBooksToShow(8) //   (lg)
+		else if (width >= 768) setBooksToShow(6) //   (md)
+		else if (width >= 640) setBooksToShow(4) //   (sm)
 		else setBooksToShow(2) //   (xs)
 	}
 

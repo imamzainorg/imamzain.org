@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, memo } from "react"
 import {
 	Swiper as SwiperComponent,
 	type SwiperRef,
@@ -23,7 +23,7 @@ import { Swiper } from "swiper/types"
 import ImageView from "@/components/image-view"
 import { Attachment } from "@/types/attachments"
 
-export default function SwiperCarousel({ images }: { images: Attachment[] }) {
+const SwiperCarousel = memo(({ images }: { images: Attachment[] }) => {
 	const swiperRef = useRef<SwiperRef>(null)
 	const [swiperInstance, setSwiperInstance] = useState<Swiper>()
 
@@ -125,4 +125,6 @@ export default function SwiperCarousel({ images }: { images: Attachment[] }) {
 			</div>
 		</div>
 	)
-}
+})
+SwiperCarousel.displayName = "SwiperCarousel"
+export default SwiperCarousel

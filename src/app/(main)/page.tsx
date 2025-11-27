@@ -2,10 +2,7 @@ import Live from "./_components/live"
 import Posts from "./_components/posts"
 import Publications from "./_components/publications"
 import Services from "./_components/services"
-import Videos from "./_components/videos"
 import TopImage from "./_components/top-image"
-import GallerySection from "./_components/gallery"
-import Application from "./_components/application"
 import { dataFetcher } from "@/lib/dataFetcher"
 import { Book } from "@/types/book"
 import { Post } from "@/types/post"
@@ -13,6 +10,15 @@ import { YouTubePlaylist } from "@/types/youtube-data"
 import hadiths from "@/data/hadiths.json"
 import AnimatedTextSection from "@/components/animated-text"
 import { Featured } from "./_components/featured"
+import dynamic from "next/dynamic"
+
+const GallerySection = dynamic(() => import("./_components/gallery"), {
+	loading: () => <div className="h-96 animate-pulse bg-gray-200" />,
+})
+
+const Videos = dynamic(() => import("./_components/videos"))
+const Application = dynamic(() => import("./_components/application"))
+
 const desktopImages = [
 	"/images/albaqi.jpg",
 	"/images/albaqi-2.png",

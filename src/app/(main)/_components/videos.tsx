@@ -7,11 +7,6 @@ import {
 	TimeIcon,
 	VideoRecordingIcon,
 } from "@/assets/icons/reusable"
-{
-	/*
-	import SectionCta from "@/components/section-cta"
-	*/
-}
 import HeaderSections from "@/components/header-sections"
 import { motion } from "framer-motion"
 import { YouTubePlaylist } from "@/types/youtube-data"
@@ -72,7 +67,10 @@ export default function Videos({
 									onClick={() =>
 										openModal(playlist.videos[0].url)
 									}
-									className={`cursor-pointer ${index === 0 && "row-span-1 lg:row-span-2 col-span-1 lg:col-span-2"}`}
+									className={`cursor-pointer ${
+										index === 0 &&
+										"row-span-1 lg:row-span-2 col-span-1 lg:col-span-2"
+									}`}
 								>
 									<motion.div
 										className="relative w-full h-full rounded-3xl overflow-hidden flex flex-col shadow-xl"
@@ -129,7 +127,11 @@ export default function Videos({
 											className="h-2/6 bg-white rounded-tl-xl flex flex-col justify-between p-3"
 										>
 											<div
-												className={`w-full font-semibold text-xs ${index === 0 ? "max-lg:truncate lg:line-clamp-2 lg:text-lg" : "truncate"}`}
+												className={`w-full font-semibold text-xs ${
+													index === 0
+														? "max-lg:truncate lg:line-clamp-2 lg:text-lg"
+														: "truncate"
+												}`}
 											>
 												{playlist.videos[0].title}
 											</div>
