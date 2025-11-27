@@ -9,13 +9,13 @@ import BookCard from "@/components/book-card"
 export default async function Page({
 	params,
 }: {
-	params: Promise<{ slug: string }>
+	params: Promise<{ bookSlug: string }>
 }) {
-	const slug = (await params).slug
+	const { bookSlug } = await params
 	const libraryBooks = await dataFetcher<Book[]>("books.json")
 
 	const book: Book | undefined = libraryBooks.find(
-		(book) => book.slug === slug,
+		(book) => book.slug === bookSlug,
 	)
 
 	if (!book) {

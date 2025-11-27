@@ -3,7 +3,7 @@
 import { useState, ChangeEvent, FormEvent } from "react"
 import { Button, Input } from "@heroui/react"
 import { MailOpen } from "lucide-react"
-import MessageIcon, { PersonIcon } from "@/assets/icons/reusable"
+import { MessageIcon, PersonIcon } from "@/assets/icons/reusable"
 import Breadcrumbs from "@/components/breadcrumb"
 import Section from "@/components/section"
 import CountriesDropdown from "@/components/countries-input"
