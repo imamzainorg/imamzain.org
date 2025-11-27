@@ -29,9 +29,7 @@ export default async function Page() {
     ...majalis,
   ]
     .sort((a, b) => b.id - a.id)
-    .slice(0, 5);
-
-
+    .slice(0, 4);
 
   return (
     <div className="container mx-auto px-4">
@@ -43,32 +41,24 @@ export default async function Page() {
             { name: "الأخبار", url: "#" },
           ]}
         />
-        <div className="mt-4 md:ml-16">
-          <Link
-            href="/news/archives"
-            className="inline-flex items-center px-3 py-1.5 rounded-xl bg-primary dark:bg-Muharram_primary text-white text-sm font-semibold hover:bg-primary/90 dark:hover:bg-Muharram_primary/90 transition-colors"
-          >
-            ارشيف الاخبار
-            <ChevronRightArrowIcon
-              className="rotate-180 ml-1 p-1"
-              stroke="#ffffff"
-              strokeWidth={0.5}
-              fill="#ffffff"
-            />
-          </Link>
-        </div>
       </div>
 
       {/* Latest Foundation Activities */}
       {latestFoundationContent.length > 0 && (
         <div className="flex flex-col lg:flex-row gap-y-8 lg:gap-x-16 mt-6">
+          {/* الخبر الرئيسي */}
           <Link
             href={`/news/${latestFoundationContent[0].slug}`}
             key={latestFoundationContent[0].id}
             className="lg:w-7/12 space-y-6"
           >
             <div className="relative">
-              <div className="absolute w-7 h-7 -bottom-2.5 right-6 bg-[url('/shapes/newsIndicator.svg')] dark:bg-[url('/shapes/newsIndicator_Muharram.svg')] rotate-180 bg-no-repeat"></div>
+              <div
+                className="absolute w-7 h-7 -bottom-2.5 right-6 
+      bg-[url('/shapes/newsIndicator.svg')] 
+      dark:bg-[url('/shapes/newsIndicator_Muharram.svg')] 
+      rotate-180 bg-no-repeat"
+              ></div>
               <Image
                 src={latestFoundationContent[0].image || "/default-image.jpg"}
                 width={500}
@@ -90,15 +80,31 @@ export default async function Page() {
             </div>
           </Link>
 
-          <div className="lg:w-4/12">
-            <h2 className="text-primary dark:text-Muharram_primary font-bold text-center lg:text-left p-4 mb-2 text-xl xl:text-2xl">
+          {/* آخر الأنشطة + زر الأرشيف */}
+          <div className="lg:w-4/12 space-y-6">
+            <h2 className="text-primary dark:text-Muharram_primary font-bold text-center lg:text-left p-4 text-xl xl:text-2xl">
               آخر أنشطة المؤسسة
             </h2>
-            <div className="grid lg:grid-rows-4 gap-4">
+            <div className="grid lg:grid-rows-3 gap-4">
               {latestFoundationContent.slice(1).map((post) => (
                 <PostCard key={post.id} {...post} />
               ))}
             </div>
+
+            {/* زر أرشيف الأخبار */}
+            <Link
+              href="/news/archives"
+              className="flex items-center justify-between w-full py-3 px-6 rounded-xl border-2 border-primary
+    dark:border-Muharram_primary text-primary dark:text-Muharram_primary font-semibold text-base
+    hover:bg-primary hover:text-white dark:hover:bg-Muharram_primary dark:hover:text-white
+    transition-all duration-300"
+            >
+              أرشيف الأخبار
+              <ChevronRightArrowIcon
+                className="rotate-180 hover:translate-x-1 transition-all duration-300 w-5 h-5"
+                strokeWidth={1.5}
+              />
+            </Link>
           </div>
         </div>
       )}
@@ -111,7 +117,7 @@ export default async function Page() {
           {activities.length > 0 && (
             <div className="space-y-4">
               <div className="space-y-3 grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4">
-                {activities.slice(0,6).map((post) => (
+                {activities.slice(0, 6).map((post) => (
                   <PostCard key={post.id} {...post} />
                 ))}
               </div>
