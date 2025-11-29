@@ -14,7 +14,7 @@ export function Featured() {
 	})
 
 	useEffect(() => {
-		const targetDate = new Date("2026-01-05T23:59:59").getTime()
+		const targetDate = new Date("2026-03-05T23:59:59").getTime()
 
 		const interval = setInterval(() => {
 			const now = new Date().getTime()
