@@ -124,7 +124,7 @@ const TIMELINE_EVENTS: TimelineEvent[] = [
 	{
 		icon: CalendarX,
 		title: "آخر يوم في المسابقة",
-		date: "٥ / ١ / ٢٠٢٦م",
+		date: "٥ / ٣ / ٢٠٢٦م",
 		type: "deadline",
 	},
 ]
@@ -514,7 +514,7 @@ export default function Page() {
 	})
 
 	useEffect(() => {
-		const targetDate = new Date("2026-01-05T23:59:59").getTime()
+		const targetDate = new Date("2026-03-05T23:59:59").getTime()
 
 		const interval = setInterval(() => {
 			const now = new Date().getTime()
@@ -570,7 +570,7 @@ export default function Page() {
 							/>
 							<ModernBadge
 								icon={Calendar}
-								text="المسابقة مفتوحة لغاية 2026/1/5"
+								text="المسابقة مفتوحة لغاية 2026/3/5"
 								important
 							/>
 						</div>

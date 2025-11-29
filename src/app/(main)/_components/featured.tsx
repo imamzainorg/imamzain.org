@@ -69,7 +69,7 @@ export function Featured() {
 								<div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
 									<Calendar className="w-5 h-5 text-primary dark:text-Muharram_primary" />
 									<span className="font-medium">
-										آخر موعد: ٥ / ١ / ٢٠٢٦
+										آخر موعد: ٥ / ٣ / ٢٠٢٦
 									</span>
 								</div>
 							</div>
