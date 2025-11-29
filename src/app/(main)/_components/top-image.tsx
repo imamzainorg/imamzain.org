@@ -129,7 +129,7 @@ export default function TopImage({
 							key={index}
 							className={`w-2 h-2 rounded-full ${
 								index === currentImageIndex
-									? "bg-primary dark:bg-[#681717] "
+									? "bg-primary dark:bg-[#681717]"
 									: "bg-white/50"
 							}`}
 							onClick={() => {
@@ -148,10 +148,11 @@ export default function TopImage({
 						src={images[prevImageIndex]}
 						alt="Background image"
 						fill
-						quality={30}
+						quality={75}
 						className="object-cover absolute inset-0"
 						style={{ objectPosition: "center" }}
 						priority={prevImageIndex === 0}
+						sizes="100vw"
 					/>
 
 					{/* New Image */}
@@ -166,10 +167,11 @@ export default function TopImage({
 							src={images[currentImageIndex]}
 							alt="Background image"
 							fill
-							quality={100}
+							quality={75}
 							className="object-cover"
 							style={{ objectPosition: "center" }}
 							priority={currentImageIndex === 0}
+							sizes="100vw"
 						/>
 					</motion.div>
 				</div>
