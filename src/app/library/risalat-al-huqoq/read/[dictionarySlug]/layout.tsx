@@ -1,76 +1,41 @@
+import { getDictionaries } from "@/lib/imamzain-legacy-loader"
 import Breadcrumbs from "@/components/breadcrumb"
-import { dataFetcher } from "@/lib/dataFetcher"
-import ModalButton from "../../../_components/modal-button"
-import Section from "@/components/section"
-import { Legacy } from "@/types/imamzain-legacy"
 import Link from "next/link"
-import { notFound } from "next/navigation"
+import Section from "@/components/section"
 
-export default async function Page({
+export default async function Layout({
+	children,
 	params,
 }: {
-	params: Promise<{ slug: string }>
+	children: React.ReactNode
+	params: Promise<{ dictionarySlug: string }>
 }) {
-	const slug = (await params).slug
-	const data = await dataFetcher<Legacy[]>("imamzain-legacy.json")
-	const risala = data?.find((legacy) => legacy.slug === "risalat-al-huqoq")
-
-	if (!risala) return notFound()
-
-	const selectedDictionary = risala.dictionaries.find(
-		(dict) => dict.slug === slug,
-	)
-
-	if (!selectedDictionary) {
-		return (
-			<div className="min-h-screen flex items-center justify-center bg-gray-50">
-				<div className="bg-white p-6 rounded-xl shadow-md text-center max-w-md">
-					<p className="text-red-500 text-lg font-medium">
-						⚠️ لم يتم العثور على المعجم المطلوب
-					</p>
-					<Link
-						href="/library/risalat-al-huqoq/read/introduction"
-						className="mt-4 inline-block text-primary dark:text-Muharram_primary hover:underline"
-					>
-						العودة إلى الأقسام المتاحة
-					</Link>
-				</div>
-			</div>
-		)
-	}
+	const { dictionarySlug } = await params
+	const dictionaries = getDictionaries("risalat-al-huqoq")
 
 	return (
-		<div className="px-4 sm:px-10 py-10 bg-gradient-to-br  min-h-screen">
+		<div className="px-4 sm:px-10 py-10 bg-gradient-to-br min-h-screen">
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
 					{ name: "المكتبة التخصصية", url: "/library" },
-					{
-						name: "رسالة الحقوق",
-						url: "/library/risalat-al-huqoq",
-					},
-					{
-						name: "قراءة",
-						url: "#",
-					},
+					{ name: "رسالة الحقوق", url: "/library/risalat-al-huqoq" },
+					{ name: "قراءة", url: "/library/risalat-al-huqoq/read" },
 				]}
 			/>
 
-			{/* Navigation Tabs */}
+			{/* MOBILE DICT TABS */}
 			<div className="my-6 lg:hidden bg-white p-4 rounded-xl shadow-sm">
 				<h2 className="text-lg font-semibold mb-3 text-center text-gray-700">
 					اختر القسم:
 				</h2>
+
 				<div className="flex flex-wrap justify-center gap-2">
-					{risala.dictionaries.map((dict) => (
+					{dictionaries.map((dict) => (
 						<Link
-							key={dict.id}
+							key={dict.slug}
 							href={`/library/risalat-al-huqoq/read/${dict.slug}`}
-							className={`px-4 py-2 rounded-full transition-colors text-sm md:text-base ${
-								dict.slug === selectedDictionary.slug
-									? "bg-primary dark:bg-Muharram_primary text-white"
-									: "bg-gray-100 text-gray-700 hover:bg-gray-200"
-							}`}
+							className="px-4 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200"
 						>
 							{dict.title}
 						</Link>
@@ -78,8 +43,8 @@ export default async function Page({
 				</div>
 			</div>
 
-			<div className="flex  flex-row gap-8 mt-6">
-				{/* Sidebar Navigation */}
+			{/* LAYOUT WITH SIDEBAR */}
+			<div className="flex flex-row gap-8 mt-6">
 				<aside className="lg:w-1/4 space-y-6 hidden lg:block sticky top-32 self-start">
 					<div className="bg-white shadow-md border border-primary/20 dark:border-Muharram_primary/20 rounded-2xl p-6 space-y-4">
 						<h2 className="text-md font-bold text-center text-primary dark:text-Muharram_primary">
@@ -87,12 +52,12 @@ export default async function Page({
 						</h2>
 						<div className="h-px bg-primary/20 dark:bg-Muharram_primary/20"></div>
 						<nav className="flex flex-col gap-2 text-sm">
-							{risala.dictionaries.map((dict) => (
+							{dictionaries.map((dict) => (
 								<Link
-									key={dict.id}
+									key={dict.slug}
 									href={`/library/risalat-al-huqoq/read/${dict.slug}`}
 									className={`p-2 px-3 rounded-lg transition-colors ${
-										dict.slug === selectedDictionary.slug
+										dict.slug === dictionarySlug
 											? "bg-primary/10 text-primary dark:bg-Muharram_primary/10 dark:text-Muharram_primary font-medium"
 											: "hover:bg-gray-50 text-gray-700"
 									}`}
@@ -103,11 +68,11 @@ export default async function Page({
 						</nav>
 					</div>
 
-					<div className="bg-white shadow-md border border-primary/20 dark:border-Muharram_primary/20 rounded-2xl p-6 space-y-4">
+					<div className="bg-white shadow-md border border-primary/20  dark:border-Muharram_primary/20 rounded-2xl p-6 space-y-4">
 						<h2 className="text-md font-bold text-center text-primary dark:text-Muharram_primary">
 							روابط مهمة
 						</h2>
-						<div className="h-px bg-primary/20 dark:bg-Muharram_primary/20"></div>
+						<div className="h-px bg-primary/20"></div>
 						<Link
 							href="#"
 							className="block p-2 px-3 rounded-lg hover:bg-gray-50 text-gray-700 transition-colors text-sm"
@@ -117,7 +82,6 @@ export default async function Page({
 					</div>
 				</aside>
 
-				{/* Main Content */}
 				<main className="lg:w-3/4 space-y-8">
 					<div className="text-center">
 						<h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-Muharram_primary mb-4">
@@ -138,15 +102,13 @@ export default async function Page({
 					</div>
 
 					<Section
-						id={selectedDictionary.slug}
-						title={selectedDictionary.title}
+						id={dictionarySlug}
+						title={
+							dictionaries.find((d) => d.slug === dictionarySlug)
+								?.title || ""
+						}
 					/>
-
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-						{selectedDictionary.subjects.map((subject) => (
-							<ModalButton key={subject.id} subject={subject} />
-						))}
-					</div>
+					{children}
 				</main>
 			</div>
 		</div>

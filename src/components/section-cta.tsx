@@ -1,12 +1,13 @@
 "use client"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import { memo } from "react"
 
-export default function SectionCta({
+const SectionCta = ({
 	links,
 }: {
 	links: { label: string; href: string }[]
-}) {
+}) => {
 	const containerVariants = {
 		hidden: { opacity: 0 },
 		visible: {
@@ -68,3 +69,6 @@ export default function SectionCta({
 		</motion.div>
 	)
 }
+
+SectionCta.displayName = "SectionCta"
+export default memo(SectionCta)

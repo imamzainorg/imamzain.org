@@ -67,4 +67,5 @@ function AnimatedTextSection({
 	)
 }
 
+AnimatedTextSection.displayName = "AnimatedTextSection"
 export default memo(AnimatedTextSection)

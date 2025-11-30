@@ -322,7 +322,7 @@ const ScheduleSection = () => {
 
 export default function Page() {
 	return (
-		<div className="bg-gray-100 text-gray-800 rtl">
+		<div className="bg-gray-100 text-gray-800 rtl pt-24">
 			<Hero />
 			<AboutSection />
 			<ObjectivesSection />

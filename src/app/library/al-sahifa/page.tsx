@@ -11,6 +11,30 @@ import { AnimatePresence } from "framer-motion"
 import { Button } from "@/components/button"
 import { SearchIcon, ChevronLeft, ChevronRight } from "lucide-react"
 import { DownloadIcon } from "lucide-react"
+
+const dataCard = [
+	{
+		title: "ما الحقه الحر العاملي",
+		description: " ",
+		URL: "/library/al-sahifa/read/ma-alhaqahu-al-hur-al-amili",
+	},
+	{
+		title: "ما ألحقه الميرزا عبد الله الافندي",
+		description: " ",
+		URL: "/library/al-sahifa/read/ma-alhaqahu-al-mirza-abdullah-al-afandi",
+	},
+	{
+		title: "ما ألحقه الميرزا حسين النوري",
+		description: " ",
+		URL: "/library/al-sahifa/read/ma-alhaqahu-al-mirza-husayn-al-nuri",
+	},
+	{
+		title: "ما ألحقه السيد محسن الأمين العاملي",
+		description: " ",
+		URL: "/library/al-sahifa/read/ma-alhaqahu-al-sayyid-muhsin-al-amin-al-amili",
+	},
+]
+
 export default function RisalatAlHuquqPage() {
 	const [publications, setPublications] = useState<Book[]>([])
 	const [filteredPublications, setFilteredPublications] = useState<Book[]>([])
@@ -87,9 +111,9 @@ export default function RisalatAlHuquqPage() {
 							(lang) =>
 								typeof lang === "string" &&
 								lang.toLowerCase().includes(lowerSearch),
-						)
+					  )
 					: typeof publication.language === "string" &&
-						publication.language.toLowerCase().includes(lowerSearch)
+					  publication.language.toLowerCase().includes(lowerSearch)
 
 				return (
 					inTitle ||
@@ -119,29 +143,6 @@ export default function RisalatAlHuquqPage() {
 			scrollRef.current?.scrollIntoView({ behavior: "smooth" })
 		}, 100)
 	}
-
-	const dataCard = [
-		{
-			title: "ما الحقه الحر العاملي",
-			description: " ",
-			URL: "/library/al-sahifa/read/ma-alhaqahu-al-hur-al-amili",
-		},
-		{
-			title: "ما ألحقه الميرزا عبد الله الافندي",
-			description: " ",
-			URL: "/library/al-sahifa/read/ma-alhaqahu-al-mirza-abdullah-al-afandi",
-		},
-		{
-			title: "ما ألحقه الميرزا حسين النوري",
-			description: " ",
-			URL: "/library/al-sahifa/read/ma-alhaqahu-al-mirza-husayn-al-nuri",
-		},
-		{
-			title: "ما ألحقه السيد محسن الأمين العاملي",
-			description: " ",
-			URL: "/library/al-sahifa/read/ma-alhaqahu-al-sayyid-muhsin-al-amin-al-amili",
-		},
-	]
 
 	return (
 		<div>

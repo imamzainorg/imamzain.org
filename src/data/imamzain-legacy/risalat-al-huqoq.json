@@ -125,7 +125,7 @@
             {
                 "id": "١",
                 "title": "حق الله الاكبر",
-                "slug": "the-right-of-god",
+                "slug": "the-greatest-right-of-god",
                 "phrases": [
                     {
                         "id": "١",
@@ -142,7 +142,7 @@
             {
                 "id": "٢",
                 "title": "حق نفسك",
-                "slug": "",
+                "slug": "the-right-of-yourself",
                 "phrases": [
                     {
                         "id": "١",
@@ -159,7 +159,7 @@
             {
                 "id": "٣",
                 "title": "حق اللسان",
-                "slug": "",
+                "slug": "the-right-of-the-tongue",
                 "phrases": [
                     {
                         "id": "١",
@@ -176,7 +176,7 @@
             {
                 "id": "٤",
                 "title": "حق السمع",
-                "slug": "",
+                "slug": "the-right-of-hearing",
                 "phrases": [
                     {
                         "id": "١",
@@ -193,7 +193,7 @@
             {
                 "id": "٥",
                 "title": "حق بصرك",
-                "slug": "",
+                "slug": "the-right-of-sight",
                 "phrases": [
                     {
                         "id": "١",
@@ -210,7 +210,7 @@
             {
                 "id": "٦",
                 "title": "حق رجليك",
-                "slug": "",
+                "slug": "the-right-of-the-legs",
                 "phrases": [
                     {
                         "id": "١",
@@ -227,7 +227,7 @@
             {
                 "id": "٧",
                 "title": "حق يدك",
-                "slug": "",
+                "slug": "the-right-of-the-hand",
                 "phrases": [
                     {
                         "id": "١",
@@ -244,7 +244,7 @@
             {
                 "id": "٨",
                 "title": "حق بطنك",
-                "slug": "",
+                "slug": "the-right-of-the-stomach",
                 "phrases": [
                     {
                         "id": "١",
@@ -261,7 +261,7 @@
             {
                 "id": "٩",
                 "title": "حق فرجك",
-                "slug": "",
+                "slug": "the-right-of-the-private-part",
                 "phrases": [
                     {
                         "id": "١",
@@ -280,12 +280,12 @@
     {
         "id": 4,
         "title": "حقوق الافعال",
-        "slug": "the-rights-of-acts",
+        "slug": "the-rights-of-deeds",
         "subjects": [
             {
                 "id": "١٠",
                 "title": "حق الصلاة",
-                "slug": "",
+                "slug": "the-right-of-the-prayer",
                 "phrases": [
                     {
                         "id": "١",
@@ -303,7 +303,7 @@
             {
                 "id": "١١",
                 "title": "حق الصوم",
-                "slug": "",
+                "slug": "the-right-of-fasting",
                 "phrases": [
                     {
                         "id": "١",
@@ -321,7 +321,7 @@
             {
                 "id": "١٣",
                 "title": "حق الصدقة",
-                "slug": "",
+                "slug": "the-right-of-charity",
                 "phrases": [
                     {
                         "id": "١",
@@ -339,7 +339,7 @@
             {
                 "id": "١٤",
                 "title": "حق الهدي",
-                "slug": "",
+                "slug": "the-right-of-the-offering",
                 "phrases": [
                     {
                         "id": "١",
@@ -359,12 +359,12 @@
     {
         "id": 5,
         "title": "حقوق الائمة",
-        "slug": "the-rights-of-imams",
+        "slug": "the-rights-of-leaders",
         "subjects": [
             {
                 "id": "١٥",
                 "title": "حق سائسك بالسلطان",
-                "slug": "",
+                "slug": "the-right-of-the-possessor-of-authority",
                 "phrases": [
                     {
                         "id": "١",
@@ -382,7 +382,7 @@
             {
                 "id": "١٦",
                 "title": "حق سائسك بالعلم",
-                "slug": "",
+                "slug": "the-right-of-the-trainer-through-knowledge",
                 "phrases": [
                     {
                         "id": "١",
@@ -400,7 +400,7 @@
             {
                 "id": "١٧",
                 "title": "حق سائسك بالملك",
-                "slug": "",
+                "slug": "the-right-of-the-trainer-through-ownership",
                 "phrases": [
                     {
                         "id": "١",
@@ -420,12 +420,12 @@
     {
         "id": 6,
         "title": "حقوق الرعية",
-        "slug": "the-rights-of-subjects",
+        "slug": "the-rights-of-the-subjects",
         "subjects": [
             {
                 "id": "١٨",
                 "title": "حق رعيتك بالسلطان",
-                "slug": "",
+                "slug": "the-right-of-subjects-through-authority",
                 "phrases": [
                     {
                         "id": "١",
@@ -443,7 +443,7 @@
             {
                 "id": "١٩",
                 "title": "حق رعيتك بالعلم",
-                "slug": "",
+                "slug": "the-right-of-subjects-through-knowledge",
                 "phrases": [
                     {
                         "id": "١",
@@ -461,7 +461,7 @@
             {
                 "id": "٢٠",
                 "title": "حق رعيتك بملك النكاح",
-                "slug": "",
+                "slug": "the-right-of-the-wife",
                 "phrases": [
                     {
                         "id": "١",
@@ -479,7 +479,7 @@
             {
                 "id": "٢١",
                 "title": "حق الرعية بملك اليمين",
-                "slug": "",
+                "slug": "the-right-of-your-slave",
                 "phrases": [
                     {
                         "id": "١",
@@ -499,12 +499,12 @@
     {
         "id": 7,
         "title": "حقوق الرحم",
-        "slug": "the-rights-of-kin",
+        "slug": "the-rights-of-relationship",
         "subjects": [
             {
                 "id": "٢٢",
                 "title": "حق أمك",
-                "slug": "",
+                "slug": "the-right-of-the-mother",
                 "phrases": [
                     {
                         "id": "١",
@@ -522,7 +522,7 @@
             {
                 "id": "٢٣",
                 "title": "حق أبيك",
-                "slug": "",
+                "slug": "the-right-of-the-father",
                 "phrases": [
                     {
                         "id": "١",
@@ -540,7 +540,7 @@
             {
                 "id": "٢٤",
                 "title": "حق ولدك",
-                "slug": "",
+                "slug": "the-right-of-the-child",
                 "phrases": [
                     {
                         "id": "١",
@@ -558,7 +558,7 @@
             {
                 "id": "٢٥",
                 "title": "حق أخيك",
-                "slug": "",
+                "slug": "the-right-of-the-brother",
                 "phrases": [
                     {
                         "id": "١",
@@ -583,7 +583,7 @@
             {
                 "id": "٢٦",
                 "title": "حق المنعم عليك",
-                "slug": "",
+                "slug": "the-right-of-the-master",
                 "phrases": [
                     {
                         "id": "١",
@@ -601,7 +601,7 @@
             {
                 "id": "٢٧",
                 "title": "حق المولى الجارية عليه نعمتك",
-                "slug": "",
+                "slug": "the-right-of-the-freed-slave",
                 "phrases": [
                     {
                         "id": "١",
@@ -619,7 +619,7 @@
             {
                 "id": "٢٨",
                 "title": "حق ذي المعروف عليك",
-                "slug": "",
+                "slug": "the-right-of-the-one-who-treats-you-kindly",
                 "phrases": [
                     {
                         "id": "١",
@@ -637,7 +637,7 @@
             {
                 "id": "٢٩",
                 "title": "حق المؤذن",
-                "slug": "",
+                "slug": "the-right-of-the-caller-to-prayer",
                 "phrases": [
                     {
                         "id": "١",
@@ -655,7 +655,7 @@
             {
                 "id": "٣٠",
                 "title": "حق إمامك في صلاتك",
-                "slug": "",
+                "slug": "the-right-of-the-ritual-prayer-leader",
                 "phrases": [
                     {
                         "id": "١",
@@ -673,7 +673,7 @@
             {
                 "id": "٣١",
                 "title": "حق الجليس",
-                "slug": "",
+                "slug": "the-right-of-the-sitting-companion",
                 "phrases": [
                     {
                         "id": "١",
@@ -691,7 +691,7 @@
             {
                 "id": "٣٢",
                 "title": "حق الجار",
-                "slug": "",
+                "slug": "the-right-of-the-neighbor",
                 "phrases": [
                     {
                         "id": "١",
@@ -709,7 +709,7 @@
             {
                 "id": "٣٣",
                 "title": "حق الصاحب",
-                "slug": "",
+                "slug": "the-right-of-the-companion",
                 "phrases": [
                     {
                         "id": "١",
@@ -727,7 +727,7 @@
             {
                 "id": "٣٤",
                 "title": "حق الشريك",
-                "slug": "",
+                "slug": "the-right-of-the-partner",
                 "phrases": [
                     {
                         "id": "١",
@@ -745,7 +745,7 @@
             {
                 "id": "٣٥",
                 "title": "حق المال",
-                "slug": "",
+                "slug": "the-right-of-property",
                 "phrases": [
                     {
                         "id": "١",
@@ -763,7 +763,7 @@
             {
                 "id": "٣٦",
                 "title": "حق الغريم الطالب لك",
-                "slug": "",
+                "slug": "the-right-of-the-creditor",
                 "phrases": [
                     {
                         "id": "١",
@@ -781,7 +781,7 @@
             {
                 "id": "٣٧",
                 "title": "حق الخليط",
-                "slug": "",
+                "slug": "the-right-of-the-associate",
                 "phrases": [
                     {
                         "id": "١",
@@ -799,7 +799,7 @@
             {
                 "id": "٣٨",
                 "title": "حق الخصم المدعي عليك",
-                "slug": "",
+                "slug": "the-right-of-the-adversary-who-has-a-claim-against-you",
                 "phrases": [
                     {
                         "id": "١",
@@ -817,7 +817,7 @@
             {
                 "id": "٣٩",
                 "title": "حق الخصم المدعى عليه",
-                "slug": "",
+                "slug": "the-right-of-the-adversary-whom-you-have-a-claim",
                 "phrases": [
                     {
                         "id": "١",
@@ -835,7 +835,7 @@
             {
                 "id": "٤٠",
                 "title": "حق المستشير",
-                "slug": "",
+                "slug": "the-right-of-him-who-seeks-your-advice",
                 "phrases": [
                     {
                         "id": "١",
@@ -853,7 +853,7 @@
             {
                 "id": "٤١",
                 "title": "حق المشير عليك",
-                "slug": "",
+                "slug": "the-right-of-him-whose-advice-you-seek",
                 "phrases": [
                     {
                         "id": "١",
@@ -871,7 +871,7 @@
             {
                 "id": "٤٢",
                 "title": "حق المستنصح",
-                "slug": "",
+                "slug": "the-right-of-him-who-seeks-your-counsel",
                 "phrases": [
                     {
                         "id": "١",
@@ -889,7 +889,7 @@
             {
                 "id": "٤٣",
                 "title": "حق الناصح",
-                "slug": "",
+                "slug": "the-right-of-the-counselor",
                 "phrases": [
                     {
                         "id": "١",
@@ -907,7 +907,7 @@
             {
                 "id": "٤٤",
                 "title": "حق الكبير",
-                "slug": "",
+                "slug": "the-right-of-the-older-one",
                 "phrases": [
                     {
                         "id": "١",
@@ -925,7 +925,7 @@
             {
                 "id": "٤٥",
                 "title": "حق الصغير",
-                "slug": "",
+                "slug": "the-right-of-the-younger-one",
                 "phrases": [
                     {
                         "id": "١",
@@ -943,7 +943,7 @@
             {
                 "id": "٤٦",
                 "title": "حق السائل",
-                "slug": "",
+                "slug": "the-right-of-him-who-asks-from-you",
                 "phrases": [
                     {
                         "id": "١",
@@ -961,7 +961,7 @@
             {
                 "id": "٤٧",
                 "title": "حق المسئول",
-                "slug": "",
+                "slug": "the-right-of-him-from-whom-you-ask",
                 "phrases": [
                     {
                         "id": "١",
@@ -979,7 +979,7 @@
             {
                 "id": "٤٨",
                 "title": "حق من سرك الله به",
-                "slug": "",
+                "slug": "the-right-of-through-whom-god-makes-you-happy",
                 "phrases": [
                     {
                         "id": "١",
@@ -997,7 +997,7 @@
             {
                 "id": "٤٩",
                 "title": "حق من ساءك القضاء على يديه",
-                "slug": "",
+                "slug": "the-right-of-him-who-wrongs-you",
                 "phrases": [
                     {
                         "id": "١",
@@ -1015,7 +1015,7 @@
             {
                 "id": "٥٠",
                 "title": "حق أهل ملتك عامة",
-                "slug": "",
+                "slug": "the-right-of-the-people-of-you-creed",
                 "phrases": [
                     {
                         "id": "١",
@@ -1033,7 +1033,7 @@
             {
                 "id": "٥١",
                 "title": "حق أهل الذمة",
-                "slug": "",
+                "slug": "the-right-of-those-under-the-protection-of-islam",
                 "phrases": [
                     {
                         "id": "١",
