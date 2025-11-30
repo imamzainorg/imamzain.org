@@ -7911,7 +7911,1339 @@
     ],
     "publishedYear": "1436 هـ - 2015 م",
     "pdfUrl": "/research/journals/نسبة النص الى المؤلف دراسة تطبيقية في ديوان الامام السجاد ع.pdf"
-  }
+  },
+{
+    "id": "496",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التوحيد المنسوب الى الامام السجاد ع ",
+        "authors": ["محمد رضا الجلالي"],
+        "publicationVenue": "مجلة علوم الحديث - العدد 12",
 
+        "language": " عربي ",
+        "pagenam": 22
+      }
+    ],
+    "publishedYear":"2003 م",
+   "pdfUrl": "/research/journals/التوحيد المنسوب للامام السجاد ع (1).pdf"
+  },
+  {
+    "id": "497",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام علي بن الحسين ع ",
+        "authors": ["هيئة التحرير"],
+        "publicationVenue": "مجلة الوارث - العدد 6",
+
+        "language": " عربي ",
+        "pagenam":2
+      }
+    ],
+    "publishedYear":"2008 م",
+   "pdfUrl": "/research/journals/الامام علي بن الحسين ع.pdf"
+  }
+  ,
+  {
+    "id": "498",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "ولادة الامام زين العابدين ع ",
+        "authors": ["هيئة التحرير"],
+        "publicationVenue": "مجلة الحسيني الصغير - العدد 4 - السنة 1",
+
+        "language": " عربي ",
+        "pagenam":7
+      }
+    ],
+    "publishedYear":"2009 م",
+   "pdfUrl": "/research/journals/ولادة الامام زين العابدين ع مجلة الحسيني الصغير.pdf"
+  }
+  , {
+    "id": "499",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "خطبة الامام زين العابدين ع في المدينة بعد رجوعه من الشام",
+        "authors": ["هيئة التحرير"],
+        "publicationVenue": "مجلة الوارث - العدد 15",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2010 م",
+   "pdfUrl": "/research/journals/مجلة الوارث - خطبة الامام زين العابدين ع.pdf"
+  },
+  {
+    "id": "500",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "شهربانويه ام الامام السجاد ع",
+        "authors": ["وصال الفتلاوي"],
+        "publicationVenue": "مجلة رياض الزهراء ع - العدد 35",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2010 م",
+   "pdfUrl": "/research/journals/شهربانويه ام الامام السجاد ع.pdf"
+  },
+  {
+    "id": "501",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "اسرار الصحيفة السجادية",
+        "authors": ["تيسير حازم الحلو"],
+        "publicationVenue": "مجلة رياض الزهراء - العدد 65",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2013 م",
+   "pdfUrl": "/research/journals/اسرار الصحيفة السجادية .pdf"
+  }, 
+  {
+    "id": "502",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دعاء إبراهيم والسجاد والصادق ع للنجاة",
+        "authors": ["علاء سعيد الاسدي"],
+        "publicationVenue": "نشرة الخميس - العدد 445 - السنة 9",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2013 م",
+   "pdfUrl": "/research/journals/دعاء ابراهيم والسجاد والصادق عليهم السلام للنجاة-صور.pdf"
+  }, {
+    "id": "503",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام السجاد ع والمشروع الحسيني ",
+        "authors": ["هيئة التحرير"],
+        "publicationVenue": "نشرة الخميس - العدد 452 - السنة 9",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2013 م",
+   "pdfUrl": "/research/journals/الامام السجاد ع والمشروع الحسيني.pdf"
+  } ,
+  {
+    "id": "504",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "لمصيبة السجاد ع",
+        "authors": ["عبد المنعم الفرطوسي"],
+        "publicationVenue": "نشرة الخميس - العدد 452 - السنة 9",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2013 م",
+   "pdfUrl": "/research/journals/لمصيبة السجاد ع.pdf"
+  } ,
+  {
+    "id": "505",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دعاء الامام السجاد ع على حرملة",
+        "authors": ["برير ال خليفة"],
+        "publicationVenue": "نشرة الخميس - العدد 452 - السنة 9",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2013 م",
+   "pdfUrl": "/research/journals/دعاء الامام السجاد ع على حرملة.pdf"
+  }
+  ,
+  {
+    "id": "506",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الخطاب الادبي في الصحيفة السجادية - دراسة الخصائص الأدبية للدعاء الأول",
+        "authors": ["معصومة نعمتي قزويني"],
+        "publicationVenue": "مجلة دراسات في العلوم الإنسانية - العدد 1 - السنة 20",
+
+        "language": " عربي ",
+        "pagenam":21
+      }
+    ],
+    "publishedYear":"2013 م",
+   "pdfUrl": "/research/journals/الخطاب الادبي في الصحيفة السجادية.pdf"
+  },  {
+    "id": "507",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "زاد السفر ",
+        "authors": ["حارث الداحي"],
+        "publicationVenue": "مجلة الاحرار - العدد 503",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2014 م",
+   "pdfUrl": "/research/journals/زاد السفر الامام السجاد ع-صور.pdf"
+  },  {
+    "id": "508",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "ام الاوصياء شهر بانو",
+        "authors": ["هيئة التحرير"],
+        "publicationVenue": "نشرة الكفيل - العدد 449 ",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2014 م",
+   "pdfUrl": "/research/journals/ام الاوصياء شهر بانو.pdf"
+  },  {
+    "id": "509",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "لذة المناجاة ",
+        "authors": ["علي عبد الجواد"],
+        "publicationVenue": "نشرة الكفيل - العدد 487 ",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2014 م",
+   "pdfUrl": "/research/journals/لذة المناجاة .pdf"
+  },  {
+    "id": "510",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "وجه الرب",
+        "authors": ["هيئة التحرير"],
+        "publicationVenue": "نشرة الخميس - العدد 502 - السنة 10",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2014 م",
+   "pdfUrl": "/research/journals/وجه الرب.pdf"
+  },
+  {
+    "id": "511",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "سيرة الامام السجاد ع في نشر العلوم الإسلامية ",
+        "authors": ["جميل الربيعي"],
+        "publicationVenue": "مجلة ينابيع - العدد 65 ",
+
+        "language": " عربي ",
+        "pagenam":4
+      }
+    ],
+    "publishedYear":"2015 م",
+   "pdfUrl": "/research/journals/سيرة الامام السجاد ع في نشر العلوم الإسلامية.pdf"
+  },  {
+    "id": "512",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام زين العابدين ع بين البعد الاجتماعي والنهج العبادي ",
+        "authors": ["سليم عادل الحسناوي"],
+        "publicationVenue": "مجلة الصدى - العدد 1",
+
+        "language": " عربي ",
+        "pagenam":10
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/الامام زين العابدين ع بين البعد الاجتماعي والنهج العبادي- سليم عادل - العدد 1.pdf"
+  },  {
+    "id": "513",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "النضال العلمي للامام زين العابدين ع في مجال الفكر والعقيدة",
+        "authors": ["محمد رضا الجلالي"],
+        "publicationVenue": "مجلة الصدى - العدد 3",
+
+        "language": " عربي ",
+        "pagenam":10
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/النضال العلمي للامام زين العابدين ع في مجال الفكر والعقيدة - العدد 3.pdf"
+  },  {
+    "id": "514",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام الأسير  - قصيدة",
+        "authors": ["علي حيدر "],
+        "publicationVenue": "مجلة الاحرار - العدد 565",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/الامام الاسير.pdf"
+  },  {
+    "id": "515",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام السجاد ع والتراتيل السجادية ",
+        "authors": ["حسين النعمة "],
+        "publicationVenue": "مجلة الاحرار - العدد 566",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/الامام السجاد ع والتراتيل السجادية.pdf"
+  },  {
+    "id": "516",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الشفاعة كرم الهي ",
+        "authors": ["احمد الصافي "],
+        "publicationVenue": "مجلة الاحرار - العدد 568 ",
+
+        "language": " عربي ",
+        "pagenam":2
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/الشفاعة كرم الهي.pdf"
+  },
+  {
+    "id": "517",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الهروب من الله الى الله ",
+        "authors": ["احمد الصافي "],
+        "publicationVenue": "مجلة الاحرار - العدد 570",
+
+        "language": " عربي ",
+        "pagenam":2
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/الهروب من الله الى الله.pdf"
+  },  {
+    "id": "518",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تجديد التوبة واستشعار الحاجة الى الله تبارك وتعالى ",
+        "authors": ["احمد الصافي"],
+        "publicationVenue": "مجلة الاحرار - العدد 560",
+
+        "language": " عربي ",
+        "pagenam":2
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/تجديد التوبة واستشعار الحاجة الى الله.pdf"
+  },  {
+    "id": "519",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "توبوا الى الله يحببكم",
+        "authors": ["احمد الصافي"],
+        "publicationVenue": "مجلة الاحرار - العدد 572",
+
+        "language": " عربي ",
+        "pagenam":2
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/توبوا الى الله يحببكم الامام السجاد ع.pdf"
+  },  {
+    "id": "520",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق الامام في الصلاة ",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 573",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق - حق الامام في الصلاة.pdf"
+  },
+  {
+    "id": "521",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق الله الأكبر ",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 562 ",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق - حق الله الاكبر.pdf"
+  },  {
+    "id": "522",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق ائمتك عليك",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 561",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق - حق ائمتك عليك.pdf"
+  },  {
+    "id": "523",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق ذي المعروف",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 574",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق - حق ذي المعروف.pdf"
+  },  {
+    "id": "524",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق سائسك",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 566",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق - حق سائسك.pdf"
+  },  {
+    "id": "525",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق ولدك",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 570",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق - حق ولدك.pdf"
+  },  {
+    "id": "526",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق البصر",
+        "authors": ["هيئة التحرير"],
+        "publicationVenue": "مجلة الاحرار - العدد 563",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق -حق البصر.pdf"
+  },
+  {
+    "id": "527",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق الصدقة",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 565",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق -حق الصدقة.pdf"
+  },  {
+    "id": "528",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق الصلاة",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 564",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق -حق الصلاة.pdf"
+  },
+  {
+    "id": "529",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق المنعم عليك",
+        "authors": ["هيئة التحرير"],
+        "publicationVenue": "مجلة الاحرار - العدد 571",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق -حق المنعم عليك.pdf"
+  },  {
+    "id": "530",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق امك",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 569",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق -حق امك.pdf"
+  },  {
+    "id": "531",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق رعيتك بالسلطان",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 567",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق -حق رعيتك بالسلطان.pdf"
+  },  {
+    "id": "532",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق رعيتك بملك النكاح",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 568 ",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق -حق بملك النكاح  رعيتك.pdf"
+  },  {
+    "id": "533",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حقوق رحمة الله عليك",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 560",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق - حقوق رحمة الله عليك.pdf"
+  },  {
+    "id": "534",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق السجادية اسمى وثيقة تراثية لدساتير حقوق الانسان",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 566",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق السجاديات اسمى وثيقة تراثية لدساتير حقوق الانسان .pdf"
+  },
+  {
+    "id": "535",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "في طلب التوبة ",
+        "authors": ["احمد الصافي "],
+        "publicationVenue": "مجلة الاحرار - العدد 566",
+
+        "language": " عربي ",
+        "pagenam":2
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/في طلب التوبة.pdf"
+  },  {
+    "id": "536",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "في معنى التقرب الى الله تعالى ",
+        "authors": ["احمد الصافي "],
+        "publicationVenue": "مجلة الاحرار - العدد 562 ",
+
+        "language": " عربي ",
+        "pagenam":2
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/في معنى التقرب الى الله تعالى.pdf"
+  }
+  ,  {
+    "id": "537",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مفهوم الدعاء وحقيقته ",
+        "authors": ["احمد الصافي "],
+        "publicationVenue": "مجلة الاحرار - العدد 574",
+
+        "language": " عربي ",
+        "pagenam":2
+      }
+    ],
+    "publishedYear":"2016 م",
+   "pdfUrl": "/research/journals/مفهوم الدعاء وحقيقته.pdf"
+  },  {
+    "id": "538",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "في رثاء الامام السجاد ع ",
+        "authors": ["عبد المنعم الفرطوسي"],
+        "publicationVenue": "أوراق معرفية - العدد 3",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/في رثاء الامام السجاد ع.pdf"
+  },  {
+    "id": "539",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الصحيفة السجادية نتاج كربلائي",
+        "authors": ["احمد الصافي"],
+        "publicationVenue": "مجلة الاحرار - العدد 616",
+
+        "language": " عربي ",
+        "pagenam":2
+      }
+    ],
+    "publishedYear":"مجلة الاحرار - العدد 616",
+   "pdfUrl": "/research/journals/الصحيفة السجادية نتاج كربلائي-صور-1.pdf"
+  }
+  ,
+  {
+    "id": "540",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الصحيفة السجادية نسق تربوي",
+        "authors": ["احمد الصافي"],
+        "publicationVenue": "مجلة الاحرار - العدد 618",
+
+        "language": " عربي ",
+        "pagenam":2
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/الصحيفة السجادية نسق تربوي-صور-1.pdf"
+  }
+  , {
+    "id": "541",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "حلم الامام السجاد ع  - دعاء الحزين ",
+        "authors": ["هيئة التحرير"],
+        "publicationVenue": "مجلة الاحرار - العدد 623",
+
+        "language": " عربي ",
+        "pagenam":2
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/حلم الامام السجاد ع - دعاء الحزين.pdf"
+  },  {
+    "id": "542",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "وقفة مع دعاء ابي حمزة الثمالي رض - ح1",
+        "authors": ["هيئة التحرير"],
+        "publicationVenue": "مجلة الاحرار - العدد 608",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/وقفة مع دعاء ابي حمزة الثمالي (ح1)-صور.pdf"
+  },  {
+    "id": "543",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "وقفة مع دعاء ابي حمزة الثمالي رض - ح2",
+        "authors": ["هيئة التحرير"],
+        "publicationVenue": "مجلة الاحرار - العدد 609",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/وقفة مع دعاء ابي حمزة الثمالي (ح2)-صور-1.pdf"
+  },
+  {
+    "id": "544",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "النبي الاكرم رحمة مهداة وطريق نجاة ",
+        "authors": ["احمد الصافي"],
+        "publicationVenue": "مجلة الاحرار - العدد 576",
+
+        "language": " عربي ",
+        "pagenam":2
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/النبي الاكرم رحمة مهداة وطريق نجاة.pdf"
+  },  {
+    "id": "545",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دعاء الامام السجاد ع في الاستعاذة من المكاره وسيء الاخلاق ومذام الأفعال",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 601",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/دعاء الامام السجاد ع في الاستعاذة من المكاره وسيء الاخلاق ومذام الافعال.pdf"
+  } , {
+    "id": "546",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دعاء الامام السجاد ع في التذلل لله عز وجل ",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 607",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/دعاء الامام السجاد ع في التذلل لله عز وجل.pdf"
+  },  {
+    "id": "547",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دعاء الامام السجاد ع في الرهبة ",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 603",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/دعاء الامام السجاد ع في الرهبة.pdf"
+  },  {
+    "id": "548",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دعاء الامام السجاد ع في المعونة على قضاء الدين ",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 604",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/دعاء الامام السجاد ع في المعونة على قضاء الدين.pdf"
+  },  {
+    "id": "549",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دعاء الامام السجاد ع في طلب العفو والرحمة ",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 605",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/دعاء الامام السجاد ع في طلب العفو والرحمة.pdf"
+  },
+  {
+    "id": "550",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دعاء الامام السجاد ع في يوم الخميس ",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 606",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/دعاء الامام السجاد ع في يوم الخميس.pdf"
+  },  {
+    "id": "551",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق الخصم",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 577",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق - حق الخصم.pdf"
+  },
+  {
+    "id": "552",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق السائل",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 582",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق - حق السائل.pdf"
+  },  {
+    "id": "553",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق الصاحب",
+        "authors": ["هيئة التحرير"],
+        "publicationVenue": "مجلة الاحرار - العدد 576",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق - حق الصاحب.pdf"
+  },  {
+    "id": "554",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - الكبير",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 581",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق - حق الكبير.pdf"
+  },  {
+    "id": "555",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق المستشير ",
+        "authors": ["هيئة التحرير"],
+        "publicationVenue": "مجلة الاحرار - العدد 578",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق - حق المستشير.pdf"
+  },  {
+    "id": "556",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق المستنصح",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 580",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق - حق المستنصح.pdf"
+  },  {
+    "id": "557",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق امامك",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 575",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق - حق امامك.pdf"
+  },  {
+    "id": "558",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق - حق من سرك",
+        "authors": ["هيئة التحرير "],
+        "publicationVenue": "مجلة الاحرار - العدد 583",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق - حق من سرك.pdf"
+  },  {
+    "id": "559",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "فلسفة الصوم ",
+        "authors": ["احمد الصافي "],
+        "publicationVenue": "مجلة الاحرار - العدد 596",
+
+        "language": " عربي ",
+        "pagenam":4
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/فلسفة الصوم.pdf"
+  },  {
+    "id": "560",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "في رحاب شهر الله ",
+        "authors": ["عبد المهدي الكربلائي"],
+        "publicationVenue": "مجلة الاحرار - العدد 597",
+
+        "language": " عربي ",
+        "pagenam":4
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/في رحاب شهر الله.pdf"
+  },  {
+    "id": "561",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التربية والتعليم عند الامام السجاد ع ",
+        "authors": ["عبد الكريم رحيم المكصوصي"],
+        "publicationVenue": "مجلة كلية العلوم الإسلامية - العدد 51",
+
+        "language": " عربي ",
+        "pagenam":24
+      }
+    ],
+    "publishedYear":"2017 م",
+   "pdfUrl": "/research/journals/التربيو والتعليم عند الامام السجاد ع - عبد الكريم رحيم المكصوصي.pdf"
+  },  {
+    "id": "562",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "رسالة الحقوق والاعلان العالمي لحقوق الانسان دراسة مقارنة ",
+        "authors": ["أنور أبو الحب"],
+        "publicationVenue": "مجلة الصدى - العدد 8 ",
+
+        "language": " عربي ",
+        "pagenam":26
+      }
+    ],
+    "publishedYear":"2018 م",
+   "pdfUrl": "/research/journals/رسالة الحقوق والاعلان العالمي لحقوق الانسان- العدد 8.pdf"
+  },  {
+    "id": "563",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "بمناسبة استشهاد الامام علي بن الحسين ع  ابيات قصيدة الفرزدق ",
+        "authors": ["هيئة التحرير"],
+        "publicationVenue": "مجلة الاحرار - العدد 666",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2018 م",
+   "pdfUrl": "/research/journals/بمناسبة استشهاد الامام علي بن الحسين ع  ابيات قصيدة الفرزدق.pdf"
+  },  {
+    "id": "564",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تربية الأولاد في الصحيفة السجادية ",
+        "authors": ["هيئة التحرير"],
+        "publicationVenue": "مجلة الاحرار - العدد 676",
+
+        "language": " عربي ",
+        "pagenam":2
+      }
+    ],
+    "publishedYear":"2018 م",
+   "pdfUrl": "/research/journals/تربية الاولاد في الصحيفة السجادية-صور.pdf"
+  },
+  {
+    "id": "565",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "عبقري الدعاء الامام زين العابدين ع ",
+        "authors": ["حسين علي الشامي"],
+        "publicationVenue": "مجلة الاحرار - العدد 671",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2018 م",
+   "pdfUrl": "/research/journals/عبقري الدعاء الامام زين العابدين ع-صور-1.pdf"
+  }, {
+    "id": "566",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مظاهر التشابه بين الامام السجاد والكاظم ع ",
+        "authors": ["حيدر الجد "],
+        "publicationVenue": "مجلة العقيدة - العدد 15 ",
+
+        "language": " عربي ",
+        "pagenam":25
+      }
+    ],
+    "publishedYear":"2018 م",
+   "pdfUrl": "/research/journals/مظاهر التشابه بين الامامين السجاد ع والكاظم ع ص 93-.pdf"
+  },  {
+    "id": "567",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "النضال الفكري والعلمي للامام السجاد ع ",
+        "authors": ["محمد رضا الجلالي"],
+        "publicationVenue": "أوراق معرفية - العدد 8",
+
+        "language": " عربي ",
+        "pagenam":4
+      }
+    ],
+    "publishedYear":"2019 م",
+   "pdfUrl": "/research/journals/النضال الفكري والعلمي للامام السجاد ع.pdf"
+  },  {
+    "id": "568",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "شذرات سجادية ",
+        "authors": ["احمد الجبوري"],
+        "publicationVenue": "مجلة الصدى - العدد 10 ",
+
+        "language": " عربي ",
+        "pagenam":11
+      }
+    ],
+    "publishedYear":"2019 م",
+   "pdfUrl": "/research/journals/شذرات سجادية - العدد 10.pdf"
+  },  {
+    "id": "569",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "في رحاب الصحيفة السجادية ",
+        "authors": ["حيدر حسن"],
+        "publicationVenue": "مجلة الصدى - العدد 5 ",
+
+        "language": " عربي ",
+        "pagenam":3
+      }
+    ],
+    "publishedYear":"2019 م",
+   "pdfUrl": "/research/journals/في رحاب الصحيفة السجادية - العدد 5.pdf"
+  },  {
+    "id": "570",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "من عطاء الامام السجاد ع ",
+        "authors": ["حيدر فائق الهنداوي"],
+        "publicationVenue": "",
+
+        "language": " عربي ",
+        "pagenam":10
+      }
+    ],
+    "publishedYear":"2019 م",
+   "pdfUrl": "/research/journals/من عطاء الامام السجاد ع - العدد 9.pdf"
+  },  {
+    "id": "571",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المستوى الصوتي في دعاء ابي حمزة الثمالي رض",
+        "authors": ["الهام صالحي نجف ابادي"],
+        "publicationVenue": "مجلة اداب الكوفة - العدد 41- المجلد 1",
+
+        "language": " عربي ",
+        "pagenam":26
+      }
+    ],
+    "publishedYear":"2019 م",
+   "pdfUrl": "/research/journals/المستوى الصوتي في دعاء ابي حمزة الثمالي.pdf"
+  },  {
+    "id": "572",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "أهمية الصحيفة السجادية في السلامة النفسية للفرد والمجتمع",
+        "authors": ["نجم عبد اللله الموسوي"],
+        "publicationVenue": "مجلة الصدى - العدد 11 ",
+
+        "language": " عربي ",
+        "pagenam":6
+      }
+    ],
+    "publishedYear":"2020 م",
+   "pdfUrl": "/research/journals/اهمية الصحيفة السجادية في السلامة النفسية للفرد والمجتمع - العدد 11.pdf"
+  },  {
+    "id": "573",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الدور الثقافي للامام السجاد ع ",
+        "authors": ["صباح الموسوي"],
+        "publicationVenue": "مجلة الصدى - العدد 12",
+
+        "language": " عربي ",
+        "pagenam":9
+      }
+    ],
+    "publishedYear":"2021 م",
+   "pdfUrl": "/research/journals/الدور الثقافي للامام السجاد ع - العدد 12.pdf"
+  }, {
+    "id": "574",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "البكاء بين الامام السجاد ع وبقية العباد",
+        "authors": ["مجتبى الصافي"],
+        "publicationVenue": "مجلة الصدى - العدد 13",
+
+        "language": " عربي ",
+        "pagenam":8
+      }
+    ],
+    "publishedYear":"2021 م",
+   "pdfUrl": "/research/journals/البكاء بين الامام السجاد ع وبقية العباد - العدد 13.pdf"
+  } 
+  , {
+    "id": "575",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الادب اللغوي في الصحيفة السجادية ",
+        "authors": ["زهرة سليماني"],
+        "publicationVenue": "مجلة كلية التربية الأساسية للعلوم التربوية والإنسانية - العدد 52 - المجلد 13 - الجزء 2",
+
+        "language": " عربي ",
+        "pagenam":10
+      }
+    ],
+    "publishedYear":"2021 م",
+   "pdfUrl": "/research/journals/الأدب اللغوي في الصحيفة السجادية.pdf"
+  },  {
+    "id": "576",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": " حق المؤمن على أخيه",
+        "authors": ["حسين بن سعيد الكوفي"],
+        "publicationVenue": "أوراق معرفية - العدد 16",
+
+        "language": " عربي ",
+        "pagenam":4
+      }
+    ],
+    "publishedYear":"2022 م",
+   "pdfUrl": "/research/journals/حق المؤمن على اخيه.pdf"
+  },  {
+    "id": "577",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "بعض الحقوق للامام زين العابدين ع  - حقوق الجوارح",
+        "authors": ["هيئة التحرير"],
+        "publicationVenue": "أوراق معرفية - العدد 16",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2022 م",
+   "pdfUrl": "/research/journals/حقوق الجوارح الامام علي بن الحسين زين العابدين ع-صور-2.pdf"
+  },  {
+    "id": "578",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "بعض الحقوق للامام زين العابدين ع  - حقوق الصلاة والصيام والحج",
+        "authors": ["هيئة التحرير"],
+        "publicationVenue": "أوراق معرفية - العدد 17",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2022 م",
+   "pdfUrl": "/research/journals/بعض الحقوق للامام زين العابدين ع  - حقوق الصلاة والصيام والحج.pdf"
+  },  {
+    "id": "579",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مميزات الصحيفة السجادية",
+        "authors": ["باقر شريف القرشي"],
+        "publicationVenue": "أوراق معرفية - العدد 17",
+
+        "language": " عربي ",
+        "pagenam":5
+      }
+    ],
+    "publishedYear":"2022 م",
+   "pdfUrl": "/research/journals/مميزات الصحيفة السجادية.pdf"
+  },
+  {
+    "id": "580",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "بعض الحقوق للامام زين العابدين ع  - حق الام",
+        "authors": ["هيئة التحرير"],
+        "publicationVenue": "أوراق معرفية - العدد 18",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2022 م",
+   "pdfUrl": "/research/journals/حق الرحم الامام علي بن الحسين زين العابدين ع - حق الام.pdf"
+  }, {
+    "id": "581",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "شروحات الصحيفة السجادية",
+        "authors": ["باقر شريف القرشي"],
+        "publicationVenue": "أوراق معرفية - العدد 18",
+
+        "language": " عربي ",
+        "pagenam":6
+      }
+    ],
+    "publishedYear":"2022 م",
+   "pdfUrl": "/research/journals/شروحات الصحيفة  السجادية.pdf"
+  },  {
+    "id": "582",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "قراءة في كتاب موسوعة الحدائق الندية في بيان المناجيات السجادية",
+        "authors": ["حسين النعمة"],
+        "publicationVenue": "مجلة الاحرار - العدد 860",
+
+        "language": " عربي ",
+        "pagenam":1
+      }
+    ],
+    "publishedYear":"2022 م",
+   "pdfUrl": "/research/journals/قراءة في  كتاب  موسوعة الحدائق الندية في بيان المناجيات السجادية الحديقة الاولى.pdf"
+  }
 
 ]
