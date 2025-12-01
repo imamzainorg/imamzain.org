@@ -18,15 +18,6 @@ const SectionCta = ({
 		},
 	}
 
-	const itemVariants = {
-		hidden: { opacity: 0, x: -50 },
-		visible: {
-			opacity: 1,
-			x: 0,
-			transition: { duration: 0.8, ease: "easeOut" },
-		},
-	}
-
 	return (
 		<motion.div
 			className="flex flex-wrap justify-center gap-4 !m-0"
@@ -38,7 +29,14 @@ const SectionCta = ({
 			{links.map((link, index) => (
 				<motion.div
 					key={index}
-					variants={itemVariants}
+					variants={{
+						hidden: { opacity: 0, x: -50 },
+						visible: {
+							opacity: 1,
+							x: 0,
+							transition: { duration: 0.8, ease: "easeOut" },
+						},
+					}}
 					whileTap={{ scale: 0.95 }}
 					whileHover={{ scale: 1.02 }}
 					transition={{ duration: 0.2, ease: "easeOut" }}

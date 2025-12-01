@@ -4,48 +4,6 @@ import Image from "next/image"
 import Link from "next/link"
 
 export default function Application() {
-	const containerVariants = {
-		hidden: { opacity: 0, x: -50 },
-		visible: {
-			opacity: 1,
-			x: 0,
-			transition: { duration: 0.8, ease: "easeOut", delay: 0.2 },
-		},
-	}
-
-	const phoneVariants = {
-		hidden: { opacity: 0, y: 50, rotate: -5 },
-		visible: (custom: number) => ({
-			opacity: 1,
-			y: 0,
-			rotate: custom === 0 ? -8 : 5,
-			transition: {
-				duration: 0.8,
-				ease: "easeOut",
-				delay: custom * 0.2 + 0.4,
-			},
-		}),
-	}
-
-	const buttonVariants = {
-		hidden: { opacity: 0, y: 20 },
-		visible: (custom: number) => ({
-			opacity: 1,
-			y: 0,
-			transition: {
-				duration: 0.6,
-				ease: "easeOut",
-				delay: custom * 0.1 + 0.6,
-			},
-		}),
-		hover: {
-			scale: 1.05,
-			y: -2,
-			transition: { duration: 0.2 },
-		},
-		tap: { scale: 0.95 },
-	}
-
 	return (
 		<div className="container pt-20 px-4">
 			<div className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 rounded-3xl flex flex-col lg:flex-row justify-between items-center gap-10 p-8 py-24 lg:p-16 lg:py-20 shadow-2xl border border-gray-100/50 backdrop-blur-sm">
@@ -54,7 +12,18 @@ export default function Application() {
 				<div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-indigo-100/30 to-pink-100/30 rounded-full blur-3xl opacity-40 translate-y-1/2 -translate-x-1/2"></div>
 
 				<motion.div
-					variants={containerVariants}
+					variants={{
+						hidden: { opacity: 0, x: -50 },
+						visible: {
+							opacity: 1,
+							x: 0,
+							transition: {
+								duration: 0.8,
+								ease: "easeOut",
+								delay: 0.2,
+							},
+						},
+					}}
 					initial="hidden"
 					animate="visible"
 					className="relative z-10 w-full lg:w-1/2 flex flex-col gap-6 lg:gap-10 xl:gap-16 max-lg:text-center"
@@ -90,7 +59,24 @@ export default function Application() {
 					<div className="flex justify-center lg:justify-start gap-6 lg:gap-8">
 						<motion.div
 							custom={0}
-							variants={buttonVariants}
+							variants={{
+								hidden: { opacity: 0, y: 20 },
+								visible: (custom: number) => ({
+									opacity: 1,
+									y: 0,
+									transition: {
+										duration: 0.6,
+										ease: "easeOut",
+										delay: custom * 0.1 + 0.6,
+									},
+								}),
+								hover: {
+									scale: 1.05,
+									y: -2,
+									transition: { duration: 0.2 },
+								},
+								tap: { scale: 0.95 },
+							}}
 							initial="hidden"
 							animate="visible"
 							whileHover="hover"
@@ -116,7 +102,24 @@ export default function Application() {
 
 						<motion.div
 							custom={1}
-							variants={buttonVariants}
+							variants={{
+								hidden: { opacity: 0, y: 20 },
+								visible: (custom: number) => ({
+									opacity: 1,
+									y: 0,
+									transition: {
+										duration: 0.6,
+										ease: "easeOut",
+										delay: custom * 0.1 + 0.6,
+									},
+								}),
+								hover: {
+									scale: 1.05,
+									y: -2,
+									transition: { duration: 0.2 },
+								},
+								tap: { scale: 0.95 },
+							}}
 							initial="hidden"
 							animate="visible"
 							whileHover="hover"
@@ -153,7 +156,19 @@ export default function Application() {
 
 						<motion.div
 							custom={0}
-							variants={phoneVariants}
+							variants={{
+								hidden: { opacity: 0, y: 50, rotate: -5 },
+								visible: (custom: number) => ({
+									opacity: 1,
+									y: 0,
+									rotate: custom === 0 ? -8 : 5,
+									transition: {
+										duration: 0.8,
+										ease: "easeOut",
+										delay: custom * 0.2 + 0.4,
+									},
+								}),
+							}}
 							initial="hidden"
 							animate="visible"
 							className="absolute bottom-0 left-4 w-[10rem] h-[22rem] z-10"
@@ -176,7 +191,19 @@ export default function Application() {
 
 						<motion.div
 							custom={1}
-							variants={phoneVariants}
+							variants={{
+								hidden: { opacity: 0, y: 50, rotate: -5 },
+								visible: (custom: number) => ({
+									opacity: 1,
+									y: 0,
+									rotate: custom === 0 ? -8 : 5,
+									transition: {
+										duration: 0.8,
+										ease: "easeOut",
+										delay: custom * 0.2 + 0.4,
+									},
+								}),
+							}}
 							initial="hidden"
 							animate="visible"
 							className="absolute bottom-0 right-4 w-[14rem] h-[26rem] z-20"

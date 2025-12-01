@@ -45,16 +45,6 @@ export default function Publications({
 			transition: { duration: 0.3 },
 		},
 	}
-
-	const imageVariants = {
-		hidden: { opacity: 0, x: -20 },
-		visible: {
-			opacity: 1,
-			x: 0,
-			transition: { duration: 1, ease: "easeOut" },
-		},
-	}
-
 	return (
 		<div className="container w-full flex flex-col items-center pt-20">
 			<div className="flex w-full items-center justify-between my-8">
@@ -118,7 +108,17 @@ export default function Publications({
 
 								{/* Book Image 1 */}
 								<motion.div
-									variants={imageVariants}
+									variants={{
+										hidden: { opacity: 0, x: -20 },
+										visible: {
+											opacity: 1,
+											x: 0,
+											transition: {
+												duration: 1,
+												ease: "easeOut",
+											},
+										},
+									}}
 									initial="hidden"
 									animate="visible"
 									className="absolute left-0 top-10 w-[7.5rem] h-[11.5rem]"
@@ -133,7 +133,17 @@ export default function Publications({
 
 								{/* Book Image 2 */}
 								<motion.div
-									variants={imageVariants}
+									variants={{
+										hidden: { opacity: 0, x: -20 },
+										visible: {
+											opacity: 1,
+											x: 0,
+											transition: {
+												duration: 1,
+												ease: "easeOut",
+											},
+										},
+									}}
 									initial="hidden"
 									animate="visible"
 									className="absolute top-2 left-11 w-[7.5rem] h-[11.5rem]"

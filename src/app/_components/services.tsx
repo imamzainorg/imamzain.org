@@ -5,19 +5,6 @@ import { motion } from "framer-motion"
 import ZiaraForm from "@/components/ziara-form"
 
 export default function Services() {
-	// Animation variants for the motion.div
-	const containerVariants = {
-		hidden: { opacity: 0, x: 100 }, // Start off-screen to the right
-		visible: {
-			opacity: 1,
-			x: 0, // Settle in place
-			transition: {
-				duration: 1, // Duration of the animation
-				ease: "easeOut", // Smooth easing
-			},
-		},
-	}
-
 	return (
 		<div className="pt-20">
 			<div className="relative text-white flex flex-col items-center space-y-2  ">
@@ -31,7 +18,17 @@ export default function Services() {
 						 "
 					>
 						<motion.div
-							variants={containerVariants}
+							variants={{
+								hidden: { opacity: 0, x: 100 },
+								visible: {
+									opacity: 1,
+									x: 0,
+									transition: {
+										duration: 1,
+										ease: "easeOut",
+									},
+								},
+							}}
 							initial="hidden"
 							whileInView="visible"
 							viewport={{ once: true, amount: 0.3 }}

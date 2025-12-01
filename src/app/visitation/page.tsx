@@ -183,17 +183,6 @@ const CardStatistics = ({ title, value }: { title: string; value: number }) => {
 }
 
 export default function Page() {
-	const containerVariants = {
-		hidden: { opacity: 0, x: 100 },
-		visible: {
-			opacity: 1,
-			x: 0,
-			transition: {
-				duration: 1,
-				ease: "easeOut",
-			},
-		},
-	}
 	return (
 		<div className="pt-20">
 			<div className="relative text-white flex flex-col items-center space-y-2  ">
@@ -207,7 +196,17 @@ export default function Page() {
 						 "
 					>
 						<motion.div
-							variants={containerVariants}
+							variants={{
+								hidden: { opacity: 0, x: 100 },
+								visible: {
+									opacity: 1,
+									x: 0,
+									transition: {
+										duration: 1,
+										ease: "easeOut",
+									},
+								},
+							}}
 							initial="hidden"
 							whileInView="visible"
 							viewport={{ once: true, amount: 0.3 }}

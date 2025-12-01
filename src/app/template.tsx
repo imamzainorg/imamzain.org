@@ -4,43 +4,6 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import Layouts from "@/layouts"
 
-const loaderVariants = {
-	hidden: {
-		opacity: 0,
-		scale: 0.9,
-	},
-	enter: {
-		opacity: 1,
-		scale: 1,
-		transition: {
-			duration: 0.4,
-			ease: [0.4, 0, 0.2, 1],
-		},
-	},
-	exit: {
-		opacity: 0,
-		scale: 1.1,
-		transition: {
-			duration: 0.3,
-			ease: [0.4, 0, 1, 1],
-		},
-	},
-}
-
-const pageVariants = {
-	hidden: {
-		opacity: 0,
-	},
-	enter: {
-		opacity: 1,
-		transition: {
-			duration: 0.5,
-			delay: 0.1,
-			ease: [0.4, 0, 0.2, 1],
-		},
-	},
-}
-
 export default function Template({ children }: { children: React.ReactNode }) {
 	const [loading, setLoading] = useState<boolean>(true)
 
@@ -61,7 +24,28 @@ export default function Template({ children }: { children: React.ReactNode }) {
 					initial="hidden"
 					animate="enter"
 					exit="exit"
-					variants={loaderVariants}
+					variants={{
+						hidden: {
+							opacity: 0,
+							scale: 0.9,
+						},
+						enter: {
+							opacity: 1,
+							scale: 1,
+							transition: {
+								duration: 0.4,
+								ease: [0.4, 0, 0.2, 1],
+							},
+						},
+						exit: {
+							opacity: 0,
+							scale: 1.1,
+							transition: {
+								duration: 0.3,
+								ease: [0.4, 0, 1, 1],
+							},
+						},
+					}}
 				>
 					<motion.div
 						className="flex flex-col items-center gap-6"
@@ -104,7 +88,19 @@ export default function Template({ children }: { children: React.ReactNode }) {
 					key="page"
 					initial="hidden"
 					animate="enter"
-					variants={pageVariants}
+					variants={{
+						hidden: {
+							opacity: 0,
+						},
+						enter: {
+							opacity: 1,
+							transition: {
+								duration: 0.5,
+								delay: 0.1,
+								ease: [0.4, 0, 0.2, 1],
+							},
+						},
+					}}
 				>
 					<Layouts>{children}</Layouts>
 				</motion.div>
