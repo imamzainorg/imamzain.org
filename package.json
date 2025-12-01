@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build ",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "clear": "rmdir /s /q .next",
-    "dev:clear": "npm run clear && npm run dev"
+    "clear": "rm -rf .next",
+    "dev:clear": "bun run clear && bun run dev"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
