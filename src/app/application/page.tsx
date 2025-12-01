@@ -1,29 +1,23 @@
-"use client"
-import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+	title: "تطبيق الانوار السجادية",
+	description:
+		"تطبيق يحتوي على موسوعة متكاملة عن الامام زين العابدين (عليه السلام)",
+	keywords: [
+		"تطبيق الانوار السجادية",
+		"الانوار السجادية",
+		"تطبيق عن الامام زين العابدين",
+		"تطبيق عن الامام السجاد",
+		"موسوعة الامام زين العابدين",
+		"الصحيفة السجادية",
+		"رسالة الحقوق",
+	],
+}
 
 const MainSection = () => {
-	const imageVariants = {
-		hidden: { opacity: 0, x: -20 },
-		visible: {
-			opacity: 1,
-			x: 0,
-			transition: { duration: 1, ease: "easeOut" },
-		},
-	}
-	const containerVariants = {
-		hidden: { opacity: 0, x: 100 },
-		visible: {
-			opacity: 1,
-			x: 0,
-			transition: {
-				duration: 1,
-				ease: "easeOut",
-			},
-		},
-	}
-
 	return (
 		<div className="relative top-0 h-[50rem] lg:h-[40rem] w-full">
 			<div className="absolute top-0 right-0  w-full h-full -z-20">
@@ -39,12 +33,7 @@ const MainSection = () => {
 			</div>
 			<div className="absolute top-0 right-0 w-full h-full flex justify-center items-center  pt-10 lg:pt-40 z-10">
 				<div className="container flex flex-col lg:flex-row justify-between items-center gap-10 ">
-					<motion.div
-						variants={containerVariants}
-						initial="hidden"
-						animate="visible"
-						className="w-full lg:w-1/2 flex flex-col gap-4 lg:justify-between lg:gap-8 xl:gap-14 max-lg:text-center lg:h-[24rem] "
-					>
+					<div className="w-full lg:w-1/2 flex flex-col gap-4 lg:justify-between lg:gap-8 xl:gap-14 max-lg:text-center lg:h-[24rem] animate-[slideInRight_1s_ease-out]">
 						<p className="text-4xl xl:text-5xl font-bold text-center lg:text-start text-primary leading-tight lg:leading-normal">
 							تطبيق أنوار سجادية
 						</p>
@@ -79,35 +68,25 @@ const MainSection = () => {
 								/>
 							</Link>
 						</div>
-					</motion.div>
+					</div>
 					<div className="relative flex justify-center items-center ml-10 w-[20rem] h-[24rem] ">
-						<motion.div
-							variants={imageVariants}
-							initial="hidden"
-							animate="visible"
-							className="absolute bottom-0 left-0 w-[8rem] h-[20rem]"
-						>
+						<div className="absolute bottom-0 left-0 w-[8rem] h-[20rem] animate-[slideInLeft_1s_ease-out]">
 							<Image
 								src={"/application/01.png"}
 								alt={`/application/02.png`}
 								fill
 								className="object-center"
 							/>
-						</motion.div>
+						</div>
 
-						<motion.div
-							variants={imageVariants}
-							initial="hidden"
-							animate="visible"
-							className="absolute bottom-0 left-16 w-[12rem] h-[24rem]"
-						>
+						<div className="absolute bottom-0 left-16 w-[12rem] h-[24rem] animate-[slideInLeft_1s_ease-out]">
 							<Image
 								src={"/application/02.png"}
 								alt={`/application/02.png`}
 								fill
 								className="object-center"
 							/>
-						</motion.div>
+						</div>
 					</div>
 				</div>
 			</div>
