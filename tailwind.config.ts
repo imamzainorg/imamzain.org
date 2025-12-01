@@ -49,6 +49,34 @@ export default {
 						transform: "translateY(0)",
 					},
 				},
+				slideInRight: {
+					"0%": {
+						opacity: "0",
+						transform: "translateX(100px)",
+					},
+					"100%": {
+						opacity: "1",
+						transform: "translateX(0)",
+					},
+				},
+				slideInLeft: {
+					"0%": {
+						opacity: "0",
+						transform: "translateX(-100px)",
+					},
+					"100%": {
+						opacity: "1",
+						transform: "translateX(0)",
+					},
+				},
+				zoomIn: {
+					"0%": {
+						transform: "scale(1)",
+					},
+					"100%": {
+						transform: "scale(1.1)",
+					},
+				},
 			},
 			animation: {
 				"fade-in-up": "fadeInUp 0.5s ease-in-out",
