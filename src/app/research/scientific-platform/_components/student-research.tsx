@@ -2,6 +2,11 @@
 
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect, useMemo, useCallback, useRef } from "react"
+
+import { FaFilePdf } from "react-icons/fa";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore from "swiper";
+import "swiper/css";
 import {
 	GraduationCap,
 	Search as SearchIcon,
@@ -12,7 +17,7 @@ import {
 	ChevronLeft,
 	ChevronRight,
 } from "lucide-react"
-import { FaFilePdf } from "react-icons/fa"
+
 import studentData from "@/data/student.json"
 
 import { Button } from "@/components/button"
@@ -123,26 +128,35 @@ export default function StudentResearchPage() {
 		}
 	}, [filteredData, sortBy])
 
-	// تقسيم الصفحات
-	const totalPages = Math.ceil(sortedData.length / itemsPerPage)
 
-	const paginatedData = useMemo(() => {
-		const startIndex = (currentPage - 1) * itemsPerPage
-		const endIndex = startIndex + itemsPerPage
-		return sortedData.slice(startIndex, endIndex)
-	}, [sortedData, currentPage])
 
-	const paginate = (page: number) => {
-		setCurrentPage(page)
-		setHighlightId(null)
-		window.scrollTo({ top: 0, behavior: "smooth" })
-	}
 
-	const openPdf = (item: StudentResearch) => {
-		if (item.pdfUrl) window.open(item.pdfUrl, "_blank")
-	}
 
-	const handleRowClick = (id: string) => setHighlightId(id)
+
+
+
+
+const totalPages = Math.ceil(sortedData.length / itemsPerPage);
+  const paginatedData = useMemo(() => {
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    return sortedData.slice(start, end);
+  }, [currentPage, sortedData]);
+
+  const paginate = (page: number) => {
+    setCurrentPage(page);
+    setHighlightId(null);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+
+
+  const openPdf = (item: StudentResearch) => {
+    if (item.pdfUrl) window.open(item.pdfUrl, "_blank");
+  };
+
+  const handleRowClick = (id: string) => setHighlightId(id);
+  const swiperRef = useRef<SwiperCore | null>(null);
 
 	return (
 		<div className="container">
@@ -447,79 +461,82 @@ export default function StudentResearchPage() {
 					)}
 				</div>
 
-				{/* Pagination */}
-				{totalPages > 1 && (
-					<div className="w-11/12 mx-auto flex justify-center my-8">
-						<nav className="flex items-center gap-2">
-							<Button
-								variant="outline"
-								size="icon"
-								onClick={() =>
-									paginate(Math.max(1, currentPage - 1))
-								}
-								disabled={currentPage === 1}
-								aria-label="الصفحة السابقة"
-								className="bg-white text-primary hover:bg-primary dark:text-Muharram_primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
-							>
-								<ChevronRight size={20} />
-							</Button>
-
-							{Array.from(
-								{ length: Math.min(5, totalPages) },
-								(_, i) => {
-									let pageNum
-									if (currentPage <= 3) pageNum = i + 1
-									else if (currentPage > totalPages - 3)
-										pageNum = totalPages - 4 + i
-									else pageNum = currentPage - 2 + i
-
-									if (pageNum < 1 || pageNum > totalPages)
-										return null
-
-									return (
-										<Button
-											key={pageNum}
-											variant={
-												currentPage === pageNum
-													? "default"
-													: "outline"
-											}
-											onClick={() => paginate(pageNum)}
-											className={`w-10 h-10 rounded-lg transition-colors duration-300 ${
-												currentPage === pageNum
-													? "bg-primary dark:bg-Muharram_primary text-white"
-													: "bg-white text-primary hover:bg-primary dark:text-Muharram_primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
-											}`}
-											aria-current={
-												currentPage === pageNum
-													? "page"
-													: undefined
-											}
-										>
-											{pageNum}
-										</Button>
-									)
-								},
-							)}
-
-							<Button
-								variant="outline"
-								size="icon"
-								onClick={() =>
-									paginate(
-										Math.min(totalPages, currentPage + 1),
-									)
-								}
-								disabled={currentPage === totalPages}
-								aria-label="الصفحة التالية"
-								className="bg-white text-primary dark:text-Muharram_primary hover:bg-primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
-							>
-								<ChevronLeft size={20} />
-							</Button>
-						</nav>
-					</div>
-				)}
+			
 			</div>
+				{/* Pagination */}
+			   {totalPages > 1 && (
+            <div className="w-11/12 mx-auto flex justify-center my-8">
+              <nav className="flex items-center gap-2">
+                {/* زر السابق */}
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => {
+                    swiperRef.current?.slidePrev();
+                  }}
+                  disabled={currentPage === 1}
+                  aria-label="الصفحة السابقة"
+                  className="bg-white text-primary hover:bg-primary dark:text-Muharram_primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
+                >
+                  <ChevronRight size={20} />
+                </Button>
+
+                {/* سلايدر الأرقام */}
+                <div className="w-64">
+                  <Swiper
+                    onSwiper={(swiper) => (swiperRef.current = swiper)}
+                    slidesPerView={5}
+                    spaceBetween={10}
+                    grabCursor={true}
+                    centeredSlides={false}
+                    loop={true}
+                  >
+                    {Array.from({ length: totalPages }, (_, i) => {
+                      const pageNum = i + 1;
+
+                      return (
+                        <SwiperSlide
+                          key={pageNum}
+                          className="flex justify-center"
+                        >
+                          <Button
+                            variant={
+                              currentPage === pageNum ? "default" : "outline"
+                            }
+                            onClick={() => {
+                              paginate(pageNum);
+                              swiperRef.current?.slideToLoop(pageNum - 1);
+                            }}
+                            className={`w-10 h-10 rounded-lg transition-colors duration-300 ${
+                              currentPage === pageNum
+                                ? "bg-primary dark:bg-Muharram_primary text-white"
+                                : "bg-white text-primary hover:bg-primary dark:text-Muharram_primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
+                            }`}
+                          >
+                            {pageNum}
+                          </Button>
+                        </SwiperSlide>
+                      );
+                    })}
+                  </Swiper>
+                </div>
+
+                {/* زر التالي */}
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => {
+                    swiperRef.current?.slideNext();
+                  }}
+                  disabled={currentPage === totalPages}
+                  aria-label="الصفحة التالية"
+                  className="bg-white text-primary dark:text-Muharram_primary hover:bg-primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
+                >
+                  <ChevronLeft size={20} />
+                </Button>
+              </nav>
+            </div>
+          )}
 		</div>
 	)
 }
