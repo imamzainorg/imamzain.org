@@ -1,21 +1,43 @@
 "use client";
+import { FaFilePdf } from "react-icons/fa";
+import { Journals } from "@/types/journals";
+import { Button } from "@/components/button";
+import { useRef } from "react";
 
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  BookOpen as BookOpenIcon,
+  Grid as GridIcon,
+  List as ListIcon,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { useState, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
 import { SearchIcon, X, Calendar, User, Building } from "lucide-react";
 import { LuBookOpenText } from "react-icons/lu";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore from "swiper";
+import "swiper/css";
 import { Research } from "@/types/research";
 import researchData from "@/data/research.json";
 
 export default function UploadedResearchPage() {
   //  الحالة
-  const [research, setResearch] = useState<Research[]>([]);
+  const [research, setResearch] = useState<conferensResearch[]>([]);
   const [filteredResearch, setFilteredResearch] = useState<Research[]>([]);
-  const [searchTerm, setSearchTerm] = useState("");
+
   const [selectedSummary, setSelectedSummary] = useState<Research | null>(null);
+  const [activeTab] = useState("all");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredData, setFilteredData] = useState<Research[]>([]);
+  const [viewMode, setViewMode] = useState<"cards" | "table">("cards");
+  const [sortBy, setSortBy] = useState("default");
+  const [highlightId, setHighlightId] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
 
   //  تحميل البيانات
   useEffect(() => {
@@ -43,12 +65,30 @@ export default function UploadedResearchPage() {
 
   //  كشف اللغة العربية
   const isArabic = (text: string) => /[\u0600-\u06FF]/.test(text);
- 
+  const start = (currentPage - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  const currentResearch = filteredResearch.slice(start, end);
+
+  type conferensResearch = Research;
+  const paginate = (page: number) => {
+    setCurrentPage(page);
+    setHighlightId(null);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const openPdf = (item: conferensResearch) => {
+    if (item.pdfUrl) window.open(item.pdfUrl, "_blank");
+  };
+
+  const handleRowClick = (id: string) => setHighlightId(id);
+  const swiperRef = useRef<SwiperCore | null>(null);
+
+  const totalPages = Math.ceil(filteredResearch.length / itemsPerPage);
+
   return (
     <div className="container">
       {/*  المسار */}
-    
-  
+
       {/*  العنوان الرئيسي */}
       <div className="text-center mb-12 mt-6">
         <h1 className="text-4xl font-bold text-primary dark:text-Muharram_primary mb-4">
@@ -98,7 +138,7 @@ export default function UploadedResearchPage() {
         {/*  عرض البحوث */}
         {filteredResearch.length > 0 ? (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-3  rounded-2xl mt-6">
-            {filteredResearch.map((item, index) => (
+            {currentResearch.map((item, index) => (
               <div
                 key={index}
                 className="group bg-white  rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 hover:border-primary/20 dark:hover:border-Muharram_primary/20"
@@ -207,7 +247,76 @@ export default function UploadedResearchPage() {
           </div>
         )}
       </div>
+      {totalPages > 1 && (
+        <div className="w-11/12 mx-auto flex justify-center my-8">
+          <nav className="flex items-center gap-2">
+            {/* زر السابق */}
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => {
+                swiperRef.current?.slidePrev();
+              }}
+              disabled={currentPage === 1}
+              aria-label="الصفحة السابقة"
+              className="bg-white text-primary hover:bg-primary dark:text-Muharram_primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
+            >
+              <ChevronRight size={20} />
+            </Button>
 
+            {/* سلايدر الأرقام */}
+            <div className="w-64">
+              <Swiper
+                onSwiper={(swiper) => (swiperRef.current = swiper)}
+                slidesPerView={5}
+                spaceBetween={10}
+                grabCursor={true}
+                centeredSlides={false}
+                loop={true}
+              >
+                {Array.from({ length: totalPages }, (_, i) => {
+                  const pageNum = i + 1;
+
+                  return (
+                    <SwiperSlide key={pageNum} className="flex justify-center">
+                      <Button
+                        variant={
+                          currentPage === pageNum ? "default" : "outline"
+                        }
+                        onClick={() => {
+                          paginate(pageNum);
+                          swiperRef.current?.slideToLoop(pageNum - 1);
+                        }}
+                        className={`w-10 h-10 rounded-lg transition-colors duration-300 ${
+                          currentPage === pageNum
+                            ? "bg-primary dark:bg-Muharram_primary text-white"
+                            : "bg-white text-primary hover:bg-primary dark:text-Muharram_primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
+                        }`}
+                      >
+                        {pageNum}
+                      </Button>
+                    </SwiperSlide>
+                  );
+                })}
+              </Swiper>
+            </div>
+
+            {/* زر التالي */}
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => {
+                swiperRef.current?.slideNext();
+              }}
+              disabled={currentPage === totalPages}
+              aria-label="الصفحة التالية"
+              className="bg-white text-primary dark:text-Muharram_primary hover:bg-primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
+            >
+              <ChevronLeft size={20} />
+            </Button>
+          </nav>
+        </div>
+      )}
       {/*  نافذة الملخص */}
       <Dialog
         open={!!selectedSummary}
