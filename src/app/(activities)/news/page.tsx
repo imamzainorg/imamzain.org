@@ -136,19 +136,7 @@ export default async function Page() {
             ))}
           </div>
           <div className="w-full lg:w-5/12 flex flex-col items-center lg:items-start">
-            <div className="w-[280px] h-[280px] sm:w-[300px] sm:h-[300px] lg:w-[360px] xl:w-[500px] lg:h-[360px] xl:h-[500px] dark:bg-[url('/shapes/ziara-bg_Muharram.svg')] bg-[url('/shapes/ziara-bg.svg')] bg-container rotate-180 bg-center bg-no-repeat flex justify-center items-center text-white relative isolate">
-              <div className="absolute w-full h-full bg-[url('/shapes/bg.svg')]" />
-              <div className="rotate-180 text-center w-full px-4">
-                <span className="text-base md:text-lg lg:text-2xl xl:text-3xl font-semibold tracking-wide">
-                  اشترك في
-                </span>
-                <p className="text-sm sm:text-base mt-4 md:mt-8 md:text-2xl lg:text-3xl tracking-wide font-normal">
-                  النشرة البريدية الخاصة
-                  <br /> بالأعلانات والنشاطات
-                </p>
-                <Newsletter />
-              </div>
-            </div>
+            <Newsletter />
           </div>
         </div>
       </div>
