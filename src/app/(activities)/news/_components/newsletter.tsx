@@ -131,7 +131,7 @@ export default function NewsletterSection({}: NewsletterSectionProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
-              className="flex flex-col gap-6 pb-56 items-center "
+              className="flex flex-col gap-6 pb-32 md:pb-44 items-center "
             >
               <FontAwesomeIcon
                 icon={faCircleCheck}
