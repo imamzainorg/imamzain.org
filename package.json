@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "clear": "rm -rf .next",
     "dev:clear": "bun run clear && bun run dev"
   },
@@ -45,6 +45,8 @@
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "20.17.19",
     "@types/react": "^19.1.8",
+    "eslint": "9",
+    "eslint-config-next": "15.4.1",
     "knip": "^5.70.2",
     "postcss": "^8.5.6",
     "postcss-load-config": "^6.0.1",
