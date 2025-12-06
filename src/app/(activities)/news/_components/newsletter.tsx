@@ -6,11 +6,7 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 
-interface NewsletterSectionProps {
-  // إذا أردت تمرير أي بيانات خارجية
-}
-
-export default function NewsletterSection({}: NewsletterSectionProps) {
+export default function NewsletterSection() {
   const [subscriberEmail, setSubscriberEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [sent, setSent] = useState(false);

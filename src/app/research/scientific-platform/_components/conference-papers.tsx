@@ -1,14 +1,8 @@
 "use client";
-import { FaFilePdf } from "react-icons/fa";
-import { Journals } from "@/types/journals";
 import { Button } from "@/components/button";
 import { useRef } from "react";
 
-import { motion, AnimatePresence } from "framer-motion";
 import {
-  BookOpen as BookOpenIcon,
-  Grid as GridIcon,
-  List as ListIcon,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -30,12 +24,7 @@ export default function UploadedResearchPage() {
   const [filteredResearch, setFilteredResearch] = useState<Research[]>([]);
 
   const [selectedSummary, setSelectedSummary] = useState<Research | null>(null);
-  const [activeTab] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredData, setFilteredData] = useState<Research[]>([]);
-  const [viewMode, setViewMode] = useState<"cards" | "table">("cards");
-  const [sortBy, setSortBy] = useState("default");
-  const [highlightId, setHighlightId] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
@@ -72,15 +61,9 @@ export default function UploadedResearchPage() {
   type conferensResearch = Research;
   const paginate = (page: number) => {
     setCurrentPage(page);
-    setHighlightId(null);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const openPdf = (item: conferensResearch) => {
-    if (item.pdfUrl) window.open(item.pdfUrl, "_blank");
-  };
-
-  const handleRowClick = (id: string) => setHighlightId(id);
   const swiperRef = useRef<SwiperCore | null>(null);
 
   const totalPages = Math.ceil(filteredResearch.length / itemsPerPage);
