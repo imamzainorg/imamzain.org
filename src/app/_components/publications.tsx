@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 import HeaderSections from "@/components/header-sections"
 import Image from "next/image"
@@ -13,24 +13,14 @@ export default function Publications({
 }: {
 	publications: Book[]
 }) {
-	const [booksToShow, setBooksToShow] = useState(10)
-
-	// Function to update the number of books based on screen width
-	const updateBooksToShow = () => {
-		const width = window.innerWidth
-		if (width >= 1280) setBooksToShow(10) //   (xl+)
-		else if (width >= 1024) setBooksToShow(8) //   (lg)
-		else if (width >= 768) setBooksToShow(6) //   (md)
-		else if (width >= 640) setBooksToShow(4) //   (sm)
-		else setBooksToShow(2) //   (xs)
-	}
-
-	// Set initial value and update on resize
-	useEffect(() => {
-		updateBooksToShow()
-		window.addEventListener("resize", updateBooksToShow)
-		return () => window.removeEventListener("resize", updateBooksToShow)
-	}, [])
+	const width = window.innerWidth
+	const [booksToShow] = useState(() => {
+		if (width >= 1280) return 10
+		else if (width >= 1024) return 8
+		else if (width >= 768) return 6
+		else if (width >= 640) return 4
+		else return 2
+	})
 
 	const parentVariants = {
 		rest: { scale: 1 },

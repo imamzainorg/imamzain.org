@@ -8,25 +8,20 @@ interface ModalProps {
 	children: ReactNode
 }
 
-export default function Modal({ open, onClose, children }: ModalProps) {
-	// State for handling animation
+export default function Modal(props: ModalProps) {
+	const { open, onClose, children } = props
 	const [isVisible, setIsVisible] = useState(false)
 
 	useEffect(() => {
-		// Handle animation timing
 		if (open) {
-			// Make component visible immediately, then start animations
-			setIsVisible(true)
+			const timer = setTimeout(() => setIsVisible(true), 0)
+			return () => clearTimeout(timer)
 		} else {
-			// Delay unmounting to allow exit animations to complete
-			const timer = setTimeout(() => {
-				setIsVisible(false)
-			}, 300) // Match this to your animation duration
+			const timer = setTimeout(() => setIsVisible(false), 300)
 			return () => clearTimeout(timer)
 		}
 	}, [open])
 
-	// Close when escape key is pressed
 	useEffect(() => {
 		const handleEsc = (e: KeyboardEvent) => {
 			if (e.key === "Escape") onClose()
@@ -34,7 +29,6 @@ export default function Modal({ open, onClose, children }: ModalProps) {
 
 		if (open) {
 			document.addEventListener("keydown", handleEsc)
-			// Prevent body scrolling when modal is open
 			document.body.style.overflow = "hidden"
 		}
 
@@ -48,7 +42,6 @@ export default function Modal({ open, onClose, children }: ModalProps) {
 
 	return (
 		<>
-			{/* Backdrop */}
 			<div
 				className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300 ease-out ${
 					open ? "opacity-100" : "opacity-0"
@@ -57,9 +50,11 @@ export default function Modal({ open, onClose, children }: ModalProps) {
 				aria-hidden="true"
 			/>
 
-			{/* Modal container */}
-			<div className="fixed inset-0 flex items-center justify-center z-50 p-4">
-				{/* Modal content */}
+			<div
+				className="fixed inset-0 flex items-center justify-center z-50 p-4"
+				role="dialog"
+				aria-modal="true"
+			>
 				<div
 					className={`transform transition-all duration-300 ease-out ${
 						open

@@ -1,113 +1,80 @@
 "use client"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
-import { useState, useEffect, useRef } from "react"
+import { ArrowLeft, SearchIcon, ChevronLeft, ChevronRight } from "lucide-react"
+import { useState, useRef, useMemo } from "react"
 import Breadcrumbs from "@/components/breadcrumb"
 import BooklibraryCard from "../_components/book-library-card"
 import { Book } from "@/types/book"
-import { dataFetcher } from "@/lib/dataFetcher"
 import { AnimatePresence } from "framer-motion"
 import { Button } from "@/components/button"
-import { SearchIcon, ChevronLeft, ChevronRight } from "lucide-react"
+import booksData from "@/data/books.json"
 
 export default function RisalatAlHuquqPage() {
-	const [publications, setPublications] = useState<Book[]>([])
-	const [filteredPublications, setFilteredPublications] = useState<Book[]>([])
 	const [searchTerm, setSearchTerm] = useState("")
 	const [currentPage, setCurrentPage] = useState(1)
-	const itemsPerPage = 8
 	const scrollRef = useRef<HTMLDivElement>(null)
+	const itemsPerPage = 8
 
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const data = await dataFetcher<Book[]>("books.json")
+	const publications = useMemo(() => {
+		const filteredByCategory = (booksData as Book[]).filter(
+			(book) =>
+				Array.isArray(book.category) &&
+				book.category.includes("risalat-al-huqoq"),
+		)
+		const uniqueSeriesMap = new Map<string, Book>()
 
-				const filteredByCategory = data.filter(
-					(book) =>
-						Array.isArray(book.category) &&
-						book.category.includes("risalat-al-huqoq"),
-				)
-
-				const uniqueSeriesMap = new Map<string, Book>()
-				filteredByCategory.forEach((book) => {
-					if (book.series && book.totalParts > 1) {
-						if (
-							!uniqueSeriesMap.has(book.series) &&
-							book.partNumber === 1
-						) {
-							uniqueSeriesMap.set(book.series, book)
-						}
-					} else {
-						uniqueSeriesMap.set(`${book.series ?? book.id}`, book)
-					}
-				})
-
-				const filteredData = Array.from(uniqueSeriesMap.values())
-				setPublications(filteredData)
-				setFilteredPublications(filteredData)
-			} catch (error) {
-				console.error("Error fetching publications: ", error)
+		filteredByCategory.forEach((book) => {
+			if (book.series && book.totalParts > 1) {
+				if (
+					!uniqueSeriesMap.has(book.series) &&
+					book.partNumber === 1
+				) {
+					uniqueSeriesMap.set(book.series, book)
+				}
+			} else {
+				uniqueSeriesMap.set(`${book.series ?? book.id}`, book)
 			}
-		}
+		})
 
-		fetchData()
+		return Array.from(uniqueSeriesMap.values())
 	}, [])
 
-	useEffect(() => {
-		let filtered = [...publications]
+	const filteredPublications = useMemo(() => {
+		if (!searchTerm.trim()) return publications
+		const lowerSearch = searchTerm.toLowerCase()
 
-		if (searchTerm) {
-			const lowerSearch = searchTerm.toLowerCase().trim()
-
-			filtered = filtered.filter((publication) => {
-				const inTitle = publication.title
-					.toLowerCase()
-					.includes(lowerSearch)
-				const inAuthor = publication.author
-					?.toLowerCase()
-					.includes(lowerSearch)
-				const inOtherNames =
-					publication.otherNames &&
-					Array.isArray(publication.otherNames) &&
-					publication.otherNames.some((name) =>
+		return publications.filter(
+			(pub) =>
+				pub.title.toLowerCase().includes(lowerSearch) ||
+				pub.author?.toLowerCase().includes(lowerSearch) ||
+				(Array.isArray(pub.otherNames) &&
+					pub.otherNames.some((name) =>
 						name.toLowerCase().includes(lowerSearch),
-					)
-				const inPrintHouse = publication.printHouse
-					?.toLowerCase()
-					.includes(lowerSearch)
-				const inLanguage = publication.language
-					?.toLowerCase()
-					.includes(lowerSearch)
-
-				return (
-					inTitle ||
-					inAuthor ||
-					inOtherNames ||
-					inPrintHouse ||
-					inLanguage
-				)
-			})
-		}
-
-		setFilteredPublications(filtered)
-		setCurrentPage(1)
+					)) ||
+				pub.printHouse?.toLowerCase().includes(lowerSearch) ||
+				pub.language?.toLowerCase().includes(lowerSearch),
+		)
 	}, [searchTerm, publications])
 
-	const totalPages = Math.ceil(filteredPublications.length / itemsPerPage)
-	const indexOfLastItem = currentPage * itemsPerPage
-	const indexOfFirstItem = indexOfLastItem - itemsPerPage
-	const currentPublications = filteredPublications.slice(
-		indexOfFirstItem,
-		indexOfLastItem,
-	)
+	const { currentPublications, totalPages } = useMemo(() => {
+		const total = Math.ceil(filteredPublications.length / itemsPerPage)
+		const start = (currentPage - 1) * itemsPerPage
+		return {
+			currentPublications: filteredPublications.slice(
+				start,
+				start + itemsPerPage,
+			),
+			totalPages: total,
+		}
+	}, [filteredPublications, currentPage])
 
 	const paginate = (pageNum: number) => {
 		setCurrentPage(pageNum)
-		setTimeout(() => {
-			scrollRef.current?.scrollIntoView({ behavior: "smooth" })
-		}, 100)
+		setTimeout(
+			() => scrollRef.current?.scrollIntoView({ behavior: "smooth" }),
+			100,
+		)
 	}
 
 	return (
@@ -120,7 +87,7 @@ export default function RisalatAlHuquqPage() {
 				]}
 			/>
 
-			<div className="relative mt-4 md:mt-16 mb-8 mx-auto flex justify-start gap-20 p-8 md:p-10 backdrop-blur-[1px] shadow-lg shadow-primary/10 dark:shadow-Muharram_primary/10 rounded-[60px] border border-primary dark:border-Muharram_primary ">
+			<div className="relative mt-4 md:mt-16 mb-8 mx-auto flex justify-start gap-20 p-8 md:p-10 backdrop-blur-[1px] shadow-lg shadow-primary/10 dark:shadow-Muharram_primary/10 rounded-[60px] border border-primary dark:border-Muharram_primary">
 				<div className="w-full md:w-3/4 flex flex-col justify-around gap-5 md:pr-10">
 					<h1 className="text-base md:text-3xl lg:text-4xl xl:text-5xl font-semibold">
 						رسالة الحقوق
@@ -141,14 +108,14 @@ export default function RisalatAlHuquqPage() {
 				</div>
 				<div className="w-80 max-md:hidden left-20 -top-20 absolute">
 					<Image
-						src={`/shapes/book-bg.svg`}
+						src="/shapes/book-bg.svg"
 						className="w-full dark:hidden"
 						width={50}
 						height={50}
 						alt="غلاف رسالة الحقوق"
 					/>
 					<Image
-						src={`/shapes/book-bg_Muharram.svg`}
+						src="/shapes/book-bg_Muharram.svg"
 						className="w-full hidden dark:block"
 						width={50}
 						height={50}
@@ -161,7 +128,6 @@ export default function RisalatAlHuquqPage() {
 				ما كتب عن رسالة الحقوق
 			</h2>
 
-			{/* البحث */}
 			<div className="w-11/12 mx-auto my-8">
 				<div className="bg-white rounded-xl shadow-md p-4 md:p-6">
 					<div className="flex flex-col md:flex-row gap-4 justify-between items-center">
@@ -182,11 +148,8 @@ export default function RisalatAlHuquqPage() {
 							<Button
 								variant="outline"
 								className="w-full text-md md:text-lg bg-white md:p-5"
-								onClick={() => {
-									setSearchTerm("")
-								}}
+								onClick={() => setSearchTerm("")}
 							>
-						
 								إعادة الضبط
 							</Button>
 						</div>
@@ -194,7 +157,6 @@ export default function RisalatAlHuquqPage() {
 				</div>
 			</div>
 
-			{/* الكتب */}
 			<div ref={scrollRef} className="w-11/12 mx-auto mb-8">
 				{currentPublications.length === 0 ? (
 					<div className="bg-secondary dark:bg-Muharram_secondary/20 bg-opacity-10 rounded-xl flex flex-col items-center justify-center py-16">
@@ -224,7 +186,6 @@ export default function RisalatAlHuquqPage() {
 				)}
 			</div>
 
-			{/* الصفحات */}
 			{totalPages > 1 && (
 				<div className="w-11/12 mx-auto flex justify-center my-8">
 					<nav className="flex items-center gap-2">

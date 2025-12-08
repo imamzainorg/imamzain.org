@@ -9,29 +9,30 @@ import SwiperCarousel from "@/components/swiper-carousel"
 import ImageView from "@/components/image-view"
 import galleryImages from "@/data/gallery.json"
 
+const getShowCount = () => {
+	if (typeof window === "undefined") return 2
+	const width = window.innerWidth
+	if (width >= 1280) return 5
+	if (width >= 1024) return 4
+	if (width >= 768) return 3
+	return 2
+}
+
 export default function GallerySection() {
-	const [showCount, setShowCount] = useState<number | null>(null)
+	const [showCount, setShowCount] = useState(getShowCount)
 	const [isLoading, setIsLoading] = useState(true)
 	const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
-	const updateImagesToShow = () => {
-		const width = window.innerWidth
-
-		if (width >= 1280) setShowCount(5)
-		else if (width >= 1024) setShowCount(4)
-		else if (width >= 768) setShowCount(3)
-		else if (width >= 640) setShowCount(2)
-		else setShowCount(2)
-	}
-
 	useEffect(() => {
-		updateImagesToShow()
-		window.addEventListener("resize", updateImagesToShow)
+		const handleResize = () => {
+			setShowCount(getShowCount())
+		}
 
+		window.addEventListener("resize", handleResize)
 		const timer = setTimeout(() => setIsLoading(false), 800)
 
 		return () => {
-			window.removeEventListener("resize", updateImagesToShow)
+			window.removeEventListener("resize", handleResize)
 			clearTimeout(timer)
 		}
 	}, [])
@@ -47,10 +48,10 @@ export default function GallerySection() {
 		showCount === 3
 			? "grid-cols-3"
 			: showCount === 4
-				? "grid-cols-4"
-				: showCount === 5
-					? "grid-cols-5"
-					: "grid-cols-2"
+			? "grid-cols-4"
+			: showCount === 5
+			? "grid-cols-5"
+			: "grid-cols-2"
 
 	return (
 		<div className="pt-20">

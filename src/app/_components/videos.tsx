@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Image from "next/image"
 
 import {
@@ -27,24 +27,14 @@ export default function Videos({
 		hover: { scale: 1.05 },
 	}
 
-	const [Show, setToShow] = useState(Number || null)
-
-	// Function to update the number of books based on screen width
-	const updateBooksToShow = () => {
-		const width = window.innerWidth
-		if (width >= 1280) setToShow(7)
-		else if (width >= 1024) setToShow(7)
-		else if (width >= 768) setToShow(4)
-		else if (width >= 640) setToShow(2)
-		else setToShow(2)
-	}
-
-	// Set initial value and update on resize
-	useEffect(() => {
-		updateBooksToShow()
-		window.addEventListener("resize", updateBooksToShow)
-		return () => window.removeEventListener("resize", updateBooksToShow)
-	}, [])
+	const width = window.innerWidth
+	const [Show] = useState(() => {
+		if (width >= 1280) return 7
+		else if (width >= 1024) return 7
+		else if (width >= 768) return 4
+		else if (width >= 640) return 2
+		else return 2
+	})
 
 	return (
 		<>
