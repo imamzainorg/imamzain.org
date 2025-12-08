@@ -8,13 +8,12 @@ import {
   faXTwitter,
   faFacebook,
   faYoutube as Youtube,
-    faTelegram ,
+  faTelegram,
 } from "@fortawesome/free-brands-svg-icons";
 import { SizeProp } from "@fortawesome/fontawesome-svg-core";
 import DropdownLang from "@/layouts/dropdown-lang";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Accordion, AccordionItem } from "@heroui/react";
-
 
 type Sublink =
   | { label: string; href: string; slug?: never }
@@ -32,10 +31,10 @@ const links: LinkSection[] = [
     label: "الإمام زين العابدين",
 
     sublinks: [
-      { label: "الولادة المباركة", slug: "birth-and-death" },
-      { label: "لقبه وكناه", slug: "titles-and-nicknames" },
-      { label: "معالم شخصية", slug: "personality-traits" },
-      { label: "الإمام في كربلاء", slug: "in-karbala" },
+      { label: "ولادته ووالده", slug: "birth-and-death" },
+      { label: "ألقابه وكناه", slug: "titles-and-nicknames" },
+      { label: "الأدلة على امامته", slug: "personality-traits" },
+      { label: "كراماته ومميتزاته", slug: "karamatuh-wa-mumayizatuh" },
     ],
   },
   {
@@ -57,7 +56,6 @@ const links: LinkSection[] = [
   {
     label: "الوسائط",
     sublinks: [
-      { label: "الصوتيات", href: "/coming-soon" },
       { label: "المرئيات", href: "/media/videos" },
       { label: "معرض الصور", href: "/media/images" },
     ],
@@ -80,42 +78,47 @@ const SocialLinks = ({
         rel="noopener noreferrer"
         className="hover:scale-105 transition-transform h-fit p-0 m-0"
       >
-        <FontAwesomeIcon icon={social.icon} size={size}   className={social.hoverColor} />
+        <FontAwesomeIcon
+          icon={social.icon}
+          size={size}
+          className={social.hoverColor}
+        />
       </Link>
     ))}
   </div>
 );
 
 const bigNavSocials = [
-{
-                  href: "https://www.instagram.com/imamzainorg/",
-                  icon: faInstagram,
-                  hoverColor: "dark:hover:text-[#E1306C] hover:text-[#E1306C]",
-                },
-                {
-                  href: "https://www.tiktok.com/@imamzainorg",
-                  icon: faTiktok,
-                  hoverColor: "dark:hover:text-black hover:text-black",
-                },
-                {
-                  href: "https://www.facebook.com/@imamzainorg",
-                  icon: faFacebook,
-                  hoverColor: "dark:hover:text-[#1877F2] hover:text-[#1877F2]",
-                },
-                {
-                  href: "https://twitter.com/imamzainorg",
-                  icon: faXTwitter,
-                  hoverColor: "dark:hover:text-black hover:text-black",
-                },
-                { href: "https://www.youtube.com/@imamzainorg", 
-                  icon: Youtube,
-                   hoverColor: "dark:hover:text-[#FF0000] hover:text-[#FF0000]", 
-
-                },{
-                  href: "https://t.me/imamzainorg",
-                  icon: faTelegram ,
-                  hoverColor: "dark:hover:text-[#0088cc] hover:text-[#0088cc]",
-                }
+  {
+    href: "https://www.instagram.com/imamzainorg/",
+    icon: faInstagram,
+    hoverColor: "dark:hover:text-[#E1306C] hover:text-[#E1306C]",
+  },
+  {
+    href: "https://www.tiktok.com/@imamzainorg",
+    icon: faTiktok,
+    hoverColor: "dark:hover:text-black hover:text-black",
+  },
+  {
+    href: "https://www.facebook.com/@imamzainorg",
+    icon: faFacebook,
+    hoverColor: "dark:hover:text-[#1877F2] hover:text-[#1877F2]",
+  },
+  {
+    href: "https://twitter.com/imamzainorg",
+    icon: faXTwitter,
+    hoverColor: "dark:hover:text-black hover:text-black",
+  },
+  {
+    href: "https://www.youtube.com/@imamzainorg",
+    icon: Youtube,
+    hoverColor: "dark:hover:text-[#FF0000] hover:text-[#FF0000]",
+  },
+  {
+    href: "https://t.me/imamzainorg",
+    icon: faTelegram,
+    hoverColor: "dark:hover:text-[#0088cc] hover:text-[#0088cc]",
+  },
 ];
 
 export default function Footer() {
@@ -130,14 +133,13 @@ export default function Footer() {
 
         <div className="flex justify-between gap-20 max-md:p-10 py-8  ">
           <div className="w-[200px]">
-    <Link href="/">
-                
-            <Image
-              src="/images/logo-vertical-white.svg"
-              alt="Logo"
-              width={250}
-              height={200}
-            />
+            <Link href="/">
+              <Image
+                src="/images/logo-vertical-white.svg"
+                alt="Logo"
+                width={250}
+                height={200}
+              />
             </Link>
           </div>
 

@@ -552,7 +552,7 @@ export default function Page() {
 						{ name: "الصفحة الرئيسية", url: "/" },
 						{ name: "المسابقات", url: "/contests" },
 						{
-							name: "مسابقة زين العابدين (عليه السلام) الدولية الاولى في الخط العربي",
+							name: "مسابقة الإمام زين العابدين (عليه السلام) الدولية الاولى في الخط العربي",
 							url: "#",
 						},
 					]}
@@ -577,7 +577,7 @@ export default function Page() {
 
 						<div className="space-y-6">
 							<h1 className="text-4xl lg:text-6xl font-bold text-slate-800 leading-tight">
-								مسابقة زين العابدين (عليه السلام)
+								مسابقة الإمام زين العابدين (عليه السلام)
 								<span className="block text-primary">
 									الدولية الأولى
 								</span>

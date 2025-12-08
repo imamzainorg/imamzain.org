@@ -19,6 +19,7 @@ export default {
 				"2xl": "6rem",
 			},
 		},
+		
 		extend: {
 			screens: {
 				xxs: "280px",
@@ -26,6 +27,15 @@ export default {
 				s: "380px",
 				xmd: "900px",
 			},
+
+	fontSize: {
+  note: ["clamp(14px, 1.5vw, 28px)", "0.5"],       // نص ثانوي
+  body: ["clamp(16px, 2vw, 32px)", "1.6"],       // نص أساسي
+  subtitle: ["clamp(10px, 1vw, 20px)", "0.3"],   // عنوان صغير فرعي
+  title: ["clamp(20px, 4.5vw, 50px)", "1.1"],        // عنوان صفحة رئيسي
+  hero: ["clamp(32px, 6vw, 80px)", "1.1"],         // الهيرو - رسمي وأنيق قيد العمل
+},
+
 			boxShadow: {
 				custom: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)",
 			},
