@@ -22,7 +22,7 @@ export default function Page() {
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
-					{ name: "الصفحة العلمية", url: "/research" },
+					{ name: "بوابة البحث العلمي", url: "/research" },
 				]}
 			/>
 			{/* الأزرار بتصميم الروابط */}

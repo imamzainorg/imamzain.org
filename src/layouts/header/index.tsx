@@ -24,7 +24,7 @@ import { Sun, Moon } from "lucide-react"
 
 const links = [
 	{
-		label: "سيرة الإمام زين العابدين (ع)",
+		label: "الإمام زين العابدين",
 		href: "/his-life",
 	},
 	{
@@ -51,7 +51,7 @@ const links = [
 				href: "/library/risalat-al-huqoq",
 			},
 			{
-				label: "الصفحة العلمية",
+				label: "بوابة البحث العلمي",
 				href: "/research",
 			},
 		],
