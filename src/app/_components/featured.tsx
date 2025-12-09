@@ -47,12 +47,12 @@ export function Featured() {
 								مسابقة دولية محكمة
 							</div>
 
-							<h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+							<h2 className="text-title xl:leading-normal font-bold text-gray-900">
 								مسابقة اللإمام زين العابدين (عليه السلام) الدولية الأولى
 								في الخط العربي
 							</h2>
 
-							<p className="text-lg text-gray-700 leading-relaxed">
+							<p className="text-body text-gray-700 leading-relaxed">
 								انطلق في رحلة فنية تستلهم تراث الإمام زين
 								العابدين (عليه السلام) عبر جماليات الخط العربي.
 								سجل الآن لفرصة الفوز بجوائز قيمة وتقديم إبداعك
@@ -62,13 +62,13 @@ export function Featured() {
 							<div className="flex flex-wrap gap-4 mt-6">
 								<div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
 									<Award className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-									<span className="font-medium">
+									<span className="font-medium text-note">
 										جوائز تصل إلى ٣,٠٠٠,٠٠٠ د.ع
 									</span>
 								</div>
 								<div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
 									<Calendar className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-									<span className="font-medium">
+									<span className="font-medium text-note">
 										آخر موعد: ٥ / ٣ / ٢٠٢٦
 									</span>
 								</div>
@@ -78,23 +78,23 @@ export function Featured() {
 								<div className="flex flex-wrap gap-4 mt-6 mb-10 justify-center lg:justify-start">
 									<Link
 										href="/contests/khat#apply"
-										className="bg-primary dark:bg-Muharram_primary hover:bg-primary-dark text-white px-8 py-3 rounded-xl font-medium transition-colors shadow-lg hover:shadow-xl"
+										className="bg-primary  xl:p-4 text-note dark:bg-Muharram_primary hover:bg-primary-dark text-white px-8 py-3 rounded-xl font-medium transition-colors shadow-lg hover:shadow-xl"
 									>
 										سجل الآن
 									</Link>
 									<Link
 										href="/contests/khat"
-										className="border-2 border-primary dark:border-Muharram_primary dark:text-Muharram_primary text-primary hover:bg-primary/10 dark:hover:bg-Muharram_primary/10 px-8 py-3 rounded-xl font-medium transition-colors"
+										className="border-2 border-primary text-note dark:border-Muharram_primary dark:text-Muharram_primary text-primary hover:bg-primary/10 dark:hover:bg-Muharram_primary/10 px-8 py-3 xl:p-4 rounded-xl font-medium transition-colors"
 									>
 										التفاصيل
 									</Link>
 								</div>
 
 								<div className="relative mb-10 md:top-0 lg:top-10 lg:right-16  text-white flex flex-col items-center justify-cente	animate-fade-in-up  ">
-									<h3 className="text-md font-bold text-primary dark:text-Muharram_primary mb-4">
+									<h3 className="text-note font-bold text-primary dark:text-Muharram_primary mb-4 xl:mb-6">
 										الوقت المتبقي :
 									</h3>
-									<div className="flex gap-4 justify-center text-sm lg:justify-end">
+									<div className="flex gap-4 justify-center text-subtitle  lg:justify-end">
 										{[
 											{
 												label: "ثانية",

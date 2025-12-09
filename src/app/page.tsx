@@ -63,7 +63,7 @@ export default async function Page() {
 			/>
 
 			<Featured />
-			<div className="container">
+			<div className="container  ">
 				<AnimatedTextSection
 					title="رؤية المؤسسة"
 					text="
@@ -87,6 +87,7 @@ export default async function Page() {
 							label: "رسالة المؤسسة",
 							href: "/about/vision-and-goals#message",
 						},
+						
 					]}
 				/>
 			</div>
@@ -168,7 +169,7 @@ export default async function Page() {
 			<Application />
 			<GallerySection />
 			<Videos playlists={playlists} />
-			<Live />
+			{/* <Live /> */}
 		</div>
 	)
 }

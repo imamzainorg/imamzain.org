@@ -122,10 +122,10 @@ export default function RisalatAlHuquqPage() {
 
 			<div className="relative mt-4 md:mt-16 mb-8 mx-auto flex justify-start gap-20 p-8 md:p-10 backdrop-blur-[1px] shadow-lg shadow-primary/10 dark:shadow-Muharram_primary/10 rounded-[60px] border border-primary dark:border-Muharram_primary ">
 				<div className="w-full md:w-3/4 flex flex-col justify-around gap-5 md:pr-10">
-					<h1 className="text-base md:text-3xl lg:text-4xl xl:text-5xl font-semibold">
+					<h1 className="text-title font-semibold">
 						رسالة الحقوق
 					</h1>
-					<p className="w-3/4 text-sm md:text-xl lg:text-3xl leading-10 pb-5">
+					<p className="w-3/4 text-body leading-10 pb-5">
 						تعتبر أوّل رسالة قانونية جامعة دوّنت في التأريخ البشري،
 						وهي من الذخائر النفيسة الذي ترتبط ارتباطاً وثيقاً
 						بالإنسان وحقوقه كلّها وتشتمل على شبكة علاقات الإنسان
@@ -133,7 +133,7 @@ export default function RisalatAlHuquqPage() {
 					</p>
 					<Link
 						href="/library/risalat-al-huqoq/read/introduction"
-						className="w-full xs:w-fit text-sm md:text-xl py-2 px-4 border-2 rounded-xl border-primary dark:border-Muharram_primary flex items-center gap-4 group"
+						className="w-full xs:w-fit text-note py-2 px-4 border-2 rounded-xl border-primary dark:border-Muharram_primary flex items-center gap-4 group"
 					>
 						تصفح رسالة الحقوق
 						<ArrowLeft className="opacity-0 translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 duration-150" />
@@ -157,7 +157,7 @@ export default function RisalatAlHuquqPage() {
 				</div>
 			</div>
 
-			<h2 className="text-xl lg:text-3xl font-semibold mt-10 mb-5">
+			<h2 className="text-note font-semibold mt-10 mb-5">
 				ما كتب عن رسالة الحقوق
 			</h2>
 
@@ -168,7 +168,7 @@ export default function RisalatAlHuquqPage() {
 						<div className="w-full md:w-1/2 relative">
 							<input
 								placeholder="ابحث في الكتب..."
-								className="pr-12 w-full md:w-11/12 text-lg bg-white rounded-xl border border-primary dark:border-Muharram_primary focus:ring-1"
+								className="pr-12 w-full md:w-11/12 text-subtitle bg-white rounded-xl border border-primary dark:border-Muharram_primary focus:ring-1"
 								value={searchTerm}
 								onChange={(e) => setSearchTerm(e.target.value)}
 								style={{ direction: "rtl" }}
@@ -181,7 +181,7 @@ export default function RisalatAlHuquqPage() {
 						<div className="w-full md:w-1/5">
 							<Button
 								variant="outline"
-								className="w-full text-md md:text-lg bg-white md:p-5"
+								className="w-full text-subtitle bg-white md:p-5"
 								onClick={() => {
 									setSearchTerm("")
 								}}
@@ -201,10 +201,10 @@ export default function RisalatAlHuquqPage() {
 						<div className="text-gray-500 mb-4">
 							<SearchIcon size={48} strokeWidth={1} />
 						</div>
-						<h3 className="text-2xl font-semibold text-gray-700 mb-2">
+						<h3 className="text-note font-semibold text-gray-700 mb-2">
 							لا توجد نتائج
 						</h3>
-						<p className="text-gray-500 text-center max-w-md">
+						<p className="text-gray-500 text-center text-subtitle p-2 max-w-md">
 							لم نعثر على أي كتب تطابق بحثك. حاول تغيير كلمات
 							البحث أو إعادة ضبط الفلاتر.
 						</p>

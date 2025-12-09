@@ -68,13 +68,13 @@ export default function VisionAndGoals() {
 	]
 
 	const SectionTitle = ({ title }: { title: string }) => (
-		<h2 className="text-2xl font-bold mb-4 text-primary dark:text-Muharram_primary border-b-3 border-secondary dark:border-Muharram_secondary  inline-block pb-2">
+		<h2 className=" font-bold mb-4 text-note text-primary dark:text-Muharram_primary border-b-3 border-secondary dark:border-Muharram_secondary  inline-block pb-2">
 			{title}
 		</h2>
 	)
 
 	const TextParagraph = ({ text }: { text: string }) => (
-		<p className="mb-4 text-justify text-gray-700 leading-relaxed">
+		<p className="mb-4 text-justify text-subtitle text-gray-700 leading-relaxed">
 			{text}
 		</p>
 	)
@@ -125,7 +125,7 @@ export default function VisionAndGoals() {
 					<section
 						key={section.id}
 						id={section.id}
-						className="bg-white p-6 rounded-lg scroll-mt-64 shadow-md"
+						className="bg-white p-6 text-subtitle rounded-lg scroll-mt-64 shadow-md"
 					>
 						<SectionTitle title={section.title} />
 						<div className="space-y-4">

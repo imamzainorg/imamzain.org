@@ -30,7 +30,7 @@ export default function Application() {
 				>
 					<Link href={"/application"} className="group">
 						<motion.h1
-							className="text-4xl xl:text-6xl font-bold text-center lg:text-start bg-gradient-to-r from-primary/35 via-secondary/50 to-primary/80 bg-clip-text text-transparent leading-tight group-hover:scale-105 transition-transform duration-300"
+							className="text-title font-bold text-center lg:text-start bg-gradient-to-r from-primary/35 via-secondary/50 to-primary/80 bg-clip-text text-transparent leading-tight group-hover:scale-105 transition-transform duration-300"
 							whileHover={{ scale: 1.02 }}
 						>
 							تطبيق أنوار سجادية
@@ -38,7 +38,7 @@ export default function Application() {
 					</Link>
 
 					<motion.p
-						className="text-xl sm:text-2xl xl:text-3xl font-semibold max-lg:text-center leading-relaxed text-gray-700"
+						className="text-body font-semibold max-lg:text-center leading-relaxed text-gray-700"
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: 0.4, duration: 0.6 }}
@@ -47,7 +47,7 @@ export default function Application() {
 					</motion.p>
 
 					<motion.p
-						className="text-lg text-gray-600 max-lg:text-center leading-relaxed"
+						className="text-note text-gray-600 max-lg:text-center leading-relaxed"
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: 0.5, duration: 0.6 }}

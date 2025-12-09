@@ -28,10 +28,10 @@ export default {
 			},
 
 	fontSize: {
+		subtitle: ["clamp(10px, 2vw, 20px)", "1"],   // عنوان صغير فرعي
   note: ["clamp(14px, 1.5vw, 28px)", "0.5"],       // نص ثانوي
-  body: ["clamp(16px, 2vw, 32px)", "1.6"],       // نص أساسي
-  subtitle: ["clamp(10px, 1vw, 20px)", "0.3"],   // عنوان صغير فرعي
-  title: ["clamp(20px, 4.5vw, 50px)", "1.1"],        // عنوان صفحة رئيسي
+  body: ["clamp(16px, 2.4vw, 32px)", "1.6"],       // نص أساسي
+   title: ["clamp(20px, 4.3vw, 50px)", "1.1"],        // عنوان صفحة رئيسي
   hero: ["clamp(32px, 6vw, 80px)", "1.1"],         // الهيرو - رسمي وأنيق قيد العمل
 },
 

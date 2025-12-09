@@ -134,7 +134,7 @@ export default function PublicationsPage() {
 						<div className="w-full md:w-1/2 relative">
 							<input
 								placeholder="ابحث في الإصدارات..."
-								className="pr-12 w-full md:w-11/12 text-lg bg-white rounded-xl border border-primary dark:border-Muharram_primary  focus:ring-1"
+								className="pr-12 w-full md:w-11/12 text-subtitle bg-white rounded-xl border border-primary dark:border-Muharram_primary  focus:ring-1"
 								value={searchTerm}
 								onChange={(
 									e: React.ChangeEvent<HTMLInputElement>,
@@ -149,7 +149,7 @@ export default function PublicationsPage() {
 						<div className="w-full md:w-1/5">
 							<Button
 								variant="outline"
-								className="w-full text-md md:text-lg  bg-white md:p-5"
+								className="w-full text-subtitle  bg-white md:p-5"
 								onClick={() => {
 									setSearchTerm("")
 									setFilterCategory("all")
@@ -173,10 +173,10 @@ export default function PublicationsPage() {
 						<div className="text-gray-500 mb-4">
 							<SearchIcon size={48} strokeWidth={1} />
 						</div>
-						<h3 className="text-2xl font-semibold text-gray-700 mb-2">
+						<h3 className="text-note font-semibold text-gray-700 mb-2">
 							لا توجد نتائج
 						</h3>
-						<p className="text-gray-500 text-center max-w-md">
+						<p className="text-gray-500 text-center text-subtitle p-2 max-w-md">
 							لم نعثر على أي إصدارات تطابق بحثك. حاول تغيير كلمات
 							البحث أو إعادة ضبط الفلاتر.
 						</p>

@@ -68,7 +68,7 @@ export default function NewsletterSection() {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-base md:text-lg lg:text-2xl xl:text-3xl font-semibold tracking-wide"
+                className="text-title font-semibold tracking-wide"
               >
                 اشترك في
               </motion.span>
@@ -76,7 +76,7 @@ export default function NewsletterSection() {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-sm sm:text-base mt-4 md:mt-8 md:text-2xl lg:text-3xl tracking-wide font-normal"
+                className="text-body mt-4 md:mt-8  tracking-wide font-normal"
               >
                 النشرة البريدية الخاصة
                 <br /> بالأعلانات والنشاطات
@@ -97,7 +97,7 @@ export default function NewsletterSection() {
                 disabled={isSubmitting}
                 required
                 placeholder="البريد الالكتروني"
-                className="rounded-md w-4/6 sm:w-5/6 text-xs md:text-sm px-4 py-2 
+                className="rounded-md w-4/6 sm:w-5/6 text-subtitle px-4 py-2 
                            text-black text-center mx-auto"
               />
               <button
@@ -105,7 +105,7 @@ export default function NewsletterSection() {
                 disabled={isSubmitting}
                 className="bg-secondary hover:bg-secondary/80 
                            dark:bg-Muharram_secondary dark:hover:bg-Muharram_secondary/80
-                           px-4 py-1 xl:px-8 xl:py-2 w-fit mx-auto rounded-md text-sm
+                           px-4 py-1 xl:px-8 xl:py-2 w-fit mx-auto rounded-md text-subtitle
                            disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? "جاري الاشتراك..." : "اشترك الان"}

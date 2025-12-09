@@ -40,11 +40,11 @@ const SectionCta = ({
 					whileTap={{ scale: 0.95 }}
 					whileHover={{ scale: 1.02 }}
 					transition={{ duration: 0.2, ease: "easeOut" }}
-					className="relative w-full sm:w-auto text-center "
+					className="relative w-full  sm:w-auto text-center "
 				>
 					<Link
 						href={link.href}
-						className="text-white md:text-lg bg-primary dark:bg-Muharram_primary text-center p-4 px-8 sm:px-10 md:px-12 lg:px-16
+						className="text-white text-note bg-primary dark:bg-Muharram_primary text-center p-4 px-8 sm:px-10 md:px-12 lg:px-16
 						inline-flex justify-center items-center gap-4 transition-all duration-300 ease-in-out
 						active:scale-95 hover:scale-105 rounded-lg"
 						style={{

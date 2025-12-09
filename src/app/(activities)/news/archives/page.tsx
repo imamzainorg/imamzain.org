@@ -35,15 +35,15 @@ export default function Page() {
         ]}
       />
 
-      <div className="flex gap-2 mb-6  overflow-x-scroll md:overflow-visible  pl-10 lg:w-[90%] mx-auto">
+      <div className="flex gap-2 mb-6  overflow-x-scroll md:overflow-visible   pl-10 lg:w-[90%] mx-auto">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`px-4 py-1 rounded-full border 
+            className={`p-2 xl:p-5 rounded-full border 
                               transition-colors duration-200
                          
-                              text-sm 
+                              text-note
                               ${
                                 selectedCategory === cat
                                   ? "bg-primary text-white border-primary dark:bg-Muharram_primary dark:border-Muharram_primary"
