@@ -1,16 +1,20 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
-import Breadcrumbs from "@/components/breadcrumb";
-import BooklibraryCard from "../_components/book-library-card";
-import { Book } from "@/types/book";
-import { dataFetcher } from "@/lib/dataFetcher";
-import { AnimatePresence } from "framer-motion";
-import { Button } from "@/components/button";
-import { SearchIcon, ChevronLeft, ChevronRight } from "lucide-react";
-import { DownloadIcon } from "lucide-react";
+"use client"
+import Image from "next/image"
+import Link from "next/link"
+import {
+	ArrowLeft,
+	SearchIcon,
+	ChevronLeft,
+	ChevronRight,
+	DownloadIcon,
+} from "lucide-react"
+import { useState, useRef, useMemo } from "react"
+import Breadcrumbs from "@/components/breadcrumb"
+import BooklibraryCard from "../_components/book-library-card"
+import { Book } from "@/types/book"
+import { AnimatePresence } from "framer-motion"
+import { Button } from "@/components/button"
+import booksData from "@/data/books.json"
 
 const dataCard = [
   {
@@ -36,105 +40,85 @@ const dataCard = [
 ];
 
 export default function RisalatAlHuquqPage() {
-  const [publications, setPublications] = useState<Book[]>([]);
-  const [filteredPublications, setFilteredPublications] = useState<Book[]>([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8;
-  const scrollRef = useRef<HTMLDivElement>(null);
+	const [searchTerm, setSearchTerm] = useState("")
+	const [currentPage, setCurrentPage] = useState(1)
+	const scrollRef = useRef<HTMLDivElement>(null)
+	const itemsPerPage = 8
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await dataFetcher<Book[]>("books.json");
+	const publications = useMemo(() => {
+		const filteredByCategory = (booksData as Book[]).filter(
+			(book) =>
+				Array.isArray(book.category) &&
+				book.category.includes("al-sahifa"),
+		)
+		const uniqueSeriesMap = new Map<string, Book>()
 
-        const filteredByCategory = data.filter(
-          (book) =>
-            Array.isArray(book.category) && book.category.includes("al-sahifa")
-        );
+		filteredByCategory.forEach((book) => {
+			if (book.series && book.totalParts > 1) {
+				if (
+					!uniqueSeriesMap.has(book.series) &&
+					book.partNumber === 1
+				) {
+					uniqueSeriesMap.set(book.series, book)
+				}
+			} else {
+				uniqueSeriesMap.set(`${book.series ?? book.id}`, book)
+			}
+		})
 
-        const uniqueSeriesMap = new Map<string, Book>();
-        filteredByCategory.forEach((book) => {
-          if (book.series && book.totalParts > 1) {
-            if (!uniqueSeriesMap.has(book.series) && book.partNumber === 1) {
-              uniqueSeriesMap.set(book.series, book);
-            }
-          } else {
-            uniqueSeriesMap.set(`${book.series ?? book.id}`, book);
-          }
-        });
+		return Array.from(uniqueSeriesMap.values())
+	}, [])
 
-        const filteredData = Array.from(uniqueSeriesMap.values());
-        setPublications(filteredData);
-        setFilteredPublications(filteredData);
-      } catch (error) {
-        console.error("Error fetching publications: ", error);
-      }
-    };
+	const filteredPublications = useMemo(() => {
+		if (!searchTerm.trim()) return publications
+		const lowerSearch = searchTerm.toLowerCase()
 
-    fetchData();
-  }, []);
+		return publications.filter((pub) => {
+			const inTitle = pub.title?.toLowerCase().includes(lowerSearch)
+			const inAuthor = pub.author?.toLowerCase().includes(lowerSearch)
+			const inOtherNames =
+				Array.isArray(pub.otherNames) &&
+				pub.otherNames.some((name) =>
+					name?.toLowerCase().includes(lowerSearch),
+				)
+			const inPrintHouse = pub.printHouse
+				?.toLowerCase()
+				.includes(lowerSearch)
+			const inLanguage = Array.isArray(pub.language)
+				? pub.language.some((lang) =>
+						lang?.toLowerCase().includes(lowerSearch),
+				  )
+				: pub.language?.toLowerCase().includes(lowerSearch)
 
-  useEffect(() => {
-    let filtered = [...publications];
+			return (
+				inTitle ||
+				inAuthor ||
+				inOtherNames ||
+				inPrintHouse ||
+				inLanguage
+			)
+		})
+	}, [searchTerm, publications])
 
-    if (searchTerm) {
-      const lowerSearch = searchTerm.toLowerCase().trim();
+	const { currentPublications, totalPages } = useMemo(() => {
+		const total = Math.ceil(filteredPublications.length / itemsPerPage)
+		const start = (currentPage - 1) * itemsPerPage
+		return {
+			currentPublications: filteredPublications.slice(
+				start,
+				start + itemsPerPage,
+			),
+			totalPages: total,
+		}
+	}, [filteredPublications, currentPage])
 
-      filtered = filtered.filter((publication) => {
-        const inTitle =
-          typeof publication.title === "string" &&
-          publication.title.toLowerCase().includes(lowerSearch);
-
-        const inAuthor =
-          typeof publication.author === "string" &&
-          publication.author.toLowerCase().includes(lowerSearch);
-
-        const inOtherNames =
-          Array.isArray(publication.otherNames) &&
-          publication.otherNames.some(
-            (name) =>
-              typeof name === "string" &&
-              name.toLowerCase().includes(lowerSearch)
-          );
-
-        const inPrintHouse =
-          typeof publication.printHouse === "string" &&
-          publication.printHouse.toLowerCase().includes(lowerSearch);
-
-        const inLanguage = Array.isArray(publication.language)
-          ? publication.language.some(
-              (lang) =>
-                typeof lang === "string" &&
-                lang.toLowerCase().includes(lowerSearch)
-            )
-          : typeof publication.language === "string" &&
-            publication.language.toLowerCase().includes(lowerSearch);
-
-        return (
-          inTitle || inAuthor || inOtherNames || inPrintHouse || inLanguage
-        );
-      });
-    }
-
-    setFilteredPublications(filtered);
-    setCurrentPage(1);
-  }, [searchTerm, publications]);
-
-  const totalPages = Math.ceil(filteredPublications.length / itemsPerPage);
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentPublications = filteredPublications.slice(
-    indexOfFirstItem,
-    indexOfLastItem
-  );
-
-  const paginate = (pageNum: number) => {
-    setCurrentPage(pageNum);
-    setTimeout(() => {
-      scrollRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
-  };
+	const paginate = (pageNum: number) => {
+		setCurrentPage(pageNum)
+		setTimeout(
+			() => scrollRef.current?.scrollIntoView({ behavior: "smooth" }),
+			100,
+		)
+	}
 
   return (
     <div>

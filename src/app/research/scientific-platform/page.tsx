@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useSearchParams } from "next/navigation"
 import { motion } from "framer-motion"
 import StudentResearch from "./_components/student-research"
@@ -11,17 +11,10 @@ import Breadcrumbs from "@/components/breadcrumb"
 type ActiveView = "student-research" | "conferences" | "journals"
 
 export default function Page() {
-	const searchParams = useSearchParams()
-	const [activeView, setActiveView] = useState<ActiveView>("student-research")
+	const searchParams = useSearchParams().get("type") || "student-research"
+	const initialView = searchParams as ActiveView
 
-	useEffect(() => {
-		// Get type param
-		const typeParam = (searchParams.get("type") ||
-			"student-research") as ActiveView
-		setActiveView(typeParam)
-
-		console.log("type from query:", typeParam)
-	}, [searchParams])
+	const [activeView, setActiveView] = useState<ActiveView>(initialView)
 
 	return (
 		<div className="p-6 ">

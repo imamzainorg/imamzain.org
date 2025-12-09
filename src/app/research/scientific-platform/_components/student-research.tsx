@@ -1,12 +1,11 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
-import { useState, useEffect, useMemo, useCallback, useRef } from "react"
-
-import { FaFilePdf } from "react-icons/fa";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore from "swiper";
-import "swiper/css";
+import { useState, useMemo, useCallback, useRef } from "react"
+import { FaFilePdf } from "react-icons/fa"
+import { Swiper, SwiperSlide } from "swiper/react"
+import SwiperCore from "swiper"
+import "swiper/css"
 import {
 	GraduationCap,
 	Search as SearchIcon,
@@ -19,7 +18,6 @@ import {
 } from "lucide-react"
 
 import studentData from "@/data/student.json"
-
 import { Button } from "@/components/button"
 import { useSearchParams } from "next/navigation"
 import { StudentResearch } from "@/types/student"
@@ -31,65 +29,57 @@ const tabs = [
 	{ id: "bachelor", label: "بكالوريوس" },
 	{ id: "master", label: "ماجستير" },
 	{ id: "phd", label: "دكتوراه" },
-]
+] as const
+
+const ITEMS_PER_PAGE = 21
+
+const CATEGORY_MAP: Record<string, string> = {
+	bachelor: "بكالوريوس",
+	master: "رسالة ماجستير",
+	phd: "دكتوراه",
+}
 
 export default function StudentResearchPage() {
 	const searchParams = useSearchParams()
-
-	const [activeTab, setActiveTab] = useState<DegreeType>("all")
-	const [searchTerm, setSearchTerm] = useState("")
-	const [filteredData, setFilteredData] = useState<StudentResearch[]>([])
-	const [viewMode, setViewMode] = useState<"cards" | "table">("cards")
-	const [sortBy] = useState<"year" | "title" | "popularity">("year")
-
+	const swiperRef = useRef<SwiperCore | null>(null)
 	const rowRefs = useRef<Record<string, HTMLTableRowElement | null>>({})
+
+	const [activeTab, setActiveTab] = useState<DegreeType>(
+		() => (searchParams.get("degree") as DegreeType) || "all",
+	)
+	const [searchTerm, setSearchTerm] = useState("")
+	const [viewMode, setViewMode] = useState<"cards" | "table">("cards")
 	const [highlightId, setHighlightId] = useState<string | null>(null)
 	const [currentPage, setCurrentPage] = useState(1)
-	const itemsPerPage = 21
 
-	useEffect(() => {
-		const degree = (searchParams.get("degree") as DegreeType) || "all"
-		setActiveTab(degree)
-		console.log("degree from query:", degree)
-	}, [searchParams])
-
-	const handleTabClick = (id: string) => {
+	const handleTabClick = useCallback((id: string) => {
 		setActiveTab(id as DegreeType)
 		setSearchTerm("")
 		setCurrentPage(1)
-	}
+	}, [])
 
-	// جلب البيانات حسب التبويب
+	// Filter by tab
 	const getDataByTab = useCallback(() => {
-		const mapCategory: Record<string, string> = {
-			bachelor: "بكالوريوس",
-			master: "رسالة ماجستير",
-			phd: "دكتوراه",
-		}
-
 		if (activeTab === "all") {
 			return studentData as StudentResearch[]
 		}
 
-		const currentCategory = mapCategory[activeTab]
+		const currentCategory = CATEGORY_MAP[activeTab]
 		return (studentData as StudentResearch[]).filter((item) =>
 			item.translations.some((t) => t.category === currentCategory),
 		)
 	}, [activeTab])
 
-	// البحث
-	useEffect(() => {
-		const allData = studentData as StudentResearch[]
-		const dataToSearch = activeTab === "all" ? allData : getDataByTab()
+	// Search and filter
+	const filteredData = useMemo(() => {
+		const dataToSearch = getDataByTab()
 
 		if (!searchTerm.trim()) {
-			setFilteredData(dataToSearch)
-			setCurrentPage(1)
-			return
+			return dataToSearch
 		}
 
 		const term = searchTerm.toLowerCase()
-		const results = dataToSearch.filter((item) =>
+		return dataToSearch.filter((item) =>
 			item.translations.some((t) => {
 				const title = t.title.toLowerCase()
 				const authors = t.authors.join(", ").toLowerCase()
@@ -101,74 +91,57 @@ export default function StudentResearchPage() {
 				)
 			}),
 		)
+	}, [searchTerm, getDataByTab])
 
-		setFilteredData(results)
-		setCurrentPage(1)
-	}, [searchTerm, activeTab, getDataByTab])
-
-	// ترتيب البيانات
+	// Sort data
 	const sortedData = useMemo(() => {
-		const data = [...filteredData]
-		switch (sortBy) {
-			case "year":
-				return data.sort(
-					(a, b) =>
-						parseInt(b.publishedYear) - parseInt(a.publishedYear),
-				)
-			case "title":
-				return data.sort((a, b) => {
-					const titleA = a.translations[0]?.title || ""
-					const titleB = b.translations[0]?.title || ""
-					return titleA.localeCompare(titleB)
-				})
-			case "popularity":
-				return data // منطق الشعبية لاحقًا
-			default:
-				return data
-		}
-	}, [filteredData, sortBy])
+		return [...filteredData].sort(
+			(a, b) => parseInt(b.publishedYear) - parseInt(a.publishedYear),
+		)
+	}, [filteredData])
 
+	// Pagination
+	const totalPages = Math.ceil(sortedData.length / ITEMS_PER_PAGE)
+	const paginatedData = useMemo(() => {
+		const start = (currentPage - 1) * ITEMS_PER_PAGE
+		const end = start + ITEMS_PER_PAGE
+		return sortedData.slice(start, end)
+	}, [currentPage, sortedData])
 
+	const paginate = useCallback((page: number) => {
+		setCurrentPage(page)
+		setHighlightId(null)
+		window.scrollTo({ top: 0, behavior: "smooth" })
+	}, [])
 
+	const openPdf = useCallback((item: StudentResearch) => {
+		if (item.pdfUrl) window.open(item.pdfUrl, "_blank")
+	}, [])
 
+	const handleRowClick = useCallback((id: string) => {
+		setHighlightId(id)
+	}, [])
 
-
-
-
-
-const totalPages = Math.ceil(sortedData.length / itemsPerPage);
-  const paginatedData = useMemo(() => {
-    const start = (currentPage - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    return sortedData.slice(start, end);
-  }, [currentPage, sortedData]);
-
-  const paginate = (page: number) => {
-    setCurrentPage(page);
-    setHighlightId(null);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-
-
-  const openPdf = (item: StudentResearch) => {
-    if (item.pdfUrl) window.open(item.pdfUrl, "_blank");
-  };
-
-  const handleRowClick = (id: string) => setHighlightId(id);
-  const swiperRef = useRef<SwiperCore | null>(null);
+	const handleSearch = useCallback((value: string) => {
+		setSearchTerm(value)
+		setCurrentPage(1)
+	}, [])
 
 	return (
-		<div className="container">
-			{/* العنوان */}
-			<motion.div
+		<main className="container">
+			{/* Header */}
+			<motion.header
 				initial={{ opacity: 0, y: 30 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.6 }}
 				className="text-center mb-12"
 			>
 				<div className="flex justify-center mb-4">
-					<GraduationCap size={48} className="text-primary" />
+					<GraduationCap
+						size={48}
+						className="text-primary"
+						aria-hidden="true"
+					/>
 				</div>
 				<h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
 					بحوث الطلاب
@@ -177,10 +150,13 @@ const totalPages = Math.ceil(sortedData.length / itemsPerPage);
 					بحوث طلاب البكالوريوس والماجستير والدكتوراه ضمن مشاريع علمية
 					متنوعة.
 				</p>
-			</motion.div>
+			</motion.header>
 
-			{/* التبويبات */}
-			<div className="flex justify-center items-center gap-4 mb-6 flex-wrap">
+			{/* Tabs */}
+			<nav
+				className="flex justify-center items-center gap-4 mb-6 flex-wrap"
+				aria-label="فلترة حسب الدرجة العلمية"
+			>
 				{tabs.map((tab) => (
 					<button
 						key={tab.id}
@@ -190,6 +166,7 @@ const totalPages = Math.ceil(sortedData.length / itemsPerPage);
 								? "bg-primary text-white shadow-lg scale-105"
 								: "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600"
 						}`}
+						aria-current={activeTab === tab.id ? "page" : undefined}
 					>
 						{tab.label}
 					</button>
@@ -203,6 +180,9 @@ const totalPages = Math.ceil(sortedData.length / itemsPerPage);
 					}
 					className="p-2 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all"
 					title="تغيير طريقة العرض"
+					aria-label={`تغيير إلى عرض ${
+						viewMode === "cards" ? "الجدول" : "البطاقات"
+					}`}
 				>
 					{viewMode === "cards" ? (
 						<Table2 className="w-5 h-5 text-gray-700 dark:text-gray-200" />
@@ -210,14 +190,18 @@ const totalPages = Math.ceil(sortedData.length / itemsPerPage);
 						<LayoutGrid className="w-5 h-5 text-gray-700 dark:text-gray-200" />
 					)}
 				</button>
-			</div>
+			</nav>
 
-			{/* البحث */}
+			{/* Search */}
 			<div className="max-w-sm mx-auto mb-6 relative">
+				<label htmlFor="search-input" className="sr-only">
+					البحث في البحوث
+				</label>
 				<input
+					id="search-input"
 					type="text"
 					value={searchTerm}
-					onChange={(e) => setSearchTerm(e.target.value)}
+					onChange={(e) => handleSearch(e.target.value)}
 					placeholder={
 						activeTab === "all"
 							? "ابحث في جميع البحوث..."
@@ -229,29 +213,37 @@ const totalPages = Math.ceil(sortedData.length / itemsPerPage);
 				/>
 				<div className="absolute left-3 top-1/2 transform -translate-y-1/2">
 					{searchTerm ? (
-						<X
-							className="w-5 h-5 cursor-pointer text-gray-500"
-							onClick={() => setSearchTerm("")}
-						/>
+						<button
+							onClick={() => handleSearch("")}
+							aria-label="مسح البحث"
+							className="text-gray-500 hover:text-gray-700"
+						>
+							<X className="w-5 h-5" />
+						</button>
 					) : (
-						<SearchIcon className="w-5 h-5 text-gray-500" />
+						<SearchIcon
+							className="w-5 h-5 text-gray-500"
+							aria-hidden="true"
+						/>
 					)}
 				</div>
 			</div>
 
-			{/* عرض النتائج */}
-			<div className="rounded-2xl shadow-lg border overflow-hidden bg-opacity-50 bg-gray-50 dark:bg-gray-800">
+			{/* Results */}
+			<section className="rounded-2xl shadow-lg border overflow-hidden bg-opacity-50 bg-gray-50 dark:bg-gray-800">
 				<div className="px-6 py-4 bg-gradient-to-r border-b">
 					<div className="flex items-center justify-between">
 						<div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
-							<FileText size={18} />
+							<FileText size={18} aria-hidden="true" />
 							<span className="font-medium">
 								النتائج: {filteredData.length} بحث
 							</span>
 						</div>
-						<div className="text-sm text-gray-500 dark:text-gray-400">
-							انقر على الصف لتحديده - انقر مرتين لفتح الملف
-						</div>
+						{viewMode === "table" && (
+							<p className="text-sm text-gray-500 dark:text-gray-400">
+								انقر على الصف لتحديده - انقر مرتين لفتح الملف
+							</p>
+						)}
 					</div>
 				</div>
 
@@ -331,14 +323,12 @@ const totalPages = Math.ceil(sortedData.length / itemsPerPage);
 														}}
 													>
 														<td className="px-4 py-4 text-center align-top">
-															<div
-																className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium bg-gray-100 dark:bg-gray-700`}
-															>
+															<div className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium bg-gray-100 dark:bg-gray-700">
 																{idx +
 																	1 +
 																	(currentPage -
 																		1) *
-																		itemsPerPage}
+																		ITEMS_PER_PAGE}
 															</div>
 														</td>
 														<td className="px-4 py-3 text-right">
@@ -375,8 +365,9 @@ const totalPages = Math.ceil(sortedData.length / itemsPerPage);
 																	)
 																}}
 																className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r text-secondary font-medium hover:shadow-lg transform"
+																aria-label={`تحميل ${t.title}`}
 															>
-																<FaFilePdf />{" "}
+																<FaFilePdf aria-hidden="true" />{" "}
 																PDF
 															</button>
 														</td>
@@ -393,7 +384,7 @@ const totalPages = Math.ceil(sortedData.length / itemsPerPage);
 							<AnimatePresence>
 								{paginatedData.map((item) =>
 									item.translations.map((t) => (
-										<motion.div
+										<motion.article
 											key={`${item.id}-${t.languageid}`}
 											layout
 											initial={{ opacity: 0, y: 25 }}
@@ -448,95 +439,112 @@ const totalPages = Math.ceil(sortedData.length / itemsPerPage);
 														openPdf(item)
 													}}
 													className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary hover:border-secondary border-3 bg-[length:200%_100%] text-white font-medium shadow hover:shadow-lg transition-all duration-300"
+													aria-label={`عرض PDF لـ ${t.title}`}
 												>
-													<FaFilePdf className="text-lg" />
+													<FaFilePdf
+														className="text-lg"
+														aria-hidden="true"
+													/>
 													<span>عرض PDF</span>
 												</motion.button>
 											</div>
-										</motion.div>
+										</motion.article>
 									)),
 								)}
 							</AnimatePresence>
 						</div>
 					)}
 				</div>
+			</section>
 
-			
-			</div>
-				{/* Pagination */}
-			   {totalPages > 1 && (
-            <div className="w-11/12 mx-auto flex justify-center my-8">
-              <nav className="flex items-center gap-2">
-                {/* زر السابق */}
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={() => {
-                    swiperRef.current?.slidePrev();
-                  }}
-                  disabled={currentPage === 1}
-                  aria-label="الصفحة السابقة"
-                  className="bg-white text-primary hover:bg-primary dark:text-Muharram_primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
-                >
-                  <ChevronRight size={20} />
-                </Button>
+			{/* Pagination */}
+			{totalPages > 1 && (
+				<nav
+					className="w-11/12 mx-auto flex justify-center my-8"
+					aria-label="التنقل بين الصفحات"
+				>
+					<div className="flex items-center gap-2">
+						<Button
+							variant="outline"
+							size="icon"
+							onClick={() => {
+								swiperRef.current?.slidePrev()
+								if (currentPage > 1) paginate(currentPage - 1)
+							}}
+							disabled={currentPage === 1}
+							aria-label="الصفحة السابقة"
+							className="bg-white text-primary hover:bg-primary dark:text-Muharram_primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
+						>
+							<ChevronRight size={20} />
+						</Button>
 
-                {/* سلايدر الأرقام */}
-                <div className="w-64">
-                  <Swiper
-                    onSwiper={(swiper) => (swiperRef.current = swiper)}
-                    slidesPerView={5}
-                    spaceBetween={10}
-                    grabCursor={true}
-                    centeredSlides={false}
-                    loop={true}
-                  >
-                    {Array.from({ length: totalPages }, (_, i) => {
-                      const pageNum = i + 1;
+						<div className="w-64">
+							<Swiper
+								onSwiper={(swiper) =>
+									(swiperRef.current = swiper)
+								}
+								slidesPerView={5}
+								spaceBetween={10}
+								grabCursor={true}
+								centeredSlides={false}
+								loop={true}
+							>
+								{Array.from({ length: totalPages }, (_, i) => {
+									const pageNum = i + 1
+									return (
+										<SwiperSlide
+											key={pageNum}
+											className="flex justify-center"
+										>
+											<Button
+												variant={
+													currentPage === pageNum
+														? "default"
+														: "outline"
+												}
+												onClick={() => {
+													paginate(pageNum)
+													swiperRef.current?.slideToLoop(
+														pageNum - 1,
+													)
+												}}
+												className={`w-10 h-10 rounded-lg transition-colors duration-300 ${
+													currentPage === pageNum
+														? "bg-primary dark:bg-Muharram_primary text-white"
+														: "bg-white text-primary hover:bg-primary dark:text-Muharram_primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
+												}`}
+												aria-label={`الصفحة ${pageNum}`}
+												aria-current={
+													currentPage === pageNum
+														? "page"
+														: undefined
+												}
+											>
+												{pageNum}
+											</Button>
+										</SwiperSlide>
+									)
+								})}
+							</Swiper>
+						</div>
 
-                      return (
-                        <SwiperSlide
-                          key={pageNum}
-                          className="flex justify-center"
-                        >
-                          <Button
-                            variant={
-                              currentPage === pageNum ? "default" : "outline"
-                            }
-                            onClick={() => {
-                              paginate(pageNum);
-                              swiperRef.current?.slideToLoop(pageNum - 1);
-                            }}
-                            className={`w-10 h-10 rounded-lg transition-colors duration-300 ${
-                              currentPage === pageNum
-                                ? "bg-primary dark:bg-Muharram_primary text-white"
-                                : "bg-white text-primary hover:bg-primary dark:text-Muharram_primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
-                            }`}
-                          >
-                            {pageNum}
-                          </Button>
-                        </SwiperSlide>
-                      );
-                    })}
-                  </Swiper>
-                </div>
-
-                {/* زر التالي */}
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={() => {
-                    swiperRef.current?.slideNext();
-                  }}
-                  disabled={currentPage === totalPages}
-                  aria-label="الصفحة التالية"
-                  className="bg-white text-primary dark:text-Muharram_primary hover:bg-primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
-                >
-                  <ChevronLeft size={20} />
-                </Button>
-              </nav>
-            </div>
-          )}
-		</div>
+						<Button
+							variant="outline"
+							size="icon"
+							onClick={() => {
+								swiperRef.current?.slideNext()
+								if (currentPage < totalPages)
+									paginate(currentPage + 1)
+							}}
+							disabled={currentPage === totalPages}
+							aria-label="الصفحة التالية"
+							className="bg-white text-primary dark:text-Muharram_primary hover:bg-primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
+						>
+							<ChevronLeft size={20} />
+						</Button>
+					</div>
+				</nav>
+			)}
+		</main>
 	)
 }

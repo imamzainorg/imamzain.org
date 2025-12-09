@@ -2,7 +2,7 @@
 import Section from "@/components/section"
 import Breadcrumbs from "@/components/breadcrumb"
 import storeLocations from "@/data/store-locations.json"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { SellPoint } from "@/types/store-locations"
 
 import { Button } from "@/components/button"
@@ -10,18 +10,18 @@ import Link from "next/link"
 import { toast } from "sonner"
 import NewsShare from "@/components/news-share"
 export default function Page() {
-	const [selectedPoint, setSelectedPoint] = useState<SellPoint | null>(null)
+	const [selectedPoint, setSelectedPoint] = useState<SellPoint | null>(() => {
+		if (typeof window === "undefined") return null
 
-	// مزامنة الحالة مع الـ URL عند التحميل الأولي
-	useEffect(() => {
 		const hash = window.location.hash.replace("#point-", "")
-		if (hash) {
-			const found = storeLocations
-				.flatMap((city) => city.sellpoints)
-				.find((s) => String(s.id) === hash)
-			if (found) setSelectedPoint(found)
-		}
-	}, [])
+		if (!hash) return null
+
+		const found = storeLocations
+			.flatMap((city) => city.sellpoints)
+			.find((s) => String(s.id) === hash)
+
+		return found ?? null
+	})
 
 	// ✅ التمرير مع تعويض ارتفاع الـ navbar
 	const handlePointClick = (point: SellPoint) => {
