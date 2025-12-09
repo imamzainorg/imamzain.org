@@ -41,7 +41,7 @@ function AnimatedTextSection({
 	textClassName = "",
 }: AnimatedTextSectionProps) {
 	const defaultTextClasses =
-		"font-light text-lg md:text-2xl text-justify tracking-tighter"
+		"font-light text-body text-justify tracking-tighter"
 	const finalTextClasses = textClassName
 		? `${defaultTextClasses} ${textClassName}`
 		: defaultTextClasses

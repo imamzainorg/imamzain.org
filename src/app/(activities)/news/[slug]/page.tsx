@@ -46,7 +46,7 @@ export default async function page({
           <article className="lg:col-span-8">
             {/* Post Header */}
             <header className="mb-8">
-              <h1 className="text-2xl sm:text-3xl  font-bold text-gray-900 !leading-tight mb-6">
+              <h1 className="text-body  font-bold text-gray-900 !leading-tight  mb-6">
                 {post.title}
               </h1>
 
@@ -54,12 +54,12 @@ export default async function page({
               <div className="flex flex-wrap items-center justify-between gap-4 py-4 border-b border-gray-200">
                 <div className="flex items-center gap-3 text-gray-600">
                   <div className="w-3 h-3 bg-[url('/shapes/indicator.svg')] dark:bg-[url('/shapes/newsIndicator_Muharram.svg')] bg-contain bg-no-repeat rotate-180" />
-                  <time className="text-sm font-medium">{post.date}</time>
+                  <time className="text-subtitle font-medium">{post.date}</time>
                 </div>
 
                 {/* Social Share */}
                 <div className="flex items-center gap-3">
-                  <span className="text-sm text-gray-500 hidden sm:inline">
+                  <span className="text-subtitle text-gray-500 hidden sm:inline">
                     مشاركة:
                   </span>
                   <div className="flex items-center gap-2">
@@ -108,7 +108,7 @@ export default async function page({
             {/* Post Body */}
             <div className="prose prose-lg prose-gray max-w-none">
               <div
-                className="text-gray-800 leading-8 space-y-6"
+                className="text-gray-800 text-note xl:leading-10 leading-8 space-y-6"
                 dangerouslySetInnerHTML={{
                   __html: post.content,
                 }}
@@ -131,7 +131,7 @@ export default async function page({
             <div className="sticky top-28 space-y-8">
               {/* Related Articles */}
               <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                <h2 className="text-xl font-bold text-gray-900 mb-6 pb-3 border-b border-gray-200">
+                <h2 className="text-note font-bold text-gray-900 mb-6 pb-3 border-b border-gray-200">
                   مواضيع ذات صلة
                 </h2>
                 <div className="space-y-4">
@@ -143,10 +143,10 @@ export default async function page({
 
               {/* Newsletter Signup */}
               <div className="bg-gradient-to-br lg:w-80 xl:w-96 from-primary to-primary/80 dark:from-Muharram_primary dark:to-Muharram_secondary/80 rounded-xl p-6 text-white ">
-                <h3 className="text-lg font-bold mb-3">
+                <h3 className="text-note font-bold mb-3 xl:mb-6">
                   اشترك في النشرة الإخبارية
                 </h3>
-                <p className="text-sm opacity-90 mb-4">
+                <p className="text-subtitle xl:leading-8 opacity-90 mb-4">
                   احصل على آخر الأخبار والتحديثات مباشرة في بريدك الإلكتروني
                 </p>
                 <div className="flex gap-2 ">

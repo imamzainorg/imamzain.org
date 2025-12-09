@@ -34,7 +34,7 @@ export default function HeaderSections({
           className="w-3 sm:w-4 xl:w-5 hidden dark:block"
         />
         <h1
-          className={`mt-2 text-lg md:text-xl lg:text-2xl xl:text-3xl font-extrabold text-primary  dark:text-Muharram_primary ${dark && "dark:text-white"}`}
+          className={`mt-2 text-title  font-extrabold text-primary  dark:text-Muharram_primary ${dark && "dark:text-white"}`}
         >
           {title}
         </h1>
@@ -51,7 +51,7 @@ export default function HeaderSections({
             href={moreButton.href}
             className="flex font-semibold gap-2 text-white items-center  py-2 px-2 pr-5 max-lg:py-1 rounded-lg bg-primary dark:bg-Muharram_primary text-xs sm:text-sm"
           >
-            <p className="text-nowrap">{moreButton.label}</p>
+            <p className="text-nowrap text-subtitle">{moreButton.label}</p>
             <ChevronRightArrowIcon
               className="rotate-180 p-1.5 sm:p-1"
               stroke="#ffffff"

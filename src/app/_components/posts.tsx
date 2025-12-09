@@ -87,7 +87,7 @@ export default function Posts({ newsPosts }: { newsPosts: Post[] }) {
 											/>
 											خبــــر
 										</div>
-										<p className="text-xs sm:text-sm line-clamp-2 p-1 pr-5 pb-8 md:pb-5 xl:pb-5">
+										<p className="text-subtitlel line-clamp-2 p-1 pr-5 pb-8 md:pb-5 xl:pb-5">
 											{item.summary}
 										</p>
 									</div>

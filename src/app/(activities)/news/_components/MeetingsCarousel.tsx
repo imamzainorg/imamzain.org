@@ -32,7 +32,7 @@ export default function MeetingsCarousel({
 	if (latestMeetings.length === 0) {
 		return (
 			<div className="flex items-center justify-center p-8 bg-gray-50 rounded-2xl ">
-				<p className="text-gray-500 text-lg">
+				<p className="text-gray-500 text-note">
 					لا توجد مجالس حتى الآن.
 				</p>
 			</div>
@@ -86,11 +86,11 @@ export default function MeetingsCarousel({
 
 							{/* المحتوى */}
 							<div className="absolute bottom-0 left-0 right-0 z-10 p-6 text-white">
-								<h3 className="text-lg md:text-3xl font-bold mb-3 leading-tight">
+								<h3 className="text-body font-bold mb-3 leading-tight">
 									{post.title}
 								</h3>
 
-								<p className="text-gray-100 text-sm md:text-lg mb-2 line-clamp-2">
+								<p className="text-gray-100 text-note leading-4 lg:leading-9 mb-2 line-clamp-2">
 									{post.summary}
 								</p>
 								<div className="flex items-center justify-between mt-4">
@@ -114,7 +114,7 @@ export default function MeetingsCarousel({
 										</svg>
 									</Link>
 									<div className="">
-										<span className="text-sm bg-primary/90 px-3 py-1 rounded-full inline-block">
+										<span className="text-subtitle bg-primary/90 px-3 py-1 rounded-full inline-block">
 											{post.date}
 										</span>
 									</div>

@@ -69,7 +69,7 @@ export default function Page() {
 
 			{/* أقسام بوابة البحث العلمي */}
 			<div className="py-20">
-				<h1 className="text-3xl md:text-4xl font-bold text-center text-primary dark:text-Muharram_primary mb-16">
+				<h1 className="text-title font-bold text-center text-primary dark:text-Muharram_primary mb-16">
 					الارشفة والتوثيق
 				</h1>
 				<div className=" gap-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
@@ -94,7 +94,7 @@ export default function Page() {
 
 									{/* العنوان والسهم */}
 									<div className="flex items-center justify-center gap-2 mb-2">
-										<h2 className="text-xl font-bold text-primary dark:text-white">
+										<h2 className="text-body font-bold text-primary dark:text-white">
 											{section.title}
 										</h2>
 										{section.subLinks &&
@@ -113,7 +113,7 @@ export default function Page() {
 									</div>
 
 									{/* الوصف */}
-									<p className="text-gray-600 dark:text-gray-300 mb-4 transition group-hover:text-gray-800 dark:group-hover:text-gray-100">
+									<p className="text-gray-600 text-note leading-4 xl:leading-7 2xl:leading-8 dark:text-gray-300 mb-4 transition group-hover:text-gray-800 dark:group-hover:text-gray-100">
 										{section.description}
 									</p>
 								</div>
@@ -124,7 +124,7 @@ export default function Page() {
 								section.subLinks.length > 0 && (
 									<div className="px-6 pb-6 ">
 										<div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-											<h3 className="text-sm font-medium text-gray-500 dark:text-white mb-3 text-center">
+											<h3 className="text-subtitle font-medium text-gray-500 dark:text-white mb-3 text-center">
 												أقسام فرعية
 											</h3>
 											<div className="flex flex-col gap-2">
@@ -148,7 +148,7 @@ export default function Page() {
 																href={sub.href}
 																className="flex items-center justify-between w-full py-2 px-4 rounded-xl bg-gray-50 hover:bg-primary/10 dark:bg-Muharram_secondary dark:hover:bg-Muharram_secondary/20 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-all duration-300 group/link"
 															>
-																<span className="text-sm font-medium">
+																<span className="text-subtitle font-medium">
 																	{sub.label}
 																</span>
 																<motion.div
@@ -175,7 +175,7 @@ export default function Page() {
 				<hr className="border border-[#bb9661] dark:border-Muharram_secondary w-full" />
 				<Link
 					href={"/research/send-research"}
-					className="px-16 py-4 text-white text-nowrap mx-10 text-xl bg-primary rounded-2xl hover:bg-primary/95 dark:bg-Muharram_primary dark:hover:bg-Muharram_primary/95"
+					className="px-16 py-4 text-white text-nowrap mx-10 text-body bg-primary rounded-2xl hover:bg-primary/95 dark:bg-Muharram_primary dark:hover:bg-Muharram_primary/95"
 				>
 					تقديم البحث
 				</Link>
@@ -184,7 +184,7 @@ export default function Page() {
 
 			{/* المكافآت المالية */}
 			<div className="py-14">
-				<h1 className="text-primary dark:text-Muharram_primary text-3xl font-bold text-center">
+				<h1 className="text-primary dark:text-Muharram_primary text-title font-bold text-center">
 					المكافئات المالية
 				</h1>
 				<div className="flex flex-wrap justify-center gap-10 mt-12">
@@ -236,19 +236,25 @@ export default function Page() {
 							className="text-center flex flex-col items-center w-72 p-6 dark:text-Muharram_secondary rounded-2xl bg-white dark:bg-Muharram_primary/30 text-black shadow hover:shadow-xl transition"
 						>
 							{item.icon}
-							<h1 className="text-xl font-bold">{item.title}</h1>
-							<p className="w-3/4 font-semibold">{item.amount}</p>
-							<p className="w-3/4">{item.subtitle}</p>
+							<h1 className="text-note  font-bold p-2">
+								{item.title}
+							</h1>
+							<p className="w-3/4 text-subtitle p-2 font-semibold">
+								{item.amount}
+							</p>
+							<p className="w-3/4 text-subtitle p-1 sm:leading-6 xl:leading-8">
+								{item.subtitle}
+							</p>
 						</motion.div>
 					))}
 				</div>
 
 				{/* ملاحظات */}
 				<div className="border-r-2 border-secondary dark:border-Muharram_primary pr-4 italic max-w-2xl mx-auto mt-10">
-					<div className="w-full text-right mt-8 text-lg">
+					<div className="w-full text-right font-semibold mt-8 p-2 text-note">
 						ملاحظات:
 					</div>
-					<ol className="list-arabic-indic text-right text-gray-700 space-y-2 sm:space-y-3 px-2 sm:px-4 md:px-6 lg:px-8">
+					<ol className="list-arabic-indic text-subtitle text-right text-gray-700 space-y-2 sm:space-y-3 px-2 sm:px-4 md:px-6 lg:px-8">
 						{[
 							"سعر صفحة الكتاب (تأليف، تحقيق) 5,000 د.ع.",
 							"المكافئات اعلاه تعني في البحوث والكتب التي تأتي من خلال الاستكتاب",

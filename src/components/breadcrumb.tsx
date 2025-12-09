@@ -32,7 +32,7 @@ const Breadcrumbs = ({
 							<Link
 								href={link.url}
 								className={cn(
-									"hover:text-primary dark:hover:text-Muharram_primary duration-150",
+									"hover:text-primary text-subtitle  dark:hover:text-Muharram_primary duration-150",
 									isLast
 										? "line-clamp-1 font-bold overflow-hidden text-ellipsis max-w-fit"
 										: "whitespace-nowrap ",

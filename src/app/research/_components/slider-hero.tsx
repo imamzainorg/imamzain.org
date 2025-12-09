@@ -56,7 +56,7 @@ export default function ResearchSlider() {
               transition={{ duration: 1 }}
               className="w-full md:w-3/4"
             >
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-800 mb-4 leading-snug">
+              <h2 className="text-title font-bold text-gray-800 mb-4 leading-snug">
                 {slides[currentIndex].title}
               </h2>
               <p className="text-lg md:text-2xl text-gray-600">
