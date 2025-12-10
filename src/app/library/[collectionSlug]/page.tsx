@@ -77,7 +77,7 @@ export default async function CollectionPage({
 
 			<BookSearch
 				books={uniqueBooks}
-				route={`/library/${collectionSlug}`}
+				route={`/library/${collectionSlug}/books`}
 			/>
 		</div>
 	)

@@ -163,7 +163,7 @@ export default function Page() {
 				{filteredBooks.length > 0 ? (
 					filteredBooks.map((book) => (
 						<BooklibraryCard
-							route="/library"
+							route="/library/books"
 							key={book.id}
 							publication={book}
 						/>
