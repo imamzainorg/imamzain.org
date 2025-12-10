@@ -19,9 +19,9 @@ export default function SubjectView({ subject }: { subject: Subject }) {
 						)
 					}
 					className={cn(
-						"text-right leading-8 my-6 p-5 rounded-xl cursor-pointer border transition-all duration-300",
+						"text-right leading-8 my-2 p-4 rounded-xl cursor-pointer border transition-all duration-300",
 						selectedPhraseIndex === index
-							? "bg-secondary/10 border-secondary/30 dark:bg-Muharram_secondary/10 dark:border-Muharram_primary/30 shadow-md"
+							? "bg-gray-50 border-primary/20 dark:bg-Muharram_secondary/10 dark:border-Muharram_primary/30 shadow-md"
 							: "hover:bg-gray-50 border-transparent hover:border-gray-200",
 					)}
 				>

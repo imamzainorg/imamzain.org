@@ -13,17 +13,24 @@ interface StepSectionProps {
 const StepSection = ({ step, title, children, Boarded }: StepSectionProps) => {
 	return (
 		<div
-			className={`relative pr-16 pb-16 ${!!Boarded && "border-r-secondary dark:border-r-Muharram_secondary border-r-4"}`}
+			className={`relative pr-16 pb-16 ${
+				!!Boarded &&
+				"border-r-secondary dark:border-r-Muharram_secondary border-r-4"
+			}`}
 		>
-			<div className="absolute -top-8 -right-12 w-24 h-24 border-secondary  dark:border-Muharram_secondary
-			 border-4 rounded-full bg-white flex justify-center items-center">
+			<div
+				className="absolute -top-8 -right-12 w-24 h-24 border-secondary  dark:border-Muharram_secondary
+			 border-4 rounded-full bg-white flex justify-center items-center"
+			>
 				<div className="w-20 h-20 rounded-full bg-primary dark:bg-Muharram_primary flex justify-center items-center">
 					<div className="text-3xl text-white pt-3">{step}</div>
 				</div>
 			</div>
 
 			<div>
-				<h2 className="text-primary dark:text-Muharram_primary text-4xl font-bold">{title}</h2>
+				<h2 className="text-primary dark:text-Muharram_primary text-4xl font-bold">
+					{title}
+				</h2>
 				<div className="pr-10 pt-10 text-xl text-gray-800 leading-relaxed pl-5">
 					{children}
 				</div>
@@ -37,7 +44,7 @@ export default function Page() {
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
-					{ name: "الصفحة العلمية", url: "/research" },
+					{ name: "بوابة البحث العلمي", url: "/research" },
 					{ name: "تقديم البحث", url: "/research/send-research" },
 				]}
 			/>

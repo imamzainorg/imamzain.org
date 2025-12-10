@@ -3,13 +3,13 @@
 import { HeroUIProvider } from "@heroui/react"
 import { LanguagesProvider } from "@/context/language-context"
 import TransitionProvider from "@/components/transition-provider"
-import Lenis from "@studio-freight/lenis"
+import Lenis from "lenis"
 import { useEffect } from "react"
 
 function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
 	useEffect(() => {
 		const lenis = new Lenis({
-			lerp: 0.07,
+			lerp: 0.15,
 			smoothWheel: true,
 		})
 
