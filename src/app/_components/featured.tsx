@@ -48,7 +48,7 @@ export function Featured() {
 							</div>
 
 							<h2 className="text-title xl:leading-normal font-bold text-gray-900">
-								مسابقة اللإمام زين العابدين (عليه السلام) الدولية الأولى
+								مسابقة الإمام زين العابدين (عليه السلام) الدولية الأولى
 								في الخط العربي
 							</h2>
 
