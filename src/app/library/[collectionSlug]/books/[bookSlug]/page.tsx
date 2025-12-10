@@ -4,7 +4,7 @@ import { Book } from "@/types/book"
 
 import { dataFetcher } from "@/lib/dataFetcher"
 
-import BooklibraryCard from "../_components/book-library-card"
+import BooklibraryCard from "@/app/library/_components/book-library-card"
 import BookCard from "@/components/book-card"
 export default async function Page({
 	params,

@@ -4,9 +4,7 @@ import { Subject } from "@/types/imamzain-legacy"
 import { useState } from "react"
 
 export default function SubjectView({ subject }: { subject: Subject }) {
-	const [selectedPhraseIndex, setSelectedPhraseIndex] = useState<
-		number | null
-	>(null)
+	const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
 
 	return (
 		<div className="my-4 w-full px-6 mx-auto pb-6">
@@ -14,19 +12,17 @@ export default function SubjectView({ subject }: { subject: Subject }) {
 				<div
 					key={index}
 					onClick={() =>
-						setSelectedPhraseIndex(
-							index === selectedPhraseIndex ? null : index,
-						)
+						setSelectedIndex(index === selectedIndex ? null : index)
 					}
 					className={cn(
-						"text-right leading-8 my-2 p-4 rounded-xl cursor-pointer border transition-all duration-300",
-						selectedPhraseIndex === index
-							? "bg-gray-50 border-primary/20 dark:bg-Muharram_secondary/10 dark:border-Muharram_primary/30 shadow-md"
+						"text-right my-2 px-5 py-2 rounded-xl cursor-pointer border duration-300 focus:bg-red-100",
+						selectedIndex === index
+							? "bg-gray-50 border-primary/30 dark:bg-Muharram_secondary/10 dark:border-Muharram_primary/30 shadow-md"
 							: "hover:bg-gray-50 border-transparent hover:border-gray-200",
 					)}
 				>
 					<div
-						className="prose max-w-none text-xl"
+						className="max-w-none text-xl leading-loose"
 						dangerouslySetInnerHTML={{ __html: phrase.content }}
 					/>
 				</div>
