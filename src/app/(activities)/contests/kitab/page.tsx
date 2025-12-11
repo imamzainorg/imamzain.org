@@ -38,12 +38,12 @@ export default function Page() {
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
             <div className="w-full lg:w-1/2 space-y-8 tracking-tight">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 border border-primary text-primary px-4 py-2 rounded-full text-sm font-medium">
+              <div className="inline-flex items-center gap-2 border border-primary text-primary px-4 py-2 rounded-full text-subtitle font-medium">
                 <Trophy className="w-4 h-4" />
                 مسابقة علمية محكمة
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-right leading-tight">
+              <h1 className="text-title font-bold text-gray-900 text-right leading-tight">
                 مسابقة الكتاب
               </h1>
 
@@ -54,8 +54,8 @@ export default function Page() {
                       <Star className="w-3 h-3 text-primary" />
                     </div>
                     <div>
-                      <p className="font-bold text-primary">الرؤية:</p>
-                      <p className="mr-4">
+                      <p className="font-bold text-note text-primary mb-3">الرؤية:</p>
+                      <p className="mr-4 text-subtitle leading-4 lg:leading-7">
                         إحياء تراث الامام زين العابدين (عليه السلام) عبر حث
                         الباحثين على انتاج دراسات رصينة تواكب متطلبات العصر
                         وتبرز ابعاد شخصيته الفكرية والروحية والاجتماعية
@@ -66,11 +66,11 @@ export default function Page() {
                   <div>
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                        <BookOpen className="w-3 h-3 text-green-600" />
+                        <BookOpen className="w-3 h-3 text-note text-green-600" />
                       </div>
-                      <p className="font-bold text-green-900">الاهداف:</p>
+                      <p className="font-bold text-green-900 text-note">الاهداف:</p>
                     </div>
-                    <ol className="list-arabic-indic mr-12 space-y-3 ">
+                    <ol className="list-arabic-indic text-subtitle leading-4 lg:leading-7 mr-12 space-y-3 ">
                       <li className="hover:text-secondary cursor-cell transition-colors">
                         تقديم انتاج علمي مؤصل عن تراث الامام عليه السلام
                       </li>
@@ -114,7 +114,7 @@ export default function Page() {
       <div className="px-4 sm:px-6 lg:px-8 py-16">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-title font-bold text-gray-900 mb-4">
               المحفزات والجوائز
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-primary/80 mx-auto rounded-full"></div>
@@ -132,10 +132,10 @@ export default function Page() {
                     strokeWidth={1}
                   />
                 </div>
-                <h3 className="font-bold text-primary text-lg">
+                <h3 className="font-bold text-primary text-note">
                   الجائزة الأولى
                 </h3>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-700 leading-relaxed text-subtitle">
                   يتم اختيار (3) فائزين ويخصص لكل منهم جائزة بمقدار (2,000,000)
                   دينار عراقي.
                 </p>
@@ -151,8 +151,8 @@ export default function Page() {
                 <div className="p-4 bg-gradient-to-br from-primary/10 to-primary/20 rounded-full group-hover:scale-110 transition-transform duration-300">
                   <Award className="w-12 h-12 text-primary" strokeWidth={1} />
                 </div>
-                <h3 className="font-bold text-primary text-lg">جائزة التميز</h3>
-                <p className="text-gray-700 leading-relaxed">
+                <h3 className="font-bold text-primary text-note">جائزة التميز</h3>
+                <p className="text-gray-700 text-subtitle leading-relaxed">
                   يضاف للكتاب المتميز هدية قدرها (500,000) دينار عراقي.
                 </p>
               </div>
@@ -170,10 +170,10 @@ export default function Page() {
                     strokeWidth={1}
                   />
                 </div>
-                <h3 className="font-bold text-primary text-lg">
+                <h3 className="font-bold text-primary text-note">
                   النشر والطباعة
                 </h3>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-700 text-subtitle leading-relaxed">
                   يتم طبع ونشر الكتب المقبولة على نفقة المؤسسة وتكون حقوق الطبع
                   محفوظة للمؤسسة.
                 </p>
@@ -192,10 +192,10 @@ export default function Page() {
                     strokeWidth={1}
                   />
                 </div>
-                <h3 className="font-bold text-green-800 text-lg">
+                <h3 className="font-bold text-green-800 text-note">
                   التكريم الرسمي
                 </h3>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-gray-700 text-subtitle leading-relaxed">
                   تزويد المشاركين المقبولين والفائزين بما يؤيد ذلك رسمياً.
                 </p>
               </div>
@@ -209,10 +209,10 @@ export default function Page() {
       <div className="px-4 sm:px-6 lg:px-8 py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-title font-bold text-gray-900 mb-4">
               محاور الكتابة
             </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 text-note max-w-2xl mx-auto">
               اختر المحور الذي يناسب اختصاصك وابدأ رحلتك البحثية
             </p>
             <div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-primary/80 mx-auto rounded-full mt-4"></div>
@@ -247,26 +247,26 @@ export default function Page() {
                         className="rotate-90 w-6 h-6 object-contain hidden dark:block"
                       />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">
+                    <h3 className="text-subtitle font-bold text-gray-900 group-hover:text-primary transition-colors">
                       {axes.title}
                     </h3>
                   </div>
 
-                  <div className="bg-gradient-to-b from-gray-50 to-white rounded-xl p-4 border border-gray-200">
-                    <p className="text-gray-600 leading-relaxed">
-                      {axes.keywords.map((keyword, keyIndex) => (
-                        <span
-                          key={keyword}
-                          className="inline-block hover:text-secondary transition-colors duration-300 px-1 py-0.5 rounded"
-                        >
-                          {keyword}
-                          {keyIndex < axes.keywords.length - 1 && (
-                            <span className="text-gray-400 mx-1">،</span>
-                          )}
-                        </span>
-                      ))}
-                    </p>
-                  </div>
+                    <div className="bg-gradient-to-b text-subtitle from-gray-50 to-white rounded-xl p-4 border border-gray-200">
+                      <p className="text-gray-600 leading-relaxed">
+                        {axes.keywords.map((keyword, keyIndex) => (
+                          <span
+                            key={keyword}
+                            className="inline-block hover:text-secondary transition-colors duration-300 px-1 py-0.5 rounded"
+                          >
+                            {keyword}
+                            {keyIndex < axes.keywords.length - 1 && (
+                              <span className="text-gray-400 mx-1">،</span>
+                            )}
+                          </span>
+                        ))}
+                      </p>
+                    </div>
                 </div>
                </div>
             ))}
@@ -278,7 +278,7 @@ export default function Page() {
       <div className="px-4 sm:px-6 lg:px-8 py-16">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-title font-bold text-gray-900 mb-4">
               آليةالتحكيم
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-sprimaryecondary/80 mx-auto rounded-full"></div>
@@ -287,11 +287,11 @@ export default function Page() {
           <div className="bg-gradient-to-r from-white/20 to-white/10 rounded-2xl p-8 mb-8 border border-primary/20">
             <div className="flex items-center justify-center gap-4 mb-4 bg-white/40">
               <Users className="w-8 h-8 text-primary" />
-              <h3 className="text-xl sm:text-2xl font-bold text-primary">
+              <h3 className="text-body font-bold text-primary">
                 اللجنة العلمية
               </h3>
             </div>
-            <p className="text-center text-secondary text-lg font-semibold">
+            <p className="text-center text-secondary text-note font-semibold">
               تضم أساتذة متخصصة علوم القرآن، التاريخ، الفلسفة، واللغة.
             </p>
           </div>
@@ -305,7 +305,7 @@ export default function Page() {
                 <div className="p-3 bg-white rounded-full shadow-sm group-hover:shadow-md transition-shadow">
                   <ScrollText className="text-primary w-6 h-6" />
                 </div>
-                <span className="text-gray-700 group-hover:text-primary transition-colors text-base sm:text-lg">
+                <span className="text-gray-700 group-hover:text-primary transition-colors text-subtitle">
                   {criterion}
                 </span>
               </div>
@@ -318,13 +318,13 @@ export default function Page() {
       <div className="px-4 sm:px-6 lg:px-8 py-16 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-title font-bold text-gray-900 mb-4">
               شروط المشاركة
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-primary/80 mx-auto rounded-full"></div>
           </div>
 
-          <div className="rounded-2xl p-8 shadow-lg border border-primary/20 bg-gradient-to-b from-white to-gray-50">
+          <div className="rounded-2xl text-subtitle p-8 shadow-lg border border-primary/20 bg-gradient-to-b from-white to-gray-50">
             <ol className="list-arabic-indic text-right space-y-4 pr-8">
               {rules.map((rule, index) => (
                 <li
@@ -347,12 +347,12 @@ export default function Page() {
             <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-secondary/5 rounded-full"></div>
 
             <div className="relative z-10">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-title font-bold text-gray-900 mb-6">
                 آلية التقديم
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-primary/80 mx-auto rounded-full mb-8"></div>
 
-              <p className="text-gray-600 text-lg sm:text-xl leading-relaxed mb-8 max-w-2xl mx-auto">
+              <p className="text-gray-600 text-note leading-relaxed mb-8 max-w-2xl mx-auto">
                 يمكنكم الانضمام إلى المسابقة من خلال تقديم عملكم عبر البريد
                 الإلكتروني
               </p>
@@ -360,7 +360,7 @@ export default function Page() {
               <div className="inline-block">
                 <Link
                   href="mailto:kitab@imamzain.org"
-                  className="group inline-flex items-center gap-4 bg-gradient-to-l from-secondary to-primary text-white px-8 py-4 rounded-2xl font-semibold text-lg sm:text-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1 shadow-md"
+                  className="group inline-flex items-center gap-4 bg-gradient-to-l from-secondary to-primary text-white px-8 py-4 rounded-2xl font-semibold text-note hover:shadow-xl transition-all duration-300 hover:-translate-y-1 shadow-md"
                 >
                   <div className="p-2 bg-white/20 rounded-full group-hover:bg-white/30 transition-colors">
                     <EmailIcon

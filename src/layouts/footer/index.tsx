@@ -128,7 +128,7 @@ export default function Footer() {
       <div className="container max-lg:hidden py-10">
         <div className="flex justify-between pb-10">
           <DropdownLang broad />
-          <SocialLinks size={"lg"} />
+          <SocialLinks size={"xl"} />
         </div>
 
         <div className="flex justify-between gap-20 max-md:p-10 py-8  ">
@@ -146,14 +146,18 @@ export default function Footer() {
           <div className="w-3/4 grid grid-cols-4 gap-4">
             {links.map((section: LinkSection, i: number) => (
               <div key={i} className={`${i === 0 ? "row-span-2" : ""}`}>
-                <h3 className="font-bold text-lg mb-4">{section.label}</h3>
-                <ul className="flex flex-col gap-3">
+                <h3 className="font-bold text-note mb-4">{section.label}</h3>
+                <ul className="flex flex-col text gap-3">
                   {section.sublinks.map((s) => {
                     const path = getSublinkPath(s);
                     if (!path) return null;
 
                     return (
-                      <Link key={path} href={path} className="text-sm">
+                      <Link
+                        key={path}
+                        href={path}
+                        className="text-subtitle leading-4 lg:leading-7"
+                      >
                         {s.label}
                       </Link>
                     );
@@ -164,9 +168,9 @@ export default function Footer() {
           </div>
         </div>
         <div className="flex justify-end  ">
-          <p className="text-sm text-white/40 mt-10">
+          <p className="text-subtitle text-white/40 mt-10">
             جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه السلام) &copy;
-            2024
+            2025
           </p>
         </div>
       </div>
