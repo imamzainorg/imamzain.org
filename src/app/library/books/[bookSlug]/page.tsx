@@ -4,7 +4,7 @@ import { Book } from "@/types/book"
 
 import { dataFetcher } from "@/lib/dataFetcher"
 
-import BooklibraryCard from "../_components/book-library-card"
+import BooklibraryCard from "@/app/library/_components/book-library-card"
 import BookCard from "@/components/book-card"
 export default async function Page({
 	params,
@@ -45,7 +45,7 @@ export default async function Page({
 			<div className="bg-secondary dark:bg-Muharram_primary/20 bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
 				{libraryBooks.slice(0, 2).map((book) => (
 					<BooklibraryCard
-						route="/library"
+						route="/library/books/"
 						key={book.id}
 						publication={book}
 						downloadable

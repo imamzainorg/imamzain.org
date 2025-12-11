@@ -4,10 +4,10 @@ import Link from "next/link"
 export default async function Page({
 	params,
 }: {
-	params: Promise<{ dictionarySlug: string }>
+	params: Promise<{ collectionSlug: string; dictionarySlug: string }>
 }) {
-	const { dictionarySlug } = await params
-	const activeDictionary = getDictionary("al-sahifa", dictionarySlug)
+	const { collectionSlug, dictionarySlug } = await params
+	const activeDictionary = getDictionary(collectionSlug, dictionarySlug)
 
 	return (
 		<>
@@ -15,7 +15,7 @@ export default async function Page({
 				{activeDictionary?.subjects.map((subject) => (
 					<Link
 						key={subject.id}
-						href={`/library/al-sahifa/read/${activeDictionary.slug}/${subject.slug}`}
+						href={`/library/${collectionSlug}/${activeDictionary.slug}/${subject.slug}`}
 						id={subject?.slug}
 						className="group relative w-full h-full overflow-hidden bg-white bg-opacity-60 border cursor-pointer rounded-xl flex justify-between items-center p-3 border-primary/20 hover:border-primary/80 dark:hover:border-Muharram_secondary/60 shadow-md hover:shadow-xl duration-300"
 					>
