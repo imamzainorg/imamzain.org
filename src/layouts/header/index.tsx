@@ -192,7 +192,7 @@ export default function Header() {
 
 						{/* Desktop Navigation */}
 
-						<nav className="max-lg:hidden flex   items-center">
+						<nav className="max-lg:hidden flex    items-center">
 							{links.map((link, index) => {
 								const hasSubLinks =
 									link.subLinks && link.subLinks.length > 0
@@ -222,9 +222,11 @@ export default function Header() {
 												alt="icon"
 												className="w-1.5 h-auto"
 											/>
-											<p className="">{link.label}</p>
+											<p className=" text-subtitle">
+												{link.label}
+											</p>
 											{hasSubLinks && (
-												<span className="ml-1 text-xs text-white"></span> // سهم صغير ▼
+												<span className="ml-1 text-white"></span> // سهم صغير ▼
 											)}
 										</Link>
 
@@ -238,7 +240,7 @@ export default function Header() {
 																href={
 																	subLink.href
 																}
-																className="block px-2 py-2 rounded-md text-sm text-gray-800 hover:bg-gray-100 transition"
+																className="block px-2 py-2 rounded-md text-subtitle text-gray-800 hover:bg-gray-100 transition"
 															>
 																{subLink.label}
 															</Link>

@@ -62,7 +62,7 @@ export default function Page() {
 								onClick={() =>
 									setActiveView(btn.id as ActiveView)
 								}
-								className={`group relative flex items-center justify-center px-6 py-3 h-14 rounded-xl font-medium text-lg shadow-lg border transition-all duration-300 overflow-hidden 
+								className={`group relative flex items-center justify-center px-6 py-3 h-14 rounded-xl font-medium text-note shadow-lg border transition-all duration-300 overflow-hidden 
                   ${
 						isActive
 							? "bg-primary text-white border-primary"

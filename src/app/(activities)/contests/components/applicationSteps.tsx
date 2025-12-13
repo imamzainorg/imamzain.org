@@ -68,7 +68,7 @@ export const ApplyStepper = () => {
 								<span className="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full xl:h-12 xl:w-12 shrink-0">
 									<Icon className="w-5 h-5 xl:w-6 xl:h-6" />
 								</span>
-								<p className="text-sm xl:text-base text-center font-medium">
+								<p className="text-subtitle text-center font-medium">
 									{
 										methods.get(id as "1" | "2" | "3" | "4")
 											.title
@@ -105,7 +105,7 @@ export const ApplyStepper = () => {
 								<span className="flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full shrink-0">
 									<Icon className="w-4 h-4" />
 								</span>
-								<p className="text-xs text-center font-medium leading-tight">
+								<p className="text-subtitle text-center font-medium leading-tight">
 									{
 										methods.get(id as "1" | "2" | "3" | "4")
 											.title
@@ -120,7 +120,7 @@ export const ApplyStepper = () => {
 				<div className="flex md:hidden flex-col gap-3 mb-4">
 					{/* Current Step Header */}
 					<div className="flex items-center justify-between w-full px-3 py-3 bg-white/60 rounded-lg border border-slate-200">
-						<span className="font-semibold text-base sm:text-lg">
+						<span className="font-semibold text-subtitle">
 							{methods.current.title}
 						</span>
 						<div className="flex items-center gap-2">
@@ -174,14 +174,14 @@ export const ApplyStepper = () => {
 				{methods.switch({
 					"1": () => (
 						<div className="animate-fade-in-up">
-							<h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 text-center md:text-right">
+							<h1 className="text-note font-bold mb-4 md:mb-6 text-center md:text-right">
 								شروط الإنضمام للمسابقة
 							</h1>
 							<ul className="text-right text-gray-700 space-y-3 md:space-y-4 pr-2 md:pr-4">
 								{rules.map((rule, index) => (
 									<li
 										key={index}
-										className="leading-relaxed text-sm sm:text-base md:text-lg bg-gray-50 p-3 md:p-4 rounded-lg border-r-4 border-primary/30"
+										className="leading-relaxed text-subtitle bg-gray-50 p-3 md:p-4 rounded-lg border-r-4 border-primary/30"
 									>
 										<span className="font-semibold text-primary">
 											{toArabicNumerals(index + 1)}.
@@ -194,14 +194,14 @@ export const ApplyStepper = () => {
 					),
 					"2": () => (
 						<div className="animate-fade-in-up w-full flex flex-col justify-center items-center gap-4 md:gap-6 p-4 md:p-6">
-							<p className="w-full sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto text-center text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed">
+							<p className="w-full sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto text-center text-note leading-relaxed">
 								يجب تنزيل الاستمارة الخاصة بالتقديم، ملئها،
 								واعادة ارسالها للإنضمام
 							</p>
 							<Link
 								download
 								href="/contests/khat/form.pdf"
-								className="flex gap-2 md:gap-3 items-center p-3 md:p-4 border-2 rounded-xl hover:text-primary hover:border-primary hover:shadow-lg duration-300 text-sm sm:text-base md:text-lg font-medium bg-white/70 transition-all"
+								className="flex gap-2 md:gap-3 items-center p-3 md:p-4 border-2 rounded-xl hover:text-primary hover:border-primary hover:shadow-lg duration-300 text-subtitle font-medium bg-white/70 transition-all"
 							>
 								تحميل الاستمارة
 								<DownloadIcon className="w-4 h-4 md:w-5 md:h-5" />
@@ -210,13 +210,13 @@ export const ApplyStepper = () => {
 					),
 					"3": () => (
 						<div className="animate-fade-in-up w-full flex flex-col justify-center items-center gap-4 md:gap-6 p-4 md:p-6">
-							<p className="w-full sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto text-center text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed">
+							<p className="w-full sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto text-center text-note leading-relaxed">
 								بعد ملىء الاستمارة يجب ارسالها مع صورة من عملك
 								على الايميل التالي
 							</p>
 							<Link
 								href="mailto:khat@imamzain.org"
-								className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold p-3 md:p-4 border-b-2 flex items-center gap-3 md:gap-4 hover:-translate-y-2 duration-150 bg-white/70 rounded-lg transition-all hover:shadow-lg"
+								className="text-note font-semibold p-3 md:p-4 border-b-2 flex items-center gap-3 md:gap-4 hover:-translate-y-2 duration-150 bg-white/70 rounded-lg transition-all hover:shadow-lg"
 							>
 								<EmailIcon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
 								<span className="break-all">
@@ -227,18 +227,18 @@ export const ApplyStepper = () => {
 					),
 					"4": () => (
 						<div className="animate-fade-in-up w-full flex flex-col justify-center items-center gap-4 md:gap-6 p-4 md:p-6">
-							<p className="w-full sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto text-center text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed">
+							<p className="w-full sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto text-center text-note leading-relaxed">
 								اخر خطوة لإتمام الاشتراك هي ارسال عملك الى
 								منظمين المسابقة في العتبة الحسينية المقدسة
 							</p>
-							<p className="text-sm sm:text-base md:text-lg text-gray-600 text-center">
+							<p className="text-subtitle text-gray-600 text-center">
 								وحسب ما مذكور في النقطة الاخيرة من الشروط
 							</p>
 							<div className="mt-4 md:mt-6 text-center">
-								<p className="font-semibold text-base sm:text-lg md:text-xl mb-3 md:mb-4">
+								<p className="font-semibold text-subtitle mb-3 md:mb-4">
 									للتواصل والاستفسار
 								</p>
-								<div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold p-3 md:p-4 border-b-2 flex items-center justify-center gap-3 md:gap-4 hover:-translate-y-2 duration-150 bg-white/70 rounded-lg transition-all hover:shadow-lg max-w-fit mx-auto">
+								<div className="text-note font-semibold p-3 md:p-4 border-b-2 flex items-center justify-center gap-3 md:gap-4 hover:-translate-y-2 duration-150 bg-white/70 rounded-lg transition-all hover:shadow-lg max-w-fit mx-auto">
 									<PhoneIcon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
 									<span dir="ltr" className="font-mono">
 										+964 781 970 7817
