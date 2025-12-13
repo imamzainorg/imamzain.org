@@ -220,7 +220,7 @@ export default function Header() {
 												width={8}
 												height={8}
 												alt="icon"
-												className="w-1.5"
+												className="w-1.5 h-auto"
 											/>
 											<p className="">{link.label}</p>
 											{hasSubLinks && (

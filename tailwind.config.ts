@@ -19,7 +19,7 @@ export default {
 				"2xl": "6rem",
 			},
 		},
-		
+
 		extend: {
 			screens: {
 				xxs: "280px",
@@ -28,13 +28,13 @@ export default {
 				xmd: "900px",
 			},
 
-	fontSize: {
-		subtitle: ["clamp(10px, 2vw, 20px)", "1"],   // عنوان صغير فرعي
-  note: ["clamp(14px, 1.5vw, 26px)", "0.5"],       // نص ثانوي
-  body: ["clamp(16px, 2.4vw, 30px)", "1.6"],       // نص أساسي
-   title: ["clamp(20px, 4.3vw, 48px)", "1.1"],        // عنوان صفحة رئيسي
-  hero: ["clamp(32px, 6vw, 80px)", "1.1"],         // الهيرو - رسمي وأنيق قيد العمل
-},
+			fontSize: {
+				subtitle: ["clamp(10px, 2vw, 20px)", "1"], // عنوان صغير فرعي
+				note: ["clamp(14px, 1.5vw, 26px)", "0.5"], // نص ثانوي
+				body: ["clamp(16px, 2.4vw, 30px)", "1.6"], // نص أساسي
+				title: ["clamp(20px, 4.3vw, 48px)", "1.1"], // عنوان صفحة رئيسي
+				hero: ["clamp(32px, 6vw, 80px)", "1.1"], // الهيرو - رسمي وأنيق قيد العمل
+			},
 
 			boxShadow: {
 				custom: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)",

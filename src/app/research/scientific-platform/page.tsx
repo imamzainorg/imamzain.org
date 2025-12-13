@@ -7,6 +7,7 @@ import StudentResearch from "./_components/student-research"
 import Journals from "./_components/journals"
 import ConferencePapers from "./_components/conference-papers"
 import Breadcrumbs from "@/components/breadcrumb"
+import { BookCopyIcon, GraduationCapIcon, NewspaperIcon } from "lucide-react"
 
 type ActiveView = "student-research" | "conferences" | "journals"
 
@@ -28,9 +29,21 @@ export default function Page() {
 			{/* الأزرار بتصميم الروابط */}
 			<div className="flex flex-wrap justify-center items-center gap-4 mb-16 mt-6 ">
 				{[
-					{ id: "conferences", title: "📑 بحوث المؤتمرات" },
-					{ id: "student-research", title: "🎓 بحوث التخرج" },
-					{ id: "journals", title: "📚 الدوريات العربية" },
+					{
+						id: "conferences",
+						icon: NewspaperIcon,
+						title: " بحوث المؤتمرات",
+					},
+					{
+						id: "student-research",
+						icon: GraduationCapIcon,
+						title: " بحوث التخرج",
+					},
+					{
+						id: "journals",
+						icon: BookCopyIcon,
+						title: " الدوريات العربية",
+					},
 				].map((btn) => {
 					const isActive = activeView === btn.id
 
@@ -63,7 +76,8 @@ export default function Page() {
 								></span>
 
 								{/* النص */}
-								<span className="relative z-10">
+								<span className="relative z-10 flex justify-center gap-3 align-middle">
+									{<btn.icon />}
 									{btn.title}
 								</span>
 							</button>
