@@ -33,7 +33,7 @@ interface Reward {
 	title: string
 	amount: string
 	subtitle: string
-	icon: JSX.Element
+	icon: React.ReactNode
 }
 
 const sections: Section[] = [
