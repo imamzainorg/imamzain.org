@@ -9,21 +9,24 @@ import { useEffect } from "react"
 function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
 	useEffect(() => {
 		const lenis = new Lenis({
-			lerp: 0.15,
+			lerp: 0.4,
 			smoothWheel: true,
+			wheelMultiplier: 1.2,
+			touchMultiplier: 1.2,
+			easing: (t: number) => 1 - Math.pow(1 - t, 3),
 		})
 
-		let frame: number
+		let rafId: number
 
 		const raf = (time: number) => {
 			lenis.raf(time)
-			frame = requestAnimationFrame(raf)
+			rafId = requestAnimationFrame(raf)
 		}
 
-		frame = requestAnimationFrame(raf)
+		rafId = requestAnimationFrame(raf)
 
 		return () => {
-			cancelAnimationFrame(frame)
+			cancelAnimationFrame(rafId)
 			lenis.destroy()
 		}
 	}, [])
