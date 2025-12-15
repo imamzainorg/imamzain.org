@@ -40,13 +40,14 @@ export default function BookSearch({ books, route }: BookSearchProps) {
 						<div className="flex-1 relative">
 							<input
 								placeholder="ابحث في الكتب..."
-								className="pr-12 w-full text-note bg-white rounded-xl border border-primary dark:border-Muharram_primary"
+								className="pr-12 w-full text-subtitle md:text-note bg-white rounded-xl border border-primary dark:border-Muharram_primary"
 								value={searchTerm}
 								onChange={(e) => setSearchTerm(e.target.value)}
 							/>
 							<SearchIcon
-								className="absolute right-4 top-1/2 -translate-y-1/2 text-primary"
-								size={20}
+								className="absolute w-3 md:w-5 right-4 top-1/2 -translate-y-1/2 text-primary"
+							
+								
 							/>
 						</div>
 						<Button

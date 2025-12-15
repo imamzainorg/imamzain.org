@@ -49,7 +49,7 @@ export default function HeaderSections({
         {moreButton && (
           <Link
             href={moreButton.href}
-            className="flex font-semibold gap-2 text-white items-center  py-2 px-2 pr-5 max-lg:py-1 rounded-lg bg-primary dark:bg-Muharram_primary text-xs sm:text-sm"
+            className="flex font-semibold gap-2 hover:bg-primary/90 text-white items-center  py-2 px-2 pr-5 max-lg:py-1 rounded-lg bg-primary dark:bg-Muharram_primary text-xs sm:text-sm"
           >
             <p className="text-nowrap text-subtitle">{moreButton.label}</p>
             <ChevronRightArrowIcon

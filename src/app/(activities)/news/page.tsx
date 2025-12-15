@@ -74,7 +74,7 @@ export default async function Page() {
               <p className="font-light line-clamp-2 text-subtitle leading-6 xl:leading-9">
                 {latestFoundationContent[0].summary}
               </p>
-              <p className="font-extralight lg:text-subtitle">
+              <p className="font-extralight text-sm lg:text-subtitle">
                 {latestFoundationContent[0].date}
               </p>
             </div>

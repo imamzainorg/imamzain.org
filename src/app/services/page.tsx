@@ -98,7 +98,7 @@ export default function Page() {
             <p className="text-note mb-2 lg:mb-4">
               النجف الأشرف - ملحق شارع الروان
             </p>
-            <p className="text-note ">
+            <p className="text-note leading-5 ">
               <strong className="">ساعات العمل:</strong> من السبت إلى الخميس (8
               صباحاً - 2 ظهراً)
             </p>

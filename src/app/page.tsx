@@ -79,7 +79,7 @@ export default async function Page() {
 					العاملين كل خير."
 					ctaLinks={[
 						{
-							label: "اهداف المؤسسة",
+							label: "رؤية المؤسسة",
 							href: "/about/vision-and-goals#vision",
 						},
 						{

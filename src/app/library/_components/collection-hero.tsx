@@ -20,7 +20,7 @@ export default function CollectionHero({
 					{config.readPath && (
 						<Link
 							href={config.readPath}
-							className="w-full xs:w-fit text-note py-2 px-4 border-2 rounded-xl border-primary dark:border-Muharram_primary flex items-center gap-4 group"
+							className="w-full xs:w-fit leading-4 text-note py-2 px-4 border-2 rounded-xl border-primary dark:border-Muharram_primary flex items-center gap-4 group"
 						>
 							تصفح {config.title}
 							<ArrowLeft className="opacity-0 translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 duration-150" />
@@ -44,7 +44,7 @@ export default function CollectionHero({
 				</div>
 			</div>
 
-			<div className="w-64 max-md:hidden left-28 -top-16 absolute">
+			<div className="w-64 max-lg:hidden left-28 -top-16 absolute">
 				<Image
 					src="/shapes/book-bg.svg"
 					className="w-full dark:hidden"
