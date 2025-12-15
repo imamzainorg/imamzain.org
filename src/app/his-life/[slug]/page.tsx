@@ -33,7 +33,7 @@ export default async function Page({
 					</h3>
 
 					<div
-						className=" text-justify tracking-tight w-11/12 mx-auto text-lg leading-loose"
+						className=" text-justify tracking-tight w-11/12 mx-auto text-subtitle leading-loose"
 						dangerouslySetInnerHTML={{ __html: section.content }}
 					/>
 				</div>
