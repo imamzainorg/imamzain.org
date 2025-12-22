@@ -7,7 +7,7 @@
             {
                 "id": "١",
                 "title": "دعاؤه اذا ابتدأ بالدعاء بدأ بالتحميد لله عز وجل والثناء عليه",
-                "slug": "his-supplication-1",
+                "slug": "his-supplication-when-beginning-prayer",
                 "phrases": [
                     {
                         "id": "١",
@@ -274,7 +274,7 @@
             {
                 "id": "٢",
                 "title": "دعاؤه بعد التحميد بالصلاة على رسول الله",
-                "slug": "his-supplication-2",
+                "slug": "his-supplication-after-praise-upon-prophet",
                 "phrases": [
                     {
                         "id": "١",
@@ -401,7 +401,7 @@
             {
                 "id": "٣",
                 "title": "دعاؤه في الصلاة على حملة العرش وكل ملك مقرب",
-                "slug": "his-supplication-3",
+                "slug": "his-supplication-for-bearers-of-the-throne",
                 "phrases": [
                     {
                         "id": "١",
@@ -518,7 +518,7 @@
             {
                 "id": "٤",
                 "title": "دعاؤه في الصلاة على أتباع الرسل ومصدقيهم",
-                "slug": "his-supplication-4",
+                "slug": "his-supplication-for-followers-of-messengers",
                 "phrases": [
                     {
                         "id": "١",
@@ -665,7 +665,7 @@
             {
                 "id": "٥",
                 "title": "دعاؤه لنفسه وأهل ولايته",
-                "slug": "his-supplication-5",
+                "slug": "his-supplication-for-himself-and-his-followers",
                 "phrases": [
                     {
                         "id": "١",
@@ -792,7 +792,7 @@
             {
                 "id": "٦",
                 "title": "دُعَائِهِ  عِنْدَ الصَّبَاحِ والمساء",
-                "slug": "his-supplication-6",
+                "slug": "his-supplication-at-morning-and-evening",
                 "phrases": [
                     {
                         "id": "١",
@@ -939,7 +939,7 @@
             {
                 "id": "٧",
                 "title": "دُعَائِهِ  إِذَا عَرَضَتْ لَهُ مُهِمَّةٌ أَونَزَلَتْ بِهِ، مُلِمَّةٌ وَعِنْدَ الْكَرْبِ",
-                "slug": "his-supplication-7",
+                "slug": "his-supplication-when-afflicted-or-distressed",
                 "phrases": [
                     {
                         "id": "١",
@@ -1026,7 +1026,7 @@
             {
                 "id": "٨",
                 "title": "  دُعَائِهِ  فِي الِاسْتِعَاذَةِ مِنَ الْمَكَارِهِ وَسَيِّئ الْأَخْلَاقِ وَمَذَامِّ الْأَفْعَالِ",
-                "slug": "his-supplication-8",
+                "slug": "his-supplication-seeking-refuge-from-evils",
                 "phrases": [
                     {
                         "id": "١",
@@ -1113,7 +1113,7 @@
             {
                 "id": "٩",
                 "title": "دُعَائِهِ  فِي الِاشْتِيَاقِ إِلَى طَلَبِ الْمَغْفِرَةِ مِنَ اللهِ جَلَّ جَلَالُهُ",
-                "slug": "his-supplication-9",
+                "slug": "his-supplication-yearning-for-forgiveness",
                 "phrases": [
                     {
                         "id": "١",
@@ -1150,7 +1150,7 @@
             {
                 "id": "١٠",
                 "title": "دُعَائِهِ  فِي اللَّجَإِ إِلَى اللهِ تَعَالَى",
-                "slug": "his-supplication-10",
+                "slug": "his-supplication-in-resort-to-allah",
                 "phrases": [
                     {
                         "id": "١",
@@ -1177,7 +1177,7 @@
             {
                 "id": "١١",
                 "title": "دُعَائِهِ  بِخَوَاتِمِ الْخَيْرِ",
-                "slug": "his-supplication-11",
+                "slug": "his-supplication-for-good-endings",
                 "phrases": [
                     {
                         "id": "١",
@@ -1214,7 +1214,7 @@
             {
                 "id": "١٢",
                 "title": "دُعَائِهِ  فِي الِاعْتِرَافِ وَطَلَبِ التَّوْبَةِ من اللهِ تَعَالَى",
-                "slug": "his-supplication-12",
+                "slug": "his-supplication-in-confession-and-repentance",
                 "phrases": [
                     {
                         "id": "١",
@@ -1341,7 +1341,7 @@
             {
                 "id": "١٣",
                 "title": "دُعَائِهِ  فِي طَلَبِ الْحَوَائِجِ إِلَى اللهِ تَعَالَى",
-                "slug": "his-supplication-13",
+                "slug": "his-supplication-when-asking-needs-from-allah",
                 "phrases": [
                     {
                         "id": "١",
@@ -1468,7 +1468,7 @@
             {
                 "id": "١٤",
                 "title": "دُعَائِهِ  إِذَا اعْتُدِيَ عَلَيْهِ أَو رَأَى مِنَ الظَّالِمِينَ مَا لَا يُحِبُّ",
-                "slug": "his-supplication-14",
+                "slug": "his-supplication-when-wronged-or-sees-oppression",
                 "phrases": [
                     {
                         "id": "١",
@@ -1585,7 +1585,7 @@
             {
                 "id": "١٥",
                 "title": "دُعَائِهِ  إِذَا مَرِضَ أَو نَزَلَ بِهِ كَرْبٌ أَو بَلِيَّةٌ",
-                "slug": "his-supplication-15",
+                "slug": "his-supplication-when-ill-or-stricken",
                 "phrases": [
                     {
                         "id": "١",
@@ -1612,7 +1612,7 @@
             {
                 "id": "١٦",
                 "title": "دُعَائِهِ  إِذَا اسْتَقال من ذُنُوبِهِ، أَو تَضَرَّعَ فِي طَلَبِ الْعَفْو عَنْ عُيُوبِهِ",
-                "slug": "his-supplication-16",
+                "slug": "his-supplication-when-seeking-pardon-for-sins",
                 "phrases": [
                     {
                         "id": "١",
@@ -1779,7 +1779,7 @@
             {
                 "id": "١٧",
                 "title": "دُعَائِهِ  إِذَا ذُكِرَ الشَّيْطَانُ فَاسْتَعَاذَ مِنْهُ وَمِنْ عَدَاوَتِهِ وَكَيْدِهِ",
-                "slug": "his-supplication-17",
+                "slug": "his-supplication-when-satan-is-mentioned",
                 "phrases": [
                     {
                         "id": "١",
@@ -1936,7 +1936,7 @@
             {
                 "id": "١٨",
                 "title": "دُعَائِهِ  إِذَا دُفِعَ عَنْهُ مَا يَحْذَرُ،أَو عُجِّلَ لَهُ مَطْلَبُهُ",
-                "slug": "his-supplication-18",
+                "slug": "his-supplication-when-harm-is-averted",
                 "phrases": [
                     {
                         "id": "١",
@@ -1973,7 +1973,7 @@
             {
                 "id": "١٩",
                 "title": "دُعَائِهِ،  عِنْدَ الِاسْتِسْقَاءِ بَعْدَ الْجَدْبِ",
-                "slug": "his-supplication-19",
+                "slug": "his-supplication-praying-for-rain-after-drought",
                 "phrases": [
                     {
                         "id": "١",
@@ -2050,7 +2050,7 @@
             {
                 "id": "٢٠",
                 "title": "دُعَائِهِ  فِي مَكَارِمِ الْأَخْلَاقِ وَمَرْضِيِّ الْأَفْعَالِ",
-                "slug": "his-supplication-20",
+                "slug": "his-supplication-for-noble-morals",
                 "phrases": [
                     {
                         "id": "١",
@@ -2357,7 +2357,7 @@
             {
                 "id": "٢١",
                 "title": " دُعَائِهِ  إِذَا حَزَنَهُ أَمْرٌ وَأَهَمَّتْهُ الْخَطَايَا",
-                "slug": "his-supplication-21",
+                "slug": "his-supplication-when-saddened-by-sins",
                 "phrases": [
                     {
                         "id": "١",
@@ -2474,7 +2474,7 @@
             {
                 "id": "٢٢",
                 "title": "دُعَائِهِ  عِنْدَ الشِّدَّةِ وَالْجَهْدِ وَتَعَسُّرِ الْأُمُورِ",
-                "slug": "his-supplication-22",
+                "slug": "his-supplication-in-hardship-and-difficulty",
                 "phrases": [
                     {
                         "id": "١",
@@ -2611,7 +2611,7 @@
             {
                 "id": "٢٣",
                 "title": "دُعَائِهِ  إِذَا سَأَلَ اللهَ الْعَافِيَةَ وَشُكْرَهَا",
-                "slug": "his-supplication-23",
+                "slug": "his-supplication-asking-allah-for-well-being",
                 "phrases": [
                     {
                         "id": "١",
@@ -2698,7 +2698,7 @@
             {
                 "id": "٢٤",
                 "title": "دُعَائِهِ  لِأَبَوَيْهِ ",
-                "slug": "his-supplication-24",
+                "slug": "his-supplication-for-his-parents",
                 "phrases": [
                     {
                         "id": "١",
@@ -2845,7 +2845,7 @@
             {
                 "id": "٢٥",
                 "title": "دُعَائِهِ  لِوُلْدِهِ",
-                "slug": "his-supplication-25",
+                "slug": "his-supplication-for-his-children",
                 "phrases": [
                     {
                         "id": "١",
@@ -2972,7 +2972,7 @@
             {
                 "id": "٢٦",
                 "title": "دُعَائِهِ  لِجِيرَانِهِ وَأَوْلِيَائِهِ إِذَا ذَكَرَهُمْ",
-                "slug": "his-supplication-26",
+                "slug": "his-supplication-for-neighbours-and-friends",
                 "phrases": [
                     {
                         "id": "١",
@@ -3009,7 +3009,7 @@
             {
                 "id": "٢٧",
                 "title": " دُعَائِهِ  لِأَهْلِ الثُّغُورِ",
-                "slug": "his-supplication-27",
+                "slug": "his-supplication-for-frontier-guards",
                 "phrases": [
                     {
                         "id": "١",
@@ -3196,7 +3196,7 @@
             {
                 "id": "٢٨",
                 "title": "دُعَائِهِ  مُتَفَزِّعاً إِلَى اللهِ عَزَّ وَجَلَّ",
-                "slug": "his-supplication-28",
+                "slug": "his-supplication-fleeing-to-allah-almighty",
                 "phrases": [
                     {
                         "id": "١",
@@ -3243,7 +3243,7 @@
             {
                 "id": "٢٩",
                 "title": "دُعَائِهِ  إِذَا قُتِّرَ عَلَيْهِ الرِّزْقُ",
-                "slug": "his-supplication-29",
+                "slug": "his-supplication-when-provision-is-withheld",
                 "phrases": [
                     {
                         "id": "١",
@@ -3280,7 +3280,7 @@
             {
                 "id": "٣٠",
                 "title": " دُعَائِهِ  فِي الْمَعُونَةِ عَلَى قَضَاءِ الدَّيْنِ",
-                "slug": "his-supplication-30",
+                "slug": "his-supplication-for-help-in-repaying-debt",
                 "phrases": [
                     {
                         "id": "١",
@@ -3317,7 +3317,7 @@
             {
                 "id": "٣١",
                 "title": " دُعَائِهِ  فِي ذِكْرِ التَّوْبَةِ وَطَلَبِهَا",
-                "slug": "his-supplication-31",
+                "slug": "his-supplication-mentioning-and-seeking-repentance",
                 "phrases": [
                     {
                         "id": "١",
@@ -3564,7 +3564,7 @@
             {
                 "id": "٣٢",
                 "title": " دُعَائِهِ  بَعْدَ الْفَرَاغِ مِنْ صَلَاةِ اللَّيْلِ لِنَفْسِهِ فِي الِاعْتِرَافِ بِالذَّنْبِ",
-                "slug": "his-supplication-32",
+                "slug": "his-supplication-after-night-prayer-confessing-sins",
                 "phrases": [
                     {
                         "id": "١",
@@ -3811,7 +3811,7 @@
             {
                 "id": "٣٣",
                 "title": " دُعَائِهِ  فِي الِاسْتِخَارَةِ",
-                "slug": "his-supplication-33",
+                "slug": "his-supplication-in-asking-for-guidance",
                 "phrases": [
                     {
                         "id": "١",
@@ -3848,7 +3848,7 @@
             {
                 "id": "٣٤",
                 "title": " دُعَائِهِ  إِذَا رَأَى مُبْتَلى بِفَضِيحَةٍ بِذَنْبٍ",
-                "slug": "his-supplication-34",
+                "slug": "his-supplication-seeing-someone-exposed-for-sin",
                 "phrases": [
                     {
                         "id": "١",
@@ -3885,7 +3885,7 @@
             {
                 "id": "٣٥",
                 "title": "دُعَائِهِ  فِي الرِّضَا إِذَا نَظَرَ إِلَى أَصْحَابِ الدُّنْيَا",
-                "slug": "his-supplication-35",
+                "slug": "his-supplication-in-contentment-seeing-worldly-ones",
                 "phrases": [
                     {
                         "id": "١",
@@ -3922,7 +3922,7 @@
             {
                 "id": "٣٦",
                 "title": "دُعَائِهِ  إِذَا نَظَرَ إِلَى السَّحَابِ وَالْبَرْقِ وَسَمِعَ صَوْتَ الرَّعْدِ",
-                "slug": "his-supplication-36",
+                "slug": "his-supplication-seeing-clouds-lightning-thunder",
                 "phrases": [
                     {
                         "id": "١",
@@ -3969,7 +3969,7 @@
             {
                 "id": "٣٧",
                 "title": " دُعَائِهِ  إِذَا اعْتَرَفَ بِالتَّقْصِيرِ عَنْ تَأْدِيَةِ الشُّكْرِ",
-                "slug": "his-supplication-37",
+                "slug": "his-supplication-admitting-shortage-in-thanks",
                 "phrases": [
                     {
                         "id": "١",
@@ -4036,7 +4036,7 @@
             {
                 "id": "٣٨",
                 "title": "دُعَائِهِ  فِي الِاعْتِذَارِ مِنْ تَبِعَاتِ الْعِبَادِ وَمِنَ التَّقْصِيرِ فِي حُقُوقِهِمْ وَفِي فَكَاكِ رَقَبَتِهِ مِنَ النَّار",
-                "slug": "his-supplication-38",
+                "slug": "his-supplication-apologising-to-servants-and-allah",
                 "phrases": [
                     {
                         "id": "١",
@@ -4073,7 +4073,7 @@
             {
                 "id": "٣٩",
                 "title": "دُعَائِهِ  فِي طَلَبِ الْعَفْو وَالرَّحْمَةِ",
-                "slug": "his-supplication-39",
+                "slug": "his-supplication-asking-for-pardon-and-mercy",
                 "phrases": [
                     {
                         "id": "١",
@@ -4180,7 +4180,7 @@
             {
                 "id": "٤٠",
                 "title": "دُعَائِهِ  إِذَا نُعِيَ إِلَيْهِ مَيِّتٌ، أَو ذَكَرَ الْمَوْتَ",
-                "slug": "his-supplication-40",
+                "slug": "his-supplication-when-someone-dies-or-death-mentioned",
                 "phrases": [
                     {
                         "id": "١",
@@ -4197,7 +4197,7 @@
             {
                 "id": "٤١",
                 "title": "دُعَائِهِ  فِي طَلَبِ السِّتْرِ وَالْوِقَايَةِ",
-                "slug": "his-supplication-41",
+                "slug": "his-supplication-seeking-cover-and-protection",
                 "phrases": [
                     {
                         "id": "١",
@@ -4224,7 +4224,7 @@
             {
                 "id": "٤٢",
                 "title": "دُعَائِهِ  عِنْدَ خَتْمِ الْقُرْآنِ",
-                "slug": "his-supplication-42",
+                "slug": "his-supplication-upon-completing-the-quran",
                 "phrases": [
                     {
                         "id": "١",
@@ -4421,7 +4421,7 @@
             {
                 "id": "٤٣",
                 "title": "مِنْ دُعَائِهِ  إِذَا نَظَرَ إِلَى الْهِلَالِ",
-                "slug": "his-supplication-43",
+                "slug": "his-supplication-seeing-the-new-moon",
                 "phrases": [
                     {
                         "id": "١",
@@ -4458,7 +4458,7 @@
             {
                 "id": "٤٤",
                 "title": "مِنْ دُعَائِهِ  إِذَا دَخَلَ شَهْرُ رَمَضَانَ",
-                "slug": "his-supplication-44",
+                "slug": "his-supplication-when-ramadan-begins",
                 "phrases": [
                     {
                         "id": "١",
@@ -4625,7 +4625,7 @@
             {
                 "id": "٤٥",
                 "title": "دُعَائِهِ  فِي وَدَاعِ شَهْرِ رَمَضَانَ",
-                "slug": "his-supplication-45",
+                "slug": "his-supplication-farewell-to-ramadan",
                 "phrases": [
                     {
                         "id": "١",
@@ -5042,7 +5042,7 @@
             {
                 "id": "٤٦",
                 "title": "دُعَائِهِ  في يوم الفطر إذا انصرف من صلاته",
-                "slug": "his-supplication-46",
+                "slug": "his-supplication-on-eid-after-prayer",
                 "phrases": [
                     {
                         "id": "١",
@@ -5189,7 +5189,7 @@
             {
                 "id": "٤٧",
                 "title": "دُعَائِهِ  فِي يَوْمِ عَرَفَةَ",
-                "slug": "his-supplication-47",
+                "slug": "his-supplication-on-arafah-day",
                 "phrases": [
                     {
                         "id": "١",
@@ -5976,7 +5976,7 @@
             {
                 "id": "٤٨",
                 "title": "دُعَائِهِ  يَوْمَ الْأَضْحَى وَيَوْمَ الْجُمُعَةِ",
-                "slug": "his-supplication-48",
+                "slug": "his-supplication-on-eid-al-adha-and-friday",
                 "phrases": [
                     {
                         "id": "١",
@@ -6213,7 +6213,7 @@
             {
                 "id": "٤٩",
                 "title": "دُعَائِهِ  فِي دِفَاعِ كَيْدِ الْأَعْدَاءِ، وَرَدِّ بَأْسِهِمْ",
-                "slug": "his-supplication-49",
+                "slug": "his-supplication-repelling-enemies-schemes",
                 "phrases": [
                     {
                         "id": "١",
@@ -6380,7 +6380,7 @@
             {
                 "id": "٥٠",
                 "title": "دُعَائِهِ  فِي الرَّهْبَةِ",
-                "slug": "his-supplication-50",
+                "slug": "his-supplication-in-awe",
                 "phrases": [
                     {
                         "id": "١",
@@ -6437,7 +6437,7 @@
             {
                 "id": "٥١",
                 "title": "دُعَائِهِ  فِي التَّضَرُّعِ وَالِاسْتِكَانَةِ",
-                "slug": "his-supplication-51",
+                "slug": "his-supplication-in-humility-and-submission",
                 "phrases": [
                     {
                         "id": "١",
@@ -6564,7 +6564,7 @@
             {
                 "id": "٥٢",
                 "title": "دُعَائِهِ  فِي الْإِلْحَاحِ عَلَى اللهِ تَعَالَى",
-                "slug": "his-supplication-52",
+                "slug": "his-supplication-insisting-upon-allah",
                 "phrases": [
                     {
                         "id": "١",
@@ -6661,7 +6661,7 @@
             {
                 "id": "٥٣",
                 "title": "دُعَائِهِ  فِي التَّذَلُّلِ لله عَزَّ وَجَلَّ",
-                "slug": "his-supplication-53",
+                "slug": "his-supplication-in-humbleness-to-allah",
                 "phrases": [
                     {
                         "id": "١",
@@ -6708,7 +6708,7 @@
             {
                 "id": "٥٤",
                 "title": "دُعَائِهِ  فِي اسْتِكْشَافِ الْهُمُومِ",
-                "slug": "his-supplication-54",
+                "slug": "his-supplication-exploring-sorrows",
                 "phrases": [
                     {
                         "id": "١",
