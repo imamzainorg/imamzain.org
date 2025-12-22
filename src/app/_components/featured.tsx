@@ -152,7 +152,7 @@ export function Featured() {
 							</div>
 
 							{/* Prize Awards */}
-							<div className="absolute -top-8 -left-4 flex items-end gap-4">
+							<div className="absolute  -top-8 lg:-top-12 2xl:-left-4	 -left-16 md:-left-10  flex items-end gap-4">
 								{/* 3rd Place - Left */}
 								<div className="bg-white p-3 rounded-xl shadow-lg border-2 border-primary/40 dark:border-Muharram_secondary/40">
 									<div className="bg-primary/10 dark:bg-Muharram_secondary/10 border border-primary/60 dark:border-Muharram_secondary/60 text-primary dark:text-Muharram_secondary font-bold px-2 py-1 rounded-full text-xs">
