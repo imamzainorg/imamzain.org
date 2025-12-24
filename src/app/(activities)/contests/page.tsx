@@ -16,7 +16,7 @@ export default function Page() {
       description:
         "مسابقة تهدف إلى إحياء فن الخط العربي وتطوير مهارات الخطاطين في كتابة النصوص التراثية",
       category: "فنية",
-      deadline: " ٥ / ١ / ٢٠٢٦م",
+      deadline: " ٥ /٣ / ٢٠٢٦م",
       participants: "غير محدد",
       prize: " 3,000,000 دينار عراقي",
       status: "active",
