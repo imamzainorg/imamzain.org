@@ -589,10 +589,10 @@ export default function Page() {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col text-subtitle sm:flex-row gap-4">
+              <div className="flex lgw-1/2 flex-col text-subtitle lg:flex-row gap-4">
                 <Link
                   href="/contests/khat/president-goals/#president-message"
-                  className="group inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white py-2 sm:py-6 px-3 sm:px-8 rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="group  inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white py-2 sm:py-6 px-3 sm:px-8 rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   كلمة رئيس المؤسسة
                   <ArrowLeft className="w-4 lg:w-5 h-4 lg:h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -602,6 +602,13 @@ export default function Page() {
                   className="group inline-flex items-center justify-center gap-3 border-2 border-primary text-primary hover:bg-primary hover:text-white px-2 sm:px-4 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-2xl font-semibold transition-all duration-300"
                 >
                   أهداف المسابقة
+                  <ArrowLeft className="w-4 lg:w-5 h-4 lg:h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+                <Link
+                  href="/contests/khat/#registration"
+                  className="group inline-flex items-center justify-center gap-3 border-2 border-primary text-primary hover:bg-primary hover:text-white px-2 sm:px-4 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-2xl font-semibold transition-all duration-300"
+                >
+                  التسجيل في المسابقة
                   <ArrowLeft className="w-4 lg:w-5 h-4 lg:h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </div>
@@ -718,7 +725,7 @@ export default function Page() {
       >
         <div className="max-w-7xl min-h-[200px] mx-auto">
           <div className="text-center mb-10 sm:mb-16">
-            <h2 className="text-body font-bold text-slate-800 mb-4 sm:mb-6">
+            <h2 className="text-body font-bold text-slate-800 mb-4 sm:mb-6" id="registration">
               خطوات الاشتراك في المسابقة
             </h2>
             <div className="w-24 sm:w-32 h-1 sm:h-1.5 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
