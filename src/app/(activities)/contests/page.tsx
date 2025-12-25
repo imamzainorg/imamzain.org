@@ -130,7 +130,7 @@ export default function Page() {
                       width={400}
                     />
                     <div className="absolute top-4 left-4 z-20">
-                      <span className="inline-flex text-subtitle items-center gap-1 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium text-white">
+                      <span className="inline-flex text-subtitle items-center gap-1 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1  font-medium text-white">
                         <Trophy className="h-4 w-4 " />
                         {contest.category}
                       </span>
