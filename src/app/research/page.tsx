@@ -346,7 +346,7 @@ export default function Page() {
 				/>
 				<Link
 					href="/research/send-research"
-					className="relative px-16 py-5 text-white mx-10 text-body lg:text-lg font-semibold bg-gradient-to-l from-primary via-primary to-[#BA9560] hover:from-primary/95 hover:via-primary/90 hover:to-[#BA9560]/95 dark:from-Muharram_primary dark:via-Muharram_primary dark:to-[#BA9560] dark:hover:from-Muharram_primary/95 dark:hover:via-Muharram_primary/90 dark:hover:to-[#BA9560]/95 rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 shadow-lg hover:shadow-xl overflow-hidden group"
+					className="relative px-16 py-5 text-white mx-10 text-body  font-semibold bg-gradient-to-l from-primary via-primary to-[#BA9560] hover:from-primary/95 hover:via-primary/90 hover:to-[#BA9560]/95 dark:from-Muharram_primary dark:via-Muharram_primary dark:to-[#BA9560] dark:hover:from-Muharram_primary/95 dark:hover:via-Muharram_primary/90 dark:hover:to-[#BA9560]/95 rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 shadow-lg hover:shadow-xl overflow-hidden group"
 					aria-label="انتقل إلى صفحة تقديم البحث"
 				>
 					انشر بحثك
