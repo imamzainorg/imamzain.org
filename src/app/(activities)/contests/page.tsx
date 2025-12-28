@@ -20,7 +20,7 @@ export default function Page() {
       participants: "غير محدد",
       prize: " 3,000,000 دينار عراقي",
       status: "active",
-      duration: "8 أشهر",
+      duration: "11 شهر",
       link: "/contests/khat",
       image: "/contests/khat/landing.jpg",
     },
