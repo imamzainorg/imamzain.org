@@ -1,1258 +1,4331 @@
 [
     {
-        "id": 65,
-        "title": "khat",
-        "image": {
-            "id": 65,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_59.jpg"
-        }
-    },
-    {
-        "id": 64,
-        "title": "khat",
-        "image": {
-            "id": 64,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_58.jpg"
-        }
-    },
-    {
-        "id": 63,
-        "title": "khat",
-        "image": {
-            "id": 63,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_57.jpg"
-        }
-    },
-    {
-        "id": 62,
-        "title": "khat",
-        "image": {
-            "id": 62,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_56.jpg"
-        }
-    },
-    {
-        "id": 61,
-        "title": "khat",
-        "image": {
-            "id": 61,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_55.jpg"
-        }
-    },
-    {
-        "id": 60,
-        "title": "khat",
-        "image": {
-            "id": 60,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_54.jpg"
-        }
-    },
-    {
-        "id": 58,
-        "title": "khat",
-        "image": {
-            "id": 58,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_53.jpg"
-        }
-    },
-    {
-        "id": 57,
-        "title": "khat",
-        "image": {
-            "id": 57,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_52.jpg"
-        }
-    },
-    {
-        "id": 56,
-        "title": "khat",
-        "image": {
-            "id": 56,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_51.jpg"
-        }
-    },
-    {
-        "id": 55,
-        "title": "khat",
-        "image": {
-            "id": 55,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_50.jpg"
-        }
-    },
-    {
-        "id": 54,
-        "title": "khat",
-        "image": {
-            "id": 54,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_49.jpg"
-        }
-    },
-    {
-        "id": 53,
-        "title": "khat",
-        "image": {
-            "id": 53,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_48.jpg"
-        }
-    },
-    {
-        "id": 52,
-        "title": "khat",
-        "image": {
-            "id": 52,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_47.jpg"
-        }
-    },
-    {
-        "id": 51,
-        "title": "khat",
-        "image": {
-            "id": 51,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_46.jpg"
-        }
-    },
-    {
-        "id": 50,
-        "title": "khat",
-        "image": {
-            "id": 50,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_45.jpg"
-        }
-    },
-    {
-        "id": 49,
-        "title": "khat",
-        "image": {
-            "id": 49,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_44.jpg"
-        }
-    },
-    {
-        "id": 48,
-        "title": "khat",
-        "image": {
-            "id": 48,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_43.jpg"
-        }
-    },
-    {
-        "id": 47,
-        "title": "khat",
-        "image": {
-            "id": 47,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_42.jpg"
-        }
-    },
-    {
-        "id": 46,
-        "title": "khat",
-        "image": {
-            "id": 46,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_41.jpg"
-        }
-    },
-    {
-        "id": 45,
-        "title": "text",
-        "image": {
-            "id": 45,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_40.jpg"
-        }
-    },
-    {
-        "id": 44,
-        "title": "text",
-        "image": {
-            "id": 44,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_39.jpg"
-        }
-    },
-    {
-        "id": 43,
-        "title": "text",
-        "image": {
-            "id": 43,
-            "path": "/news/second-scientific-forum-baqi-report-5.jpg"
-        }
-    },
-    {
-        "id": 42,
-        "title": "text",
-        "image": {
-            "id": 42,
-            "path": "/news/second-scientific-forum-baqi-report-4.jpg"
-        }
-    },
-    {
-        "id": 41,
-        "title": "text",
-        "image": {
-            "id": 41,
-            "path": "/news/second-scientific-forum-baqi-report-3.jpg"
-        }
-    },
-    {
-        "id": 40,
-        "title": "text",
-        "image": {
-            "id": 40,
-            "path": "/news/second-scientific-forum-baqi-report-2.jpg"
-        }
-    },
-    {
-        "id": 39,
-        "title": "text",
-        "image": {
-            "id": 39,
-            "path": "/news/second-scientific-forum-baqi-report-1.jpg"
-        }
-    },
-    {
-        "id": 38,
-        "title": "text",
-        "image": {
-            "id": 38,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_38.jpg"
-        }
-    },
-    {
-        "id": 37,
-        "title": "text",
-        "image": {
-            "id": 37,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_37.jpg"
-        }
-    },
-    {
-        "id": 36,
-        "title": "text",
-        "image": {
-            "id": 36,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_36.jpg"
-        }
-    },
-    {
-        "id": 35,
-        "title": "text",
-        "image": {
-            "id": 35,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_35.jpg"
-        }
-    },
-    {
-        "id": 34,
-        "title": "text",
-        "image": {
-            "id": 34,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_34.jpg"
-        }
-    },
-    {
-        "id": 33,
-        "title": "text",
-        "image": {
-            "id": 33,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_33.jpg"
-        }
-    },
-    {
-        "id": 32,
-        "title": "text",
-        "image": {
-            "id": 32,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_32.jpg"
-        }
-    },
-    {
-        "id": 31,
-        "title": "text",
-        "image": {
-            "id": 31,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_31.jpg"
-        }
-    },
-    {
-        "id": 30,
-        "title": "text",
-        "image": {
-            "id": 30,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_30.jpg"
-        }
-    },
-    {
-        "id": 29,
-        "title": "text",
-        "image": {
-            "id": 29,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_29.jpg"
-        }
-    },
-    {
-        "id": 28,
-        "title": "text",
-        "image": {
-            "id": 28,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_28.jpg"
-        }
-    },
-    {
-        "id": 27,
-        "title": "text",
-        "image": {
-            "id": 27,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_27.jpg"
-        }
-    },
-    {
-        "id": 26,
-        "title": "text",
-        "image": {
-            "id": 26,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_26.jpg"
-        }
-    },
-    {
-        "id": 25,
-        "title": "text",
-        "image": {
-            "id": 25,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_25.jpg"
-        }
-    },
-    {
-        "id": 24,
-        "title": "text",
-        "image": {
-            "id": 24,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_24.jpg"
-        }
-    },
-    {
-        "id": 23,
-        "title": "text",
-        "image": {
-            "id": 23,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_23.jpg"
-        }
-    },
-    {
-        "id": 22,
-        "title": "text",
-        "image": {
-            "id": 22,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_22.jpg"
-        }
-    },
-    {
-        "id": 21,
-        "title": "text",
-        "image": {
-            "id": 21,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_21.jpg"
-        }
-    },
-    {
-        "id": 20,
-        "title": "text",
-        "image": {
-            "id": 20,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_20.jpg"
-        }
-    },
-    {
-        "id": 19,
-        "title": "text",
-        "image": {
-            "id": 19,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_19.jpg"
-        }
-    },
-    {
-        "id": 18,
-        "title": "text",
-        "image": {
-            "id": 18,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_18.jpg"
-        }
-    },
-    {
-        "id": 17,
-        "title": "text",
-        "image": {
-            "id": 17,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_17.jpg"
-        }
-    },
-    {
-        "id": 16,
-        "title": "text",
-        "image": {
-            "id": 16,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_16.jpg"
-        }
-    },
-    {
-        "id": 15,
-        "title": "text",
-        "image": {
-            "id": 15,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_15.jpg"
-        }
-    },
-    {
-        "id": 14,
-        "title": "text",
-        "image": {
-            "id": 14,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_14.jpg"
-        }
-    },
-    {
-        "id": 13,
-        "title": "text",
-        "image": {
-            "id": 13,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_13.jpg"
-        }
-    },
-    {
-        "id": 12,
-        "title": "text",
-        "image": {
-            "id": 12,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_12.jpg"
-        }
-    },
-    {
-        "id": 11,
-        "title": "text",
-        "image": {
-            "id": 11,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_11.jpg"
-        }
-    },
-    {
-        "id": 10,
-        "title": "text",
-        "image": {
-            "id": 10,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_10.jpg"
-        }
-    },
-    {
-        "id": 9,
-        "title": "text",
-        "image": {
-            "id": 9,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_9.jpg"
-        }
-    },
-    {
-        "id": 8,
-        "title": "text",
-        "image": {
-            "id": 8,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_8.jpg"
-        }
-    },
-    {
-        "id": 7,
-        "title": "text",
-        "image": {
-            "id": 7,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_7.jpg"
-        }
-    },
-    {
-        "id": 6,
-        "title": "text",
-        "image": {
-            "id": 6,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_6.jpg"
-        }
-    },
-    {
-        "id": 4,
-        "title": "text",
-        "image": {
-            "id": 4,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_4.jpg"
-        }
-    },
-    {
-        "id": 3,
-        "title": "text",
-        "image": {
-            "id": 3,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_3.jpg"
-        }
+        "id": 1,
+        "title": "مؤسسة الامام زين العابدين (ع) بضيافة الامانة العامة للعتبة العسكرية المقدسة",
+        "description": " مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تشارك في المؤتمر العلمي الرابع للعتبة العسكرية المقدسة في سامرّاء، شارك وفدٌ من مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات في فعاليات المؤتمر العلمي الرابع، وجاءت مشاركة المؤسسة في إطار دعمها للحراك العلمي الذي تحتضنه العتبة المقدسة",
+        "date": "2025-11-29",
+        "tags": [
+            "سامراء",
+            "مؤتمرات"
+        ],
+        "url": "/news/imam-zain-alabideen-mu2tamar-elmi-rabe3-samarra.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
     },
     {
         "id": 2,
-        "title": "text",
-        "image": {
-            "id": 2,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_2.jpg"
-        }
+        "title": "مؤسسة الامام زين العابدين (ع) بضيافة الامانة العامة للعتبة العسكرية المقدسة",
+        "description": "",
+        "date": "2025-11-29",
+        "tags": [
+            "سامراء",
+            "مؤتمرات"
+        ],
+        "url": "/news/imam-zain-alabideen-mu2tamar-elmi-rabe3-samarra-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
     },
     {
-        "id": 1,
-        "title": "text",
-        "image": {
-            "id": 1,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_1.jpg"
-        }
+        "id": 3,
+        "title": "مؤسسة الامام زين العابدين (ع) بضيافة الامانة العامة للعتبة العسكرية المقدسة",
+        "description": "",
+        "date": "2025-11-29",
+        "tags": [
+            "سامراء",
+            "مؤتمرات"
+        ],
+        "url": "/news/imam-zain-alabideen-mu2tamar-elmi-rabe3-samarra-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
     },
     {
-        "id": 75,
-        "title": "text",
-        "image": {
-            "id": 75,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_69.jpg"
-        }
+        "id": 4,
+        "title": "مؤسسة الامام زين العابدين (ع) بضيافة الامانة العامة للعتبة العسكرية المقدسة",
+        "description": "",
+        "date": "2025-11-29",
+        "tags": [
+            "سامراء",
+            "مؤتمرات"
+        ],
+        "url": "/news/imam-zain-alabideen-mu2tamar-elmi-rabe3-samarra-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
     },
     {
-        "id": 74,
-        "title": "text",
-        "image": {
-            "id": 74,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_68.jpg"
-        }
+        "id": 5,
+        "title": "مؤسسة الامام زين العابدين (ع) بضيافة الامانة العامة للعتبة العسكرية المقدسة",
+        "description": "",
+        "date": "2025-11-29",
+        "tags": [
+            "سامراء",
+            "مؤتمرات"
+        ],
+        "url": "/news/imam-zain-alabideen-mu2tamar-elmi-rabe3-samarra-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
     },
     {
-        "id": 73,
-        "title": "text",
-        "image": {
-            "id": 73,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_67.jpg"
-        }
+        "id": 6,
+        "title": "مؤسسة الإمام زين العابدين (ع) للبحوث والدراسات تستضيف رئيس هيئة التعليم التقني في العتبة الحسينية المقدسة",
+        "description": "استقبلت مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات بمقرها في النجف وفداً أكاديمياً برئاسة الأستاذ الدكتور عباس كاظم الدعمي رئيس هيئة التعليم التقني في العتبة الحسينية المقدسة وشهد اللقاء الاطلاع على برامج دعم الطفولة والشباب، والتي تمثل محوراً أساسياً من محاور عمل المؤسسة الذي يهدف إلى تنمية قدرات الأطفال وتعزيز المهارات العلمية والعملية لدى الشباب",
+        "date": "2025-11-27",
+        "tags": [
+            "العتبة الحسينية",
+            "استضافات"
+        ],
+        "url": "/news/istidafa-raees-taaleem-taqani-mashari-dam-altofola-walshabab.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
-        "id": 72,
-        "title": "text",
-        "image": {
-            "id": 72,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_66.jpg"
-        }
+        "id": 7,
+        "title": "مؤسسة الإمام زين العابدين (ع) للبحوث والدراسات تستضيف رئيس هيئة التعليم التقني في العتبة الحسينية المقدسة",
+        "description": "",
+        "date": "2025-11-27",
+        "tags": [
+            "العتبة الحسينية",
+            "استضافات"
+        ],
+        "url": "/news/istidafa-raees-taaleem-taqani-mashari-dam-altofola-walshabab (10).jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
-        "id": 71,
-        "title": "text",
-        "image": {
-            "id": 71,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_65.jpg"
-        }
+        "id": 8,
+        "title": "مؤسسة الإمام زين العابدين (ع) للبحوث والدراسات تستضيف رئيس هيئة التعليم التقني في العتبة الحسينية المقدسة",
+        "description": "",
+        "date": "2025-11-27",
+        "tags": [
+            "العتبة الحسينية",
+            "استضافات"
+        ],
+        "url": "/news/istidafa-raees-taaleem-taqani-mashari-dam-altofola-walshabab (2).jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
-        "id": 70,
-        "title": "text",
-        "image": {
-            "id": 70,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_64.jpg"
-        }
+        "id": 9,
+        "title": "مؤسسة الإمام زين العابدين (ع) للبحوث والدراسات تستضيف رئيس هيئة التعليم التقني في العتبة الحسينية المقدسة",
+        "description": "",
+        "date": "2025-11-27",
+        "tags": [
+            "العتبة الحسينية",
+            "استضافات"
+        ],
+        "url": "/news/istidafa-raees-taaleem-taqani-mashari-dam-altofola-walshabab (3).jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
-        "id": 69,
-        "title": "text",
-        "image": {
-            "id": 69,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_63.jpg"
-        }
+        "id": 10,
+        "title": "مؤسسة الإمام زين العابدين (ع) للبحوث والدراسات تستضيف رئيس هيئة التعليم التقني في العتبة الحسينية المقدسة",
+        "description": "",
+        "date": "2025-11-27",
+        "tags": [
+            "العتبة الحسينية",
+            "استضافات"
+        ],
+        "url": "/news/istidafa-raees-taaleem-taqani-mashari-dam-altofola-walshabab (4).jpg"
     },
     {
-        "id": 68,
-        "title": "text",
-        "image": {
-            "id": 68,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_62.jpg"
-        }
+        "id": 11,
+        "title": "مؤسسة الإمام زين العابدين (ع) للبحوث والدراسات تستضيف رئيس هيئة التعليم التقني في العتبة الحسينية المقدسة",
+        "description": "",
+        "date": "2025-11-27",
+        "tags": [
+            "العتبة الحسينية",
+            "استضافات"
+        ],
+        "url": "/news/istidafa-raees-taaleem-taqani-mashari-dam-altofola-walshabab (5).jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
-        "id": 67,
-        "title": "text",
-        "image": {
-            "id": 67,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_61.jpg"
-        }
+        "id": 12,
+        "title": "مؤسسة الإمام زين العابدين (ع) للبحوث والدراسات تستضيف رئيس هيئة التعليم التقني في العتبة الحسينية المقدسة",
+        "description": "",
+        "date": "2025-11-27",
+        "tags": [
+            "العتبة الحسينية",
+            "استضافات"
+        ],
+        "url": "/news/istidafa-raees-taaleem-taqani-mashari-dam-altofola-walshabab (6).jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 13,
+        "title": "مؤسسة الإمام زين العابدين (ع) للبحوث والدراسات تستضيف رئيس هيئة التعليم التقني في العتبة الحسينية المقدسة",
+        "description": "",
+        "date": "2025-11-27",
+        "tags": [
+            "العتبة الحسينية",
+            "استضافات"
+        ],
+        "url": "/news/istidafa-raees-taaleem-taqani-mashari-dam-altofola-walshabab (7).jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 14,
+        "title": "مؤسسة الإمام زين العابدين (ع) للبحوث والدراسات تستضيف رئيس هيئة التعليم التقني في العتبة الحسينية المقدسة",
+        "description": "",
+        "date": "2025-11-27",
+        "tags": [
+            "العتبة الحسينية",
+            "استضافات"
+        ],
+        "url": "/news/istidafa-raees-taaleem-taqani-mashari-dam-altofola-walshabab (8).jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 15,
+        "title": "مؤسسة الإمام زين العابدين (ع) للبحوث والدراسات تستضيف رئيس هيئة التعليم التقني في العتبة الحسينية المقدسة",
+        "description": "",
+        "date": "2025-11-27",
+        "tags": [
+            "العتبة الحسينية",
+            "استضافات"
+        ],
+        "url": "/news/istidafa-raees-taaleem-taqani-mashari-dam-altofola-walshabab (1).jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 16,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تقيم ندوة علمية في جامعة القادسية",
+        "description": "أقامت مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ندوةً علمية في جامعة القادسية، قدّمها فضيلة الشيخ مقداد الكعبي  دام توفيقه الموسومة بالإمام زين العابدين (عليه السلام) ومنهج الإصلاح الأخلاقي في المجتمع الإسلامي وتناول الكعبي في محاضرته المرتكزات الأخلاقية في فكر الإمام زين العابدين (عليه السلام)، ودور مدرسته الإصلاحية في تهذيب المجتمع وبناء الوعي القيمي، مستعرضًا نماذج من تراثه العبادي والإنساني وما تضمنته الصحيفة السجادية من رؤى إصلاحية شاملة.",
+        "date": "2025-11-17",
+        "tags": [
+            "ندوات",
+            "جامعات",
+            "القادسية",
+            "كلية التربية"
+        ],
+        "url": "/news/nadwa-qadisiyya-tarbiya.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 17,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تقيم ندوة علمية في جامعة القادسية",
+        "description": "",
+        "date": "2025-11-17",
+        "tags": [
+            "جامعات",
+            "القادسية",
+            "كلية التربية"
+        ],
+        "url": "/news/nadwa-qadisiyya-tarbiya-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 18,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تقيم ندوة علمية في جامعة القادسية",
+        "description": "",
+        "date": "2025-11-17",
+        "tags": [
+            "جامعات",
+            "القادسية",
+            "كلية التربية"
+        ],
+        "url": "/news/nadwa-qadisiyya-tarbiya-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 19,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تقيم ندوة علمية في جامعة القادسية",
+        "description": "",
+        "date": "2025-11-17",
+        "tags": [
+            "جامعات",
+            "القادسية",
+            "كلية التربية"
+        ],
+        "url": "/news/nadwa-qadisiyya-tarbiya-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 20,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تقيم ندوة علمية في جامعة القادسية",
+        "description": "",
+        "date": "2025-11-17",
+        "tags": [
+            "جامعات",
+            "القادسية",
+            "كلية التربية"
+        ],
+        "url": "/news/nadwa-qadisiyya-tarbiya-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 21,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تقيم ندوة علمية في جامعة القادسية",
+        "description": "",
+        "date": "2025-11-17",
+        "tags": [
+            "جامعات",
+            "القادسية",
+            "كلية التربية"
+        ],
+        "url": "/news/nadwa-qadisiyya-tarbiya-5.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 22,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تقيم ندوة علمية في جامعة القادسية",
+        "description": "",
+        "date": "2025-11-17",
+        "tags": [
+            "جامعات",
+            "القادسية",
+            "كلية التربية"
+        ],
+        "url": "/news/nadwa-qadisiyya-tarbiya-6.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 23,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تقيم ندوة علمية في جامعة القادسية",
+        "description": "",
+        "date": "2025-11-17",
+        "tags": [
+            "جامعات",
+            "القادسية",
+            "كلية التربية"
+        ],
+        "url": "/news/nadwa-qadisiyya-tarbiya-7.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 24,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تقيم ندوة علمية في جامعة القادسية",
+        "description": "",
+        "date": "2025-11-17",
+        "tags": [
+            "جامعات",
+            "القادسية",
+            "كلية التربية"
+        ],
+        "url": "/news/nadwa-qadisiyya-tarbiya-8.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 25,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تقيم ندوة علمية في جامعة القادسية",
+        "description": "",
+        "date": "2025-11-17",
+        "tags": [
+            "جامعات",
+            "القادسية",
+            "كلية التربية"
+        ],
+        "url": "/news/nadwa-qadisiyya-tarbiya-9.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 26,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تقيم ندوة علمية في جامعة القادسية",
+        "description": "",
+        "date": "2025-11-17",
+        "tags": [
+            "جامعات",
+            "القادسية",
+            "كلية التربية"
+        ],
+        "url": "/news/nadwa-qadisiyya-tarbiya-10.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 27,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تقيم ندوة علمية في جامعة القادسية",
+        "description": "",
+        "date": "2025-11-17",
+        "tags": [
+            "جامعات",
+            "القادسية",
+            "كلية التربية"
+        ],
+        "url": "/news/nadwa-qadisiyya-tarbiya-11.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 28,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تقيم ندوة علمية في جامعة القادسية",
+        "description": "",
+        "date": "2025-11-17",
+        "tags": [
+            "جامعات",
+            "القادسية",
+            "كلية التربية"
+        ],
+        "url": "/news/nadwa-qadisiyya-tarbiya-12.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 29,
+        "title": "مجلس عزاء بذكرى شهادة  سيدة نساء العالمين فاطمة الزهراء عليها السلام",
+        "description": "عقدت مؤسسة الإمام زين العابدين عليه السلام مجلس عزاءٍ بمناسبة ذكرى شهادة سيدة نساء العالمين عليها السلام (على الرواية الثانية) وبحضور جمع من الفضلاء والمعزين بهذه المناسبة وقد ارتقى المنبر سماحة الشيخ علي الساعدي (دام توفيقه)",
+        "date": "2025-11-4",
+        "tags": [
+            "مجالس",
+            "عزاء",
+            "شهادة فاطمة الزهراء",
+            "الرواية الثانية"
+        ],
+        "url": "/news/majlis-aza-muassasat-al-imam-zayn-al-abidin.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 30,
+        "title": "مجلس عزاء بذكرى شهادة  سيدة نساء العالمين فاطمة الزهراء عليها السلام",
+        "description": "",
+        "date": "2025-11-4",
+        "tags": [
+            "مجالس",
+            "عزاء",
+            "شهادة فاطمة الزهراء",
+            "الرواية الثانية"
+        ],
+        "url": "/news/majlis-aza-muassasat-al-imam-zayn-al-abidin-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 31,
+        "title": "مجلس عزاء بذكرى شهادة  سيدة نساء العالمين فاطمة الزهراء عليها السلام",
+        "description": "",
+        "date": "2025-11-4",
+        "tags": [
+            "مجالس",
+            "عزاء",
+            "شهادة فاطمة الزهراء",
+            "الرواية الثانية"
+        ],
+        "url": "/news/majlis-aza-muassasat-al-imam-zayn-al-abidin-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 32,
+        "title": "مجلس عزاء بذكرى شهادة  سيدة نساء العالمين فاطمة الزهراء عليها السلام",
+        "description": "",
+        "date": "2025-11-4",
+        "tags": [
+            "مجالس",
+            "عزاء",
+            "شهادة فاطمة الزهراء",
+            "الرواية الثانية"
+        ],
+        "url": "/news/majlis-aza-muassasat-al-imam-zayn-al-abidin-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 33,
+        "title": "مجلس عزاء بذكرى شهادة  سيدة نساء العالمين فاطمة الزهراء عليها السلام",
+        "description": "",
+        "date": "2025-11-4",
+        "tags": [
+            "مجالس",
+            "عزاء",
+            "شهادة فاطمة الزهراء",
+            "الرواية الثانية"
+        ],
+        "url": "/news/majlis-aza-muassasat-al-imam-zayn-al-abidin-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 34,
+        "title": "مجلس عزاء بذكرى شهادة  سيدة نساء العالمين فاطمة الزهراء عليها السلام",
+        "description": "",
+        "date": "2025-11-4",
+        "tags": [
+            "مجالس",
+            "عزاء",
+            "شهادة فاطمة الزهراء",
+            "الرواية الثانية"
+        ],
+        "url": "/news/majlis-aza-muassasat-al-imam-zayn-al-abidin-5.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 35,
+        "title": "مجلس عزاء بذكرى شهادة  سيدة نساء العالمين فاطمة الزهراء عليها السلام",
+        "description": "",
+        "date": "2025-11-4",
+        "tags": [
+            "مجالس",
+            "عزاء",
+            "شهادة فاطمة الزهراء",
+            "الرواية الثانية"
+        ],
+        "url": "/news/majlis-aza-muassasat-al-imam-zayn-al-abidin-6.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 36,
+        "title": "مجلس عزاء بذكرى شهادة  سيدة نساء العالمين فاطمة الزهراء عليها السلام",
+        "description": "",
+        "date": "2025-11-4",
+        "tags": [
+            "مجالس",
+            "عزاء",
+            "شهادة فاطمة الزهراء",
+            "الرواية الثانية"
+        ],
+        "url": "/news/majlis-aza-muassasat-al-imam-zayn-al-abidin-7.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 37,
+        "title": "مجلس عزاء بذكرى شهادة  سيدة نساء العالمين فاطمة الزهراء عليها السلام",
+        "description": "",
+        "date": "2025-11-4",
+        "tags": [
+            "مجالس",
+            "عزاء",
+            "شهادة فاطمة الزهراء",
+            "الرواية الثانية"
+        ],
+        "url": "/news/majlis-aza-muassasat-al-imam-zayn-al-abidin-8.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 38,
+        "title": "استقبال رئيس مؤسّسة جداول المعرفة للدعم العلمي",
+        "description": "استقبلَ سماحة السيّدُ غسّان الخرسان (دام توفيقه)، السيّدَ حيدر مهديّ الحكيم، مدير مؤسّسة جداول المعرفة للدّعمِ العلميّ وجرى خلالَ اللقاءِ التباحث حولَ آفاقِ التعاونِ العلميِّ والبحثيِّ بينَ المؤسّستين",
+        "date": "2025-10-30",
+        "tags": [
+            "استقبال",
+            "مؤسسات",
+            "مؤسسة جداول المعرفة",
+            "لقاءات"
+        ],
+        "url": "/news/muasasat-al-imam-zain-al-abidin-tastakbil-raees-muasasat-jadawil-al-maarefa-ldam-al-ilmi.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 39,
+        "title": "استقبال رئيس مؤسّسة جداول المعرفة للدعم العلمي",
+        "description": "",
+        "date": "2025-10-30",
+        "tags": [
+            "استقبال",
+            "مؤسسات",
+            "مؤسسة جداول المعرفة",
+            "لقاءات"
+        ],
+        "url": "/news/muasasat-al-imam-zain-al-abidin-tastakbil-raees-muasasat-jadawil-al-maarefa-ldam-al-ilmi-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 40,
+        "title": "استقبال رئيس مؤسّسة جداول المعرفة للدعم العلمي",
+        "description": "",
+        "date": "2025-10-30",
+        "tags": [
+            "استقبال",
+            "مؤسسات",
+            "مؤسسة جداول المعرفة",
+            "لقاءات"
+        ],
+        "url": "/news/muasasat-al-imam-zain-al-abidin-tastakbil-raees-muasasat-jadawil-al-maarefa-ldam-al-ilmi-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 41,
+        "title": "استقبال رئيس مؤسّسة جداول المعرفة للدعم العلمي",
+        "description": "",
+        "date": "2025-10-30",
+        "tags": [
+            "استقبال",
+            "مؤسسات",
+            "مؤسسة جداول المعرفة",
+            "لقاءات"
+        ],
+        "url": "/news/muasasat-al-imam-zain-al-abidin-tastakbil-raees-muasasat-jadawil-al-maarefa-ldam-al-ilmi-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 42,
+        "title": "مؤسسة الامام زين العابدين تستقبل رئيس مؤسسة الخلق العظيم",
+        "description": "استقبلَ سماحة السيّدُ غسّانُ الخرسان (دام توفيقه)، سماحةَ الشيخِ صباحِ الساعدي، رئيسَ مؤسّسةِ الخُلُقِ العظيم وفي ختامِ اللقاءِ، عبّرَ الشيخُ الساعدي عن شكرِه وامتنانِه لحفاوةِ الاستقبالِ، مُثمِّنًا الدّورَ الرياديَّ الذي تؤدّيهِ مؤسّسةُ الإمامِ زينِ العابدينِ (عليه السلام) في الميدانِ الفكريِّ والبحثي",
+        "date": "2025-10-30",
+        "tags": [
+            "استقبال",
+            "لقاءات",
+            "مؤسسات"
+        ],
+        "url": "/news/raees-muasasat-al-khalq-al-azim-fi-rihab-muasasat-al-imam-zain-al-abidin.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 43,
+        "title": "مؤسسة الامام زين العابدين تستقبل رئيس مؤسسة الخلق العظيم",
+        "description": "",
+        "date": "2025-10-30",
+        "tags": [
+            "استقبال",
+            "لقاءات",
+            "مؤسسات"
+        ],
+        "url": "/news/raees-muasasat-al-khalq-al-azim-fi-rihab-muasasat-al-imam-zain-al-abidin-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 44,
+        "title": "مؤسسة الامام زين العابدين تستقبل رئيس مؤسسة الخلق العظيم",
+        "description": "",
+        "date": "2025-10-30",
+        "tags": [
+            "استقبال",
+            "لقاءات",
+            "مؤسسات"
+        ],
+        "url": "/news/raees-muasasat-al-khalq-al-azim-fi-rihab-muasasat-al-imam-zain-al-abidin-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 45,
+        "title": "مؤسسة الامام زين العابدين تستقبل رئيس مؤسسة الخلق العظيم",
+        "description": "",
+        "date": "2025-10-30",
+        "tags": [
+            "استقبال",
+            "لقاءات",
+            "مؤسسات"
+        ],
+        "url": "/news/raees-muasasat-al-khalq-al-azim-fi-rihab-muasasat-al-imam-zain-al-abidin-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 46,
+        "title": "مؤسسة الامام زين العابدين في ضيافة جامعة القادسية",
+        "description": "زار وفد من مؤسّسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات التابعة للعتبة الحسينيّة المقدّسة جامعةَ القادسية، لبحث آفاق التعاون الأكاديمي والعلمي والثقافي المشترك بين المؤسّسات البحثية والدينية والجامعية، وفي ختام اللقاء، قدّمت المؤسّسة مجموعة من إصداراتها العلمية والثقافية إلى مكتبة الجامعة، تأكيدًا لرسالتها في إشاعة ثقافة البحث والتحليل العلمي لتراث أهل البيت (عليهم السلام)، وتعزيز التواصل المعرفي بين المؤسسات الدينية والفكرية والجامعات العراقية، بما يخدم مشروع التكامل المعرفي بين الفكر الديني والدراسات الأكاديمية",
+        "date": "2025-10-16",
+        "tags": [
+            "زيارات",
+            "الجامعات العراقية",
+            "مشاريع",
+            "العتبة الحسينية"
+        ],
+        "url": "/news/taawon-akademi-maa-jameat-al-qadisiya-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 47,
+        "title": "مؤسسة الامام زين العابدين في ضيافة جامعة القادسية",
+        "description": "",
+        "date": "2025-10-16",
+        "tags": [
+            "زيارات",
+            "الجامعات العراقية",
+            "مشاريع",
+            "العتبة الحسينية"
+        ],
+        "url": "/news/taawon-akademi-maa-jameat-al-qadisiya-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 48,
+        "title": "مؤسسة الامام زين العابدين في ضيافة جامعة القادسية",
+        "description": "",
+        "date": "2025-10-16",
+        "tags": [
+            "زيارات",
+            "الجامعات العراقية",
+            "مشاريع",
+            "العتبة الحسينية"
+        ],
+        "url": "/news/taawon-akademi-maa-jameat-al-qadisiya-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 49,
+        "title": "مؤسسة الامام زين العابدين في ضيافة جامعة القادسية",
+        "description": "",
+        "date": "2025-10-16",
+        "tags": [
+            "زيارات",
+            "الجامعات العراقية",
+            "مشاريع",
+            "العتبة الحسينية"
+        ],
+        "url": "/news/taawon-akademi-maa-jameat-al-qadisiya-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 50,
+        "title": "مؤسسة الامام زين العابدين في ضيافة جامعة القادسية",
+        "description": "",
+        "date": "2025-10-16",
+        "tags": [
+            "زيارات",
+            "الجامعات العراقية",
+            "مشاريع",
+            "العتبة الحسينية"
+        ],
+        "url": "/news/taawon-akademi-maa-jameat-al-qadisiya.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 51,
+        "title": "مؤسسة الامام زين العابدين في ضيافة جامعة القادسية",
+        "description": "",
+        "date": "2025-10-16",
+        "tags": [
+            "زيارات",
+            "الجامعات العراقية",
+            "مشاريع",
+            "العتبة الحسينية"
+        ],
+        "url": "/news/taawon-akademi-maa-jameat-al-qadisiya-5.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 52,
+        "title": "مؤسسة الامام زين العابدين في ضيافة جامعة القادسية",
+        "description": "",
+        "date": "2025-10-16",
+        "tags": [
+            "زيارات",
+            "الجامعات العراقية",
+            "مشاريع",
+            "العتبة الحسينية"
+        ],
+        "url": "/news/taawon-akademi-maa-jameat-al-qadisiya-6.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 53,
+        "title": "مؤسسة الامام زين العابدين في ضيافة جامعة القادسية",
+        "description": "",
+        "date": "2025-10-16",
+        "tags": [
+            "زيارات",
+            "الجامعات العراقية",
+            "مشاريع",
+            "العتبة الحسينية"
+        ],
+        "url": "/news/taawon-akademi-maa-jameat-al-qadisiya-7.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 54,
+        "title": "مؤسسة الامام زين العابدين في ضيافة جامعة القادسية",
+        "description": "",
+        "date": "2025-10-16",
+        "tags": [
+            "زيارات",
+            "الجامعات العراقية",
+            "مشاريع",
+            "العتبة الحسينية"
+        ],
+        "url": "/news/taawon-akademi-maa-jameat-al-qadisiya-8.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 55,
+        "title": "مؤسسة الامام زين العابدين في ضيافة جامعة القادسية",
+        "description": "",
+        "date": "2025-10-16",
+        "tags": [
+            "زيارات",
+            "الجامعات العراقية",
+            "مشاريع",
+            "العتبة الحسينية"
+        ],
+        "url": "/news/taawon-akademi-maa-jameat-al-qadisiya-9.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 56,
+        "title": "مؤسسة الامام زين العابدين في ضيافة جامعة القادسية",
+        "description": "",
+        "date": "2025-10-16",
+        "tags": [
+            "زيارات",
+            "الجامعات العراقية",
+            "مشاريع",
+            "العتبة الحسينية"
+        ],
+        "url": "/news/taawon-akademi-maa-jameat-al-qadisiya-10.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 57,
+        "title": "مؤسسة الامام زين العابدين في ضيافة جامعة القادسية",
+        "description": "",
+        "date": "2025-10-16",
+        "tags": [
+            "زيارات",
+            "الجامعات العراقية",
+            "مشاريع",
+            "العتبة الحسينية"
+        ],
+        "url": "/news/taawon-akademi-maa-jameat-al-qadisiya-11.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 58,
+        "title": "مؤسسة الامام زين العابدين في ضيافة جامعة القادسية",
+        "description": "",
+        "date": "2025-10-16",
+        "tags": [
+            "زيارات",
+            "الجامعات العراقية",
+            "مشاريع",
+            "العتبة الحسينية"
+        ],
+        "url": "/news/taawon-akademi-maa-jameat-al-qadisiya-12.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 59,
+        "title": "مؤسسة الامام زين العابدين في ضيافة جامعة القادسية",
+        "description": "",
+        "date": "2025-10-16",
+        "tags": [
+            "زيارات",
+            "الجامعات العراقية",
+            "مشاريع",
+            "العتبة الحسينية"
+        ],
+        "url": "/news/taawon-akademi-maa-jameat-al-qadisiya-13.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 60,
+        "title": "مؤسسة الامام زين العابدين في ضيافة جامعة القادسية",
+        "description": "",
+        "date": "2025-10-16",
+        "tags": [
+            "زيارات",
+            "الجامعات العراقية",
+            "مشاريع",
+            "العتبة الحسينية"
+        ],
+        "url": "/news/taawon-akademi-maa-jameat-al-qadisiya-14.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 61,
+        "title": "الكلمة الافتتاحية للامين العام للعتبة الحسينية المقدسة الحاج حسن رشيد -دامت توفيقاته- في الورشة العلمية المتخصصة التي أقامها مركز بينة للأمن الفكري التابع للعتبة الحسينية المقدسة",
+        "description": "شاركت مؤسسة الامام زين العابدين في هذا البرنامج، وتضمن برنامج الورشة عرضا تفصيليا لخطة العمل الخاصة بالتوسعة وآليات التوثيق العلمي التي يعتمدها المركز في رصد وتسجيل التطورات العمرانية والخدمية منذ عام 2003 وحتى اليوم. كما قدّمت اللجنة المشرفة عرضا توضيحيا تضمن رؤية وأهداف المشروع التي تركز على توفير بيئة ملائمة للزائرين وتسهيل أداء الشعائر الدينية، مع الحفاظ على القيمة الروحية والتاريخية للمرقد الشريف وفقا للمعايير الأكاديمية العالمية",
+        "date": "2025-9-28",
+        "tags": [
+            "نشاطات",
+            "العتبة الحسينية",
+            "مشاريع"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1759386460/wafd-imam-zain-al-abidin.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 62,
+        "title": "الإعلان الرسمي لأسماء الفائزين في المسابقة السجادية",
+        "description": "وتتقدم المؤسسة بخالص التهنئة للفائزين، وبالشكر الجزيل لجميع المشاركين، سائلة المولى عز وجل أن يتقبل من الجميع طاعاتهم ويوفقهم لخدمة قيم الإسلام ومبادئ أهل البيت (عليهم السلام) وقد لاقت المسابقة، التي انطلقت مع بدايات شهر صفر المعظم، تفاعلاً ومشاركة واسعة من قبل الزائرين الكرام، مما يعكس شغفهم وحرصهم على التعمق في علوم ومعارف أهل البيت (عليهم السلام)، وتجسيداً لقيمتهم الفكرية والتربوية التي أرستها مدرسة الإمام السجاد (عليه السلام)",
+        "date": "2025-08-13",
+        "tags": [
+            "مسابقات",
+            "الاربعينية",
+            "الخيمة السجادية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/al-msabqa-al-sjadya-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
+    },
+    {
+        "id": 63,
+        "title": "مؤسسة الإمام زين العابدين (ع) تُعلن اختتام الخيمة السجادية في طريق يا حسين بنجاحٍ لافت",
+        "description": "يذكر ان الخيمة تميزت هذا العام بتنوع خدماتها وجودة تنظيمها، حيث شكلت نموذجاً مميزاً للخدمة الحسينية التي تجمع بين الجانبين الروحي والخدمي، مما جعلها محط إعجاب وتقدير الزائرين ",
+        "date": "2025-08-13",
+        "tags": [
+            "الخيمة السجادية",
+            "الاربعينية",
+            "طريق يا حسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/close-tent-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 64,
+        "title": "مؤسسة الإمام زين العابدين (ع) تُعلن اختتام الخيمة السجادية في طريق يا حسين بنجاحٍ لافت",
+        "description": "",
+        "date": "2025-08-13",
+        "tags": [
+            "الخيمة السجادية",
+            "الاربعينية",
+            "طريق يا حسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/close-tent-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 65,
+        "title": "مؤسسة الإمام زين العابدين (ع) تُعلن اختتام الخيمة السجادية في طريق يا حسين بنجاحٍ لافت",
+        "description": "",
+        "date": "2025-08-13",
+        "tags": [
+            "الخيمة السجادية",
+            "الاربعينية",
+            "طريق يا حسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/close-tent-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
     },
     {
         "id": 66,
-        "title": "text",
-        "image": {
-            "id": 66,
-            "path": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/image_60.jpg"
-        }
+        "title": "مؤسسة الإمام زين العابدين (ع) تُعلن اختتام الخيمة السجادية في طريق يا حسين بنجاحٍ لافت",
+        "description": "",
+        "date": "2025-08-13",
+        "tags": [
+            "الخيمة السجادية",
+            "الاربعينية",
+            "طريق يا حسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/close-tent-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 67,
+        "title": "مؤسسة الإمام زين العابدين (ع) تُعلن اختتام الخيمة السجادية في طريق يا حسين بنجاحٍ لافت",
+        "description": "",
+        "date": "2025-08-13",
+        "tags": [
+            "الخيمة السجادية",
+            "الاربعينية",
+            "طريق يا حسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/close-tent-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 68,
+        "title": "مؤسسة الإمام زين العابدين (ع) تُعلن اختتام الخيمة السجادية في طريق يا حسين بنجاحٍ لافت",
+        "description": "",
+        "date": "2025-08-13",
+        "tags": [
+            "الخيمة السجادية",
+            "الاربعينية",
+            "طريق يا حسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/close-tent-5.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 69,
+        "title": "مؤسسة الإمام زين العابدين (ع) تُعلن اختتام الخيمة السجادية في طريق يا حسين بنجاحٍ لافت",
+        "description": "",
+        "date": "2025-08-13",
+        "tags": [
+            "الخيمة السجادية",
+            "الاربعينية",
+            "طريق يا حسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/close-tent-6.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 70,
+        "title": "مؤسسة الإمام زين العابدين (ع) تُعلن اختتام الخيمة السجادية في طريق يا حسين بنجاحٍ لافت",
+        "description": "",
+        "date": "2025-08-13",
+        "tags": [
+            "الخيمة السجادية",
+            "الاربعينية",
+            "طريق يا حسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/close-tent-7.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 71,
+        "title": "مؤسسة الإمام زين العابدين (ع) تُعلن اختتام الخيمة السجادية في طريق يا حسين بنجاحٍ لافت",
+        "description": "",
+        "date": "2025-08-13",
+        "tags": [
+            "الخيمة السجادية",
+            "الاربعينية",
+            "طريق يا حسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/close-tent-8.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 72,
+        "title": "اختتام فعاليات الخيمة السجادية للناشئة في النجف الأشرف بإقبال واهتمام كبير من قبل الزوار",
+        "description": "يذكر أن مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تواصل تنظيم مثل هذه الفعاليات الهادفة إلى بناء شخصية الطفل وفق رؤية دينية أصيلة وأعرب القائمون على الفعالية عن ارتياحهم للإقبال الكبير الذي شهدته الخيمة، مؤكدين أن هذا النجاح يحفزهم لمواصلة تقديم برامج تربوية تعنى بتنشئة جيل واعٍ ومتمسك بتعاليم الإسلام الأصيل",
+        "date": "2025-08-12",
+        "tags": [
+            "الخيمة السجادية",
+            "فعاليات",
+            "الاربعينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/Open-the-tent-15.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
+    },
+    {
+        "id": 73,
+        "title": "اختتام فعاليات الخيمة السجادية للناشئة في النجف الأشرف بإقبال واهتمام كبير من قبل الزوار",
+        "description": "",
+        "date": "2025-08-12",
+        "tags": [
+            "الخيمة السجادية",
+            "فعاليات",
+            "الاربعينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/Open-the-tent-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
+    },
+    {
+        "id": 74,
+        "title": "اختتام فعاليات الخيمة السجادية للناشئة في النجف الأشرف بإقبال واهتمام كبير من قبل الزوار",
+        "description": "",
+        "date": "2025-08-12",
+        "tags": [
+            "الخيمة السجادية",
+            "فعاليات",
+            "الاربعينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/Open-the-tent-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
+    },
+    {
+        "id": 75,
+        "title": "اختتام فعاليات الخيمة السجادية للناشئة في النجف الأشرف بإقبال واهتمام كبير من قبل الزوار",
+        "description": "",
+        "date": "2025-08-12",
+        "tags": [
+            "الخيمة السجادية",
+            "فعاليات",
+            "الاربعينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/Open-the-tent-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
     },
     {
         "id": 76,
-        "title": "text",
-        "image": {
-            "id": 76,
-            "path": "/gallery/image (70).JPG"
-        }
+        "title": "اختتام فعاليات الخيمة السجادية للناشئة في النجف الأشرف بإقبال واهتمام كبير من قبل الزوار",
+        "description": "",
+        "date": "2025-08-12",
+        "tags": [
+            "الخيمة السجادية",
+            "فعاليات",
+            "الاربعينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/Open-the-tent-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
     },
     {
         "id": 77,
-        "title": "text",
-        "image": {
-            "id": 77,
-            "path": "/gallery/image (71).JPG"
-        }
+        "title": "اختتام فعاليات الخيمة السجادية للناشئة في النجف الأشرف بإقبال واهتمام كبير من قبل الزوار",
+        "description": "",
+        "date": "2025-08-12",
+        "tags": [
+            "الخيمة السجادية",
+            "فعاليات",
+            "الاربعينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/Open-the-tent-5.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
     },
     {
         "id": 78,
-        "title": "text",
-        "image": {
-            "id": 78,
-            "path": "/gallery/image (72).JPG"
-        }
+        "title": "اختتام فعاليات الخيمة السجادية للناشئة في النجف الأشرف بإقبال واهتمام كبير من قبل الزوار",
+        "description": "",
+        "date": "2025-08-12",
+        "tags": [
+            "الخيمة السجادية",
+            "فعاليات",
+            "الاربعينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/Open-the-tent-6.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
     },
     {
         "id": 79,
-        "title": "text",
-        "image": {
-            "id": 79,
-            "path": "/gallery/image (73).JPG"
-        }
+        "title": "اختتام فعاليات الخيمة السجادية للناشئة في النجف الأشرف بإقبال واهتمام كبير من قبل الزوار",
+        "description": "",
+        "date": "2025-08-12",
+        "tags": [
+            "الخيمة السجادية",
+            "فعاليات",
+            "الاربعينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/Open-the-tent-7.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
     },
     {
         "id": 80,
-        "title": "text",
-        "image": {
-            "id": 80,
-            "path": "/gallery/image (74).JPG"
-        }
+        "title": "اختتام فعاليات الخيمة السجادية للناشئة في النجف الأشرف بإقبال واهتمام كبير من قبل الزوار",
+        "description": "",
+        "date": "2025-08-12",
+        "tags": [
+            "الخيمة السجادية",
+            "فعاليات",
+            "الاربعينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/Open-the-tent-8.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
     },
     {
         "id": 81,
-        "title": "text",
-        "image": {
-            "id": 81,
-            "path": "/gallery/image (75).JPG"
-        }
+        "title": "اختتام فعاليات الخيمة السجادية للناشئة في النجف الأشرف بإقبال واهتمام كبير من قبل الزوار",
+        "description": "",
+        "date": "2025-08-12",
+        "tags": [
+            "الخيمة السجادية",
+            "فعاليات",
+            "الاربعينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/Open-the-tent-9.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
     },
     {
         "id": 82,
-        "title": "text",
-        "image": {
-            "id": 82,
-            "path": "/gallery/image (76).JPG"
-        }
+        "title": "اختتام فعاليات الخيمة السجادية للناشئة في النجف الأشرف بإقبال واهتمام كبير من قبل الزوار",
+        "description": "",
+        "date": "2025-08-12",
+        "tags": [
+            "الخيمة السجادية",
+            "فعاليات",
+            "الاربعينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/Open-the-tent-10.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
     },
     {
         "id": 83,
-        "title": "text",
-        "image": {
-            "id": 83,
-            "path": "/gallery/image (77).JPG"
-        }
+        "title": "اختتام فعاليات الخيمة السجادية للناشئة في النجف الأشرف بإقبال واهتمام كبير من قبل الزوار",
+        "description": "",
+        "date": "2025-08-12",
+        "tags": [
+            "الخيمة السجادية",
+            "فعاليات",
+            "الاربعينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/Open-the-tent-11.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
     },
     {
         "id": 84,
-        "title": "text",
-        "image": {
-            "id": 84,
-            "path": "/gallery/image (78).JPG"
-        }
+        "title": "اختتام فعاليات الخيمة السجادية للناشئة في النجف الأشرف بإقبال واهتمام كبير من قبل الزوار",
+        "description": "",
+        "date": "2025-08-12",
+        "tags": [
+            "الخيمة السجادية",
+            "فعاليات",
+            "الاربعينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/Open-the-tent-12.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
     },
     {
         "id": 85,
-        "title": "text",
-        "image": {
-            "id": 85,
-            "path": "/gallery/image (79).JPG"
-        }
+        "title": "اختتام فعاليات الخيمة السجادية للناشئة في النجف الأشرف بإقبال واهتمام كبير من قبل الزوار",
+        "description": "",
+        "date": "2025-08-12",
+        "tags": [
+            "الخيمة السجادية",
+            "فعاليات",
+            "الاربعينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/Open-the-tent-13.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
     },
     {
         "id": 86,
-        "title": "text",
-        "image": {
-            "id": 86,
-            "path": "/gallery/image (80).JPG"
-        }
+        "title": "اختتام فعاليات الخيمة السجادية للناشئة في النجف الأشرف بإقبال واهتمام كبير من قبل الزوار",
+        "description": "",
+        "date": "2025-08-12",
+        "tags": [
+            "الخيمة السجادية",
+            "فعاليات",
+            "الاربعينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/Open-the-tent-14.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
     },
     {
         "id": 87,
-        "title": "text",
-        "image": {
-            "id": 87,
-            "path": "/gallery/image (81).JPG"
-        }
+        "title": "اختتام فعاليات الخيمة السجادية للناشئة في النجف الأشرف بإقبال واهتمام كبير من قبل الزوار",
+        "description": "",
+        "date": "2025-08-12",
+        "tags": [
+            "الخيمة السجادية",
+            "فعاليات",
+            "الاربعينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/Open-the-tent-15.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
     },
     {
         "id": 88,
-        "title": "text",
-        "image": {
-            "id": 88,
-            "path": "/gallery/image (82).JPG"
-        }
+        "title": "اختتام فعاليات الخيمة السجادية للناشئة في النجف الأشرف بإقبال واهتمام كبير من قبل الزوار",
+        "description": "",
+        "date": "2025-08-12",
+        "tags": [
+            "الخيمة السجادية",
+            "فعاليات",
+            "الاربعينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/Open-the-tent-16.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
     },
     {
         "id": 89,
-        "title": "text",
-        "image": {
-            "id": 89,
-            "path": "/gallery/image (83).JPG"
-        }
+        "title": "اختتام فعاليات الخيمة السجادية للناشئة في النجف الأشرف بإقبال واهتمام كبير من قبل الزوار",
+        "description": "",
+        "date": "2025-08-12",
+        "tags": [
+            "الخيمة السجادية",
+            "فعاليات",
+            "الاربعينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/Open-the-tent-17.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
     },
     {
         "id": 90,
-        "title": "text",
-        "image": {
-            "id": 90,
-            "path": "/gallery/image (84).JPG"
-        }
+        "title": "اختتام فعاليات الخيمة السجادية للناشئة في النجف الأشرف بإقبال واهتمام كبير من قبل الزوار",
+        "description": "",
+        "date": "2025-08-12",
+        "tags": [
+            "الخيمة السجادية",
+            "فعاليات",
+            "الاربعينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/Open-the-tent-18.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مسابقات"
     },
     {
         "id": 91,
-        "title": "text",
-        "image": {
-            "id": 91,
-            "path": "/gallery/image (85).JPG"
-        }
+        "title": "رئيس مؤسسة الامام زين العابدين (عليه السلام) يفتتح الخيمة السجادية والمباشرة في خدمة زائرين الامام الحسين (عليه السلام)",
+        "description": "جاء هذا المشروع ضمن سلسلة المبادرات السنوية التي تنفذها المؤسسة لخدمة زائري أبي عبد الله الحسين (عليه السلام)، حيث تسعى من خلال هذه البرامج إلى غرس القيم الحسينية الأصيلة في نفوس الزوار الكرام وخصوصاً الناشئة والأطفال، وتقديم محتوى تربوي يتناسب مع مختلف الفئات العمرية حيث ركزت الخيمة هذا العام على تصميم برامج خاصة للأطفال والفتيات من خلال ورش عمل تفاعلية لتعليم مفاهيم أهل البيت (عليهم السلام) وأنشطة تعليمية مبتكرة الى جانب إقامة صلاة الجماعة ومحاضرات توعوية ومجالس حسينية بالإضافة إلى تقديم الخدمات للزائرين وتوزيع وجبات الطعام والمياه والعصائر الباردة",
+        "date": "2025-08-5",
+        "tags": [
+            "الاربعينية",
+            "الخيمة السجادية",
+            "خدام الحسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/tent-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 92,
-        "title": "text",
-        "image": {
-            "id": 92,
-            "path": "/gallery/image (86).JPG"
-        }
+        "title": "رئيس مؤسسة الامام زين العابدين (عليه السلام) يفتتح الخيمة السجادية والمباشرة في خدمة زائرين الامام الحسين (عليه السلام)",
+        "description": "",
+        "date": "2025-08-5",
+        "tags": [
+            "الاربعينية",
+            "الخيمة السجادية",
+            "خدام الحسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/tent-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 93,
-        "title": "text",
-        "image": {
-            "id": 93,
-            "path": "/gallery/image (87).JPG"
-        }
+        "title": "رئيس مؤسسة الامام زين العابدين (عليه السلام) يفتتح الخيمة السجادية والمباشرة في خدمة زائرين الامام الحسين (عليه السلام)",
+        "description": "",
+        "date": "2025-08-5",
+        "tags": [
+            "الاربعينية",
+            "الخيمة السجادية",
+            "خدام الحسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/tent-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 94,
-        "title": "text",
-        "image": {
-            "id": 94,
-            "path": "/gallery/image (88).JPG"
-        }
+        "title": "رئيس مؤسسة الامام زين العابدين (عليه السلام) يفتتح الخيمة السجادية والمباشرة في خدمة زائرين الامام الحسين (عليه السلام)",
+        "description": "",
+        "date": "2025-08-5",
+        "tags": [
+            "الاربعينية",
+            "الخيمة السجادية",
+            "خدام الحسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/tent-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 95,
-        "title": "text",
-        "image": {
-            "id": 95,
-            "path": "/gallery/image (89).JPG"
-        }
+        "title": "رئيس مؤسسة الامام زين العابدين (عليه السلام) يفتتح الخيمة السجادية والمباشرة في خدمة زائرين الامام الحسين (عليه السلام)",
+        "description": "",
+        "date": "2025-08-5",
+        "tags": [
+            "الاربعينية",
+            "الخيمة السجادية",
+            "خدام الحسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/tent-5.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 96,
-        "title": "text",
-        "image": {
-            "id": 96,
-            "path": "/gallery/image (90).JPG"
-        }
+        "title": "رئيس مؤسسة الامام زين العابدين (عليه السلام) يفتتح الخيمة السجادية والمباشرة في خدمة زائرين الامام الحسين (عليه السلام)",
+        "description": "",
+        "date": "2025-08-5",
+        "tags": [
+            "الاربعينية",
+            "الخيمة السجادية",
+            "خدام الحسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/tent-6.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 97,
-        "title": "text",
-        "image": {
-            "id": 97,
-            "path": "/gallery/image (91).JPG"
-        }
+        "title": "رئيس مؤسسة الامام زين العابدين (عليه السلام) يفتتح الخيمة السجادية والمباشرة في خدمة زائرين الامام الحسين (عليه السلام)",
+        "description": "",
+        "date": "2025-08-5",
+        "tags": [
+            "الاربعينية",
+            "الخيمة السجادية",
+            "خدام الحسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/tent-7.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
-        ",id": 98,
-        "title": "text",
-        "image": {
-            "id": 98,
-            "path": "/gallery/image (92).JPG"
-        }
+        "id": 98,
+        "title": "رئيس مؤسسة الامام زين العابدين (عليه السلام) يفتتح الخيمة السجادية والمباشرة في خدمة زائرين الامام الحسين (عليه السلام)",
+        "description": "",
+        "date": "2025-08-5",
+        "tags": [
+            "الاربعينية",
+            "الخيمة السجادية",
+            "خدام الحسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/tent-8.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 99,
-        "title": "text",
-        "image": {
-            "id": 99,
-            "path": "/gallery/image (93).JPG"
-        }
+        "title": "رئيس مؤسسة الامام زين العابدين (عليه السلام) يفتتح الخيمة السجادية والمباشرة في خدمة زائرين الامام الحسين (عليه السلام)",
+        "description": "",
+        "date": "2025-08-5",
+        "tags": [
+            "الاربعينية",
+            "الخيمة السجادية",
+            "خدام الحسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/tent-9.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 100,
-        "title": "text",
-        "image": {
-            "id": 100,
-            "path": "/gallery/image (94).JPG"
-        }
+        "title": "رئيس مؤسسة الامام زين العابدين (عليه السلام) يفتتح الخيمة السجادية والمباشرة في خدمة زائرين الامام الحسين (عليه السلام)",
+        "description": "",
+        "date": "2025-08-5",
+        "tags": [
+            "الاربعينية",
+            "الخيمة السجادية",
+            "خدام الحسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/tent-10.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 101,
-        "title": "text",
-        "image": {
-            "id": 101,
-            "path": "/gallery/image (95).JPG"
-        }
+        "title": "رئيس مؤسسة الامام زين العابدين (عليه السلام) يفتتح الخيمة السجادية والمباشرة في خدمة زائرين الامام الحسين (عليه السلام)",
+        "description": "",
+        "date": "2025-08-5",
+        "tags": [
+            "الاربعينية",
+            "الخيمة السجادية",
+            "خدام الحسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/tent-11.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 102,
-        "title": "text",
-        "image": {
-            "id": 102,
-            "path": "/gallery/image (96).JPG"
-        }
+        "title": "رئيس مؤسسة الامام زين العابدين (عليه السلام) يفتتح الخيمة السجادية والمباشرة في خدمة زائرين الامام الحسين (عليه السلام)",
+        "description": "",
+        "date": "2025-08-5",
+        "tags": [
+            "الاربعينية",
+            "الخيمة السجادية",
+            "خدام الحسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/tent-12.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 103,
-        "title": "text",
-        "image": {
-            "id": 103,
-            "path": "/gallery/image (97).JPG"
-        }
+        "title": "رئيس مؤسسة الامام زين العابدين (عليه السلام) يفتتح الخيمة السجادية والمباشرة في خدمة زائرين الامام الحسين (عليه السلام)",
+        "description": "",
+        "date": "2025-08-5",
+        "tags": [
+            "الاربعينية",
+            "الخيمة السجادية",
+            "خدام الحسين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/tent-13.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 104,
-        "title": "text",
-        "image": {
-            "id": 104,
-            "path": "/gallery/image (98).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تبدأ استعداداتها لإحياء ذكرى شهادة الامام زين العابدين عليه السلام ببرامج متنوعة",
+        "description": "تأتي هذه الفعاليات في إطار تعميم المعارف السجادية المستوحاة من أدعيته ورسائله، بما في ذلك رسالة الحقوق، وتحويلها إلى مخرجات تناسب عامة الناس، بهدف بناء الإنسان وتنمية وعيه، الأيام العشرة الأخيرة من شهر المحرّم الحرام، تزامنًا مع ذكرى شهادة الإمام (عليه السلام)، حيث تُقام خلالها مجالس عزاء في مقر المؤسسة",
+        "date": "2025-06-17",
+        "tags": [
+            "محرم",
+            "مجالس",
+            "فعاليات"
+        ],
+        "url": "/images/logo-muharram.png",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 105,
-        "title": "text",
-        "image": {
-            "id": 105,
-            "path": "/gallery/image (99).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تبدأ استعداداتها لإحياء ذكرى شهادة الامام زين العابدين عليه السلام ببرامج متنوعة",
+        "description": "",
+        "date": "2025-06-17",
+        "tags": [
+            "محرم",
+            "مجالس",
+            "فعاليات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-zain-alabidin-shahada-programs-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 106,
-        "title": "text",
-        "image": {
-            "id": 106,
-            "path": "/gallery/image (100).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تبدأ استعداداتها لإحياء ذكرى شهادة الامام زين العابدين عليه السلام ببرامج متنوعة",
+        "description": "",
+        "date": "2025-06-17",
+        "tags": [
+            "محرم",
+            "مجالس",
+            "فعاليات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-zain-alabidin-shahada-programs-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 107,
-        "title": "text",
-        "image": {
-            "id": 107,
-            "path": "/gallery/image (101).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "برعاية المتولي الشرعي للعتبة العباسية المقدسة سماحة السيد أحمد الصافي (دام عزه) أقيم في المجمع العلوي بالنجف الأشرف الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف  بتنظيم من معهد القرآن الكريم التابع للمجمع العلمي للقرآن الكريم في العتبة العباسية المقدسة وحضر الحفل سماحة الشيخ كريم مسير (دام توفيقه) عضو المجلس العلمي في مؤسسة الإمام زين العابدين للبحوث والدراسات وسماحة السيد غسان الخرسان (دام توفيقه) ،  ويُعد هذا المشروع أحد أبرز المبادرات الفكرية والثقافية التي تدعمها العتبة العباسية المقدسة",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
     },
     {
         "id": 108,
-        "title": "text",
-        "image": {
-            "id": 108,
-            "path": "/gallery/image (102).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-7.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
     },
     {
         "id": 109,
-        "title": "text",
-        "image": {
-            "id": 109,
-            "path": "/gallery/image (103).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-16.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
     },
     {
         "id": 110,
-        "title": "text",
-        "image": {
-            "id": 110,
-            "path": "/gallery/image (104).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-19.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 111,
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-21.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 112,
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-6.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
     },
     {
         "id": 113,
-        "title": "text",
-        "image": {
-            "id": 113,
-            "path": "/gallery/image (107).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
     },
     {
         "id": 114,
-        "title": "text",
-        "image": {
-            "id": 114,
-            "path": "/gallery/image (108).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-8.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
     },
     {
         "id": 115,
-        "title": "text",
-        "image": {
-            "id": 115,
-            "path": "/gallery/image (109).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-9.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
     },
     {
         "id": 116,
-        "title": "text",
-        "image": {
-            "id": 116,
-            "path": "/gallery/image (110).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-10.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
     },
     {
         "id": 117,
-        "title": "text",
-        "image": {
-            "id": 117,
-            "path": "/gallery/image (111).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-11.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
     },
     {
         "id": 118,
-        "title": "text",
-        "image": {
-            "id": 118,
-            "path": "/gallery/image (112).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-12.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
     },
     {
         "id": 119,
-        "title": "text",
-        "image": {
-            "id": 119,
-            "path": "/gallery/image (113).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-13.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
     },
     {
         "id": 120,
-        "title": "text",
-        "image": {
-            "id": 120,
-            "path": "/gallery/image (114).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-14.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
     },
     {
         "id": 121,
-        "title": "text",
-        "image": {
-            "id": 121,
-            "path": "/gallery/image (115).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-15.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
     },
     {
         "id": 122,
-        "title": "text",
-        "image": {
-            "id": 122,
-            "path": "/gallery/image (116).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
     },
     {
         "id": 123,
-        "title": "text",
-        "image": {
-            "id": 123,
-            "path": "/gallery/image (117).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-17.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
     },
     {
         "id": 124,
-        "title": "text",
-        "image": {
-            "id": 124,
-            "path": "/gallery/image (118).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-18.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
     },
     {
         "id": 125,
-        "title": "text",
-        "image": {
-            "id": 125,
-            "path": "/gallery/image (119).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
     },
     {
         "id": 126,
-        "title": "text",
-        "image": {
-            "id": 126,
-            "path": "/gallery/image (120).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-20.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 127,
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-5.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 128,
+        "title": "مؤسسة الإمام زين العابدين عليه السلام تشارك في الحفل الختامي للمشروع القرآني لطلبة العلوم الدينية في النجف الأشرف",
+        "description": "",
+        "date": "2025-05-12",
+        "tags": [
+            "مشاريع",
+            "محافل قرآنية",
+            "النجف الاشرف"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/The-Quranic-project-22.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
     },
     {
         "id": 129,
-        "title": "text",
-        "image": {
-            "id": 129,
-            "path": "/gallery/image (123).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تُجري امتحانات فقهية وعقائدية لمنتسبيها",
+        "description": "مؤسسة الإمام زين العابدين (عليه السلام) أجرت امتحانات فقهية وعقائدية لمنتسبيها بعد فترة تدريس، تهدف إلى تعزيز المعرفة الشرعية وإعداد كوادر مؤهلة قادرة على نشر الوعي الديني وفق منهج أهل البيت (عليهم السلام).",
+        "date": "2025-04-29",
+        "tags": [
+            "امتحانات",
+            "مؤسسة الامام زين العابدين",
+            "العتبة الحسينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-zain-alabidin-institution-holds-fiqh-aqidah-exams-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     },
     {
         "id": 130,
-        "title": "text",
-        "image": {
-            "id": 130,
-            "path": "/gallery/image (124).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تُجري امتحانات فقهية وعقائدية لمنتسبيها",
+        "description": "",
+        "date": "2025-04-29",
+        "tags": [
+            "امتحانات",
+            "مؤسسة الامام زين العابدين",
+            "العتبة الحسينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-zain-alabidin-institution-holds-fiqh-aqidah-exams-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     },
     {
         "id": 131,
-        "title": "text",
-        "image": {
-            "id": 131,
-            "path": "/gallery/image (125).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تُجري امتحانات فقهية وعقائدية لمنتسبيها",
+        "description": "",
+        "date": "2025-04-29",
+        "tags": [
+            "امتحانات",
+            "مؤسسة الامام زين العابدين",
+            "العتبة الحسينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-zain-alabidin-institution-holds-fiqh-aqidah-exams-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     },
     {
         "id": 132,
-        "title": "text",
-        "image": {
-            "id": 132,
-            "path": "/gallery/image (126).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تُجري امتحانات فقهية وعقائدية لمنتسبيها",
+        "description": "",
+        "date": "2025-04-29",
+        "tags": [
+            "امتحانات",
+            "مؤسسة الامام زين العابدين",
+            "العتبة الحسينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-zain-alabidin-institution-holds-fiqh-aqidah-exams-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     },
     {
         "id": 133,
-        "title": "text",
-        "image": {
-            "id": 133,
-            "path": "/gallery/image (127).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تُجري امتحانات فقهية وعقائدية لمنتسبيها",
+        "description": "",
+        "date": "2025-04-29",
+        "tags": [
+            "امتحانات",
+            "مؤسسة الامام زين العابدين",
+            "العتبة الحسينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-zain-alabidin-institution-holds-fiqh-aqidah-exams-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     },
     {
         "id": 134,
-        "title": "text",
-        "image": {
-            "id": 134,
-            "path": "/gallery/image (128).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تُجري امتحانات فقهية وعقائدية لمنتسبيها",
+        "description": "",
+        "date": "2025-04-29",
+        "tags": [
+            "امتحانات",
+            "مؤسسة الامام زين العابدين",
+            "العتبة الحسينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-zain-alabidin-institution-holds-fiqh-aqidah-exams-5.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     },
     {
         "id": 135,
-        "title": "text",
-        "image": {
-            "id": 135,
-            "path": "/gallery/image (129).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تُجري امتحانات فقهية وعقائدية لمنتسبيها",
+        "description": "",
+        "date": "2025-04-29",
+        "tags": [
+            "امتحانات",
+            "مؤسسة الامام زين العابدين",
+            "العتبة الحسينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-zain-alabidin-institution-holds-fiqh-aqidah-exams-6.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     },
     {
         "id": 136,
-        "title": "text",
-        "image": {
-            "id": 136,
-            "path": "/gallery/image (130).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تُجري امتحانات فقهية وعقائدية لمنتسبيها",
+        "description": "",
+        "date": "2025-04-29",
+        "tags": [
+            "امتحانات",
+            "مؤسسة الامام زين العابدين",
+            "العتبة الحسينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-zain-alabidin-institution-holds-fiqh-aqidah-exams-7.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     },
     {
         "id": 137,
-        "title": "text",
-        "image": {
-            "id": 137,
-            "path": "/gallery/image (131).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تُجري امتحانات فقهية وعقائدية لمنتسبيها",
+        "description": "",
+        "date": "2025-04-29",
+        "tags": [
+            "امتحانات",
+            "مؤسسة الامام زين العابدين",
+            "العتبة الحسينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-zain-alabidin-institution-holds-fiqh-aqidah-exams-8.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     },
     {
         "id": 138,
-        "title": "text",
-        "image": {
-            "id": 138,
-            "path": "/gallery/image (132).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تُجري امتحانات فقهية وعقائدية لمنتسبيها",
+        "description": "",
+        "date": "2025-04-29",
+        "tags": [
+            "امتحانات",
+            "مؤسسة الامام زين العابدين",
+            "العتبة الحسينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-zain-alabidin-institution-holds-fiqh-aqidah-exams-9.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     },
     {
         "id": 139,
-        "title": "text",
-        "image": {
-            "id": 139,
-            "path": "/gallery/image (133).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تُجري امتحانات فقهية وعقائدية لمنتسبيها",
+        "description": "",
+        "date": "2025-04-29",
+        "tags": [
+            "امتحانات",
+            "مؤسسة الامام زين العابدين",
+            "العتبة الحسينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-zain-alabidin-institution-holds-fiqh-aqidah-exams-10.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     },
     {
         "id": 140,
-        "title": "text",
-        "image": {
-            "id": 140,
-            "path": "/gallery/image (134).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تُجري امتحانات فقهية وعقائدية لمنتسبيها",
+        "description": "",
+        "date": "2025-04-29",
+        "tags": [
+            "امتحانات",
+            "مؤسسة الامام زين العابدين",
+            "العتبة الحسينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-zain-alabidin-institution-holds-fiqh-aqidah-exams-11.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     },
     {
         "id": 141,
-        "title": "text",
-        "image": {
-            "id": 141,
-            "path": "/gallery/image (135).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تُجري امتحانات فقهية وعقائدية لمنتسبيها",
+        "description": "",
+        "date": "2025-04-29",
+        "tags": [
+            "امتحانات",
+            "مؤسسة الامام زين العابدين",
+            "العتبة الحسينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-zain-alabidin-institution-holds-fiqh-aqidah-exams-12.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     },
     {
         "id": 142,
-        "title": "text",
-        "image": {
-            "id": 142,
-            "path": "/gallery/image (136).JPG"
-        }
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تُجري امتحانات فقهية وعقائدية لمنتسبيها",
+        "description": "",
+        "date": "2025-04-29",
+        "tags": [
+            "امتحانات",
+            "مؤسسة الامام زين العابدين",
+            "العتبة الحسينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-zain-alabidin-institution-holds-fiqh-aqidah-exams-13.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     },
     {
         "id": 143,
-        "title": "text",
-        "image": {
-            "id": 143,
-            "path": "/gallery/image (137).JPG"
-        }
+        "title": "زيارة ممثل المرجعية الدينية العليا سماحة الشيخ عبد المهدي الكربلائي ورئيس مؤسسة الامام زين العابدين السيد غسان الخرسان الى سامراء وبغداد ",
+        "description": "تشرف ممثل المرجعية الدينية العليا سماحة الشيخ عبد المهدي الكربلائي دام توفيقه بزيارة مرقدي العسكريين (عليهما السلام) في مدينة سامراء المقدسة، ثم واصل زيارته إلى مرقد السيد محمد بن الإمام علي الهادي (عليه السلام)، وتوجه بعدها إلى زيارة مرقدي الإمامين الكاظمين (عليهما السلام) في الكاظمية المقدسة، مطلعاً على المشاريع العمرانية الجارية.",
+        "date": "2025-04-28",
+        "tags": [
+            "العتبة الحسينية",
+            "العتبة العسكرية",
+            "زيارات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/visit-samarra-karbalai-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 144,
-        "title": "text",
-        "image": {
-            "id": 144,
-            "path": "/gallery/image (138).JPG"
-        }
+        "title": "زيارة ممثل المرجعية الدينية العليا سماحة الشيخ عبد المهدي الكربلائي ورئيس مؤسسة الامام زين العابدين السيد غسان الخرسان الى سامراء وبغداد ",
+        "description": "",
+        "date": "2025-04-28",
+        "tags": [
+            "العتبة الحسينية",
+            "العتبة العسكرية",
+            "زيارات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/visit-samarra-karbalai-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 145,
-        "title": "text",
-        "image": {
-            "id": 145,
-            "path": "/gallery/image (139).JPG"
-        }
+        "title": "زيارة ممثل المرجعية الدينية العليا سماحة الشيخ عبد المهدي الكربلائي ورئيس مؤسسة الامام زين العابدين السيد غسان الخرسان الى سامراء وبغداد ",
+        "description": "",
+        "date": "2025-04-28",
+        "tags": [
+            "العتبة الحسينية",
+            "العتبة العسكرية",
+            "زيارات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/visit-samarra-karbalai-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 146,
-        "title": "text",
-        "image": {
-            "id": 146,
-            "path": "/gallery/image (140).JPG"
-        }
+        "title": "زيارة ممثل المرجعية الدينية العليا سماحة الشيخ عبد المهدي الكربلائي ورئيس مؤسسة الامام زين العابدين السيد غسان الخرسان الى سامراء وبغداد ",
+        "description": "",
+        "date": "2025-04-28",
+        "tags": [
+            "العتبة الحسينية",
+            "العتبة العسكرية",
+            "زيارات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/visit-samarra-karbalai-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 147,
-        "title": "text",
-        "image": {
-            "id": 147,
-            "path": "/gallery/image (141).JPG"
-        }
+        "title": "زيارة ممثل المرجعية الدينية العليا سماحة الشيخ عبد المهدي الكربلائي ورئيس مؤسسة الامام زين العابدين السيد غسان الخرسان الى سامراء وبغداد ",
+        "description": "",
+        "date": "2025-04-28",
+        "tags": [
+            "العتبة الحسينية",
+            "العتبة العسكرية",
+            "زيارات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/visit-samarra-karbalai-5.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 148,
-        "title": "text",
-        "image": {
-            "id": 148,
-            "path": "/gallery/image (142).JPG"
-        }
+        "title": "زيارة ممثل المرجعية الدينية العليا سماحة الشيخ عبد المهدي الكربلائي ورئيس مؤسسة الامام زين العابدين السيد غسان الخرسان الى سامراء وبغداد ",
+        "description": "",
+        "date": "2025-04-28",
+        "tags": [
+            "العتبة الحسينية",
+            "العتبة العسكرية",
+            "زيارات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/visit-samarra-karbalai-6.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 149,
-        "title": "text",
-        "image": {
-            "id": 149,
-            "path": "/gallery/image (143).JPG"
-        }
+        "title": "زيارة ممثل المرجعية الدينية العليا سماحة الشيخ عبد المهدي الكربلائي ورئيس مؤسسة الامام زين العابدين السيد غسان الخرسان الى سامراء وبغداد ",
+        "description": "",
+        "date": "2025-04-28",
+        "tags": [
+            "العتبة الحسينية",
+            "العتبة العسكرية",
+            "زيارات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/visit-samarra-karbalai-7.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 150,
-        "title": "text",
-        "image": {
-            "id": 150,
-            "path": "/gallery/image (144).JPG"
-        }
+        "title": "زيارة ممثل المرجعية الدينية العليا سماحة الشيخ عبد المهدي الكربلائي ورئيس مؤسسة الامام زين العابدين السيد غسان الخرسان الى سامراء وبغداد ",
+        "description": "",
+        "date": "2025-04-28",
+        "tags": [
+            "العتبة الحسينية",
+            "العتبة العسكرية",
+            "زيارات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/visit-samarra-karbalai-8.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 151,
-        "title": "text",
-        "image": {
-            "id": 151,
-            "path": "/gallery/image (145).JPG"
-        }
+        "title": "زيارة ممثل المرجعية الدينية العليا سماحة الشيخ عبد المهدي الكربلائي ورئيس مؤسسة الامام زين العابدين السيد غسان الخرسان الى سامراء وبغداد ",
+        "description": "",
+        "date": "2025-04-28",
+        "tags": [
+            "العتبة الحسينية",
+            "العتبة العسكرية",
+            "زيارات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/visit-samarra-karbalai-9.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 152,
-        "title": "text",
-        "image": {
-            "id": 152,
-            "path": "/gallery/image (146).JPG"
-        }
+        "title": "زيارة ممثل المرجعية الدينية العليا سماحة الشيخ عبد المهدي الكربلائي ورئيس مؤسسة الامام زين العابدين السيد غسان الخرسان الى سامراء وبغداد ",
+        "description": "",
+        "date": "2025-04-28",
+        "tags": [
+            "العتبة الحسينية",
+            "العتبة العسكرية",
+            "زيارات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/visit-samarra-karbalai-10.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 153,
-        "title": "text",
-        "image": {
-            "id": 153,
-            "path": "/gallery/image (147).JPG"
-        }
+        "title": "زيارة ممثل المرجعية الدينية العليا سماحة الشيخ عبد المهدي الكربلائي ورئيس مؤسسة الامام زين العابدين السيد غسان الخرسان الى سامراء وبغداد ",
+        "description": "",
+        "date": "2025-04-28",
+        "tags": [
+            "العتبة الحسينية",
+            "العتبة العسكرية",
+            "زيارات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/visit-samarra-karbalai-11.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 154,
-        "title": "text",
-        "image": {
-            "id": 154,
-            "path": "/gallery/image (148).JPG"
-        }
+        "title": "زيارة ممثل المرجعية الدينية العليا سماحة الشيخ عبد المهدي الكربلائي ورئيس مؤسسة الامام زين العابدين السيد غسان الخرسان الى سامراء وبغداد ",
+        "description": "",
+        "date": "2025-04-28",
+        "tags": [
+            "العتبة الحسينية",
+            "العتبة العسكرية",
+            "زيارات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/visit-samarra-karbalai-12.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 155,
-        "title": "text",
-        "image": {
-            "id": 155,
-            "path": "/gallery/image (149).JPG"
-        }
+        "title": "زيارة ممثل المرجعية الدينية العليا سماحة الشيخ عبد المهدي الكربلائي ورئيس مؤسسة الامام زين العابدين السيد غسان الخرسان الى سامراء وبغداد ",
+        "description": "",
+        "date": "2025-04-28",
+        "tags": [
+            "العتبة الحسينية",
+            "العتبة العسكرية",
+            "زيارات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/visit-samarra-karbalai-13.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 156,
-        "title": "text",
-        "image": {
-            "id": 156,
-            "path": "/gallery/image (150).JPG"
-        }
+        "title": "زيارة ممثل المرجعية الدينية العليا سماحة الشيخ عبد المهدي الكربلائي ورئيس مؤسسة الامام زين العابدين السيد غسان الخرسان الى سامراء وبغداد ",
+        "description": "",
+        "date": "2025-04-28",
+        "tags": [
+            "العتبة الحسينية",
+            "العتبة العسكرية",
+            "زيارات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/visit-samarra-karbalai-14.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 157,
-        "title": "text",
-        "image": {
-            "id": 157,
-            "path": "/gallery/image (151).JPG"
-        }
+        "title": "زيارة ممثل المرجعية الدينية العليا سماحة الشيخ عبد المهدي الكربلائي ورئيس مؤسسة الامام زين العابدين السيد غسان الخرسان الى سامراء وبغداد ",
+        "description": "",
+        "date": "2025-04-28",
+        "tags": [
+            "العتبة الحسينية",
+            "العتبة العسكرية",
+            "زيارات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/visit-samarra-karbalai-15.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
     },
     {
         "id": 158,
-        "title": "text",
-        "image": {
-            "id": 158,
-            "path": "/gallery/image (152).JPG"
-        }
+        "title": "استقبل السيد غسان الخرسان رئيس مؤسسة الامام زين العابدين (عليه السلام) الشيخ فيناي كيتاني مدير معهد الدراسات الشيعي في كندا",
+        "description": "وأكد الطرفان خلال اللقاء على أهمية تعزيز الشراكة بين المؤسستين، عبر إعداد مشاريع بحثية مشتركة، وإصدار كتب ودراسات تُثري الحوار الفكري والمعرفي وجرى خلال اللقاء بحث سبل التعاون المشترك في مجال البحوث والدراسات الإسلامية، بما يُسهم في إثراء المكتبة الدينية والعلمية. كما اطلع الضيف على أحدث إصدارات المؤسسة، معربًا عن إعجابه بمستواها العلمي والبحثي",
+        "date": "2025-04-27",
+        "tags": [
+            "استضافات",
+            "لقاءات",
+            "مقابلات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/meeting-director-shia-studies-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     },
     {
         "id": 159,
-        "title": "text",
-        "image": {
-            "id": 159,
-            "path": "/gallery/image (153).JPG"
-        }
+        "title": "استقبل السيد غسان الخرسان رئيس مؤسسة الامام زين العابدين (عليه السلام) الشيخ فيناي كيتاني مدير معهد الدراسات الشيعي في كندا",
+        "description": "",
+        "date": "2025-04-27",
+        "tags": [
+            "استضافات",
+            "لقاءات",
+            "مقابلات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/meeting-director-shia-studies-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     },
     {
         "id": 160,
-        "title": "text",
-        "image": {
-            "id": 160,
-            "path": "/gallery/image (154).JPG"
-        }
+        "title": "استقبل السيد غسان الخرسان رئيس مؤسسة الامام زين العابدين (عليه السلام) الشيخ فيناي كيتاني مدير معهد الدراسات الشيعي في كندا",
+        "description": "",
+        "date": "2025-04-27",
+        "tags": [
+            "استضافات",
+            "لقاءات",
+            "مقابلات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/meeting-director-shia-studies-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 161,
+        "title": "استقبل السيد غسان الخرسان رئيس مؤسسة الامام زين العابدين (عليه السلام) الشيخ فيناي كيتاني مدير معهد الدراسات الشيعي في كندا",
+        "description": "",
+        "date": "2025-04-27",
+        "tags": [
+            "استضافات",
+            "لقاءات",
+            "مقابلات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/meeting-director-shia-studies-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     },
     {
         "id": 162,
-        "title": "text",
-        "image": {
-            "id": 162,
-            "path": "/gallery/image (156).JPG"
-        }
+        "title": "استقبل السيد غسان الخرسان رئيس مؤسسة الامام زين العابدين (عليه السلام) الشيخ فيناي كيتاني مدير معهد الدراسات الشيعي في كندا",
+        "description": "",
+        "date": "2025-04-27",
+        "tags": [
+            "استضافات",
+            "لقاءات",
+            "مقابلات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/meeting-director-shia-studies-5.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     },
     {
         "id": 163,
-        "title": "text",
-        "image": {
-            "id": 163,
-            "path": "/gallery/image (157).JPG"
-        }
+        "title": "استقبل السيد غسان الخرسان رئيس مؤسسة الامام زين العابدين (عليه السلام) الشيخ فيناي كيتاني مدير معهد الدراسات الشيعي في كندا",
+        "description": "",
+        "date": "2025-04-27",
+        "tags": [
+            "استضافات",
+            "لقاءات",
+            "مقابلات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/meeting-director-shia-studies-6.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     },
     {
         "id": 164,
-        "title": "text",
-        "image": {
-            "id": 164,
-            "path": "/gallery/image (158).JPG"
-        }
+        "title": "استقبل السيد غسان الخرسان رئيس مؤسسة الامام زين العابدين (عليه السلام) الشيخ فيناي كيتاني مدير معهد الدراسات الشيعي في كندا",
+        "description": "",
+        "date": "2025-04-27",
+        "tags": [
+            "استضافات",
+            "لقاءات",
+            "مقابلات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/meeting-director-shia-studies-7.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 165,
+        "title": "استقبل السيد غسان الخرسان رئيس مؤسسة الامام زين العابدين (عليه السلام) الشيخ فيناي كيتاني مدير معهد الدراسات الشيعي في كندا",
+        "description": "",
+        "date": "2025-04-27",
+        "tags": [
+            "استضافات",
+            "لقاءات",
+            "مقابلات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/meeting-director-shia-studies-8.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 166,
+        "title": "استقبل السيد غسان الخرسان رئيس مؤسسة الامام زين العابدين (عليه السلام) الشيخ فيناي كيتاني مدير معهد الدراسات الشيعي في كندا",
+        "description": "",
+        "date": "2025-04-27",
+        "tags": [
+            "استضافات",
+            "لقاءات",
+            "مقابلات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/meeting-director-shia-studies-9.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 167,
+        "title": "استقبل السيد غسان الخرسان رئيس مؤسسة الامام زين العابدين (عليه السلام) الشيخ فيناي كيتاني مدير معهد الدراسات الشيعي في كندا",
+        "description": "",
+        "date": "2025-04-27",
+        "tags": [
+            "استضافات",
+            "لقاءات",
+            "مقابلات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/meeting-director-shia-studies-10.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 168,
+        "title": "استقبل السيد غسان الخرسان رئيس مؤسسة الامام زين العابدين (عليه السلام) الشيخ فيناي كيتاني مدير معهد الدراسات الشيعي في كندا",
+        "description": "",
+        "date": "2025-04-27",
+        "tags": [
+            "استضافات",
+            "لقاءات",
+            "مقابلات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/meeting-director-shia-studies-11.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 169,
+        "title": "استقبل السيد غسان الخرسان رئيس مؤسسة الامام زين العابدين (عليه السلام) الشيخ فيناي كيتاني مدير معهد الدراسات الشيعي في كندا",
+        "description": "",
+        "date": "2025-04-27",
+        "tags": [
+            "استضافات",
+            "لقاءات",
+            "مقابلات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/meeting-director-shia-studies-12.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 170,
+        "title": "استقبل السيد غسان الخرسان رئيس مؤسسة الامام زين العابدين (عليه السلام) الشيخ فيناي كيتاني مدير معهد الدراسات الشيعي في كندا",
+        "description": "",
+        "date": "2025-04-27",
+        "tags": [
+            "استضافات",
+            "لقاءات",
+            "مقابلات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/meeting-director-shia-studies-13.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 171,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "يأتي هذا الملتقى ضمن سلسلة جهود المؤسسة لإحياء التراث الإسلامي والتأكيد على مكانة البقيع كرمز تاريخي وديني، بمشاركة جهات أكاديمية ودينية متنوعة، بحضور الامين العام للعتبة الحسينية المقدسة وبمشاركة نخبة من فضلاء الحوزة العلمية المباركة، والباحثين والكتاب وخدام العتبات المقدسة والمزارات الشيعية والمؤسسات والمراكز الدينية",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 172,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 173,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 174,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 175,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-5.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 176,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-6.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 177,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-7.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 178,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-8.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 179,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-9.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 180,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-10.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 181,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-11.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 182,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-12.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 183,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-13.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 184,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-14.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 185,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-15.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 186,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-16.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 187,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-17.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 188,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-18.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 189,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-19.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 190,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-20.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 191,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-21.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 192,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-22.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 193,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-23.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 194,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-24.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 195,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-25.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 196,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-26.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 197,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-27.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 198,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-28.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 199,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-29.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 200,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-30.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 201,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-31.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 202,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-32.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 203,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-33.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 204,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-34.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 205,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-35.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 206,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-36.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 207,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-37.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 208,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-38.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 209,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-39.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 210,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-40.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 211,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-41.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 212,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-42.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 213,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-43.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 214,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-44.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 215,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-45.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 216,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-46.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 217,
+        "title": "ملتقى البقيع الثاني: الهوية والتاريخ  برعاية مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+        "description": "",
+        "date": "2025-04-11",
+        "tags": [
+            "العتبة العلوية",
+            "اجتماعات",
+            "محافل"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-report-47.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 218,
+        "title": "اجتماع حول اطلاق الملتقى العلمي الثاني",
+        "description": " يذكر أن الملتقى يهدف إلى إحياء التراث الإسلامي، وتعزيز الوعي الديني والثقافي بأهمية المقدسات الإسلامية، في إطار الجهود العلمية الرامية إلى الحفاظ على الهوية الحضارية للأماكن المقدسة، بمشاركة نخبة من طلبة الحوزة والباحثين المختصين البقيع: الهوية والتاريخ، النجف الأشرف - أعلنت مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات عن انطلاق فعاليات الملتقى الثاني تحت عنوان البقيع: الهوية والتاريخ، مؤسسة الإمام زين العابدين (ع) تطلق الملتقى العلمي الثاني",
+        "date": "2025-04-07",
+        "tags": [
+            "اجتماعات",
+            "فعاليات",
+            "التراث الاسلامي"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-1.jpeg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 219,
+        "title": "اجتماع حول اطلاق الملتقى العلمي الثاني",
+        "description": "",
+        "date": "2025-04-07",
+        "tags": [
+            "اجتماعات",
+            "فعاليات",
+            "التراث الاسلامي"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/second-scientific-forum-baqi-2.jpeg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 220,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تقيم مجلس عزاء بذكرى شهادة الإمام علي بن أبي طالب (عليه السلام)",
+        "description": "اقامت مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات، التابعة للعتبة الحسينية المقدسة، مجلس عزاء بمناسبة ذكرى شهادة الإمام علي بن أبي طالب (عليه السلام)، حيث ألقى الشيخ محمد الدكسن محاضرة دينية تناولت سيرة الإمام وفضائله العظيمة وتضحياته في سبيل تجسيد معالم الدين الحنيف",
+        "date": "2025-03-22",
+        "tags": [
+            "مجالس",
+            "عزاء",
+            "محاضرات دينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-ali-martyrdom-commemoration-1.jpeg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 221,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تقيم مجلس عزاء بذكرى شهادة الإمام علي بن أبي طالب (عليه السلام)",
+        "description": "",
+        "date": "2025-03-22",
+        "tags": [
+            "مجالس",
+            "عزاء",
+            "محاضرات دينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-ali-martyrdom-commemoration-2.jpeg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 222,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تقيم مجلس عزاء بذكرى شهادة الإمام علي بن أبي طالب (عليه السلام)",
+        "description": "",
+        "date": "2025-03-22",
+        "tags": [
+            "مجالس",
+            "عزاء",
+            "محاضرات دينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-ali-martyrdom-commemoration-3.jpeg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 223,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تقيم مجلس عزاء بذكرى شهادة الإمام علي بن أبي طالب (عليه السلام)",
+        "description": "",
+        "date": "2025-03-22",
+        "tags": [
+            "مجالس",
+            "عزاء",
+            "محاضرات دينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-ali-martyrdom-commemoration-4.jpeg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 224,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تقيم مجلس عزاء بذكرى شهادة الإمام علي بن أبي طالب (عليه السلام)",
+        "description": "",
+        "date": "2025-03-22",
+        "tags": [
+            "مجالس",
+            "عزاء",
+            "محاضرات دينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-ali-martyrdom-commemoration-5.jpeg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 225,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تقيم مجلس عزاء بذكرى شهادة الإمام علي بن أبي طالب (عليه السلام)",
+        "description": "",
+        "date": "2025-03-22",
+        "tags": [
+            "مجالس",
+            "عزاء",
+            "محاضرات دينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-ali-martyrdom-commemoration-6.jpeg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 226,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تقيم مجلس عزاء بذكرى شهادة الإمام علي بن أبي طالب (عليه السلام)",
+        "description": "",
+        "date": "2025-03-22",
+        "tags": [
+            "مجالس",
+            "عزاء",
+            "محاضرات دينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-ali-martyrdom-commemoration-7.jpeg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 227,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تقيم مجلس عزاء بذكرى شهادة الإمام علي بن أبي طالب (عليه السلام)",
+        "description": "",
+        "date": "2025-03-22",
+        "tags": [
+            "مجالس",
+            "عزاء",
+            "محاضرات دينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-ali-martyrdom-commemoration-8.jpeg",
+        "location": "",
+        "photographer": "",
+        "category": "مناسبات"
+    },
+    {
+        "id": 228,
+        "title": "وفد مؤسسة الامام زين العابدين (عليه السلام) في قم المقدسة لزيارة السيد موسى الشبيري الزنجاني",
+        "description": "في ختام الزيارة، أهدى الوفد بعضاً من إصدارات المؤسسة لسماحة السيد دام ظله، أبدى سماحة السيد تفاعلاً كبيراً مع الجهود المبذولة من قبل المؤسسة",
+        "date": "2025-02-27",
+        "tags": [
+            "زيارات",
+            "قم المقدسة"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/visit-sayyid-shubair-zanjani-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 229,
+        "title": "وفد مؤسسة الامام زين العابدين (عليه السلام) في قم المقدسة لزيارة السيد موسى الشبيري الزنجاني",
+        "description": "",
+        "date": "2025-02-27",
+        "tags": [
+            "زيارات",
+            "قم المقدسة"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/visit-sayyid-shubair-zanjani-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 230,
+        "title": "وفد مؤسسة الامام زين العابدين (عليه السلام) في قم المقدسة لزيارة السيد موسى الشبيري الزنجاني",
+        "description": "",
+        "date": "2025-02-27",
+        "tags": [
+            "زيارات",
+            "قم المقدسة"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/visit-sayyid-shubair-zanjani-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 231,
+        "title": "وفد مؤسسة الامام زين العابدين (عليه السلام) في قم المقدسة لزيارة السيد موسى الشبيري الزنجاني",
+        "description": "",
+        "date": "2025-02-27",
+        "tags": [
+            "زيارات",
+            "قم المقدسة"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/visit-sayyid-shubair-zanjani-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 232,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تستمر في تحقيق رياض السالكين",
+        "description": "مؤسسة الإمام زين العابدين (عليه السلام) تستمر في تحقيق رياض السالكين، يمثل تحقيق هذا الكتاب إضافةً علميةً بارزةً ويعزز الجهود المبذولة للحفاظ على التراث الإسلامي",
+        "date": "2025-02-13",
+        "tags": [
+            "تحقيق",
+            "التراث الاسلامي",
+            "رياض السالكين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/riadh-alsalkeen-post-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 233,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تستمر في تحقيق رياض السالكين",
+        "description": "",
+        "date": "2025-02-13",
+        "tags": [
+            "تحقيق",
+            "التراث الاسلامي",
+            "رياض السالكين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/riadh-alsalkeen-post-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 234,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تستمر في تحقيق رياض السالكين",
+        "description": "",
+        "date": "2025-02-13",
+        "tags": [
+            "تحقيق",
+            "التراث الاسلامي",
+            "رياض السالكين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/riadh-alsalkeen-post-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 235,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تستمر في تحقيق رياض السالكين",
+        "description": "",
+        "date": "2025-02-13",
+        "tags": [
+            "تحقيق",
+            "التراث الاسلامي",
+            "رياض السالكين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/riadh-alsalkeen-post-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 236,
+        "title": "ندوة علمية بعنوان: المبادئ الأخلاقية الإسلامية والمهارات اللينة في الأوساط الأكاديمية",
+        "description": "ندوة علمية تسلط الضوء على القيم الأخلاقية والمهارات اللينة المستخلصة من رسالة الحقوق للإمام زين العابدين (عليه السلام) ودورها في تطوير التعليم والمجتمع، حيث قام بالإلقاء الاستاذ الدكتور تقي العبدواني",
+        "date": "2025-01-06",
+        "tags": [
+            "لقاءات",
+            "استضافات",
+            "بحوث"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/scientific-seminar-ethical-values-soft-skills-academics-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 237,
+        "title": "ندوة علمية بعنوان: المبادئ الأخلاقية الإسلامية والمهارات اللينة في الأوساط الأكاديمية",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "لقاءات",
+            "استضافات",
+            "بحوث"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/scientific-seminar-ethical-values-soft-skills-academics-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 238,
+        "title": "ندوة علمية بعنوان: المبادئ الأخلاقية الإسلامية والمهارات اللينة في الأوساط الأكاديمية",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "لقاءات",
+            "استضافات",
+            "بحوث"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/scientific-seminar-ethical-values-soft-skills-academics-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 239,
+        "title": "ندوة علمية بعنوان: المبادئ الأخلاقية الإسلامية والمهارات اللينة في الأوساط الأكاديمية",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "لقاءات",
+            "استضافات",
+            "بحوث"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/scientific-seminar-ethical-values-soft-skills-academics-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 240,
+        "title": "ندوة علمية بعنوان: المبادئ الأخلاقية الإسلامية والمهارات اللينة في الأوساط الأكاديمية",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "لقاءات",
+            "استضافات",
+            "بحوث"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/scientific-seminar-ethical-values-soft-skills-academics-5.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 241,
+        "title": "ندوة علمية بعنوان: المبادئ الأخلاقية الإسلامية والمهارات اللينة في الأوساط الأكاديمية",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "لقاءات",
+            "استضافات",
+            "بحوث"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/scientific-seminar-ethical-values-soft-skills-academics-6.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 242,
+        "title": "ندوة علمية بعنوان: المبادئ الأخلاقية الإسلامية والمهارات اللينة في الأوساط الأكاديمية",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "لقاءات",
+            "استضافات",
+            "بحوث"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/scientific-seminar-ethical-values-soft-skills-academics-6.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 243,
+        "title": "ندوة علمية بعنوان: المبادئ الأخلاقية الإسلامية والمهارات اللينة في الأوساط الأكاديمية",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "لقاءات",
+            "استضافات",
+            "بحوث"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/scientific-seminar-ethical-values-soft-skills-academics-7.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 244,
+        "title": "ندوة علمية بعنوان: المبادئ الأخلاقية الإسلامية والمهارات اللينة في الأوساط الأكاديمية",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "لقاءات",
+            "استضافات",
+            "بحوث"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/scientific-seminar-ethical-values-soft-skills-academics-8.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 245,
+        "title": "ندوة علمية بعنوان: المبادئ الأخلاقية الإسلامية والمهارات اللينة في الأوساط الأكاديمية",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "لقاءات",
+            "استضافات",
+            "بحوث"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/scientific-seminar-ethical-values-soft-skills-academics-9.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 246,
+        "title": "ندوة علمية بعنوان: المبادئ الأخلاقية الإسلامية والمهارات اللينة في الأوساط الأكاديمية",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "لقاءات",
+            "استضافات",
+            "بحوث"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/scientific-seminar-ethical-values-soft-skills-academics-10.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "ندوات"
+    },
+    {
+        "id": 247,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تعقد ملتقى تشاوريًا مع نخبة من خطباء المنبر الحسيني بحضور سماحة الشيخ عبد المهدي الكربلائي",
+        "description": "تم التأكيد على أهمية تعزيز الخطاب الفكري والثقافي للمنبر الحسيني، والاهتمام بسيرة وتراث أئمة أهل البيت عليهم السلام، ناقش الملتقى سبل الارتقاء بالخطاب الفكري والثقافي للمنبر الحسيني، مع التركيز على سيرة وتراث أئمة أهل البيت عليهم السلام، وخاصة الإمام السجاد (عليه السلام)",
+        "date": "2025-01-06",
+        "tags": [
+            "العتبة الحسينية",
+            "مؤتمرات",
+            "لقاءات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/first-consultative-forum-husseini-orators-8.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 248,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تعقد ملتقى تشاوريًا مع نخبة من خطباء المنبر الحسيني بحضور سماحة الشيخ عبد المهدي الكربلائي",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "العتبة الحسينية",
+            "مؤتمرات",
+            "لقاءات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/first-consultative-forum-husseini-orators-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 249,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تعقد ملتقى تشاوريًا مع نخبة من خطباء المنبر الحسيني بحضور سماحة الشيخ عبد المهدي الكربلائي",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "العتبة الحسينية",
+            "مؤتمرات",
+            "لقاءات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/first-consultative-forum-husseini-orators-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 250,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تعقد ملتقى تشاوريًا مع نخبة من خطباء المنبر الحسيني بحضور سماحة الشيخ عبد المهدي الكربلائي",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "العتبة الحسينية",
+            "مؤتمرات",
+            "لقاءات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/first-consultative-forum-husseini-orators-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 251,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تعقد ملتقى تشاوريًا مع نخبة من خطباء المنبر الحسيني بحضور سماحة الشيخ عبد المهدي الكربلائي",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "العتبة الحسينية",
+            "مؤتمرات",
+            "لقاءات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/first-consultative-forum-husseini-orators-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 252,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تعقد ملتقى تشاوريًا مع نخبة من خطباء المنبر الحسيني بحضور سماحة الشيخ عبد المهدي الكربلائي",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "العتبة الحسينية",
+            "مؤتمرات",
+            "لقاءات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/first-consultative-forum-husseini-orators-5.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 253,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تعقد ملتقى تشاوريًا مع نخبة من خطباء المنبر الحسيني بحضور سماحة الشيخ عبد المهدي الكربلائي",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "العتبة الحسينية",
+            "مؤتمرات",
+            "لقاءات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/first-consultative-forum-husseini-orators-6.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 254,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تعقد ملتقى تشاوريًا مع نخبة من خطباء المنبر الحسيني بحضور سماحة الشيخ عبد المهدي الكربلائي",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "العتبة الحسينية",
+            "مؤتمرات",
+            "لقاءات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/first-consultative-forum-husseini-orators-7.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 255,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تعقد ملتقى تشاوريًا مع نخبة من خطباء المنبر الحسيني بحضور سماحة الشيخ عبد المهدي الكربلائي",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "العتبة الحسينية",
+            "مؤتمرات",
+            "لقاءات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/first-consultative-forum-husseini-orators-9.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 256,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تعقد ملتقى تشاوريًا مع نخبة من خطباء المنبر الحسيني بحضور سماحة الشيخ عبد المهدي الكربلائي",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "العتبة الحسينية",
+            "مؤتمرات",
+            "لقاءات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/first-consultative-forum-husseini-orators-10.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 257,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تعقد ملتقى تشاوريًا مع نخبة من خطباء المنبر الحسيني بحضور سماحة الشيخ عبد المهدي الكربلائي",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "العتبة الحسينية",
+            "مؤتمرات",
+            "لقاءات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/first-consultative-forum-husseini-orators-11.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 258,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تعقد ملتقى تشاوريًا مع نخبة من خطباء المنبر الحسيني بحضور سماحة الشيخ عبد المهدي الكربلائي",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "العتبة الحسينية",
+            "مؤتمرات",
+            "لقاءات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/first-consultative-forum-husseini-orators-12.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 259,
+        "title": "مؤسسة الإمام زين العابدين (عليه السلام) تعقد ملتقى تشاوريًا مع نخبة من خطباء المنبر الحسيني بحضور سماحة الشيخ عبد المهدي الكربلائي",
+        "description": "",
+        "date": "2025-01-06",
+        "tags": [
+            "العتبة الحسينية",
+            "مؤتمرات",
+            "لقاءات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/first-consultative-forum-husseini-orators-13.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 260,
+        "title": "زيارة سماحة الشيخ عبد المهدي الكربلائي الى مركز زرع الكبد وأمراض الجهاز الهضمي",
+        "description": "بالصور: زيارة تفقدية لممثل المرجعية العليا إلى مركز زرع الكبد وأمراض الجهاز الهضمي في كربلاء",
+        "date": "2025-9-14",
+        "tags": [
+            "مستشفيات",
+            "مراكز",
+            "الصحة"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758345467/news-ataba-32.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 261,
+        "title": "زيارة سماحة الشيخ عبد المهدي الكربلائي الى مركز زرع الكبد وأمراض الجهاز الهضمي",
+        "description": "",
+        "date": "2025-9-14",
+        "tags": [
+            "مستشفيات",
+            "مراكز",
+            "الصحة"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758345467/news-ataba-32-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 262,
+        "title": "زيارة سماحة الشيخ عبد المهدي الكربلائي الى مركز زرع الكبد وأمراض الجهاز الهضمي",
+        "description": "",
+        "date": "2025-9-14",
+        "tags": [
+            "مستشفيات",
+            "مراكز",
+            "الصحة"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758345467/news-ataba-32-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 263,
+        "title": "زيارة سماحة الشيخ عبد المهدي الكربلائي الى مركز زرع الكبد وأمراض الجهاز الهضمي",
+        "description": "",
+        "date": "2025-9-14",
+        "tags": [
+            "مستشفيات",
+            "مراكز",
+            "الصحة"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758345467/news-ataba-32-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 264,
+        "title": "زيارة سماحة الشيخ عبد المهدي الكربلائي الى مركز زرع الكبد وأمراض الجهاز الهضمي",
+        "description": "",
+        "date": "2025-9-14",
+        "tags": [
+            "مستشفيات",
+            "مراكز",
+            "الصحة"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758345467/news-ataba-32-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 265,
+        "title": "زيارة وفد مؤسسة الامام زين العابدين (عليه السلام) برئاسة السيد غسان الخرسان الى جامعة واسط",
+        "description": "زيارة تهدف للتعاون مع جامعة واسط لتنظيم المؤتمر العلمي الأول للمؤسسة، تشكل هذه الشراكة خطوة مهمة نحو إنجاح المؤتمر وتعزيز البحث العلمي المشترك",
+        "date": "2024-02-20",
+        "tags": [
+            "الجامعات العراقية",
+            "مؤتمرات",
+            "زيارات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/conference-prep-visit-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 266,
+        "title": "وفد علمائي يمني يزور المؤسسة",
+        "description": "أشاد الوفد بدور المؤسسة في الحفاظ على التراث الإسلامي، معبرين عن أملهم في تعزيز الشراكة المستقبلية، اطلع الوفد على إنجازات المؤسسة في تحقيق تراث الإمام زين العابدين، وتم مناقشة إمكانية التعاون لإحياء المخطوطات التراثية اليمنية، استقبلت مؤسسة الإمام زين العابدين وفداً علمائياً من اليمن برئاسة السيد محمد عبدالعظيم الحوث",
+        "date": "2024-04-30",
+        "tags": [
+            "استضافات",
+            "استقبال",
+            "لقاءات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/yemeni-scholars-visit-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 267,
+        "title": "مشروع موسوعة علمية عن تراث الإمام",
+        "description": "يمثل المشروع إنجازاً علمياً مهماً يعزز البحث في التراث الإسلامي ويحفّز مزيداً من الدراسات المستقبلية، يشرف على المشروع الشيخ ستار الجيزاني ويديره الدكتور مصطفى الإبراهيمي، بمشاركة خبراء من الحوزة العلمية وأساتذة الجامعات",
+        "date": "2024-04-30",
+        "tags": [
+            "مشاريع",
+            "التراث الاسلامي",
+            "الحوزة العلمية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/scientific-encyclopedia-project-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 268,
+        "title": "منصة علمية تقدم محاضرات نصف شهرية تعزز النقاشات الأكاديمية حول التراث الإسلامي",
+        "description": "تعد المنصة العلمية مساحة للتبادل الفكري والنقاش المثمر، مما يعزز دور المؤسسة في دعم البحث العلمي، تقدم المحاضرات باحثون متخصصون من الحوزة العلمية والجامعات، وتهدف إلى تعزيز البحث الأكاديمي وفتح باب النقاش لتطوير الأفكار",
+        "date": "2024-06-12",
+        "tags": [
+            "محاضرات",
+            "الحوزة العلمية",
+            "بحوث"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/scientific-platform-project-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 269,
+        "title": "اجتماع رئيس المؤسسةالسيد غسان الخرسان بكادر مؤسسة الامام زين العابدين (عليه السلام)",
+        "description": "تُظهر هذه الاجتماعات أهمية التواصل الدوري في تعزيز الانتماء وروح العمل الجماعي، جمع اللقاء العاملين والمنتسبين لمناقشة مستجدات العمل، استعراض المشاريع القائمة، وتوصيل الرسائل الضرورية",
+        "date": "2024-07-09",
+        "tags": [
+            "لقاءات",
+            "اجتماعات",
+            "مؤسسة الامام زين العابدين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/institution-meeting-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 270,
+        "title": "اجتماع اللجنة العلمية لمتابعة تحضيرات المؤتمر وضمان جودة الأبحاث المقدمة",
+        "description": "عقدت اللجنة العلمية لمؤتمر الإمام زين العابدين اجتماعاً في مقر المؤسسة، يبرز الاجتماع الالتزام بتحقيق مؤتمر علمي يعكس جودة وتميز البحث الأكاديمي، تمت مناقشة مستجدات التحضيرات العلمية، تقييم جودة الأبحاث المقدمة، والاهتمام بالجوانب المضمونية والشكلية",
+        "date": "2024-07-20",
+        "tags": [
+            "اجتماعات",
+            "لقاءات",
+            "مؤتمرات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/scientific-committee-meeting-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "نشاطات"
+    },
+    {
+        "id": 271,
+        "title": "مستشفى الثقلين لعلاج الاورام في البصرة التابع للعتبة الحسينية",
+        "description": "تؤكد هذه الخطط الطموحة أن مستشفى الثقلين لعلاج الأورام في محافظة البصرة، التابع لهيئة الصحة والتعليم الطبي يسير بخطى ثابتة نحو بناء منظومة طبية متخصصة تلبي حاجة المرضى في الجنوب العراقي، وتخفف من أعباء السفر للعلاج خارج البلاد، في ظل بيئة علاجية متكاملة تراعي المعايير العالمية في السلامة والجودة، وهو ما يشكل امتدادا لرسالة العتبة الحسينية المقدسة في دعم القطاع الصحي الوطني وتعزيز العدالة الصحية لكافة الشرائح",
+        "date": "2025-04-21",
+        "tags": [
+            "مستشفيات",
+            "الصحة",
+            "العتبة الحسينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758345467/news-ataba-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 272,
+        "title": "مستشفى الثقلين لعلاج الاورام في البصرة التابع للعتبة الحسينية",
+        "description": "",
+        "date": "2025-04-21",
+        "tags": [
+            "مستشفيات",
+            "الصحة",
+            "العتبة الحسينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758345467/news-ataba-1-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 273,
+        "title": "مستشفى الثقلين لعلاج الاورام في البصرة التابع للعتبة الحسينية",
+        "description": "",
+        "date": "2025-04-21",
+        "tags": [
+            "مستشفيات",
+            "الصحة",
+            "العتبة الحسينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758345467/news-ataba-1-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 274,
+        "title": "مستشفى الثقلين لعلاج الاورام في البصرة التابع للعتبة الحسينية",
+        "description": "",
+        "date": "2025-04-21",
+        "tags": [
+            "مستشفيات",
+            "الصحة",
+            "العتبة الحسينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758345467/news-ataba-1-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 275,
+        "title": "مستشفى الثقلين لعلاج الاورام في البصرة التابع للعتبة الحسينية",
+        "description": "",
+        "date": "2025-04-21",
+        "tags": [
+            "مستشفيات",
+            "الصحة",
+            "العتبة الحسينية"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758345467/news-ataba-1-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 276,
+        "title": "العتبة الحسينية تؤمن مياه الشرب في عدة محافظات عراقية",
+        "description": "حيث تواصل العتبة جهودها لتوفير الماء النقي لأهالي كربلاء والبصرة، مع خطط للتوسع في محافظات أخرى، في إطار رؤية خدمية تنموية تضع صحة الإنسان وكرامته في صدارة الاهتمام، تحت شعار (اذكروا عطش الامام الحسين (عليه السلام))",
+        "date": "2025-04-21",
+        "tags": [
+            "العتبة الحسينية",
+            "محافظات العراق",
+            "خدمات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758345467/news-ataba-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 277,
+        "title": "  سماحة الشيخ عبد المهدي الكربلائي يشرف على مراحل إنجاز مشروع سرداب باب قبلة الإمام الحسين (ع)",
+        "description": "بالصور: ضمن متابعاته الميدانية.. ممثل المرجعية العليا يطلع على مراحل إنجاز مشروع سرداب باب قبلة الإمام الحسين (ع)",
+        "date": "2025-04-21",
+        "tags": [
+            "مشاريع",
+            "العتبة الحسينية",
+            "انجازات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758345467/news-ataba-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 278,
+        "title": "  سماحة الشيخ عبد المهدي الكربلائي يشرف على مراحل إنجاز مشروع سرداب باب قبلة الإمام الحسين (ع)",
+        "description": "",
+        "date": "2025-04-21",
+        "tags": [
+            "مشاريع",
+            "العتبة الحسينية",
+            "انجازات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758345467/news-ataba-3-1.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 279,
+        "title": "  سماحة الشيخ عبد المهدي الكربلائي يشرف على مراحل إنجاز مشروع سرداب باب قبلة الإمام الحسين (ع)",
+        "description": "",
+        "date": "2025-04-21",
+        "tags": [
+            "مشاريع",
+            "العتبة الحسينية",
+            "انجازات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758345467/news-ataba-3-2.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 280,
+        "title": "  سماحة الشيخ عبد المهدي الكربلائي يشرف على مراحل إنجاز مشروع سرداب باب قبلة الإمام الحسين (ع)",
+        "description": "",
+        "date": "2025-04-21",
+        "tags": [
+            "مشاريع",
+            "العتبة الحسينية",
+            "انجازات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758345467/news-ataba-3-3.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 281,
+        "title": "  سماحة الشيخ عبد المهدي الكربلائي يشرف على مراحل إنجاز مشروع سرداب باب قبلة الإمام الحسين (ع)",
+        "description": "",
+        "date": "2025-04-21",
+        "tags": [
+            "مشاريع",
+            "العتبة الحسينية",
+            "انجازات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758345467/news-ataba-3-4.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 282,
+        "title": "  سماحة الشيخ عبد المهدي الكربلائي يشرف على مراحل إنجاز مشروع سرداب باب قبلة الإمام الحسين (ع)",
+        "description": "",
+        "date": "2025-04-21",
+        "tags": [
+            "مشاريع",
+            "العتبة الحسينية",
+            "انجازات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758345467/news-ataba-3-5.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 283,
+        "title": "  سماحة الشيخ عبد المهدي الكربلائي يشرف على مراحل إنجاز مشروع سرداب باب قبلة الإمام الحسين (ع)",
+        "description": "",
+        "date": "2025-04-21",
+        "tags": [
+            "مشاريع",
+            "العتبة الحسينية",
+            "انجازات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758345467/news-ataba-3-6.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 284,
+        "title": "مركز دولي تابع للعتبة الحسينية يفتتح مشاريع دينية وخدمية في مدينة (دالوا) بساحل العاج",
+        "description": "افتتح مركز أصحاب الكساء (عليهم السلام) للإرشاد الدولي، التابع للعتبة الحسينية المقدسة، مجموعة من المشاريع في مدينة (دالوا) بدولة ساحل العاج بالتعاون مع اهل الخير، وذلك في إطار الجهود المستمرة للمركز لنشر التعاليم الإسلامية وتعزيز القيم الإنسانية",
+        "date": "2024-03-13",
+        "tags": [
+            "افتتاح",
+            "العتبة الحسينية",
+            "مشاريع"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/ivory-coast-projects.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 285,
+        "title": "برامج دينية داخل السجون العراقية",
+        "description": "يأتي هذا المشروع تزامنًا مع شهر رمضان لتعزيز القيم الأخلاقية والدينية بين النزلاء، تشمل البرامج محاضرات دينية وتوعوية تهدف إلى تقويم السجناء وإعادة تأهيلهم للمجتمع، ضمن برامجها الإصلاحية، أطلقت العتبة الحسينية برامج دينية داخل السجون العراقية ومراكز مدمني المخدرات",
+        "date": "2024-03-13",
+        "tags": [
+            "محاضرات دينية",
+            "السجون العراقية",
+            "حملة الاصلاح"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/prison-reform-programs.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 286,
+        "title": "استقبل سماحة الشيخ عبد المهدي الكربلائي الطبيب محمد طاهر بعد عودته من غزة",
+        "description": "الطبيب العراقي محمد طاهر يصف غزة بكربلاء الحديثة بعد عودته من مهمته الإنسانية",
+        "date": "2024-03-13",
+        "tags": [
+            "استضافات",
+            "استقبال",
+            "العتبة الحسينية",
+            "فلسطين"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/iraqi-doctor-gaza.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 287,
+        "title": "بحضور الامين العام للعتبة الحسينية المقدسة الحاج حسن رشيد (دام توفيقه) قامت العتبة الحسينية المقدسة بتكريم الفائزين بجائزة غزة للقصة القصيرة",
+        "description": "المسابقة تأتي ضمن جهود العتبة لدعم القضايا الإنسانية عبر الفن والأدب، تهدف الجائزة إلى تسليط الضوء على معاناة غزة من خلال الأعمال الأدبية، وتشجيع الكتاب الشباب على الإبداع",
+        "date": "2024-03-13",
+        "tags": [
+            "العتبة الحسينية",
+            "جوائز",
+            "غزة"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/gaza-short-story-award.jpg",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
+    },
+    {
+        "id": 288,
+        "title": "اطلاق مبادرة علاجية مجانية في مستشفى الإمام زين العابدين",
+        "description": "العتبة الحسينية تطلق مبادرة علاجية مجانية بمستشفى الإمام زين العابدين بمناسبة حلول رمضان",
+        "date": "2024-03-13",
+        "tags": [
+            "مستشفيات",
+            "العتبةالحسينية",
+            "علاج مجاني",
+            "مبادرات"
+        ],
+        "url": "https://res.cloudinary.com/dqgyfn4bh/image/upload/v1758346796/imam-zain-hospital-initiative.png",
+        "location": "",
+        "photographer": "",
+        "category": "اخبار"
     }
 ]
