@@ -3,20 +3,14 @@
 @tailwind utilities;
 
 html {
-  @apply m-0 p-0 w-full;
-  transition: background 0.3s ease, color 0.3s ease;
+	@apply m-0 p-0 w-full;
+	transition: background 0.3s ease, color 0.3s ease;
 }
 
 html.dark {
-  background-color: white !important;
-  color: inherit !important;
+	background-color: white !important;
+	color: inherit !important;
 }
-
-
-
-
-
-
 
 .image-mask {
 	mask-repeat: no-repeat;
@@ -39,7 +33,7 @@ html.dark {
 	height: 150vh;
 	width: 100%;
 	mask-size: cover;
-	mask-image: url("/shapes/button-bg.svg") ;
+	mask-image: url("/shapes/button-bg.svg");
 }
 
 .section-container {
@@ -55,24 +49,22 @@ html.dark {
 }
 
 .tooltip {
-  @apply invisible absolute rounded-xl shadow-lg p-1 bg-white text-[var(--color-primary)] -mt-8;
+	@apply invisible absolute rounded-xl shadow-lg p-1 bg-white text-[var(--color-primary)] -mt-8;
 }
 
 .has-tooltip:hover .tooltip {
-  @apply visible z-50 text-[var(--color-secondary)];
+	@apply visible z-50 text-[var(--color-secondary)];
 }
-
-
 
 .swiper-button-next,
 .swiper-button-prev {
-  color: #bb9661; 
-  transition: color 0.3s ease;
+	color: #bb9661;
+	transition: color 0.3s ease;
 }
 
 .dark .swiper-button-next,
 .dark .swiper-button-prev {
-  color: #a43232; 
+	color: #a43232;
 }
 
 .arabic-list {
@@ -83,18 +75,17 @@ html.dark {
 	padding-right: 1rem;
 }
 .custom-gradient {
-  transition: background 0.5s ease-in-out;
+	transition: background 0.5s ease-in-out;
 }
 
 .dark .custom-gradient {
-  background: linear-gradient(
-    0deg,
-    rgba(128, 0, 32, 1) 0%,       
-    rgba(128, 0, 32, 1) 0%,
-    rgba(128, 0, 32, 0) 50%
-  ) !important;
+	background: linear-gradient(
+		0deg,
+		rgba(128, 0, 32, 1) 0%,
+		rgba(128, 0, 32, 1) 0%,
+		rgba(128, 0, 32, 0) 50%
+	) !important;
 }
-
 
 .arabic-list li {
 	counter-increment: arabic-counter;
@@ -122,16 +113,20 @@ html.dark {
 	animation: float 3s ease-in-out infinite;
 }
 .media-background-creative {
-  background: linear-gradient(110deg, #000000 0% ,#006654 220%,#bb9661 600%);
-  position: relative;
-  overflow: hidden;
+	background: linear-gradient(110deg, #000000 0%, #006654 220%, #bb9661 600%);
+	position: relative;
+	overflow: hidden;
 }
 
 .media-background-creative::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.03"/></svg>') repeat;
-  z-index: 1;
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	pointer-events: none;
+	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.03"/></svg>')
+		repeat;
+	z-index: 1;
 }
