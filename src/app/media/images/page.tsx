@@ -399,7 +399,7 @@ export default function GalleryPage() {
                   alt={selectedImage.title}
                   width={1200}
                   height={800}
-                  className="max-w-full max-h-full object-contain rounded-lg"
+                  className="max-w-full lg:max-h-[50vh] xl:max-h-[55vh] 2xl:max-h-[60vh] object-contain rounded-lg"
                   priority
                 />
                
