@@ -16,11 +16,11 @@ export default function Page() {
       description:
         "مسابقة تهدف إلى إحياء فن الخط العربي وتطوير مهارات الخطاطين في كتابة النصوص التراثية",
       category: "فنية",
-      deadline: " ٥ /٣ / ٢٠٢٦م",
+      deadline: "2025/4/11 م",
       participants: "غير محدد",
       prize: " 3,000,000 دينار عراقي",
       status: "active",
-      duration: "11 شهر",
+      duration: "2026/3/5 م",
       link: "/contests/khat",
       image: "/contests/khat/landing.jpg",
     },
@@ -31,7 +31,7 @@ export default function Page() {
       description:
         "مسابقة بحثية تركز على دراسة وتحليل التراث الإسلامي في القرن الخامس عشر الهجري",
       category: "بحثية",
-      deadline: "15 رمضان 1447هـ",
+      deadline: "2025/4/10 م",
       participants: "غير محدد",
       prize: " 2,000,000 دينار عراقي",
       status: "active",
