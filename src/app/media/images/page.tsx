@@ -1,4 +1,5 @@
 "use client";
+import { Suspense } from "react";
 
 import { useState, useCallback, useEffect, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
@@ -20,20 +21,28 @@ import {
   FiInfo,
 } from "react-icons/fi";
 
-export default function GalleryPage() {
+function GalleryClient() {
   const searchParams = useSearchParams();
   const categoryFromUrl = searchParams.get("category");
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [activeCategory, setActiveCategory] = useState(categoryFromUrl || "جميع الصور");
+  const [activeCategory, setActiveCategory] = useState(
+    categoryFromUrl || "جميع الصور"
+  );
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("newest");
   const [selectedImage, setSelectedImage] = useState<Gallery | null>(null);
   const [isFilterOpen, setIsFilterOpen] = useState(!!categoryFromUrl); // فتح الفلاتر إذا كانت هناك فئة من URL
 
-  const categories = ["جميع الصور","نشاطات","ندوات", "مناسبات", "مسابقات", "اخبار"];
+  const categories = [
+    "جميع الصور",
+    "نشاطات",
+    "ندوات",
+    "مناسبات",
+    "مسابقات",
+    "اخبار",
+  ];
 
-  // Prepare images from JSON
   const allImages = useMemo(
     () =>
       galleryImages.map((item) => ({
@@ -80,10 +89,10 @@ export default function GalleryPage() {
       const query = searchQuery.toLowerCase().trim();
       result = result.filter((img) => {
         return (
-          img.tags.some((tag) => tag.toLowerCase().includes(query))||
+          img.tags.some((tag) => tag.toLowerCase().includes(query)) ||
           img.title.toLowerCase().includes(query) ||
           img.description.toLowerCase().includes(query) ||
-          img.location?.toLowerCase().includes(query) 
+          img.location?.toLowerCase().includes(query)
         );
       });
     }
@@ -360,53 +369,51 @@ export default function GalleryPage() {
         </div>
 
         {/* Lightbox - keeping the same as original */}
-       {lightboxOpen && selectedImage && (
+        {lightboxOpen && selectedImage && (
           <div
             className="fixed inset-0 bg-black/50 backdrop-blur-md  z-50 flex items-center justify-center p-4 animate-fade-in"
             onClick={(e) => e.target === e.currentTarget && closeLightbox()}
           >
             <div className=" w-full lg:w-4/5 felx items-center justify-center  h-[64vh] flex gap-6">
               {/* Image section */}
-    <div>
+              <div>
                 <div className="relative flex-1 flex items-center justify-center bg-gray-900/30 rounded-2xl overflow-hidden p-4">
-                {/* Close button */}
-                <button
-                  className="absolute top-4 left-4 w-12 h-12 bg-gray-900/80 rounded-full flex items-center justify-center z-50 hover:bg-red-600 transition-all hover:scale-110"
-                  onClick={closeLightbox}
-                >
-                  <FiX color="#006654" size={24} />
-                </button>
+                  {/* Close button */}
+                  <button
+                    className="absolute top-4 left-4 w-12 h-12 bg-gray-900/80 rounded-full flex items-center justify-center z-50 hover:bg-red-600 transition-all hover:scale-110"
+                    onClick={closeLightbox}
+                  >
+                    <FiX color="#006654" size={24} />
+                  </button>
 
-                {/* Prev button */}
-                <button
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-gray-900/80 rounded-full hidden md:flex items-center justify-center z-50 hover:bg-primary transition-all hover:scale-110"
-                  onClick={() => navigateImage("prev")}
-                >
-                  <span className="text-2xl">←</span>
-                </button>
+                  {/* Prev button */}
+                  <button
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-gray-900/80 rounded-full hidden md:flex items-center justify-center z-50 hover:bg-primary transition-all hover:scale-110"
+                    onClick={() => navigateImage("prev")}
+                  >
+                    <span className="text-2xl">←</span>
+                  </button>
 
-                {/* Next button */}
-                <button
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-gray-900/80 rounded-full hidden md:flex items-center justify-center z-50 hover:bg-primary transition-all hover:scale-110"
-                  onClick={() => navigateImage("next")}
-                >
-                  <span className="text-2xl">→</span>
-                </button>
+                  {/* Next button */}
+                  <button
+                    className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-gray-900/80 rounded-full hidden md:flex items-center justify-center z-50 hover:bg-primary transition-all hover:scale-110"
+                    onClick={() => navigateImage("next")}
+                  >
+                    <span className="text-2xl">→</span>
+                  </button>
 
-                {/* Main image */}
-                <Image
-                  src={selectedImage.url}
-                  alt={selectedImage.title}
-                  width={1200}
-                  height={800}
-                  className="max-w-full lg:max-h-[50vh] xl:max-h-[55vh] 2xl:max-h-[60vh] object-contain rounded-lg"
-                  priority
-                />
-               
-               
-              </div>
+                  {/* Main image */}
+                  <Image
+                    src={selectedImage.url}
+                    alt={selectedImage.title}
+                    width={1200}
+                    height={800}
+                    className="max-w-full lg:max-h-[50vh] xl:max-h-[55vh] 2xl:max-h-[60vh] object-contain rounded-lg"
+                    priority
+                  />
+                </div>
 
-   <div className="md:flex gap-2 mt-4 lg:mt-0 hidden  justify-center">
+                <div className="md:flex gap-2 mt-4 lg:mt-0 hidden  justify-center">
                   {relatedImages.map((img) => (
                     <div
                       key={img.id}
@@ -427,7 +434,7 @@ export default function GalleryPage() {
                     </div>
                   ))}
                 </div>
-    </div>
+              </div>
 
               {/* Details section */}
               <div className="lg:w-4/12  bg-gray-900/80 backdrop-blur-lg hidden lg:block rounded-2xl p-6 overflow-y-auto max-h-[64vh]">
@@ -507,5 +514,19 @@ export default function GalleryPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function Page() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-[60vh] flex items-center justify-center text-white">
+          جاري تحميل معرض الصور...
+        </div>
+      }
+    >
+      <GalleryClient />
+    </Suspense>
   );
 }
