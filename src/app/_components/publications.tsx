@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import HeaderSections from "@/components/header-sections"
 import Image from "next/image"
@@ -13,14 +13,36 @@ export default function Publications({
 }: {
 	publications: Book[]
 }) {
-	const width = window.innerWidth
-	const [booksToShow] = useState(() => {
+	
+	const getResponsiveBooksCount = (): number => {
+		if (typeof window === 'undefined') return 10
+
+		const width = window.innerWidth
+
 		if (width >= 1280) return 10
 		else if (width >= 1024) return 8
 		else if (width >= 768) return 6
 		else if (width >= 640) return 4
 		else return 2
-	})
+	}
+
+	const [booksToShow, setBooksToShow] = useState<number>(10)
+
+	useEffect(() => {
+		if (typeof window === 'undefined') return
+
+		const updateBooksToShow = () => {
+			setBooksToShow(getResponsiveBooksCount())
+		}
+
+		// تحديث فوري عند التحميل
+		updateBooksToShow()
+
+		// الاستماع لتغيير حجم الشاشة
+		window.addEventListener("resize", updateBooksToShow)
+
+		return () => window.removeEventListener("resize", updateBooksToShow)
+	}, [])
 
 	const parentVariants = {
 		rest: { scale: 1 },
@@ -35,6 +57,7 @@ export default function Publications({
 			transition: { duration: 0.3 },
 		},
 	}
+
 	return (
 		<div className="container w-full flex flex-col items-center pt-20">
 			<div className="flex w-full items-center justify-between my-8">
