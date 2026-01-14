@@ -89,10 +89,12 @@ export default async function Layout({
               ))}
             </nav>
           </div>
+
           <DictionarySubjects
             subjects={activeDictionary.subjects}
             collectionSlug={collectionSlug}
             dictionarySlug={dictionarySlug}
+            dictionaryTitle={activeDictionary.title} 
           />
         </aside>
 
@@ -102,12 +104,12 @@ export default async function Layout({
             <h1 className="text-title font-bold text-primary dark:text-Muharram_primary mb-3">
               {config.title}
             </h1>
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="text-gray-700 dark:text-gray-300 text-note leading-relaxed">
               {config.description}
             </p>
           </div>
 
-          <Section id={dictionarySlug} title={activeDictionary.title} />
+          <Section  id={dictionarySlug} title={activeDictionary.title} />
 
           {children}
         </main>
