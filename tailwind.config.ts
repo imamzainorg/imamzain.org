@@ -12,22 +12,24 @@ export default {
 	],
 	theme: {
 		container: {
-			padding: {
-				md: "1rem",
-				lg: "4rem",
-				xl: "5rem",
-				"2xl": "6rem",
-				
-			},
-			      screens: {
-        sm: "640px",    
-        md: "768px",
-        lg: "1024px",
-        xl: "1280px",
-        "2xl": "1400px",
-	  "3xl": "1700px",
-	  "4xl": "2000px",
-      },
+	  
+    padding: {
+      md: "1rem",
+      lg: "4rem",
+      xl: "5rem",
+      "2xl": "6rem",
+      "3xl": "7rem",
+      "4xl": "8rem",
+    },
+	  screens: {
+    sm: "350px",
+    md: "768px",
+    lg: "1024px",
+    xl: "1280px",
+    "2xl": "1400px",
+    "3xl": "1700px",
+    "4xl": "2000px",
+  },
 		},
 
 		extend: {
