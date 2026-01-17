@@ -14,6 +14,7 @@ export default {
 		container: {
 	  
     padding: {
+	sm: "2rem",
       md: "1rem",
       lg: "4rem",
       xl: "5rem",
@@ -22,7 +23,8 @@ export default {
       "4xl": "8rem",
     },
 	  screens: {
-    sm: "350px",
+    sm: "360px",
+    xsm: "550px",
     md: "768px",
     lg: "1024px",
     xl: "1280px",
