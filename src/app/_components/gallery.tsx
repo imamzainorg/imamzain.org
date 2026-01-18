@@ -201,7 +201,7 @@ export default function GallerySection() {
                     className="group relative"
                   >
                     <motion.div
-                      className="relative h-72 w-full overflow-hidden rounded-3xl"
+                      className="relative h-32  md:h-72 w-full overflow-hidden rounded-3xl"
                       whileHover={{ y: -8 }}
                       transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
@@ -227,7 +227,7 @@ export default function GallerySection() {
 
                         {/* طبقة تغطية متدرجة */}
                         <div
-                          className={`absolute inset-0 bg-gradient-to-t ${meta.color}
+                          className={`absolute inset-0 hidden  bg-gradient-to-t ${meta.color}
                                    via-black/60 to-transparent opacity-50
                                    group-hover:opacity-90 transition-opacity duration-700`}
                         />
@@ -259,7 +259,7 @@ export default function GallerySection() {
                           animate={isHovered ? { y: 0 } : { y: 100 }}
                           transition={{ type: "spring", stiffness: 200, damping: 25 }}
                         >
-                          <div className={`bg-gradient-to-t ${meta.gradient} to-transparent rounded-2xl p-5 backdrop-blur-sm`}>
+                          <div className={`md:bg-gradient-to-t ${meta.gradient} md:to-transparent md:rounded-2xl md:p-5 md:backdrop-blur-sm`}>
                             {/* خط زخرفي */}
                             <motion.span
                               className="block h-1 w-12 mb-3 rounded-full bg-gradient-to-r from-primary to-secondary"
