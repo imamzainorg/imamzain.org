@@ -86,7 +86,7 @@ export default function GallerySection() {
     };
   }, []);
 
-  const filteredGallery = galleryImages.filter((item) => item.title !== "khat");
+  const filteredGallery = galleryImages.filter((item) => item.name !== "khat");
 
   const sliderImages = filteredGallery
     .filter((image) => sliderImageIds.includes(image.id))
@@ -219,7 +219,7 @@ export default function GallerySection() {
                         {/* الصورة */}
                         <ImageView
                           src={gallery.url}
-                          alt={gallery.title}
+                          alt={gallery.name}
                           className="h-full w-full object-cover rounded-3xl
                                    transition-all duration-700 ease-out
                                    group-hover:scale-125 group-hover:rotate-2"

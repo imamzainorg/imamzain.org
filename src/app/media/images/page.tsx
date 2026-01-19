@@ -48,7 +48,7 @@ function GalleryClient() {
       galleryImages.map((item) => ({
         id: item.id,
         url: item.url,
-        title: item.title,
+        title: item.name,
         description: item.description,
         category: item.category,
         date: item.date,

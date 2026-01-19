@@ -5,7 +5,7 @@ import galleryImages from "@/data/gallery.json"
 
 export default function Gallery() {
 	const images = galleryImages
-		.filter((item) => item.title === "khat")
+		.filter((item) => item.name === "khat")
 		.map((url) => {
 			return { id: url.url, path: url.url }
 		})
