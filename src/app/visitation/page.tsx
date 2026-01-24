@@ -37,7 +37,7 @@ export default function Page() {
 
               <p className="text-body leading-relaxed max-w-xl mx-auto lg:mx-0">
                 سجل اسمك ليتم أداء زيارة الإمام زين العابدين وأئمة البقيع (عليهم
-                السلام) نيابةً عنك في ضريحهم المطهر.
+                السلام) نيابةً عنك عند قبورهم المطهرة.
               </p>
             </motion.div>
 
