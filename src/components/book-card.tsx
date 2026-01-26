@@ -174,7 +174,7 @@ export default function BookCard({
                 value={publication.printHouse}
               />
               <Detail
-                label="شخصيات اخرى"
+                label=" اخرى"
                 icon={
                   <Users className="w-5 h-5 text-primary dark:text-Muharram_primary" />
                 }
