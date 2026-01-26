@@ -7,13 +7,18 @@
     "otherNames": [],
     "printHouse": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
     "printDate": "2024",
-    "language": ["العربية"],
+    "language": [
+      "العربية"
+    ],
     "pages": 397,
     "parts": 1,
     "views": 96,
     "image": "/books/الفرائد الطريفة في شرح الصحيفة الشريفة.jpg",
     "pdf": "/books/الفرائد الطريفة في شرح الصحيفة الشريفة.pdf",
-    "category": ["al-sahifa", "publications"],
+    "category": [
+      "al-sahifa",
+      "publications"
+    ],
     "translations": [
       {
         "languageid": 1,
@@ -41,7 +46,10 @@
     "series": "الفوائد الشريفة في شرح الصحيفة",
     "partNumber": 1,
     "totalParts": 2,
-    "category": ["al-sahifa", "publications"]
+    "category": [
+      "al-sahifa",
+      "publications"
+    ]
   },
   {
     "id": 3,
@@ -60,7 +68,10 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": ["al-sahifa", "publications"]
+    "category": [
+      "al-sahifa",
+      "publications"
+    ]
   },
   {
     "id": 4,
@@ -79,7 +90,10 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": ["al-sahifa", "publications"]
+    "category": [
+      "al-sahifa",
+      "publications"
+    ]
   },
   {
     "id": 5,
@@ -98,7 +112,10 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": ["publications", "imamzain"]
+    "category": [
+      "publications",
+      "imamzain"
+    ]
   },
   {
     "id": 6,
@@ -117,7 +134,10 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": ["publications", "imamzain"]
+    "category": [
+      "publications",
+      "imamzain"
+    ]
   },
   {
     "id": 7,
@@ -136,7 +156,10 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": ["publications", "imamzain"]
+    "category": [
+      "publications",
+      "imamzain"
+    ]
   },
   {
     "id": 8,
@@ -158,14 +181,19 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": ["publications", "imamzain"]
+    "category": [
+      "publications",
+      "imamzain"
+    ]
   },
   {
     "id": 9,
     "slug": "canticles-of-the-pious",
     "title": "تراتيل القانتين",
     "author": "الدكتور علي الشيخ",
-    "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات"],
+    "otherNames": [
+      "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات"
+    ],
     "printHouse": "دار الوارث - كربلاء المقدسة",
     "printDate": "2025",
     "language": "العربية",
@@ -177,14 +205,19 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": ["al-sahifa", "publications"]
+    "category": [
+      "al-sahifa",
+      "publications"
+    ]
   },
   {
     "id": 10,
     "slug": "thirty-lessons-from-abu-hamza",
     "title": "ثلاثون درسا من دعاء ابي حمزة الثمالي",
     "author": "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات",
-    "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات"],
+    "otherNames": [
+      "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات"
+    ],
     "printHouse": "دار الوارث - كربلاء المقدسة",
     "printDate": "2025-",
     "language": "العربية",
@@ -196,7 +229,10 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": ["imamzain", "publications"]
+    "category": [
+      "imamzain",
+      "publications"
+    ]
   },
   {
     "id": 11,
@@ -220,14 +256,19 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": ["imamzain", "publications"]
+    "category": [
+      "imamzain",
+      "publications"
+    ]
   },
   {
     "id": 12,
     "slug": "insights-on-rights-treatise-part-1",
     "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام)",
     "author": "الشيخ حسين عبد الرضا الاسدي",
-    "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
+    "otherNames": [
+      "مؤسسة الامام زين العابدين (عليه السلام)"
+    ],
     "printHouse": "دار الوارث - كربلاء المقدسة",
     "printDate": "2025",
     "language": "العربية",
@@ -239,14 +280,19 @@
     "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
     "partNumber": 1,
     "totalParts": 5,
-    "category": ["risalat-al-huqoq", "publications"]
+    "category": [
+      "risalat-al-huqoq",
+      "publications"
+    ]
   },
   {
     "id": 13,
     "slug": "insights-on-rights-treatise-part-2",
     "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) ",
     "author": "الشيخ حسين عبد الرضا الاسدي",
-    "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
+    "otherNames": [
+      "مؤسسة الامام زين العابدين (عليه السلام)"
+    ],
     "printHouse": "دار الوارث - كربلاء المقدسة",
     "printDate": "2025",
     "language": "العربية",
@@ -258,14 +304,19 @@
     "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
     "partNumber": 2,
     "totalParts": 5,
-    "category": ["risalat-al-huqoq", "publications"]
+    "category": [
+      "risalat-al-huqoq",
+      "publications"
+    ]
   },
   {
     "id": 14,
     "slug": "insights-on-rights-treatise-part-3",
     "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) ",
     "author": "الشيخ حسين عبد الرضا الاسدي",
-    "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
+    "otherNames": [
+      "مؤسسة الامام زين العابدين (عليه السلام)"
+    ],
     "printHouse": "دار الوارث - كربلاء المقدسة",
     "printDate": "2025",
     "language": "العربية",
@@ -277,14 +328,19 @@
     "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
     "partNumber": 3,
     "totalParts": 5,
-    "category": ["risalat-al-huqoq", "publications"]
+    "category": [
+      "risalat-al-huqoq",
+      "publications"
+    ]
   },
   {
     "id": 15,
     "slug": "insights-on-rights-treatise-part-4",
     "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام)",
     "author": "الشيخ حسين عبد الرضا الاسدي",
-    "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
+    "otherNames": [
+      "مؤسسة الامام زين العابدين (عليه السلام)"
+    ],
     "printHouse": "دار الوارث - كربلاء المقدسة",
     "printDate": "2025",
     "language": "العربية",
@@ -296,14 +352,19 @@
     "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
     "partNumber": 4,
     "totalParts": 5,
-    "category": ["risalat-al-huqoq", "publications"]
+    "category": [
+      "risalat-al-huqoq",
+      "publications"
+    ]
   },
   {
     "id": 16,
     "slug": "insights-on-rights-treatise-part-5",
     "title": "لمحات من رسالة الحقوق للامام السجاد (عليه السلام) ",
     "author": "الشيخ حسين عبد الرضا الاسدي",
-    "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
+    "otherNames": [
+      "مؤسسة الامام زين العابدين (عليه السلام)"
+    ],
     "printHouse": "دار الوارث - كربلاء المقدسة",
     "printDate": "2025",
     "language": "العربية",
@@ -315,14 +376,19 @@
     "series": "لمحات من رسالة الحقوق للإمام السجاد (عليه السلام)",
     "partNumber": 5,
     "totalParts": 5,
-    "category": ["risalat-al-huqoq", "publications"]
+    "category": [
+      "risalat-al-huqoq",
+      "publications"
+    ]
   },
   {
     "id": 17,
     "slug": "political-principles-of-imam-sajjad",
     "title": "المباني السياسية الامامية عند الامام السجاد (عليه السلام)",
     "author": "الدكتورة راغدة محمد المصري",
-    "otherNames": ["مؤسسة الامام زين العابدين (عليه السلام)"],
+    "otherNames": [
+      "مؤسسة الامام زين العابدين (عليه السلام)"
+    ],
     "printHouse": "دار الوارث - كربلاء المقدسة",
     "printDate": "2025",
     "language": "العربية",
@@ -334,7 +400,10 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": ["imamzain", "publications"]
+    "category": [
+      "imamzain",
+      "publications"
+    ]
   },
   {
     "id": 18,
@@ -353,7 +422,10 @@
     "series": null,
     "partNumber": null,
     "totalParts": null,
-    "category": ["imamzain", "publications"]
+    "category": [
+      "imamzain",
+      "publications"
+    ]
   },
   {
     "id": 19,
@@ -372,7 +444,10 @@
     "series": "الفوائد الشريفة في شرح الصحيفة",
     "partNumber": 2,
     "totalParts": 2,
-    "category": ["al-sahifa", "publications"]
+    "category": [
+      "al-sahifa",
+      "publications"
+    ]
   },
   {
     "id": 20,
@@ -388,7 +463,9 @@
     "views": 1,
     "image": "/library/أساليب الإصلاحات الإجتماعية عند الإمام السجاد (ع) - السيد محسن الجلالي.jpg",
     "pdf": "/library/أساليب الإصلاحات الإجتماعية عند الإمام السجاد (ع) - السيد محسن الجلالي.pdf",
-    "category": ["imamzain"]
+    "category": [
+      "imamzain"
+    ]
   },
   {
     "id": 21,
@@ -403,7 +480,9 @@
     "parts": 1,
     "views": 1,
     "image": "/library/الامام الرابع علي بن الحسين زين العابدين ع.jpg",
-    "category": ["imamzain"]
+    "category": [
+      "imamzain"
+    ]
   },
   {
     "id": 22,
@@ -418,7 +497,9 @@
     "parts": 1,
     "views": 26,
     "image": "/library/الامام السجاد ع والمفاهيم التربوية.jpg",
-    "category": ["imamzain"]
+    "category": [
+      "imamzain"
+    ]
   },
   {
     "id": 23,
@@ -433,7 +514,9 @@
     "parts": 1,
     "views": 34,
     "image": "/library/الامام السجاد وبناء الانسان.jpg",
-    "category": ["imamzain"]
+    "category": [
+      "imamzain"
+    ]
   },
   {
     "id": 24,
@@ -448,7 +531,9 @@
     "parts": 1,
     "views": 56,
     "image": "/library/الامام زين العابدين داعية الوعي ومحير الطغاة.jpg",
-    "category": ["imamzain"]
+    "category": [
+      "imamzain"
+    ]
   },
   {
     "id": 25,
@@ -464,7 +549,9 @@
     "views": 64,
     "image": "/library/الموسوعة السجادية  - الصحيفة السجادية الدراسة السندية البيبلوغرافيا النص ج3.jpg",
     "pdf": "/library/الموسوعة السجادية  - الصحيفة السجادية الدراسة السندية الببليوغرافيا النص ج3.pdf",
-    "category": ["al-sahifa"]
+    "category": [
+      "al-sahifa"
+    ]
   },
   {
     "id": 26,
@@ -479,7 +566,9 @@
     "parts": 1,
     "views": 31,
     "image": "/library/التحفة الرضوية للصحيفة السجادية.jpg",
-    "category": ["al-sahifa"]
+    "category": [
+      "al-sahifa"
+    ]
   },
   {
     "id": 27,
@@ -494,7 +583,9 @@
     "parts": 1,
     "views": 65,
     "image": "/library/مع الامام السجاد في رسالة الحقوق.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 28,
@@ -509,7 +600,9 @@
     "parts": 1,
     "views": 40,
     "image": "/library/تفصيل الحقوق, شرح روائي على رسالة الحقوق للإمام السجّاد (ع) - الشيخ محمد حسن الرمزي الطبسي.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 29,
@@ -524,7 +617,9 @@
     "parts": 1,
     "views": 25,
     "image": "/library/الصلاة في رسالة الحقوق.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 30,
@@ -539,7 +634,9 @@
     "parts": 1,
     "views": 23,
     "image": "/library/51.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 31,
@@ -554,7 +651,9 @@
     "parts": 1,
     "views": 32,
     "image": "/library/117.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 32,
@@ -569,7 +668,9 @@
     "parts": 1,
     "views": 40,
     "image": "/library/127.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 33,
@@ -584,7 +685,9 @@
     "parts": 1,
     "views": 21,
     "image": "/library/161.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 34,
@@ -599,7 +702,9 @@
     "parts": 1,
     "views": 30,
     "image": "/library/169.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 35,
@@ -614,7 +719,9 @@
     "parts": 1,
     "views": 29,
     "image": "/library/177.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 36,
@@ -630,7 +737,9 @@
     "views": 21,
     "image": "/library/193.jpg",
     "pdf": "/library/رحلة حقوقية.pdf",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 37,
@@ -645,7 +754,9 @@
     "parts": 1,
     "views": 32,
     "image": "/library/211.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 38,
@@ -660,7 +771,9 @@
     "parts": 2,
     "views": 62,
     "image": "/library/215.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 39,
@@ -675,7 +788,9 @@
     "parts": 1,
     "views": 35,
     "image": "/library/222.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 40,
@@ -690,7 +805,9 @@
     "parts": 1,
     "views": 51,
     "image": "/library/224.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 41,
@@ -705,7 +822,9 @@
     "parts": 1,
     "views": 32,
     "image": "/library/251.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 42,
@@ -720,7 +839,9 @@
     "parts": 1,
     "views": 22,
     "image": "/library/267.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 43,
@@ -735,7 +856,9 @@
     "parts": 1,
     "views": 32,
     "image": "/library/298.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 44,
@@ -750,7 +873,9 @@
     "parts": 3,
     "views": 32,
     "image": "/library/320.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 45,
@@ -765,7 +890,9 @@
     "parts": 1,
     "views": 23,
     "image": "/library/360.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 46,
@@ -780,7 +907,9 @@
     "parts": 1,
     "views": 52,
     "image": "/library/366.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 47,
@@ -795,7 +924,9 @@
     "parts": 1,
     "views": 32,
     "image": "/library/376.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 48,
@@ -810,7 +941,9 @@
     "parts": 1,
     "views": 32,
     "image": "/library/391.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 49,
@@ -825,7 +958,9 @@
     "parts": 1,
     "views": 33,
     "image": "/library/408.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 50,
@@ -840,7 +975,9 @@
     "parts": 1,
     "views": 39,
     "image": "/library/428.jpg",
-    "category": ["risalat-al-huqoq"]
+    "category": [
+      "risalat-al-huqoq"
+    ]
   },
   {
     "id": 51,
@@ -856,6 +993,232 @@
     "views": 99,
     "image": "/books/هوية المؤسسة.jpg",
     "pdf": "/books/هوية مؤسسة الامام زين العابدين.pdf ",
-    "category": ["publications"]
+    "category": [
+      "publications"
+    ]
+  },
+  {
+    "id": 52,
+    "slug": "imam-zain-alabideen-social-reform-methods",
+    "title": "أساليب الإصلاحات الإجتماعية عند الإمام السجّاد (ع) - السيد محسن الجلالي",
+    "author": "السيد محمد محسن الجلالي",
+    "otherNames": ["مهرجان تراتيل سجادية الاول"],
+    "printHouse": "العتبة الحسينية المقدسة",
+    "printDate": "هـ 1436",
+    "language": "العربية",
+    "pages": 376,
+    "parts": 1,
+    "views": 0,
+    "image": "/books/أساليب الإصلاحات الإجتماعية عند الإمام السجّاد (ع) - السيد محسن الجلالي_.png",
+    "pdf": "/books/أساليب الإصلاحات الإجتماعية عند الإمام السجّاد (ع) - السيد محسن الجلالي.pdf",
+    "category": [
+      "مهرجان تراتيل سجادية الاول",
+      "imamzain"
+    ]
+  },
+  {
+    "id": 53,
+    "slug": "al-sahifa-al-sajjadiyya-collated-manuscripts-vol-1",
+    "title": "الصحيفة السجادية المقابلة على عدة نسخ، ج1",
+    "author": "السيد رحيم الحسيني",
+    "otherNames": ["مهرجان تراتيل سجادية الاول"],
+    "printHouse": "العتبة الحسينية المقدسة",
+    "printDate": "هـ 1436",
+    "language": "العربية",
+    "pages": 463,
+    "parts": 2,
+    "views": 0,
+    "image": "/books/الصحيفة السجادية المقابلة على عدة نسخ، ج1 ـ السيد رحيم الحسيني.png",
+    "pdf": "/books/الصحيفة السجادية المقابلة على عدة نسخ، ج1 ـ السيد رحيم الحسيني.pdf ",
+    "series": "الصحيفة السجادية المقابلة على عدة نسخ" ,
+    "partNumber": 1,
+    "totalParts": 2,
+    "category": [
+      "مهرجان تراتيل سجادية الاول",
+      "imamzain"
+    ]
+  },
+  {
+    "id": 54,
+    "slug": "al-sahifa-al-sajjadiyya-collated-manuscripts-vol-2",
+    "title": "الصحيفة السجادية المقابلة على عدة نسخ، ج2",
+    "author": "السيد رحيم الحسيني",
+    "otherNames": ["مهرجان تراتيل سجادية الاول"],
+"printHouse": "العتبة الحسينية المقدسة",
+    "printDate": "هـ 1436",
+    "language": "العربية",
+    "pages": 487,
+    "parts": 2,
+    "views": 0,
+    "image": "/books/الصحيفة السجادية المقابلة على عدة نسخ، ج2 ـ السيد رحيم الحسيني.png",
+    "pdf": "/books/الصحيفة السجادية المقابلة على عدة نسخ، ج2 ـ السيد رحيم الحسيني.pdf ",
+    "series": "الصحيفة السجادية المقابلة على عدة نسخ" ,
+    "partNumber": 2,
+    "totalParts": 2,
+    "category": [
+      "مهرجان تراتيل سجادية الاول",
+      "imamzain"
+    ]
+  },
+  {
+    "id": 55,
+    "slug": "liberation-of-slaves-between-imam-al-sajjad-and-president-lincoln",
+    "title": "تحرير العبيد بين الإمام السجاد عليه السلام و الرئيس لنکولن جلدهای",
+    "author": "منذر كاظم ال هريبد",
+    "otherNames": ["مهرجان تراتيل سجادية الاول"],
+   "printHouse": "العتبة الحسينية المقدسة",
+    "printDate": "هـ 1436",
+    "language": "العربية",
+    "pages": 168,
+    "parts": 1,
+    "views": 0,
+    "image": "/books/تحرير_العبيد_بين_الإمام_السجاد_عليه_السلام_و_الرئيس_لنکولن_جلدهای.png",
+    "pdf": "/books/تحرير_العبيد_بين_الإمام_السجاد_عليه_السلام_و_الرئيس_لنکولن_جلدهای.pdf ",
+    "category": [
+      "مهرجان تراتيل سجادية الاول",
+      "imamzain"
+    ]
+  },
+  {
+    "id": 56,
+    "slug": "kitab-al-tawhid-imam-ali-bin-al-husayn-muwashahat-nadb-zain-al-abideen",
+    "title": "كتاب التوحيد - الإمام علي بن الحسين عليهما السلام ويليه موشحات وندب الإمام زين العابدين عليه السلام",
+    "author": "السيد رحيم الحسيني",
+    "otherNames": ["مهرجان تراتيل سجادية الاول"],
+    "printHouse": "العتبة الحسينية المقدسة",
+    "printDate": "هـ 1436",
+    "language": "العربية",
+    "pages": 320,
+    "parts": 1,
+    "views": 0,
+    "image": "/books/كتاب التوحيد - الإمام علي بن الحسين عليهما السلام ويليه موشحات وندب الإمام زين العابدين عليه السلام.png",
+    "pdf": "/books/كتاب التوحيد - الإمام علي بن الحسين عليهما السلام ويليه موشحات وندب الإمام زين العابدين عليه السلام.pdf ",
+    "category": [
+      "مهرجان تراتيل سجادية الاول",
+      "imamzain"
+    ]
+  },
+  {
+    "id": 57,
+    "slug": "mojam-eerab-alfaz-al-sahifa-al-sajjadiyya-muhammad-jalil-abbas-volume-1",
+    "title": "معجم اعراب الفاظ الصحيفة السجادية محمد جليل عباس ج1",
+    "author": "محمد جليل عباس",
+    "otherNames": ["مهرجان تراتيل سجادية الاول"],
+  "printHouse": "العتبة الحسينية المقدسة",
+    "printDate": "هـ 1436",
+    "language": "العربية",
+    "pages": 727,
+    "parts": 3,
+    "views": 0,
+    "image": "/books/معجم اعراب الفاظ الصحيفة السجادية محمد جليل عباس ج1.png",
+    "pdf": "/books/معجم اعراب الفاظ الصحيفة السجادية محمد جليل عباس ج1.pdf ",
+    "series": "معجم اعراب الفاظ الصحيفة السجادية محمد جليل عباس ",
+    "partNumber": 1,
+    "totalParts": 3,
+    "category": [
+      "مهرجان تراتيل سجادية الاول",
+      "imamzain"
+    ]
+  },
+  {
+    "id": 58,
+    "slug": "mojam-eerab-alfaz-al-sahifa-al-sajjadiyya-muhammad-jalil-abbas-volume-2",
+    "title": "معجم اعراب الفاظ الصحيفة السجادية محمد جليل عباس ج2",
+    "author": "محمد جليل عباس",
+    "otherNames": ["مهرجان تراتيل سجادية الاول"],
+    "printHouse": "العتبة الحسينية المقدسة",
+    "printDate": "هـ 1436",
+    "language": "العربية",
+    "pages": 728,
+    "parts": 3,
+    "views": 0,
+    "image": "/books/معجم اعراب الفاظ الصحيفة السجادية محمد جليل عباس ج2.png",
+    "pdf": "/books/معجم اعراب الفاظ الصحيفة السجادية محمد جليل عباس ج2.pdf ",
+    "series": "معجم اعراب الفاظ الصحيفة السجادية محمد جليل عباس ",
+    "partNumber": 2,
+    "totalParts": 3,
+    "category": [
+      "مهرجان تراتيل سجادية الاول",
+      "imamzain"
+    ]
+  },
+  {
+    "id": 59,
+    "slug": "mojam-eerab-alfaz-al-sahifa-al-sajjadiyya-muhammad-jalil-abbas-volume-3",
+    "title": "معجم اعراب الفاظ الصحيفة السجادية محمد جليل عباس ج3",
+    "author": "محمد جليل عباس",
+    "otherNames": ["مهرجان تراتيل سجادية الاول"],
+    "printHouse": "العتبة الحسينية المقدسة",
+    "printDate": "هـ 1436",
+    "language": "العربية",
+    "pages": 702,
+    "parts": 3,
+    "views": 0,
+    "image": "/books/معجم اعراب الفاظ الصحيفة السجادية محمد جليل عباس ج3.png",
+    "pdf": "/books/معجم اعراب الفاظ الصحيفة السجادية محمد جليل عباس ج3.pdf ",
+     "series": "معجم اعراب الفاظ الصحيفة السجادية محمد جليل عباس ",
+    "partNumber": 3,
+    "totalParts": 3,
+    "category": [
+      "مهرجان تراتيل سجادية الاول",
+      "imamzain"
+    ]
+  },
+  {
+    "id": 60,
+    "slug": "mawarid_al-eetibar_min_seerat_al-imam_zain_al-abideen_al-sajjad_ali_alayh_alsalam_al-sayyid",
+    "title": "موارد الاعتبار من سيرة الامام زين العابدين السجاد علي السلام السيد",
+    "author": "السيد محمد حسين الحسيني الجلالي",
+    "otherNames": ["مهرجان تراتيل سجادية الاول"],
+    "printHouse": "العتبة الحسينية المقدسة",
+    "printDate": "هـ 1435",
+    "language": "العربية",
+    "pages": 520,
+    "parts": 1,
+    "views": 0,
+    "image": "/books/موارد_الاعتبار_من_سيرة_الامام_زين_العابدين_السجاد_علي_السلام_السيد.png",
+    "pdf": "/books/موارد_الاعتبار_من_سيرة_الامام_زين_العابدين_السجاد_علي_السلام_السيد.pdf ",
+    "category": [
+      "مهرجان تراتيل سجادية الاول",
+      "imamzain"
+    ]
+  },
+  {
+    "id": 61,
+    "slug": "al-mojam-al-mufahras-nihai",
+    "title": "المعجم المفهرس - نهائي",
+    "author": "حسين انصاريان",
+    "otherNames": ["مهرجان تراتيل سجادية التاسع"],
+   "printHouse": "العتبة الحسينية المقدسة",
+    "printDate": "",
+    "language": "العربية",
+    "pages": 198,
+    "parts": 1,
+    "views": 0,
+    "image": "/books/المعجم المفهرس - نهائي.png",
+    "pdf": "/books/المعجم المفهرس - نهائي.pdf ",
+    "category": [
+      "مهرجان تراتيل سجادية التاسع",
+      "imamzain"
+    ]
+  },
+  {
+    "id": 62,
+    "slug": "kitab-al-buhuth-al-motamad",
+    "title": "كتاب البحوث المعتمد",
+    "author": "السيد جمال الدين الشهرستاني",
+    "otherNames": ["مهرجان تراتيل سجادية التاسع"],
+    "printHouse": "العتبة الحسينية المقدسة",
+    "printDate": "2023",
+    "language": "العربية",
+    "pages": 464,
+    "parts": 1,
+    "views": 0,
+    "image": "/books/كتاب البحوث المعتمد.png",
+    "pdf": "/books/كتاب البحوث المعتمد.pdf ",
+    "category": [
+      "مهرجان تراتيل سجادية التاسع",
+      "imamzain"
+    ]
   }
 ]
