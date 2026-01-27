@@ -127,7 +127,7 @@ export default function CollectionSearch({
 			if (!term) return text
 
 			const normalizedTerm = removeDiacritics(term.toLowerCase())
-			const parts: JSX.Element[] = []
+			const parts: React.ReactNode[] = []
 			let lastIndex = 0
 
 			// Build a map of original indices to normalized indices
