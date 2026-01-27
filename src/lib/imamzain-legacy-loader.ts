@@ -39,3 +39,9 @@ export function getSubject(
 	if (!dict) return null
 	return dict.subjects.find((s) => s.slug === subjectSlug) || null
 }
+
+export function getFullDictionaries(legacySlug: string): Dictionary[] {
+	const legacy = getLegacy(legacySlug)
+	if (!legacy) return []
+	return legacy.dictionaries
+}

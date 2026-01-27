@@ -1,30 +1,64 @@
-import { getSubject } from "@/lib/imamzain-legacy-loader"
+import { getSubject, getDictionary } from "@/lib/imamzain-legacy-loader"
 import { notFound } from "next/navigation"
 import SubjectView from "@/app/library/_components/subject-view"
+import SubjectNavigation from "@/app/library/_components/subject-navigation"
 import { collections } from "@/app/library/_config/collections"
 
 export default async function SubjectPage({
 	params,
+	searchParams,
 }: {
 	params: Promise<{
 		collectionSlug: string
 		dictionarySlug: string
 		subjectSlug: string
 	}>
+	searchParams: Promise<{ highlight?: string }>
 }) {
 	const { collectionSlug, dictionarySlug, subjectSlug } = await params
+	const { highlight } = await searchParams
 
 	if (!collections[collectionSlug]) notFound()
 
 	const subject = getSubject(collectionSlug, dictionarySlug, subjectSlug)
-
+	console.log(subjectSlug)
+	console.log(
+		getSubject(
+			"al-sahifa",
+			"appendix-by-al-mirza-husayn-al-nuri",
+			"his-supplication-after-the-previous-rak’ah-as-well-2",
+		)?.phrases[0].content,
+	)
 	if (!subject) notFound()
+
+	// Get all subjects for navigation
+	const dictionary = getDictionary(collectionSlug, dictionarySlug)
+	const allSubjects = dictionary?.subjects || []
 
 	return (
 		<>
-			<div className="w-full text-center text-3xl">{subject.title}</div>
-			<div className="w-1/2 h-0.5 mx-auto bg-gradient-to-l from-transparent via-primary/40 to-transparent" />
-			<SubjectView subject={subject} />
+			<div className="w-full text-center">
+				<h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+					{subject.title}
+				</h1>
+
+				<div className="flex items-center justify-center gap-3 text-sm text-gray-600 dark:text-gray-400">
+					<span className="px-3 py-1 rounded-full bg-primary/10 dark:bg-Muharram_primary/10 text-primary dark:text-Muharram_primary font-medium">
+						رقم الموضوع: {subject.id}
+					</span>
+				</div>
+			</div>
+
+			<div className="w-1/2 h-0.5 mx-auto bg-gradient-to-l from-transparent via-primary/40 dark:via-Muharram_primary/40 to-transparent" />
+
+			<SubjectView subject={subject} highlightTerm={highlight} />
+
+			<SubjectNavigation
+				collectionSlug={collectionSlug}
+				dictionarySlug={dictionarySlug}
+				currentSubjectSlug={subjectSlug}
+				allSubjects={allSubjects}
+			/>
 		</>
 	)
 }

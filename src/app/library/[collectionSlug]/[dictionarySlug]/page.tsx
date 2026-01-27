@@ -1,36 +1,43 @@
-import { getDictionary } from "@/lib/imamzain-legacy-loader";
-import Link from "next/link";
+import { getDictionary } from "@/lib/imamzain-legacy-loader"
+import Link from "next/link"
 
 export default async function Page({
-  params,
+	params,
 }: {
-  params: Promise<{ collectionSlug: string; dictionarySlug: string }>;
+	params: Promise<{ collectionSlug: string; dictionarySlug: string }>
 }) {
-  const { collectionSlug, dictionarySlug } = await params;
-  const activeDictionary = getDictionary(collectionSlug, dictionarySlug);
+	const { collectionSlug, dictionarySlug } = await params
+	const activeDictionary = getDictionary(collectionSlug, dictionarySlug)
 
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-      {activeDictionary?.subjects.map((subject) => (
-        <Link
-          key={subject.id}
-          href={`/library/${collectionSlug}/${activeDictionary.slug}/${subject.slug}`}
-          id={subject?.slug}
-          className="group relative w-full h-full overflow-hidden bg-white bg-opacity-60 border cursor-pointer rounded-xl flex justify-between items-center p-3 border-primary/20 hover:border-primary/80 dark:hover:border-Muharram_secondary/60 shadow-md hover:shadow-xl duration-300"
-        >
-   
+	return (
+		<div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+			{activeDictionary?.subjects.map((subject) => (
+				<Link
+					key={subject.id}
+					href={`/library/${collectionSlug}/${activeDictionary.slug}/${subject.slug}`}
+					id={subject.slug}
+					className="group relative w-full h-full rounded-2xl border border-primary/15 dark:border-white/10 bg-white/70 dark:bg-black/40 backdrop-blur-md p-4 flex items-center justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-primary/50 dark:hover:border-Muharram_secondary/50 overflow-hidden"
+				>
+					{/* Ambient hover glow */}
+					<div className=" absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 " />
 
-          <div className="w-5/6 flex flex-col gap-1 z-10">
-            <h2 className=" text-note  leading-10 font-semibold pr-2 text-gray-800 group-hover:text-primary dark:group-hover:text-Muharram_primary duration-300">
-              {subject.title}
-            </h2>
-          </div>
+					{/* Content */}
+					<div className="relative z-10 flex flex-col gap-1 max-w-[85%]">
+						<h2 className=" text-base md:text-lg font-semibold text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-Muharram_primary transition-colors line-clamp-2 ">
+							{subject.title}
+						</h2>
 
-          <div className="w-7 h-7 md:w-9 md:h-9 flex items-center justify-center rounded-full bg-white text-primary dark:text-Muharram_primary dark:border-Muharram_secondary/30 border border-primary/30 shadow-sm z-10">
-            <span className="text-sm md:text-base font-bold">{subject.id}</span>
-          </div>
-        </Link>
-      ))}
-    </div>
-  );
+						<span className="text-xs text-gray-500 dark:text-gray-400">
+							{subject.phrases.length} عبارة
+						</span>
+					</div>
+
+					{/* ID Badge */}
+					<div className=" relative z-10 min-w-[2.5rem] h-10 px-2 flex items-center justify-center rounded-full bg-primary/5 dark:bg-white/5 border border-primary/20 dark:border-white/15 text-primary dark:text-Muharram_primary font-mono text-sm font-semibold ">
+						{subject.id}
+					</div>
+				</Link>
+			))}
+		</div>
+	)
 }
