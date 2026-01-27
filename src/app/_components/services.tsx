@@ -52,7 +52,7 @@ export default function Services() {
 
             <p className="text-base sm:text-body leading-relaxed max-w-xl mx-auto lg:mx-0">
               سجل اسمك ليتم أداء زيارة الإمام زين العابدين وأئمة البقيع (عليهم
-              السلام) نيابةً عنك في ضريحهم المطهر.
+              السلام) نيابةً عنك عند قبورهم الطاهرة.
             </p>
           </motion.div>
 

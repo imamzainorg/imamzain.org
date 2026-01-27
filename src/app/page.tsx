@@ -22,7 +22,8 @@ const desktopImages = [
 	"/images/albaqi.jpg",
 	//"/images/albaqi-2.png",
 	//"/images/hero-3.jpg", // لمحات
-	"/images/hero-9.jpg", // المباني السياسية
+	"/images/web.jpg",
+	//"/images/hero-9.jpg", // المباني السياسية
 	//"/images/hero-4.jpg", // تراتيل القانتين
 	"/images/hero-5.jpg", // البعد الاجتماعي
 	"/images/hero-6.jpg", // ابي حمزة الثمالي
@@ -34,7 +35,8 @@ const mobileImages = [
 	"/images/albaqi.jpg",
 	//"/images/albaqi-2.png",
 	//"/images/hero-3-vertical.jpg", // لمحات
-	"/images/hero-9-vertical.jpg", // المباني السياسية
+"/images/almahad.jpg",
+	//,"/images/hero-9-vertical.jpg", // المباني السياسية
 	// "/images/hero-4-vertical.jpg", // تراتيل القانتين
 	"/images/hero-5-vertical.jpg", // البعد الاجتماعي
 	"/images/hero-6-vertical.jpg", // ابي حمزة الثمالي
