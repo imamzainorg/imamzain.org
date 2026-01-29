@@ -19,30 +19,34 @@ const Videos = dynamic(() => import("./_components/videos"));
 const Application = dynamic(() => import("./_components/application"));
 
 const desktopImages = [
-	"/images/albaqi.jpg",
-	//"/images/albaqi-2.png",
-	//"/images/hero-3.jpg", // لمحات
-	"/images/web.jpg",
-	//"/images/hero-9.jpg", // المباني السياسية
-	//"/images/hero-4.jpg", // تراتيل القانتين
-	"/images/hero-5.jpg", // البعد الاجتماعي
-	"/images/hero-6.jpg", // ابي حمزة الثمالي
-	"/images/hero-7.jpg", // بناء الامن النفسي
-	"/images/hero-8.jpg", // البعد القانوني
-]
+  "/images/ziara-imamzain-web.jpg",
+  "/images/web.jpg",
+  "/images/albaqi.jpg",
+  //"/images/albaqi-2.png",
+  //"/images/hero-3.jpg", // لمحات
+
+  //"/images/hero-9.jpg", // المباني السياسية
+  //"/images/hero-4.jpg", // تراتيل القانتين
+  "/images/hero-5.jpg", // البعد الاجتماعي
+  "/images/hero-6.jpg", // ابي حمزة الثمالي
+  "/images/hero-7.jpg", // بناء الامن النفسي
+  "/images/hero-8.jpg", // البعد القانوني
+];
 
 const mobileImages = [
-	"/images/albaqi.jpg",
-	//"/images/albaqi-2.png",
-	//"/images/hero-3-vertical.jpg", // لمحات
-"/images/almahad.jpg",
-	//,"/images/hero-9-vertical.jpg", // المباني السياسية
-	// "/images/hero-4-vertical.jpg", // تراتيل القانتين
-	"/images/hero-5-vertical.jpg", // البعد الاجتماعي
-	"/images/hero-6-vertical.jpg", // ابي حمزة الثمالي
-	"/images/hero-7-vertical.jpg", // بناء الامن النفسي
-	"/images/hero-8-vertical.jpg", // البعد القانوني
-]
+  "/images/ziara-imamzain-mobail.jpg",
+  "/images/almahad.jpg",
+  "/images/albaqi.jpg",
+  //"/images/albaqi-2.png",
+  //"/images/hero-3-vertical.jpg", // لمحات
+
+  //,"/images/hero-9-vertical.jpg", // المباني السياسية
+  // "/images/hero-4-vertical.jpg", // تراتيل القانتين
+  "/images/hero-5-vertical.jpg", // البعد الاجتماعي
+  "/images/hero-6-vertical.jpg", // ابي حمزة الثمالي
+  "/images/hero-7-vertical.jpg", // بناء الامن النفسي
+  "/images/hero-8-vertical.jpg", // البعد القانوني
+];
 
 export default async function Page() {
   const publications = await dataFetcher<Book[]>("books.json");
