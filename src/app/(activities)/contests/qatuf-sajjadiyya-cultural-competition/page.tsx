@@ -4,7 +4,6 @@ import Link from "next/link"
 import ContestQuestions from "./components/contest-questions"
 import Breadcrumbs from "@/components/breadcrumb"
 import {
-	ArrowLeft,
 	BookOpen,
 	Calendar,
 	Download,

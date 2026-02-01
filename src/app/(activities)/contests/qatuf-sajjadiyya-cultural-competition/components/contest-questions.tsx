@@ -1,26 +1,24 @@
 "use client"
 
-import { useState, useCallback, useMemo } from "react"
+import { useState, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import {
 	ChevronLeft,
 	ChevronRight,
-	RotateCcw,
-	Trophy,
-	BookOpen,
-	Star,
-	GraduationCap,
+	Send,
+	User,
+	Phone,
+	Mail,
+	CheckCircle,
 } from "lucide-react"
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 import confetti from "canvas-confetti"
 
-// Utility for tailwind class merging
 function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs))
 }
 
-// Questions data
 const questions = [
 	{
 		number: "١",
@@ -586,479 +584,359 @@ const questions = [
 	},
 ]
 
-// Types
 type AnswerState = {
 	[questionIndex: number]: string
 }
 
-// Modern Components - matching khat page design
-function GradientCard({
-	children,
-	className = "",
-}: {
-	children: React.ReactNode
-	className?: string
-}) {
-	return (
-		<div
-			className={`relative overflow-hidden rounded-2xl bg-gradient-to-br from-white via-slate-50 to-slate-100 border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-500 ${className}`}
-		>
-			<div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-60"></div>
-			<div className="relative">{children}</div>
-		</div>
-	)
-}
-
-function FeatureHighlight({
-	icon: Icon,
-	title,
-	description,
-}: {
-	icon: React.ElementType
-	title: string
-	description: string
-}) {
-	return (
-		<div className="group flex items-start gap-6 p-2">
-			<div className="flex-shrink-0">
-				<div className="relative">
-					<div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
-					<div className="relative bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-						<Icon
-							className="w-3 sm:w-4 lg:w-5 h-3 sm:h-4 lg:h-5 text-white"
-							strokeWidth={1.5}
-						/>
-					</div>
-				</div>
-			</div>
-			<div className="flex-1 space-y-2">
-				<h3 className="font-bold text-slate-800 text-note">{title}</h3>
-				<p className="text-slate-600 leading-relaxed text-subtitle">
-					{description}
-				</p>
-			</div>
-		</div>
-	)
+type UserInfo = {
+	fullName: string
+	contact: string
+	contactType: "phone" | "email"
 }
 
 export default function ContestQuestions() {
+	const [step, setStep] = useState<"info" | "questions" | "submitted">("info")
+	const [userInfo, setUserInfo] = useState<UserInfo>({
+		fullName: "",
+		contact: "",
+		contactType: "phone",
+	})
 	const [currentQuestion, setCurrentQuestion] = useState(0)
 	const [answers, setAnswers] = useState<AnswerState>({})
-	const [isSubmitted, setIsSubmitted] = useState(false)
-	const [showResults, setShowResults] = useState(false)
 
 	const totalQuestions = questions.length
 	const progress = ((currentQuestion + 1) / totalQuestions) * 100
 	const answeredCount = Object.keys(answers).length
 
+	const handleStartQuiz = useCallback(() => {
+		if (userInfo.fullName.trim() && userInfo.contact.trim()) {
+			setStep("questions")
+		}
+	}, [userInfo])
+
 	const handleAnswerSelect = useCallback(
 		(optionKey: string) => {
-			if (isSubmitted) return
 			setAnswers((prev) => ({ ...prev, [currentQuestion]: optionKey }))
 		},
-		[currentQuestion, isSubmitted],
+		[currentQuestion],
 	)
 
 	const handleNext = useCallback(() => {
 		if (currentQuestion < totalQuestions - 1) {
 			setCurrentQuestion((prev) => prev + 1)
-			setIsSubmitted(false)
-		} else {
-			setShowResults(true)
-			// Trigger confetti for completion
-			confetti({
-				particleCount: 150,
-				spread: 70,
-				origin: { y: 0.6 },
-				colors: ["#059669", "#10b981", "#34d399", "#fbbf24", "#f59e0b"],
-			})
 		}
 	}, [currentQuestion, totalQuestions])
 
 	const handlePrevious = useCallback(() => {
 		if (currentQuestion > 0) {
 			setCurrentQuestion((prev) => prev - 1)
-			setIsSubmitted(false)
 		}
 	}, [currentQuestion])
 
 	const handleQuestionJump = useCallback((index: number) => {
 		setCurrentQuestion(index)
-		setIsSubmitted(false)
 	}, [])
 
-	const handleReset = useCallback(() => {
-		setAnswers({})
-		setCurrentQuestion(0)
-		setIsSubmitted(false)
-		setShowResults(false)
-	}, [])
+	const handleSubmit = useCallback(() => {
+		if (answeredCount === totalQuestions) {
+			// Here you would send the data to your backend
+			console.log({
+				userInfo,
+				answers,
+			})
+			setStep("submitted")
+			confetti({
+				particleCount: 150,
+				spread: 70,
+				origin: { y: 0.6 },
+				colors: ["#059669", "#10b981", "#34d399"],
+			})
+		}
+	}, [answeredCount, totalQuestions, userInfo, answers])
 
-	const score = useMemo(() => {
-		let correct = 0
-		Object.entries(answers).forEach(([index, answer]) => {
-			if (answer === questions[Number(index)].correct) {
-				correct++
-			}
-		})
-		return correct
-	}, [answers])
-
-	// Results View
-	if (showResults) {
+	// User Info Form
+	if (step === "info") {
 		return (
-			<div className="">
-				<div className="px-4 sm:px-6 lg:px-8 py-12">
-					<div className="max-w-3xl mx-auto">
-						<GradientCard className="p-8 md:p-12">
-							<motion.div
-								initial={{ opacity: 0, scale: 0.9 }}
-								animate={{ opacity: 1, scale: 1 }}
-								transition={{ duration: 0.5 }}
-								className="text-center"
-							>
-								{/* Score Circle */}
-								<div className="relative inline-flex items-center justify-center mb-8">
-									<svg className="w-40 h-40 transform -rotate-90">
-										<circle
-											cx="80"
-											cy="80"
-											r="70"
-											stroke="#e2e8f0"
-											strokeWidth="12"
-											fill="none"
-										/>
-										<motion.circle
-											cx="80"
-											cy="80"
-											r="70"
-											stroke="url(#gradient)"
-											strokeWidth="12"
-											fill="none"
-											strokeLinecap="round"
-											strokeDasharray={`${2 * Math.PI * 70}`}
-											initial={{
-												strokeDashoffset: `${2 * Math.PI * 70}`,
-											}}
-											animate={{
-												strokeDashoffset: `${2 * Math.PI * 70 * (1 - score / totalQuestions)}`,
-											}}
-											transition={{
-												duration: 1.5,
-												ease: "easeOut",
-											}}
-										/>
-										<defs>
-											<linearGradient
-												id="gradient"
-												x1="0%"
-												y1="0%"
-												x2="100%"
-												y2="0%"
-											>
-												<stop
-													offset="0%"
-													stopColor="#059669"
-												/>
-												<stop
-													offset="100%"
-													stopColor="#0d9488"
-												/>
-											</linearGradient>
-										</defs>
-									</svg>
-									<div className="absolute inset-0 flex flex-col items-center justify-center">
-										<span className="text-4xl font-bold text-primary">
-											{Math.round(
-												(score / totalQuestions) * 100,
-											)}
-											%
-										</span>
-										<span className="text-sm text-slate-500 mt-1">
-											{score} / {totalQuestions}
-										</span>
-									</div>
-								</div>
-								<p className="text-slate-600 mb-8">
-									أكملت المسابقة بنجاح! يمكنك مراجعة إجاباتك
-									أو إعادة المحاولة
-								</p>
+			<div className="min-h-screen to-white px-4 py-8">
+				<div className="max-w-md mx-auto">
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 space-y-6"
+					>
+						<div className="text-center space-y-2">
+							<h2 className="text-2xl font-bold text-slate-800">
+								معلومات المشارك
+							</h2>
+							<p className="text-slate-600 text-sm">
+								يرجى إدخال معلوماتك للمشاركة في المسابقة
+							</p>
+						</div>
 
-								{/* Actions */}
-								<div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+						<div className="space-y-4">
+							{/* Full Name */}
+							<div className="space-y-2">
+								<label className="text-sm font-medium text-slate-700 flex items-center gap-2">
+									<User className="w-4 h-4" />
+									الاسم الكامل
+								</label>
+								<input
+									type="text"
+									value={userInfo.fullName}
+									onChange={(e) =>
+										setUserInfo((prev) => ({
+											...prev,
+											fullName: e.target.value,
+										}))
+									}
+									className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-primary focus:outline-none transition-colors"
+									placeholder="أدخل اسمك الكامل"
+									required
+								/>
+							</div>
+
+							{/* Contact Type Selector */}
+							<div className="space-y-2">
+								<label className="text-sm font-medium text-slate-700">
+									طريقة التواصل
+								</label>
+								<div className="grid grid-cols-2 gap-2">
 									<button
-										onClick={handleReset}
-										className="flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-xl font-semibold hover:from-secondary hover:to-primary transition-all shadow-lg"
+										type="button"
+										onClick={() =>
+											setUserInfo((prev) => ({
+												...prev,
+												contactType: "phone",
+												contact: "",
+											}))
+										}
+										className={cn(
+											"px-4 py-3 rounded-xl border-2 font-medium transition-all flex items-center justify-center gap-2",
+											userInfo.contactType === "phone"
+												? "border-primary bg-primary/5 text-primary"
+												: "border-slate-200 text-slate-600 hover:border-slate-300",
+										)}
 									>
-										<RotateCcw className="w-5 h-5" />
-										إعادة المحاولة
+										<Phone className="w-4 h-4" />
+										رقم الهاتف
+									</button>
+									<button
+										type="button"
+										onClick={() =>
+											setUserInfo((prev) => ({
+												...prev,
+												contactType: "email",
+												contact: "",
+											}))
+										}
+										className={cn(
+											"px-4 py-3 rounded-xl border-2 font-medium transition-all flex items-center justify-center gap-2",
+											userInfo.contactType === "email"
+												? "border-primary bg-primary/5 text-primary"
+												: "border-slate-200 text-slate-600 hover:border-slate-300",
+										)}
+									>
+										<Mail className="w-4 h-4" />
+										البريد الإلكتروني
 									</button>
 								</div>
+							</div>
 
-								{/* Review Questions */}
-								<div className="border-t border-slate-200 pt-8">
-									<h3 className="text-lg font-semibold text-slate-700 mb-4">
-										مراجعة الأسئلة
-									</h3>
-									<div className="grid grid-cols-5 sm:grid-cols-10 gap-2">
-										{questions.map((q, index) => {
-											const userAnswer = answers[index]
-											const isCorrect =
-												userAnswer === q.correct
+							{/* Contact Input */}
+							<div className="space-y-2">
+								<label className="text-sm font-medium text-slate-700 flex items-center gap-2">
+									{userInfo.contactType === "phone" ? (
+										<Phone className="w-4 h-4" />
+									) : (
+										<Mail className="w-4 h-4" />
+									)}
+									{userInfo.contactType === "phone"
+										? "رقم الهاتف"
+										: "البريد الإلكتروني"}
+								</label>
+								<input
+									type={
+										userInfo.contactType === "phone"
+											? "tel"
+											: "email"
+									}
+									value={userInfo.contact}
+									onChange={(e) =>
+										setUserInfo((prev) => ({
+											...prev,
+											contact: e.target.value,
+										}))
+									}
+									className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-primary focus:outline-none transition-colors"
+									placeholder={
+										userInfo.contactType === "phone"
+											? "07XXXXXXXXX"
+											: "example@email.com"
+									}
+									required
+								/>
+							</div>
+						</div>
 
-											return (
-												<button
-													key={index}
-													onClick={() => {
-														setShowResults(false)
-														handleQuestionJump(
-															index,
-														)
-													}}
-													className={cn(
-														"w-full aspect-square rounded-lg font-semibold text-sm transition-all hover:scale-110",
-														isCorrect
-															? "bg-emerald-100 text-emerald-700 border-2 border-emerald-300"
-															: "bg-red-100 text-red-700 border-2 border-red-300",
-													)}
-													title={`سؤال ${q.number}: ${isCorrect ? "صحيح" : "خطأ"}`}
-												>
-													{q.number}
-												</button>
-											)
-										})}
-									</div>
-									<p className="text-sm text-slate-500 mt-4 flex items-center justify-center gap-4">
-										<span className="flex items-center gap-1">
-											<span className="w-3 h-3 rounded-full bg-emerald-400"></span>
-											صحيح
-										</span>
-										<span className="flex items-center gap-1">
-											<span className="w-3 h-3 rounded-full bg-red-400"></span>
-											خطأ
-										</span>
-									</p>
-								</div>
-							</motion.div>
-						</GradientCard>
-					</div>
+						<button
+							onClick={handleStartQuiz}
+							disabled={
+								!userInfo.fullName.trim() ||
+								!userInfo.contact.trim()
+							}
+							className={cn(
+								"w-full py-4 rounded-xl font-bold text-lg transition-all",
+								userInfo.fullName.trim() &&
+									userInfo.contact.trim()
+									? "bg-gradient-to-r from-primary to-secondary text-white hover:shadow-lg"
+									: "bg-slate-200 text-slate-400 cursor-not-allowed",
+							)}
+						>
+							ابدأ المسابقة
+						</button>
+					</motion.div>
 				</div>
 			</div>
 		)
 	}
 
+	// Success Submission
+	if (step === "submitted") {
+		return (
+			<div className="min-h-screen bg-gradient-to-br from-slate-50 to-white px-4 py-8 flex items-center justify-center">
+				<motion.div
+					initial={{ opacity: 0, scale: 0.9 }}
+					animate={{ opacity: 1, scale: 1 }}
+					className="max-w-md mx-auto bg-white rounded-2xl shadow-lg border border-slate-200 p-8 text-center space-y-6"
+				>
+					<div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto">
+						<CheckCircle className="w-12 h-12 text-emerald-600" />
+					</div>
+					<div className="space-y-2">
+						<h2 className="text-2xl font-bold text-slate-800">
+							تم إرسال إجاباتك بنجاح!
+						</h2>
+						<p className="text-slate-600">
+							شكراً لمشاركتك في المسابقة. سيتم الإعلان عن النتائج
+							قريباً عبر المنصات الرسمية للمؤسسة.
+						</p>
+					</div>
+					<div className="bg-slate-50 rounded-xl p-4 space-y-1">
+						<p className="text-sm text-slate-600">
+							عدد الأسئلة المجاب عليها
+						</p>
+						<p className="text-3xl font-bold text-primary">
+							{answeredCount} / {totalQuestions}
+						</p>
+					</div>
+				</motion.div>
+			</div>
+		)
+	}
+
+	// Questions Section
 	const currentQ = questions[currentQuestion]
 	const selectedAnswer = answers[currentQuestion]
+	const allAnswered = answeredCount === totalQuestions
 
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-slate-100 to-white">
-			{/* Hero Section */}
-			<section className="px-4 sm:px-6 lg:px-8 py-12">
-				<div className="max-w-7xl mx-auto">
-					<div className="grid lg:grid-cols-2 gap-8 items-center">
-						<div className="space-y-6">
-							<div className="space-y-4">
-								<h1 className="text-4xl lg:text-5xl font-bold text-slate-800 leading-tight">
-									مسابقة قطوف سجادية
-									<span className="block text-primary mt-2">
-										الثقافية
-									</span>
-								</h1>
-								<p className="text-slate-600 text-lg leading-relaxed">
-									اختبر معلوماتك عن الإمام زين العابدين عليه
-									السلام في هذه المسابقة الثقافية المكونة من
-									50 سؤالاً.
-								</p>
-							</div>
-
-							<div className="space-y-4">
-								<FeatureHighlight
-									icon={BookOpen}
-									title="50 سؤالاً متنوعاً"
-									description="أسئلة شاملة تغطي حياة الإمام وأدعيته وعلومه"
-								/>
-								<FeatureHighlight
-									icon={GraduationCap}
-									title="اختبر معرفتك"
-									description="اختبر فهمك لتراث الإمام السجاد عليه السلام"
-								/>
-								<FeatureHighlight
-									icon={Star}
-									title="تعلم وتثقف"
-									description="اكتسب معرفة جديدة عن سيرة أهل البيت عليهم السلام"
-								/>
-							</div>
-						</div>
-
-						{/* Progress Card */}
-						<GradientCard className="p-8">
-							<div className="space-y-6">
-								<div className="flex items-center justify-between">
-									<h3 className="text-xl font-bold text-slate-800">
-										تقدمك في المسابقة
-									</h3>
-									<div className="flex items-center gap-2 text-primary bg-primary/10 px-4 py-2 rounded-full">
-										<Trophy className="w-5 h-5" />
-										<span className="font-semibold">
-											{answeredCount} / {totalQuestions}
-										</span>
-									</div>
-								</div>
-
-								{/* Progress Bar */}
-								<div className="relative h-4 bg-slate-200 rounded-full overflow-hidden">
-									<motion.div
-										className="absolute inset-y-0 right-0 bg-gradient-to-l from-primary to-secondary rounded-full"
-										initial={{ width: 0 }}
-										animate={{
-											width: `${(answeredCount / totalQuestions) * 100}%`,
-										}}
-										transition={{
-											duration: 0.5,
-											ease: "easeInOut",
-										}}
-									/>
-								</div>
-
-								<div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-cyan-50 rounded-2xl p-6 border-l-4 border-primary">
-									<p className="text-slate-700 text-center font-medium">
-										أجب على جميع الأسئلة واكتشف نتيجتك في
-										النهاية!
-									</p>
-								</div>
-							</div>
-						</GradientCard>
-					</div>
-				</div>
-			</section>
-
-			{/* Quiz Section */}
-			<section className="px-4 sm:px-6 lg:px-8 py-8">
-				<div className="max-w-3xl mx-auto">
-					{/* Progress Bar */}
-					<div className="mb-6">
-						<div className="relative h-3 bg-slate-200 rounded-full overflow-hidden">
+		<div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
+			{/* Mobile-First Header */}
+			<div className="bg-white border-b border-slate-200 sticky top-0 z-10 shadow-sm">
+				<div className="px-4 py-4">
+					<div className="space-y-3">
+						{/* Progress Bar */}
+						<div className="relative h-2 bg-slate-200 rounded-full overflow-hidden">
 							<motion.div
 								className="absolute inset-y-0 right-0 bg-gradient-to-l from-primary to-secondary rounded-full"
 								initial={{ width: 0 }}
 								animate={{ width: `${progress}%` }}
 								transition={{
-									duration: 0.5,
-									ease: "easeInOut",
+									duration: 0.3,
+									ease: "easeOut",
 								}}
 							/>
 						</div>
-						<p className="text-sm text-slate-500 mt-2 text-left">
-							السؤال {currentQuestion + 1} من {totalQuestions}
-						</p>
+						{/* Question Counter */}
+						<div className="flex items-center justify-between text-sm">
+							<span className="text-slate-600">
+								السؤال {currentQuestion + 1} من {totalQuestions}
+							</span>
+							<span className="text-primary font-medium">
+								{answeredCount} إجابة
+							</span>
+						</div>
 					</div>
+				</div>
+			</div>
 
-					{/* Question Card */}
-					<GradientCard className="p-6 md:p-8 mb-6">
-						<AnimatePresence mode="wait">
-							<motion.div
-								key={currentQuestion}
-								initial={{ opacity: 0, y: 20 }}
-								animate={{ opacity: 1, y: 0 }}
-								exit={{ opacity: 0, y: -20 }}
-								transition={{ duration: 0.3 }}
-							>
-								{/* Question Number & Text */}
-								<div className="mb-8">
-									<div className="flex items-center gap-3 mb-4">
-										<span className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-primary to-secondary text-white rounded-xl font-bold text-xl shadow-lg">
-											{currentQ.number}
-										</span>
-										<span className="text-primary font-medium">
-											سؤال {currentQ.number}
-										</span>
-									</div>
-									<h2 className="text-xl md:text-2xl font-semibold text-slate-800 leading-relaxed">
-										{currentQ.question}
-									</h2>
-								</div>
+			{/* Question Content */}
+			<div className="px-4 py-6 pb-24">
+				<AnimatePresence mode="wait">
+					<motion.div
+						key={currentQuestion}
+						initial={{ opacity: 0, x: 20 }}
+						animate={{ opacity: 1, x: 0 }}
+						exit={{ opacity: 0, x: -20 }}
+						transition={{ duration: 0.2 }}
+						className="space-y-6"
+					>
+						{/* Question */}
+						<div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-5">
+							<div className="flex items-start gap-3">
+								<span className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-primary to-secondary text-white rounded-xl flex items-center justify-center font-bold">
+									{currentQ.number}
+								</span>
+								<h2 className="text-lg font-semibold text-slate-800 pt-1 flex-1">
+									{currentQ.question}
+								</h2>
+							</div>
+						</div>
 
-								{/* Options */}
-								<div className="space-y-3">
-									{Object.entries(currentQ.options).map(
-										([key, value]) => {
-											const isSelected =
-												selectedAnswer === key
+						{/* Options */}
+						<div className="space-y-3">
+							{Object.entries(currentQ.options).map(
+								([key, value]) => {
+									const isSelected = selectedAnswer === key
 
-											return (
-												<button
-													key={key}
-													onClick={() =>
-														handleAnswerSelect(key)
-													}
-													disabled={isSubmitted}
-													className={cn(
-														"w-full text-right p-5 rounded-xl border-2 transition-all duration-200 flex items-start gap-4 group",
-														"hover:shadow-md focus:outline-none focus:ring-4 focus:ring-primary/20",
-														isSelected
-															? "border-primary bg-primary/5 shadow-md"
-															: "border-slate-200 hover:border-primary/50 bg-white",
-													)}
-												>
-													<span
-														className={cn(
-															"flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center font-bold text-lg transition-colors",
-															isSelected
-																? "bg-primary text-white"
-																: "bg-slate-100 text-slate-600 group-hover:bg-primary/10 group-hover:text-primary",
-														)}
-													>
-														{key}
-													</span>
-													<span className="text-lg text-slate-700 pt-1">
-														{value}
-													</span>
-												</button>
-											)
-										},
-									)}
-								</div>
-							</motion.div>
-						</AnimatePresence>
-					</GradientCard>
-
-					{/* Navigation */}
-					<div className="flex items-center justify-between gap-4">
-						<button
-							onClick={handlePrevious}
-							disabled={currentQuestion === 0}
-							className={cn(
-								"flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all",
-								currentQuestion === 0
-									? "bg-slate-200 text-slate-400 cursor-not-allowed"
-									: "bg-white text-primary hover:bg-primary/5 shadow-md border border-slate-200",
+									return (
+										<button
+											key={key}
+											onClick={() =>
+												handleAnswerSelect(key)
+											}
+											className={cn(
+												"w-full text-right p-4 rounded-xl border-2 transition-all flex items-start gap-3 bg-white",
+												isSelected
+													? "border-primary bg-primary/5 shadow-md"
+													: "border-slate-200 active:scale-[0.98]",
+											)}
+										>
+											<span
+												className={cn(
+													"flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-bold transition-colors",
+													isSelected
+														? "bg-primary text-white"
+														: "bg-slate-100 text-slate-600",
+												)}
+											>
+												{key}
+											</span>
+											<span className="text-slate-700 pt-0.5 flex-1">
+												{value}
+											</span>
+										</button>
+									)
+								},
 							)}
-						>
-							<ChevronRight className="w-5 h-5" />
-							السابق
-						</button>
-						<button
-							onClick={handleNext}
-							className="flex-1 max-w-xs px-6 py-3 rounded-xl font-semibold bg-gradient-to-r from-primary to-secondary text-white hover:from-secondary hover:to-primary shadow-lg transition-all flex items-center justify-center gap-2"
-						>
-							{currentQuestion === totalQuestions - 1 ? (
-								<>عرض النتائج</>
-							) : (
-								<>
-									التالي
-									<ChevronLeft className="w-5 h-5" />
-								</>
-							)}
-						</button>
-					</div>
+						</div>
 
-					{/* Question Navigator */}
-					<div className="mt-8">
-						<GradientCard className="p-6">
-							<p className="text-sm text-slate-500 mb-4 text-center font-medium">
-								انتقل إلى السؤال
+						{/* Question Navigator Grid */}
+						<div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
+							<p className="text-xs text-slate-500 mb-3 text-center font-medium">
+								الانتقال السريع للأسئلة
 							</p>
-							<div className="flex flex-wrap gap-2 justify-center">
+							<div className="grid grid-cols-10 gap-2">
 								{questions.map((q, index) => {
 									const isAnswered =
 										answers[index] !== undefined
@@ -1071,15 +949,15 @@ export default function ContestQuestions() {
 												handleQuestionJump(index)
 											}
 											className={cn(
-												"w-10 h-10 rounded-lg font-semibold text-sm transition-all hover:scale-110",
+												"aspect-square rounded-lg text-xs font-semibold transition-all",
 												isCurrent &&
-													"bg-primary text-white ring-4 ring-primary/30",
+													"bg-primary text-white ring-2 ring-primary/30 scale-110",
 												!isCurrent &&
 													isAnswered &&
 													"bg-primary/10 text-primary",
 												!isCurrent &&
 													!isAnswered &&
-													"bg-slate-100 text-slate-400 hover:bg-slate-200",
+													"bg-slate-100 text-slate-400",
 											)}
 										>
 											{q.number}
@@ -1087,10 +965,55 @@ export default function ContestQuestions() {
 									)
 								})}
 							</div>
-						</GradientCard>
-					</div>
+						</div>
+					</motion.div>
+				</AnimatePresence>
+			</div>
+
+			{/* Fixed Bottom Navigation */}
+			<div className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 shadow-lg">
+				<div className="px-4 py-3">
+					{allAnswered ? (
+						<button
+							onClick={handleSubmit}
+							className="w-full py-4 rounded-xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-500 text-white shadow-lg active:scale-[0.98] transition-transform flex items-center justify-center gap-2"
+						>
+							<Send className="w-5 h-5" />
+							إرسال الإجابات
+						</button>
+					) : (
+						<div className="flex items-center gap-2">
+							<button
+								onClick={handlePrevious}
+								disabled={currentQuestion === 0}
+								className={cn(
+									"px-4 py-4 rounded-xl font-medium transition-all flex-shrink-0",
+									currentQuestion === 0
+										? "bg-slate-100 text-slate-400"
+										: "bg-slate-100 text-slate-700 active:scale-95",
+								)}
+							>
+								<ChevronRight className="w-5 h-5" />
+							</button>
+							<button
+								onClick={handleNext}
+								disabled={
+									currentQuestion === totalQuestions - 1
+								}
+								className={cn(
+									"flex-1 py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2",
+									currentQuestion === totalQuestions - 1
+										? "bg-slate-100 text-slate-400"
+										: "bg-gradient-to-r from-primary to-secondary text-white active:scale-[0.98]",
+								)}
+							>
+								السؤال التالي
+								<ChevronLeft className="w-5 h-5" />
+							</button>
+						</div>
+					)}
 				</div>
-			</section>
+			</div>
 		</div>
 	)
 }
