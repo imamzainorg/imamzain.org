@@ -1101,7 +1101,7 @@
     "translations": [
       {
         "languageid": 1,
-        "title": "التأثر بالقرآن الكريم عند الإمام السجاد  ( عليه السلام ) في الصحيفة السجادية  ",
+        "title": "الاقتباس القراني في ادعية الصحيفة السجادية",
         "authors": [
           "خولة مهدي شاكر الجراح"
         ],
@@ -1135,7 +1135,7 @@
     "translations": [
       {
         "languageid": 1,
-        "title": "  السمو الصوتي في المناجيات الخمسة عشرة من كلام  زين العابدين الامام السجاد  ( عليه السلام ) ",
+        "title": "  السمو الصوتي في المناجيات الخمس عشرة من كلام  زين العابدين الامام السجاد  ( عليه السلام ) ",
         "authors": [
           "سهام صائب خضير "
         ],
@@ -1220,7 +1220,7 @@
     "translations": [
       {
         "languageid": 1,
-        "title": "  تحليل خطاب نقدي مقارن للاعلان العالمي لحقوق الانسان ورسالة الحقوق للامام علي السجاد (عليه السلام) //A Contrastive Critical Discourse Analysis of the Universal Declaration of Human Rights and Risalat Al-Huquq of Imam Ali Al-Sajjad (P.B.U.H.) ",
+        "title": "A Critical Discourse Analysis of Risalat Al-Huquq of Imam Ali Al-Sajjad (p.b.u.h.) ",
         "authors": [
           "نور عثمان الجبوري"
         ],
@@ -1394,7 +1394,7 @@
         "languageid": 1,
         "title": "  سيرة حياة الإمام علي بن الحسين  ( عليه السلام ) خارطة الطريق نحو مجتمع صالح",
         "authors": [
-          "بسمة رحمن عوده"
+          "بسمة رحمن عودة"
         ],
         "publicationVenue": "مجلة القادسية للعلوم الإنسانية - العدد 20 - مجلد 1 ",
         "language": " عربي ",
@@ -13102,10 +13102,10 @@
       }
     ],
     "publishedYear": "2025 م",
-    "pdfUrl": "/research/journals/.pdf"
+    "pdfUrl": "/research/journals/أسلوب الاستفهام في الصحيفة السجادية هل والهمزة مثالا - دراسة اسلوبية تحليلة.pdf"
   },{
     "id": "773",
-    "translations": [
+    "translations": [ 
       {
         "languageid": 1,
         "title": "الفرزدق وشعره في مدح زين العابدين ع ",
@@ -13118,6 +13118,6 @@
       }
     ],
     "publishedYear": "2008 م",
-    "pdfUrl": "/research/journals/.pdf"
+    "pdfUrl": "/research/journals/الفرزدق وشعره في مدح زين العابدين ع - وحيودي.pdf"
   }
 ]
