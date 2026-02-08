@@ -537,8 +537,8 @@
   },
   {
     "id": 25,
-    "slug": "al--sahifa--al-sajjadiyya-al-dirasa-al-sanadiyya-al-bibliographia-al-nass",
-    "title": "الصحيفة السجادية الدراسة السندية البيبلوغرافيا النص",
+    "slug": "al-sahifa-al-sajjadiyya-al-dirasa-al-sanadiyya-al-bibliographia-al-nass",
+    "title": "الصحيفة السجادية الدراسة السندية البيبليوغرافيا النص",
     "author": "سمير خير الدين - محمد حسين حكيم",
     "otherNames": [],
     "printHouse": "مؤسسة الأمام زين العابدين للدراسات والبحوث",
@@ -1684,7 +1684,7 @@
   {
     "id": 83,
     "slug": "muqarabat-al-islomofia-fi-khitab-al-sahifa-al-sajjadiya",
-    "title": "مقاربات الاسلموفيا في خطاب الصحيفة السجادية",
+    "title": "مقاربات الاسلاموفيليا في خطاب الصحيفة السجادية",
     "author": "عمر عيسى عمران",
     "otherNames": [
       "مهرجان تراتيل سجادية الثامن"
@@ -2125,7 +2125,7 @@
   {
     "id": 102,
     "slug": "khatawat-ruh-kadiha",
-    "title": "خطواة روح كادحة",
+    "title": "خطوات روح كادحة",
     "author": "فاطمة الركابي",
     "otherNames": [
       "مهرجان تراتيل سجادية التاسع"
@@ -2209,7 +2209,7 @@
   {
     "id": 106,
     "slug": "ishkaliyat-al-waay-al-tarbawi-wa-jaliyat-al-irtihan",
-    "title": "إشكالية الوعي التربوي وجلية الارتهان والارتهان قرائه في الصحيفة السجادية",
+    "title": "إشكالية الوعي التربوي وجناية الرهان والارتهان",
     "author": "ناجي الحجلاوي",
     "otherNames": [
       "مهرجان تراتيل سجادية العاشر"
@@ -2230,7 +2230,7 @@
   {
     "id": 107,
     "slug": "al-baradeghim-al-akhlaqi-fi-al-buhudh-al-maarifi-lada-imam-sajjad",
-    "title": "البارادغيم الأخلاقي في البحوض المعرفي لدى الامام السجاد ",
+    "title": "الباراديغم الأخلاقي في البحوض المعرفي لدى الامام السجاد ",
     "author": "عمر عيسى عمران",
     "otherNames": [
       "مهرجان تراتيل سجادية العاشر"
@@ -2377,7 +2377,7 @@
   {
     "id": 114,
     "slug": "jinalogia-al-akhlaq-fi-turath-imam-sajjad",
-    "title": "جينالوجيا الاخلاق في تراث الامام السجاد ",
+    "title": "جينيالوجيا الاخلاق في تراث الامام السجاد (عليه السلام)",
     "author": "محسن كاظم مشالي",
     "otherNames": [
       "مهرجان تراتيل سجادية العاشر"
@@ -2398,7 +2398,7 @@
   {
     "id": 115,
     "slug": "khawatir-tawiliya-qiraa-fi-al-turath-al-fikri-li-imam-ali-bin-al-hussein",
-    "title": "خواطر تاويلية قراءة في التراث الفكري للإمام علي بن الحسين ",
+    "title": "خواطر تأويلية قراءة في التراث الفكري للإمام علي بن الحسين ",
     "author": "حاكم حبيب الكريطي",
     "otherNames": [
       "مهرجان تراتيل سجادية العاشر"
@@ -2498,6 +2498,66 @@
     "category": [
       "مهرجان تراتيل سجادية",
       "imamzain"
+    ]
+  },
+  {
+    "id": 121,
+    "slug": "al-maad-in-the-thought-of-Imam-al-Sajjad",
+    "title": "المعاد في فكر الإمام السجاد",
+    "author": "الاستاذة فاطمة احمدي",
+    "otherNames": [
+      "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات"
+    ],
+    "printHouse": "دار الوارث - كربلاء المقدسة",
+    "printDate": "2025 م",
+    "language": "العربية",
+    "pages": 318,
+    "parts": 1,
+    "views": 50,
+    "image": "/books/المعاد في فكر الإمام السجاد.jpg",
+    "pdf": "/books/المعاد في فكر الإمام السجاد.pdf",
+    "category": [
+      "publications"
+    ]
+  },
+  {
+    "id": 122,
+    "slug": "Visiting-Imam-al-Sajjad-(peace-be-upon-him)",
+    "title": "زيارة الإمام السجاد (عليه السلام)",
+    "author": "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات",
+    "otherNames": [
+      ""
+    ],
+    "printHouse": "دار الوارث - كربلاء المقدسة",
+    "printDate": "2025 م",
+    "language": "العربية",
+    "pages": 103,
+    "parts": 1,
+    "views": 220,
+    "image": "/books/زيارة الامام زين العابدين.jpg",
+    "pdf": "/books/زيارة الامام زين العابدين.pdf",
+    "category": [
+      "publications"
+    ]
+  },
+  {
+    "id": 123,
+    "slug": "Supplications-of-Imam-al-Sajjad-during-the-month-of-Ramadan",
+    "title": "ادعية الامام السجاد (عليه السلام) في شهر رمضان ",
+    "author": "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات",
+    "otherNames": [
+      ""
+    ],
+    "printHouse": "دار الوارث - كربلاء المقدسة",
+    "printDate": "2025 م",
+    "language": "العربية",
+    "pages": 247,
+    "parts": 1,
+    "views": 0,
+    "image": "/books/ادعية الامام السجاد .jpg",
+    "pdf": "/books/ادعية الامام السجاد ع في شهر رمضان_compressed.pdf",
+    "category": [
+      "publications"
     ]
   }
 ]

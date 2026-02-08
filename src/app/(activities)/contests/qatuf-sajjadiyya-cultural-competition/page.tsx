@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import ContestQuestions from "./components/contest-questions"
 import Breadcrumbs from "@/components/breadcrumb"
 import {
 	BookOpen,
@@ -12,6 +11,7 @@ import {
 	Palette,
 	Star,
 } from "lucide-react"
+import ParticipationForm from "./components/participation-form"
 
 export const metadata: Metadata = {
 	title: "مسابقة قطوف سجادية الثقافية | موقع الإمام زين العابدين",
@@ -192,7 +192,7 @@ export default function Page() {
 					</div>
 				</div>
 			</section>
-			<ContestQuestions />
+			<ParticipationForm />
 		</main>
 	)
 }

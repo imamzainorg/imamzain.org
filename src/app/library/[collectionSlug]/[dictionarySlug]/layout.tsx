@@ -5,7 +5,6 @@ import {
 } from "@/lib/imamzain-legacy-loader"
 import Breadcrumbs from "@/components/breadcrumb"
 import Link from "next/link"
-import Section from "@/components/section"
 import { notFound } from "next/navigation"
 import { collections } from "@/app/library/_config/collections"
 import CollectionSearch from "@/app/library/_components/collection-search"

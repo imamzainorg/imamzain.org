@@ -1,8 +1,6 @@
 {
     "entry": [
         "src/app/**/!( *.test|*.spec|*.stories).{ts,tsx}",
-        "next.config.ts",
-        "tailwind.config.ts"
     ],
     "project": [
         "src/**/*.{ts,tsx}"
