@@ -3,5 +3,5 @@ export default function libraryLayout({
 }: Readonly<{
 	children: React.ReactNode
 }>) {
-	return <div className="container pb-10">{children}</div>
+	return <div className="md:container mx-auto pb-10">{children}</div>
 }

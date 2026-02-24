@@ -26,6 +26,20 @@ html.dark {
 .scrollbar-hide::-webkit-scrollbar {
 	display: none;
 }
+.react-select__control {
+  border-radius: 0.75rem !important;
+  border-color: #e5e7eb !important;
+  min-height: 48px !important;
+}
+
+.react-select__control--is-focused {
+  border-color: #2b994f !important;
+  box-shadow: 0 0 0 2px rgba(99,102,241,0.2) !important;
+}
+
+.react-select__menu {
+  z-index: 9999 !important;
+}
 
 .hero-mask {
 	position: absolute;
