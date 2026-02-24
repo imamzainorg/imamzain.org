@@ -50,6 +50,7 @@ const links = [
         label: "رسالة الحقوق",
         href: "/library/risalat-al-huqoq/introduction",
       },
+
       {
         label: "بوابة البحث العلمي",
         href: "/research",
