@@ -30,7 +30,7 @@ export default async function Layout({
 	const fullDictionaries = getFullDictionaries(collectionSlug)
 
 	return (
-		<div className="px-4 sm:px-10 py-10 min-h-screen">
+		<div className="px-4 sm:px-10 py-10 min-h-screen md:container mx-auto">
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },

@@ -37,7 +37,7 @@ export default function BooklibraryCard({
 				)}
 			</div>
 
-			<div className="w-2/3 flex flex-col h-5/6 pb-5 pt-3 gap-0 sm:gap-1 md:gap-5 xmd:gap-7 lg:gap-0 justify-between">
+			< div className="w-2/3 flex flex-col h-5/6 pb-5 pt-3 gap-0 sm:gap-1 md:gap-5 xmd:gap-7 lg:gap-0 justify-between">
 				<h2 className="text-primary dark:text-Muharram_primary text-subtitle font-bold">
 					{publication.title}
 				</h2>

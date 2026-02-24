@@ -10,7 +10,7 @@ export default async function Page({
 	const activeDictionary = getDictionary(collectionSlug, dictionarySlug)
 
 	return (
-		<div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+		<div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full ">
 			{activeDictionary?.subjects.map((subject) => (
 				<Link
 					key={subject.id}
@@ -28,7 +28,7 @@ export default async function Page({
 						</h2>
 
 						<span className="text-xs text-gray-500 dark:text-gray-400">
-							{subject.phrases.length} عبارة
+							{subject.phrases.length.toLocaleString("ar-EG")} عبارة
 						</span>
 					</div>
 

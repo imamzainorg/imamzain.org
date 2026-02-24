@@ -93,7 +93,7 @@ export default function DictionaryNav({
 												: "bg-gray-100 dark:bg-zinc-700 text-gray-500 dark:text-gray-400"
 										}`}
 									>
-										{dict.subjects?.length || 0}
+										{(dict.subjects?.length || 0).toLocaleString("ar-EG")}
 									</span>
 								</Link>
 							</div>
