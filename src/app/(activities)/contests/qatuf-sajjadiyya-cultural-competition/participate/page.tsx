@@ -1,13 +1,20 @@
 "use client"
 
-import { useState, useCallback, Suspense } from "react"
+import { useState, useCallback, Suspense, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Breadcrumbs from "@/components/breadcrumb"
-import { ChevronLeft, ChevronRight, Send, CheckCircle } from "lucide-react"
+import {
+	ChevronLeft,
+	ChevronRight,
+	Send,
+	CheckCircle,
+	Clock,
+} from "lucide-react"
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { questions } from "../data/questions"
+import questions from "@/data/contests/qatuf-sajjaddiyya/questions.json"
 import { useSearchParams } from "next/navigation"
+import { saveSubmission } from "../actions/save-submission"
 
 function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs))
@@ -17,20 +24,57 @@ type AnswerState = {
 	[questionIndex: number]: string
 }
 
+function formatTime(seconds: number): string {
+	const hours = Math.floor(seconds / 3600)
+	const minutes = Math.floor((seconds % 3600) / 60)
+	const secs = seconds % 60
+
+	if (hours > 0) {
+		return `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`
+	}
+	return `${minutes.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`
+}
+
 function ParticipateContent() {
 	const [step, setStep] = useState<"questions" | "submitted">("questions")
-
 	const [currentQuestion, setCurrentQuestion] = useState(0)
 	const [answers, setAnswers] = useState<AnswerState>({})
+	const [timeElapsed, setTimeElapsed] = useState(0)
+	const [startTime] = useState(() => Date.now())
 
 	const params = useSearchParams()
 	const name = params.get("name")
 	const contactType = params.get("contactType")
-	const contact =
-		contactType === "phone" ? params.get("phone") : params.get("email")
+	const contact = params.get("contact")
+
+	// TEST MODE: Add ?test=true to URL to enable auto-fill
+	const isTestMode = params.get("test") === "true"
 
 	const totalQuestions = questions.length
 	const answeredCount = Object.keys(answers).length
+
+	// Auto-fill all answers in test mode
+	const handleTestFill = useCallback(() => {
+		const testAnswers: AnswerState = {}
+		questions.forEach((_, index) => {
+			testAnswers[index] = "أ" // Fill all with option A
+		})
+		setAnswers(testAnswers)
+	}, [])
+
+	// Timer effect
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setTimeElapsed(Math.floor((Date.now() - startTime) / 1000))
+		}, 1000)
+
+		return () => clearInterval(interval)
+	}, [startTime])
+
+	// Function to stop timer
+	const stopTimer = useCallback(() => {
+		setTimeElapsed(Math.floor((Date.now() - startTime) / 1000))
+	}, [startTime])
 
 	const handleAnswerSelect = useCallback(
 		(optionKey: string) => {
@@ -57,20 +101,48 @@ function ParticipateContent() {
 
 	const handleSubmit = useCallback(async () => {
 		if (answeredCount === totalQuestions) {
-			await fetch("/api/contests/qatuf-sajjadiyya/submit", {
-				method: "POST",
-				body: JSON.stringify({
-					name: name,
-					email: contactType === "email" ? contact : null,
-					phone: contactType === "phone" ? contact : null,
-					startedAt: new Date().toISOString(),
-					answers: answers,
-				}),
-			})
+			// Stop the timer immediately
+			stopTimer()
+			const finalTime = Math.floor((Date.now() - startTime) / 1000)
 
-			setStep("submitted")
+			const submission = {
+				name: name || "مجهول",
+				contact: contact || "",
+				contactType: contactType as "phone" | "email",
+				answers,
+				timeSpent: finalTime,
+				submittedAt: new Date().toISOString(),
+			}
+
+			try {
+				const result = await saveSubmission(submission)
+
+				if (result.success) {
+					setTimeElapsed(finalTime) // Set final time
+					setStep("submitted")
+				} else if (result.error?.includes("duplicate")) {
+					alert(
+						"لقد شاركت في المسابقة مسبقاً. لا يمكن المشاركة أكثر من مرة.",
+					)
+				} else {
+					console.error("Failed to save submission:", result.error)
+					alert("حدث خطأ أثناء حفظ الإجابات. يرجى المحاولة مرة أخرى.")
+				}
+			} catch (error) {
+				console.error("Failed to save submission:", error)
+				alert("حدث خطأ أثناء حفظ الإجابات. يرجى المحاولة مرة أخرى.")
+			}
 		}
-	}, [answeredCount, totalQuestions, answers, contact, contactType, name])
+	}, [
+		answeredCount,
+		totalQuestions,
+		answers,
+		contact,
+		contactType,
+		name,
+		stopTimer,
+		startTime,
+	])
 
 	// Success Submission
 	if (step === "submitted") {
@@ -92,6 +164,9 @@ function ParticipateContent() {
 							شكراً لمشاركتك في المسابقة. سيتم الإعلان عن النتائج
 							قريباً عبر المنصات الرسمية للمؤسسة.
 						</p>
+						<div className="text-primary font-semibold text-lg">
+							الوقت المستغرق: {formatTime(timeElapsed)}
+						</div>
 					</div>
 				</motion.div>
 			</div>
@@ -120,6 +195,38 @@ function ParticipateContent() {
 					]}
 				/>
 			</div>
+
+			{/* Timer Display */}
+			<div className="max-w-5xl mx-auto px-4 lg:px-8 py-4">
+				<div className="bg-white/80 backdrop-blur-sm rounded-xl border border-slate-200 p-4 flex items-center justify-between">
+					<div className="flex items-center gap-3">
+						<Clock className="w-5 h-5 text-primary" />
+						<span className="text-slate-600 font-medium">
+							الوقت المستغرق:
+						</span>
+						<span className="text-primary font-bold text-lg">
+							{formatTime(timeElapsed)}
+						</span>
+					</div>
+					<div className="flex items-center gap-4">
+						{isTestMode && (
+							<button
+								onClick={handleTestFill}
+								className="px-4 py-2 bg-yellow-500 text-white rounded-lg font-semibold hover:bg-yellow-600 transition-all text-sm"
+							>
+								🧪 ملء تلقائي (اختبار)
+							</button>
+						)}
+						<div className="text-slate-600">
+							<span className="font-semibold">
+								{answeredCount}
+							</span>{" "}
+							/ {totalQuestions} سؤال
+						</div>
+					</div>
+				</div>
+			</div>
+
 			{/* Question Content */}
 			<div className="max-w-5xl mx-auto px-4 lg:px-8 py-6 lg:py-10">
 				<AnimatePresence mode="wait">
