@@ -50,7 +50,7 @@ const sections: Section[] = [
 
       {
         label: "مهرجان تراتيل سجادية",
-        href: "/library?searchPublisher=مهرجان تراتيل سجادية",
+        href: "/library?conferences=مهرجان تراتيل سجادية",
       },
     ],
   },

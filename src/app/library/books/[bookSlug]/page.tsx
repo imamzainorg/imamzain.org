@@ -62,7 +62,7 @@ export default async function Page({ params }: { params: Promise<{ bookSlug: str
 				كتب ذات صلة 
 			</h2>
 
-			<div className="bg-secondary dark:bg-Muharram_primary/20 bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
+			<div className="bg-secondary md:container dark:bg-Muharram_primary/20 bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
 				{showcaseBooks.map((item) => (
 					<BooklibraryCard key={item.id} route="/library/books/" publication={item} downloadable />
 				))}
