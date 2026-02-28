@@ -4,7 +4,8 @@ import { motion } from "framer-motion"
 import { useCallback, useState } from "react"
 import { User, Phone, Mail } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { redirect } from "next/navigation"
+import { useRouter } from "next/navigation"
+import { checkDuplicate } from "../actions/check-duplicates"
 
 type UserInfo = {
 	fullName: string
@@ -13,12 +14,14 @@ type UserInfo = {
 }
 
 export default function ParticipationForm() {
+	const router = useRouter()
 	const [userInfo, setUserInfo] = useState<UserInfo>({
 		fullName: "",
 		contact: "",
 		contactType: "phone",
 	})
 	const [errorMessage, setErrorMessage] = useState<string>("")
+	const [isChecking, setIsChecking] = useState(false)
 
 	const isValidEmail = (value: string): boolean => {
 		return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
@@ -29,7 +32,7 @@ export default function ParticipationForm() {
 		return /^07[5-9]\d{8}$/.test(normalized)
 	}
 
-	const handleStartQuiz = useCallback(() => {
+	const handleStartQuiz = useCallback(async () => {
 		const validateContact = (value: string): boolean => {
 			const input = value.trim()
 
@@ -53,7 +56,24 @@ export default function ParticipationForm() {
 			userInfo.fullName.trim() &&
 			validateContact(userInfo.contact.trim())
 		) {
-			redirect(
+			setIsChecking(true)
+			setErrorMessage("")
+
+			// Check for duplicate before allowing quiz start
+			const isDuplicate = await checkDuplicate(userInfo.contact.trim())
+
+			if (isDuplicate) {
+				setErrorMessage(
+					"لقد شاركت في المسابقة مسبقاً. لا يمكن المشاركة أكثر من مرة.",
+				)
+				setIsChecking(false)
+				return
+			}
+
+			setIsChecking(false)
+
+			// Navigate to quiz
+			router.push(
 				`/contests/qatuf-sajjadiyya-cultural-competition/participate?name=${encodeURIComponent(
 					userInfo.fullName.trim(),
 				)}&contact=${encodeURIComponent(userInfo.contact.trim())}&contactType=${encodeURIComponent(
@@ -61,7 +81,7 @@ export default function ParticipationForm() {
 				)}`,
 			)
 		}
-	}, [userInfo])
+	}, [userInfo, router])
 
 	return (
 		<div className="min-h-screen px-4 py-8 lg:py-16">
@@ -190,7 +210,7 @@ export default function ParticipationForm() {
 						</div>
 					</div>
 					{errorMessage && (
-						<p className="text-red-500 text-sm lg:text-base mt-2 ">
+						<p className="text-red-500 text-sm lg:text-base mt-2 font-semibold">
 							{errorMessage}
 						</p>
 					)}
@@ -199,16 +219,19 @@ export default function ParticipationForm() {
 						onClick={handleStartQuiz}
 						disabled={
 							!userInfo.fullName.trim() ||
-							!userInfo.contact.trim()
+							!userInfo.contact.trim() ||
+							isChecking
 						}
 						className={cn(
 							"w-full py-4 lg:py-5 rounded-xl lg:rounded-2xl font-bold text-lg lg:text-xl transition-all shadow-lg",
-							userInfo.fullName.trim() && userInfo.contact.trim()
+							userInfo.fullName.trim() &&
+								userInfo.contact.trim() &&
+								!isChecking
 								? "bg-gradient-to-r from-primary to-secondary text-white hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
 								: "bg-slate-200 text-slate-400 cursor-not-allowed",
 						)}
 					>
-						ابدأ المسابقة
+						{isChecking ? "جاري التحقق..." : "ابدأ المسابقة"}
 					</button>
 				</motion.div>
 			</div>

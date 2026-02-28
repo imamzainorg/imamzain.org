@@ -1,6 +1,6 @@
 {
     "entry": [
-        "src/app/**/!( *.test|*.spec|*.stories).{ts,tsx}",
+        "src/app/**/!( *.test|*.spec|*.stories).{ts,tsx}"
     ],
     "project": [
         "src/**/*.{ts,tsx}"

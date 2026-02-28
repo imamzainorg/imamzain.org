@@ -10,6 +10,12 @@ import {
 	LucideIcon,
 	Palette,
 	Star,
+	AlertCircle,
+	CheckCircle2,
+	Trophy,
+	Clock,
+	Users,
+	FileText,
 } from "lucide-react"
 import ParticipationForm from "./components/participation-form"
 
@@ -87,6 +93,28 @@ function ModernBadge({
 	)
 }
 
+function RuleItem({ children }: { children: React.ReactNode }) {
+	return (
+		<div className="flex items-start gap-4">
+			<CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+			<p className="text-slate-700 text-base lg:text-lg leading-relaxed">
+				{children}
+			</p>
+		</div>
+	)
+}
+
+function ImportantNote({ children }: { children: React.ReactNode }) {
+	return (
+		<div className="flex items-start gap-4 bg-amber-50 border border-amber-200 rounded-xl p-4">
+			<AlertCircle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-1" />
+			<p className="text-amber-900 text-base lg:text-lg leading-relaxed font-medium">
+				{children}
+			</p>
+		</div>
+	)
+}
+
 export default function Page() {
 	return (
 		<main className="min-h-screen">
@@ -103,7 +131,7 @@ export default function Page() {
 					]}
 				/>
 			</div>
-			{/* Hero Section - Completely Redesigned */}
+			{/* Hero Section */}
 			<section className="px-4 sm:px-6 lg:px-8 py-16">
 				<div className="max-w-7xl mx-auto">
 					<div className="space-y-6 my-2">
@@ -192,6 +220,154 @@ export default function Page() {
 					</div>
 				</div>
 			</section>
+
+			{/* Rules and Instructions Section */}
+			<section className="px-4 sm:px-6 lg:px-8 py-16 bg-gradient-to-br from-slate-50 to-white">
+				<div className="max-w-5xl mx-auto">
+					<div className="text-center space-y-4 mb-12">
+						<div className="inline-flex items-center gap-3 bg-primary/10 border border-primary/20 px-6 py-3 rounded-2xl">
+							<FileText className="w-5 h-5 text-primary" />
+							<span className="text-primary font-bold text-lg">
+								شروط وضوابط المسابقة
+							</span>
+						</div>
+						<h2 className="text-3xl lg:text-4xl font-bold text-slate-800">
+							اقرأ الشروط بعناية قبل المشاركة
+						</h2>
+					</div>
+
+					<div className="space-y-8">
+						{/* Contest Scope */}
+						<GradientCard className="p-6 lg:p-8">
+							<div className="flex items-start gap-4 mb-6">
+								<BookOpen className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+								<h3 className="text-xl lg:text-2xl font-bold text-slate-800">
+									مصدر الأسئلة
+								</h3>
+							</div>
+							<div className="space-y-4">
+								<RuleItem>
+									تعد المسابقة حصرية بكتاب &quot;قبسات من حياة
+									الإمام زين العابدين (عليه السلام) - الحلقة
+									الأولى&quot;
+								</RuleItem>
+								<RuleItem>
+									تستخرج جميع الأسئلة وأجوبتها من محتوى الكتاب
+									حصراً
+								</RuleItem>
+								<ImportantNote>
+									يشترط على المشارك قراءة الكتاب قراءة دقيقة،
+									وأن تكون الإجابة من الكتاب حصراً
+								</ImportantNote>
+							</div>
+						</GradientCard>
+
+						{/* Time and Duration */}
+						<GradientCard className="p-6 lg:p-8">
+							<div className="flex items-start gap-4 mb-6">
+								<Clock className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+								<h3 className="text-xl lg:text-2xl font-bold text-slate-800">
+									المدة الزمنية
+								</h3>
+							</div>
+							<div className="space-y-4">
+								<RuleItem>
+									تنشر أسئلة المسابقة عبر الروابط الرسمية
+									لمؤسسة الإمام زين العابدين (عليه السلام)
+									للبحوث والدراسات
+								</RuleItem>
+								<RuleItem>
+									مدة المسابقة: خمسة عشر (15) يوماً فقط من
+									تاريخ الإعلان
+								</RuleItem>
+								<ImportantNote>
+									تقدم الإجابات ضمن المدة الزمنية المحددة، ولا
+									تقبل المشاركات بعد انتهاء فترة الخمسة عشر
+									يوماً
+								</ImportantNote>
+							</div>
+						</GradientCard>
+
+						{/* Participation Requirements */}
+						<GradientCard className="p-6 lg:p-8">
+							<div className="flex items-start gap-4 mb-6">
+								<Users className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+								<h3 className="text-xl lg:text-2xl font-bold text-slate-800">
+									متطلبات المشاركة
+								</h3>
+							</div>
+							<div className="space-y-4">
+								<RuleItem>
+									يجب الإجابة عن جميع أسئلة المسابقة كاملة
+								</RuleItem>
+								<RuleItem>
+									تستبعد المشاركات الناقصة أو غير المطابقة
+								</RuleItem>
+								<ImportantNote>
+									لا يجوز شرعاً الاستعانة بالذكاء الاصطناعي أو
+									بأي وسيلة أخرى
+								</ImportantNote>
+							</div>
+						</GradientCard>
+
+						{/* Evaluation Criteria */}
+						<GradientCard className="p-6 lg:p-8">
+							<div className="flex items-start gap-4 mb-6">
+								<Star className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+								<h3 className="text-xl lg:text-2xl font-bold text-slate-800">
+									معايير التقييم
+								</h3>
+							</div>
+							<div className="space-y-4">
+								<RuleItem>
+									تقيّم المشاركات وفق الدقة والوضوح ومطابقة
+									الجواب لمضمون الكتاب
+								</RuleItem>
+								<RuleItem>
+									في حال تساوي الدرجات بين أكثر من مشارك،
+									يعتمد معيار إضافي أو تجرى قرعة لتحديد
+									الفائزين
+								</RuleItem>
+								<RuleItem>
+									قرار لجنة التحكيم نهائي ولا يقبل الاعتراض
+								</RuleItem>
+							</div>
+						</GradientCard>
+
+						{/* Prizes */}
+						<GradientCard className="p-6 lg:p-8">
+							<div className="flex items-start gap-4 mb-6">
+								<Trophy className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+								<h3 className="text-xl lg:text-2xl font-bold text-slate-800">
+									الجوائز
+								</h3>
+							</div>
+							<div className="space-y-4">
+								<RuleItem>
+									تمنح مكافآت تشجيعية قيمة للعشرة الأوائل من
+									المشاركين
+								</RuleItem>
+								<RuleItem>
+									يتم تحديد الفائزين وفق تقييم لجنة التحكيم
+								</RuleItem>
+								<RuleItem>
+									يعلن عن أسماء الفائزين عبر المنصات الرسمية
+									للمؤسسة
+								</RuleItem>
+							</div>
+						</GradientCard>
+
+						{/* Final Note */}
+						<div className="bg-gradient-to-r from-primary/10 to-secondary/10 border-2 border-primary/30 rounded-2xl p-6 lg:p-8 text-center">
+							<p className="text-lg lg:text-xl font-bold text-slate-800">
+								المشاركة في المسابقة تعني الاطلاع على الشروط
+								والموافقة عليها كاملة
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
 			<ParticipationForm />
 		</main>
 	)
