@@ -20,7 +20,7 @@ export default function PublicationsPage() {
 
 	const publications = useMemo(() => {
 		const filteredByCategory = (booksData as Book[]).filter((book: Book) =>
-			book.category?.includes("publications"),
+			book.category?.includes("الإصدارات"),
 		)
 		const uniqueSeriesMap = new Map<string, Book>()
 
