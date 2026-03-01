@@ -39,9 +39,9 @@ const links = [
     href: "/publications",
   },
   {
-    label: "المكتبة التخصصية",
+    label: "المكتبة ",
     subLinks: [
-      { label: "ما كتب عن الإمام زين العابدين", href: "/library" },
+      { label: "المكتبة التخصصية", href: "/library" },
       {
         label: "الصحيفة السجادية",
         href: "/library/al-sahifa/al-sahifa-al-sajjadiya-index",
