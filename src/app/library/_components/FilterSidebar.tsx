@@ -1,10 +1,10 @@
 "use client";
-
+import { useState, ReactNode } from "react";
 import Select from "react-select";
 import { Button } from "@/components/button";
-import { User, Building2, Calendar } from "lucide-react";
-import { useState, ReactNode } from "react";
+import { User, Building2, Calendar, LayoutGrid } from "lucide-react";
 import { SingleValue } from "react-select";
+
 /* ================= TYPES ================= */
 
 type Filters = {
@@ -18,12 +18,9 @@ type Filters = {
 type FilterSidebarWrapperProps = {
   filters: Filters;
   author: string;
-  
   setAuthor: (val: string) => void;
   publisher: string;
   setPublisher: (val: string) => void;
-  year: string;
-  setYear: (val: string) => void;
   category: string;
   setCategory: (val: string) => void;
   conferences: string;
@@ -40,10 +37,8 @@ export default function FilterSidebarWrapper({
   setAuthor,
   publisher,
   setPublisher,
-  year,
-  setYear,
- // category,
-  //setCategory,
+  category,
+  setCategory,
   conferences,
   setConferences,
   paginate,
@@ -127,7 +122,7 @@ export default function FilterSidebarWrapper({
           {/* Filters */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:grid-cols-1">
             {/* Category */}
-{/*            <FilterSelect
+           <FilterSelect
               instanceId="category-select"
               icon={<LayoutGrid size={16} className="hidden md:inline" />}
               label="التصنيف"
@@ -138,7 +133,7 @@ export default function FilterSidebarWrapper({
                 setCategory(val);
                 paginate(1);
               }}
-            />*/}
+            />
 
             {/* Author */}
             <FilterSelect
@@ -168,19 +163,7 @@ export default function FilterSidebarWrapper({
               }}
             />
 
-            {/* Year */}
-            <FilterSelect
-              instanceId="year-select"
-              icon={<Calendar size={16} className="hidden md:inline" />}
-              label="سنة النشر"
-              placeholder="اختر سنة..."
-              options={filters.years}
-              value={year}
-              onChange={(val) => {
-                setYear(val);
-                paginate(1);
-              }}
-            />
+     
             <FilterSelect
               instanceId="conference-select"
               icon={<Calendar size={16} className="hidden md:inline" />}
