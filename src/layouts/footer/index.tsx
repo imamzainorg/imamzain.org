@@ -46,11 +46,11 @@ const links: LinkSection[] = [
     ],
   },
   {
-    label: "المكتبة التخصصية",
+    label: "المكتبة ",
     sublinks: [
-      { label: "ما كتب عن الامام", href: "/library" },
-      { label: "الصحيفة السجادية", href: "/library/al-sahifa" },
-      { label: "رسالة الحقوق", href: "/library/risalat-al-huqoq" },
+      { label: "المكتبة التخصصية", href: "/library" },
+      { label: "الصحيفة السجادية", href: "library/al-sahifa/al-sahifa-al-sajjadiya-index" },
+      { label: "رسالة الحقوق", href: "/library/risalat-al-huqoq/introduction" },
     ],
   },
   {
