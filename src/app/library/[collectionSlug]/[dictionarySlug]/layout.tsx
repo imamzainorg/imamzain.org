@@ -34,8 +34,8 @@ export default async function Layout({
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
-					{ name: "المكتبة التخصصية", url: "/library" },
-					{ name: config.title, url: `/library/${collectionSlug}` },
+					{ name: "المكتبة ", url: "#library" },
+					{ name: config.title, url: `#library/${collectionSlug}` },
 					{
 						name: activeDictionary.title,
 						url: `/library/${collectionSlug}/${dictionarySlug}`,
