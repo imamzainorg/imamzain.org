@@ -44,8 +44,12 @@ const sections: Section[] = [
     icon: NewspaperIcon,
     subLinks: [
       {
+        label: "مؤتمر الاسرة",
+        href: "/research/scientific-platform?type=conferences&search=مؤتمر الاسرة في ضوء رسالة الحقوق للامام زين العابدين ع وتحديات الغزو الثقافي",
+      },
+      {
         label: "المؤتمر العلمي الدولي الأول",
-        href: "/research/scientific-platform?type=conferences",
+        href: "/research/scientific-platform?type=conferences&search=وقائع المؤتمر  العلمي الدولي الأول الموسوم بـ(الأبعاد التربوية والاجتماعية في تراث الامام زين العابدين (عليه السلام))",
       },
 
       {
