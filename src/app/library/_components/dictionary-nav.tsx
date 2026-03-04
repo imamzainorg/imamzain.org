@@ -83,11 +83,11 @@ export default function DictionaryNav({
 												: "bg-gray-300 dark:bg-zinc-600"
 										}`}
 									/>
-									<span className="flex-1 text-sm leading-tight">
+									<span className="flex-1 text-subtitle leading-tight">
 										{dict.title}
 									</span>
 									<span
-										className={`text-xs px-2 py-0.5 rounded-full ${
+										className={`text-xs	 px-2 py-0.5 rounded-full ${
 											isActive
 												? "bg-primary/20 dark:bg-Muharram_primary/30 text-primary dark:text-Muharram_primary"
 												: "bg-gray-100 dark:bg-zinc-700 text-gray-500 dark:text-gray-400"
@@ -124,7 +124,7 @@ export default function DictionaryNav({
 															: "text-gray-400"
 													}`}
 												/>
-												<span className="flex-1 leading-tight">
+												<span className="flex-1 text-xs md:text-base leading-tight">
 													{subject.title}
 												</span>
 												<span

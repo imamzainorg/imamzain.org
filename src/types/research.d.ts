@@ -9,7 +9,7 @@ export interface Research {
 	author?: string
 	pdfUrl: string
 	pages?: number
-	publishedYear?: string
+	publishedYear: string
 	Description?: string
 	authorDescription?: string
 	conference?: string
