@@ -280,7 +280,7 @@ export default function GallerySection() {
 
                             {/* أيقونة السهم */}
                             <motion.div
-                              className="mt-3 flex items-center gap-2 text-primary text-sm font-semibold"
+                              className="mt-3 flex items-center gap-2 text-secondary-100 text-sm font-semibold"
                               initial={{ x: -10, opacity: 0 }}
                               animate={isHovered ? { x: 0, opacity: 1 } : { x: -10, opacity: 0 }}
                               transition={{ delay: 0.1 }}
