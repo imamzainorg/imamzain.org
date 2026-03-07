@@ -1,5 +1,60 @@
 [
   {
+    "id": 10,
+    "title": "ثلاثون درساً من دعاء أبي حمزة الثمالي",
+    "url": "https://www.youtube.com/watch?v=GTwC3hVv_0c&list=PLi1h0SEPzOA5H9jFEY4i2Qk3IhCF60ZcK&index=6",
+    "videos": [
+      {
+        "title": "ثلاثون درساً من دعاء أبي حمزة الثمالي | الدرس الأول",
+        "url": "GTwC3hVv_0c",
+        "date": " 24‏/02‏/2026",
+        "desc": "",
+        "thumbnail": "/playlist-thumbnails/ثلاثون درسا من دعاء ابي حمزة الثمالي.webp",
+        "slug": "30-lessons-from-dua-abi-hamza-al-thumali-al-lesson-one"
+      },
+      {
+        "title": "ثلاثون درساً من دعاء أبي حمزة الثمالي | الدرس الثالث",
+        "url": "c7_tgDwcNts",
+        "date": "28‏/02‏/2026",
+        "desc": "",
+         "thumbnail": "/playlist-thumbnails/ثلاثون درسا من دعاء ابي حمزة الثمالي.webp",
+        "slug": "30-lessons-from-dua-abi-hamza-al-thumali-al-lesson-three"
+      },
+      {
+        "title": "ثلاثون درساً من دعاء أبي حمزة الثمالي | الدرس الرابع",
+        "url": "joyjNZ7OM3g",
+        "date": "28‏/02‏/2026",
+        "desc": "",
+       "thumbnail": "/playlist-thumbnails/ثلاثون درسا من دعاء ابي حمزة الثمالي.webp",
+        "slug": "30-lessons-from-dua-abi-hamza-al-thumali-al-lesson-four"
+      },
+      {
+        "title": "ثلاثون درساً من دعاء أبي حمزة الثمالي | الدرس الخامس",
+        "url": "htAolJABrFQ",
+        "date": "28‏/02‏/2026",
+        "desc": "",
+        "thumbnail": "/playlist-thumbnails/ثلاثون درسا من دعاء ابي حمزة الثمالي.webp",
+        "slug": "30-lessons-from-dua-abi-hamza-al-thumali-al-lesson-five"
+      },
+      {
+        "title": "ثلاثون درساً من دعاء أبي حمزة الثمالي | الدرس السادس",
+        "url": "jJW2pa-wV48",
+        "date": "28‏/02‏/2026",
+        "desc": "",
+         "thumbnail": "/playlist-thumbnails/ثلاثون درسا من دعاء ابي حمزة الثمالي.webp",
+        "slug": "30-lessons-from-dua-abi-hamza-al-thumali-al-lesson-six"
+      },
+      {
+        "title": "ثلاثون درساً من دعاء أبي حمزة الثمالي | الدرس السابع",
+        "url": "1Tqs_9sMgDg",
+        "date": "2‏/03‏/2026",
+        "desc": "",
+          "thumbnail": "/playlist-thumbnails/ثلاثون درسا من دعاء ابي حمزة الثمالي.webp",
+        "slug": "30-lessons-from-dua-abi-hamza-al-thumali-al-lesson-seven"
+      }
+    ]
+  },
+  {
     "id": 1,
     "title": "الملتقى الثاني البقيع: الهوية والتاريخ",
     "url": "https://www.youtube.com/watch?v=pJt4S9yUKqg&list=PLi1h0SEPzOA7_e_zG7YYf_-bYzr0v9LkK",
@@ -339,9 +394,9 @@
     ]
   },
   {
-    "id":6,
+    "id": 6,
     "title": "مفهوم المنهج التربوي والاخلاقي",
-      "url": "https://www.youtube.com/watch?v=nN-kDcOWQH8&list=PLi1h0SEPzOA7Q9goeGnOktF4LOzJ7Mzg9",
+    "url": "https://www.youtube.com/watch?v=nN-kDcOWQH8&list=PLi1h0SEPzOA7Q9goeGnOktF4LOzJ7Mzg9",
     "videos": [
       {
         "title": "مفهوم المنهج التربوي والاخلاقي - الحلقة الاولى",
@@ -544,9 +599,9 @@
     ]
   },
   {
-    "id":9,
+    "id": 9,
     "title": "الملتقى التشاوري الاول لخطباء المنبر الحسيني",
-      "url": "https://www.youtube.com/watch?v=c2In_ZUNTsI&list=PLi1h0SEPzOA6AnHe_HTGGMGvH-aoXd-T9",
+    "url": "https://www.youtube.com/watch?v=c2In_ZUNTsI&list=PLi1h0SEPzOA6AnHe_HTGGMGvH-aoXd-T9",
     "videos": [
       {
         "title": "كلمة المتولي الشرعي سماحة الشيخ عبد المهدي الكربلائي في الملتقى التشاوري الأول لخطباء المنبر الحسيني",
