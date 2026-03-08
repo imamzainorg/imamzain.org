@@ -3,7 +3,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, ChevronLeft, BookOpen, FileText } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronLeft,
+  BookOpen,
+  FileText,
+  Download,
+} from "lucide-react";
 import { Dictionary, Subject } from "@/types/imamzain-legacy";
 
 type DictionaryNavProps = {
@@ -21,16 +27,23 @@ export default function DictionaryNav({
   const [expandedDicts, setExpandedDicts] = useState(
     new Set([activeDictionarySlug]),
   );
-  const getDownloadPath = (slug: string) => {
+
+  const getDownloadInfo = (slug: string) => {
     switch (slug) {
-      case "risalat-al-huqoq":
-        return null;
       case "al-sahifa":
-        return "/books/الصحيفة رقعي.pdf";
+        return {
+          path: "/books/الصحيفة رقعي.pdf",
+          title: "الصحيفة السجادية",
+        };
+      case "risalat-al-huqoq":
+        return {
+          title: "رسالة الحقوق",
+        };
       default:
         return null;
     }
   };
+
   const toggleDict = (slug: string) => {
     const newExpanded = new Set(expandedDicts);
     if (newExpanded.has(slug)) {
@@ -40,25 +53,16 @@ export default function DictionaryNav({
     }
     setExpandedDicts(newExpanded);
   };
-  const downloadPath = getDownloadPath(collectionSlug);
+
+  const downloadInfo = getDownloadInfo(collectionSlug);
+
   return (
     <div className="bg-white dark:bg-zinc-800 shadow-lg border border-gray-100 dark:border-zinc-700 rounded-2xl overflow-hidden flex flex-col max-h-full">
-      <div className="px-6 py-4 border-b border-gray-100 dark:border-zinc-700 bg-gradient-to-br from-primary/5 to-transparent dark:from-Muharram_primary/5 flex justify-between items-center">
+      <div className="px-6 py-4 border-b border-gray-100 dark:border-zinc-700 bg-gradient-to-br from-primary/5 to-transparent dark:from-Muharram_primary/5">
         <h2 className="text-base font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2">
           <BookOpen className="w-5 h-5 text-primary dark:text-Muharram_primary" />
           الأقسام والموضوعات
         </h2>
-
-        {/* زر التنزيل */}
-        {downloadPath && (
-          <a
-            href={downloadPath}
-            download
-            className="flex items-center gap-1 px-3 py-1.5 bg-primary/10 dark:bg-Muharram_primary/15 text-primary dark:text-Muharram_primary rounded-lg text-sm font-medium hover:bg-primary/20 dark:hover:bg-Muharram_primary/25 transition-colors"
-          >
-            تحميل PDF
-          </a>
-        )}
       </div>
 
       <nav
@@ -105,7 +109,7 @@ export default function DictionaryNav({
                     {dict.title}
                   </span>
                   <span
-                    className={`text-xs	 px-2 py-0.5 rounded-full ${
+                    className={`text-xs px-2 py-0.5 rounded-full ${
                       isActive
                         ? "bg-primary/20 dark:bg-Muharram_primary/30 text-primary dark:text-Muharram_primary"
                         : "bg-gray-100 dark:bg-zinc-700 text-gray-500 dark:text-gray-400"
@@ -163,6 +167,32 @@ export default function DictionaryNav({
           );
         })}
       </nav>
+
+      {/* زر التنزيل - يظهر فقط عندما يكون هناك مسار PDF متاح */}
+      {downloadInfo?.path && (
+        <div className="p-4 border-t border-gray-100 dark:border-zinc-700 bg-gray-50/50 dark:bg-zinc-800/50">
+          <a
+            href={downloadInfo.path}
+            download
+            className="flex items-center justify-between w-full px-4 py-3 bg-gradient-to-l from-primary/10 to-primary/5 dark:from-Muharram_primary/10 dark:to-Muharram_primary/5 hover:from-primary/15 hover:to-primary/10 dark:hover:from-Muharram_primary/15 dark:hover:to-Muharram_primary/10 text-primary dark:text-Muharram_primary rounded-xl transition-all border border-primary/20 dark:border-Muharram_primary/20 group"
+          >
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-primary/10 dark:bg-Muharram_primary/10 rounded-lg group-hover:scale-110 transition-transform">
+                <Download className="w-5 h-5" />
+              </div>
+              <div className="text-right">
+                <p className="text-sm font-medium">تحميل الكتاب كامل</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">
+                  {downloadInfo.title} - نسخة PDF
+                </p>
+              </div>
+            </div>
+            <span className="text-sm bg-white dark:bg-zinc-800 px-3 py-1 rounded-lg shadow-sm">
+              تنزيل
+            </span>
+          </a>
+        </div>
+      )}
     </div>
   );
 }
