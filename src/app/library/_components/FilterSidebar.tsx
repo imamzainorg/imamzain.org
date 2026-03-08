@@ -125,8 +125,8 @@ export default function FilterSidebarWrapper({
            <FilterSelect
               instanceId="category-select"
               icon={<LayoutGrid size={16} className="hidden md:inline" />}
-              label="التصنيف"
-              placeholder="اختر تصنيف..."
+              label="الموضوع"
+              placeholder="اختر الموضوع..."
               options={filters.categories}
               value={category}
               onChange={(val) => {
