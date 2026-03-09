@@ -23,7 +23,7 @@ export default async function Page({
 
 					{/* Content */}
 					<div className="relative z-10 flex flex-col gap-1 max-w-[85%]">
-						<h2 className=" text-base md:text-lg font-semibold text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-Muharram_primary transition-colors line-clamp-2 ">
+						<h2 className=" text-subtitle font-semibold text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-Muharram_primary transition-colors line-clamp-2 ">
 							{subject.title}
 						</h2>
 
