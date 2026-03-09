@@ -41,12 +41,6 @@ export default async function SubjectPage({
 				<h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-3">
 					{subject.title}
 				</h1>
-
-				<div className="flex items-center justify-center gap-3 text-sm text-gray-600 dark:text-gray-400">
-					<span className="px-3 py-1 rounded-full bg-primary/10 dark:bg-Muharram_primary/10 text-primary dark:text-Muharram_primary font-medium">
-						رقم الموضوع: {subject.id}
-					</span>
-				</div>
 			</div>
 
 			<div className="w-1/2 h-0.5 mx-auto bg-gradient-to-l from-transparent via-primary/40 dark:via-Muharram_primary/40 to-transparent" />
