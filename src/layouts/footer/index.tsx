@@ -34,7 +34,7 @@ const links: LinkSection[] = [
       { label: "ولادته ووالده", slug: "birth-and-death" },
       { label: "ألقابه وكناه", slug: "titles-and-nicknames" },
       { label: "الأدلة على امامته", slug: "personality-traits" },
-      { label: "كراماته ومميتزاته", slug: "karamatuh-wa-mumayizatuh" },
+      { label: "كراماته ومميزاته", slug: "karamatuh-wa-mumayizatuh" },
     ],
   },
   {
