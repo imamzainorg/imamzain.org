@@ -26,11 +26,11 @@ const desktopImages = [
   //"/images/hero-3.jpg", // لمحات
 
   //"/images/hero-9.jpg", // المباني السياسية
-  //"/images/hero-4.jpg", // تراتيل القانتين
+  "/images/hero-4.jpg", // تراتيل القانتين
   "/images/hero-5.jpg", // البعد الاجتماعي
   "/images/hero-6.jpg", // ابي حمزة الثمالي
   "/images/hero-7.jpg", // بناء الامن النفسي
-  "/images/hero-8.jpg", // البعد القانوني
+ // "/images/hero-8.jpg", // البعد القانوني
 ];
 
 const mobileImages = [
@@ -41,11 +41,11 @@ const mobileImages = [
   //"/images/hero-3-vertical.jpg", // لمحات
 
   //,"/images/hero-9-vertical.jpg", // المباني السياسية
-  // "/images/hero-4-vertical.jpg", // تراتيل القانتين
+ "/images/hero-4-vertical.jpg", // تراتيل القانتين
   "/images/hero-5-vertical.jpg", // البعد الاجتماعي
   "/images/hero-6-vertical.jpg", // ابي حمزة الثمالي
   "/images/hero-7-vertical.jpg", // بناء الامن النفسي
-  "/images/hero-8-vertical.jpg", // البعد القانوني
+  //"/images/hero-8-vertical.jpg", // البعد القانوني
 ];
 
 export default async function Page() {
