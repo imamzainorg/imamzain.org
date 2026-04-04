@@ -8,7 +8,7 @@ import { Post } from "@/types/post";
 import { YouTubePlaylist } from "@/types/youtube-data";
 import hadiths from "@/data/hadiths.json";
 import AnimatedTextSection from "@/components/animated-text";
-import { Featured } from "./_components/featured";
+
 import dynamic from "next/dynamic";
 
 const GallerySection = dynamic(() => import("./_components/gallery"), {
@@ -67,7 +67,7 @@ export default async function Page() {
         currentHadith={currentHadith}
       />
 
-      <Featured />
+      
       <div className="container  ">
         <AnimatedTextSection
           title="رؤية المؤسسة"
