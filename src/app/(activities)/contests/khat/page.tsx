@@ -570,7 +570,7 @@ export default function Page() {
 							/>
 							<ModernBadge
 								icon={Calendar}
-								text="المسابقة مفتوحة لغاية 2026/3/5"
+								text="إبتدأت في 2025/4/11 وإنتهت  في 2026/3/5"
 								important
 							/>
 						</div>
