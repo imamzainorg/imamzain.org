@@ -18,7 +18,7 @@ export default async function Page() {
   const events = data.filter((post) => post.category === "فعاليات");
   const majalis = data.filter((post) => post.category === "مجالس");
   const imamHussainPosts = data.filter(
-    (post) => post.category === "العتبة الحسينية"
+    (post) => post.category === "العتبة الحسينية",
   );
 
   // Latest from foundation activities (prioritizing your content)
@@ -57,17 +57,20 @@ export default async function Page() {
                 className="absolute w-7 h-7 -bottom-2.5 right-6 
       bg-[url('/shapes/newsIndicator.svg')] 
       dark:bg-[url('/shapes/newsIndicator_Muharram.svg')] 
-      rotate-180 bg-no-repeat"
+      rotate-180 bg-no-repeat z-10"
               ></div>
-              <Image
-                src={latestFoundationContent[0].image || "/default-image.jpg"}
-                width={500}
-                height={500}
-                alt={latestFoundationContent[0].slug}
-                className="w-full h-full rounded-xl object-cover"
-              />
+              <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900">
+                <Image
+                  src={latestFoundationContent[0].image || "/default-image.jpg"}
+                  alt={latestFoundationContent[0].slug}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  priority
+                />
+              </div>
             </div>
-            <div className=" space-y-2">
+            <div className="space-y-2">
               <h2 className="font-bold line-clamp-1 lg:line-clamp-none leading-7 md:leading-8 text-body md:text-note">
                 {latestFoundationContent[0].title}
               </h2>

@@ -21,7 +21,6 @@ export default async function page({
 
   const post = data.filter((item: Post) => item.slug === slug)[0];
 
-  // mimic the data received from fetch(https://api.imamzain.org/news/{slug}/related)
   const relatedData = data.slice(0, 3);
 
   return (
@@ -93,16 +92,19 @@ export default async function page({
             </header>
 
             {/* Featured Image */}
-            <div className="relative mb-8 overflow-hidden rounded-xl shadow-lg">
-              <Image
-                src={post.image}
-                width={1200}
-                height={600}
-                className="w-full h-64 sm:h-80 md:h-96 object-cover transition-transform duration-300 hover:scale-105"
-                priority
-                alt={post.title}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+            {/* Featured Image */}
+            <div className="relative mb-8 overflow-hidden rounded-xl shadow-lg bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900">
+              <div className="relative w-full h-64 sm:h-80 md:h-96">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                  priority
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
             </div>
 
             {/* Post Body */}
