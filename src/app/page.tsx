@@ -159,8 +159,8 @@ export default async function Page() {
           ctaLinks={[
             {
               label: "شروح رسالة الحقوق",
-              href: "/library/risalat-al-huqoq",
-            },
+         href: "/library?category=رسالة%20الحقوق"
+         },
             {
               label: "قراءة رسالة الحقوق",
               href: "/library/risalat-al-huqoq/introduction",

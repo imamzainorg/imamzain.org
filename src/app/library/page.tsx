@@ -33,7 +33,7 @@ const paginateArr = <T,>(arr: T[], page: number, perPage: number) =>
 function BookLibraryPage() {
   const searchParams = useSearchParams();
   const initialConference = searchParams.get("conferences") || "";
-
+ const initialCategory = searchParams.get("category") || "";
   /* ---------- State ---------- */
 
   const [search, setSearch] = useState("");
@@ -42,7 +42,7 @@ function BookLibraryPage() {
   const [sort, setSort] = useState("latest");
   const [page, setPage] = useState(1);
   const [conferences, setConferences] = useState(initialConference);
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState(initialCategory);
 
   const PER_PAGE = 8;
 
