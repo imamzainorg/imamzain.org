@@ -142,7 +142,7 @@ export default function Page() {
 							/>
 							<ModernBadge
 								icon={Calendar}
-								text="المسابقة مفتوحة لغاية 2026/3/5"
+								text="الانطلاق بتاريخ 2026/4/12"
 								important
 							/>
 						</div>
