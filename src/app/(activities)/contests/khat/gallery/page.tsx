@@ -2,7 +2,6 @@ import ImageView from "@/components/image-view"
 import Breadcrumbs from "@/components/breadcrumb"
 import galleryImages from "@/data/gallery.json"
 
-
 export default function Gallery() {
 	const images = galleryImages
 		.filter((item) => item.name === "khat")
@@ -26,7 +25,6 @@ export default function Gallery() {
 			<div className="mr-3 xmd:pr-32 xmd:pl-32 2xl:pr-64 2xl:pl-64 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
 				{images.map((img, index) => (
 					<ImageView
-					
 						key={index}
 						src={img.path}
 						alt={`Image ${index}`}
