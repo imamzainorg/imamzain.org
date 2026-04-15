@@ -159,7 +159,7 @@ function ResearchCard({
           {item.pdfUrl && (
             <div className="flex-1 flex gap-2">
               {/* زر التحميل المباشر */}
-              <button
+          {/*    <button
                 onClick={() => handleDownload(item.pdfUrl, "book.pdf")}
                 className="flex items-center justify-center p-2.5 rounded-xl
   bg-primary text-white
@@ -168,7 +168,7 @@ function ResearchCard({
                 title="تحميل"
               >
                 <Download size={14} className="opacity-90" />
-              </button>
+              </button>*/}
               {item.abstract && (
                 <button
                   onClick={() => onSummary(item)}
