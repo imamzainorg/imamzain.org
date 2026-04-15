@@ -28,7 +28,15 @@ import { Research } from "@/types/research";
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const ITEMS_PER_PAGE = 9;
+const handleDownload = async (url: string, filename?: string) => {
+  const res = await fetch(url);
+  const blob = await res.blob();
 
+  const link = document.createElement("a");
+  link.href = window.URL.createObjectURL(blob);
+  link.download = filename ?? "file.pdf";
+  link.click();
+};
 const SORT_OPTIONS = [
   { value: "year-desc", label: "الأحدث أولاً" },
   { value: "year-asc", label: "الأقدم أولاً" },
@@ -151,17 +159,16 @@ function ResearchCard({
           {item.pdfUrl && (
             <div className="flex-1 flex gap-2">
               {/* زر التحميل المباشر */}
-              <a
-                href={item.pdfUrl}
-                download
+              <button
+                onClick={() => handleDownload(item.pdfUrl, "book.pdf")}
                 className="flex items-center justify-center p-2.5 rounded-xl
-    bg-primary text-white
-    hover:bg-primary/90 active:scale-95 transition-all duration-150
-    shadow-sm shadow-primary/20"
+  bg-primary text-white
+  hover:bg-primary/90 active:scale-95 transition-all duration-150
+  shadow-sm shadow-primary/20"
                 title="تحميل"
               >
                 <Download size={14} className="opacity-90" />
-              </a>
+              </button>
               {item.abstract && (
                 <button
                   onClick={() => onSummary(item)}
