@@ -5,7 +5,7 @@ import { Dialog } from "@headlessui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
-import "swiper/css";
+
 import { useSearchParams } from "next/navigation";
 import {
   SearchIcon,
@@ -147,32 +147,52 @@ function ResearchCard({
 
         {/* Actions */}
         <div className="flex gap-2 pt-4 border-t border-gray-100 dark:border-gray-800">
+          {/* زر التحميل */}
           {item.pdfUrl && (
-            <a
-              href={item.pdfUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl
-                bg-primary text-white text-sm font-semibold
-                hover:bg-primary/90 active:scale-95 transition-all duration-150 shadow-sm shadow-primary/25"
-            >
-              <Download size={15} />
-              تحميل
-            </a>
+            <div className="flex-1 flex gap-2">
+              {/* زر التحميل المباشر */}
+              <a
+                href={item.pdfUrl}
+                download
+                className="flex items-center justify-center p-2.5 rounded-xl
+    bg-primary text-white
+    hover:bg-primary/90 active:scale-95 transition-all duration-150
+    shadow-sm shadow-primary/20"
+                title="تحميل"
+              >
+                <Download size={14} className="opacity-90" />
+              </a>
+              {item.abstract && (
+                <button
+                  onClick={() => onSummary(item)}
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl
+        bg-primary dark:bg-gray-800  dark:text-gray-300 text-sm font-semibold
+        border border-gray-200 dark:border-gray-700 text-white
+        hover:bg-primary/8 hover:bg-primary/90
+        active:scale-95 transition-all duration-150"
+                >
+                  <BookOpen size={15} />
+                  الملخص
+                </button>
+              )}
+              {/* زر القراءة */}
+              <a
+                href={item.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl
+          bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-semibold
+          border border-gray-200 dark:border-gray-700
+          hover:bg-primary/8 hover:text-primary hover:border-primary/30
+          active:scale-95 transition-all duration-150"
+              >
+                <BookOpen size={15} />
+                قراءة
+              </a>
+            </div>
           )}
-          {item.abstract && (
-            <button
-              onClick={() => onSummary(item)}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl
-                bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-semibold
-                border border-gray-200 dark:border-gray-700
-                hover:bg-primary/8 hover:text-primary hover:border-primary/30
-                active:scale-95 transition-all duration-150"
-            >
-              <BookOpen size={15} />
-              الملخص
-            </button>
-          )}
+
+          {/* زر الملخص */}
         </div>
       </div>
     </motion.article>
@@ -347,7 +367,7 @@ export default function UploadedResearchPage() {
     return sortResearch(filtered, sortBy, sortOrder);
   }, [searchTerm, filters, research, sortBy, sortOrder]);
 
-  const { currentResearch, totalPages} = useMemo(() => {
+  const { currentResearch, totalPages } = useMemo(() => {
     const total = Math.ceil(filteredResearch.length / ITEMS_PER_PAGE);
     const safe = Math.min(currentPage, Math.max(total, 1));
     const start = (safe - 1) * ITEMS_PER_PAGE;
