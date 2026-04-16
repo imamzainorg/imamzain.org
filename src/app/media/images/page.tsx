@@ -1,7 +1,7 @@
 "use client";
 import { Suspense } from "react";
 
-import { useState, useCallback, useEffect, useMemo } from "react";
+import { useState, useCallback, useEffect, useMemo, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import Breadcrumbs from "@/components/breadcrumb";
 import ImageView from "@/components/image-view";
@@ -42,7 +42,17 @@ function GalleryClient() {
     "مسابقات",
     "اخبار",
   ];
+  
+  const ROW_PATTERNS = [
+    [2, 1, 1, 1], 
+    [1, 1, 2,2], 
+    [1, 2, 1,2], 
+    [2, 1, 2, 2], 
+    [1, 2,2, 1],
+    [1, 1, 1, 1,2],
+  ];
 
+  const ROW_HEIGHT = 280; 
   const allImages = useMemo(
     () =>
       galleryImages.map((item) => ({
@@ -186,14 +196,22 @@ function GalleryClient() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [lightboxOpen, closeLightbox, navigateImage]);
 
-  const [visibleImagesCount, setVisibleImagesCount] = useState(15);
-  const imagesPerLoad = 15;
-
-  const loadMoreImages = () => {
-    setVisibleImagesCount((prevCount) =>
-      Math.min(prevCount + imagesPerLoad, filteredImages.length),
+  const [visibleImagesCount, setVisibleImagesCount] = useState(30);
+  const loaderRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setVisibleImagesCount((prev) =>
+            Math.min(prev + 15, filteredImages.length),
+          );
+        }
+      },
+      { threshold: 0.1 },
     );
-  };
+    if (loaderRef.current) observer.observe(loaderRef.current);
+    return () => observer.disconnect();
+  }, [filteredImages.length]);
 
   return (
     <div className="min-h-screen text-white overflow-hidden">
@@ -325,75 +343,90 @@ function GalleryClient() {
             ) : (
               <>
                 {/* الصور المرئية فقط */}
-                <div className="columns-1 sm:columns-2 lg:columns-5 gap-4">
-                  {filteredImages
-                    .slice(0, visibleImagesCount)
-                    .map((img, index) => {
-                      const aspect =
-                        index % 7 === 0
-                          ? "aspect-[3/5]"
-                          : index % 5 === 0
-                            ? "aspect-[4/5]"
-                            : "aspect-[5/4]";
+           
+                <div className="flex flex-col gap-3">
+                  {(() => {
+                    const visible = filteredImages.slice(0, visibleImagesCount);
+                    const rows: React.ReactNode[] = [];
+                    let imgIndex = 0;
+                    let patternIndex = 0;
 
-                      return (
-                        <div
-                          key={img.id}
-                          onClick={() => openLightbox(img)}
-                          className={`cursor-pointer mb-4 group
-                  relative overflow-hidden rounded-2xl
-                  border border-gray-800/50
-                  bg-gradient-to-br from-gray-900 to-gray-950
-                  shadow-xl transition-all duration-500
-                  hover:border-primary hover:shadow-2xl
-                  hover:-translate-y-1
-                  ${aspect}
-                `}
-                        >
-                          <ImageView
-                            images={attachmentImages}
-                            src={img.url}
-                            alt={img.title}
-                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                          />
-
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                              <h3 className="text-white text-lg font-bold mb-1 line-clamp-2">
-                                {img.title}
-                              </h3>
-
-                              <div className="flex justify-between items-center text-xs text-gray-300">
-                                <span className="line-clamp-1">
-                                  {img.description}
-                                </span>
-                                <span className="text-primary font-semibold">
-                                  {img.location}
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                    while (imgIndex < visible.length) {
+                      const pattern =
+                        ROW_PATTERNS[patternIndex % ROW_PATTERNS.length];
+                      const totalWeight = pattern.reduce((a, b) => a + b, 0);
+                      const rowImgs = visible.slice(
+                        imgIndex,
+                        imgIndex + pattern.length,
                       );
-                    })}
+
+                      if (rowImgs.length === 0) break;
+
+                      // إذا كان الصف غير مكتمل، وزّع الصور الباقية بالتساوي
+                      const finalPattern =
+                        rowImgs.length < pattern.length
+                          ? rowImgs.map(() =>
+                              Math.floor(totalWeight / rowImgs.length),
+                            )
+                          : pattern;
+
+                      rows.push(
+                        <div
+                          key={imgIndex}
+                          className="flex gap-3"
+                          style={{ height: `${ROW_HEIGHT}px` }}
+                        >
+                          {rowImgs.map((img, i) => {
+                            return (
+                              <div
+                                key={img.id}
+                                onClick={() => openLightbox(img)}
+                                className="group relative overflow-hidden rounded-2xl border border-gray-800/50 bg-gray-950 cursor-pointer transition-all duration-500 hover:border-primary hover:shadow-2xl hover:-translate-y-1"
+                                style={{ flex: finalPattern[i] }}
+                              >
+                                <ImageView
+                                  images={attachmentImages}
+                                  src={img.url}
+                                  alt={img.title}
+                                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                  <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                    <h3 className="text-white text-lg font-bold mb-1 line-clamp-2">
+                                      {img.title}
+                                    </h3>
+                                    <div className="flex justify-between items-center text-xs text-gray-300">
+                                      <span className="line-clamp-1">
+                                        {img.description}
+                                      </span>
+                                      <span className="text-primary font-semibold">
+                                        {img.location}
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>,
+                      );
+
+                      imgIndex += rowImgs.length;
+                      patternIndex++;
+                    }
+
+                    return rows;
+                  })()}
                 </div>
+
+                {/* sentinel للـ infinite scroll */}
+                {visibleImagesCount < filteredImages.length && (
+                  <div ref={loaderRef} className="h-10 mt-4" />
+                )}
 
                 {/* زر عرض المزيد - يظهر فقط إذا كان هناك صور إضافية */}
                 {visibleImagesCount < filteredImages.length && (
-                  <div className="text-center mt-8">
-                    <button
-                      onClick={loadMoreImages}
-                      className="px-8 py-3 bg-gradient-to-r bg-primary
-                       text-white font-semibold rounded-xl
-                       hover:shadow-lg hover:shadow-primary/60
-                       transition-all duration-300
-                       transform hover:-translate-y-1
-                       border border-primary/30"
-                    >
-                      عرض المزيد
-                      <span className="mr-2">▼</span>
-                    </button>
-                  </div>
+                  <div ref={loaderRef} className="h-10 mt-8" />
                 )}
               </>
             )}
