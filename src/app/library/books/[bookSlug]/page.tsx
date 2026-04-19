@@ -122,10 +122,10 @@ export default function Page({ params }: { params: Promise<{ bookSlug: string }>
       <div className="container mx-auto px-4">
         <button
           onClick={handleBackToLibrary}
-          className="flex items-center gap-2 text-primary hover:text-primary-dark transition-colors group mb-4"
+          className="flex items-center gap-2 bg-primary p-2 rounded-xl  hover:bg-primary/90 text-white hover:text-primary-dark transition-colors group mb-4"
         >
           <ArrowRight className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-          <span className="font-medium">العودة إلى المكتبة</span>
+          <span className="font-medium  ">العودة الى الصفحة السابقة</span>
         </button>
       </div>
       <BookCard key={book.id} publication={book} publications={libraryBooks} />
