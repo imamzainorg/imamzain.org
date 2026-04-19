@@ -1,144 +1,206 @@
 "use client";
 
-import { useState, useMemo, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useMemo, useCallback, Suspense, useEffect, useState } from "react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import { BookOpen, ArrowUpDown } from "lucide-react";
+
+// Data & Types
 import booksData from "@/data/books.json";
 import { Book } from "@/types/book";
 
+// Components
 import BooklibraryCard from "./_components/book-library-card";
 import FilterSidebar from "./_components/FilterSidebar";
 import SearchInput from "./_components/search-input";
 import Pagination from "./_components/pagination";
-
 import Breadcrumbs from "@/components/breadcrumb";
 import SectionTitle from "@/components/section";
 
-import { BookOpen, ArrowUpDown } from "lucide-react";
+/* ================= Constants & Helpers ================= */
 
-/* ================= Helpers ================= */
+const PER_PAGE = 8;
 
-const toArray = (val?: string | string[]) =>
+const toArray = (val?: string | string[]): string[] =>
   !val ? [] : Array.isArray(val) ? val : [val];
 
-const unique = (arr: string[]) => [...new Set(arr)].sort();
-
-const getYear = (date?: string) =>
+const getYear = (date?: string): string =>
   date ? new Date(date).getFullYear().toString() : "";
 
-const paginateArr = <T,>(arr: T[], page: number, perPage: number) =>
-  arr.slice((page - 1) * perPage, page * perPage);
+/* ================= Main Content Component ================= */
 
-/* ================= Page ================= */
-
-function BookLibraryPage() {
+function BookLibraryContent() {
   const searchParams = useSearchParams();
-  const initialConference = searchParams.get("conferences") || "";
- const initialCategory = searchParams.get("category") || "";
-  /* ---------- State ---------- */
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const [search, setSearch] = useState("");
-  const [author, setAuthor] = useState("");
-  const [publisher, setPublisher] = useState("");
-  const [sort, setSort] = useState("latest");
-  const [page, setPage] = useState(1);
-  const [conferences, setConferences] = useState(initialConference);
-  const [category, setCategory] = useState(initialCategory);
+  // 1. Derived State from URL
+  const filters = useMemo(
+    () => ({
+      query: searchParams.get("q") || "",
+      author: searchParams.get("author") || "",
+      publisher: searchParams.get("publisher") || "",
+      category: searchParams.get("category") || "",
+      conferences: searchParams.get("conferences") || "",
+      sort: searchParams.get("sort") || "latest",
+      page: Math.max(1, Number(searchParams.get("page")) || 1),
+    }),
+    [searchParams],
+  );
 
-  const PER_PAGE = 8;
+  // 2. Local state for search input
+  const [localSearch, setLocalSearch] = useState(filters.query);
 
-  /* ---------- Data ---------- */
+  // 3. Data Initialization
+  const allBooks = useMemo(() => booksData as Book[], []);
 
-  const books = useMemo(() => booksData as Book[], []);
+  // 4. Generate Filter Options
+  const filterOptions = useMemo(() => {
+    const authors = new Set<string>();
+    const publishers = new Set<string>();
+    const years = new Set<string>();
+    const categories = new Set<string>();
+    const conferences = new Set<string>();
 
-  /* ---------- Filters Options ---------- */
-
-  const filters = useMemo(() => {
-    const authors: string[] = [];
-    const publishers: string[] = [];
-    const years: string[] = [];
-    const categories: string[] = [];
-    const conferencesArr: string[] = [];
-
-    books.forEach((b) => {
-      authors.push(...toArray(b.author));
-
-      if (b.printHouse) publishers.push(b.printHouse);
-      if (b.printDate) years.push(getYear(b.printDate));
-      if (b.category) categories.push(...toArray(b.category));
-      if (b.Conferences) conferencesArr.push(...toArray(b.Conferences));
+    allBooks.forEach((book) => {
+      toArray(book.author).forEach((a) => authors.add(a));
+      if (book.printHouse) publishers.add(book.printHouse);
+      if (book.printDate) years.add(getYear(book.printDate));
+      toArray(book.category).forEach((c) => categories.add(c));
+      toArray(book.Conferences).forEach((c) => conferences.add(c));
     });
 
     return {
-      authors: unique(authors),
-      publishers: unique(publishers),
-      years: unique(years).reverse(),
-      categories: unique(categories),
-      conferences: unique(conferencesArr),
+      authors: Array.from(authors).sort(),
+      publishers: Array.from(publishers).sort(),
+      years: Array.from(years).sort().reverse(),
+      categories: Array.from(categories).sort(),
+      conferences: Array.from(conferences).sort(),
     };
-  }, [books]);
+  }, [allBooks]);
 
-  /* ---------- Filter + Sort ---------- */
-
+  // 5. Filtering & Sorting Logic
   const filteredBooks = useMemo(() => {
-    return books
-      .filter((b) => {
-        if (
-          search &&
-          ![b.title, ...(b.author || []), b.printHouse]
-            .join(" ")
-            .toLowerCase()
-            .includes(search.toLowerCase())
+    const result = allBooks.filter((book) => {
+      if (filters.query) {
+        const searchContent = [
+          book.title,
+          ...toArray(book.author),
+          book.printHouse,
+        ]
+          .join(" ")
+          .toLowerCase();
+        if (!searchContent.includes(filters.query.toLowerCase())) return false;
+      }
+
+      if (
+        filters.author &&
+        !toArray(book.author).some(
+          (a) => a.toLowerCase() === filters.author.toLowerCase(),
         )
-          return false;
+      )
+        return false;
 
-        if (author && !b.author?.includes(author)) return false;
-        if (publisher && b.printHouse !== publisher) return false;
-        if (category && !b.category?.includes(category)) return false;
-        if (conferences && !b.Conferences?.includes(conferences)) return false;
+      if (filters.publisher && book.printHouse !== filters.publisher)
+        return false;
 
-        return true;
-      })
-      .sort((a, b) =>
-        sort === "common"
-          ? (b.views || 0) - (a.views || 0)
-          : new Date(b.printDate).getTime() - new Date(a.printDate).getTime()
-      );
-  }, [books, search, author, publisher, sort, category, conferences]);
+      if (
+        filters.category &&
+        !toArray(book.category).some(
+          (c) => c.toLowerCase() === filters.category.toLowerCase(),
+        )
+      )
+        return false;
 
-  /* ---------- Remove Extra Parts (Keep First Only) ---------- */
+      if (
+        filters.conferences &&
+        !toArray(book.Conferences).some(
+          (c) => c.toLowerCase() === filters.conferences.toLowerCase(),
+        )
+      )
+        return false;
 
-  const mainBooks = useMemo(() => {
-    return filteredBooks.filter(
-      (book) => book.partNumber === 1 || !book.totalParts
-    );
-  }, [filteredBooks]);
+      const isMainPart = book.partNumber === 1 || !book.totalParts;
+      if (!isMainPart) return false;
 
-  /* ---------- Pagination ---------- */
+      return true;
+    });
 
-  const totalPages = Math.ceil(mainBooks.length / PER_PAGE);
+    return result.sort((a, b) => {
+      if (filters.sort === "common") return (b.views || 0) - (a.views || 0);
+      const timeA = a.printDate ? new Date(a.printDate).getTime() : 0;
+      const timeB = b.printDate ? new Date(b.printDate).getTime() : 0;
+      return timeB - timeA;
+    });
+  }, [allBooks, filters]);
+  // 6. Pagination Logic
+  const totalPages = Math.ceil(filteredBooks.length / PER_PAGE);
+  const paginatedBooks = useMemo(() => {
+    const start = (filters.page - 1) * PER_PAGE;
+    return filteredBooks.slice(start, start + PER_PAGE);
+  }, [filteredBooks, filters.page]);
 
-  const paginatedBooks = useMemo(
-    () => paginateArr(mainBooks, page, PER_PAGE),
-    [mainBooks, page]
+  // 7. Navigation Handlers
+  const updateParams = useCallback(
+    (updates: Record<string, string | number | null>) => {
+      const params = new URLSearchParams(searchParams.toString());
+
+      Object.entries(updates).forEach(([key, value]) => {
+        if (value === null || value === "") {
+          params.delete(key);
+        } else {
+          params.set(key, String(value));
+        }
+      });
+
+      if (!updates.hasOwnProperty("page")) {
+        params.set("page", "1");
+      }
+
+      router.push(`${pathname}?${params.toString()}`, { scroll: true });
+    },
+    [searchParams, pathname, router],
   );
 
-  /* ---------- Reset ---------- */
+  // --- تعريف الدوال المفقودة ---
+  const handlePageChange = useCallback(
+    (p: number) => {
+      updateParams({ page: p });
+    },
+    [updateParams],
+  );
 
-  const resetFilters = () => {
-    setSearch("");
-    setAuthor("");
-    setPublisher("");
-    setCategory("");
-    setConferences("");
-    setPage(1);
+  const resetFilters = useCallback(() => {
+    setLocalSearch("");
+    router.push(pathname);
+  }, [pathname, router]);
+
+  // Debounced search sync
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (localSearch !== filters.query) {
+        updateParams({ q: localSearch });
+      }
+    }, 400);
+    return () => clearTimeout(timer);
+  }, [localSearch, filters.query, updateParams]);
+
+  // 8. Scroll Restoration
+  useEffect(() => {
+    const savedPos = sessionStorage.getItem("libraryScrollPosition");
+    if (savedPos) {
+      requestAnimationFrame(() => {
+        window.scrollTo(0, parseInt(savedPos));
+        sessionStorage.removeItem("libraryScrollPosition");
+      });
+    }
+  }, []);
+
+  const handleBookClick = () => {
+    sessionStorage.setItem("libraryScrollPosition", window.scrollY.toString());
   };
 
-  /* ================= Render ================= */
-
   return (
-    <div className="min-h-screen mx-auto px-4 gap-6">
-
-      {/* Breadcrumb */}
+    <div className="min-h-screen mx-auto px-4 gap-6" dir="rtl">
       <div className="mb-6">
         <Breadcrumbs
           links={[
@@ -149,16 +211,12 @@ function BookLibraryPage() {
         />
       </div>
 
-      {/* Header */}
       <div className="mb-8 rounded-2xl bg-gradient-to-l from-primary/10 to-transparent p-6">
-
         <div className="flex flex-col md:flex-row md:justify-between gap-4">
-
           <div className="flex items-center gap-3">
             <div className="p-3 bg-primary/20 rounded-xl">
               <BookOpen className="w-6 h-6 text-primary" />
             </div>
-
             <div>
               <SectionTitle title="قائمة الكتب" />
               <p className="text-gray-600 mt-1">
@@ -168,97 +226,98 @@ function BookLibraryPage() {
           </div>
 
           <div className="relative">
-
             <select
-              value={sort}
-              onChange={(e) => {
-                setSort(e.target.value);
-                setPage(1);
-              }}
-              className="appearance-none bg-white border rounded-xl px-4 py-2.5 pr-10"
+              value={filters.sort}
+              onChange={(e) => updateParams({ sort: e.target.value })}
+              className="appearance-none bg-white border rounded-xl px-4 py-2.5 pr-10 focus:ring-2 focus:ring-primary/20 outline-none transition-all cursor-pointer"
             >
               <option value="latest">الأحدث</option>
               <option value="common">الأكثر مشاهدة</option>
             </select>
-
-            <ArrowUpDown className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
-
+            <ArrowUpDown className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
           </div>
-
         </div>
       </div>
 
-      {/* Layout */}
-      <div className="px-4 flex flex-col lg:flex-row gap-6">
+      <div className="flex flex-col lg:flex-row gap-6">
+        <aside className="">
+          <FilterSidebar
+            filters={filterOptions}
+            author={filters.author}
+            setAuthor={(val) => updateParams({ author: val })}
+            publisher={filters.publisher}
+            setPublisher={(val) => updateParams({ publisher: val })}
+            category={filters.category}
+            setCategory={(val) => updateParams({ category: val })}
+            conferences={filters.conferences}
+            setConferences={(val) => updateParams({ conferences: val })}
+            reset={resetFilters}
+          />
+        </aside>
 
-        {/* Sidebar */}
-        <FilterSidebar
-          filters={filters}
-          author={author}
-          setAuthor={setAuthor}
-          publisher={publisher}
-          setPublisher={setPublisher}
-          category={category}
-          setCategory={setCategory}
-          conferences={conferences}
-          setConferences={setConferences}
-          paginate={setPage}
-          reset={resetFilters}
-        />
-
-        {/* Main */}
-        <div className="flex-1 space-y-6">
-
+        <main className="flex-1 space-y-6">
           <SearchInput
-            value={search}
-            onChange={setSearch}
+            value={localSearch}
+            onChange={setLocalSearch}
             onClear={resetFilters}
           />
 
-          {paginatedBooks.length ? (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
+          {paginatedBooks.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {paginatedBooks.map((book) => (
-                <BooklibraryCard
+                <div
                   key={book.id}
-                  publication={book}
-                  route="/library/books"
-                />
+                  onClick={handleBookClick}
+                  className="transition-all duration-200 hover:translate-y-[-2px]"
+                >
+                  <BooklibraryCard publication={book} route="/library/books" />
+                </div>
               ))}
-
             </div>
           ) : (
-            <div className="text-center p-16 bg-white rounded-xl border shadow-sm">
-              لا توجد نتائج
+            <div className="text-center py-20 bg-white rounded-2xl border border-dashed border-gray-300 shadow-sm">
+              <p className="text-gray-500 text-lg font-medium">
+                لا توجد نتائج تطابق بحثك
+              </p>
+              <button
+                onClick={resetFilters}
+                className="mt-4 text-primary font-semibold hover:underline transition-all"
+              >
+                إعادة ضبط الفلاتر
+              </button>
             </div>
           )}
 
           {totalPages > 1 && (
             <Pagination
-              page={page}
+              page={filters.page}
               totalPages={totalPages}
-              onPageChange={setPage}
+              onPageChange={handlePageChange}
             />
           )}
-
-        </div>
+        </main>
       </div>
     </div>
   );
 }
 
-/* ================= Wrapper ================= */
+/* ================= Page Wrapper ================= */
 
-export default function Page() {
+export default function BookLibraryPage() {
   return (
-    <Suspense
-      fallback={
-        <div className="min-h-screen flex items-center justify-center">
-          جاري التحميل...
-        </div>
-      }
-    >
-      <BookLibraryPage />
+    <Suspense fallback={<LoadingState />}>
+      <BookLibraryContent />
     </Suspense>
+  );
+}
+
+function LoadingState() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-50/50">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary mx-auto mb-4"></div>
+        <p className="text-gray-600 font-medium">جاري التحميل...</p>
+      </div>
+    </div>
   );
 }

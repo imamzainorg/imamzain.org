@@ -25,7 +25,6 @@ type FilterSidebarWrapperProps = {
   setCategory: (val: string) => void;
   conferences: string;
   setConferences: (val: string) => void;
-  paginate: (page: number) => void;
   reset: () => void;
 };
 
@@ -41,15 +40,12 @@ export default function FilterSidebarWrapper({
   setCategory,
   conferences,
   setConferences,
-  paginate,
   reset,
 }: FilterSidebarWrapperProps) {
-  /* Mobile Drawer State */
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
   const handleReset = () => {
     reset();
-    paginate(1);
     setMobileFilterOpen(false);
   };
 
@@ -75,9 +71,7 @@ export default function FilterSidebarWrapper({
         className={`
           fixed inset-0 bg-black/40 z-40
           transition-opacity
-
-          ${mobileFilterOpen ? "opacity-100 visible " : "opacity-0 invisible "}
-
+          ${mobileFilterOpen ? "opacity-100 visible" : "opacity-0 invisible"}
           lg:hidden
         `}
         onClick={() => setMobileFilterOpen(false)}
@@ -91,10 +85,8 @@ export default function FilterSidebarWrapper({
           rounded-t-2xl
           p-4
           transition-transform
-
           ${mobileFilterOpen ? "translate-y-0" : "translate-y-full"}
-
-          lg:sticky lg:top-28 lg:self-start 
+          lg:sticky lg:top-28 lg:self-start
           lg:translate-y-0
           lg:w-72
           xl:w-96
@@ -121,21 +113,16 @@ export default function FilterSidebarWrapper({
 
           {/* Filters */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:grid-cols-1">
-            {/* Category */}
-           <FilterSelect
+            <FilterSelect
               instanceId="category-select"
               icon={<LayoutGrid size={16} className="hidden md:inline" />}
               label="الموضوع"
               placeholder="اختر الموضوع..."
               options={filters.categories}
               value={category}
-              onChange={(val) => {
-                setCategory(val);
-                paginate(1);
-              }}
+              onChange={setCategory}
             />
 
-            {/* Author */}
             <FilterSelect
               instanceId="author-select"
               icon={<User size={16} className="hidden md:inline" />}
@@ -143,13 +130,9 @@ export default function FilterSidebarWrapper({
               placeholder="ابحث عن مؤلف..."
               options={filters.authors}
               value={author}
-              onChange={(val) => {
-                setAuthor(val);
-                paginate(1);
-              }}
+              onChange={setAuthor}
             />
 
-            {/* Publisher */}
             <FilterSelect
               instanceId="publisher-select"
               icon={<Building2 size={16} className="hidden md:inline" />}
@@ -157,13 +140,9 @@ export default function FilterSidebarWrapper({
               placeholder="ابحث عن دار نشر..."
               options={filters.publishers}
               value={publisher}
-              onChange={(val) => {
-                setPublisher(val);
-                paginate(1);
-              }}
+              onChange={setPublisher}
             />
 
-     
             <FilterSelect
               instanceId="conference-select"
               icon={<Calendar size={16} className="hidden md:inline" />}
@@ -171,10 +150,7 @@ export default function FilterSidebarWrapper({
               placeholder="ابحث عن مهرجان أو مؤتمر..."
               options={filters.conferences || []}
               value={conferences}
-              onChange={(val) => {
-                setConferences(val);
-                paginate(1);
-              }}
+              onChange={setConferences}
             />
           </div>
 
@@ -226,50 +202,29 @@ export function FilterSelect({
         {icon}
         <span className="hidden md:inline">{label}</span>
       </label>
-<Select
-  instanceId={instanceId}
-  placeholder={placeholder}
-  isClearable
-
-  // جعل القائمة مستقلة عن العنصر الأب
-  menuPortalTarget={typeof window !== "undefined" ? document.body : null}
-  menuPosition="fixed"
-
- 
-  styles={{
-    menuPortal: (base) => ({
-      ...base,
-      zIndex: 9999,           
-    }),
-    menu: (base) => ({
-      ...base,
-      maxHeight: 300,         // الحد الأقصى للارتفاع
-      overflowY: "auto",      // Scroll داخلي عند الحاجة
-      wordWrap: "break-word", // تقطيع الكلمات الطويلة بدل خروجها خارج الإطار
-    }),
-    option: (base) => ({
-      ...base,
-      whiteSpace: "normal",   // يسمح لكلمات طويلة بالانتقال لسطر جديد
-    }),
-  }}
-
-  options={(options || []).map((o) => ({
-    value: o,
-    label: o,
-  }))}
-
-  value={value ? { value, label: value } : null}
-
-  onChange={(opt: SingleValue<{ value: string; label: string }>) => {
-    if (opt) {
-      onChange(opt.value);
-    } else {
-      onChange("");
-    }
-  }}
-
-  classNamePrefix="react-select"
-/>
+      <Select
+        instanceId={instanceId}
+        placeholder={placeholder}
+        isClearable
+        menuPortalTarget={typeof window !== "undefined" ? document.body : null}
+        menuPosition="fixed"
+        styles={{
+          menuPortal: (base) => ({ ...base, zIndex: 9999 }),
+          menu: (base) => ({
+            ...base,
+            maxHeight: 300,
+            overflowY: "auto",
+            wordWrap: "break-word",
+          }),
+          option: (base) => ({ ...base, whiteSpace: "normal" }),
+        }}
+        options={(options || []).map((o) => ({ value: o, label: o }))}
+        value={value ? { value, label: value } : null}
+        onChange={(opt: SingleValue<{ value: string; label: string }>) => {
+          onChange(opt ? opt.value : "");
+        }}
+        classNamePrefix="react-select"
+      />
     </div>
   );
 }
