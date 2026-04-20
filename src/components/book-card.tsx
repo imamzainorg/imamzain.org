@@ -18,6 +18,21 @@ import {
   Users,
 } from "lucide-react";
 
+// ── encode روابط الصور ──
+const encodeImageUrl = (url: string): string => {
+  if (!url) return "";
+  try {
+    const urlObj = new URL(url);
+    urlObj.pathname = urlObj.pathname
+      .split("/")
+      .map((segment) => encodeURIComponent(decodeURIComponent(segment)))
+      .join("/");
+    return urlObj.toString();
+  } catch {
+    return encodeURI(url);
+  }
+};
+
 export default function BookCard({
   publication,
   publications,
@@ -27,6 +42,8 @@ export default function BookCard({
 }) {
   const router = useRouter();
   const pathname = usePathname();
+
+  const imageUrl = encodeImageUrl(publication.image); // ✅
 
   const seriesParts = publication.series
     ? publications.filter((book) => book.series === publication.series)
@@ -71,11 +88,11 @@ export default function BookCard({
         )}
 
         {/* معلومات الكتاب */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-start p-6 md:p-10 gap-8 ">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start p-6 md:p-10 gap-8">
           <div className="w-full lg:w-1/3 flex justify-center relative group">
             <div className="relative w-full max-w-xs aspect-[3/4] rounded-xl overflow-hidden bg-transparent">
               <Image
-                src={publication.image}
+                src={imageUrl} // ✅ بعد encode
                 fill
                 alt={publication.title}
                 className="object-contain transition-transform"
@@ -139,45 +156,32 @@ export default function BookCard({
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6">
               <Detail
                 label="عدد الصفحات"
-                icon={
-                  <BookOpen className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-                }
+                icon={<BookOpen className="w-5 h-5 text-primary dark:text-Muharram_primary" />}
                 value={publication.pages}
               />
               <Detail
                 label="عدد الأجزاء"
-                icon={
-                  <FileText className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-                }
+                icon={<FileText className="w-5 h-5 text-primary dark:text-Muharram_primary" />}
                 value={publication.parts}
               />
               <Detail
                 label="تاريخ الطبع"
-                icon={
-                  <CalendarIcon className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-                }
+                icon={<CalendarIcon className="w-5 h-5 text-primary dark:text-Muharram_primary" />}
                 value={publication.printDate}
               />
-
               <Detail
                 label="اللغة"
-                icon={
-                  <Languages className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-                }
+                icon={<Languages className="w-5 h-5 text-primary dark:text-Muharram_primary" />}
                 value={publication.language}
               />
               <Detail
                 label="المطبعة"
-                icon={
-                  <Printer className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-                }
+                icon={<Printer className="w-5 h-5 text-primary dark:text-Muharram_primary" />}
                 value={publication.printHouse}
               />
               <Detail
-                label=" اخرى"
-                icon={
-                  <Users className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-                }
+                label="أخرى"
+                icon={<Users className="w-5 h-5 text-primary dark:text-Muharram_primary" />}
                 value={
                   publication.otherNames.length
                     ? publication.otherNames.slice(0, -1).join(", ") +
@@ -205,7 +209,7 @@ function Detail({
   english?: boolean;
 }) {
   return (
-    <div className="bg-gray-50 p-3 rounded-lg flex flex-col items-center lg:items-start ">
+    <div className="bg-gray-50 p-3 rounded-lg flex flex-col items-center lg:items-start">
       <div className="flex items-center gap-2 text-gray-700">
         {icon}
         <span className="font-medium">{label}</span>
