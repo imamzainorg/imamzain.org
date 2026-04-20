@@ -30,12 +30,13 @@ export default function BooklibraryCard({
           <Image
               src={publication.image}
             fill
+            
             sizes="(max-width: 768px) 80px, 96px"
               className="object-contain rounded-sm"
             alt={`غلاف كتاب ${publication.title}`}
             priority={priority}
             loading={priority ? "eager" : "lazy"}
-              unoptimized={publication.image.startsWith("http")}
+              unoptimized
           />
           </div>
         ) : (

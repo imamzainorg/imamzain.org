@@ -99,6 +99,7 @@ export default async function page({
                   src={post.image}
                   alt={post.title}
                   fill
+                  unoptimized
                   className="object-contain"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
                   priority
