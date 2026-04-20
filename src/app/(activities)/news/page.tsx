@@ -67,6 +67,7 @@ export default async function Page() {
                   className="object-contain"
                   sizes="(max-width: 1024px) 100vw, 60vw"
                   priority
+                   unoptimized
                 />
               </div>
             </div>
@@ -169,6 +170,7 @@ export default async function Page() {
                       alt={post.summary}
                       width={400}
                       height={200}
+                       unoptimized
                       className="w-full h-full object-cover"
                     />
                   </div>

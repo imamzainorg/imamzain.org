@@ -24,7 +24,8 @@ import {
 function GalleryClient() {
   const searchParams = useSearchParams();
   const categoryFromUrl = searchParams.get("category");
-
+  const INITIAL_COUNT = 30;
+  const [visibleImagesCount, setVisibleImagesCount] = useState(INITIAL_COUNT);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState(
     categoryFromUrl || "جميع الصور",
@@ -42,17 +43,17 @@ function GalleryClient() {
     "مسابقات",
     "اخبار",
   ];
-  
+
   const ROW_PATTERNS = [
-    [2, 1, 1, 1], 
-    [1, 1, 2,2], 
-    [1, 2, 1,2], 
-    [2, 1, 2, 2], 
-    [1, 2,2, 1],
-    [1, 1, 1, 1,2],
+    [2, 1, 1, 1],
+    [1, 1, 2, 2],
+    [1, 2, 1, 2],
+    [2, 1, 2, 2],
+    [1, 2, 2, 1],
+    [1, 1, 1, 1, 2],
   ];
 
-  const ROW_HEIGHT = 280; 
+  const ROW_HEIGHT = 280;
   const allImages = useMemo(
     () =>
       galleryImages.map((item) => ({
@@ -196,12 +197,14 @@ function GalleryClient() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [lightboxOpen, closeLightbox, navigateImage]);
 
-  const [visibleImagesCount, setVisibleImagesCount] = useState(30);
   const loaderRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
+        if (
+          entries[0].isIntersecting &&
+          visibleImagesCount < filteredImages.length
+        ) {
           setVisibleImagesCount((prev) =>
             Math.min(prev + 15, filteredImages.length),
           );
@@ -211,8 +214,7 @@ function GalleryClient() {
     );
     if (loaderRef.current) observer.observe(loaderRef.current);
     return () => observer.disconnect();
-  }, [filteredImages.length]);
-
+  }, [filteredImages.length, visibleImagesCount]);
   return (
     <div className="min-h-screen text-white overflow-hidden">
       {/* Background effects */}
@@ -343,10 +345,12 @@ function GalleryClient() {
             ) : (
               <>
                 {/* الصور المرئية فقط */}
-           
                 <div className="flex flex-col gap-3">
                   {(() => {
-                    const visible = filteredImages.slice(0, visibleImagesCount);
+                    const visible = filteredImages.slice(
+                      0,
+                      Math.min(visibleImagesCount, filteredImages.length),
+                    );
                     const rows: React.ReactNode[] = [];
                     let imgIndex = 0;
                     let patternIndex = 0;
@@ -419,11 +423,6 @@ function GalleryClient() {
                   })()}
                 </div>
 
-                {/* sentinel للـ infinite scroll */}
-                {visibleImagesCount < filteredImages.length && (
-                  <div ref={loaderRef} className="h-10 mt-4" />
-                )}
-
                 {/* زر عرض المزيد - يظهر فقط إذا كان هناك صور إضافية */}
                 {visibleImagesCount < filteredImages.length && (
                   <div ref={loaderRef} className="h-10 mt-8" />
@@ -473,6 +472,7 @@ function GalleryClient() {
                     alt={selectedImage.title}
                     width={1200}
                     height={800}
+                    unoptimized
                     className="max-w-full lg:max-h-[50vh] xl:max-h-[55vh] 2xl:max-h-[60vh] object-contain rounded-lg"
                     priority
                   />
