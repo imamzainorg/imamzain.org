@@ -19,14 +19,17 @@ const Videos = dynamic(() => import("./_components/videos"));
 const Application = dynamic(() => import("./_components/application"));
 
 const desktopImages = [
+   "/images/fhrs-alsahefe.jpg",
   "/images/ziara-imamzain-web.jpg",
-  "/images/web.jpg",
+ 
+  
   "/images/albaqi.jpg",
+  "/images/web.jpg",
   //"/images/albaqi-2.png",
   //"/images/hero-3.jpg", // لمحات
 
   //"/images/hero-9.jpg", // المباني السياسية
-  "/images/hero-4.jpg", // تراتيل القانتين
+  //"/images/hero-4.jpg", // تراتيل القانتين
   "/images/hero-5.jpg", // البعد الاجتماعي
   "/images/hero-6.jpg", // ابي حمزة الثمالي
   "/images/hero-7.jpg", // بناء الامن النفسي
