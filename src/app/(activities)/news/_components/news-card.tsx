@@ -46,6 +46,7 @@ export default function PostCard(post: Post) {
 						height={200}
 						alt={post.slug}
 						className="w-full h-full rounded-lg object-cover"
+						unoptimized
 					/>
 				</div>
 			</div>
