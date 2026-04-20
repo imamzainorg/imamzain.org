@@ -27,16 +27,16 @@ export default function BooklibraryCard({
       <div className="relative w-1/3 p-4 flex-shrink-0 flex justify-center items-center bg-[url('/shapes/book-bg.svg')] dark:bg-[url('/shapes/book-bg_Muharram.svg')] bg-no-repeat bg-center bg-contain min-h-[120px]">
         {publication.image ? (
           <div className="relative w-20 h-28 xl:w-24 xl:h-32">
-            <Image
+          <Image
               src={publication.image}
-              fill
-              sizes="(max-width: 768px) 80px, 96px"
+            fill
+            sizes="(max-width: 768px) 80px, 96px"
               className="object-contain rounded-sm"
-              alt={`غلاف كتاب ${publication.title}`}
-              priority={priority}
-              loading={priority ? "eager" : "lazy"}
+            alt={`غلاف كتاب ${publication.title}`}
+            priority={priority}
+            loading={priority ? "eager" : "lazy"}
               unoptimized={publication.image.startsWith("http")}
-            />
+          />
           </div>
         ) : (
           <div className="bg-gray-200 border-2 border-dashed rounded-xl w-20 h-28 flex items-center justify-center">
@@ -56,8 +56,8 @@ export default function BooklibraryCard({
         <span className="text-sm font-light text-gray-500">
           الناشر: {printHouse}
         </span>
-          <span className="text-sm lg:hidden xl:block font-light text-gray-500">
-         عدد الأجزاء: {publication.parts || 1}
+        <span className="text-sm lg:hidden xl:block font-light text-gray-500">
+          عدد الأجزاء: {publication.parts || 1}
         </span>
         <div className="flex justify-between w-11/12 text-xs xl:text-sm font-light text-gray-500">
           <span>{publication.pages} صفحة</span>
