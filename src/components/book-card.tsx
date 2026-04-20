@@ -43,7 +43,9 @@ export default function BookCard({
   const router = useRouter();
   const pathname = usePathname();
 
-  const imageUrl = encodeImageUrl(publication.image); // ✅
+  const imageUrl = publication.image
+    ? encodeImageUrl(publication.image)
+    : "/placeholder-book.png"; // ✅ صورة بديلة بدل string فارغ
 
   const seriesParts = publication.series
     ? publications.filter((book) => book.series === publication.series)
@@ -92,11 +94,12 @@ export default function BookCard({
           <div className="w-full lg:w-1/3 flex justify-center relative group">
             <div className="relative w-full max-w-xs aspect-[3/4] rounded-xl overflow-hidden bg-transparent">
               <Image
-                src={imageUrl} // ✅ بعد encode
+                src={imageUrl}
                 fill
                 alt={publication.title}
                 className="object-contain transition-transform"
                 priority
+                unoptimized
               />
             </div>
           </div>
@@ -131,8 +134,10 @@ export default function BookCard({
 
               <Button
                 onClick={() => {
-                  navigator.clipboard.writeText(window.location.href);
-                  toast("تم نسخ الرابط في الحافظة");
+                  if (typeof window !== "undefined") {
+                    navigator.clipboard.writeText(window.location.href);
+                    toast("تم نسخ الرابط في الحافظة");
+                  }
                 }}
                 variant="outline"
                 className="inline-flex p-6 text-md items-center gap-2 bg-white border border-primary text-primary hover:bg-primary/10 dark:border-Muharram_primary dark:text-Muharram_primary dark:hover:bg-Muharram_primary/10 transition-all font-medium rounded-full shadow-sm"
@@ -156,36 +161,47 @@ export default function BookCard({
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6">
               <Detail
                 label="عدد الصفحات"
-                icon={<BookOpen className="w-5 h-5 text-primary dark:text-Muharram_primary" />}
-                value={publication.pages}
+                icon={
+                  <BookOpen className="w-5 h-5 text-primary dark:text-Muharram_primary" />
+                }
+                value={publication.pages ?? "غير محدد"} // ✅ fallback
               />
               <Detail
                 label="عدد الأجزاء"
-                icon={<FileText className="w-5 h-5 text-primary dark:text-Muharram_primary" />}
-                value={publication.parts}
+                icon={
+                  <FileText className="w-5 h-5 text-primary dark:text-Muharram_primary" />
+                }
+                value={publication.parts ?? "غير محدد"} // ✅ fallback
               />
               <Detail
                 label="تاريخ الطبع"
-                icon={<CalendarIcon className="w-5 h-5 text-primary dark:text-Muharram_primary" />}
-                value={publication.printDate}
+                icon={
+                  <CalendarIcon className="w-5 h-5 text-primary dark:text-Muharram_primary" />
+                }
+                value={publication.printDate ?? "غير محدد"} // ✅ fallback
               />
               <Detail
                 label="اللغة"
-                icon={<Languages className="w-5 h-5 text-primary dark:text-Muharram_primary" />}
-                value={publication.language}
+                icon={
+                  <Languages className="w-5 h-5 text-primary dark:text-Muharram_primary" />
+                }
+                value={publication.language ?? "غير محدد"} // ✅ fallback
               />
               <Detail
                 label="المطبعة"
-                icon={<Printer className="w-5 h-5 text-primary dark:text-Muharram_primary" />}
-                value={publication.printHouse}
+                icon={
+                  <Printer className="w-5 h-5 text-primary dark:text-Muharram_primary" />
+                }
+                value={publication.printHouse ?? "غير محدد"} // ✅ fallback
               />
               <Detail
                 label="أخرى"
-                icon={<Users className="w-5 h-5 text-primary dark:text-Muharram_primary" />}
+                icon={
+                  <Users className="w-5 h-5 text-primary dark:text-Muharram_primary" />
+                }
                 value={
-                  publication.otherNames.length
-                    ? publication.otherNames.slice(0, -1).join(", ") +
-                      publication.otherNames[publication.otherNames.length - 1]
+                  publication.otherNames?.length
+                    ? publication.otherNames.join(", ") // ✅ مصحح
                     : "لا يوجد"
                 }
               />
