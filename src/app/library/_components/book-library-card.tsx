@@ -27,21 +27,22 @@ export default function BooklibraryCard({
       <div className="relative w-1/3 p-4 flex-shrink-0 flex justify-center items-center bg-[url('/shapes/book-bg.svg')] dark:bg-[url('/shapes/book-bg_Muharram.svg')] bg-no-repeat bg-center bg-contain min-h-[120px]">
         {publication.image ? (
           <div className="relative w-20 h-28 xl:w-24 xl:h-32">
-          <Image
+            <Image
               src={publication.image}
-            fill
-            
-            sizes="(max-width: 768px) 80px, 96px"
+              fill
+              sizes="(max-width: 768px) 80px, 96px"
               className="object-contain rounded-sm"
-            alt={`غلاف كتاب ${publication.title}`}
-            priority={priority}
-            loading={priority ? "eager" : "lazy"}
-              unoptimized
-          />
+              alt={`غلاف كتاب ${publication.title}`}
+              priority={priority}
+              loading={priority ? "eager" : "lazy"}
+              unoptimized={publication.image?.startsWith("http")}
+            />
           </div>
         ) : (
           <div className="bg-gray-200 border-2 border-dashed rounded-xl w-20 h-28 flex items-center justify-center">
-            <span className="text-xs text-gray-500 text-center px-1">لا يوجد غلاف</span>
+            <span className="text-xs text-gray-500 text-center px-1">
+              لا يوجد غلاف
+            </span>
           </div>
         )}
       </div>

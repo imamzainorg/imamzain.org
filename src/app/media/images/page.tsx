@@ -494,6 +494,7 @@ function GalleryClient() {
                         alt={img.title}
                         width={80}
                         height={80}
+                          unoptimized
                         className="w-full h-full object-cover"
                       />
                     </div>
