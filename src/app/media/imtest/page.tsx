@@ -24,8 +24,8 @@ import {
 function GalleryClient() {
   const searchParams = useSearchParams();
   const categoryFromUrl = searchParams.get("category");
-const INITIAL_COUNT = 30;
-const [visibleImagesCount, setVisibleImagesCount] = useState(INITIAL_COUNT);
+  const INITIAL_COUNT = 30;
+  const [visibleImagesCount, setVisibleImagesCount] = useState(INITIAL_COUNT);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState(
     categoryFromUrl || "جميع الصور",
@@ -43,17 +43,17 @@ const [visibleImagesCount, setVisibleImagesCount] = useState(INITIAL_COUNT);
     "مسابقات",
     "اخبار",
   ];
-  
+
   const ROW_PATTERNS = [
-    [2, 1, 1, 1], 
-    [1, 1, 2,2], 
-    [1, 2, 1,2], 
-    [2, 1, 2, 2], 
-    [1, 2,2, 1],
-    [1, 1, 1, 1,2],
+    [2, 1, 1, 1],
+    [1, 1, 2, 2],
+    [1, 2, 1, 2],
+    [2, 1, 2, 2],
+    [1, 2, 2, 1],
+    [1, 1, 1, 1, 2],
   ];
 
-  const ROW_HEIGHT = 280; 
+  const ROW_HEIGHT = 280;
   const allImages = useMemo(
     () =>
       galleryImages.map((item) => ({
@@ -164,7 +164,7 @@ const [visibleImagesCount, setVisibleImagesCount] = useState(INITIAL_COUNT);
 
   const navigateImage = useCallback(
     (direction: "prev" | "next") => {
-     if (!selectedImage || filteredImages.length === 0) return;
+      if (!selectedImage || filteredImages.length === 0) return;
       const currentIndex = filteredImages.findIndex(
         (img) => img.id === selectedImage.id,
       );
@@ -200,20 +200,20 @@ const [visibleImagesCount, setVisibleImagesCount] = useState(INITIAL_COUNT);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-      if (
-  entries[0].isIntersecting &&
-  visibleImagesCount < filteredImages.length
-) {
-  setVisibleImagesCount((prev) =>
-    Math.min(prev + 15, filteredImages.length),
-  );
-}
+        if (
+          entries[0].isIntersecting &&
+          visibleImagesCount < filteredImages.length
+        ) {
+          setVisibleImagesCount((prev) =>
+            Math.min(prev + 15, filteredImages.length),
+          );
+        }
       },
       { threshold: 0.1 },
     );
     if (loaderRef.current) observer.observe(loaderRef.current);
     return () => observer.disconnect();
-}, [filteredImages.length, visibleImagesCount]);
+  }, [filteredImages.length, visibleImagesCount]);
 
   return (
     <div className="min-h-screen text-white overflow-hidden">
@@ -345,13 +345,13 @@ const [visibleImagesCount, setVisibleImagesCount] = useState(INITIAL_COUNT);
             ) : (
               <>
                 {/* الصور المرئية فقط */}
-           
+
                 <div className="flex flex-col gap-3">
                   {(() => {
-                   const visible = filteredImages.slice(
-  0,
-  Math.min(visibleImagesCount, filteredImages.length),
-);
+                    const visible = filteredImages.slice(
+                      0,
+                      Math.min(visibleImagesCount, filteredImages.length),
+                    );
                     const rows: React.ReactNode[] = [];
                     let imgIndex = 0;
                     let patternIndex = 0;
@@ -393,7 +393,6 @@ const [visibleImagesCount, setVisibleImagesCount] = useState(INITIAL_COUNT);
                                   images={attachmentImages}
                                   src={img.url}
                                   alt={img.title}
-                              
                                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -424,8 +423,6 @@ const [visibleImagesCount, setVisibleImagesCount] = useState(INITIAL_COUNT);
                     return rows;
                   })()}
                 </div>
-
-             
 
                 {/* زر عرض المزيد - يظهر فقط إذا كان هناك صور إضافية */}
                 {visibleImagesCount < filteredImages.length && (
@@ -476,7 +473,6 @@ const [visibleImagesCount, setVisibleImagesCount] = useState(INITIAL_COUNT);
                     alt={selectedImage.title}
                     width={1200}
                     height={800}
-                    unoptimized
                     className="max-w-full lg:max-h-[50vh] xl:max-h-[55vh] 2xl:max-h-[60vh] object-contain rounded-lg"
                     priority
                   />
@@ -498,7 +494,6 @@ const [visibleImagesCount, setVisibleImagesCount] = useState(INITIAL_COUNT);
                         alt={img.title}
                         width={80}
                         height={80}
-                        unoptimized
                         className="w-full h-full object-cover"
                       />
                     </div>

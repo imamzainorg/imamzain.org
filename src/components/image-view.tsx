@@ -43,7 +43,7 @@ export default function ImageView({
 					src={src}
 					alt={`Image-${alt ?? src}`}
 					fill
-					unoptimized
+					
 					quality={75}
 					className="object-cover w-inherit h-inherit"
 					sizes="(max-width: 768px) 100vw, 700px"
@@ -100,7 +100,7 @@ export default function ImageView({
 											alt={`Image-${index}`}
 											width={1600}
 											height={1067}
-											unoptimized
+											
 											className="object-contain w-full h-full "
 										/>
 									</SwiperSlide>
@@ -130,7 +130,7 @@ export default function ImageView({
 											alt={`Thumb-${index}`}
 											width={120}
 											height={80}
-											unoptimized
+									
 											className={`object-cover w-full hover:cursor-pointer h-full rounded-md border-2 transition-all duration-200 ${
 												index === activeIndex
 													? "border-primary scale-105"
