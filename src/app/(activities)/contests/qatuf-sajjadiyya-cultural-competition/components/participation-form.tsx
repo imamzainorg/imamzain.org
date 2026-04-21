@@ -5,7 +5,6 @@ import { useCallback, useState } from "react"
 import { User, Phone, Mail } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useRouter } from "next/navigation"
-import { checkDuplicate } from "../actions/check-duplicates"
 
 type UserInfo = {
 	fullName: string
@@ -21,7 +20,6 @@ export default function ParticipationForm() {
 		contactType: "phone",
 	})
 	const [errorMessage, setErrorMessage] = useState<string>("")
-	const [isChecking, setIsChecking] = useState(false)
 
 	const isValidEmail = (value: string): boolean => {
 		return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
@@ -56,22 +54,6 @@ export default function ParticipationForm() {
 			userInfo.fullName.trim() &&
 			validateContact(userInfo.contact.trim())
 		) {
-			setIsChecking(true)
-			setErrorMessage("")
-
-			// Check for duplicate before allowing quiz start
-			const isDuplicate = await checkDuplicate(userInfo.contact.trim())
-
-			if (isDuplicate) {
-				setErrorMessage(
-					"لقد شاركت في المسابقة مسبقاً. لا يمكن المشاركة أكثر من مرة.",
-				)
-				setIsChecking(false)
-				return
-			}
-
-			setIsChecking(false)
-
 			// Navigate to quiz
 			router.push(
 				`/contests/qatuf-sajjadiyya-cultural-competition/participate?name=${encodeURIComponent(
@@ -219,19 +201,16 @@ export default function ParticipationForm() {
 						onClick={handleStartQuiz}
 						disabled={
 							!userInfo.fullName.trim() ||
-							!userInfo.contact.trim() ||
-							isChecking
+							!userInfo.contact.trim()
 						}
 						className={cn(
 							"w-full py-4 lg:py-5 rounded-xl lg:rounded-2xl font-bold text-lg lg:text-xl transition-all shadow-lg",
-							userInfo.fullName.trim() &&
-								userInfo.contact.trim() &&
-								!isChecking
+							userInfo.fullName.trim() && userInfo.contact.trim()
 								? "bg-gradient-to-r from-primary to-secondary text-white hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
 								: "bg-slate-200 text-slate-400 cursor-not-allowed",
 						)}
 					>
-						{isChecking ? "جاري التحقق..." : "ابدأ المسابقة"}
+						{"ابدأ المسابقة"}
 					</button>
 				</motion.div>
 			</div>

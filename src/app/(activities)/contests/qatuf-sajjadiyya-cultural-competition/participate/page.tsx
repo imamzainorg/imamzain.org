@@ -149,7 +149,7 @@ function ParticipateContent() {
 		}
 
 		startContest()
-	}, [attemptId])
+	}, [attemptId, contact, contactType, name])
 
 	// -----------------------------
 	// ANSWER HANDLER
@@ -178,11 +178,6 @@ function ParticipateContent() {
 			setCurrentQuestion((p) => p - 1)
 		}
 	}, [currentQuestion])
-
-	const handleQuestionJump = useCallback((index: number) => {
-		setCurrentQuestion(index)
-	}, [])
-
 	// -----------------------------
 	// TEST MODE
 	// -----------------------------
