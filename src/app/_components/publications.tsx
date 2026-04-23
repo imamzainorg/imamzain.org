@@ -106,7 +106,7 @@ export default function Publications({
 											fill
 											sizes="100vw"
 											className="object-contain dark:hidden"
-											unoptimized
+											unoptimized 
 										/>
 
 										<Image
@@ -142,6 +142,7 @@ export default function Publications({
 										alt={`Cover of ${book.title}`}
 										fill
 										className="object-center"
+										unoptimized
 									/>
 								</motion.div>
 
@@ -167,6 +168,7 @@ export default function Publications({
 										alt={`Back cover of ${book.title}`}
 										fill
 										className="object-center"
+										unoptimized
 									/>
 								</motion.div>
 							</div>
