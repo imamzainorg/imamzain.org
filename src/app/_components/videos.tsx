@@ -81,6 +81,7 @@ export default function Videos({
                   height={600}
                   alt="media pic"
                   className="absolute inset-0 w-full h-full object-cover -z-10"
+                    unoptimized
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent -z-10" />

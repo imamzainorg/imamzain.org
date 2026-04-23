@@ -106,6 +106,7 @@ export default function Publications({
 											fill
 											sizes="100vw"
 											className="object-contain dark:hidden"
+											unoptimized
 										/>
 
 										<Image
@@ -114,6 +115,7 @@ export default function Publications({
 											fill
 											sizes="100vw"
 											className="object-contain hidden dark:block"
+											unoptimized
 										/>
 									</motion.div>
 								</motion.div>
