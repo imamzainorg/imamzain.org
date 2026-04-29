@@ -1,10 +1,10 @@
 import { MetadataRoute } from "next"
 
-import postsData from "@/data/posts.json" assert { type: "json" }
-import booksData from "@/data/books.json" assert { type: "json" }
-import imamzainLifeData from "@/data/imamzain.json" assert { type: "json" }
-import alSahifaData from "@/data/imamzain-legacy/al-sahifa.json" assert { type: "json" }
-import risalatAlHuqoqData from "@/data/imamzain-legacy/risalat-al-huqoq.json" assert { type: "json" }
+import postsData from "@/data/posts.json" with { type: "json" }
+import booksData from "@/data/books.json" with  { type: "json" }
+import imamzainLifeData from "@/data/imamzain.json" with  { type: "json" }
+import alSahifaData from "@/data/imamzain-legacy/al-sahifa.json" with { type: "json" }
+import risalatAlHuqoqData from "@/data/imamzain-legacy/risalat-al-huqoq.json" with  { type: "json" }
 
 import { Post } from "@/types/post"
 import { Book } from "@/types/book"
