@@ -1,5 +1,5 @@
-import alSahifaData from "@/data/imamzain-legacy/al-sahifa.json" assert { type: "json" }
-import risalatData from "@/data/imamzain-legacy/risalat-al-huqoq.json" assert { type: "json" }
+import alSahifaData from "@/data/imamzain-legacy/al-sahifa.json" with { type: "json" }
+import risalatData from "@/data/imamzain-legacy/risalat-al-huqoq.json" with { type: "json" }
 import type { Dictionary, Subject } from "@/types/imamzain-legacy"
 
 const alSahifa = alSahifaData as Dictionary[]

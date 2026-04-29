@@ -1,6 +1,6 @@
 "use client";
 
-import playlists from "@/data/youtube.json" assert { type: "json" };
+import playlists from "@/data/youtube.json" with  { type: "json" };
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
