@@ -21,6 +21,38 @@ import {
   FiInfo,
 } from "react-icons/fi";
 
+type ScreenSize = "sm" | "md" | "lg" | "xl";
+
+// ✅ تصحيح 1: ROW_PATTERNS كـ object بمفاتيح صحيحة وليس array
+const ROW_PATTERNS: Record<ScreenSize, number[][]> = {
+  sm: [
+    [1, 1],
+    [1, 1],
+  ],
+  md: [
+    [1, 1, 1],
+    [2, 1, 1],
+  ],
+  lg: [
+    [2, 1, 1, 1],
+    [1, 1, 2, 2],
+    [1, 2, 1, 2],
+    [2, 1, 2, 2],
+    [1, 2, 2, 1],
+    [1, 1, 1, 1, 2],
+  ],
+  // ✅ تصحيح 3: إضافة مفتاح xl
+  xl: [
+    [2, 1, 1, 1],
+    [1, 2, 2, 1],
+    [1, 1, 2, 2],
+    [2, 2, 1, 1],
+    [1, 1, 1, 2, 1],
+  ],
+};
+
+const ROW_HEIGHT = 280;
+
 function GalleryClient() {
   const searchParams = useSearchParams();
   const categoryFromUrl = searchParams.get("category");
@@ -33,7 +65,9 @@ function GalleryClient() {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("newest");
   const [selectedImage, setSelectedImage] = useState<Gallery | null>(null);
-  const [isFilterOpen, setIsFilterOpen] = useState(!!categoryFromUrl); // فتح الفلاتر إذا كانت هناك فئة من URL
+  const [isFilterOpen, setIsFilterOpen] = useState(!!categoryFromUrl);
+  // ✅ تصحيح: النوع الصحيح ScreenSize
+  const [screen, setScreen] = useState<ScreenSize>("lg");
 
   const categories = [
     "جميع الصور",
@@ -44,16 +78,37 @@ function GalleryClient() {
     "اخبار",
   ];
 
-  const ROW_PATTERNS = [
-    [2, 1, 1, 1],
-    [1, 1, 2, 2],
-    [1, 2, 1, 2],
-    [2, 1, 2, 2],
-    [1, 2, 2, 1],
-    [1, 1, 1, 1, 2],
-  ];
+  const [limit, setLimit] = useState(10);
 
-  const ROW_HEIGHT = 280;
+  // ✅ تصحيح: استخدام screen لاختيار الأنماط الصحيحة
+  useEffect(() => {
+    const updateScreen = () => {
+      const w = window.innerWidth;
+      if (w < 640) setScreen("sm");
+      else if (w < 1024) setScreen("md");
+      else if (w < 1440) setScreen("lg");
+      else setScreen("xl");
+    };
+
+    updateScreen();
+    window.addEventListener("resize", updateScreen);
+    return () => window.removeEventListener("resize", updateScreen);
+  }, []);
+
+  useEffect(() => {
+    const updateLimit = () => {
+      const width = window.innerWidth;
+      if (width >= 1600) setLimit(8);
+      else if (width >= 1400) setLimit(6);
+      else if (width >= 1200) setLimit(4);
+      else setLimit(2);
+    };
+
+    updateLimit();
+    window.addEventListener("resize", updateLimit);
+    return () => window.removeEventListener("resize", updateLimit);
+  }, []);
+
   const allImages = useMemo(
     () =>
       galleryImages.map((item) => ({
@@ -70,32 +125,14 @@ function GalleryClient() {
     [],
   );
 
-  const [limit, setLimit] = useState(10);
-
-  useEffect(() => {
-    const updateLimit = () => {
-      const width = window.innerWidth;
-      if (width >= 1600) setLimit(8);
-      else if (width >= 1400) setLimit(6);
-      else if (width >= 1200) setLimit(4);
-      else setLimit(2);
-    };
-
-    updateLimit();
-    window.addEventListener("resize", updateLimit);
-    return () => window.removeEventListener("resize", updateLimit);
-  }, []);
-
   // Filter and sort images
   const filteredImages = useMemo(() => {
     let result = allImages;
 
-    // Category filter
     if (activeCategory !== "جميع الصور") {
       result = result.filter((img) => img.category === activeCategory);
     }
 
-    // Search filter
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase().trim();
       result = result.filter((img) => {
@@ -108,7 +145,6 @@ function GalleryClient() {
       });
     }
 
-    // Sort by date
     const sorted = [...result];
     sorted.sort((a, b) => {
       const dateA = new Date(a.date).getTime();
@@ -125,7 +161,6 @@ function GalleryClient() {
     return sorted;
   }, [allImages, activeCategory, searchQuery, sortBy]);
 
-  // Convert images for ImageView component
   const attachmentImages = useMemo(
     () =>
       filteredImages.map((img) => ({
@@ -136,7 +171,6 @@ function GalleryClient() {
     [filteredImages],
   );
 
-  // Get related images based on tags
   const relatedImages = useMemo(() => {
     if (!selectedImage) return [];
 
@@ -149,7 +183,6 @@ function GalleryClient() {
       .slice(0, limit);
   }, [filteredImages, selectedImage, limit]);
 
-  // Lightbox functions
   const openLightbox = useCallback((image: Gallery) => {
     setSelectedImage(image);
     setLightboxOpen(true);
@@ -183,7 +216,6 @@ function GalleryClient() {
     [selectedImage, filteredImages],
   );
 
-  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!lightboxOpen) return;
@@ -215,6 +247,7 @@ function GalleryClient() {
     if (loaderRef.current) observer.observe(loaderRef.current);
     return () => observer.disconnect();
   }, [filteredImages.length, visibleImagesCount]);
+
   return (
     <div className="min-h-screen text-white overflow-hidden">
       {/* Background effects */}
@@ -236,7 +269,7 @@ function GalleryClient() {
 
         {/* Header */}
         <div className="text-center mb-12 animate-fade-in">
-          <h1 className="text-title 2xl:text-7xl font-bold mb-4 bg-gradient-to-r from-primary via-primry/50 to-primary bg-clip-text text-transparent">
+          <h1 className="text-title 2xl:text-7xl font-bold mb-4 bg-gradient-to-r from-primary via-primary/50 to-primary bg-clip-text text-transparent">
             معرض الصور
           </h1>
           <p className="text-gray-300 max-w-2xl mx-auto text-body leading-relaxed">
@@ -344,7 +377,6 @@ function GalleryClient() {
               </div>
             ) : (
               <>
-                {/* الصور المرئية فقط */}
                 <div className="flex flex-col gap-3">
                   {(() => {
                     const visible = filteredImages.slice(
@@ -355,9 +387,13 @@ function GalleryClient() {
                     let imgIndex = 0;
                     let patternIndex = 0;
 
+                    // ✅ تصحيح 2: اختيار الأنماط بناءً على حجم الشاشة
+                    const currentPatterns =
+                      ROW_PATTERNS[screen] ?? ROW_PATTERNS["lg"];
+
                     while (imgIndex < visible.length) {
                       const pattern =
-                        ROW_PATTERNS[patternIndex % ROW_PATTERNS.length];
+                        currentPatterns[patternIndex % currentPatterns.length];
                       const totalWeight = pattern.reduce((a, b) => a + b, 0);
                       const rowImgs = visible.slice(
                         imgIndex,
@@ -366,7 +402,6 @@ function GalleryClient() {
 
                       if (rowImgs.length === 0) break;
 
-                      // إذا كان الصف غير مكتمل، وزّع الصور الباقية بالتساوي
                       const finalPattern =
                         rowImgs.length < pattern.length
                           ? rowImgs.map(() =>
@@ -423,7 +458,6 @@ function GalleryClient() {
                   })()}
                 </div>
 
-                {/* زر عرض المزيد - يظهر فقط إذا كان هناك صور إضافية */}
                 {visibleImagesCount < filteredImages.length && (
                   <div ref={loaderRef} className="h-10 mt-8" />
                 )}
@@ -432,13 +466,14 @@ function GalleryClient() {
           </div>
         </div>
 
-        {/* Lightbox - keeping the same as original */}
+        {/* Lightbox */}
         {lightboxOpen && selectedImage && (
           <div
-            className="fixed inset-0 bg-black/50 backdrop-blur-md  z-50 flex items-center justify-center p-4 animate-fade-in"
+            className="fixed inset-0 bg-black/50 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-fade-in"
             onClick={(e) => e.target === e.currentTarget && closeLightbox()}
           >
-            <div className=" w-full lg:w-4/5 felx items-center justify-center  h-[64vh] flex gap-6">
+            {/* ✅ تصحيح 4: felx → flex */}
+            <div className="w-full lg:w-4/5 flex items-center justify-center h-[64vh]  gap-6">
               {/* Image section */}
               <div>
                 <div className="relative flex-1 flex items-center justify-center bg-gray-900/30 rounded-2xl overflow-hidden p-4">
@@ -478,7 +513,7 @@ function GalleryClient() {
                   />
                 </div>
 
-                <div className="md:flex gap-2 mt-4 lg:mt-0 hidden  justify-center">
+                <div className="md:flex gap-2 mt-4 lg:mt-0 hidden justify-center">
                   {relatedImages.map((img) => (
                     <div
                       key={img.id}
@@ -494,7 +529,7 @@ function GalleryClient() {
                         alt={img.title}
                         width={80}
                         height={80}
-                          unoptimized
+                        unoptimized
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -503,7 +538,7 @@ function GalleryClient() {
               </div>
 
               {/* Details section */}
-              <div className="lg:w-4/12  bg-gray-900/80 backdrop-blur-lg hidden lg:block rounded-2xl p-6 overflow-y-auto max-h-[64vh]">
+              <div className="lg:w-4/12 bg-gray-900/80 backdrop-blur-lg hidden lg:block rounded-2xl p-6 overflow-y-auto max-h-[64vh]">
                 <h2 className="text-2xl font-bold mb-2">
                   {selectedImage.title}
                 </h2>
@@ -530,9 +565,7 @@ function GalleryClient() {
                         <FiCalendar size={14} color="#006654" />
                         <span className="text-xs text-gray-400">التاريخ</span>
                       </div>
-                      <p className="text-sm font-medium">
-                        {selectedImage.date}
-                      </p>
+                      <p className="text-sm font-medium">{selectedImage.date}</p>
                     </div>
 
                     <div className="bg-gray-900/40 rounded-md p-3">
