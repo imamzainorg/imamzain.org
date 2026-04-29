@@ -2580,5 +2580,73 @@
       "ما كتب عن الإمام زين العابدين"
     ],
     "Conferences": "مهرجان تراتيل سجادية الثامن"
+  },
+  {
+    "id": 125,
+    "slug": "index-of-commentaries-on-the-sahifa-al-sajjadiya-and-biographies-of-its-authors-part-one",
+    "title": "فهرس شروح الصحيفة السجادية وتراجم مؤلفيها ",
+    "author": "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات",
+    "otherNames": [
+      ""
+    ],
+    "printHouse": "دار الوارث - كربلاء المقدسة",
+    "printDate": "2026 م",
+    "language": "العربية",
+    "pages": 514,
+    "parts": 2,
+    "views": 120,
+   "image": "/general/فهرس شروح الصحيفة السجادية وتراجم مؤلفيها الجزء الاول.jpg",
+    "pdf": "/general/فهرس شروح الصحيفة السجادية وتراجم مؤلفيها الجزء الاول.pdf",
+    "series": "فهرس شروح الصحيفة السجادية وتراجم مؤلفيها ",
+    "partNumber": 1,
+    "totalParts": 2,
+    "category": [
+      "الصحيفة السجادية",
+      "الإصدارات"
+    ]
+  },
+  {
+    "id": 126,
+    "slug": "index-of-commentaries-on-the-sahifa-al-sajjadiya-and-biographies-of-its-authors-part-two",
+    "title": "فهرس شروح الصحيفة السجادية وتراجم مؤلفيها ",
+    "author": "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات",
+    "otherNames": [
+      ""
+    ],
+    "printHouse": "دار الوارث - كربلاء المقدسة",
+    "printDate": "2026 م",
+    "language": "العربية",
+    "pages": 595,
+    "parts": 2,
+    "views": 0,
+     "image": "/general/فهرس شروح الصحيفة السجادية وتراجم مؤلفيها الجزء الثاني.jpg",
+    "pdf": "/general/فهرس شروح الصحيفة السجادية وتراجم مؤلفيها الجزء الثاني.pdf",
+    "series": "فهرس شروح الصحيفة السجادية وتراجم مؤلفيها ",
+    "partNumber": 2,
+    "totalParts": 2,
+    "category": [
+      "الصحيفة السجادية",
+      "الإصدارات"
+    ]
+  },
+  {
+    "id": 127,
+    "slug": "al-munajat-al-khamsat-ashar-publications",
+    "title": "المناجاة الخمس عشرة",
+    "author": "مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات",
+    "otherNames": [
+      ""
+    ],
+    "printHouse": "دار الوارث - كربلاء المقدسة",
+    "printDate": "2025 م",
+    "language": "العربية",
+    "pages": 64,
+    "parts": 1,
+    "views": 0,
+     "image": "/general/المناجاة الخمس عشرة وادعية الايام.jpg",
+    "pdf": "/general/المناجاة الخمس عشرة وادعية الايام.pdf",
+    "category": [
+      "الإصدارات"
+    ]
   }
 ]
