@@ -5,7 +5,7 @@ import { useState, useMemo, useCallback, useRef } from "react";
 import { FaFilePdf } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
-import "swiper/css";
+
 import {
   GraduationCap,
   Search as SearchIcon,
