@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 import { useRouter } from "next/navigation"
 
 type UserInfo = {
-	fullName: string
+	name: string
 	contact: string
 	contactType: "phone" | "email"
 }
@@ -15,7 +15,7 @@ type UserInfo = {
 export default function ParticipationForm() {
 	const router = useRouter()
 	const [userInfo, setUserInfo] = useState<UserInfo>({
-		fullName: "",
+		name: "",
 		contact: "",
 		contactType: "phone",
 	})
@@ -29,6 +29,8 @@ export default function ParticipationForm() {
 		const normalized = value.replace(/\s|-/g, "")
 		return /^07[5-9]\d{8}$/.test(normalized)
 	}
+
+	const [isSubmitting, setIsSubmitting] = useState(false)
 
 	const handleStartQuiz = useCallback(async () => {
 		const validateContact = (value: string): boolean => {
@@ -51,17 +53,45 @@ export default function ParticipationForm() {
 		}
 
 		if (
-			userInfo.fullName.trim() &&
-			validateContact(userInfo.contact.trim())
+			!userInfo.name.trim() ||
+			!validateContact(userInfo.contact.trim())
 		) {
-			// Navigate to quiz
-			router.push(
-				`/contests/qatuf-sajjadiyya-cultural-competition/participate?name=${encodeURIComponent(
-					userInfo.fullName.trim(),
-				)}&contact=${encodeURIComponent(userInfo.contact.trim())}&contactType=${encodeURIComponent(
-					userInfo.contactType,
-				)}`,
+			return
+		}
+
+		setIsSubmitting(true)
+		setErrorMessage("")
+
+		try {
+			const response = await fetch(
+				"/api/contests/qatuf-sajjadiyya/start",
+				{
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({
+						name: userInfo.name.trim(),
+						contact: userInfo.contact.trim(),
+						contactType: userInfo.contactType,
+					}),
+				},
 			)
+
+			const data = await response.json()
+
+			if (!response.ok) {
+				setErrorMessage(
+					data.error || "حدث خطأ، يرجى المحاولة مجدداً.",
+				)
+				return
+			}
+
+			router.push(
+				`/contests/qatuf-sajjadiyya-cultural-competition/participate?attempt_id=${data.data.attempt_id}`,
+			)
+		} catch {
+			setErrorMessage("حدث خطأ في الاتصال، يرجى المحاولة مجدداً.")
+		} finally {
+			setIsSubmitting(false)
 		}
 	}, [userInfo, router])
 
@@ -94,12 +124,12 @@ export default function ParticipationForm() {
 							</label>
 							<input
 								type="text"
-								value={userInfo.fullName}
+								value={userInfo.name}
 								onChange={(e) => {
 									setErrorMessage("")
 									setUserInfo((prev) => ({
 										...prev,
-										fullName: e.target.value,
+										name: e.target.value,
 									}))
 								}}
 								className="w-full px-4 lg:px-5 py-3 lg:py-4 text-base lg:text-lg border-2 border-slate-200 rounded-xl lg:rounded-2xl focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
@@ -200,17 +230,20 @@ export default function ParticipationForm() {
 					<button
 						onClick={handleStartQuiz}
 						disabled={
-							!userInfo.fullName.trim() ||
-							!userInfo.contact.trim()
+							!userInfo.name.trim() ||
+							!userInfo.contact.trim() ||
+							isSubmitting
 						}
 						className={cn(
 							"w-full py-4 lg:py-5 rounded-xl lg:rounded-2xl font-bold text-lg lg:text-xl transition-all shadow-lg",
-							userInfo.fullName.trim() && userInfo.contact.trim()
+							userInfo.name.trim() &&
+								userInfo.contact.trim() &&
+								!isSubmitting
 								? "bg-gradient-to-r from-primary to-secondary text-white hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
 								: "bg-slate-200 text-slate-400 cursor-not-allowed",
 						)}
 					>
-						{"ابدأ المسابقة"}
+						{isSubmitting ? "جارٍ التحقق..." : "ابدأ المسابقة"}
 					</button>
 				</motion.div>
 			</div>
