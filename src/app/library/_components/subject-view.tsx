@@ -114,6 +114,7 @@
 					<div key={phrase.id}>
 						<div
 							className="flex-1 text-note max-w-none leading-relaxed text-gray-800 dark:text-gray-200"
+							// safe: phrase.content comes from trusted static JSON; highlight wraps matches in <mark> only
 							dangerouslySetInnerHTML={{
 								__html: highlightContent(phrase.content),
 							}}
@@ -136,6 +137,7 @@
 													)}
 													<div
 														className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
+														// safe: explanation.content comes from trusted static JSON; highlight wraps matches in <mark> only
 														dangerouslySetInnerHTML={{
 															__html: highlightContent(
 																explanation.content,

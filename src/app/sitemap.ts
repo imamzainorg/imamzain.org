@@ -111,7 +111,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const newsRoutes: MetadataRoute.Sitemap = posts.map((post) =>
 		createSitemapEntry(
 			`/news/${post.slug}`,
-			post.date ? new Date(post.last_update) : new Date(),
+			post.last_update ? new Date(post.last_update) : new Date(),
 			"monthly",
 			0.7,
 		),

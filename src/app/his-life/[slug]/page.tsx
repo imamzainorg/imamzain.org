@@ -34,6 +34,7 @@ export default async function Page({
 
 					<div
 						className=" text-justify tracking-tight w-11/12 mx-auto text-note leading-loose"
+						// safe: section.content comes from trusted static JSON
 						dangerouslySetInnerHTML={{ __html: section.content }}
 					/>
 				</div>

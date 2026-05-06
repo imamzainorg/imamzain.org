@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
+import { log } from "@/lib/logger"
+import { isValidEmail } from "@/lib/validators"
 
 interface NewsletterBody {
 	subscriberEmail?: string
@@ -6,12 +8,7 @@ interface NewsletterBody {
 
 interface BackendResponse {
 	error?: string
-	[key: string]: unknown
-}
-
-function log(level: "INFO" | "WARN" | "ERROR", ...args: unknown[]) {
-	const timestamp = new Date().toISOString()
-	console.log(`[${level}] [${timestamp}]`, ...args)
+	message?: string
 }
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
@@ -19,14 +16,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 		const body: NewsletterBody = await request.json()
 		const { subscriberEmail } = body
 
-		log("INFO", "Incoming newsletter subscription:", body)
-
-		// Validate email
-		const emailRegex = /\S+@\S+\.\S+/
-		if (!subscriberEmail || !emailRegex.test(subscriberEmail)) {
-			log("WARN", "Validation failed: Invalid email format", {
-				subscriberEmail,
-			})
+		if (!isValidEmail(subscriberEmail)) {
+			log("WARN", "Newsletter subscription: invalid email format")
 			return NextResponse.json(
 				{ error: "Invalid email format" },
 				{ status: 400 },
@@ -34,7 +25,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 		}
 
 		const apiUrl = `${process.env.API_URL}/api/v1/newsletter/subscribe`
-		log("INFO", "Sending request to backend API:", apiUrl)
+		log("INFO", "Sending newsletter subscription to backend")
 
 		const response = await fetch(apiUrl, {
 			method: "POST",
@@ -62,17 +53,17 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 			)
 		}
 
-		log("INFO", "✅ Backend success response:", data)
+		log("INFO", "Newsletter subscription succeeded")
 		return NextResponse.json(data, { status: 200 })
 	} catch (error: unknown) {
 		if (error instanceof Error) {
-			log("ERROR", "🔥 Newsletter Subscribe Error:", {
+			log("ERROR", "Newsletter Subscribe Error:", {
 				name: error.name,
 				message: error.message,
 				stack: error.stack,
 			})
 		} else {
-			log("ERROR", "🔥 Unknown error:", error)
+			log("ERROR", "Unknown error:", error)
 		}
 
 		return NextResponse.json(
