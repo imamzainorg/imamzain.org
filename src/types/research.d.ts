@@ -10,8 +10,6 @@ export interface Research {
 	pdfUrl: string
 	pages?: number
 	publishedYear: string
-	Description?: string
 	authorDescription?: string
 	conference?: string
-	 summaryHtml?: string;
 }
