@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback, Suspense, useEffect } from "react"
+import { useState, useCallback, useEffect, Suspense } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Breadcrumbs from "@/components/breadcrumb"
 import {
@@ -8,12 +8,13 @@ import {
 	ChevronRight,
 	Send,
 	CheckCircle,
-	Clock,
+	Home,
 } from "lucide-react"
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 import questions from "@/data/contests/qatuf-sajjaddiyya/questions.json"
-import { useSearchParams } from "next/navigation"
+import { useSearchParams, useRouter } from "next/navigation"
+import Link from "next/link"
 
 function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs))
@@ -23,150 +24,76 @@ type AnswerState = {
 	[questionIndex: number]: string
 }
 
+const STORAGE_PREFIX = "qutuf_"
 const STORAGE_KEYS = {
-	ATTEMPT: "qutuf_attempt_id",
-	ANSWERS: "qutuf_answers",
-	QUESTION: "qutuf_current_question",
-	START_TIME: "qutuf_start_time",
+	ATTEMPT: `${STORAGE_PREFIX}attempt_id`,
+	ANSWERS: `${STORAGE_PREFIX}answers`,
+	QUESTION: `${STORAGE_PREFIX}current_question`,
 }
 
-function formatTime(seconds: number): string {
-	const hours = Math.floor(seconds / 3600)
-	const minutes = Math.floor((seconds % 3600) / 60)
-	const secs = seconds % 60
-
-	if (hours > 0) {
-		return `${hours.toString().padStart(2, "0")}:${minutes
-			.toString()
-			.padStart(2, "0")}:${secs.toString().padStart(2, "0")}`
-	}
-	return `${minutes.toString().padStart(2, "0")}:${secs
-		.toString()
-		.padStart(2, "0")}`
-}
 
 function ParticipateContent() {
 	const params = useSearchParams()
-
-	const name = params.get("name")
-	const contactType = params.get("contactType")
-	const contact = params.get("contact")
-	const isTestMode = params.get("test") === "true"
+	const router = useRouter()
+	const attemptId = params.get("attempt_id")
 
 	const totalQuestions = questions.length
 
-	// -----------------------------
-	// RESTORE STATE FROM STORAGE
-	// -----------------------------
-	const [attemptId, setAttemptId] = useState<string | null>(() => {
-		if (typeof window === "undefined") return null
-		return localStorage.getItem(STORAGE_KEYS.ATTEMPT)
-	})
-
-	const [answers, setAnswers] = useState<AnswerState>(() => {
-		if (typeof window === "undefined") return {}
-		const saved = localStorage.getItem(STORAGE_KEYS.ANSWERS)
-		return saved ? JSON.parse(saved) : {}
-	})
-
-	const [currentQuestion, setCurrentQuestion] = useState(() => {
-		if (typeof window === "undefined") return 0
-		const saved = localStorage.getItem(STORAGE_KEYS.QUESTION)
-		return saved ? Number(saved) : 0
-	})
-
-	const [startTime] = useState(() => {
-		if (typeof window === "undefined") return Date.now()
-
-		const saved = localStorage.getItem(STORAGE_KEYS.START_TIME)
-		if (saved) return Number(saved)
-
-		const now = Date.now()
-		localStorage.setItem(STORAGE_KEYS.START_TIME, String(now))
-		return now
-	})
-
-	const [timeElapsed, setTimeElapsed] = useState(0)
+	// Plain defaults — localStorage is loaded in useEffect to avoid SSR/client hydration mismatch
+	const [answers, setAnswers] = useState<AnswerState>({})
+	const [currentQuestion, setCurrentQuestion] = useState(0)
+	const [hydrated, setHydrated] = useState(false)
 	const [step, setStep] = useState<"questions" | "submitted">("questions")
+	const [submitError, setSubmitError] = useState<string>("")
+	const [isSubmitting, setIsSubmitting] = useState(false)
 
 	const answeredCount = Object.keys(answers).length
 	const selectedAnswer = answers[currentQuestion]
 
-	// -----------------------------
-	// TIMER
-	// -----------------------------
+	// Hydrate from localStorage after mount; detect new attempt and clear stale data
 	useEffect(() => {
-		const interval = setInterval(() => {
-			setTimeElapsed(Math.floor((Date.now() - startTime) / 1000))
-		}, 1000)
-
-		return () => clearInterval(interval)
-	}, [startTime])
-
-	// -----------------------------
-	// PERSIST ANSWERS
-	// -----------------------------
-	useEffect(() => {
-		localStorage.setItem(STORAGE_KEYS.ANSWERS, JSON.stringify(answers))
-	}, [answers])
-
-	// -----------------------------
-	// PERSIST QUESTION INDEX
-	// -----------------------------
-	useEffect(() => {
-		localStorage.setItem(STORAGE_KEYS.QUESTION, String(currentQuestion))
-	}, [currentQuestion])
-
-	// -----------------------------
-	// START CONTEST (ONLY ONCE)
-	// -----------------------------
-	useEffect(() => {
-		if (attemptId) return
-
-		async function startContest() {
-			try {
-				const res = await fetch("/api/contest/start", {
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify({
-						name,
-						email: contactType === "email" ? contact : undefined,
-						phone_number:
-							contactType === "phone" ? contact : undefined,
-					}),
-				})
-
-				const data = await res.json()
-				const id = data?.data?.attemptId || null
-
-				if (id) {
-					setAttemptId(id)
-					localStorage.setItem(STORAGE_KEYS.ATTEMPT, id)
-				}
-			} catch (err) {
-				console.error("start contest error", err)
-			}
+		if (!attemptId) {
+			router.replace("/contests/qatuf-sajjadiyya-cultural-competition")
+			return
 		}
 
-		startContest()
-	}, [attemptId, contact, contactType, name])
+		const storedAttemptId = localStorage.getItem(STORAGE_KEYS.ATTEMPT)
 
-	// -----------------------------
-	// ANSWER HANDLER
-	// -----------------------------
+		if (storedAttemptId !== attemptId) {
+			// New attempt — wipe any leftover data from previous session
+			localStorage.setItem(STORAGE_KEYS.ATTEMPT, attemptId)
+			localStorage.removeItem(STORAGE_KEYS.ANSWERS)
+			localStorage.removeItem(STORAGE_KEYS.QUESTION)
+		} else {
+			// Same attempt — restore saved progress
+			const savedAnswers = localStorage.getItem(STORAGE_KEYS.ANSWERS)
+			if (savedAnswers) setAnswers(JSON.parse(savedAnswers))
+
+			const savedQuestion = localStorage.getItem(STORAGE_KEYS.QUESTION)
+			if (savedQuestion) setCurrentQuestion(Number(savedQuestion))
+		}
+
+		setHydrated(true)
+	}, [attemptId, router])
+
+	// Persist only after hydration so the empty initial state doesn't overwrite saved data
+	useEffect(() => {
+		if (!hydrated) return
+		localStorage.setItem(STORAGE_KEYS.ANSWERS, JSON.stringify(answers))
+	}, [answers, hydrated])
+
+	useEffect(() => {
+		if (!hydrated) return
+		localStorage.setItem(STORAGE_KEYS.QUESTION, String(currentQuestion))
+	}, [currentQuestion, hydrated])
+
 	const handleAnswerSelect = useCallback(
 		(optionKey: string) => {
-			setAnswers((prev) => ({
-				...prev,
-				[currentQuestion]: optionKey,
-			}))
+			setAnswers((prev) => ({ ...prev, [currentQuestion]: optionKey }))
 		},
 		[currentQuestion],
 	)
 
-	// -----------------------------
-	// NAVIGATION
-	// -----------------------------
 	const handleNext = useCallback(() => {
 		if (currentQuestion < totalQuestions - 1) {
 			setCurrentQuestion((p) => p + 1)
@@ -178,28 +105,22 @@ function ParticipateContent() {
 			setCurrentQuestion((p) => p - 1)
 		}
 	}, [currentQuestion])
-	// -----------------------------
-	// TEST MODE
-	// -----------------------------
-	const handleTestFill = useCallback(() => {
-		const testAnswers: AnswerState = {}
-		questions.forEach((_, i) => {
-			testAnswers[i] = "أ"
-		})
-		setAnswers(testAnswers)
-	}, [])
 
-	// -----------------------------
-	// SUBMIT
-	// -----------------------------
 	const handleSubmit = useCallback(async () => {
-		if (!attemptId) return
-		if (answeredCount !== totalQuestions) return
+		if (answeredCount !== totalQuestions) {
+			setSubmitError(
+				`يرجى الإجابة على جميع الأسئلة قبل الإرسال. تبقى ${totalQuestions - answeredCount} سؤال.`,
+			)
+			return
+		}
 
-		const finalTime = Math.floor((Date.now() - startTime) / 1000)
+		if (!attemptId) return
+
+		setIsSubmitting(true)
+		setSubmitError("")
 
 		try {
-			const res = await fetch("/api/contest/submit", {
+			const res = await fetch("/api/contests/qatuf-sajjadiyya/submit", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
@@ -213,86 +134,124 @@ function ParticipateContent() {
 
 			const data = await res.json()
 
-			if (!data?.success) {
-				alert("حدث خطأ أثناء الإرسال")
+			if (!res.ok) {
+				setSubmitError(
+					data.error ||
+						"حدث خطأ أثناء الإرسال، يرجى المحاولة مجدداً.",
+				)
 				return
 			}
 
-			// CLEAR STORAGE
 			localStorage.removeItem(STORAGE_KEYS.ATTEMPT)
 			localStorage.removeItem(STORAGE_KEYS.ANSWERS)
 			localStorage.removeItem(STORAGE_KEYS.QUESTION)
-			localStorage.removeItem(STORAGE_KEYS.START_TIME)
 
 			setStep("submitted")
-			setTimeElapsed(finalTime)
-		} catch (err) {
-			console.error(err)
-			alert("حدث خطأ أثناء الإرسال")
+		} catch {
+			setSubmitError("حدث خطأ في الاتصال، يرجى المحاولة مجدداً.")
+		} finally {
+			setIsSubmitting(false)
 		}
-	}, [attemptId, answers, answeredCount, totalQuestions, startTime])
+	}, [attemptId, answers, answeredCount, totalQuestions])
 
-	// -----------------------------
-	// SUBMITTED UI
-	// -----------------------------
 	if (step === "submitted") {
 		return (
-			<div className="min-h-screen flex items-center justify-center">
+			<div className="min-h-screen flex items-center justify-center px-4">
 				<motion.div
 					initial={{ opacity: 0, scale: 0.9 }}
 					animate={{ opacity: 1, scale: 1 }}
-					className="text-center space-y-4"
+					className="text-center space-y-6 max-w-md"
 				>
-					<CheckCircle className="w-16 h-16 mx-auto text-green-600" />
-					<h2 className="text-2xl font-bold">تم الإرسال بنجاح</h2>
-					<p>الوقت: {formatTime(timeElapsed)}</p>
+					<div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+						<CheckCircle className="w-12 h-12 text-green-600" />
+					</div>
+					<div className="space-y-2">
+						<h2 className="text-2xl lg:text-3xl font-bold text-slate-800">
+							شكراً لمشاركتك!
+						</h2>
+						<p className="text-slate-600 text-base lg:text-lg">
+							تم استلام إجاباتك بنجاح. نتمنى لك التوفيق.
+						</p>
+					</div>
+					<Link
+						href="/"
+						className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all"
+					>
+						<Home className="w-5 h-5" />
+						العودة إلى الرئيسية
+					</Link>
 				</motion.div>
 			</div>
 		)
 	}
 
-	const currentQ = questions[currentQuestion]
-	const allAnswered = answeredCount === totalQuestions
+	if (!hydrated) return null
 
-	// -----------------------------
-	// MAIN UI
-	// -----------------------------
+	const currentQ = questions[currentQuestion]
+
 	return (
-		<div className="min-h-screen pb-24 lg:pb-32">
+		<div className="min-h-screen pb-32">
 			<div className="px-4 pt-8">
 				<Breadcrumbs
 					links={[
 						{ name: "الرئيسية", url: "/" },
 						{ name: "المسابقات", url: "/contests" },
+						{
+							name: "قطوف سجادية",
+							url: "/contests/qatuf-sajjadiyya-cultural-competition",
+						},
 						{ name: "مشاركة", url: "#" },
 					]}
 				/>
 			</div>
 
-			{/* TIMER */}
-			<div className="max-w-5xl mx-auto px-4 py-4 flex justify-between">
-				<div className="flex items-center gap-2">
-					<Clock className="w-5 h-5 text-primary" />
-					{formatTime(timeElapsed)}
+			<div className="max-w-5xl mx-auto px-4 py-6 space-y-6">
+				{/* Progress */}
+				<div className="flex items-center justify-between text-sm text-slate-500">
+					<span>
+						السؤال {currentQuestion + 1} من {totalQuestions}
+					</span>
+					<span>
+						{answeredCount} / {totalQuestions} مُجاب
+					</span>
 				</div>
 
-				<div className="flex gap-3 items-center">
-					{isTestMode && <button onClick={handleTestFill}>🧪</button>}
-					{answeredCount} / {totalQuestions}
+				{/* Navigation Grid */}
+				<div className="bg-white/80 backdrop-blur-sm border border-slate-200/60 rounded-2xl p-4 shadow-sm">
+					<p className="text-xs text-slate-500 mb-3 font-medium">
+						تنقل بين الأسئلة
+					</p>
+					<div className="flex flex-wrap gap-2">
+						{questions.map((_, i) => (
+							<button
+								key={i}
+								onClick={() => setCurrentQuestion(i)}
+								className={cn(
+									"w-9 h-9 rounded-lg text-sm font-semibold transition-all border-2",
+									i === currentQuestion
+										? "border-primary bg-primary text-white shadow-md scale-110"
+										: answers[i]
+											? "border-green-400 bg-green-50 text-green-700"
+											: "border-slate-200 bg-white text-slate-500 hover:border-slate-300",
+								)}
+							>
+								{i + 1}
+							</button>
+						))}
+					</div>
 				</div>
-			</div>
 
-			{/* QUESTION */}
-			<div className="max-w-5xl mx-auto px-4">
+				{/* Question Card */}
 				<AnimatePresence mode="wait">
 					<motion.div
 						key={currentQuestion}
 						initial={{ opacity: 0, x: 20 }}
 						animate={{ opacity: 1, x: 0 }}
 						exit={{ opacity: 0, x: -20 }}
+						className="bg-white/80 backdrop-blur-sm border border-slate-200/60 rounded-2xl p-6 shadow-sm space-y-5"
 					>
-						<h2 className="text-lg font-bold mb-6">
-							{currentQ.question}
+						<h2 className="text-lg lg:text-xl font-bold text-slate-800 leading-relaxed">
+							{currentQuestion + 1}. {currentQ.question}
 						</h2>
 
 						<div className="space-y-3">
@@ -302,39 +261,65 @@ function ParticipateContent() {
 										key={key}
 										onClick={() => handleAnswerSelect(key)}
 										className={cn(
-											"w-full p-4 border rounded-xl text-right",
-											selectedAnswer === key &&
-												"border-primary bg-primary/10",
+											"w-full p-4 border-2 rounded-xl text-right transition-all",
+											selectedAnswer === key
+												? "border-primary bg-primary/10 text-primary font-semibold"
+												: "border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700",
 										)}
 									>
-										{key} - {value}
+										{value}
 									</button>
 								),
 							)}
 						</div>
 					</motion.div>
 				</AnimatePresence>
-			</div>
 
-			{/* NAV */}
-			<div className="max-w-5xl mx-auto px-4 py-6 flex gap-3">
-				<button onClick={handlePrevious}>
-					<ChevronRight />
-				</button>
+				{/* Navigation Buttons */}
+				<div className="flex items-center justify-between gap-3">
+					<button
+						onClick={handlePrevious}
+						disabled={currentQuestion === 0}
+						className="flex items-center gap-2 px-4 py-2 rounded-xl border-2 border-slate-200 text-slate-600 font-semibold disabled:opacity-40 hover:border-slate-300 hover:bg-slate-50 transition-all"
+					>
+						<ChevronRight className="w-4 h-4" />
+						السابق
+					</button>
 
-				<button onClick={handleNext}>
-					<ChevronLeft />
-				</button>
+					{currentQuestion < totalQuestions - 1 ? (
+						<button
+							onClick={handleNext}
+							className="flex items-center gap-2 px-4 py-2 rounded-xl border-2 border-slate-200 text-slate-600 font-semibold hover:border-slate-300 hover:bg-slate-50 transition-all"
+						>
+							التالي
+							<ChevronLeft className="w-4 h-4" />
+						</button>
+					) : (
+						<div />
+					)}
+				</div>
 
-				{allAnswered && (
+				{/* Submit Section */}
+				<div className="space-y-3">
+					{submitError && (
+						<p className="text-red-500 text-sm font-semibold text-center">
+							{submitError}
+						</p>
+					)}
 					<button
 						onClick={handleSubmit}
-						className="bg-green-600 text-white px-4 py-2 rounded-xl flex items-center gap-2"
+						disabled={isSubmitting}
+						className={cn(
+							"w-full py-4 rounded-xl font-bold text-lg transition-all shadow-lg flex items-center justify-center gap-2",
+							!isSubmitting
+								? "bg-gradient-to-r from-primary to-secondary text-white hover:shadow-xl hover:scale-[1.01] active:scale-[0.99]"
+								: "bg-slate-200 text-slate-400 cursor-not-allowed",
+						)}
 					>
-						<Send className="w-4 h-4" />
-						إرسال
+						<Send className="w-5 h-5" />
+						{isSubmitting ? "جارٍ الإرسال..." : "إرسال الإجابات"}
 					</button>
-				)}
+				</div>
 			</div>
 		</div>
 	)
