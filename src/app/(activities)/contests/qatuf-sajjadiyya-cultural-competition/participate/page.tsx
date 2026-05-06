@@ -10,15 +10,10 @@ import {
 	CheckCircle,
 	Home,
 } from "lucide-react"
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { cn } from "@/lib/utils"
 import questions from "@/data/contests/qatuf-sajjaddiyya/questions.json"
 import { useSearchParams, useRouter } from "next/navigation"
 import Link from "next/link"
-
-function cn(...inputs: ClassValue[]) {
-	return twMerge(clsx(inputs))
-}
 
 type AnswerState = {
 	[questionIndex: number]: string
