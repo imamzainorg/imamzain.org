@@ -28,20 +28,12 @@ export default function useWindowEvents() {
         //     setScreenSize({ width: window.innerWidth, height: window.innerHeight });
         // };
 
-        const handleZoom = () => {
-            const zoomLevel = Math.round((window.outerWidth / window.innerWidth) * 100);
-            console.log("Zoom level detected:", zoomLevel);
-        };
         // Add event listeners
         window.addEventListener("scroll", handleScroll);
-        // window.addEventListener("resize", handleResize);
-        window.addEventListener("resize", handleZoom);
 
         // Cleanup
         return () => {
             window.removeEventListener("scroll", handleScroll);
-            // window.removeEventListener("resize", handleResize);
-            window.removeEventListener("resize", handleZoom);
         };
     }, []);
 
