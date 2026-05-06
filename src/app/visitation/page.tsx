@@ -9,7 +9,7 @@ const CardStatistics = ({ title, value }: { title: string; value: number }) => {
     <div className="w-full p-2 border-2 border-secondary dark:border-Muharram_secondary drop-shadow-lg rounded-2xl flex flex-col justify-start items-center gap-8 text-center">
       <div className="w-full rounded-2xl flex flex-col  justify-between items-center gap-4 text-center p-6 bg-primary dark:bg-Muharram_primary border-[0.1px] border-nuetral-200">
         <h4 className="text-2xl font-bold  text-white">{title}</h4>
-        <p className="text- text-white leading-6">{value}</p>
+        <p className="text-white leading-6">{value}</p>
       </div>
     </div>
   );
