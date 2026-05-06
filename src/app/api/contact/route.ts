@@ -12,8 +12,6 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 		const body: ContactFormBody = await request.json()
 		const { name, email, country, message } = body
 
-		console.log("Incoming contact request:", body)
-
 		// Validate required fields
 		if (!name || !email || !message) {
 			console.warn("Validation failed: Missing fields", {
