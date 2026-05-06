@@ -135,7 +135,10 @@ export default function Header() {
   const handleExpand = (index: number) => {
     setExpandedIndex((prev) => (prev === index ? null : index));
   };
-  const [theme, setTheme] = useState("light"); // <-- مهم جداً
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    if (typeof window === "undefined") return "light"
+    return (localStorage.getItem("theme") as "light" | "dark") ?? "light"
+  });
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
@@ -145,7 +148,11 @@ export default function Header() {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+    setTheme((prev) => {
+      const next = prev === "dark" ? "light" : "dark"
+      localStorage.setItem("theme", next)
+      return next
+    })
   };
   return (
     <motion.div className="text-white">
@@ -247,13 +254,27 @@ export default function Header() {
               })}
             </nav>
 
-            {/* Mobile Hamburger Icon */}
-            <div className="flex flex-row-reverse gap-4">
-              <div className="lg:hidden flex flex-row-reverse items-center">
+            {/* Controls */}
+            <div className="flex flex-row-reverse gap-4 items-center">
+              {/* Desktop theme toggle */}
+              <button
+                onClick={toggleTheme}
+                className={`hidden lg:flex p-1.5 rounded-full transition ${
+                  isScrolled || path !== "/"
+                    ? "bg-secondary dark:bg-Muharram_secondary text-white"
+                    : "bg-white text-primary dark:text-Muharram_primary"
+                }`}
+                title="تبديل الثيم"
+              >
+                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+              </button>
+
+              {/* Mobile Hamburger Icon */}
+              <div className="lg:hidden flex flex-row-reverse items-center gap-2">
                 <button
                   onClick={toggleMenu}
                   aria-label={isMenuVisible ? "Close Menu" : "Open Menu"}
-                  className="flex items-center "
+                  className="flex items-center"
                 >
                   {!isMenuVisible ? (
                     <MenuIcon stroke="#ffffff" />
@@ -262,22 +283,20 @@ export default function Header() {
                   )}
                 </button>
 
-                {isMenuVisible && (
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleTheme();
-                    }}
-                    className={`ml-2 p-1.5 rounded-full transition ${
-                      isScrolled || path !== "/"
-                        ? "bg-secondary dark:bg-Muharram_secondary text-white"
-                        : "bg-white text-primary dark:text-Muharram_primary"
-                    }`}
-                    title="تبديل الثيم"
-                  >
-                    {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-                  </button>
-                )}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleTheme();
+                  }}
+                  className={`p-1.5 rounded-full transition ${
+                    isScrolled || path !== "/"
+                      ? "bg-secondary dark:bg-Muharram_secondary text-white"
+                      : "bg-white text-primary dark:text-Muharram_primary"
+                  }`}
+                  title="تبديل الثيم"
+                >
+                  {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+                </button>
               </div>
             </div>
           </div>
