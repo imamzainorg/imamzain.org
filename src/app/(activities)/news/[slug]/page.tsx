@@ -112,6 +112,7 @@ export default async function page({
             <div className="prose prose-lg prose-gray max-w-none">
               <div
                 className="text-gray-800 text-note xl:leading-10 leading-8 space-y-6"
+                // safe: post.content comes from trusted static JSON
                 dangerouslySetInnerHTML={{
                   __html: post.content,
                 }}
