@@ -15,11 +15,25 @@ const nextConfig: NextConfig = {
 			{
 				source: "/home",
 				destination: "/",
-				
+
 			}, {
         source: "/api/audio/:path*",
         destination: "https://cdn.imamzain.org/:path*",
       },
+		]
+	},
+	async redirects() {
+		return [
+			{
+				source: "/library/al-sahifa",
+				destination: "/library/al-sahifa/al-sahifa-al-sajjadiya-index",
+				permanent: true,
+			},
+			{
+				source: "/library/risalat-al-huqoq",
+				destination: "/library/risalat-al-huqoq/introduction",
+				permanent: true,
+			},
 		]
 	},
 }
