@@ -186,7 +186,7 @@ export default function Header() {
 
         {/* Navbar */}
         <div
-          className={`w-full z-9999 rounded-b-[2rem] ${
+          className={`w-full z-9999 rounded-b-[2rem] transition-colors duration-300 ease-in-out ${
             isScrolled || (path !== "/" && path !== "/media/videos")
               ? `bg-primary dark:bg-Muharram_primary ${
                   isMenuVisible ? "" : "shadow-2xl"
