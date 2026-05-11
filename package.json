@@ -12,11 +12,6 @@
     "dev:clear": "bun run clear && bun run dev"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.7.2",
-    "@fortawesome/free-brands-svg-icons": "^6.7.2",
-    "@fortawesome/free-regular-svg-icons": "^6.7.2",
-    "@fortawesome/free-solid-svg-icons": "^6.7.2",
-    "@fortawesome/react-fontawesome": "^0.2.6",
     "@headlessui/react": "^2.2.9",
     "@heroui/accordion": "^2.2.24",
     "@heroui/react": "^2.8.5",

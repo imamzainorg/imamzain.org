@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
+import { CheckCircle2 } from "lucide-react";
 
 export default function NewsletterSection() {
   const [subscriberEmail, setSubscriberEmail] = useState("");
@@ -129,10 +128,7 @@ export default function NewsletterSection() {
               transition={{ duration: 1 }}
               className="flex flex-col gap-6 pb-32 md:pb-44 items-center "
             >
-              <FontAwesomeIcon
-                icon={faCircleCheck}
-                className="text-7xl md:text-8xl xl:text-9xl"
-              />
+              <CheckCircle2 className="w-20 h-20 md:w-24 md:h-24 xl:w-32 xl:h-32" />
               <p className="text-xl md:text-2xl text-center">
                 تم الاشتراك بنجاح في النشرة البريدية
               </p>

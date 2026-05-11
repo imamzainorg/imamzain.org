@@ -7,11 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import "@/style/globals.css"
 import { Toaster } from "sonner"
 
-import "@fortawesome/fontawesome-svg-core/styles.css"
-import { config } from "@fortawesome/fontawesome-svg-core"
 import { Providers } from "@/app/providers"
-
-config.autoAddCss = false
 
 const notoNaskhArabic = Noto_Naskh_Arabic({
 	subsets: ["arabic"],
