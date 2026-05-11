@@ -102,6 +102,7 @@ export default function Page() {
                     alt="لوكو مسابقة الكتاب"
                     width={600}
                     height={600}
+                    priority
                   />
                 </div>
               </div>

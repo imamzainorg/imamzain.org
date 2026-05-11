@@ -26,6 +26,7 @@ const MainSection = () => {
 					alt="Some image"
 					fill
 					sizes="100vw"
+					priority
 					className="object-cover"
 					style={{
 						objectPosition: "center",

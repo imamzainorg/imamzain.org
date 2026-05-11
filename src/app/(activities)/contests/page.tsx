@@ -131,6 +131,7 @@ export default function Page() {
 											className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
 											height={200}
 											width={400}
+											priority={index === 0}
 										/>
 										<div className="absolute top-4 left-4 z-20">
 											<span className="inline-flex text-subtitle items-center gap-1 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1  font-medium text-white">
