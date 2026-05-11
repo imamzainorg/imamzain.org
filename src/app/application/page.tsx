@@ -25,6 +25,7 @@ const MainSection = () => {
 					src={"/application/main-bg.jpg"}
 					alt="Some image"
 					fill
+					sizes="100vw"
 					className="object-cover"
 					style={{
 						objectPosition: "center",
@@ -75,6 +76,7 @@ const MainSection = () => {
 								src={"/application/01.png"}
 								alt={`/application/02.png`}
 								fill
+								sizes="128px"
 								className="object-center"
 							/>
 						</div>
@@ -84,6 +86,7 @@ const MainSection = () => {
 								src={"/application/02.png"}
 								alt={`/application/02.png`}
 								fill
+								sizes="192px"
 								className="object-center"
 							/>
 						</div>
@@ -113,6 +116,7 @@ const InformationSection = () => {
 							src={"/application/05.png"}
 							alt={`/application/02.png`}
 							fill
+							sizes="(max-width: 1024px) 100vw, 416px"
 							className="absolute object-cover"
 							style={{
 								objectPosition: "left",
@@ -155,6 +159,7 @@ const ImamzainSection = () => {
 								src={"/application/01.png"}
 								alt="/application/01.png"
 								fill
+								sizes="192px"
 								className="absolute w-[12rem] h-[24rem] object-center"
 							/>
 						</div>
@@ -166,6 +171,7 @@ const ImamzainSection = () => {
 								src={"/application/02.png"}
 								alt="/application/02.png"
 								fill
+								sizes="192px"
 								className="absolute w-[12rem] h-[24rem] object-center"
 							/>
 						</div>
@@ -201,6 +207,7 @@ const MessageRights = () => {
 							src={"/application/06.png"}
 							alt={`/application/06.png`}
 							fill
+							sizes="(max-width: 1024px) 100vw, 384px"
 							className="absolute object-cover"
 							style={{
 								objectPosition: "left",
@@ -224,6 +231,7 @@ const MasnadSection = () => {
 								src={"/application/05.png"}
 								alt={`/application/05.png`}
 								fill
+								sizes="(max-width: 1024px) 100vw, 416px"
 								className="absolute object-cover"
 							/>
 						</div>
@@ -256,6 +264,7 @@ const ShrinesVisitationSection = () => {
 						src={"/application/07.png"}
 						alt="Some image"
 						fill
+						sizes="100vw"
 						className="object-cover"
 						style={{
 							objectPosition: "center",

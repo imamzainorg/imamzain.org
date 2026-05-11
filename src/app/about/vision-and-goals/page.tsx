@@ -114,6 +114,7 @@ export default function VisionAndGoals() {
 						src="/images/about-vision.jpg"
 						alt="Vision Banner"
 						fill
+						sizes="100vw"
 						priority
 						unoptimized
 						className="w-full rounded-xl aspect-[1/1] md:aspect-[16/6] object-cover object-right md:object-[center_-80px]"

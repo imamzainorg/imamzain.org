@@ -184,6 +184,7 @@ export default function Application() {
 									src={"/application/01.png"}
 									alt="App Screenshot 1"
 									fill
+									sizes="(max-width: 1024px) 50vw, 224px"
 									className="object-center rounded-3xl shadow-2xl border-4 border-white/50"
 								/>
 							</div>
@@ -219,6 +220,7 @@ export default function Application() {
 									src={"/application/02.png"}
 									alt="App Screenshot 2"
 									fill
+									sizes="(max-width: 1024px) 50vw, 224px"
 									className="object-center rounded-3xl shadow-2xl border-4 border-white/50"
 								/>
 							</div>

@@ -96,6 +96,7 @@ export default function BookCard({
               <Image
                 src={imageUrl}
                 fill
+                sizes="(max-width: 1024px) 100vw, 320px"
                 alt={publication.title}
                 className="object-contain transition-transform"
                 priority
