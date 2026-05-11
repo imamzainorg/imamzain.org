@@ -160,8 +160,8 @@ export default function Footer() {
         </div>
         <div className="flex justify-end  ">
           <p className="text-subtitle text-white/40 mt-10">
-            جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه السلام) &copy;
-            2025
+            جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه السلام) &copy;{" "}
+            {new Date().getFullYear()}
           </p>
         </div>
       </div>
@@ -208,8 +208,8 @@ export default function Footer() {
           />
         </div>
         <p className="text-center text-sm text-white/40">
-          جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه السلام) &copy;
-          2025
+          جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه السلام) &copy;{" "}
+          {new Date().getFullYear()}
         </p>
       </div>
     </div>
