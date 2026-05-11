@@ -58,6 +58,10 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="ar" dir="rtl" suppressHydrationWarning={true}>
+			<head>
+				<link rel="preconnect" href="https://cdn.imamzain.org" />
+				<link rel="dns-prefetch" href="https://cdn.imamzain.org" />
+			</head>
 			<body className={`${notoNaskhArabic.className} bg-pattern`}>
 				<Providers>{children}</Providers>
 				<Toaster />
