@@ -1,11 +1,16 @@
 export type AudioItem = {
-  id: number
-  title: string
-  speaker: string
-  audio: string
-  pdf?: string
-  catagory?: string
-  duration?: string
+  id: number;
+  title: string;
+  speaker: string;
+  audio: string;
+  pdf?: string;
+  category?: string[];
+  duration?: string;
+  durationSeconds?: number; 
+  size?: string;
+  sizeMB?: number; 
   bitrate?: number;
-  size?: string
-}
+  createdAt?: string;
+  searchText?: string;
+  peaks?: number[];
+};

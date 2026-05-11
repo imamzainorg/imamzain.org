@@ -1,113 +1,156 @@
+// hooks/useAudioPlayer.ts
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
-import { AudioItem } from "@/types/audio";
+import { useRef, useState, useCallback, useEffect } from "react";
+import type { AudioItem } from "@/types/audio";
 
-export function useAudioPlayer(filtered: AudioItem[]) {
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const [currentSrc, setCurrentSrc] = useState<string | null>(null);
-  const [currentTrack, setCurrentTrack] = useState<AudioItem | null>(null);
+export interface AudioPlayerState {
+  activeId: number | null;
+  isPlaying: boolean;
+  currentTimes: Record<number, number>;
+  volumes: Record<number, number>;
+}
+
+export function useAudioPlayer() {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const rafRef = useRef<number>(0);
+  const isDragging = useRef(false);
+
+  const [activeId, setActiveId] = useState<number | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(0.8);
-  const [rate, setRate] = useState(1);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
+  const [currentTimes , setCurrentTimes] = useState<Record<number, number>>({});
+  const [volumes, setVolumes] = useState<Record<number, number>>({});
 
-  // Keep refs in sync so the "load" effect can read latest values
-  // without depending on them reactively
-  const volumeRef = useRef(volume);
-  const rateRef = useRef(rate);
-  useEffect(() => { volumeRef.current = volume; }, [volume]);
-  useEffect(() => { rateRef.current = rate; }, [rate]);
-
-  const handlePlay = useCallback(
-    (item: AudioItem) => {
-      if (currentSrc === item.audio) {
-        setIsPlaying((p) => !p);
-      } else {
-        setCurrentSrc(item.audio);
-        setCurrentTrack(item);
-        setIsPlaying(true);
+  // ─── cleanup on unmount ───────────────────────────────────────────────────
+  useEffect(() => {
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+        audioRef.current = null;
       }
+    };
+  }, []);
+
+  // ─── RAF progress loop ────────────────────────────────────────────────────
+  const startLoop = useCallback(
+    (itemId: number, onProgress: (progress: number, currentTime: number) => void) => {
+      cancelAnimationFrame(rafRef.current);
+      const tick = () => {
+        const audio = audioRef.current;
+        if (!audio || audio.paused) return;
+        const progress = audio.duration ? audio.currentTime / audio.duration : 0;
+        onProgress(progress, audio.currentTime);
+        setCurrentTimes((prev) => ({ ...prev, [itemId]: audio.currentTime }));
+        rafRef.current = requestAnimationFrame(tick);
+      };
+      rafRef.current = requestAnimationFrame(tick);
     },
-    [currentSrc]
+    []
   );
 
-  // Load new src — reads rate/volume from refs, so no stale-closure risk
-  // and no spurious reloads when the user tweaks volume/rate mid-playback
-  useEffect(() => {
-    const el = audioRef.current;
-    if (!el || !currentSrc) return;
-    el.src = currentSrc;
-    el.load();
-    el.playbackRate = rateRef.current;
-    el.volume = volumeRef.current;
-    el.play().catch(() => {});
-  }, [currentSrc]); // ✅ no warning, correct behavior
+  const stopLoop = useCallback(() => {
+    cancelAnimationFrame(rafRef.current);
+  }, []);
 
-  // Play / pause
-  useEffect(() => {
-    const el = audioRef.current;
-    if (!el) return;
-    if (isPlaying) el.play().catch(() => {});
-    else el.pause();
-  }, [isPlaying]);
+  // ─── Play / Pause ─────────────────────────────────────────────────────────
+  const playPause = useCallback(
+    (
+      item: AudioItem,
+      onProgress: (progress: number, currentTime: number) => void,
+      onStop: (itemId: number) => void
+    ) => {
+      // Same item toggle
+      if (activeId === item.id) {
+        if (isPlaying) {
+          audioRef.current?.pause();
+          stopLoop();
+          setIsPlaying(false);
+        } else {
+          audioRef.current?.play();
+          setIsPlaying(true);
+          startLoop(item.id, onProgress);
+        }
+        return;
+      }
 
-  useEffect(() => {
-    if (audioRef.current) audioRef.current.volume = volume;
-  }, [volume]);
+      // Stop previous
+      cancelAnimationFrame(rafRef.current);
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.onended = null;
+        audioRef.current.onerror = null;
+      }
 
-  useEffect(() => {
-    if (audioRef.current) audioRef.current.playbackRate = rate;
-  }, [rate]);
+      if (activeId !== null) {
+        onStop(activeId);
+        setCurrentTimes((prev) => ({ ...prev, [activeId]: 0 }));
+      }
 
-  const skip = (secs: number) => {
-    const el = audioRef.current;
-    if (!el) return;
-    el.currentTime = Math.max(0, Math.min(duration, el.currentTime + secs));
-    setCurrentTime(el.currentTime);
-  };
+      const audio = new Audio(item.audio);
+      audio.volume = volumes[item.id] ?? 1;
+      audioRef.current = audio;
 
-  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = parseFloat(e.target.value);
-    if (audioRef.current) audioRef.current.currentTime = val;
-    setCurrentTime(val);
-  };
+      audio
+        .play()
+        .then(() => {
+          setActiveId(item.id);
+          setIsPlaying(true);
+          startLoop(item.id, onProgress);
+        })
+        .catch(console.error);
 
-  const closePlayer = () => {
-    audioRef.current?.pause();
-    setCurrentSrc(null);
-    setCurrentTrack(null);
-    setIsPlaying(false);
-    setCurrentTime(0);
-    setDuration(0);
-  };
+      audio.onended = () => {
+        cancelAnimationFrame(rafRef.current);
+        onStop(item.id);
+        setCurrentTimes((prev) => ({ ...prev, [item.id]: 0 }));
+        setIsPlaying(false);
+        setActiveId(null);
+      };
 
-  const handleEnded = useCallback(() => {
-    const idx = filtered.findIndex((i) => i.audio === currentSrc);
-    const next = filtered[idx + 1];
-    if (next) handlePlay(next);
-    else setIsPlaying(false);
-  }, [filtered, currentSrc, handlePlay]);
+      audio.onerror = () => {
+        setIsPlaying(false);
+      };
+    },
+    [activeId, isPlaying, volumes, startLoop, stopLoop]
+  );
+
+  // ─── Seek ─────────────────────────────────────────────────────────────────
+  const seek = useCallback(
+    (
+      item: AudioItem,
+      pct: number,
+      onProgress: (progress: number, currentTime: number) => void
+    ) => {
+      const audio = audioRef.current;
+      if (activeId !== item.id || !audio?.duration || isNaN(audio.duration)) return;
+      audio.currentTime = audio.duration * pct;
+      onProgress(pct, audio.currentTime);
+      setCurrentTimes((prev) => ({ ...prev, [item.id]: audio.currentTime }));
+    },
+    [activeId]
+  );
+
+  // ─── Volume ───────────────────────────────────────────────────────────────
+  const setVolume = useCallback(
+    (itemId: number, value: number) => {
+      setVolumes((prev) => ({ ...prev, [itemId]: value }));
+      if (audioRef.current && activeId === itemId) {
+        audioRef.current.volume = value;
+      }
+    },
+    [activeId]
+  );
 
   return {
-    audioRef,
-    currentSrc,
-    currentTrack,
+    activeId,
     isPlaying,
-    volume,
-    rate,
-    currentTime,
-    duration,
+    currentTimes,
+    volumes,
+    playPause,
+    seek,
     setVolume,
-    setRate,
-    setCurrentTime,
-    setDuration,
-    setIsPlaying,
-    handlePlay,
-    handleSeek,
-    skip,
-    closePlayer,
-    handleEnded,
+    isDragging,
   };
 }
