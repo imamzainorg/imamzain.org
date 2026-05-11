@@ -40,6 +40,7 @@ export default {
 				xs: "500px",
 				s: "380px",
 				xmd: "900px",
+				
 			},
 
 			fontSize: {
@@ -119,6 +120,7 @@ export default {
 			},
 		},
 	},
+	
 	darkMode: "class",
 	plugins: [heroui(), typographyPlugin],
 } satisfies Config
