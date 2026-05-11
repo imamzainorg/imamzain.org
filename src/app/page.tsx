@@ -57,6 +57,9 @@ export default async function Page() {
 
 	return (
 		<div className="">
+			<h1 className="sr-only">
+				مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات
+			</h1>
 			<TopImage
 				desktopImages={desktopImages}
 				mobileImages={mobileImages}
