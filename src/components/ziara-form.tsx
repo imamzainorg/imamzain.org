@@ -56,7 +56,7 @@ const ZiaraForm = () => {
 				setErrors("فشل في إرسال الطلب")
 			}
 		} catch (error) {
-			setErrors(error as string)
+			setErrors(error instanceof Error ? error.message : "خطأ غير معروف")
 		}
 	}
 
