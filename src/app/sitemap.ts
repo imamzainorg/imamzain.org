@@ -56,7 +56,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
 		createSitemapEntry("/contests", new Date(), "weekly", 0.8),
 		createSitemapEntry("/contests/khat", new Date(), "weekly", 0.9),
-		createSitemapEntry("/contests/khat/gallery", new Date(), "weekly", 0.6),
 		createSitemapEntry(
 			"/contests/khat/president-goals",
 			new Date(),
