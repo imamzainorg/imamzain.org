@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 
@@ -12,12 +12,12 @@ interface Slide {
 
 const slides: Slide[] = [
 	{
-		image: "/research/كتب-.jpg",
+		image: "/images/imam-legacy-bg-bricks.jpg",
 		title: "في خدمة نهج الإمام زين العابدين عليه السلام",
 		subtitle: "نوثق إرث الإمام السجاد ونحفظ علومه للأجيال القادمة",
 	},
 	{
-		image: "/images/hero-3.jpg",
+		image: "/images/hero-4.jpg",
 		title: "علم الإمام زين العابدين عليه السلام نور يضيء الدرب",
 		subtitle: "ساهم في نشر معارف سيد الساجدين وأدعيته المباركة",
 	},
@@ -32,6 +32,7 @@ const slides: Slide[] = [
 export default function ResearchSlider() {
 	const [currentIndex, setCurrentIndex] = useState(0)
 	const [prevIndex, setPrevIndex] = useState(0)
+	const hasMountedRef = useRef(false)
 
 	const nextSlide = useCallback(() => {
 		setPrevIndex(currentIndex)
@@ -47,6 +48,7 @@ export default function ResearchSlider() {
 	)
 
 	useEffect(() => {
+		hasMountedRef.current = true
 		const timer = setInterval(nextSlide, 6000)
 		return () => clearInterval(timer)
 	}, [nextSlide])
@@ -121,7 +123,11 @@ export default function ResearchSlider() {
 					{/* Current image (animated layer) */}
 					<motion.div
 						key={slides[currentIndex].image}
-						initial={{ opacity: 0, scale: 1.1 }}
+						initial={
+							hasMountedRef.current
+								? { opacity: 0, scale: 1.1 }
+								: false
+						}
 						animate={{ opacity: 1, scale: 1 }}
 						transition={{ duration: 1.5, ease: "easeOut" }}
 						className="absolute inset-0 w-full h-full z-20"
