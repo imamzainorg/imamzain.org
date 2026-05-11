@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback, useRef } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 
@@ -32,7 +32,6 @@ const slides: Slide[] = [
 export default function ResearchSlider() {
 	const [currentIndex, setCurrentIndex] = useState(0)
 	const [prevIndex, setPrevIndex] = useState(0)
-	const hasMountedRef = useRef(false)
 
 	const nextSlide = useCallback(() => {
 		setPrevIndex(currentIndex)
@@ -48,7 +47,6 @@ export default function ResearchSlider() {
 	)
 
 	useEffect(() => {
-		hasMountedRef.current = true
 		const timer = setInterval(nextSlide, 6000)
 		return () => clearInterval(timer)
 	}, [nextSlide])
@@ -123,11 +121,7 @@ export default function ResearchSlider() {
 					{/* Current image (animated layer) */}
 					<motion.div
 						key={slides[currentIndex].image}
-						initial={
-							hasMountedRef.current
-								? { opacity: 0, scale: 1.1 }
-								: false
-						}
+						initial={{ opacity: 0, scale: 1.1 }}
 						animate={{ opacity: 1, scale: 1 }}
 						transition={{ duration: 1.5, ease: "easeOut" }}
 						className="absolute inset-0 w-full h-full z-20"
