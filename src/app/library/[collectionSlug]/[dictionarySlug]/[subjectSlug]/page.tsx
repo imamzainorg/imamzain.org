@@ -21,14 +21,6 @@ export default async function SubjectPage({
 	if (!collections[collectionSlug]) notFound()
 
 	const subject = getSubject(collectionSlug, dictionarySlug, subjectSlug)
-	console.log(subjectSlug)
-	console.log(
-		getSubject(
-			"al-sahifa",
-			"appendix-by-al-mirza-husayn-al-nuri",
-			"his-supplication-after-the-previous-rak’ah-as-well-2",
-		)?.phrases[0].content,
-	)
 	if (!subject) notFound()
 
 	// Get all subjects for navigation

@@ -27,6 +27,7 @@ export default function HisLifeAccordion({
 			>
 				<div
 					className="text-justify px-8 pt-12 bg-yellow-50 text-subtitle rounded-b-3xl -translate-y-10 z-10 relative line-clamp-6 leading-loose"
+					// safe: section.content comes from trusted static JSON
 					dangerouslySetInnerHTML={{ __html: section.content }}
 				/>
 				<div className="w-full flex justify-end ">

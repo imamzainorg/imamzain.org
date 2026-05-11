@@ -54,7 +54,7 @@ export const LanguagesProvider: React.FC<{ children: ReactNode }> = ({
 			const found = languages.find((lang) => lang.code === browserLang)
 			if (found) return found
 		}
-		return languages[1]
+		return languages[0]
 	}
 
 	const [currentLanguage, setCurrentLanguage] = useState<Language>(

@@ -24,20 +24,11 @@ import {
 import { Button } from "@/components/button";
 import researchData from "@/data/research.json";
 import { Research } from "@/types/research";
+import { downloadViaProxy } from "@/lib/download";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const ITEMS_PER_PAGE = 9;
-const handleDownload = async (url: string, filename?: string) => {
-  const proxyUrl = `/api/download?url=${encodeURIComponent(url)}`;
-
-  const a = document.createElement("a");
-  a.href = proxyUrl;
-  a.download = filename ?? "file.pdf";
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-};
 const SORT_OPTIONS = [
   { value: "year-desc", label: "الأحدث أولاً" },
   { value: "year-asc", label: "الأقدم أولاً" },
@@ -81,9 +72,9 @@ function sortResearch(list: Research[], sortBy: SortField, order: SortOrder) {
     let cmp = 0;
     if (sortBy === "year")
       cmp = (Number(a.publishedYear) || 0) - (Number(b.publishedYear) || 0);
-    if (sortBy === "title")
+    else if (sortBy === "title")
       cmp = (a.title || "").localeCompare(b.title || "", "ar");
-    if (sortBy === "author")
+    else if (sortBy === "author")
       cmp = (a.author || "").localeCompare(b.author || "", "ar");
     return order === "asc" ? cmp : -cmp;
   });
@@ -93,11 +84,9 @@ function sortResearch(list: Research[], sortBy: SortField, order: SortOrder) {
 
 function ResearchCard({
   item,
-
   onSummary,
 }: {
   item: Research;
-  index: number;
   onSummary: (item: Research) => void;
 }) {
   return (
@@ -160,7 +149,7 @@ function ResearchCard({
           {item.pdfUrl && (
             <div className="flex-1 flex gap-2">
               <button
-                onClick={() => handleDownload(item.pdfUrl, `${item.title}.pdf`)}
+                onClick={() => downloadViaProxy(item.pdfUrl, `${item.title}.pdf`)}
                 className="flex items-center justify-center p-2.5 rounded-xl
     bg-primary text-white hover:bg-primary/90 active:scale-95 
     transition-all duration-150 shadow-sm shadow-primary/20"
@@ -286,6 +275,7 @@ function SummaryModal({
                   className="prose text-subtitle prose-base dark:prose-invert max-w-none
                     prose-p:text-gray-600 dark:prose-p:text-gray-300
                     prose-p:leading-relaxed prose-headings:font-bold"
+                  // safe: abstract comes from trusted static JSON
                   dangerouslySetInnerHTML={{ __html: item.abstract }}
                 />
               </div>
@@ -633,11 +623,10 @@ export default function UploadedResearchPage() {
             className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
           >
             <AnimatePresence mode="popLayout">
-              {currentResearch.map((item, index) => (
+              {currentResearch.map((item) => (
                 <ResearchCard
                   key={item.id ?? `${item.title}-${item.author}`}
                   item={item}
-                  index={index}
                   onSummary={setSelectedSummary}
                 />
               ))}
