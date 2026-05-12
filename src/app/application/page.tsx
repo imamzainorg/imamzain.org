@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 	],
 }
 
+
 const MainSection = () => {
 	return (
 		<div className="relative top-0 h-[50rem] lg:h-[40rem] w-full">
