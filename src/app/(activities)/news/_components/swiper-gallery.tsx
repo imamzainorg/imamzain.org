@@ -7,7 +7,11 @@ import {
 	Autoplay,
 	Pagination,
 } from "swiper/modules"
-
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-coverflow";
+import "swiper/css/autoplay";
 
 import ImageView from "@/components/image-view"
 import { Attachment } from "@/types/attachments"
