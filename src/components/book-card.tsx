@@ -233,7 +233,7 @@ function Detail({
       </div>
       <span
         dir={english ? "ltr" : "rtl"}
-        className={`text-gray-500 mt-1 ${english && "text-left"}`}
+        className={`text-gray-500 mt-1 ${english ? "text-left" : ""}`}
       >
         {value}
       </span>

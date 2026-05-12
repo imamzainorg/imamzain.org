@@ -34,7 +34,7 @@ export default function HeaderSections({
           className="w-3 sm:w-4 xl:w-5 hidden dark:block"
         />
         <h2
-          className={`mt-2 text-title  font-extrabold text-primary  dark:text-Muharram_primary ${dark && "dark:text-white"}`}
+          className={`mt-2 text-title  font-extrabold text-primary  dark:text-Muharram_primary ${dark ? "dark:text-white" : ""}`}
         >
           {title}
         </h2>
