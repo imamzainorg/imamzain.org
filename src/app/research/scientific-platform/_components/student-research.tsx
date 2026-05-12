@@ -141,9 +141,9 @@ export default function StudentResearchPage() {
             aria-hidden="true"
           />
         </div>
-        <h1 className="text-body font-bold text-gray-900 dark:text-white mb-3">
+        <h2 className="text-body font-bold text-gray-900 dark:text-white mb-3">
           بحوث الطلاب
-        </h1>
+        </h2>
         <p className="text-gray-600 text-note leading-8 dark:text-gray-300 max-w-2xl mx-auto">
           بحوث طلاب البكالوريوس والماجستير والدكتوراه ضمن مشاريع علمية متنوعة.
         </p>

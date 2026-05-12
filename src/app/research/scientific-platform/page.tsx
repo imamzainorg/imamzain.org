@@ -20,6 +20,7 @@ function PageContent() {
 
   return (
     <div className="p-6">
+      <h1 className="sr-only">المنصة العلمية للبحوث</h1>
       <Breadcrumbs
         links={[
           { name: "الصفحة الرئيسية", url: "/" },
