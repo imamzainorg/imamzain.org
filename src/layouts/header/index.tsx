@@ -391,7 +391,8 @@ export default function Header() {
             </div>
           </div>
           <p className="text-xs sm:text-sm md:text-base lg:text-xl text-gray-300 my-4 p-2">
-            جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (ع) &copy; 1824
+            جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (ع) &copy;{" "}
+            {new Date().getFullYear()}
           </p>
         </div>
       </nav>

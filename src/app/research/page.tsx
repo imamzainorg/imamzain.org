@@ -297,6 +297,7 @@ const RewardCard = ({ reward, index }: { reward: Reward; index: number }) => (
 export default function Page() {
   return (
     <div className="container">
+      <h1 className="sr-only">بوابة البحث العلمي</h1>
       <Breadcrumbs
         links={[
           { name: "الصفحة الرئيسية", url: "/" },
@@ -315,7 +316,7 @@ export default function Page() {
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 dark:bg-[#BA9560]/5 rounded-full blur-3xl" />
         </div>
 
-        <motion.h1
+        <motion.h2
           id="archiving-title"
           className="text-title lg:text-5xl font-bold text-center text-primary dark:text-Muharram_primary mb-16 relative z-10"
           initial={{ opacity: 0, y: -20 }}
@@ -324,7 +325,7 @@ export default function Page() {
         >
           ارشيف البحوث العلمية
           <div className="w-3/5 mx-auto mt-8 h-0.5 bg-gradient-to-r from-transparent via-secondary to-transparent" />
-        </motion.h1>
+        </motion.h2>
         <div
           className="gap-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 relative z-10"
           role="list"
