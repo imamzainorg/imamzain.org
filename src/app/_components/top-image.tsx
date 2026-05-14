@@ -21,9 +21,9 @@ const HadithDisplay = ({
     className="text-3xl md:w-1/2 text-white text-center py-10 pt-32 px-12 md:px-0"
     aria-live="polite"
   >
-    <h1 className="font-bold text-xl lg:text-2xl text-white pb-5">
+    <h2 className="font-bold text-xl lg:text-2xl text-white pb-5">
       عَنِ الإِمَامِ زَيْنِ العَابِدِينَ (عَلَيْهِ السَّلَام)
-    </h1>
+    </h2>
     <p className="text-xl lg:text-2xl 2xl:text-3xl text-white text-center">
       {hadith.content}
     </p>

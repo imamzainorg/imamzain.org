@@ -56,7 +56,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
 		createSitemapEntry("/contests", new Date(), "weekly", 0.8),
 		createSitemapEntry("/contests/khat", new Date(), "weekly", 0.9),
-		createSitemapEntry("/contests/khat/gallery", new Date(), "weekly", 0.6),
 		createSitemapEntry(
 			"/contests/khat/president-goals",
 			new Date(),
@@ -73,13 +72,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		createSitemapEntry("/his-life", new Date(), "monthly", 0.8),
 
 		createSitemapEntry("/library", new Date(), "weekly", 0.9),
-		createSitemapEntry("/library/al-sahifa", new Date(), "weekly", 0.8),
-		createSitemapEntry(
-			"/library/risalat-al-huqoq",
-			new Date(),
-			"weekly",
-			0.8,
-		),
 
 		createSitemapEntry("/media/images", new Date(), "weekly", 0.6),
 		createSitemapEntry("/media/videos", new Date(), "weekly", 0.7),

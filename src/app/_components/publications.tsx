@@ -173,9 +173,9 @@ export default function Publications({
 								</motion.div>
 							</div>
 							<div className="w-full flex flex-col gap-4 justify-between h-[5rem] rounded-2xl py-3 px-3 items-center">
-								<h1 className="text-sm text-center w-full font-semibold truncate">
+								<h3 className="text-sm text-center w-full font-semibold truncate">
 									{book.title}
-								</h1>
+								</h3>
 								<div className="flex justify-between w-full text-[10px] sm:text-base lg:text-xs font-light tracking-wide text-gray-700">
 									<span>{book.pages} صفحة</span>
 									<span>{book.views} مشاهدة</span>
