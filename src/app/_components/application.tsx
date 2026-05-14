@@ -29,12 +29,12 @@ export default function Application() {
 					className="relative z-10 w-full lg:w-1/2 flex flex-col gap-6 lg:gap-10 xl:gap-16 max-lg:text-center"
 				>
 					<Link href={"/application"} className="group">
-						<motion.h1
+						<motion.h2
 							className="text-title font-bold text-center lg:text-start bg-gradient-to-r from-primary/35 via-secondary/50 to-primary/80 bg-clip-text text-transparent leading-tight group-hover:scale-105 transition-transform duration-300"
 							whileHover={{ scale: 1.02 }}
 						>
 							تطبيق أنوار سجادية
-						</motion.h1>
+						</motion.h2>
 					</Link>
 
 					<motion.p
@@ -184,6 +184,7 @@ export default function Application() {
 									src={"/application/01.png"}
 									alt="App Screenshot 1"
 									fill
+									sizes="(max-width: 1024px) 50vw, 224px"
 									className="object-center rounded-3xl shadow-2xl border-4 border-white/50"
 								/>
 							</div>
@@ -219,6 +220,7 @@ export default function Application() {
 									src={"/application/02.png"}
 									alt="App Screenshot 2"
 									fill
+									sizes="(max-width: 1024px) 50vw, 224px"
 									className="object-center rounded-3xl shadow-2xl border-4 border-white/50"
 								/>
 							</div>

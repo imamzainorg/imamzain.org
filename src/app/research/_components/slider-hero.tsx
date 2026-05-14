@@ -12,12 +12,12 @@ interface Slide {
 
 const slides: Slide[] = [
 	{
-		image: "/research/كتب-.jpg",
+		image: "/images/imam-legacy-bg-bricks.jpg",
 		title: "في خدمة نهج الإمام زين العابدين عليه السلام",
 		subtitle: "نوثق إرث الإمام السجاد ونحفظ علومه للأجيال القادمة",
 	},
 	{
-		image: "/images/hero-3.jpg",
+		image: "/images/hero-4.jpg",
 		title: "علم الإمام زين العابدين عليه السلام نور يضيء الدرب",
 		subtitle: "ساهم في نشر معارف سيد الساجدين وأدعيته المباركة",
 	},

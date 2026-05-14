@@ -4,9 +4,7 @@ import { useState } from "react"
 import { Dialog } from "@headlessui/react"
 import Link from "next/link"
 import { ChevronRightArrowIcon } from "@/assets/icons/reusable"
-import { faFilePdf } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { SearchIcon, X } from "lucide-react"
+import { FileText, SearchIcon, X } from "lucide-react"
 import { Research } from "@/types/research"
 import researchData from "@/data/research.json"
 import { LuBookOpenText } from "react-icons/lu"
@@ -95,10 +93,7 @@ export default function UploadedResearch() {
              bg-primary text-white hover:bg-primary/90
              dark:bg-Muharram_primary dark:hover:bg-Muharram_primary/60"
 							>
-								<FontAwesomeIcon
-									icon={faFilePdf}
-									className="text-[16px]"
-								/>
+								<FileText className="w-4 h-4" />
 								PDF
 							</a>
 						</div>
@@ -159,10 +154,7 @@ export default function UploadedResearch() {
 									className="p-2 rounded-full hover:bg-gray-100 transition-colors text-red-600"
 									title="تنزيل PDF"
 								>
-									<FontAwesomeIcon
-										icon={faFilePdf}
-										className="text-lg"
-									/>
+									<FileText className="w-5 h-5" />
 								</a>
 							)}
 						</div>
