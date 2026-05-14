@@ -115,7 +115,7 @@ export default function TopBar() {
                   {hijriDate
                     ? hijriDate.split("||")[0]
                     : error
-                      ? `⚠️ ${error}`
+                      ? new Intl.DateTimeFormat('ar', { day: 'numeric', month: 'long', weekday: 'long', year: 'numeric' }).format(new Date())
                       : "جاري تحميل التاريخ..."}
                 </span>
               </p>
