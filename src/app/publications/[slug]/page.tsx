@@ -4,6 +4,8 @@ import { Book } from "@/types/book";
 import { dataFetcher } from "@/lib/dataFetcher";
 import BooklibraryCard from "../../library/_components/book-library-card";
 import BookCard from "@/components/book-card";
+
+export const revalidate = 300;
 function getRandomItems<T>(array: T[], count: number) {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {

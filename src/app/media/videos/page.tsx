@@ -218,6 +218,7 @@ function VideoModal({
                     src={video.thumbnail}
                     alt={video.title}
                     fill
+                    sizes="96px"
                     className="object-cover rounded-md"
                   />
                 </div>

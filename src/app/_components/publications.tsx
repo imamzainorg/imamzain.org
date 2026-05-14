@@ -141,6 +141,7 @@ export default function Publications({
 										src={book.image}
 										alt={`Cover of ${book.title}`}
 										fill
+										sizes="120px"
 										className="object-center"
 										unoptimized
 									/>
@@ -167,6 +168,7 @@ export default function Publications({
 										src={book.image}
 										alt={`Back cover of ${book.title}`}
 										fill
+										sizes="120px"
 										className="object-center"
 										unoptimized
 									/>

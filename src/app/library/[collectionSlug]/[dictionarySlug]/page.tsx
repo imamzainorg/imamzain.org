@@ -1,6 +1,8 @@
 import { getDictionary } from "@/lib/imamzain-legacy-loader"
 import Link from "next/link"
 
+export const revalidate = 300
+
 export default async function Page({
 	params,
 }: {

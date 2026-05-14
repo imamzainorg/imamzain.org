@@ -1,26 +1,33 @@
 "use client";
 
-import { MenuIcon, XIcon } from "lucide-react";
+import type { ComponentType, SVGProps } from "react";
+import {
+  Facebook,
+  Instagram,
+  Mail,
+  MapPin,
+  MenuIcon,
+  Moon,
+  Sun,
+  XIcon,
+  Youtube,
+} from "lucide-react";
+import {
+  TelegramIcon,
+  TikTokIcon,
+  WhatsAppIcon,
+  XIcon as TwitterX,
+} from "@/components/brand-icons";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTelegram,
-  faInstagram,
-  faYoutube,
-  faTiktok,
-  faWhatsapp,
-  faXTwitter,
-  faFacebook,
-} from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import useWindowEvents from "@/hooks/window-events";
 import TopBar from "@/layouts/header/top-bar";
 import { LogoRotate } from "@/layouts/header/logo-rotate";
-import { Sun, Moon } from "lucide-react";
+
+type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 
 const links = [
   {
@@ -83,19 +90,19 @@ const links = [
   },
 ];
 
-const socials = [
-  { href: "https://telegram.me/imamzainorg", icon: faTelegram },
-  { href: "https://www.instagram.com/imamzainorg/", icon: faInstagram },
-  { href: "https://youtube.com/@imamzainorg", icon: faYoutube },
-  { href: "https://www.tiktok.com/@imamzainorg", icon: faTiktok },
-  { href: "mailto:dev@imamzain.org", icon: faEnvelope },
-  { href: "https://www.facebook.com/@imamzainorg", icon: faFacebook },
-  { href: "https://maps.app.goo.gl/YKYckk1jPpJ9BVaX6", icon: faMapMarkerAlt },
+const socials: { href: string; Icon: IconComponent }[] = [
+  { href: "https://telegram.me/imamzainorg", Icon: TelegramIcon },
+  { href: "https://www.instagram.com/imamzainorg/", Icon: Instagram },
+  { href: "https://youtube.com/@imamzainorg", Icon: Youtube },
+  { href: "https://www.tiktok.com/@imamzainorg", Icon: TikTokIcon },
+  { href: "mailto:dev@imamzain.org", Icon: Mail },
+  { href: "https://www.facebook.com/@imamzainorg", Icon: Facebook },
+  { href: "https://maps.app.goo.gl/YKYckk1jPpJ9BVaX6", Icon: MapPin },
   {
     href: "https://whatsapp.com/channel/0029VaKdHsJFCCocmkLhJA3L",
-    icon: faWhatsapp,
+    Icon: WhatsAppIcon,
   },
-  { href: "https://twitter.com/imamzainorg", icon: faXTwitter },
+  { href: "https://twitter.com/imamzainorg", Icon: TwitterX },
 ];
 
 const navbarVariants = {
@@ -378,7 +385,7 @@ export default function Header() {
                   href={item.href}
                   className="p-2"
                 >
-                  <FontAwesomeIcon icon={item.icon} size={"2x"} />
+                  <item.Icon className="w-8 h-8" />
                 </Link>
               ))}
             </div>
