@@ -45,7 +45,9 @@ function ParticipateContent() {
 	const answeredCount = Object.keys(answers).length
 	const selectedAnswer = answers[currentQuestion]
 
-	// Hydrate from localStorage after mount; detect new attempt and clear stale data
+	// Hydrate from localStorage after mount; detect new attempt and clear stale data.
+	// This effect intentionally calls setState — bridging external state (localStorage)
+	// into React state is the canonical exception to react-hooks/set-state-in-effect.
 	useEffect(() => {
 		if (!attemptId) {
 			router.replace("/contests/qatuf-sajjadiyya-cultural-competition")
@@ -62,6 +64,7 @@ function ParticipateContent() {
 		} else {
 			// Same attempt — restore saved progress
 			const savedAnswers = localStorage.getItem(STORAGE_KEYS.ANSWERS)
+			// eslint-disable-next-line react-hooks/set-state-in-effect
 			if (savedAnswers) setAnswers(JSON.parse(savedAnswers))
 
 			const savedQuestion = localStorage.getItem(STORAGE_KEYS.QUESTION)
