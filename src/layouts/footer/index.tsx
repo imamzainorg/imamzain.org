@@ -1,19 +1,14 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import type { ComponentType, SVGProps } from "react";
 
-import {
-  faInstagram,
-  faTiktok,
-  faXTwitter,
-  faFacebook,
-  faYoutube as Youtube,
-  faTelegram,
-} from "@fortawesome/free-brands-svg-icons";
-import { SizeProp } from "@fortawesome/fontawesome-svg-core";
+import { Facebook, Instagram, Youtube } from "lucide-react";
+import { TelegramIcon, TikTokIcon, XIcon } from "@/components/brand-icons";
 import DropdownLang from "@/layouts/dropdown-lang";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Accordion, AccordionItem } from "@heroui/react";
+
+type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 
 type Sublink =
   | { label: string; href: string; slug?: never }
@@ -64,10 +59,10 @@ const links: LinkSection[] = [
 
 const SocialLinks = ({
   className,
-  size,
+  iconClassName,
 }: {
   className?: string;
-  size: SizeProp;
+  iconClassName: string;
 }) => (
   <div className={`flex h-fit gap-6 items-center ${className}`}>
     {bigNavSocials.map((social, index) => (
@@ -78,45 +73,41 @@ const SocialLinks = ({
         rel="noopener noreferrer"
         className="hover:scale-105 transition-transform h-fit p-0 m-0"
       >
-        <FontAwesomeIcon
-          icon={social.icon}
-          size={size}
-          className={social.hoverColor}
-        />
+        <social.Icon className={`${iconClassName} ${social.hoverColor}`} />
       </Link>
     ))}
   </div>
 );
 
-const bigNavSocials = [
+const bigNavSocials: { href: string; Icon: IconComponent; hoverColor: string }[] = [
   {
     href: "https://www.instagram.com/imamzainorg/",
-    icon: faInstagram,
+    Icon: Instagram,
     hoverColor: "dark:hover:text-[#E1306C] hover:text-[#E1306C]",
   },
   {
     href: "https://www.tiktok.com/@imamzainorg",
-    icon: faTiktok,
+    Icon: TikTokIcon,
     hoverColor: "dark:hover:text-black hover:text-black",
   },
   {
     href: "https://www.facebook.com/@imamzainorg",
-    icon: faFacebook,
+    Icon: Facebook,
     hoverColor: "dark:hover:text-[#1877F2] hover:text-[#1877F2]",
   },
   {
     href: "https://twitter.com/imamzainorg",
-    icon: faXTwitter,
+    Icon: XIcon,
     hoverColor: "dark:hover:text-black hover:text-black",
   },
   {
     href: "https://www.youtube.com/@imamzainorg",
-    icon: Youtube,
+    Icon: Youtube,
     hoverColor: "dark:hover:text-[#FF0000] hover:text-[#FF0000]",
   },
   {
     href: "https://t.me/imamzainorg",
-    icon: faTelegram,
+    Icon: TelegramIcon,
     hoverColor: "dark:hover:text-[#0088cc] hover:text-[#0088cc]",
   },
 ];
@@ -128,7 +119,7 @@ export default function Footer() {
       <div className="container max-lg:hidden py-10">
         <div className="flex justify-between pb-10">
           <DropdownLang broad />
-          <SocialLinks size={"xl"} />
+          <SocialLinks iconClassName="w-6 h-6" />
         </div>
 
         <div className="flex justify-between gap-20 max-md:p-10 py-8  ">
@@ -169,15 +160,15 @@ export default function Footer() {
         </div>
         <div className="flex justify-end  ">
           <p className="text-subtitle text-white/40 mt-10">
-            جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه السلام) &copy;
-            2025
+            جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه السلام) &copy;{" "}
+            {new Date().getFullYear()}
           </p>
         </div>
       </div>
 
       {/* Small screen */}
       <div className="lg:hidden p-8">
-        <SocialLinks className="justify-center gap-10 pb-4" size={"2x"} />
+        <SocialLinks className="justify-center gap-10 pb-4" iconClassName="w-8 h-8" />
 
         <Accordion>
           {links.map((section, i) => (
@@ -217,8 +208,8 @@ export default function Footer() {
           />
         </div>
         <p className="text-center text-sm text-white/40">
-          جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه السلام) &copy;
-          2025
+          جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه السلام) &copy;{" "}
+          {new Date().getFullYear()}
         </p>
       </div>
     </div>

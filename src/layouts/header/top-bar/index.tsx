@@ -1,18 +1,16 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import {
-  faFacebook,
-  faInstagram,
-  faTiktok,
-  faXTwitter,
-  faYoutube as Youtube,
-  faTelegram,
-} from "@fortawesome/free-brands-svg-icons";
-import { faCalendar, faGlobe } from "@fortawesome/free-solid-svg-icons";
-import { Sun, Moon } from "lucide-react";
+  Calendar,
+  Facebook,
+  Globe,
+  Instagram,
+  Sun,
+  Moon,
+  Youtube,
+} from "lucide-react";
+import { TelegramIcon, TikTokIcon, XIcon } from "@/components/brand-icons";
 import { usePathname } from "next/navigation";
 import useWindowEvents from "@/hooks/window-events";
 import { useLanguages } from "@/context/language-context";
@@ -95,9 +93,8 @@ export default function TopBar() {
           <div className="flex justify-between items-center py-1">
             {/* التاريخ الهجري */}
             <div className="flex items-center gap-2">
-              <FontAwesomeIcon
-                icon={faCalendar}
-                className={`text-base p-0 mt-1 transition-colors duration-300 ${
+              <Calendar
+                className={`w-4 h-4 mt-1 transition-colors duration-300 ${
                   theme === "dark"
                     ? isScrolled || path !== "/"
                       ? "text-[#a53232]"
@@ -128,32 +125,32 @@ export default function TopBar() {
               {[
                 {
                   href: "https://www.instagram.com/imamzainorg/",
-                  icon: faInstagram,
+                  Icon: Instagram,
                   hoverColor: "dark:hover:text-[#E1306C] hover:text-[#E1306C]",
                 },
                 {
                   href: "https://www.tiktok.com/@imamzainorg",
-                  icon: faTiktok,
+                  Icon: TikTokIcon,
                   hoverColor: "dark:hover:text-black hover:text-black",
                 },
                 {
                   href: "https://www.facebook.com/@imamzainorg",
-                  icon: faFacebook,
+                  Icon: Facebook,
                   hoverColor: "dark:hover:text-[#1877F2] hover:text-[#1877F2]",
                 },
                 {
                   href: "https://twitter.com/imamzainorg",
-                  icon: faXTwitter,
+                  Icon: XIcon,
                   hoverColor: "dark:hover:text-black hover:text-black",
                 },
                 {
                   href: "https://www.youtube.com/@imamzainorg",
-                  icon: Youtube,
+                  Icon: Youtube,
                   hoverColor: "dark:hover:text-[#FF0000] hover:text-[#FF0000]",
                 },
                 {
                   href: "https://t.me/imamzainorg",
-                  icon: faTelegram,
+                  Icon: TelegramIcon,
                   hoverColor: "dark:hover:text-[#0088cc] hover:text-[#0088cc]",
                 },
               ].map((social, index) => (
@@ -162,7 +159,7 @@ export default function TopBar() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`text-xl hover:scale-105 transition-transform h-5 p-0 m-0
+                  className={`hover:scale-105 transition-transform h-5 p-0 m-0
                     ${
                       isScrolled || path !== "/"
                         ? "text-primary dark:text-[#681717]"
@@ -171,7 +168,7 @@ export default function TopBar() {
                     ${social.hoverColor}
                   `}
                 >
-                  <FontAwesomeIcon icon={social.icon} size="sm" />
+                  <social.Icon className="w-4 h-4" />
                 </Link>
               ))}
 
@@ -202,14 +199,12 @@ export default function TopBar() {
                 }}
               >
                 <button className="flex items-center justify-between rounded-full bg-none ho">
-                  <FontAwesomeIcon
-                    icon={faGlobe}
-                    className={`${
+                  <Globe
+                    className={`w-4 h-4 ${
                       isScrolled || path !== "/"
                         ? "text-primary dark:text-Muharram_primary"
                         : "text-white"
                     }`}
-                    size="sm"
                   />
                 </button>
                 {isOpen && (

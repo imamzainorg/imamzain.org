@@ -9,6 +9,8 @@ import { dataFetcher } from "@/lib/dataFetcher";
 import { Post } from "@/types/post";
 import { ChevronRightArrowIcon } from "@/assets/icons/reusable";
 
+export const revalidate = 300;
+
 export default async function Page() {
   const data = await dataFetcher<Post[]>("posts.json");
 
