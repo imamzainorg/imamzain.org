@@ -19,7 +19,7 @@ You can do this two ways: **(A) GitHub Web UI** (no extra tools, ~5 minutes) or 
 | Setting | Value |
 |---|---|
 | Require a pull request before merging | **✓ ON** |
-| Required approving reviews | **1** |
+| Require approvals | **✗ OFF** |
 | Dismiss stale pull request approvals when new commits are pushed | **✓ ON** |
 | Require status checks to pass before merging | **✓ ON** |
 | Required status checks | `ci` (from `predeploy.yml`) |
@@ -35,7 +35,7 @@ You can do this two ways: **(A) GitHub Web UI** (no extra tools, ~5 minutes) or 
 | Setting | Value |
 |---|---|
 | Require a pull request before merging | **✓ ON** |
-| Required approving reviews | **1** (or 0 if solo work is common — see "team-size tradeoff" below) |
+| Require approvals | **✗ OFF** |
 | Dismiss stale approvals on new commits | **✓ ON** |
 | Require status checks to pass | **✓ ON** |
 | Required status checks | `ci` |
@@ -45,15 +45,6 @@ You can do this two ways: **(A) GitHub Web UI** (no extra tools, ~5 minutes) or 
 | Allow force pushes | **✗ OFF** |
 | Allow deletions | **✗ OFF** |
 | Include administrators | **✓ ON** |
-
-### Team-size tradeoff for required approvals
-
-With 2–3 active contributors, requiring 1 approval on `dev` can become a bottleneck — if only one person is online, nothing ships. Two options:
-
-- **Strict (recommended):** Require 1 approval on `dev`. If someone's blocked, they wait. Forces collaboration.
-- **Pragmatic:** Require 0 approvals on `dev`, 1 on `main`. CI still gates every merge. Reviews happen on `main` PRs (the release PR).
-
-Pick one and tell the team which it is.
 
 ---
 
@@ -74,7 +65,6 @@ Fill in:
 
 - **Branch name pattern:** `main`
 - Check **Require a pull request before merging**
-  - Under it, set **Required number of approvals before merging:** `1`
   - Check **Dismiss stale pull request approvals when new commits are pushed**
 - Check **Require status checks to pass before merging**
   - Check **Require branches to be up to date before merging**
@@ -149,9 +139,8 @@ DEV_REVIEWERS=0 bash scripts/setup-branch-protection.sh
 - Everyone must work on a feature branch and open a PR.
 - The PR cannot be merged until:
   1. CI is green
-  2. At least one teammate approves (per the rule)
-  3. All review threads are resolved
-  4. The branch is up to date with the base
+  2. All review threads are resolved
+  3. The branch is up to date with the base
 - "Include administrators" means even the repo owner cannot bypass. If you ever need to, you can temporarily disable the rule in Settings → Branches, do the action, then re-enable. **Document why** when you do this (in the team chat or as a commit message).
 
 ---
@@ -180,8 +169,7 @@ If the rule itself is broken (e.g., the required check renamed and now blocks ev
 
 **لفرع `main`:**
 
-- يتطلب PR قبل الدمج: نعم
-- عدد المراجعات المطلوبة: 1
+- يتطلب PR قبل الدمج: نعم1
 - إلغاء المراجعات عند push جديد: نعم
 - يتطلب نجاح CI (`ci` من `predeploy.yml`)
 - يتطلب أن يكون الفرع محدّثاً مع الـ base
@@ -207,7 +195,6 @@ If the rule itself is broken (e.g., the required check renamed and now blocks ev
 
 - **Branch name pattern:** اكتب `main`
 - فعّل **Require a pull request before merging**
-  - **Required number of approvals before merging:** `1`
   - فعّل **Dismiss stale pull request approvals when new commits are pushed**
 - فعّل **Require status checks to pass before merging**
   - فعّل **Require branches to be up to date before merging**
@@ -268,6 +255,5 @@ DEV_REVIEWERS=0 bash scripts/setup-branch-protection.sh
 - على الجميع العمل على فرع منفصل وفتح PR.
 - لا يُدمج الـ PR إلا بعد:
   1. CI أخضر
-  2. موافقة زميل واحد على الأقل
-  3. حل جميع التعليقات
-  4. تحديث الفرع مع الـ base
+  2. حل جميع التعليقات
+  3. تحديث الفرع مع الـ base
