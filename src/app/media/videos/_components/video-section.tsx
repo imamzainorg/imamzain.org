@@ -47,7 +47,7 @@ export default function VideoComponent() {
 				}`}
 			>
 				<ImageView
-					src="/news/img.png"
+					src="https://cdn.imamzain.org/news/img.png"
 					alt="Video thumbnail"
 					className="object-cover w-full h-full"
 				/>
