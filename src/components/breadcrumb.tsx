@@ -42,7 +42,7 @@ const Breadcrumbs = ({
 							{isLast ? (
 								<span
 									aria-current="page"
-									className="font-bold p-2 text-subtitle line-clamp-1 max-w-[120px] sm:max-w-none"
+									className="font-bold p-2 text-subtitle truncate max-w-[120px] sm:max-w-[50ch]"
 								>
 									{link.name}
 								</span>

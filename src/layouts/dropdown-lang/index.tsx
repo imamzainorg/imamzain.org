@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { ChevronDown, Globe } from "lucide-react";
 import { useLanguages } from "@/context/language-context";
 
 export default function DropdownLang({ broad }: { broad?: boolean }) {
@@ -33,12 +32,7 @@ export default function DropdownLang({ broad }: { broad?: boolean }) {
         }`}
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        <FontAwesomeIcon
-          icon={faGlobe}
-          className="px-3"
-          color="#000000"
-          size="xs"
-        />
+        <Globe className="mx-3 w-3 h-3 text-black" />
 
         {/* ⭐ الحل هنا */}
         <span
@@ -48,12 +42,7 @@ export default function DropdownLang({ broad }: { broad?: boolean }) {
           {currentLanguage.name}
         </span>
 
-        <FontAwesomeIcon
-          icon={faChevronDown}
-          className="px-3"
-          color="#000000"
-          size="xs"
-        />
+        <ChevronDown className="mx-3 w-3 h-3 text-black" />
       </button>
 
       {isOpen && (

@@ -410,12 +410,12 @@ export default function UploadedResearchPage() {
           {/* Decorative glow */}
           <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-primary/6 to-transparent rounded-3xl -z-10" />
 
-          <h1
+          <h2
             className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white
             tracking-tight leading-tight mb-4"
           >
             البحوث المرفوعة
-          </h1>
+          </h2>
 
           <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
             استعرض أحدث البحوث العلمية في مختلف المجالات الإسلامية والعربية

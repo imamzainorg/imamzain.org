@@ -96,6 +96,7 @@ export default function BookCard({
               <Image
                 src={imageUrl}
                 fill
+                sizes="(max-width: 1024px) 100vw, 320px"
                 alt={publication.title}
                 className="object-contain transition-transform"
                 priority
@@ -232,7 +233,7 @@ function Detail({
       </div>
       <span
         dir={english ? "ltr" : "rtl"}
-        className={`text-gray-500 mt-1 ${english && "text-left"}`}
+        className={`text-gray-500 mt-1 ${english ? "text-left" : ""}`}
       >
         {value}
       </span>

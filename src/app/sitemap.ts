@@ -56,7 +56,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
 		createSitemapEntry("/contests", new Date(), "weekly", 0.8),
 		createSitemapEntry("/contests/khat", new Date(), "weekly", 0.9),
-		createSitemapEntry("/contests/khat/gallery", new Date(), "weekly", 0.6),
 		createSitemapEntry(
 			"/contests/khat/president-goals",
 			new Date(),
@@ -73,13 +72,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		createSitemapEntry("/his-life", new Date(), "monthly", 0.8),
 
 		createSitemapEntry("/library", new Date(), "weekly", 0.9),
-		createSitemapEntry("/library/al-sahifa", new Date(), "weekly", 0.8),
-		createSitemapEntry(
-			"/library/risalat-al-huqoq",
-			new Date(),
-			"weekly",
-			0.8,
-		),
 
 		createSitemapEntry("/media/images", new Date(), "weekly", 0.6),
 		createSitemapEntry("/media/videos", new Date(), "weekly", 0.7),
@@ -118,7 +110,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	)
 
 	const bookRoutes: MetadataRoute.Sitemap = books.map((book) =>
-		createSitemapEntry(`/library/${book.slug}`, new Date(), "monthly", 0.6),
+		createSitemapEntry(
+			`/library/books/${book.slug}`,
+			new Date(),
+			"monthly",
+			0.6,
+		),
 	)
 
 	const imamLifeRoutes: MetadataRoute.Sitemap = imamzainLife.map((section) =>
@@ -130,12 +127,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		),
 	)
 
-	// Note: Add actual dictionary and subject slugs based on your data
 	const risalatHuqoqRoutes: MetadataRoute.Sitemap = risalatAlHuqoq.flatMap(
 		(dictionary) =>
 			dictionary.subjects.map((subject) =>
 				createSitemapEntry(
-					`/library/risalat-al-huqoq/read/${dictionary.slug}/${subject.slug}`,
+					`/library/risalat-al-huqoq/${dictionary.slug}/${subject.slug}`,
 					new Date(),
 					"monthly",
 					0.6,
@@ -147,7 +143,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		(dictionary) =>
 			dictionary.subjects.map((subject) =>
 				createSitemapEntry(
-					`/library/al-sahifa/read/${dictionary.slug}/${subject.slug}`,
+					`/library/al-sahifa/${dictionary.slug}/${subject.slug}`,
 					new Date(),
 					"monthly",
 					0.6,

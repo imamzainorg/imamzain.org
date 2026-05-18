@@ -1,8 +1,7 @@
 "use client"
 
 import { PersonIcon, MobileIcon } from "@/assets/icons/reusable"
-import { faCircleCheck } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { CheckCircle2 } from "lucide-react"
 import { Input, Button } from "@heroui/react"
 import { motion } from "framer-motion"
 import { useState } from "react"
@@ -158,10 +157,7 @@ const ZiaraForm = () => {
 					transition={{ duration: 1 }}
 					className="flex flex-col gap-6  pb-20 items-center   pt-20 py-6 ml-0 lg:ml-16 w-[70%] sm:w-[50%] md:w-[35%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%]"
 				>
-					<FontAwesomeIcon
-						icon={faCircleCheck}
-						className={"text-7xl lg:text-9xl"}
-					/>
+					<CheckCircle2 className="w-20 h-20 lg:w-32 lg:h-32" />
 					<p>تم ادراج اسمك في قائمة الزائرين</p>
 				</motion.div>
 			)}
