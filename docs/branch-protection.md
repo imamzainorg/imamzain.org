@@ -167,12 +167,12 @@ See [CONTRIBUTING.md](../CONTRIBUTING.md#branches) for what each type means.
 1. Repo → **Settings** → **Rules** → **Rulesets** → **New ruleset** → **New branch ruleset**.
 2. **Name:** `branch-naming`. **Enforcement status:** `Active`. **Bypass list:** empty.
 3. **Target branches** → **Include by pattern:** `**/*`. Then **Exclude by pattern:** `main` and `dev` (so an admin can recreate them if they're ever accidentally deleted).
-4. Under **Branch rules**, enable:
-   - **Restrict creations**
-   - **Restrict deletions**
-   - **Block force pushes**
+4. Under **Branch rules**, enable **only**:
    - **Restrict branch names** → paste the prefixes above, one per line.
+   - **Block force pushes** *(optional — keeps feature-branch history intact; skip if your team relies on `git push --force-with-lease` for rebase workflows).*
 5. **Save changes.**
+
+> ⚠ **Do not enable "Restrict creations" or "Restrict deletions"** on this ruleset. They sound like they enforce naming, but they don't — "Restrict creations" blocks creating *any* matching branch (so nobody could open a feature branch), and "Restrict deletions" prevents post-merge branch cleanup. Naming is enforced solely by **Restrict branch names**.
 
 ### Verify
 
@@ -360,13 +360,13 @@ docs/*    test/*   build/*   ci/*          hotfix/*    release/*
 1. Repo → **Settings** → **Rules** → **Rulesets** → **New ruleset** → **New branch ruleset**.
 2. **Name:** `branch-naming`. **Enforcement status:** `Active`.
 3. **Target branches** → **Include by pattern:** `**/*`. ثم **Exclude by pattern:** `main` و `dev`.
-4. تحت **Branch rules** فعّل:
-   - **Restrict creations**
-   - **Restrict deletions**
-   - **Block force pushes**
+4. تحت **Branch rules** فعّل **فقط**:
    - **Restrict branch names** → الصق البادئات أعلاه، كل واحدة بسطر منفصل.
+   - **Block force pushes** *(اختياري — يمنع `git push --force` على فروع الميزات).*
 5. **Save changes.**
 
+> ⚠ **لا تفعّل "Restrict creations" أو "Restrict deletions"** على هذه القاعدة. اسمها مضلل: "Restrict creations" تمنع إنشاء *أي* فرع مطابق (يعني لا أحد يقدر يفتح فرع ميزة)، و "Restrict deletions" تمنع حذف الفروع بعد الدمج. التحقق من الاسم يتم فقط عبر **Restrict branch names**.
+>
 > ⚠ النمط `feat/*` يطابق `feat/leaderboard` لكن **لا** يطابق `feat/contests/leaderboard` (شرطتين). استخدم slug بشرطة واحدة، أو غيّر النمط إلى `feat/**` إذا احتجت تعشيش.
 
 ### الطريقة (د): التحقق من عنوان الـ PR (Conventional Commits)
