@@ -2,13 +2,18 @@
 
 > Arabic version below: [النسخة العربية](#إعداد-حماية-الفروع-بالعربي)
 
-This guide locks down `main` and `dev` so:
+This guide locks down the repo so:
 
-- Nobody (including admins, by default) can push directly to them.
+- Nobody (including admins, by default) can push directly to `main` or `dev`.
 - Every change must go through a PR with passing CI.
+- Branches must follow the naming conventions in [CONTRIBUTING.md](../CONTRIBUTING.md) — `feat/*`, `fix/*`, etc. Anything else is rejected at push time.
+- PR titles must follow Conventional Commits (since we squash-merge, the PR title is the commit message on `dev`).
 - Force pushes and deletions are blocked.
 
-You can do this two ways: **(A) GitHub Web UI** (no extra tools, ~5 minutes) or **(B) the `gh` CLI script** in this repo (one command, requires `gh` installed and authenticated).
+There are two layers:
+
+1. **Branch protection** for `main` and `dev` — sections **(A)** (web UI) or **(B)** (`gh` CLI script).
+2. **Repo-wide rules** — section **(C)** (branch-naming Ruleset) and **(D)** (PR-title workflow).
 
 ---
 
@@ -133,6 +138,96 @@ DEV_REVIEWERS=0 bash scripts/setup-branch-protection.sh
 
 ---
 
+## (C) Branch-naming Ruleset
+
+In addition to protecting `main` and `dev`, we enforce branch naming via a GitHub Ruleset. Branches whose names don't match the allowed prefixes are rejected at push time, before they ever land on the remote.
+
+### Allowed prefixes
+
+Only branches matching one of these patterns can be created:
+
+```text
+feat/*
+fix/*
+perf/*
+refactor/*
+chore/*
+docs/*
+test/*
+build/*
+ci/*
+hotfix/*
+release/*
+```
+
+See [CONTRIBUTING.md](../CONTRIBUTING.md#branches) for what each type means.
+
+### Setup (admin, one-time)
+
+1. Repo → **Settings** → **Rules** → **Rulesets** → **New ruleset** → **New branch ruleset**.
+2. **Name:** `branch-naming`. **Enforcement status:** `Active`. **Bypass list:** empty.
+3. **Target branches** → **Include by pattern:** `**/*`. Then **Exclude by pattern:** `main` and `dev` (so an admin can recreate them if they're ever accidentally deleted).
+4. Under **Branch rules**, enable **only**:
+   - **Restrict branch names** → paste the prefixes above, one per line.
+   - **Block force pushes** *(optional — keeps feature-branch history intact; skip if your team relies on `git push --force-with-lease` for rebase workflows).*
+5. **Save changes.**
+
+> ⚠ **Do not enable "Restrict creations" or "Restrict deletions"** on this ruleset. They sound like they enforce naming, but they don't — "Restrict creations" blocks creating *any* matching branch (so nobody could open a feature branch), and "Restrict deletions" prevents post-merge branch cleanup. Naming is enforced solely by **Restrict branch names**.
+
+### Verify
+
+```bash
+git checkout -b bad-name
+git commit --allow-empty -m "test"
+git push -u origin bad-name
+```
+
+Expected:
+
+```text
+remote: error: GH013: Repository rule violations found for refs/heads/bad-name.
+```
+
+Cleanup:
+
+```bash
+git checkout dev
+git branch -D bad-name
+```
+
+### Caveats
+
+- Patterns use **fnmatch**, not full regex. `feat/*` matches `feat/leaderboard` but **not** `feat/contests/leaderboard` (two slashes). Use single-slash slugs, or change patterns to `feat/**` if you need nesting.
+- Rulesets only apply to **new** branch creations. Existing wrongly-named branches (e.g. `feature/add-book`) are grandfathered until deleted.
+
+---
+
+## (D) PR-title enforcement (Conventional Commits)
+
+Because we squash-merge into `dev`, the PR title becomes the commit message. Enforcing format at the PR title is enough — no commit-msg hook required.
+
+The check is at [`.github/workflows/pr-title.yml`](../.github/workflows/pr-title.yml). It uses [`amannn/action-semantic-pull-request`](https://github.com/amannn/action-semantic-pull-request) to validate against the Conventional Commits types listed in [CONTRIBUTING.md](../CONTRIBUTING.md#types).
+
+### Make it a merge-blocker
+
+The workflow already runs on every PR, but a red ✗ doesn't block merge until the check is marked **required**:
+
+1. Open one PR so the check runs at least once (GitHub registers the check name on first run).
+2. Repo → **Settings** → **Branches** → edit the rule for `dev` → in **Require status checks to pass before merging**, search for and add `lint` (or whatever name appears — likely `lint` or `lint / lint`).
+3. Repeat for `main`.
+
+### Examples
+
+| Title | Verdict |
+|---|---|
+| `feat(books): add "حسبي ونسبي" to library` | ✓ |
+| `fix(api): restore SSRF check in /api/download` | ✓ |
+| `Add new book` | ✗ — no type, capital `A` |
+| `update: tweak header` | ✗ — `update` isn't an allowed type |
+| `feat: Add reading-progress indicator` | ✗ — subject starts with capital |
+
+---
+
 ## After setup — what changes for the team
 
 - `git push origin main` and `git push origin dev` will **fail**. This is correct.
@@ -249,11 +344,37 @@ DEV_REVIEWERS=0 bash scripts/setup-branch-protection.sh
 
 السكربت يستدعي GitHub REST API. يمكن إعادة تشغيله بأمان — يعيد تطبيق نفس القواعد.
 
-### بعد التفعيل
+### الطريقة (ج): قاعدة تسمية الفروع (Ruleset)
 
-- `git push origin main` و `git push origin dev` ستفشلان. هذا صحيح.
-- على الجميع العمل على فرع منفصل وفتح PR.
-- لا يُدمج الـ PR إلا بعد:
-  1. CI أخضر
-  2. حل جميع التعليقات
-  3. تحديث الفرع مع الـ base
+بالإضافة لحماية `main` و `dev`، نفرض اتفاقية تسمية الفروع عبر GitHub Ruleset. أي فرع لا يطابق البادئات المسموح بها يُرفض عند الـ push.
+
+**البادئات المسموح بها:**
+
+```text
+feat/*    fix/*    perf/*    refactor/*    chore/*
+docs/*    test/*   build/*   ci/*          hotfix/*    release/*
+```
+
+**خطوات الإعداد (admin، مرة واحدة):**
+
+1. Repo → **Settings** → **Rules** → **Rulesets** → **New ruleset** → **New branch ruleset**.
+2. **Name:** `branch-naming`. **Enforcement status:** `Active`.
+3. **Target branches** → **Include by pattern:** `**/*`. ثم **Exclude by pattern:** `main` و `dev`.
+4. تحت **Branch rules** فعّل **فقط**:
+   - **Restrict branch names** → الصق البادئات أعلاه، كل واحدة بسطر منفصل.
+   - **Block force pushes** *(اختياري — يمنع `git push --force` على فروع الميزات).*
+5. **Save changes.**
+
+> ⚠ **لا تفعّل "Restrict creations" أو "Restrict deletions"** على هذه القاعدة. اسمها مضلل: "Restrict creations" تمنع إنشاء *أي* فرع مطابق (يعني لا أحد يقدر يفتح فرع ميزة)، و "Restrict deletions" تمنع حذف الفروع بعد الدمج. التحقق من الاسم يتم فقط عبر **Restrict branch names**.
+>
+> ⚠ النمط `feat/*` يطابق `feat/leaderboard` لكن **لا** يطابق `feat/contests/leaderboard` (شرطتين). استخدم slug بشرطة واحدة، أو غيّر النمط إلى `feat/**` إذا احتجت تعشيش.
+
+### الطريقة (د): التحقق من عنوان الـ PR (Conventional Commits)
+
+بما أننا نستخدم squash-merge على `dev`، فعنوان الـ PR هو نفسه رسالة الـ commit. لذلك يكفي التحقق من عنوان الـ PR — لا حاجة لـ commit-msg hook.
+
+الفحص موجود في [`.github/workflows/pr-title.yml`](../.github/workflows/pr-title.yml). لجعله إلزامياً (يمنع الدمج):
+
+1. افتح أي PR مرة واحدة حتى يسجّل GitHub اسم الفحص.
+2. Repo → **Settings** → **Branches** → عدّل قاعدة `dev` → في **Require status checks to pass before merging** أضف `lint`.
+3. كرّر لفرع `main`.
