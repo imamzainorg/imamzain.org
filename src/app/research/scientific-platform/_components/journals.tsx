@@ -4,7 +4,7 @@ import React, { useMemo, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import "swiper/css";
-
+import { User, FileText } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Search as SearchIcon,
@@ -36,7 +36,7 @@ export default function JounalsResearchPage() {
   const getDataByTab = useMemo(() => {
     if (activeTab === "all") return JournalsData as JounalsResearch[];
     return (JournalsData as Journals[]).filter((item) =>
-      item.translations.some((t) => t.category)
+      item.translations.some((t) => t.category),
     );
   }, [activeTab]);
 
@@ -52,7 +52,7 @@ export default function JounalsResearchPage() {
         return (
           title.includes(term) || authors.includes(term) || venue.includes(term)
         );
-      })
+      }),
     );
   }, [searchTerm, getDataByTab]);
 
@@ -62,7 +62,7 @@ export default function JounalsResearchPage() {
     switch (sortBy) {
       case "year":
         return data.sort(
-          (a, b) => parseInt(b.publishedYear) - parseInt(a.publishedYear)
+          (a, b) => parseInt(b.publishedYear) - parseInt(a.publishedYear),
         );
       case "title":
         return data.sort((a, b) => {
@@ -170,7 +170,7 @@ export default function JounalsResearchPage() {
           </motion.div>
 
           {/* النتائج */}
-          <div className="rounded-2xl shadow-lg border overflow-hidden bg-opacity-50 bg-gray-50">
+          <div className=" ">
             <div className="px-6 text-subtitle py-4 bg-gradient-to-r border-b">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
@@ -179,9 +179,7 @@ export default function JounalsResearchPage() {
                     النتائج: {sortedData.length} مقالة {/* العدد الكلي */}
                   </span>
                 </div>
-                <div className=" text-gray-500 dark:text-gray-400">
-                  انقر على المقال للتمييز - انقر مزدوج لفتح الملف
-                </div>
+            
               </div>
             </div>
 
@@ -270,7 +268,7 @@ export default function JounalsResearchPage() {
                                 </td>
                               </motion.tr>
                             );
-                          })
+                          }),
                         )}
                       </AnimatePresence>
                     </tbody>
@@ -284,44 +282,49 @@ export default function JounalsResearchPage() {
                         <motion.div
                           key={`${item.id}-${t.languageid}`}
                           layout
-                          initial={{
-                            opacity: 0,
-                            y: 25,
-                          }}
-                          animate={{
-                            opacity: 1,
-                            y: 0,
-                          }}
-                          exit={{
-                            opacity: 0,
-                            y: -10,
-                          }}
+                          whileHover={{ y: -6 }}
                           transition={{
-                            duration: 0.4,
+                            duration: 0.3,
                             ease: "easeOut",
                           }}
-                          whileHover={{ y: -6 }}
-                          className="relative bg-white/90 dark:bg-gray-900/90 border border-secondary/30 dark:border-secondary/20 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+                          className="group relative flex flex-col bg-white dark:bg-gray-900 rounded-2xl overflow-hidden
+        border border-gray-100 dark:border-gray-800 
+        shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_2px_12px_rgba(0,0,0,0.3)]
+        hover:shadow-[0_8px_32px_rgba(var(--primary-rgb),0.18)] dark:hover:shadow-[0_8px_32px_rgba(var(--primary-rgb),0.25)]
+        hover:-translate-y-1.5 transition-all duration-300 ease-out hover: "
                         >
-                          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-70 pointer-events-none" />
+                          <div className="h-1 w-full bg-gradient-to-l from-primary/30 via-primary to-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
                           <div className="relative p-6 flex flex-col  justify-between h-full">
-                            <h3 className="text-subtitle font-semibold text-gray-800 dark:text-white mb-4 leading-snug line-clamp-2">
+                            <h3
+                              className="text-subtitle font-bold leading-snug text-gray-900 dark:text-gray-50
+          mb-4 line-clamp-3 group-hover:text-primary transition-colors duration-200"
+                            >
                               {t.title}
                             </h3>
-                            <div className="space-y-2 text-subtitle text-gray-600 dark:text-gray-400">
-                              <p>
-                                <span className="font-semibold text-secondary">
-                                  المؤلف:
-                                </span>{" "}
-                                {t.authors.join(", ")}
-                              </p>
-                              <p>
-                                <span className="font-semibold text-secondary">
-                                  الناشر:
-                                </span>{" "}
-                                {t.publicationVenue}
-                              </p>
+
+                            <div className="flex-1 space-y-2 ">
+                              <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                                <span className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-800 shrink-0">
+                                  <User size={13} />
+                                </span>
+                                <span className="truncate font-medium">
+                                  {" "}
+                                  {t.authors.join(", ")}
+                                </span>
+                              </div>
+                              {t.publicationVenue && (
+                                <div className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500">
+                                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-800 shrink-0">
+                                    <FileText size={13} />
+                                  </span>
+                                  <span className="truncate">
+                                    {t.publicationVenue}
+                                  </span>
+                                </div>
+                              )}
                             </div>
+
                             <div className="my-5 border-t border-secondary/20" />
                             <motion.button
                               whileTap={{
@@ -341,7 +344,7 @@ export default function JounalsResearchPage() {
                             </motion.button>
                           </div>
                         </motion.div>
-                      ))
+                      )),
                     )}
                   </AnimatePresence>
                 </div>
