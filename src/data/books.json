@@ -2661,8 +2661,8 @@
     "pages": 94,
     "parts": 1,
     "views": 50,
-    "image": "/general/hasbi-wa-nisbi.png",
-    "pdf": "/general/مرقع-حسبي ونسبي.pdf",
+    "image": "https://cdn.imamzain.org/books/hasbi-wa-nisbi.png",
+    "pdf": "https://cdn.imamzain.org/books/hasbi-wa-nisbi.pdf",
     "category": [
       "الإصدارات"
     ]
