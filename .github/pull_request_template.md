@@ -22,9 +22,11 @@ See CONTRIBUTING.md for the full rules.
 - [ ] `fix` — bug fix
 - [ ] `perf` — performance
 - [ ] `refactor` — no behavior change
+- [ ] `ci` — CI / workflow changes
 - [ ] `chore` — tooling / config / content
 - [ ] `docs` — docs only
 - [ ] `hotfix` — production is broken right now (base: `main`)
+- [ ] `release` — release-please-managed release PR (auto-generated; tick only if you understand why)
 
 ## Test plan
 

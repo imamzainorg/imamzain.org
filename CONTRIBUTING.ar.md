@@ -13,7 +13,7 @@
 3. [الفروع (Branches)](#الفروع-branches)
 4. [رسائل الـ Commit](#رسائل-الـ-commit)
 5. [سيناريوهات يومية مع الأوامر كاملة](#سيناريوهات-يومية-مع-الأوامر-كاملة)
-6. [إصدار نسخة جديدة (Release)](#إصدار-نسخة-جديدة-release)
+6. [إصدار نسخة جديدة — مرجع release-please](#إصدار-نسخة-جديدة--مرجع-release-please)
 7. [ماذا تفعل عندما تخطئ — قسم الإنقاذ](#ماذا-تفعل-عندما-تخطئ--قسم-الإنقاذ)
 8. [أخطاء شائعة لا تقع فيها](#أخطاء-شائعة-لا-تقع-فيها)
 9. [قاموس Git المختصر](#قاموس-git-المختصر)
@@ -29,7 +29,7 @@
 3. **استخدم Conventional Commits** — مثل `feat:` و `fix:` و `chore:`. مفصّل في الأسفل.
 4. **كل PR = تغيير واحد منطقي.** لا تخلط تنظيف الكود مع إصلاح Bug مع تحديث مكتبة.
 5. **استخدم "Squash and merge"** عند دمج فرعك في `dev` (الزر في GitHub).
-6. **التاجات (tags) والإصدارات** تُنشأ بسكربت `bun run release` فقط، لا يدوياً.
+6. **التاجات (tags) والإصدارات** تُنشأها أداة [release-please](https://github.com/googleapis/release-please) تلقائياً عند دمج الـ PR التي تفتحها على `main` — لا تُنشأ يدوياً ولا بسكربت محلي.
 7. **احذف فرعك** بعد ما يتم دمج الـ PR.
 
 ---
@@ -229,107 +229,68 @@ git push -u origin hotfix/audio-download-403
 
 بعد دمج الـ PR في `main`:
 
-1. **شغّل سكربت الإصدار** من `main` (راح يصدر patch، مثلاً `v0.4.1 → v0.4.2`):
+1. **release-please يلتقط الـ commit تلقائياً** ويفتح (أو يحدّث) PR إصدار عنوانه `release: vX.Y.Z` على `main`. دمج هذا الـ PR يصدر النسخة. التفاصيل في [§ أنا قائد الإصدار](#4-أنا-قائد-الإصدار-هذا-الأسبوع-release-captain).
 
-```bash
-git checkout main
-git pull
-bun run release
-```
-
-1. **زامن الإصلاح إلى `dev`** — لئلا يضيع عند الإصدار التالي:
-
-```bash
-# الطريقة السهلة: ادمج main في dev مباشرة (إذا قواعد الحماية تسمح)
-git checkout dev
-git pull
-git merge main
-git push
-
-# الطريقة الأنظف (تأخذ مراجعة): افتح PR من main إلى dev
-```
+2. **زامن الإصلاح إلى `dev`** عبر PR من فرع `hotfix/audio-download-403-to-dev` (أو بعد ما يصدر، PR من `main` إلى `dev`) — لئلا يضيع عند الإصدار التالي.
 
 ### 4. أنا قائد الإصدار هذا الأسبوع (Release Captain)
+
+الإصدارات مؤتمتة بـ [release-please](https://github.com/googleapis/release-please). الـ workflow: [`.github/workflows/release-please.yml`](.github/workflows/release-please.yml)، الإعدادات: [`release-please-config.json`](release-please-config.json).
+
+التدفق:
 
 1. تأكد أن `dev` نظيف:
    - CI أخضر (تحقق من تبويب Actions في GitHub).
    - فتحت موقع المعاينة (Vercel preview) ومشيت على الصفحات الرئيسية.
 
-2. افتح PR من `dev` إلى `main`:
-   - العنوان: `release: vX.Y.Z` (بدون رقم محدد إذا كنت لا تعرفه بعد — السكربت يحسبه).
-   - في الـ body: قائمة نقاط بأبرز التغييرات.
+2. افتح PR من `dev` إلى `main` بعنوان `chore:` أو `ci:` يصف الدفعة (مثلاً `chore: rollup dev → main for next release`). **لا تستخدم عنوان `release:` هنا** — هذا محجوز لـ PR إصدار release-please على `main`.
 
-3. انتظر المراجعة و CI، ثم **اضغط "Create a merge commit"** (وليس Squash، وليس Rebase) — هذا يحفظ حدود الـ PRs الفردية في تاريخ `main` ويساعد سكربت الإصدار يولّد changelog منظم.
+3. انتظر المراجعة و CI، ثم **اضغط "Create a merge commit"** (وليس Squash، وليس Rebase) — هذا يحفظ حدود الـ PRs الفردية في تاريخ `main` ويساعد release-please يولّد changelog منظم.
 
-4. على جهازك:
+4. بمجرد ما يدخل الـ merge على `main`، يعمل `release-please` workflow و:
+   - يفتح (أو يحدّث) PR عنوانه `release: vX.Y.Z` على `main`.
+   - في الـ body: قائمة بكل الـ commits مقسّمة حسب النوع (Features، Bug Fixes، إلخ). هذا الـ changelog المقترح.
+   - في الـ diff: تحديث `package.json` + إضافة قسم جديد في `CHANGELOG.md`.
 
-```bash
-git checkout main
-git pull
-bun run release
-```
+5. راجع الـ release PR، ثم **اضغط "Create a merge commit"** (نفس آلية الخطوة 3). الـ workflow راح:
+   - يعمل tag على commit الـ merge بـ `vX.Y.Z`.
+   - يفتح GitHub Release مع notes تلقائية.
 
-السكربت يسألك تأكيد، ثم:
+6. تحقق من Vercel أنه نشر الـ tag الجديد.
 
-- يرفع رقم النسخة في `package.json`.
-- يضيف قسماً جديداً في `CHANGELOG.md`.
-- يعمل commit و tag.
-- يدفع إلى origin.
-- ينشئ GitHub Release (إذا كان `gh` CLI مثبتاً).
+7. افتح PR من `main` إلى `dev` يحمل commits release-please (رفع الإصدار + تحديث CHANGELOG) رجوعاً إلى `dev`. عنوانه: `chore: sync vX.Y.Z release commits back to dev`.
 
-1. تحقق من Vercel أنه نشر الـ tag الجديد.
-
-2. زامن commit الإصدار إلى `dev`:
-
-```bash
-git checkout dev
-git pull
-git merge main
-git push
-```
+**لا تشغّل أي أمر محلي للإصدار.** إذا وجدت نفسك تكتب `npm version` أو `git tag v...` — توقّف. الـ bot يعمل ذلك.
 
 ---
 
-## إصدار نسخة جديدة (Release)
+## إصدار نسخة جديدة — مرجع release-please
 
-السكربت موجود في [`scripts/release.mjs`](scripts/release.mjs).
+نستخدم [release-please](https://github.com/googleapis/release-please) من Google لأتمتة الإصدارات. **لا يوجد أمر محلي للإصدار** — كل شيء يحدث عبر الـ bot استجابةً لـ commits على `main`.
 
-### المتطلبات قبل التشغيل
+### كيف يشتغل
 
-- أنت على فرع `main`.
-- لا توجد تغييرات غير محفوظة (`git status` نظيف).
-- `main` المحلي متزامن مع `origin/main`.
-- (اختياري) `gh` CLI مثبت ومُسجَّل دخوله — حتى ينشئ GitHub Release تلقائياً.
+1. الـ workflow [`.github/workflows/release-please.yml`](.github/workflows/release-please.yml) يعمل عند كل push إلى `main`.
+2. يفحص رسائل Conventional Commits منذ آخر tag بصيغة `v*.*.*`.
+3. يفتح (أو يحدّث) PR واحد على `main` عنوانه `release: vX.Y.Z` ويحوي:
+   - رفع النسخة في `package.json` و `.release-please-manifest.json`.
+   - إضافة قسم جديد في `CHANGELOG.md` يجمّع الـ commits حسب النوع.
+4. دمج هذا الـ PR بـ **"Create a merge commit"** يطلق الـ action مرة ثانية، فيعمل:
+   - tag على commit الـ merge بـ `vX.Y.Z`.
+   - يفتح GitHub Release بصفحة notes مولّدة.
+5. Vercel ينشر الـ tag تلقائياً.
 
-### كيفية تثبيت `gh` CLI
+### الإعدادات
 
-- ويندوز: `winget install --id GitHub.cli`
-- ماك: `brew install gh`
-- ثم: `gh auth login` واتبع التعليمات.
+- [`release-please-config.json`](release-please-config.json) — نوع الإصدار (`node`)، نمط عنوان الـ PR (`release: v${version}`)، أنواع الـ commits التي تظهر في الـ changelog وتحت أي قسم.
+- [`.release-please-manifest.json`](.release-please-manifest.json) — النسخة *الحالية*. release-please يكتب هنا عند كل إصدار؛ لا تعدّله يدوياً.
 
-### الأوامر
+### كيفية فرض قفزة معيّنة
 
-```bash
-# إصدار عادي — يحسب رقم النسخة تلقائياً من commits منذ آخر tag
-bun run release
+الافتراضي: `feat:` → minor، `fix/perf/refactor/...` → patch، `!`/`BREAKING CHANGE` → major. لتجاوز هذا:
 
-# معاينة فقط، بدون أي تعديل
-bun run release -- --dry-run
-
-# إجبار نوع معين من القفز
-bun run release -- --major
-bun run release -- --minor
-bun run release -- --patch
-
-# تخطي التأكيد التفاعلي (y/n)
-bun run release -- --yes
-
-# عدم الدفع (للتجربة)
-bun run release -- --skip-push
-
-# عدم إنشاء GitHub Release (فقط tag محلي + دفع)
-bun run release -- --skip-gh
-```
+- **على مستوى commit:** أضف footer `Release-As: 1.2.0` إلى نص رسالة الـ commit.
+- **على مستوى PR الإصدار:** عدّل وصف الـ release PR وأضف `Release-As: 1.2.0` على سطر مستقل. ادفع أي commit إلى `main` (حتى لو فاضي) ليحدّث الـ PR.
 
 ### قواعد ترقيم الإصدارات لهذا الموقع
 
@@ -339,7 +300,10 @@ bun run release -- --skip-gh
 - **MINOR (0.X.0)** — صفحة جديدة، قسم جديد، ميزة بارزة على صفحة موجودة.
 - **PATCH (0.0.X)** — إصلاح bug، تصحيح محتوى، تحسين أداء، تحديث dependency، أي شيء غير ظاهر للمستخدم تقريباً.
 
-السكربت يحدد القفزة تلقائياً من رسائل الـ commit: أي `feat:` يطلق **minor**، أي `!` أو `BREAKING CHANGE` يطلق **major**، وإلا **patch**. الـ flags `--major | --minor | --patch` تتجاوز الكشف التلقائي.
+### المشاكل الشائعة
+
+- **release PR ما انفتح؟** يعني ما في commits تستحق إصدار منذ آخر tag. فقط `feat` / `fix` / `perf` / `refactor` / `revert` / breaking-change تطلق إصداراً. تشغيل بـ commits من نوع `chore`/`docs`/`ci`/`style` فقط يتم تجاهله — هذا متعمد.
+- **release PR يعرض نسخة خاطئة؟** راجع أنواع الـ commits منذ آخر tag — `BREAKING CHANGE:` مفقود أو `feat:` تائه ممكن يقلب القفزة.
 
 ---
 
@@ -467,7 +431,7 @@ git branch recovered-work <hash>
 - ❌ **PR واحد يصلح ستة أشياء غير مرتبطة.** المراجِع لا يستطيع فهمه، وأي revert يدمّر خمسة تغييرات جيدة.
 - ❌ **خلط refactor مع bugfix.** اشحن الإصلاح وحده، افتح PR منفصل للـ refactor بعدها.
 - ❌ **فروع طويلة العمر** (تذكّر `feature/project-restructure`). إما تشحنها بقطع وراء feature flags أو تقتلها. الفروع الأقدم من أسبوعين نادراً ما تُدمج بسلاسة.
-- ❌ **رفع `package.json.version` يدوياً أو إنشاء tag يدوياً.** استخدم `bun run release`.
+- ❌ **رفع `package.json.version` يدوياً أو إنشاء tag يدوياً.** release-please يملك النسخة والـ tag — دعه يعمل.
 - ❌ **دفع tag قبل دفع commit الإصدار.** السكربت يفعل ذلك بالترتيب الصحيح — لا تعد ترتيبها.
 - ❌ **تعديل أقسام محرّرة سابقاً في `CHANGELOG.md`.** الإصلاح يكون للأمام. التاريخ يهم.
 - ❌ **`git push --force` على فرع مشترك.** كارثة. استخدم `--force-with-lease` على فرعك الشخصي فقط.

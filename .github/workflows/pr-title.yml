@@ -24,6 +24,7 @@ jobs:
             ci
             chore
             revert
+            release
           requireScope: false
           subjectPattern: ^[^A-Z].+$
           subjectPatternError: |
