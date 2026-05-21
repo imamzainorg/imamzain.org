@@ -5,63 +5,97 @@ import { motion } from "framer-motion";
 import { GraduationCap } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 
-import { SearchSection }   from "./shared/search-section";
-import { ResearchCard, ResearchGrid, EmptyState, type CardData } from "./shared/research-card";
+import { SearchSection } from "./shared/search-section";
+import {
+  ResearchCard,
+  ResearchGrid,
+  EmptyState,
+  type CardData,
+} from "./shared/research-card";
 import { ResearchTable, type TableRow } from "./shared/research-table";
 import { SwiperPagination } from "./shared/swiper-pagination";
 
-import studentData       from "@/data/student.json";
+import studentData from "@/data/student.json";
 import { StudentResearch } from "@/types/student";
 
-// ─── ثوابت ────────────────────────────────────────────────────────────────────
+// ─── Types ─────────────────────────────────────────────────────
 
 type DegreeType = "all" | "bachelor" | "master" | "phd";
 
+// ─── Constants ─────────────────────────────────────────────────
+
 const TABS = [
-  { id: "all",      label: "الكل"      },
+  { id: "all", label: "الكل" },
   { id: "bachelor", label: "بكالوريوس" },
-  { id: "master",   label: "ماجستير"   },
-  { id: "phd",      label: "دكتوراه"   },
+  { id: "master", label: "ماجستير" },
+  { id: "phd", label: "دكتوراه" },
 ] as const;
 
 const CATEGORY_MAP: Record<string, string> = {
   bachelor: "بكالوريوس",
-  master:   "رسالة ماجستير",
-  phd:      "دكتوراه",
+  master: "رسالة ماجستير",
+  phd: "دكتوراه",
 };
 
 const PER_PAGE = 21;
 
-// ─── helpers ──────────────────────────────────────────────────────────────────
+const SORT_OPTIONS = [
+  { value: "year-desc", label: "الأحدث" },
+  { value: "year-asc", label: "الأقدم" },
+  { value: "title-asc", label: "العنوان (أ-ي)" },
+  { value: "title-desc", label: "العنوان (ي-أ)" },
+  { value: "author-asc", label: "المؤلف (أ-ي)" },
+];
 
-/** نفس بنية toCard في journals — الكرت موحّد 100% */
-function toCard(item: StudentResearch, t: StudentResearch["translations"][0]): CardData {
+// ─── Helpers ───────────────────────────────────────────────────
+
+function toCard(
+  item: StudentResearch,
+  t: StudentResearch["translations"][0],
+): CardData {
   return {
-    id:              item.id,
-    title:           t.title,
-    authors:         t.authors,
-    publishedYear:   item.publishedYear,
-    badge:           t.publicationVenue,   // الناشر — نفس الـ journals
-    badgeSecondary:  t.category,           // الدرجة العلمية (amber badge)
-    pdfUrl:          item.pdfUrl,
+    id: item.id,
+    title: t.title,
+    authors: t.authors,
+    publishedYear: item.publishedYear,
+    badge: t.publicationVenue,
+    badgeSecondary: t.category,
+    pdfUrl: item.pdfUrl,
   };
 }
 
-function toRow(item: StudentResearch, t: StudentResearch["translations"][0]): TableRow {
-  return { id: item.id, title: t.title, authors: t.authors,
-           publicationVenue: t.publicationVenue, language: t.language,
-           category: t.category, publishedYear: item.publishedYear, pdfUrl: item.pdfUrl };
+function toRow(
+  item: StudentResearch,
+  t: StudentResearch["translations"][0],
+): TableRow {
+  return {
+    id: item.id,
+    title: t.title,
+    authors: t.authors,
+    publicationVenue: t.publicationVenue,
+    language: t.language,
+    category: t.category,
+    publishedYear: item.publishedYear,
+    pdfUrl: item.pdfUrl,
+  };
 }
 
-// ─── Component ────────────────────────────────────────────────────────────────
+// ─── Component ─────────────────────────────────────────────────
 
 export default function StudentResearchPage() {
   const sp = useSearchParams();
-  const [activeTab, setActiveTab]     = useState<DegreeType>(() => (sp.get("degree") as DegreeType) || "all");
-  const [search, setSearch]           = useState("");
-  const [viewMode, setViewMode]       = useState<"cards" | "table">("cards");
+
+  const [activeTab, setActiveTab] = useState<DegreeType>(
+    () => (sp.get("degree") as DegreeType) || "all",
+  );
+
+  const [search, setSearch] = useState("");
+  const [viewMode, setViewMode] = useState<"cards" | "table">("cards");
   const [highlightId, setHighlightId] = useState<string | null>(null);
-  const [page, setPage]               = useState(1);
+  const [page, setPage] = useState(1);
+  const [sortBy, setSortBy] = useState("year-desc");
+
+  // ─── Tabs ───────────────────────────────────────────────────
 
   const handleTab = useCallback((id: string) => {
     setActiveTab(id as DegreeType);
@@ -69,60 +103,142 @@ export default function StudentResearchPage() {
     setPage(1);
   }, []);
 
-  const filtered = useMemo(() => {
-    const base = activeTab === "all"
-      ? (studentData as StudentResearch[])
-      : (studentData as StudentResearch[]).filter((item) =>
-          item.translations.some((t) => t.category === CATEGORY_MAP[activeTab])
-        );
-    if (!search.trim()) return base;
-    const term = search.toLowerCase();
-    return base.filter((item) =>
-      item.translations.some((t) =>
-        t.title.toLowerCase().includes(term) ||
-        t.authors.join(", ").toLowerCase().includes(term) ||
-        t.publicationVenue.toLowerCase().includes(term)
-      )
-    );
-  }, [search, activeTab]);
+  // ─── Filter + Search + Sort ─────────────────────────────────
 
-  const sorted     = useMemo(() => [...filtered].sort((a, b) => parseInt(b.publishedYear) - parseInt(a.publishedYear)), [filtered]);
-  const totalPages = Math.ceil(sorted.length / PER_PAGE);
-  const paginated  = sorted.slice((page - 1) * PER_PAGE, page * PER_PAGE);
-  const tableRows  = paginated.flatMap((item) => item.translations.map((t) => toRow(item, t)));
+  const filtered = useMemo(() => {
+    const all = studentData as StudentResearch[];
+
+    // filter by degree
+    const byCategory =
+      activeTab === "all"
+        ? all
+        : all.filter((item) =>
+            item.translations.some(
+              (t) => t.category === CATEGORY_MAP[activeTab],
+            ),
+          );
+
+    // search
+    const term = search.trim().toLowerCase();
+
+    const searched = !term
+      ? byCategory
+      : byCategory.filter((item) =>
+          item.translations.some(
+            (t) =>
+              t.title?.toLowerCase().includes(term) ||
+              t.authors?.join(", ").toLowerCase().includes(term) ||
+              t.publicationVenue?.toLowerCase().includes(term),
+          ),
+        );
+
+    // sort
+    return [...searched].sort((a, b) => {
+      switch (sortBy) {
+        case "year-desc":
+          return (
+            parseInt(b.publishedYear) - parseInt(a.publishedYear)
+          );
+
+        case "year-asc":
+          return (
+            parseInt(a.publishedYear) - parseInt(b.publishedYear)
+          );
+
+        case "title-asc":
+          return (a.translations[0]?.title ?? "").localeCompare(
+            b.translations[0]?.title ?? "",
+            "ar",
+          );
+
+        case "title-desc":
+          return (b.translations[0]?.title ?? "").localeCompare(
+            a.translations[0]?.title ?? "",
+            "ar",
+          );
+
+        case "author-asc":
+          return (
+            a.translations[0]?.authors?.[0] ?? ""
+          ).localeCompare(
+            b.translations[0]?.authors?.[0] ?? "",
+            "ar",
+          );
+
+        default:
+          return 0;
+      }
+    });
+  }, [search, activeTab, sortBy]);
+
+  // ─── Pagination ─────────────────────────────────────────────
+
+  const totalPages = Math.ceil(filtered.length / PER_PAGE);
+
+  const paginated = filtered.slice(
+    (page - 1) * PER_PAGE,
+    page * PER_PAGE,
+  );
+
+  const tableRows = paginated.flatMap((item) =>
+    item.translations.map((t) => toRow(item, t)),
+  );
 
   const paginate = useCallback((p: number) => {
     setPage(p);
     setHighlightId(null);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }, []);
+
+  // ─── Render ─────────────────────────────────────────────────
 
   return (
     <>
-      {/* header */}
-      <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        className="flex flex-col items-center text-center mb-8">
-        <span className="flex items-center justify-center w-12 h-12 rounded-2xl bg-primary/10 text-primary mb-3">
-          <GraduationCap size={26} />
-        </span>
-        <h2 className="text-xl font-bold text-gray-900 dark:text-white">بحوث الطلاب</h2>
-        <p className="text-sm text-gray-400 dark:text-gray-500 mt-1 max-w-sm leading-relaxed">
-          بحوث البكالوريوس والماجستير والدكتوراه ضمن مشاريع علمية متنوعة
-        </p>
-      </motion.div>
+      <motion.header
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-12"
+      >
+        <div className="flex justify-center mb-4">
+          <GraduationCap
+            size={48}
+            className="text-primary"
+            aria-hidden="true"
+          />
+        </div>
 
-      {/* SearchSection — مع tabs */}
+        <h2 className="text-body font-bold text-gray-900 dark:text-white mb-3">
+          بحوث الطلاب
+        </h2>
+
+        <p className="text-gray-600 text-note leading-8 dark:text-gray-300 max-w-2xl mx-auto">
+          بحوث طلاب البكالوريوس والماجستير والدكتوراه ضمن مشاريع علمية متنوعة.
+        </p>
+      </motion.header>
+
       <SearchSection
         searchValue={search}
-        onSearchChange={(v) => { setSearch(v); setPage(1); }}
+        onSearchChange={(v) => {
+          setSearch(v);
+          setPage(1);
+        }}
         searchPlaceholder={
           activeTab === "all"
             ? "ابحث في جميع البحوث..."
-            : `ابحث في ${TABS.find((t) => t.id === activeTab)?.label}...`
+            : `ابحث في ${
+                TABS.find((t) => t.id === activeTab)?.label
+              }...`
         }
-        resultCount={sorted.length}
+        resultCount={filtered.length}
         resultUnit="بحث"
+        sortOptions={SORT_OPTIONS}
+        sortValue={sortBy}
+        onSortChange={setSortBy}
         viewMode={viewMode}
         onViewModeChange={setViewMode}
         tabs={[...TABS]}
@@ -130,29 +246,44 @@ export default function StudentResearchPage() {
         onTabChange={handleTab}
       />
 
-      {/* المحتوى */}
-      {sorted.length === 0 ? (
-        <EmptyState onReset={() => { setSearch(""); setActiveTab("all"); }} />
+      {filtered.length === 0 ? (
+        <EmptyState
+          onReset={() => {
+            setSearch("");
+            setActiveTab("all");
+          }}
+        />
       ) : viewMode === "table" ? (
         <ResearchTable
           rows={tableRows}
           startIndex={(page - 1) * PER_PAGE}
           highlightId={highlightId}
           onRowClick={setHighlightId}
-          onRowDoubleClick={(url) => url && window.open(url, "_blank")}
+          onRowDoubleClick={(url) =>
+            url && window.open(url, "_blank")
+          }
           showCategory
         />
       ) : (
         <ResearchGrid>
           {paginated.map((item) =>
             item.translations.map((t) => (
-              <ResearchCard key={`${item.id}-${t.languageid}`} item={toCard(item, t)} />
-            ))
+              <ResearchCard
+                key={`${item.id}-${t.languageid}`}
+                item={toCard(item, t)}
+              />
+            )),
           )}
         </ResearchGrid>
       )}
 
-      {totalPages > 1 && <SwiperPagination currentPage={page} totalPages={totalPages} onPageChange={paginate} />}
+      {totalPages > 1 && (
+        <SwiperPagination
+          currentPage={page}
+          totalPages={totalPages}
+          onPageChange={paginate}
+        />
+      )}
     </>
   );
 }
