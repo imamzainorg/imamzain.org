@@ -304,6 +304,7 @@ git push -u origin hotfix/audio-download-403
 
 - **release PR ما انفتح؟** يعني ما في commits تستحق إصدار منذ آخر tag. فقط `feat` / `fix` / `perf` / `refactor` / `revert` / breaking-change تطلق إصداراً. تشغيل بـ commits من نوع `chore`/`docs`/`ci`/`style` فقط يتم تجاهله — هذا متعمد.
 - **release PR يعرض نسخة خاطئة؟** راجع أنواع الـ commits منذ آخر tag — `BREAKING CHANGE:` مفقود أو `feat:` تائه ممكن يقلب القفزة.
+- **CI ما اشتغل على release PR / App auth فشل؟** الـ workflow يستخدم GitHub App اسمه `imamzain-release-please` (App ID والمفتاح الخاص محفوظين كـ secrets في الـ repo: `RELEASE_PLEASE_APP_ID` و `RELEASE_PLEASE_APP_PRIVATE_KEY`). إذا تم إلغاء تثبيت الـ App أو حذف الـ secrets أو إبطال المفتاح، الـ workflow راح يفشل برسالة auth واضحة. أعد تثبيت الـ App من Settings → GitHub Apps على مستوى المنظمة وامنحه صلاحية الوصول إلى هذا الـ repo، ثم أعد تشغيل الـ workflow.
 
 ---
 

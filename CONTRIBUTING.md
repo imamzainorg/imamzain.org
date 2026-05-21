@@ -244,7 +244,7 @@ The default is feat→minor, fix/perf/refactor/etc.→patch, `!`/`BREAKING CHANG
 
 - **Release PR not opening?** No releasable commits since the last tag. Only `feat` / `fix` / `perf` / `refactor` / `revert` / breaking-change commits trigger one. A run of only `chore`/`docs`/`ci`/`style` commits is silently ignored, by design.
 - **Release PR shows the wrong version?** Check the commit types since the last tag — a missed `BREAKING CHANGE:` footer or stray `feat:` can flip the bump.
-- **Release PR CI didn't run?** Known limitation: PRs opened by the default `GITHUB_TOKEN` don't trigger other workflows. Either accept it (the PR title format is enforced by the config, and the diff is just version bumps + CHANGELOG) or switch the workflow to a PAT — see release-please-action's docs.
+- **Release PR CI didn't run / App auth failing?** The workflow uses the `imamzain-release-please` GitHub App (App ID + private key are stored as repo secrets `RELEASE_PLEASE_APP_ID` and `RELEASE_PLEASE_APP_PRIVATE_KEY`). If the App is uninstalled from the repo, the secrets are removed, or the private key is revoked, the workflow fails with a clear auth error. Re-install the App at org Settings → GitHub Apps and re-grant access to this repo, then re-run the workflow.
 
 ---
 
