@@ -1,0 +1,25 @@
+{
+  "name": "branch-naming",
+  "target": "branch",
+  "source_type": "Repository",
+  "enforcement": "active",
+  "bypass_actors": [],
+  "conditions": {
+    "ref_name": {
+      "include": ["~ALL"],
+      "exclude": ["refs/heads/main", "refs/heads/dev"]
+    }
+  },
+  "rules": [
+    { "type": "non_fast_forward" },
+    {
+      "type": "branch_name_pattern",
+      "parameters": {
+        "name": "Allowed branch name prefixes",
+        "negate": false,
+        "operator": "regex",
+        "pattern": "^(feat|fix|perf|refactor|chore|docs|test|build|ci|hotfix|release)/.+|^release-please--branches--.+$"
+      }
+    }
+  ]
+}

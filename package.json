@@ -10,8 +10,7 @@
     "clear": "rm -rf .next",
     "knip": "knip",
     "dev:clear": "bun run clear && bun run dev",
-    "analyze": "npx tsx scripts/analyze-audio.ts",
-    "release": "node scripts/release.mjs"
+    "analyze": "npx tsx scripts/analyze-audio.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
