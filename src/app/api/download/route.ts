@@ -1,10 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const ALLOWED_HOSTNAME = "cdn.imamzain.org";
-
 export async function GET(req: NextRequest) {
-  const url = req.nextUrl.searchParams.get("url");
-  const name = req.nextUrl.searchParams.get("name") ?? "audio";
+  const url  = req.nextUrl.searchParams.get("url");
+  const name = req.nextUrl.searchParams.get("name") ?? "file";
 
   if (!url) return new NextResponse("Missing url", { status: 400 });
 
@@ -25,10 +23,21 @@ export async function GET(req: NextRequest) {
 
     const buffer = await res.arrayBuffer();
 
+    // ✅ نحدد النوع والامتداد تلقائياً
+    const ext = url.toLowerCase().split(".").pop();
+    const typeMap: Record<string, string> = {
+      pdf:  "application/pdf",
+      mp3:  "audio/mpeg",
+      mp4:  "video/mp4",
+      wav:  "audio/wav",
+    };
+    const contentType = typeMap[ext ?? ""] ?? "application/octet-stream";
+    const extension   = ext ?? "file";
+
     return new NextResponse(buffer, {
       headers: {
-        "Content-Type": "audio/mpeg",
-        "Content-Disposition": `attachment; filename*=UTF-8''${encodeURIComponent(name)}.mp3`,
+        "Content-Type": contentType,
+        "Content-Disposition": `attachment; filename*=UTF-8''${encodeURIComponent(name)}.${extension}`,
         "Content-Length": buffer.byteLength.toString(),
       },
     });
