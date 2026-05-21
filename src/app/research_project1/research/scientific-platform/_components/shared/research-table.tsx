@@ -32,141 +32,165 @@ export function ResearchTable({
   onRowDoubleClick,
   showCategory = false,
 }: ResearchTableProps) {
+
   return (
-    <div className="overflow-x-auto rounded-2xl border border-gray-100 dark:border-gray-800">
-      <table className="w-full text-sm">
-        <thead>
-          <tr className="
-            bg-gray-50/80 dark:bg-gray-800/60
-            text-gray-500 dark:text-gray-400
-            text-xs font-semibold uppercase tracking-wide
-            border-b border-gray-100 dark:border-gray-800
-          ">
-            <th className="px-4 py-3 text-center w-10">#</th>
-            <th className="px-4 py-3 text-right">اسم البحث</th>
-            <th className="px-4 py-3 text-right">المؤلف</th>
-            <th className="px-4 py-3 text-right">الناشر</th>
-            <th className="px-4 py-3 text-right">اللغة</th>
-            {showCategory && (
-              <th className="px-4 py-3 text-right">المستوى</th>
-            )}
-            <th className="px-4 py-3 text-right">السنة</th>
-            <th className="px-4 py-3 text-right">الصفحات</th>
-            <th className="px-4 py-3 text-center">PDF</th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-gray-50 dark:divide-gray-800/60">
-          <AnimatePresence>
-            {rows.map((row, idx) => {
-              const isHighlighted = highlightId === row.id;
-              return (
-                <motion.tr
-                  key={`${row.id}-${idx}`}
-                  initial={{ opacity: 0, y: 4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.15, delay: idx * 0.02 }}
-                  onClick={() => onRowClick?.(row.id)}
-                  onDoubleClick={() => onRowDoubleClick?.(row.pdfUrl)}
-                  className={`cursor-pointer transition-colors duration-150 ${
-                    isHighlighted
-                      ? "bg-primary/6 dark:bg-primary/12"
-                      : "hover:bg-gray-50/80 dark:hover:bg-gray-800/40"
-                  }`}
-                >
-                  {/* # */}
-                  <td className="px-4 py-3 text-center">
-                    <span className="
-                      inline-flex items-center justify-center
-                      w-6 h-6 rounded-full
-                      bg-gray-100 dark:bg-gray-700
-                      text-[11px] font-medium text-gray-500 dark:text-gray-400
-                    ">
-                      {startIndex + idx + 1}
-                    </span>
-                  </td>
+    <div className="overflow-hidden rounded-2xl border border-gray-100 dark:border-gray-800 dark:bg-gray-900">
+      {/* حاوية تمرير أفقي للموبايل */}
+      <div className="overflow-x-auto touch-pan-x">
+        <table className="min-w-[1100px] w-full table-fixed text-sm">
+          <thead>
+            <tr
+              className="
+              bg-gray-50/80 dark:bg-gray-800/60
+              text-black
+              text-xs md:text-sm lg:text-ellipsis font-semibold uppercase tracking-wide
+              border-b border-gray-100 dark:border-gray-800
+            "
+            >
+              <th className="px-4 py-3 text-center w-14">ت</th>
+              <th className="px-4 py-3 text-right w-[28%]">اسم البحث</th>
+              <th className="px-4 py-3 text-right w-[15%]">المؤلف</th>
+              <th className="px-4 py-3 text-right w-[15%]">الناشر</th>
+              <th className="px-4 py-3 text-right w-[8%]">اللغة</th>
+              {showCategory && (
+                <th className="px-4 py-3 text-right w-[10%]">المستوى العلمي</th>
+              )}
+              <th className="px-4 py-3 text-right w-[8%]">تاريخ الإصدار</th>
+              <th className="px-4 py-3 text-right w-[8%]">عدد الصفحات</th>
+              <th className="px-4 py-3 text-center w-[8%]">التحميل</th>
+            </tr>
+          </thead>
 
-                  {/* العنوان */}
-                  <td className="px-4 py-3 max-w-xs">
-                    <span className={`
-                      text-sm font-medium line-clamp-2 leading-snug
-                      ${isHighlighted ? "text-primary" : "text-gray-800 dark:text-gray-100"}
-                    `}>
-                      {row.title}
-                    </span>
-                  </td>
+          <tbody className=" text-xs md:text-sm lg:text-base bg-white/30 backdrop-blur-xs">
+            <AnimatePresence>
+              {rows.map((row, idx) => {
+                const isHighlighted = highlightId === row.id;
 
-                  {/* المؤلف */}
-                  <td className="px-4 py-3 max-w-[150px]">
-                    <span className="text-xs text-gray-500 dark:text-gray-400 truncate block">
-                      {row.authors.join("، ")}
-                    </span>
-                  </td>
+                // دالة لإظهار قيمة افتراضية عند عدم وجود البيانات
+                const displayValue = (value?: string) => value ?? "—";
 
-                  {/* الناشر */}
-                  <td className="px-4 py-3 max-w-[140px]">
-                    <span className="text-xs text-gray-400 dark:text-gray-500 truncate block">
-                      {row.publicationVenue}
-                    </span>
-                  </td>
-
-                  {/* اللغة */}
-                  <td className="px-4 py-3 whitespace-nowrap">
-                    <span className="text-xs text-gray-400 dark:text-gray-500">{row.language}</span>
-                  </td>
-
-                  {/* المستوى */}
-                  {showCategory && (
-                    <td className="px-4 py-3 whitespace-nowrap">
-                      {row.category && (
-                        <span className="
-                          inline-flex px-2 py-0.5 rounded-full
-                          text-[11px] font-medium
-                          bg-amber-50 dark:bg-amber-900/20
-                          text-amber-700 dark:text-amber-400
-                          border border-amber-200/60 dark:border-amber-700/30
-                        ">
-                          {row.category}
-                        </span>
-                      )}
-                    </td>
-                  )}
-
-                  {/* السنة */}
-                  <td className="px-4 py-3 whitespace-nowrap">
-                    <span className="text-xs text-gray-400 dark:text-gray-500">{row.publishedYear}</span>
-                  </td>
-
-                  {/* الصفحات */}
-                  <td className="px-4 py-3 whitespace-nowrap">
-                    <span className="text-xs text-gray-400 dark:text-gray-500">{row.pagenam}</span>
-                  </td>
-
-                  {/* PDF */}
-                  <td className="px-4 py-3 text-center">
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        if (row.pdfUrl) window.open(row.pdfUrl, "_blank");
-                      }}
-                      disabled={!row.pdfUrl}
-                      aria-label={`فتح ${row.title}`}
-                      className="
-                        inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-medium
-                        bg-primary/8 text-primary hover:bg-primary hover:text-white
-                        disabled:opacity-30 disabled:cursor-not-allowed
-                        active:scale-95 transition-all duration-150
+                return (
+                  <motion.tr
+                    key={`${row.id}-${idx}`}
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.15, delay: idx * 0.02 }}
+                    onClick={() => onRowClick?.(row.id)}
+                    onDoubleClick={() => onRowDoubleClick?.(row.pdfUrl)}
+                    className={`cursor-pointer transition-colors  duration-150 ${
+                      isHighlighted
+                        ? "bg-primary/20 dark:bg-primary/12 "
+                        : "hover:bg-primary/10 dark:hover:bg-gray-800/40"
+                    }`}
+                  >
+                    {/* الترقيم */}
+                    <td className="px-4 py-4 text-center align-top">
+                      <span
+                        className="
+                        inline-flex items-center justify-center
+                        w-7 h-7 rounded-full
+                       
+                        font-medium
+                        text-black dark:text-gray-400
                       "
-                    >
-                      <FaFilePdf size={11} /> PDF
-                    </button>
-                  </td>
-                </motion.tr>
-              );
-            })}
-          </AnimatePresence>
-        </tbody>
-      </table>
+                      >
+                        {startIndex + idx + 1}
+                      </span>
+                    </td>
+
+                    {/* اسم البحث - يظهر كاملاً */}
+                    <td className="px-4 py-4 align-top">
+                      <span
+                        className={`
+                        block  font-medium leading-7
+                        whitespace-normal break-words
+                        ${
+                          isHighlighted
+                            ? "text-primary"
+                            : "text-black "
+                        }
+                      `}
+                      >
+                        {row.title}
+                      </span>
+                    </td>
+
+                    {/* المؤلف */}
+                    <td className="px-4 py-4 align-top">
+                      <span className="block leading-6 text-black whitespace-normal break-words">
+                        {row.authors.length ? row.authors.join("، ") : "—"}
+                      </span>
+                    </td>
+
+                    {/* الناشر */}
+                    <td className="px-4 py-4 align-top">
+                      <span className="block  leading-6 text-black whitespace-normal break-words">
+                        {displayValue(row.publicationVenue)}
+                      </span>
+                    </td>
+
+                    {/* اللغة */}
+                    <td className="px-4 py-4 align-top">
+                      <span className="block  leading-6 text-black whitespace-normal break-words">
+                        {displayValue(row.language)}
+                      </span>
+                    </td>
+
+                    {/* المستوى العلمي */}
+                    {showCategory && (
+                      <td className="px-4 py-4 align-top">
+                        <span className="block  leading-6 text-black whitespace-normal break-words">
+                          {displayValue(row.category)}
+                        </span>
+                      </td>
+                    )}
+
+                    {/* تاريخ الإصدار */}
+                    <td className="px-4 py-4 align-top">
+                      <span className="block  leading-6 text-black">
+                        {displayValue(row.publishedYear)}
+                      </span>
+                    </td>
+
+                    {/* عدد الصفحات */}
+                    <td className="px-4 py-4 align-top">
+                      <span className="block  leading-6 text-black">
+                        {displayValue(row.pagenam)}
+                      </span>
+                    </td>
+
+                    {/* زر التحميل */}
+                    <td className="px-4 py-4 text-center align-top">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (row.pdfUrl) {
+                            window.open(row.pdfUrl, "_blank");
+                          }
+                        }}
+                        disabled={!row.pdfUrl}
+                        aria-label={`فتح ${row.title}`}
+                        className="
+                        inline-flex items-center justify-center gap-1.5
+                        px-3 py-2 rounded-lg
+                        bg-gradient-to-r
+                        text-secondary font-medium
+                        hover:shadow-lg transition-all
+                        disabled:opacity-40 disabled:cursor-not-allowed
+                      "
+                      >
+                        <FaFilePdf size={11} />
+                        PDF
+                      </button>
+                    </td>
+                  </motion.tr>
+                );
+              })}
+            </AnimatePresence>
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
