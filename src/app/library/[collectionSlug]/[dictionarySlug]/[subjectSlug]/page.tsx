@@ -4,6 +4,8 @@ import SubjectView from "@/app/library/_components/subject-view"
 import SubjectNavigation from "@/app/library/_components/subject-navigation"
 import { collections } from "@/app/library/_config/collections"
 
+export const revalidate = 300
+
 export default async function SubjectPage({
 	params,
 	searchParams,

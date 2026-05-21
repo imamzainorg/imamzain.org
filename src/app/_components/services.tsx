@@ -42,9 +42,9 @@ export default function Services() {
 								alt="icon"
 								className="hidden dark:block"
 							/>
-							<h1 className="text-2xl lg:text-title font-extrabold">
+							<h2 className="text-2xl lg:text-title font-extrabold">
 								الخدمات
-							</h1>
+							</h2>
 						</div>
 
 						<h2 className="text-xl sm:text-2xl lg:text-body font-bold leading-relaxed">

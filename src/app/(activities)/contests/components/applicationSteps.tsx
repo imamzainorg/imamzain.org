@@ -79,10 +79,10 @@ export const ApplyStepper = () => {
             ========================= */
 						"1": () => (
 							<div className="space-y-6">
-								<h1 className="text-body font-bold text-gray-800 flex items-center gap-3">
+								<h2 className="text-body font-bold text-gray-800 flex items-center gap-3">
 									<NewspaperIcon className="w-6 h-6 text-primary" />
 									شروط المشاركة
-								</h1>
+								</h2>
 
 								<ul className="space-y-4">
 									{rules.map((rule, index) => (

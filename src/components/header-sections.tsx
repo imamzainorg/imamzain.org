@@ -33,11 +33,11 @@ export default function HeaderSections({
           alt="title icon"
           className="w-3 sm:w-4 xl:w-5 hidden dark:block"
         />
-        <h1
-          className={`mt-2 text-title  font-extrabold text-primary  dark:text-Muharram_primary ${dark && "dark:text-white"}`}
+        <h2
+          className={`mt-2 text-title  font-extrabold text-primary  dark:text-Muharram_primary ${dark ? "dark:text-white" : ""}`}
         >
           {title}
-        </h1>
+        </h2>
       </div>
       <div
         className="

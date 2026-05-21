@@ -32,14 +32,14 @@ export default function Section({
 					alt="title icon"
 					className="w-3 sm:w-4 xl:w-5 hidden dark:block"
 				/>
-				<h1
+				<h2
 					className={cn(
 						"xs:text-title font-extrabold text-primary dark:text-Muharram_primary",
 						dark && "text-white",
 					)}
 				>
 					{title}
-				</h1>
+				</h2>
 			</div>
 			{text && (
 				<div className="w-11/12 mx-auto text-note">
