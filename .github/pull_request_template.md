@@ -25,7 +25,6 @@ See CONTRIBUTING.md for the full rules.
 - [ ] `ci` — CI / workflow changes
 - [ ] `chore` — tooling / config / content
 - [ ] `docs` — docs only
-- [ ] `hotfix` — production is broken right now (base: `main`)
 - [ ] `release` — release-please-managed release PR (auto-generated; tick only if you understand why)
 
 ## Test plan
@@ -41,7 +40,7 @@ See CONTRIBUTING.md for the full rules.
 
 ## Checklist
 
-- [ ] Branch is up to date with `dev` (or `main` for hotfix)
+- [ ] Branch is up to date with `main`
 - [ ] `bun run lint` passes locally
 - [ ] `bun run build` passes locally
 - [ ] I opened the affected pages in a browser and clicked around

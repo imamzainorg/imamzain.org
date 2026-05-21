@@ -10,15 +10,17 @@ If something here is wrong or unclear, fix it in the same PR as your code change
 
 ## TL;DR — the rules of the road
 
-> Repo admins: see [docs/branch-protection.md](docs/branch-protection.md) to enforce these rules via GitHub's branch protection (blocks direct pushes, force-pushes, and merges without CI / review).
+> Repo admins: see [docs/branch-protection.md](docs/branch-protection.md) and the JSON files in [docs/rulesets/](docs/rulesets/) for the enforcement config (blocks direct pushes, force-pushes, and merges without CI / review).
 
-1. **Never push directly to `main` or `dev`.** Open a PR.
-2. **Branch from `dev`** for features/fixes/chores. Branch from `main` only for hotfixes.
+1. **Never push directly to `main`.** Open a PR.
+2. **Branch from `main`** for every change. Feature branches are short-lived (days, not weeks).
 3. **Use Conventional Commit messages.** `feat: ...`, `fix(scope): ...`, etc. See [§ Commit messages](#commit-messages).
 4. **One PR = one logical change.** Don't bundle a refactor with a bugfix with a dependency bump.
-5. **Squash-merge into `dev`.** Merge-commit `dev → main`. Squash-merge hotfixes into `main`, then PR the same fix into `dev`.
-6. **Releases live on `main`.** Tags + the GitHub Release + `CHANGELOG.md` updates are created by [release-please](https://github.com/googleapis/release-please) — never by hand. Cutting a release = merging the open release PR on `main`.
+5. **Squash-merge into `main`.** The PR title becomes the squash commit message.
+6. **Releases live on `main`.** Tags + the GitHub Release + `CHANGELOG.md` updates are created by [release-please](https://github.com/googleapis/release-please) — never by hand. Cutting a release = merging the open `release: vX.Y.Z` PR that the bot keeps open.
 7. **Delete your branch** after merge.
+
+This is **GitHub Flow**: one long-lived branch (`main`), short-lived feature branches off it, Vercel preview deployments on every PR as your staging environment. No `dev`/`staging` branch — we don't need one.
 
 ---
 
@@ -26,18 +28,16 @@ If something here is wrong or unclear, fix it in the same PR as your code change
 
 | Branch | Purpose | Who pushes | How |
 |---|---|---|---|
-| `main` | Production. What's live on imamzain.org. Always tagged. | Nobody directly | PR from `dev` (release) or `hotfix/*` (emergency) |
-| `dev` | Integration / staging. What goes out in the next release. | Nobody directly | PR from short-lived branches |
-| `feat/<slug>` | New feature, page, or section | You | Branch off `dev`, PR back to `dev` |
-| `fix/<slug>` | Bug fix that isn't urgent (next release is fine) | You | Branch off `dev`, PR back to `dev` |
-| `perf/<slug>` | Performance improvement | You | Branch off `dev`, PR back to `dev` |
-| `refactor/<slug>` | Code restructuring, no behavior change | You | Branch off `dev`, PR back to `dev` |
-| `chore/<slug>` | Tooling, configs, deps, cleanup | You | Branch off `dev`, PR back to `dev` |
-| `docs/<slug>` | Docs only | You | Branch off `dev`, PR back to `dev` |
-| `hotfix/<slug>` | **Production is broken right now.** | You | Branch off `main`, PR to `main` AND `dev` |
-| `release/<x.y.z>` | Optional. Use only for big releases with extra QA. | Release captain | Branch off `dev`, PR to `main` |
+| `main` | Production. What's live on imamzain.org. Always tagged. | Nobody directly | PR from a short-lived branch |
+| `feat/<slug>` | New feature, page, or section | You | Branch off `main`, PR back to `main` |
+| `fix/<slug>` | Bug fix (urgent or not — production fixes use the same prefix, just merge faster) | You | Branch off `main`, PR back to `main` |
+| `perf/<slug>` | Performance improvement | You | Branch off `main`, PR back to `main` |
+| `refactor/<slug>` | Code restructuring, no behavior change | You | Branch off `main`, PR back to `main` |
+| `chore/<slug>` | Tooling, configs, deps, cleanup | You | Branch off `main`, PR back to `main` |
+| `docs/<slug>` | Docs only | You | Branch off `main`, PR back to `main` |
+| `release-please--branches--main` | release-please bot's auto-managed release PR branch. **Don't touch.** | The release-please GitHub App | Auto-created/updated by the bot |
 
-**Branch naming:** kebab-case, descriptive. `fix/swiper-prototype-pollution` good; `fix/bug` bad; `dhiaa-fix` bad.
+**Branch naming:** kebab-case, descriptive. `fix/swiper-prototype-pollution` good; `fix/bug` bad; `dhiaa-fix` bad. Enforced server-side by [`docs/rulesets/branch-naming.json`](docs/rulesets/branch-naming.json).
 
 **Lifetime:** keep branches under a week. If a feature is bigger than a week, break it into smaller PRs that ship behind a flag or in incomplete-but-safe states.
 
@@ -93,8 +93,8 @@ Optional, but encouraged. Use a folder or feature name: `header`, `api`, `librar
 |---|---|---|
 | `fix(security): restore SSRF hostname check in /api/download` | `feat: update header component and audio types` | "update" tells you nothing |
 | `perf(isr): wrap 5 client routes in server-component shells with revalidate=300` | `Implement feature X to enhance user experience and fix bug Y in module Z` | Placeholder text — never commit literal X/Y/Z |
-| `chore(header): replace 1824 typo with dynamic copyright year` | `hotfix:"test"` | Not a hotfix, no scope, useless |
-| `fix(a11y): finish H1 audit deferred from P0-6` | `merge branch dev` | Lowercase, redundant, says nothing |
+| `chore(header): replace 1824 typo with dynamic copyright year` | `hotfix:"test"` | "hotfix" isn't a Conventional Commits type, no scope, useless |
+| `fix(a11y): finish H1 audit deferred from P0-6` | `merge branch main` | Lowercase, redundant, says nothing |
 
 If you find yourself writing "update X" or "fix bug" — stop, think about what *actually* changed, and rewrite. The commit message is read more often than it's written.
 
@@ -102,11 +102,11 @@ If you find yourself writing "update X" or "fix bug" — stop, think about what 
 
 ## Day-in-the-life workflows
 
-### I'm adding a feature
+### I'm adding a feature (or fix, perf, refactor, chore, docs)
 
 ```bash
-git checkout dev
-git pull
+git checkout main
+git pull --ff-only
 git checkout -b feat/contests-leaderboard
 
 # ...do work, commit as you go...
@@ -115,37 +115,34 @@ git commit -m "feat(contests): wire leaderboard to /api/contests/scores"
 git commit -m "test(contests): cover leaderboard sort edge cases"
 
 git push -u origin feat/contests-leaderboard
-# Open PR → base: dev
+# Open PR → base: main
 ```
 
-When the PR is approved:
+When the PR is approved and CI is green:
 
-- **Squash-merge** in the GitHub UI.
-- Edit the squash commit message before confirming — it becomes a single line on `dev`. Make it good: `feat(contests): add leaderboard with sort + pagination`.
+- **Squash-merge** in the GitHub UI (it's the only option allowed by the `main` ruleset, so you can't get this wrong).
+- Make sure the squash commit title is exactly the PR title — that's what lands on `main` and what release-please will read.
 - Delete the branch.
 
-### I'm fixing a non-urgent bug
+### Production is broken — fast fix
 
-Same as above with `fix/<slug>`. It rides along on the next regular release.
-
-### Production is broken — hotfix
+Same flow as above, just with `fix/<slug>` and a sense of urgency:
 
 ```bash
 git checkout main
-git pull
-git checkout -b hotfix/audio-download-403
+git pull --ff-only
+git checkout -b fix/audio-download-403
 
 # minimum viable fix only — no refactoring, no adjacent cleanup
 git commit -m "fix(api): restore allowed-hostname check in /api/download"
 
-git push -u origin hotfix/audio-download-403
-# Open PR #1 → base: main
+git push -u origin fix/audio-download-403
+# Open PR → base: main
 ```
 
-Once that PR is merged to `main`:
+Get it reviewed, merge it. Vercel deploys to production within minutes of the merge. release-please will pick up the `fix:` and add it to its open release PR for the next patch release — merge that whenever you want to tag the version.
 
-1. **release-please will automatically pick up the `fix:` commit** and open (or update) a release PR on `main` titled `release: vX.Y.Z`. Merging that PR cuts the patch release. See [§ I'm cutting a release](#im-cutting-a-release-release-captain).
-2. **Open PR #2** from a `hotfix/audio-download-403-to-dev` branch → base: `dev`. This keeps the fix from being lost when the next `dev → main` PR opens. (Or, after the release is tagged, simply merge `main` into `dev` — but the PR route gets a review.)
+There's no special "hotfix" branch prefix or process. The speed comes from how fast the team reviews and merges, not from a different workflow.
 
 ### I'm cutting a release (release captain)
 
@@ -153,19 +150,14 @@ Releases are automated by [release-please](https://github.com/googleapis/release
 
 The flow:
 
-1. Make sure `dev` is green (CI passing, manual smoke check on the Vercel preview).
-2. Open a PR titled `chore: rollup dev → main for next release` (or a similar `chore:`/`ci:` title) from `dev` → `main`. **Do not use a `release:` title here** — `release:` is reserved for release-please's auto-generated PR on `main`.
-3. Wait for review + CI. **Use the "Create a merge commit" button** (not squash, not rebase) so PR-by-PR boundaries survive into the changelog release-please will generate.
-4. When the merge lands on `main`, the `release-please` workflow runs and either **opens** or **updates** a PR titled `release: vX.Y.Z` against `main`. The body lists every commit by section (Features, Bug Fixes, etc.) and is the changelog preview. Look it over.
-5. Merge that release PR — **with "Create a merge commit"**, same as step 3. The action then:
+1. As `feat:`, `fix:`, `perf:`, etc. PRs land on `main`, release-please keeps an **open PR titled `release: vX.Y.Z`** automatically updated with the new commits.
+2. When you're ready to release, look at that PR. The body lists every commit by section (Features, Bug Fixes, etc.) and is your changelog preview. The diff shows the `package.json` version bump and the new `CHANGELOG.md` section. Look it over.
+3. **Squash-merge** the release PR. The action then:
    - Tags the merge commit `vX.Y.Z`.
-   - Creates the GitHub Release with the generated notes.
-   - Bumps `package.json` (in a prior commit, made when the release PR was opened/updated).
-   - Prepends a new section to `CHANGELOG.md` (same prior commit).
-6. Verify Vercel deployed the new tag to production.
-7. Open a follow-up PR from `main` → `dev` to sync the release-please commits (version bump + CHANGELOG) back to `dev`. Title it `chore: sync vX.Y.Z release commits back to dev`.
+   - Creates the GitHub Release page with the generated notes.
+4. Vercel deploys the new tag.
 
-**You never run a command locally to release.** If you find yourself typing `npm version` or `git tag v...` — stop. The bot does it.
+That's it. **You never run a command locally to release.** If you find yourself typing `npm version` or `git tag v...` — stop. The bot does it.
 
 ---
 
@@ -186,10 +178,10 @@ release-please auto-detects from your commits: any `feat:` triggers MINOR, any `
 Before requesting review:
 
 - [ ] Title follows Conventional Commit format (it'll become the squash commit message).
-- [ ] Branch is up to date with `dev` (or `main` for hotfixes).
+- [ ] Branch is up to date with `main` (the `main` ruleset enforces this — GitHub will prompt you to "Update branch" with one click).
 - [ ] `bun run lint` passes.
 - [ ] `bun run build` passes.
-- [ ] You actually opened the affected page(s) in a browser and clicked around. CI doesn't catch visual regressions.
+- [ ] You actually opened the affected page(s) in the Vercel preview and clicked around. CI doesn't catch visual regressions.
 - [ ] For UI changes: include a screenshot or short clip in the PR body.
 - [ ] PR description has a **Test plan** section that a reviewer can follow.
 - [ ] No leftover `console.log`, `// TODO from me`, or commented-out code.
@@ -200,14 +192,14 @@ Before requesting review:
 
 Drawn from real history on this repo. Each one cost someone time.
 
-- ❌ **Direct push to `dev`.** Even for a one-line fix. Open the PR; the CI run alone is worth it.
-- ❌ **`merge branch dev` commits.** These come from `git pull` on a diverged local branch. Use `git pull --rebase` instead, or set `pull.rebase = true` globally.
+- ❌ **Direct push to `main`.** Even for a one-line fix. Open the PR; the CI run + the Vercel preview alone are worth it. Blocked server-side anyway.
+- ❌ **`merge branch main` commits.** These come from `git pull` on a diverged local branch. Use `git pull --rebase` instead, or set `pull.rebase = true` globally.
 - ❌ **Placeholder commit messages.** `Implement feature X to enhance user experience and fix bug Y in module Z` is on the record forever. Write the real subject.
 - ❌ **One PR fixing six unrelated things.** Reviewer can't reason about it, and one revert blows away five good changes.
 - ❌ **Refactoring while bugfixing.** Ship the fix on its own; open the refactor PR after.
-- ❌ **Long-lived feature branches** (looking at you, `feature/project-restructure`). Either land it in pieces behind flags or kill it. Branches older than 2 weeks rarely merge cleanly.
+- ❌ **Long-lived feature branches.** Branches older than ~1 week rarely merge cleanly because `main` has moved underneath them. Either land in pieces behind flags or kill it.
 - ❌ **Manual `package.json` version bumps** or hand-edited tags. release-please owns version + tag — let it.
-- ❌ **Closing release-please's open release PR.** It'll re-open on the next push to `main`, but you lose the accumulated body edits. If the PR is wrong, fix it in place (edit the description, add a `Release-As:` footer) or push a corrective commit.
+- ❌ **Closing release-please's open release PR.** It'll re-open on the next push to `main`, but you lose any accumulated body edits. If the PR is wrong, fix it in place (edit the description, add a `Release-As:` footer) or push a corrective commit.
 - ❌ **Editing released sections of `CHANGELOG.md`.** Fix forward. The history matters.
 
 ---
@@ -223,7 +215,7 @@ We use [release-please](https://github.com/googleapis/release-please) (Google) t
 3. It opens (or updates) a single PR on `main` titled `release: vX.Y.Z` with:
    - A version bump to `package.json` and `.release-please-manifest.json`.
    - A prepended section in `CHANGELOG.md` grouping commits by type.
-4. Merging that PR with **"Create a merge commit"** triggers the action again, which:
+4. Squash-merging that PR triggers the action again, which:
    - Tags the merge commit `vX.Y.Z`.
    - Creates the GitHub Release page with the generated notes.
 5. Vercel deploys the tag automatically.
@@ -250,8 +242,8 @@ The default is feat→minor, fix/perf/refactor/etc.→patch, `!`/`BREAKING CHANG
 
 ## Questions / changes to this doc
 
-Open a PR. This file is `docs/`-typed, so just:
+Open a PR. This file is `docs`-typed, so just:
 
 ```text
-docs: clarify hotfix-to-dev sync step
+docs: clarify release PR merge instructions
 ```
