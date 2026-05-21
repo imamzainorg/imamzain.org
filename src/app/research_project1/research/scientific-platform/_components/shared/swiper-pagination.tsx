@@ -4,7 +4,10 @@ import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type SwiperCore from "swiper";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
+import { Button } from "@/components/button";
+import "swiper/css";
+import "swiper/css/navigation"; 
+import "swiper/css/pagination";
 interface SwiperPaginationProps {
   currentPage: number;
   totalPages: number;
@@ -23,66 +26,80 @@ export function SwiperPagination({
     swiperRef.current?.slideToLoop(page - 1);
   };
 
-  const btnBase =
-    "flex items-center justify-center w-9 h-9 rounded-xl text-sm font-medium border border-gray-200 dark:border-gray-700 transition-colors duration-150 ";
+  if (totalPages <= 1) return null;
 
   return (
     <nav
-      className="flex justify-center items-center gap-2 mt-10"
+      className="w-11/12 mx-auto flex justify-center my-8"
       aria-label="التنقل بين الصفحات"
     >
-      {/* السابق */}
-      <button
-        onClick={() => currentPage > 1 && go(currentPage - 1)}
-        disabled={currentPage === 1}
-        aria-label="السابق"
-        className={`${btnBase} bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white hover:border-primary disabled:opacity-30 disabled:cursor-not-allowed`}
-      >
-        <ChevronRight size={16} />
-      </button>
-
-      {/* الأرقام */}
-      <div className="w-64">
-        <Swiper
-          onSwiper={(s) => (swiperRef.current = s)}
-          slidesPerView={5}
-          spaceBetween={6}
-          grabCursor
-          loop
-          centeredSlides={false}
+      <div className="flex items-center gap-2">
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => go(currentPage - 1)}
+          disabled={currentPage === 1}
+          aria-label="الصفحة السابقة"
+          className="bg-white text-primary hover:bg-primary dark:text-Muharram_primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
         >
-          {Array.from({ length: totalPages }, (_, i) => {
-            const p = i + 1;
-            const isActive = currentPage === p;
-            return (
-              <SwiperSlide key={p} className="flex justify-center">
-                <button
-                  onClick={() => go(p)}
-                  aria-label={`الصفحة ${p}`}
-                  aria-current={isActive ? "page" : undefined}
-                  className={`${btnBase} ${
-                    isActive
-                      ? "bg-primary text-white border-primary shadow-md shadow-primary/25"
-                      : "bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 hover:bg-primary/10 hover:text-primary hover:border-primary/30"
-                  }`}
-                >
-                  {p}
-                </button>
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
-      </div>
+          <ChevronRight size={20} />
+        </Button>
 
-      {/* التالي */}
-      <button
-        onClick={() => currentPage < totalPages && go(currentPage + 1)}
-        disabled={currentPage === totalPages}
-        aria-label="التالي"
-        className={`${btnBase} bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white hover:border-primary disabled:opacity-30 disabled:cursor-not-allowed`}
-      >
-        <ChevronLeft size={16} />
-      </button>
+        {/* ✅ عرض ثابت يتسع لـ 5 أزرار */}
+        <div style={{ width: "240px", overflow: "hidden" }}>
+          <Swiper
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            slidesPerView={5}
+            spaceBetween={8}
+            grabCursor={true}
+            centeredSlides={false}
+            loop={true}
+            style={{ width: "100%" }}
+          >
+            {Array.from({ length: totalPages }, (_, i) => {
+              const pageNum = i + 1;
+              return (
+                <SwiperSlide
+                  key={pageNum}
+                  // ✅ هذا هو الإصلاح — inline style يجبر السلايد يكون أفقي
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "40px",
+                    height: "40px",
+                  }}
+                >
+                  <Button
+                    variant={currentPage === pageNum ? "default" : "outline"}
+                    onClick={() => go(pageNum)}
+                    className={`w-10 h-10 rounded-lg transition-colors duration-300 ${
+                      currentPage === pageNum
+                        ? "bg-primary dark:bg-Muharram_primary text-white"
+                        : "bg-white text-primary hover:bg-primary dark:text-Muharram_primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
+                    }`}
+                    aria-label={`الصفحة ${pageNum}`}
+                    aria-current={currentPage === pageNum ? "page" : undefined}
+                  >
+                    {pageNum}
+                  </Button>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
+
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => go(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          aria-label="الصفحة التالية"
+          className="bg-white text-primary dark:text-Muharram_primary hover:bg-primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
+        >
+          <ChevronLeft size={20} />
+        </Button>
+      </div>
     </nav>
   );
 }
