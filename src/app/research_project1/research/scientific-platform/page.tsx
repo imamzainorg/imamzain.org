@@ -4,7 +4,6 @@ import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { BookCopyIcon, GraduationCapIcon, NewspaperIcon } from "lucide-react";
-
 import StudentResearch   from "./_components/student-research";
 import Journals          from "./_components/journals";
 import ConferencePapers  from "./_components/conference-papers";
@@ -13,7 +12,6 @@ import Breadcrumbs       from "@/components/breadcrumb";
 // ─── أنواع ────────────────────────────────────────────────────────────────────
 
 type ActiveView = "student-research" | "conferences" | "journals";
-
 const TABS = [
   { id: "conferences",     icon: NewspaperIcon,     title: "بحوث المؤتمرات" },
   { id: "student-research",icon: GraduationCapIcon, title: "بحوث التخرج"    },
@@ -36,7 +34,6 @@ function PageContent() {
           { name: "بوابة البحث العلمي", url: "/research" },
         ]}
       />
-
       {/* ── Tab switcher ── */}
       <div className=" flex flex-wrap justify-center items-center gap-4 mt-6 mb-12">
         {TABS.map((tab) => {
@@ -78,7 +75,6 @@ function PageContent() {
           );
         })}
       </div>
-
       {/* ── المحتوى ── */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -96,7 +92,6 @@ function PageContent() {
     </div>
   );
 }
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function Page() {
