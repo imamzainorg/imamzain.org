@@ -44,3 +44,9 @@ next-env.d.ts
 
 # ai helpers
 CLAUDE.md
+.claude/
+.codex/
+.copilot/
+
+# editor settings
+.vscode/

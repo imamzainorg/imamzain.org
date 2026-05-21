@@ -117,7 +117,7 @@ function ImportantNote({ children }: { children: React.ReactNode }) {
 
 export default function Page() {
 	return (
-		<main className="min-h-screen">
+		<main className="container">
 			{/* Breadcrumbs */}
 			<div className="px-4 sm:px-6 lg:px-8 pt-8">
 				<Breadcrumbs
@@ -222,7 +222,7 @@ export default function Page() {
 			</section>
 
 			{/* Rules and Instructions Section */}
-			<section className="px-4 sm:px-6 lg:px-8 py-16 bg-gradient-to-br from-slate-50 to-white">
+			<section className="px-4 sm:px-6 lg:px-8 py-16">
 				<div className="max-w-5xl mx-auto">
 					<div className="text-center space-y-4 mb-12">
 						<div className="inline-flex items-center gap-3 bg-primary/10 border border-primary/20 px-6 py-3 rounded-2xl">
