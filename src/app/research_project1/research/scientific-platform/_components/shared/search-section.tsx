@@ -2,7 +2,14 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, X, Filter, LayoutGrid, Table2, ChevronDown } from "lucide-react";
+import {
+  Search,
+  X,
+  Filter,
+  LayoutGrid,
+  Table2,
+  ChevronDown,
+} from "lucide-react";
 
 // ─── أنواع ────────────────────────────────────────────────────────────────────
 
@@ -79,19 +86,21 @@ export function SearchSection({
 
   return (
     <div className="mb-6 space-y-3">
-
       {/* ── Tabs (اختياري) ── */}
       {tabs && tabs.length > 0 && (
-        <nav className="flex flex-wrap items-center gap-2" aria-label="تصفية">
+        <nav
+          className="flex justify-center items-center gap-4 mb-6 flex-wrap"
+          aria-label="فلترة حسب الدرجة العلمية"
+        >
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => onTabChange?.(tab.id)}
               aria-current={activeTab === tab.id ? "page" : undefined}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
+              className={`px-5 py-2 rounded-full font-medium transition-all duration-300 ${
                 activeTab === tab.id
-                  ? "bg-primary text-white shadow-md shadow-primary/25"
-                  : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-primary/10 hover:text-primary"
+                  ? "bg-primary text-white shadow-lg scale-105"
+                  : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600"
               }`}
             >
               {tab.label}
@@ -101,12 +110,14 @@ export function SearchSection({
       )}
 
       {/* ── شريط البحث الرئيسي ── */}
-      <div className="
+      <div
+        className="
         flex flex-col sm:flex-row gap-2
         bg-white dark:bg-gray-900
         border border-gray-100 dark:border-gray-800
         rounded-2xl shadow-sm p-3
-      ">
+      "
+      >
         {/* Search input */}
         <div className="relative flex-1">
           <Search
@@ -159,7 +170,9 @@ export function SearchSection({
               "
             >
               {sortOptions.map((o) => (
-                <option key={o.value} value={o.value}>{o.label}</option>
+                <option key={o.value} value={o.value}>
+                  {o.label}
+                </option>
               ))}
             </select>
           )}
@@ -171,20 +184,23 @@ export function SearchSection({
               className={`
                 flex items-center gap-1.5 px-3 py-2.5 rounded-xl text-sm font-semibold
                 border transition-all duration-200
-                ${showFilters
-                  ? "bg-primary text-white border-primary"
-                  : "bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-400 border-gray-100 dark:border-gray-700 hover:text-primary hover:border-primary/30"
+                ${
+                  showFilters
+                    ? "bg-primary text-white border-primary"
+                    : "bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-400 border-gray-100 dark:border-gray-700 hover:text-primary hover:border-primary/30"
                 }
               `}
             >
               <Filter size={14} />
               فلاتر
               {totalActive > 0 && (
-                <span className={`
+                <span
+                  className={`
                   text-[10px] font-bold rounded-full w-4 h-4
                   flex items-center justify-center
                   ${showFilters ? "bg-white text-primary" : "bg-primary text-white"}
-                `}>
+                `}
+                >
                   {totalActive}
                 </span>
               )}
@@ -235,12 +251,16 @@ export function SearchSection({
             transition={{ duration: 0.22, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="
+            <div
+              className="
               bg-white dark:bg-gray-900
               border border-gray-100 dark:border-gray-800
               rounded-2xl p-4 shadow-sm
-            ">
-              <div className={`grid gap-3 ${filters.length === 1 ? "grid-cols-1" : filters.length === 2 ? "grid-cols-2" : "grid-cols-1 md:grid-cols-3"}`}>
+            "
+            >
+              <div
+                className={`grid gap-3 ${filters.length === 1 ? "grid-cols-1" : filters.length === 2 ? "grid-cols-2" : "grid-cols-1 md:grid-cols-3"}`}
+              >
                 {filters.map((f) => (
                   <div key={f.key}>
                     <label className="block text-xs font-semibold text-gray-400 dark:text-gray-500 mb-1.5 uppercase tracking-wide">
@@ -259,7 +279,9 @@ export function SearchSection({
                     >
                       <option value="">{f.placeholder}</option>
                       {f.options.map((o) => (
-                        <option key={o} value={o}>{o}</option>
+                        <option key={o} value={o}>
+                          {o}
+                        </option>
                       ))}
                     </select>
                   </div>
@@ -288,14 +310,7 @@ export function SearchSection({
           </span>{" "}
           {resultUnit}
         </p>
-        {totalActive > 0 && (
-          <button
-            onClick={clearAll}
-            className="text-xs text-gray-400 hover:text-red-400 transition-colors flex items-center gap-1"
-          >
-            <X size={11} /> مسح الفلاتر
-          </button>
-        )}
+  
       </div>
     </div>
   );
