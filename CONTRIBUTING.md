@@ -17,7 +17,7 @@ If something here is wrong or unclear, fix it in the same PR as your code change
 3. **Use Conventional Commit messages.** `feat: ...`, `fix(scope): ...`, etc. See [§ Commit messages](#commit-messages).
 4. **One PR = one logical change.** Don't bundle a refactor with a bugfix with a dependency bump.
 5. **Squash-merge into `dev`.** Merge-commit `dev → main`. Squash-merge hotfixes into `main`, then PR the same fix into `dev`.
-6. **Releases live on `main`.** Tags are created by `bun run release` — never by hand.
+6. **Releases live on `main`.** Tags + the GitHub Release + `CHANGELOG.md` updates are created by [release-please](https://github.com/googleapis/release-please) — never by hand. Cutting a release = merging the open release PR on `main`.
 7. **Delete your branch** after merge.
 
 ---
@@ -45,7 +45,7 @@ If something here is wrong or unclear, fix it in the same PR as your code change
 
 ## Commit messages
 
-We follow [Conventional Commits](https://www.conventionalcommits.org/). The release script reads these to decide version bumps and generate the changelog, so they're not cosmetic.
+We follow [Conventional Commits](https://www.conventionalcommits.org/). [release-please](https://github.com/googleapis/release-please) reads these to decide version bumps and generate the changelog, so they're not cosmetic.
 
 ### Format
 
@@ -72,6 +72,7 @@ We follow [Conventional Commits](https://www.conventionalcommits.org/). The rele
 | `ci` | CI/workflow changes | patch |
 | `chore` | Tooling, configs, content, anything that doesn't fit above | patch |
 | `revert` | Reverting a previous commit | patch |
+| `release` | release-please's auto-generated release PR. **Never write this by hand.** | none |
 
 **Breaking change:** add `!` after the type/scope, or a `BREAKING CHANGE:` footer. Bumps **major**.
 
@@ -143,18 +144,28 @@ git push -u origin hotfix/audio-download-403
 
 Once that PR is merged to `main`:
 
-1. Run `bun run release` from `main` — it'll cut a patch (e.g. `v0.4.1 → v0.4.2`).
+1. **release-please will automatically pick up the `fix:` commit** and open (or update) a release PR on `main` titled `release: vX.Y.Z`. Merging that PR cuts the patch release. See [§ I'm cutting a release](#im-cutting-a-release-release-captain).
 2. **Open PR #2** from a `hotfix/audio-download-403-to-dev` branch → base: `dev`. This keeps the fix from being lost when the next `dev → main` PR opens. (Or, after the release is tagged, simply merge `main` into `dev` — but the PR route gets a review.)
 
 ### I'm cutting a release (release captain)
 
+Releases are automated by [release-please](https://github.com/googleapis/release-please). Workflow: [`.github/workflows/release-please.yml`](.github/workflows/release-please.yml), config: [`release-please-config.json`](release-please-config.json), manifest: [`.release-please-manifest.json`](.release-please-manifest.json).
+
+The flow:
+
 1. Make sure `dev` is green (CI passing, manual smoke check on the Vercel preview).
-2. Open a PR titled `release: vX.Y.Z` from `dev` → `main`. Body: bullet list of headline changes.
-3. Wait for review + CI. **Use the "Create a merge commit" button** (not squash, not rebase) so PR-by-PR boundaries survive into the changelog.
-4. `git checkout main && git pull`
-5. `bun run release` — confirm the auto-detected bump, watch it tag and publish a GitHub Release.
+2. Open a PR titled `chore: rollup dev → main for next release` (or a similar `chore:`/`ci:` title) from `dev` → `main`. **Do not use a `release:` title here** — `release:` is reserved for release-please's auto-generated PR on `main`.
+3. Wait for review + CI. **Use the "Create a merge commit" button** (not squash, not rebase) so PR-by-PR boundaries survive into the changelog release-please will generate.
+4. When the merge lands on `main`, the `release-please` workflow runs and either **opens** or **updates** a PR titled `release: vX.Y.Z` against `main`. The body lists every commit by section (Features, Bug Fixes, etc.) and is the changelog preview. Look it over.
+5. Merge that release PR — **with "Create a merge commit"**, same as step 3. The action then:
+   - Tags the merge commit `vX.Y.Z`.
+   - Creates the GitHub Release with the generated notes.
+   - Bumps `package.json` (in a prior commit, made when the release PR was opened/updated).
+   - Prepends a new section to `CHANGELOG.md` (same prior commit).
 6. Verify Vercel deployed the new tag to production.
-7. Open a follow-up PR from `main` → `dev` to sync the release commit back to `dev` (the `chore(release): vX.Y.Z` commit). Or fast-forward locally and push if your branch protection allows it.
+7. Open a follow-up PR from `main` → `dev` to sync the release-please commits (version bump + CHANGELOG) back to `dev`. Title it `chore: sync vX.Y.Z release commits back to dev`.
+
+**You never run a command locally to release.** If you find yourself typing `npm version` or `git tag v...` — stop. The bot does it.
 
 ---
 
@@ -166,7 +177,7 @@ Because we ship a website (not a library), SemVer translates as:
 - **MINOR (0.X.0)** — adding a new page or section, new feature on an existing page that's prominent enough to mention in marketing.
 - **PATCH (0.0.X)** — bug fix, content typo, performance improvement, dependency bump, style tweak, anything invisible-to-mostly-invisible to users.
 
-The release script auto-detects from your commits: any `feat:` triggers MINOR, any `!` or `BREAKING CHANGE` footer triggers MAJOR, otherwise PATCH. Override with `--major | --minor | --patch` if the auto-detection is wrong (rare).
+release-please auto-detects from your commits: any `feat:` triggers MINOR, any `!` or `BREAKING CHANGE` footer triggers MAJOR, otherwise PATCH. To force a specific bump (e.g. mark a `feat:` as MAJOR), add a `Release-As: X.Y.Z` footer to the commit body, or amend the open release PR's description with a `Release-As:` footer.
 
 ---
 
@@ -195,47 +206,45 @@ Drawn from real history on this repo. Each one cost someone time.
 - ❌ **One PR fixing six unrelated things.** Reviewer can't reason about it, and one revert blows away five good changes.
 - ❌ **Refactoring while bugfixing.** Ship the fix on its own; open the refactor PR after.
 - ❌ **Long-lived feature branches** (looking at you, `feature/project-restructure`). Either land it in pieces behind flags or kill it. Branches older than 2 weeks rarely merge cleanly.
-- ❌ **Manual `package.json` version bumps** or hand-edited tags. Use `bun run release`.
-- ❌ **Pushing tags before pushing the release commit.** The script does this in the right order — don't reorder it.
+- ❌ **Manual `package.json` version bumps** or hand-edited tags. release-please owns version + tag — let it.
+- ❌ **Closing release-please's open release PR.** It'll re-open on the next push to `main`, but you lose the accumulated body edits. If the PR is wrong, fix it in place (edit the description, add a `Release-As:` footer) or push a corrective commit.
 - ❌ **Editing released sections of `CHANGELOG.md`.** Fix forward. The history matters.
 
 ---
 
-## Releasing — script reference
+## Releasing — release-please reference
 
-The script lives at [`scripts/release.mjs`](scripts/release.mjs). Run it from the repo root, on the `main` branch, with a clean working tree.
+We use [release-please](https://github.com/googleapis/release-please) (Google) to automate releases. There is no local release command — everything happens through the bot reacting to commits on `main`.
 
-```bash
-# Standard release: auto-detect bump from commits since last tag
-bun run release
+### How it works
 
-# Preview without writing anything
-bun run release -- --dry-run
+1. The workflow [`.github/workflows/release-please.yml`](.github/workflows/release-please.yml) runs on every push to `main`.
+2. It scans Conventional Commits since the last `v*.*.*` tag.
+3. It opens (or updates) a single PR on `main` titled `release: vX.Y.Z` with:
+   - A version bump to `package.json` and `.release-please-manifest.json`.
+   - A prepended section in `CHANGELOG.md` grouping commits by type.
+4. Merging that PR with **"Create a merge commit"** triggers the action again, which:
+   - Tags the merge commit `vX.Y.Z`.
+   - Creates the GitHub Release page with the generated notes.
+5. Vercel deploys the tag automatically.
 
-# Force a specific bump
-bun run release -- --major
-bun run release -- --minor
-bun run release -- --patch
+### Configuration
 
-# Skip the interactive y/n confirmation
-bun run release -- --yes
+- [`release-please-config.json`](release-please-config.json) — release type (`node`), PR title pattern (`release: v${version}`), which commit types appear in the changelog and under which section heading.
+- [`.release-please-manifest.json`](.release-please-manifest.json) — the *current* version. release-please writes here on every release; you should never edit it by hand.
 
-# Don't push the tag (useful for testing)
-bun run release -- --skip-push
+### Forcing a specific bump
 
-# Don't create the GitHub Release page (just tag locally and push)
-bun run release -- --skip-gh
-```
+The default is feat→minor, fix/perf/refactor/etc.→patch, `!`/`BREAKING CHANGE`→major. To override:
 
-The script will:
+- **Per-commit:** add a `Release-As: 1.2.0` footer to the commit message body.
+- **Per release PR:** edit the open release PR's description and add `Release-As: 1.2.0` on its own line. Push any commit to `main` (even a no-op) to refresh.
 
-1. Verify you're on `main`, clean, in sync with `origin/main`.
-2. Find the last `vX.Y.Z` tag, scan commits since.
-3. Categorize commits by type, decide the bump.
-4. Show you a preview of the new version + changelog section.
-5. On confirm: update `package.json`, prepend to `CHANGELOG.md`, commit, tag, push, create GitHub Release.
+### Common pitfalls
 
-If `gh` CLI isn't installed, the GitHub Release step is skipped with a warning — the tag still pushes, and you can create the Release manually in the UI.
+- **Release PR not opening?** No releasable commits since the last tag. Only `feat` / `fix` / `perf` / `refactor` / `revert` / breaking-change commits trigger one. A run of only `chore`/`docs`/`ci`/`style` commits is silently ignored, by design.
+- **Release PR shows the wrong version?** Check the commit types since the last tag — a missed `BREAKING CHANGE:` footer or stray `feat:` can flip the bump.
+- **Release PR CI didn't run / App auth failing?** The workflow uses the `imamzain-release-please` GitHub App (App ID + private key are stored as repo secrets `RELEASE_PLEASE_APP_ID` and `RELEASE_PLEASE_APP_PRIVATE_KEY`). If the App is uninstalled from the repo, the secrets are removed, or the private key is revoked, the workflow fails with a clear auth error. Re-install the App at org Settings → GitHub Apps and re-grant access to this repo, then re-run the workflow.
 
 ---
 

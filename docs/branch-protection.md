@@ -4,56 +4,60 @@
 
 This guide locks down the repo so:
 
-- Nobody (including admins, by default) can push directly to `main` or `dev`.
-- Every change must go through a PR with passing CI.
+- Nobody can push directly to `main` or `dev` — every change goes through a PR with passing CI.
 - Branches must follow the naming conventions in [CONTRIBUTING.md](../CONTRIBUTING.md) — `feat/*`, `fix/*`, etc. Anything else is rejected at push time.
 - PR titles must follow Conventional Commits (since we squash-merge, the PR title is the commit message on `dev`).
 - Force pushes and deletions are blocked.
+- Releases on `main` are merged via PRs by [release-please](https://github.com/googleapis/release-please), not by direct push.
 
-There are two layers:
+**Authoritative source of truth: the JSON files in [`docs/rulesets/`](rulesets/).** Sections (A) and (B) below describe the *classic* branch protection approach and are kept for reference only — the active config is the Rulesets imported from those JSONs.
 
-1. **Branch protection** for `main` and `dev` — sections **(A)** (web UI) or **(B)** (`gh` CLI script).
-2. **Repo-wide rules** — section **(C)** (branch-naming Ruleset) and **(D)** (PR-title workflow).
+If you change a rule in the GitHub UI, also update the matching JSON file in the same PR. Otherwise the repo and the running config drift.
+
+## How to import / re-import
+
+1. Repo → **Settings** → **Rules** → **Rulesets** → **New ruleset** → **Import a ruleset**.
+2. Paste the contents of [`docs/rulesets/main.json`](rulesets/main.json) → **Save**. (If a ruleset with the same name already exists, delete the old one first.)
+3. Repeat for [`docs/rulesets/dev.json`](rulesets/dev.json) and [`docs/rulesets/branch-naming.json`](rulesets/branch-naming.json).
 
 ---
 
 ## Recommended rules summary
 
-### `main` (production)
+### `main` (production) — see [`rulesets/main.json`](rulesets/main.json)
 
 | Setting | Value |
 |---|---|
 | Require a pull request before merging | **✓ ON** |
 | Require approvals | **✗ OFF** |
 | Dismiss stale pull request approvals when new commits are pushed | **✓ ON** |
-| Require status checks to pass before merging | **✓ ON** |
-| Required status checks | `ci` (from `predeploy.yml`) |
+| Require status checks to pass | **✓ ON** — `ci` (from `predeploy.yml`) + `lint` (from `pr-title.yml`) |
 | Require branches to be up to date before merging | **✓ ON** |
 | Require conversation resolution before merging | **✓ ON** |
-| Require linear history | **✗ OFF** (we use merge commits for dev → main) |
+| Allowed merge methods | **merge commit only** (preserves `dev → main` PR boundaries for release-please) |
 | Allow force pushes | **✗ OFF** |
 | Allow deletions | **✗ OFF** |
-| Include administrators | **✓ ON** (no bypasses; safer for a small team) |
+| Bypass actors | **none** (releases use PRs, no human or bot pushes here) |
 
-### `dev` (integration)
+### `dev` (integration) — see [`rulesets/dev.json`](rulesets/dev.json)
 
 | Setting | Value |
 |---|---|
 | Require a pull request before merging | **✓ ON** |
 | Require approvals | **✗ OFF** |
 | Dismiss stale approvals on new commits | **✓ ON** |
-| Require status checks to pass | **✓ ON** |
-| Required status checks | `ci` |
-| Require branches to be up to date | **✓ ON** |
-| Require conversation resolution | **✓ ON** |
+| Require status checks to pass | **✓ ON** — `ci` + `lint` |
 | Require linear history | **✓ ON** (we squash-merge into dev) |
+| Allowed merge methods | **squash only** |
 | Allow force pushes | **✗ OFF** |
 | Allow deletions | **✗ OFF** |
-| Include administrators | **✓ ON** |
+| Bypass actors | **none** |
 
 ---
 
-## (A) Setup via GitHub Web UI
+## (A) [Legacy — for reference only] Setup via GitHub Web UI
+
+> ⚠ This section documents the older "classic" Branch Protection approach. We've migrated to **Rulesets** — see the import instructions at the top of this file and the JSON in [`docs/rulesets/`](rulesets/). The steps below are kept so you can recognize/clean up old rules.
 
 You need **admin permission** on the `imamzainorg/imamzain.org` repo.
 
@@ -116,7 +120,9 @@ git reset --hard HEAD~1
 
 ---
 
-## (B) Setup via `gh` CLI script
+## (B) [Legacy — for reference only] Setup via `gh` CLI script
+
+> ⚠ Same caveat as section (A): this targeted the old classic Branch Protection API. The active config is now Rulesets. Keep [`scripts/setup-branch-protection.sh`](../scripts/setup-branch-protection.sh) only if you still need to clean up old classic rules; otherwise it can be deleted.
 
 If you have `gh` installed and authenticated (`gh auth login`), you can apply both rule sets in one command.
 
@@ -158,9 +164,12 @@ build/*
 ci/*
 hotfix/*
 release/*
+release-please--branches--*
 ```
 
 See [CONTRIBUTING.md](../CONTRIBUTING.md#branches) for what each type means.
+
+> The `release-please--branches--*` pattern exists so the [release-please](https://github.com/googleapis/release-please) bot can create its release PR branch on `main` (e.g. `release-please--branches--main`). The pattern is hard-coded by `release-please-action`; we can't shorten it to `release/*`. If you ever migrate off release-please, drop this line.
 
 ### Setup (admin, one-time)
 
@@ -233,29 +242,35 @@ The workflow already runs on every PR, but a red ✗ doesn't block merge until t
 - `git push origin main` and `git push origin dev` will **fail**. This is correct.
 - Everyone must work on a feature branch and open a PR.
 - The PR cannot be merged until:
-  1. CI is green
+  1. CI (`ci` + `lint`) is green
   2. All review threads are resolved
   3. The branch is up to date with the base
-- "Include administrators" means even the repo owner cannot bypass. If you ever need to, you can temporarily disable the rule in Settings → Branches, do the action, then re-enable. **Document why** when you do this (in the team chat or as a commit message).
+- Releases on `main` happen through release-please's auto-generated `release: vX.Y.Z` PR. The bot pushes to a `release-please--branches--main` branch (allowed by [`rulesets/branch-naming.json`](rulesets/branch-naming.json)) and opens a PR — same review path as anything else.
+- **No bypass actors.** If you ever need an escape hatch, edit the ruleset's bypass list explicitly via PR (update [`rulesets/main.json`](rulesets/main.json) and re-import). Document the reason in the same PR.
 
 ---
 
 ## Emergency bypass
 
-If production is broken and the rule is blocking a hotfix flow that you've already followed correctly — the rule is not the problem, the CI or review is. Don't disable the rule; fix the underlying check or get the review.
+If a hotfix is blocked by a failing CI check that's clearly broken (e.g., a flaky test, or a check renamed and now permanently red), the right call is **not** to bypass — it's to:
 
-If the rule itself is broken (e.g., the required check renamed and now blocks everything), an admin can temporarily edit the rule in Settings → Branches → Edit. Always re-enable.
+1. Open a `fix(ci):` PR that fixes or removes the broken check.
+2. Once it's green, the hotfix PR becomes mergeable again.
+
+If the ruleset itself is genuinely broken (e.g., references a check that no longer exists), an admin can edit the ruleset in Settings → Rules → Rulesets and update the required checks list. Push the equivalent change to [`rulesets/main.json`](rulesets/main.json) in the same hour, and reference the why in the commit.
 
 ---
 
 ## إعداد حماية الفروع (بالعربي)
 
 > النسخة الإنجليزية أعلاه: [English version above](#branch-protection--setup-guide)
+>
+> **المصدر الرسمي للقواعد هو ملفات JSON في [`docs/rulesets/`](rulesets/).** الأقسام (أ) و (ب) أدناه تشرح طريقة Branch Protection الكلاسيكية وأصبحت **للمرجعية فقط** — هاجرنا إلى Rulesets. لاستيراد القواعد إلى GitHub انظر التعليمات في أعلى الملف بالإنجليزية.
 
 هذا الدليل يقفل فرعَي `main` و `dev` بحيث:
 
-- لا أحد (حتى الـ admin افتراضياً) يقدر يدفع (push) مباشرة عليهما.
-- كل تغيير يجب أن يمر بـ PR مع CI ناجح.
+- لا أحد يقدر يدفع (push) مباشرة على `main` أو `dev` — كل تغيير يمر بـ PR مع CI ناجح.
+- إصدارات `main` تتم عبر PR من [release-please](https://github.com/googleapis/release-please)، وليس بـ push مباشر.
 - لا يُسمح بـ force push ولا حذف الفرع.
 
 طريقتان للتنفيذ: **(أ) واجهة GitHub** (بدون أدوات إضافية، ~5 دقائق) أو **(ب) سكربت `gh` CLI** (أمر واحد، يحتاج `gh` مثبت ومُسجَّل دخوله).
