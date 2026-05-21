@@ -18,7 +18,7 @@
         "name": "Allowed branch name prefixes",
         "negate": false,
         "operator": "regex",
-        "pattern": "^(feat|fix|perf|refactor|chore|docs|test|build|ci|hotfix|release)/.+|^release-please--branches--.+$"
+        "pattern": "^(?:(?:feat|fix|perf|refactor|chore|docs|test|build|ci|hotfix|release)/.+|release-please--branches--.+)$"
       }
     }
   ]
