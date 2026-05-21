@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
-  const url  = req.nextUrl.searchParams.get("url");
+  const url = req.nextUrl.searchParams.get("url");
   const name = req.nextUrl.searchParams.get("name") ?? "file";
 
   if (!url) return new NextResponse("Missing url", { status: 400 });
-
+  const ALLOWED_HOSTNAME = process.env.ALLOWED_HOSTNAME;
   let parsed: URL;
   try {
     parsed = new URL(url);
@@ -13,10 +13,9 @@ export async function GET(req: NextRequest) {
     return new NextResponse("Invalid url", { status: 400 });
   }
 
-  if (parsed.hostname !== ALLOWED_HOSTNAME) {
+  if (!ALLOWED_HOSTNAME || parsed.hostname !== ALLOWED_HOSTNAME) {
     return new NextResponse("Forbidden", { status: 403 });
   }
-
   try {
     const res = await fetch(url);
     if (!res.ok) throw new Error("Fetch failed");
@@ -26,13 +25,13 @@ export async function GET(req: NextRequest) {
     // ✅ نحدد النوع والامتداد تلقائياً
     const ext = url.toLowerCase().split(".").pop();
     const typeMap: Record<string, string> = {
-      pdf:  "application/pdf",
-      mp3:  "audio/mpeg",
-      mp4:  "video/mp4",
-      wav:  "audio/wav",
+      pdf: "application/pdf",
+      mp3: "audio/mpeg",
+      mp4: "video/mp4",
+      wav: "audio/wav",
     };
     const contentType = typeMap[ext ?? ""] ?? "application/octet-stream";
-    const extension   = ext ?? "file";
+    const extension = ext ?? "file";
 
     return new NextResponse(buffer, {
       headers: {
