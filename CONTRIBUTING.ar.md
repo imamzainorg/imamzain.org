@@ -1,7 +1,7 @@
 # دليل المساهمة في imamzain.org
 
 > هذا الملف هو **المرجع الرسمي** لطريقة العمل على المشروع. اقرأه مرة واحدة كاملاً، ثم ارجع إليه عند الحاجة. إذا وجدت خطأ أو شيئاً غير واضح، صحّحه في نفس الـ PR الذي تعمل عليه — هذا الملف اتفاقية فريق وليس نصاً مقدساً.
-
+>
 > النسخة الإنجليزية: [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---
@@ -24,13 +24,15 @@
 
 اقرأ هذه القائمة وستفهم 80% من طريقة العمل:
 
-1. **لا تدفع (push) مباشرة إلى `main` أو `dev`.** افتح Pull Request (PR) دائماً.
-2. **ابدأ فرعك من `dev`** للميزات والإصلاحات العادية. ابدأ من `main` فقط للإصلاحات الطارئة (hotfix).
+1. **لا تدفع (push) مباشرة إلى `main`.** افتح Pull Request (PR) دائماً.
+2. **ابدأ فرعك من `main`** لكل تغيير. الفروع قصيرة العمر (أيام، ليست أسابيع).
 3. **استخدم Conventional Commits** — مثل `feat:` و `fix:` و `chore:`. مفصّل في الأسفل.
 4. **كل PR = تغيير واحد منطقي.** لا تخلط تنظيف الكود مع إصلاح Bug مع تحديث مكتبة.
-5. **استخدم "Squash and merge"** عند دمج فرعك في `dev` (الزر في GitHub).
-6. **التاجات (tags) والإصدارات** تُنشأها أداة [release-please](https://github.com/googleapis/release-please) تلقائياً عند دمج الـ PR التي تفتحها على `main` — لا تُنشأ يدوياً ولا بسكربت محلي.
+5. **استخدم "Squash and merge"** عند دمج فرعك في `main` (هذا الخيار الوحيد المسموح في الـ ruleset، لا تستطيع اختيار غيره).
+6. **التاجات (tags) والإصدارات** تُنشأها أداة [release-please](https://github.com/googleapis/release-please) تلقائياً عند دمج PR إصدار يفتحه الـ bot — لا تُنشأ يدوياً ولا بسكربت محلي.
 7. **احذف فرعك** بعد ما يتم دمج الـ PR.
+
+نحن نتبع **GitHub Flow**: فرع واحد طويل العمر (`main`)، فروع ميزات قصيرة العمر تتفرع منه، ومعاينات Vercel على كل PR كبيئة staging. لا يوجد فرع `dev`/`staging` — لسنا بحاجة إليه.
 
 ---
 
@@ -44,7 +46,7 @@ git config --global user.name "اسمك بالإنجليزية"
 git config --global user.email "your-email@example.com"
 
 # اجعل git pull يستخدم rebase افتراضياً
-# (يخلّيك تتجنب رسائل "Merge branch dev" المزعجة في التاريخ)
+# (يخلّيك تتجنب رسائل "Merge branch main" المزعجة في التاريخ)
 git config --global pull.rebase true
 
 # اضبط فاصل النهايات للسطور (مهم على ويندوز خاصة)
@@ -64,20 +66,20 @@ git config --global --list
 
 | الفرع | الوظيفة | من يدفع إليه مباشرة | كيف يُحدَّث |
 |---|---|---|---|
-| `main` | الإنتاج. هذا اللي شغّال على الموقع. كل دمج فيه يأخذ tag. | **لا أحد** | فقط عبر PR من `dev` (إصدار عادي) أو `hotfix/*` (إصلاح طارئ) |
-| `dev` | فرع التكامل / staging. اللي راح يطلع في الإصدار القادم. | **لا أحد** | فقط عبر PR من فروع قصيرة العمر |
-| `feat/<اسم-قصير>` | ميزة جديدة | أنت | افتحه من `dev`، ادمجه في `dev` |
-| `fix/<اسم-قصير>` | إصلاح غير عاجل | أنت | افتحه من `dev`، ادمجه في `dev` |
-| `perf/<اسم-قصير>` | تحسين أداء | أنت | افتحه من `dev`، ادمجه في `dev` |
-| `refactor/<اسم-قصير>` | إعادة هيكلة بدون تغيير سلوك | أنت | افتحه من `dev`، ادمجه في `dev` |
-| `chore/<اسم-قصير>` | إعدادات، تحديث dependencies، تنظيف | أنت | افتحه من `dev`، ادمجه في `dev` |
-| `docs/<اسم-قصير>` | تعديل على التوثيق فقط | أنت | افتحه من `dev`، ادمجه في `dev` |
-| `hotfix/<اسم-قصير>` | **الإنتاج مكسور الآن** | أنت | افتحه من `main`، ادمجه في `main` **و** `dev` (PR لكلٍ منهما) |
+| `main` | الإنتاج. هذا اللي شغّال على الموقع. كل دمج فيه يأخذ tag تلقائياً عند الإصدار. | **لا أحد** | فقط عبر PR من فرع قصير العمر |
+| `feat/<اسم-قصير>` | ميزة جديدة | أنت | افتحه من `main`، ادمجه في `main` |
+| `fix/<اسم-قصير>` | إصلاح bug (عاجل أو غير عاجل — الإصلاحات الإنتاجية تستخدم نفس البادئة، فقط ادمج بسرعة) | أنت | افتحه من `main`، ادمجه في `main` |
+| `perf/<اسم-قصير>` | تحسين أداء | أنت | افتحه من `main`، ادمجه في `main` |
+| `refactor/<اسم-قصير>` | إعادة هيكلة بدون تغيير سلوك | أنت | افتحه من `main`، ادمجه في `main` |
+| `chore/<اسم-قصير>` | إعدادات، تحديث dependencies، تنظيف | أنت | افتحه من `main`، ادمجه في `main` |
+| `docs/<اسم-قصير>` | تعديل على التوثيق فقط | أنت | افتحه من `main`، ادمجه في `main` |
+| `release-please--branches--main` | فرع PR الإصدار الذي يديره الـ bot. **لا تلمسه.** | الـ bot (GitHub App اسمه `imamzain-release-please`) | يُنشأ ويُحدَّث تلقائياً |
 
 ### قواعد تسمية الفروع
 
 - استخدم `kebab-case` (كلمات بإنجليزي مفصولة بعلامة ناقص).
 - اسم يصف المهمة بوضوح.
+- مفروضة على مستوى الـ server بـ [`docs/rulesets/branch-naming.json`](docs/rulesets/branch-naming.json).
 
 | صحيح | خطأ | لماذا |
 |---|---|---|
@@ -87,17 +89,17 @@ git config --global --list
 
 ### عمر الفرع
 
- عمر الفرع يجب **ان لا يتجاوز الأسبوع**. إذا الميزة أكبر من أسبوع، قسّمها على عدة PRs صغيرة. الفروع الطويلة العمر تصير صعبة الدمج لاحقاً (انظر `feature/project-restructure` كمثال على ما لا يجب فعله).
+عمر الفرع يجب **ان لا يتجاوز الأسبوع**. إذا الميزة أكبر من أسبوع، قسّمها على عدة PRs صغيرة. الفروع الطويلة العمر تصير صعبة الدمج لاحقاً لأن `main` يتحرك تحتها.
 
 ---
 
 ## رسائل الـ Commit
 
-نتبع معيار [Conventional Commits](https://www.conventionalcommits.org/). سكربت الإصدار يقرأ هذه الرسائل ليقرر رقم النسخة الجديدة ويولّد ملف التغييرات (CHANGELOG)، فهي ليست مجرد شكل.
+نتبع معيار [Conventional Commits](https://www.conventionalcommits.org/). release-please يقرأ هذه الرسائل ليقرر رقم النسخة الجديدة ويولّد ملف التغييرات (CHANGELOG)، فهي ليست مجرد شكل.
 
 ### الصيغة
 
-```
+```text
 <النوع>(<النطاق>): <الموضوع>
 
 [نص اختياري — اشرح "لماذا" وليس "ماذا"]
@@ -120,12 +122,13 @@ git config --global --list
 | `chore` | أي شيء لا يندرج تحت ما سبق (إعدادات، محتوى، تنظيف) | patch |
 | `style` | تنسيق فقط (مسافات، فواصل منقوطة) — نادراً ما يُستخدم لأن Prettier يهتم بهذا | patch |
 | `revert` | إلغاء commit سابق | patch |
+| `release` | عنوان PR الإصدار الذي يفتحه release-please تلقائياً. **لا تكتبه يدوياً.** | لا شيء |
 
 ### تغيير كاسر (Breaking Change)
 
 إذا التغيير راح يكسر شيء (مثلاً غيّرت URLs أو schema)، أضف `!` بعد النوع، أو ضع footer `BREAKING CHANGE:`. هذا يرفع الإصدار إلى **major**.
 
-```
+```text
 feat(routes)!: نقل /library/* إلى /knowledge-base/*
 
 BREAKING CHANGE: روابط /library القديمة الآن تحوّل (301) إلى /knowledge-base.
@@ -142,8 +145,8 @@ BREAKING CHANGE: روابط /library القديمة الآن تحوّل (301) إ
 |---|---|---|
 | `fix(security): restore SSRF hostname check in /api/download` | `feat: update header component and audio types` | "update" ما تقول شي |
 | `perf(isr): wrap 5 client routes in server-component shells with revalidate=300` | `Implement feature X to enhance user experience and fix bug Y in module Z` | نص افتراضي حرفي — لا تترك "X" و "Y" أبداً |
-| `chore(header): replace 1824 typo with dynamic copyright year` | `hotfix:"test"` | ليس hotfix فعلياً، بدون scope، عديم الفائدة |
-| `fix(a11y): finish H1 audit deferred from P0-6` | `merge branch dev` | حروف صغيرة، مكرر، لا يقول شيئاً |
+| `chore(header): replace 1824 typo with dynamic copyright year` | `hotfix:"test"` | "hotfix" ليس نوعاً معتمداً، بدون scope، عديم الفائدة |
+| `fix(a11y): finish H1 audit deferred from P0-6` | `merge branch main` | حروف صغيرة، مكرر، لا يقول شيئاً |
 
 **قاعدة عملية:** إذا وجدت نفسك تكتب "update X" أو "fix bug" — قف، فكّر فيما *تغيّر فعلاً*، وأعد الصياغة. رسالة الـ commit تُقرأ أكثر بكثير مما تُكتب.
 
@@ -151,14 +154,14 @@ BREAKING CHANGE: روابط /library القديمة الآن تحوّل (301) إ
 
 ## سيناريوهات يومية مع الأوامر كاملة
 
-### 1. أريد إضافة ميزة جديدة (مثلاً: لوحة نتائج في المسابقات)
+### 1. أريد إضافة ميزة جديدة (أو fix أو perf أو refactor أو chore أو docs)
 
 ```bash
-# 1) اذهب إلى dev واسحب آخر تحديثات
-git checkout dev
-git pull
+# 1) اذهب إلى main واسحب آخر تحديثات
+git checkout main
+git pull --ff-only
 
-# 2) أنشئ فرعك من dev
+# 2) أنشئ فرعك من main
 git checkout -b feat/contests-leaderboard
 
 # 3) شغّل الكود محلياً للتأكد أن كل شيء يعمل قبل التعديل
@@ -177,90 +180,61 @@ git commit -m "feat(contests): wire leaderboard to /api/contests/scores"
 git push -u origin feat/contests-leaderboard
 
 # 6) افتح GitHub — راح يظهر زر "Compare & pull request"
-#    اختر base: dev (مهم!)
+#    اختر base: main
 #    اكتب وصفاً واضحاً
 #    استخدم القالب اللي يظهر تلقائياً
 ```
 
-عند الموافقة على الـ PR:
+عند الموافقة على الـ PR و نجاح CI:
 
-- اضغط **"Squash and merge"** في GitHub.
-- **عدّل رسالة الـ commit قبل التأكيد** — هذه الرسالة ستصبح سطراً واحداً في تاريخ `dev`. اجعلها جيدة: `feat(contests): add leaderboard with sort + pagination`.
+- اضغط **"Squash and merge"** في GitHub (هذا هو الخيار الوحيد المتاح بفضل قاعدة `main` ruleset).
+- **تأكد أن عنوان الـ squash commit مطابق لعنوان الـ PR** — هذه الرسالة ستصبح سطراً واحداً في تاريخ `main` وراح يقرأها release-please.
 - اضغط **"Delete branch"** بعد الدمج (يظهر زر بعد الدمج مباشرة).
 - محلياً، احذف الفرع أيضاً:
 
 ```bash
-git checkout dev
-git pull
+git checkout main
+git pull --ff-only
 git branch -d feat/contests-leaderboard
 ```
 
-### 2. أريد إصلاح bug غير عاجل
+### 2. الإنتاج مكسور — إصلاح سريع
 
-نفس الخطوات بالضبط، لكن باستخدام `fix/<اسم-قصير>` بدلاً من `feat/`. سيُشحن مع الإصدار العادي القادم.
-
-```bash
-git checkout dev
-git pull
-git checkout -b fix/breadcrumb-overflow-on-mobile
-# ...اشتغل...
-git commit -m "fix(breadcrumb): truncate long titles on mobile screens"
-git push -u origin fix/breadcrumb-overflow-on-mobile
-# افتح PR إلى dev
-```
-
-### 3. الإنتاج مكسور — Hotfix طارئ
+نفس التدفق أعلاه بالضبط، مع `fix/<اسم-قصير>` وإحساس بالاستعجال:
 
 ```bash
-# 1) ابدأ من main (وليس dev!) — لأن الإصلاح يجب أن يصل للإنتاج فوراً
 git checkout main
-git pull
+git pull --ff-only
+git checkout -b fix/audio-download-403
 
-# 2) افتح فرع hotfix
-git checkout -b hotfix/audio-download-403
-
-# 3) اعمل الحد الأدنى من الإصلاح فقط — لا تنظيف، لا refactor
+# اعمل الحد الأدنى من الإصلاح فقط — لا تنظيف، لا refactor
 git commit -m "fix(api): restore allowed-hostname check in /api/download"
 
-# 4) ادفع وافتح PR إلى main (وليس dev!)
-git push -u origin hotfix/audio-download-403
-# على GitHub: افتح PR، base: main
+git push -u origin fix/audio-download-403
+# افتح PR إلى main
 ```
 
-بعد دمج الـ PR في `main`:
+راجعه وادمجه. Vercel ينشر إلى الإنتاج خلال دقائق من الدمج. release-please سيلتقط الـ `fix:` ويضيفه إلى PR الإصدار المفتوح للإصدار الـ patch القادم — ادمجه متى تشاء لتاج النسخة.
 
-1. **release-please يلتقط الـ commit تلقائياً** ويفتح (أو يحدّث) PR إصدار عنوانه `release: vX.Y.Z` على `main`. دمج هذا الـ PR يصدر النسخة. التفاصيل في [§ أنا قائد الإصدار](#4-أنا-قائد-الإصدار-هذا-الأسبوع-release-captain).
+**لا يوجد بادئة `hotfix` أو تدفق منفصل.** السرعة تأتي من سرعة المراجعة والدمج، لا من تدفق مختلف.
 
-2. **زامن الإصلاح إلى `dev`** عبر PR من فرع `hotfix/audio-download-403-to-dev` (أو بعد ما يصدر، PR من `main` إلى `dev`) — لئلا يضيع عند الإصدار التالي.
-
-### 4. أنا قائد الإصدار هذا الأسبوع (Release Captain)
+### 3. أنا قائد الإصدار هذا الأسبوع (Release Captain)
 
 الإصدارات مؤتمتة بـ [release-please](https://github.com/googleapis/release-please). الـ workflow: [`.github/workflows/release-please.yml`](.github/workflows/release-please.yml)، الإعدادات: [`release-please-config.json`](release-please-config.json).
 
 التدفق:
 
-1. تأكد أن `dev` نظيف:
-   - CI أخضر (تحقق من تبويب Actions في GitHub).
-   - فتحت موقع المعاينة (Vercel preview) ومشيت على الصفحات الرئيسية.
+1. مع دخول PRs من نوع `feat:` و `fix:` و `perf:` إلخ. إلى `main`، يحافظ release-please على **PR مفتوح عنوانه `release: vX.Y.Z`** يحدّثه تلقائياً بالـ commits الجديدة.
 
-2. افتح PR من `dev` إلى `main` بعنوان `chore:` أو `ci:` يصف الدفعة (مثلاً `chore: rollup dev → main for next release`). **لا تستخدم عنوان `release:` هنا** — هذا محجوز لـ PR إصدار release-please على `main`.
+2. عندما تكون جاهزاً للإصدار، انظر إلى هذا الـ PR. الـ body يحتوي قائمة بكل الـ commits مقسّمة حسب النوع (Features، Bug Fixes، إلخ.) وهو معاينة الـ changelog. الـ diff يعرض رفع النسخة في `package.json` والقسم الجديد في `CHANGELOG.md`. راجعه.
 
-3. انتظر المراجعة و CI، ثم **اضغط "Create a merge commit"** (وليس Squash، وليس Rebase) — هذا يحفظ حدود الـ PRs الفردية في تاريخ `main` ويساعد release-please يولّد changelog منظم.
+3. **اضغط Squash-merge** على PR الإصدار. الـ action يعمل بعد ذلك:
+   - tag على commit الـ merge بـ `vX.Y.Z`.
+   - يفتح GitHub Release بصفحة notes مولّدة.
 
-4. بمجرد ما يدخل الـ merge على `main`، يعمل `release-please` workflow و:
-   - يفتح (أو يحدّث) PR عنوانه `release: vX.Y.Z` على `main`.
-   - في الـ body: قائمة بكل الـ commits مقسّمة حسب النوع (Features، Bug Fixes، إلخ). هذا الـ changelog المقترح.
-   - في الـ diff: تحديث `package.json` + إضافة قسم جديد في `CHANGELOG.md`.
+4. Vercel ينشر الـ tag الجديد.
 
-5. راجع الـ release PR، ثم **اضغط "Create a merge commit"** (نفس آلية الخطوة 3). الـ workflow راح:
-   - يعمل tag على commit الـ merge بـ `vX.Y.Z`.
-   - يفتح GitHub Release مع notes تلقائية.
-
-6. تحقق من Vercel أنه نشر الـ tag الجديد.
-
-7. افتح PR من `main` إلى `dev` يحمل commits release-please (رفع الإصدار + تحديث CHANGELOG) رجوعاً إلى `dev`. عنوانه: `chore: sync vX.Y.Z release commits back to dev`.
-
-**لا تشغّل أي أمر محلي للإصدار.** إذا وجدت نفسك تكتب `npm version` أو `git tag v...` — توقّف. الـ bot يعمل ذلك.
+هذا كل شيء. **لا تشغّل أي أمر محلي للإصدار.** إذا وجدت نفسك تكتب `npm version` أو `git tag v...` — توقّف. الـ bot يعمل ذلك.
 
 ---
 
@@ -275,7 +249,7 @@ git push -u origin hotfix/audio-download-403
 3. يفتح (أو يحدّث) PR واحد على `main` عنوانه `release: vX.Y.Z` ويحوي:
    - رفع النسخة في `package.json` و `.release-please-manifest.json`.
    - إضافة قسم جديد في `CHANGELOG.md` يجمّع الـ commits حسب النوع.
-4. دمج هذا الـ PR بـ **"Create a merge commit"** يطلق الـ action مرة ثانية، فيعمل:
+4. Squash-merge هذا الـ PR يطلق الـ action مرة ثانية، فيعمل:
    - tag على commit الـ merge بـ `vX.Y.Z`.
    - يفتح GitHub Release بصفحة notes مولّدة.
 5. Vercel ينشر الـ tag تلقائياً.
@@ -312,25 +286,25 @@ git push -u origin hotfix/audio-download-403
 
 > هذا القسم هو **الأهم** لمن هم جدد على Git. لا تخجل من الرجوع إليه.
 
-### "عملت commit على dev مباشرة بالخطأ، ماذا أفعل؟"
+### "عملت commit على main مباشرة بالخطأ، ماذا أفعل؟"
+
+لن يحدث هذا فعلياً لأن `main` محمي بـ ruleset (لا يمكن الدفع إليه مباشرة). لكن إذا commit-ت محلياً قبل ما تكتشف خطأك:
 
 ```bash
-# 1) تحقق أنك على dev وأن commit الخطأ هو الأخير
+# 1) تحقق أنك على main وأن commit الخطأ هو الأخير
 git log --oneline -3
 
 # 2) أنشئ فرع جديد يأخذ commitك معه
 git branch feat/my-fix
 
-# 3) أرجع dev خطوة للخلف (هذا يلغي commit من dev المحلي فقط، ما زال محفوظاً في الفرع الجديد)
-git reset --hard HEAD~1
+# 3) أرجع main خطوة للخلف (هذا يلغي commit من main المحلي فقط)
+git reset --hard origin/main
 
 # 4) اذهب إلى الفرع الجديد وكمّل العمل عادي
 git checkout feat/my-fix
 git push -u origin feat/my-fix
 # افتح PR
 ```
-
-**ملاحظة مهمة:** إذا كنت قد دفعت (`push`) إلى `dev` قبل ما تكتشف الخطأ، **لا تستخدم `git push --force` على dev أبداً**. اتصل بزميل ليساعدك، أو اعمل commit إصلاح يرجّع التغيير (`git revert`).
 
 ### "كتبت رسالة commit خاطئة، لكن لم أدفعها بعد"
 
@@ -350,7 +324,7 @@ git push --force-with-lease
 
 ⚠ **`--force-with-lease` أأمن من `--force`** — يرفض الدفع إذا كان أحد قد دفع شيئاً للفرع بعدك.
 
-إذا الفرع هو `dev` أو `main` أو فرع مشترك: **لا تستخدم force أبداً.** الرسالة صارت تاريخاً، اقبلها.
+إذا الفرع هو `main`: **لا تستخدم force أبداً.** الرسالة صارت تاريخاً، اقبلها. (و الـ ruleset سيمنعك على أي حال.)
 
 ### "أريد التراجع عن آخر commit بالكامل (لم أدفع)"
 
@@ -374,7 +348,7 @@ git status
 #   كودك
 #   =======
 #   كود الفرع الآخر
-#   >>>>>>> origin/dev
+#   >>>>>>> origin/main
 
 # 3) قرّر يدوياً ماذا تبقي، احذف العلامات (<<<<<<< ======= >>>>>>>)
 # 4) احفظ الملف
@@ -426,14 +400,14 @@ git branch recovered-work <hash>
 
 من تاريخ المشروع الحقيقي. كل واحد منها كلّف شخصاً وقتاً.
 
-- ❌ **دفع مباشر إلى `dev` أو `main`.** حتى لو سطر واحد. افتح PR — مجرّد تشغيل CI لوحده يستحق الوقت.
-- ❌ **commits بصيغة `merge branch dev`.** هذه تأتي من `git pull` على فرع متشعّب. استخدم `git pull --rebase` بدلاً منها، أو فعّل `pull.rebase = true` كما في قسم الإعداد أعلاه.
+- ❌ **دفع مباشر إلى `main`.** حتى لو سطر واحد. افتح PR — مجرّد تشغيل CI و معاينة Vercel وحدهما يستحقان الوقت. ممنوع على مستوى الـ server على أي حال.
+- ❌ **commits بصيغة `merge branch main`.** هذه تأتي من `git pull` على فرع متشعّب. استخدم `git pull --rebase` بدلاً منها، أو فعّل `pull.rebase = true` كما في قسم الإعداد أعلاه.
 - ❌ **رسائل commit نائبة (placeholder).** `Implement feature X to enhance user experience and fix bug Y in module Z` بقيت في التاريخ للأبد. اكتب الموضوع الحقيقي.
 - ❌ **PR واحد يصلح ستة أشياء غير مرتبطة.** المراجِع لا يستطيع فهمه، وأي revert يدمّر خمسة تغييرات جيدة.
 - ❌ **خلط refactor مع bugfix.** اشحن الإصلاح وحده، افتح PR منفصل للـ refactor بعدها.
-- ❌ **فروع طويلة العمر** (تذكّر `feature/project-restructure`). إما تشحنها بقطع وراء feature flags أو تقتلها. الفروع الأقدم من أسبوعين نادراً ما تُدمج بسلاسة.
+- ❌ **فروع طويلة العمر.** الفروع الأقدم من ~أسبوع نادراً ما تُدمج بسلاسة لأن `main` يتحرك تحتها. إما تشحنها بقطع وراء feature flags أو تقتلها.
 - ❌ **رفع `package.json.version` يدوياً أو إنشاء tag يدوياً.** release-please يملك النسخة والـ tag — دعه يعمل.
-- ❌ **دفع tag قبل دفع commit الإصدار.** السكربت يفعل ذلك بالترتيب الصحيح — لا تعد ترتيبها.
+- ❌ **إغلاق PR الإصدار المفتوح من release-please.** سيُعاد فتحه عند الـ push التالي إلى `main`، لكن ستفقد أي تعديلات على وصف الـ PR. إذا الـ PR خاطئ، صلّحه في مكانه (عدّل الوصف، أضف footer `Release-As:`) أو ادفع commit تصحيحي.
 - ❌ **تعديل أقسام محرّرة سابقاً في `CHANGELOG.md`.** الإصلاح يكون للأمام. التاريخ يهم.
 - ❌ **`git push --force` على فرع مشترك.** كارثة. استخدم `--force-with-lease` على فرعك الشخصي فقط.
 
@@ -472,12 +446,12 @@ git branch recovered-work <hash>
 افتح PR. اسم الفرع: `docs/<وصف-قصير>`. مثلاً:
 
 ```bash
-git checkout -b docs/clarify-hotfix-sync-step
+git checkout -b docs/clarify-release-flow
 # ...عدّل CONTRIBUTING.ar.md...
-git commit -m "docs(ar): clarify hotfix-to-dev sync step"
-git push -u origin docs/clarify-hotfix-sync-step
+git commit -m "docs(ar): clarify release flow steps"
+git push -u origin docs/clarify-release-flow
 ```
 
 ---
 
-> آخر تحديث: 2026-05-17 — هذا الملف مرفق مع نسخة المشروع. أي تغيير عليه يخضع لنفس قواعد المساهمة الموصوفة فيه.
+> آخر تحديث: 2026-05-21 — هاجرنا من Gitflow (main + dev) إلى GitHub Flow (main فقط) لتقليل الاحتكاك. هذا الملف مرفق مع نسخة المشروع. أي تغيير عليه يخضع لنفس قواعد المساهمة الموصوفة فيه.
