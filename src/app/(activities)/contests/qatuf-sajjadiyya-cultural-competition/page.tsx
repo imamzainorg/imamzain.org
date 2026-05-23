@@ -20,9 +20,9 @@ import {
 import ParticipationForm from "./components/participation-form"
 
 export const metadata: Metadata = {
-	title: "مسابقة قطوف سجادية الثقافية | موقع الإمام زين العابدين",
+	title: "مسابقة قبسات من حياة الإمام السجاد (عليه السلام) | موقع الإمام زين العابدين",
 	description:
-		"اختبر معلوماتك عن الإمام زين العابدين عليه السلام في مسابقة قطوف سجادية الثقافية. 50 سؤالاً تغطي حياته وأدعيته وعلومه.",
+		"اختبر معلوماتك عن الإمام زين العابدين عليه السلام في مسابقة قبسات من حياة الإمام السجاد (عليه السلام). 50 سؤالاً تغطي حياته وأدعيته وعلومه.",
 }
 
 function GradientCard({
@@ -208,7 +208,7 @@ export default function Page() {
 								<GradientCard className="p-6">
 									<Image
 										src="/contests/qatuf-sajjadiyya-cultural-competition/landing.jpg"
-										alt="لوكو مسابقة قطوف سجادية"
+										alt="لوكو مسابقة قبسات من حياة الإمام السجاد (عليه السلام)"
 										width={800}
 										height={800}
 										className="w-full rounded-2xl shadow-2xl sm:aspect-[1/2] lg:aspect-auto object-cover"
