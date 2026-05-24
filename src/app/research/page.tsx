@@ -40,7 +40,7 @@ const sections: Section[] = [
   {
     title: "بحوث المؤتمرات",
     description: "استعرض البحوث المقدمة في المؤتمرات العلمية المختلفة.",
-    href: "/research/research/scientific-platform?type=conferences",
+    href: "/research/scientific-platform?type=conferences",
     icon: NewspaperIcon,
     subLinks: [
       {
