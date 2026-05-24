@@ -26,7 +26,7 @@ const links: LinkSection[] = [
     label: "الإمام زين العابدين",
 
     sublinks: [
-      { label: "ولادته ووالده", slug: "birth-and-death" },
+      { label: "ولادته ووالدته", slug: "birth-and-mother" },
       { label: "ألقابه وكناه", slug: "titles-and-nicknames" },
       { label: "الأدلة على امامته", slug: "personality-traits" },
       { label: "كراماته ومميزاته", slug: "karamatuh-wa-mumayizatuh" },
@@ -44,7 +44,10 @@ const links: LinkSection[] = [
     label: "المكتبة ",
     sublinks: [
       { label: "المكتبة التخصصية", href: "/library" },
-      { label: "الصحيفة السجادية", href: "library/al-sahifa/al-sahifa-al-sajjadiya-index" },
+      {
+        label: "الصحيفة السجادية",
+        href: "library/al-sahifa/al-sahifa-al-sajjadiya-index",
+      },
       { label: "رسالة الحقوق", href: "/library/risalat-al-huqoq/introduction" },
     ],
   },
@@ -79,7 +82,11 @@ const SocialLinks = ({
   </div>
 );
 
-const bigNavSocials: { href: string; Icon: IconComponent; hoverColor: string }[] = [
+const bigNavSocials: {
+  href: string;
+  Icon: IconComponent;
+  hoverColor: string;
+}[] = [
   {
     href: "https://www.instagram.com/imamzainorg/",
     Icon: Instagram,
@@ -168,7 +175,10 @@ export default function Footer() {
 
       {/* Small screen */}
       <div className="lg:hidden p-8">
-        <SocialLinks className="justify-center gap-10 pb-4" iconClassName="w-8 h-8" />
+        <SocialLinks
+          className="justify-center gap-10 pb-4"
+          iconClassName="w-8 h-8"
+        />
 
         <Accordion>
           {links.map((section, i) => (
