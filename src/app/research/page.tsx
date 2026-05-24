@@ -1,7 +1,7 @@
 "use client";
 
 import Breadcrumbs from "@/components/breadcrumb";
-import SliderHero from "./_components/slider-hero";
+import SliderHero from "./scientific-platform/_components/shared/slider-hero";
 import Link from "next/link";
 import {
   BadgeCheck,
@@ -40,7 +40,7 @@ const sections: Section[] = [
   {
     title: "بحوث المؤتمرات",
     description: "استعرض البحوث المقدمة في المؤتمرات العلمية المختلفة.",
-    href: "/research/scientific-platform?type=conferences",
+    href: "/research/research/scientific-platform?type=conferences",
     icon: NewspaperIcon,
     subLinks: [
       {
