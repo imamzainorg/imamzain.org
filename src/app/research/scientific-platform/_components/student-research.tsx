@@ -1,37 +1,35 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useMemo, useCallback, useRef } from "react";
-import { FaFilePdf } from "react-icons/fa";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore from "swiper";
+import { useState, useMemo, useCallback } from "react";
+import { motion } from "framer-motion";
+import { GraduationCap } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 
+import { SearchSection } from "./shared/search-section";
 import {
-  GraduationCap,
-  Search as SearchIcon,
-  X,
-  LayoutGrid,
-  Table2,
-  FileText,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+  ResearchCard,
+  ResearchGrid,
+  EmptyState,
+  type CardData,
+} from "./shared/research-card";
+import { ResearchTable, type TableRow } from "./shared/research-table";
+import { SwiperPagination } from "./shared/swiper-pagination";
 
 import studentData from "@/data/student.json";
-import { Button } from "@/components/button";
-import { useSearchParams } from "next/navigation";
 import { StudentResearch } from "@/types/student";
 
-type DegreeType = "bachelor" | "master" | "phd" | "all";
+// ─── Types ─────────────────────────────────────────────────────
 
-const tabs = [
+type DegreeType = "all" | "bachelor" | "master" | "phd";
+
+// ─── Constants ─────────────────────────────────────────────────
+
+const TABS = [
   { id: "all", label: "الكل" },
   { id: "bachelor", label: "بكالوريوس" },
   { id: "master", label: "ماجستير" },
   { id: "phd", label: "دكتوراه" },
 ] as const;
-
-const ITEMS_PER_PAGE = 21;
 
 const CATEGORY_MAP: Record<string, string> = {
   bachelor: "بكالوريوس",
@@ -39,95 +37,169 @@ const CATEGORY_MAP: Record<string, string> = {
   phd: "دكتوراه",
 };
 
+const PER_PAGE = 21;
+
+const SORT_OPTIONS = [
+  { value: "year-desc", label: "الأحدث" },
+  { value: "year-asc", label: "الأقدم" },
+  { value: "title-asc", label: "العنوان (أ-ي)" },
+  { value: "title-desc", label: "العنوان (ي-أ)" },
+  { value: "author-asc", label: "المؤلف (أ-ي)" },
+];
+
+// ─── Helpers ───────────────────────────────────────────────────
+
+function toCard(
+  item: StudentResearch,
+  t: StudentResearch["translations"][0],
+): CardData {
+  return {
+    id: item.id,
+    title: t.title,
+    authors: t.authors,
+    publishedYear: item.publishedYear,
+    badge: t.publicationVenue,
+    badgeSecondary: t.category,
+  
+    pdfUrl: item.pdfUrl,
+  };
+}
+
+function toRow(
+  item: StudentResearch,
+  t: StudentResearch["translations"][0],
+): TableRow {
+  return {
+    id: item.id,
+    title: t.title,
+    authors: t.authors,
+    publicationVenue: t.publicationVenue,
+    language: t.language,
+    category: t.category,
+    publishedYear: item.publishedYear,
+      pagenam: t.pagenam,
+    pdfUrl: item.pdfUrl,
+  };
+}
+
+// ─── Component ─────────────────────────────────────────────────
+
 export default function StudentResearchPage() {
-  const searchParams = useSearchParams();
-  const swiperRef = useRef<SwiperCore | null>(null);
-  const rowRefs = useRef<Record<string, HTMLTableRowElement | null>>({});
+  const sp = useSearchParams();
 
   const [activeTab, setActiveTab] = useState<DegreeType>(
-    () => (searchParams.get("degree") as DegreeType) || "all"
+    () => (sp.get("degree") as DegreeType) || "all",
   );
-  const [searchTerm, setSearchTerm] = useState("");
+
+  const [search, setSearch] = useState("");
   const [viewMode, setViewMode] = useState<"cards" | "table">("cards");
   const [highlightId, setHighlightId] = useState<string | null>(null);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [page, setPage] = useState(1);
+  const [sortBy, setSortBy] = useState("year-desc");
 
-  const handleTabClick = useCallback((id: string) => {
+  // ─── Tabs ───────────────────────────────────────────────────
+
+  const handleTab = useCallback((id: string) => {
     setActiveTab(id as DegreeType);
-    setSearchTerm("");
-    setCurrentPage(1);
+    setSearch("");
+    setPage(1);
   }, []);
 
-  // Filter by tab
-  const getDataByTab = useCallback(() => {
-    if (activeTab === "all") {
-      return studentData as StudentResearch[];
-    }
+  // ─── Filter + Search + Sort ─────────────────────────────────
 
-    const currentCategory = CATEGORY_MAP[activeTab];
-    return (studentData as StudentResearch[]).filter((item) =>
-      item.translations.some((t) => t.category === currentCategory)
-    );
-  }, [activeTab]);
+  const filtered = useMemo(() => {
+    const all = studentData as StudentResearch[];
 
-  // Search and filter
-  const filteredData = useMemo(() => {
-    const dataToSearch = getDataByTab();
+    // filter by degree
+    const byCategory =
+      activeTab === "all"
+        ? all
+        : all.filter((item) =>
+            item.translations.some(
+              (t) => t.category === CATEGORY_MAP[activeTab],
+            ),
+          );
 
-    if (!searchTerm.trim()) {
-      return dataToSearch;
-    }
+    // search
+    const term = search.trim().toLowerCase();
 
-    const term = searchTerm.toLowerCase();
-    return dataToSearch.filter((item) =>
-      item.translations.some((t) => {
-        const title = t.title.toLowerCase();
-        const authors = t.authors.join(", ").toLowerCase();
-        const venue = t.publicationVenue.toLowerCase();
-        return (
-          title.includes(term) || authors.includes(term) || venue.includes(term)
+    const searched = !term
+      ? byCategory
+      : byCategory.filter((item) =>
+          item.translations.some(
+            (t) =>
+              t.title?.toLowerCase().includes(term) ||
+              t.authors?.join(", ").toLowerCase().includes(term) ||
+              t.publicationVenue?.toLowerCase().includes(term),
+          ),
         );
-      })
-    );
-  }, [searchTerm, getDataByTab]);
 
-  // Sort data
-  const sortedData = useMemo(() => {
-    return [...filteredData].sort(
-      (a, b) => parseInt(b.publishedYear) - parseInt(a.publishedYear)
-    );
-  }, [filteredData]);
+    // sort
+    return [...searched].sort((a, b) => {
+      switch (sortBy) {
+        case "year-desc":
+          return (
+            parseInt(b.publishedYear) - parseInt(a.publishedYear)
+          );
 
-  // Pagination
-  const totalPages = Math.ceil(sortedData.length / ITEMS_PER_PAGE);
-  const paginatedData = useMemo(() => {
-    const start = (currentPage - 1) * ITEMS_PER_PAGE;
-    const end = start + ITEMS_PER_PAGE;
-    return sortedData.slice(start, end);
-  }, [currentPage, sortedData]);
+        case "year-asc":
+          return (
+            parseInt(a.publishedYear) - parseInt(b.publishedYear)
+          );
 
-  const paginate = useCallback((page: number) => {
-    setCurrentPage(page);
+        case "title-asc":
+          return (a.translations[0]?.title ?? "").localeCompare(
+            b.translations[0]?.title ?? "",
+            "ar",
+          );
+
+        case "title-desc":
+          return (b.translations[0]?.title ?? "").localeCompare(
+            a.translations[0]?.title ?? "",
+            "ar",
+          );
+
+        case "author-asc":
+          return (
+            a.translations[0]?.authors?.[0] ?? ""
+          ).localeCompare(
+            b.translations[0]?.authors?.[0] ?? "",
+            "ar",
+          );
+
+        default:
+          return 0;
+      }
+    });
+  }, [search, activeTab, sortBy]);
+
+  // ─── Pagination ─────────────────────────────────────────────
+
+  const totalPages = Math.ceil(filtered.length / PER_PAGE);
+
+  const paginated = filtered.slice(
+    (page - 1) * PER_PAGE,
+    page * PER_PAGE,
+  );
+
+  const tableRows = paginated.flatMap((item) =>
+    item.translations.map((t) => toRow(item, t)),
+  );
+
+  const paginate = useCallback((p: number) => {
+    setPage(p);
     setHighlightId(null);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }, []);
 
-  const openPdf = useCallback((item: StudentResearch) => {
-    if (item.pdfUrl) window.open(item.pdfUrl, "_blank");
-  }, []);
-
-  const handleRowClick = useCallback((id: string) => {
-    setHighlightId(id);
-  }, []);
-
-  const handleSearch = useCallback((value: string) => {
-    setSearchTerm(value);
-    setCurrentPage(1);
-  }, []);
+  // ─── Render ─────────────────────────────────────────────────
 
   return (
-    <main className="container">
-      {/* Header */}
+    <>
       <motion.header
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -141,344 +213,79 @@ export default function StudentResearchPage() {
             aria-hidden="true"
           />
         </div>
+
         <h2 className="text-body font-bold text-gray-900 dark:text-white mb-3">
           بحوث الطلاب
         </h2>
+
         <p className="text-gray-600 text-note leading-8 dark:text-gray-300 max-w-2xl mx-auto">
           بحوث طلاب البكالوريوس والماجستير والدكتوراه ضمن مشاريع علمية متنوعة.
         </p>
       </motion.header>
 
-      {/* Tabs */}
-      <nav
-        className="flex justify-center items-center gap-4 mb-6 flex-wrap"
-        aria-label="فلترة حسب الدرجة العلمية"
-      >
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => handleTabClick(tab.id)}
-            className={`px-5 py-2 rounded-full font-medium transition-all duration-300 ${
-              activeTab === tab.id
-                ? "bg-primary text-white shadow-lg scale-105"
-                : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600"
-            }`}
-            aria-current={activeTab === tab.id ? "page" : undefined}
-          >
-            {tab.label}
-          </button>
-        ))}
+      <SearchSection
+        searchValue={search}
+        onSearchChange={(v) => {
+          setSearch(v);
+          setPage(1);
+        }}
+        searchPlaceholder={
+          activeTab === "all"
+            ? "ابحث في جميع البحوث..."
+            : `ابحث في ${
+                TABS.find((t) => t.id === activeTab)?.label
+              }...`
+        }
+        resultCount={filtered.length}
+        resultUnit="بحث"
+        sortOptions={SORT_OPTIONS}
+        sortValue={sortBy}
+        onSortChange={setSortBy}
+        viewMode={viewMode}
+        onViewModeChange={setViewMode}
+        tabs={[...TABS]}
+        activeTab={activeTab}
+        onTabChange={handleTab}
+      />
 
-        <button
-          onClick={() =>
-            setViewMode((prev) => (prev === "cards" ? "table" : "cards"))
-          }
-          className="p-2 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all"
-          title="تغيير طريقة العرض"
-          aria-label={`تغيير إلى عرض ${
-            viewMode === "cards" ? "الجدول" : "البطاقات"
-          }`}
-        >
-          {viewMode === "cards" ? (
-            <Table2 className="w-5 h-5 text-gray-700 dark:text-gray-200" />
-          ) : (
-            <LayoutGrid className="w-5 h-5 text-gray-700 dark:text-gray-200" />
-          )}
-        </button>
-      </nav>
-
-      {/* Search */}
-      <div className="max-w-sm mx-auto mb-6 relative">
-        <label htmlFor="search-input" className="sr-only">
-          البحث في البحوث
-        </label>
-        <input
-          id="search-input"
-          type="text"
-          value={searchTerm}
-          onChange={(e) => handleSearch(e.target.value)}
-          placeholder={
-            activeTab === "all"
-              ? "ابحث في جميع البحوث..."
-              : `ابحث في ${tabs.find((t) => t.id === activeTab)?.label}...`
-          }
-          className="w-full p-3 rounded-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary"
+      {filtered.length === 0 ? (
+        <EmptyState
+          onReset={() => {
+            setSearch("");
+            setActiveTab("all");
+          }}
         />
-        <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-          {searchTerm ? (
-            <button
-              onClick={() => handleSearch("")}
-              aria-label="مسح البحث"
-              className="text-gray-500 hover:text-gray-700"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          ) : (
-            <SearchIcon className="w-5 h-5 text-gray-500" aria-hidden="true" />
+      ) : viewMode === "table" ? (
+        <ResearchTable
+          rows={tableRows}
+          startIndex={(page - 1) * PER_PAGE}
+          highlightId={highlightId}
+          onRowClick={setHighlightId}
+          onRowDoubleClick={(url) =>
+            url && window.open(url, "_blank")
+          }
+          showCategory
+        />
+      ) : (
+        <ResearchGrid>
+          {paginated.map((item) =>
+            item.translations.map((t) => (
+              <ResearchCard
+                key={`${item.id}-${t.languageid}`}
+                item={toCard(item, t)}
+              />
+            )),
           )}
-        </div>
-      </div>
-
-      {/* Results */}
-      <section className="rounded-2xl shadow-lg border overflow-hidden bg-opacity-50 bg-gray-50 dark:bg-gray-800">
-        <div className="px-6 py-4 bg-gradient-to-r border-b">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
-              <FileText size={18} aria-hidden="true" />
-              <span className="font-medium text-subtitle">
-                النتائج: {filteredData.length} بحث
-              </span>
-            </div>
-            {viewMode === "table" && (
-              <p className="text-subtitle text-gray-500 dark:text-gray-400">
-                انقر على الصف لتحديده - انقر مرتين لفتح الملف
-              </p>
-            )}
-          </div>
-        </div>
-
-        <div className="p-6">
-          {viewMode === "table" ? (
-            <div className="overflow-x-auto">
-              <table className="w-full table-auto">
-                <thead>
-                  <tr className="text-sm font-semibold text-gray-700 dark:text-gray-200 border-b">
-                    <th className="px-4 py-3 text-center w-12">ت</th>
-                    <th className="px-4 py-3 text-right w-80">اسم البحث</th>
-                    <th className="px-4 py-3 text-right w-56">المؤلف</th>
-                    <th className="px-4 py-3 text-right">الناشر</th>
-                    <th className="px-4 py-3 text-right">اللغة</th>
-                    <th className="px-4 py-3 text-right">المستوى العلمي</th>
-                    <th className="px-4 py-3 text-right">تاريخ الاصدار</th>
-                    <th className="px-4 py-3 text-right">عدد الصفحات</th>
-                    <th className="px-4 py-3 text-center">التحميل</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <AnimatePresence>
-                    {paginatedData.map((item, idx) =>
-                      item.translations.map((t, i) => {
-                        const isHighlighted = highlightId === item.id;
-                        return (
-                          <motion.tr
-                            key={`${item.id}-${i}`}
-                            initial={{
-                              opacity: 0,
-                              y: 6,
-                            }}
-                            animate={{
-                              opacity: 1,
-                              y: 0,
-                            }}
-                            exit={{
-                              opacity: 0,
-                              y: -6,
-                            }}
-                            className={`cursor-pointer ${
-                              isHighlighted
-                                ? "bg-primary/10 ring-2 ring-primary/20"
-                                : "hover:bg-gray-50 dark:hover:bg-gray-700/40"
-                            }`}
-                            onClick={() => handleRowClick(item.id)}
-                            onDoubleClick={() => openPdf(item)}
-                            ref={(el) => {
-                              rowRefs.current[item.id] = el;
-                            }}
-                          >
-                            <td className="px-4 py-4 text-center align-top">
-                              <div className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium bg-gray-100 dark:bg-gray-700">
-                                {idx + 1 + (currentPage - 1) * ITEMS_PER_PAGE}
-                              </div>
-                            </td>
-                            <td className="px-4 py-3 text-right">{t.title}</td>
-                            <td className="px-4 py-3 text-right">
-                              {t.authors.join(", ")}
-                            </td>
-                            <td className="px-4 py-3 text-right">
-                              {t.publicationVenue}
-                            </td>
-                            <td className="px-4 py-3 text-right">
-                              {t.language}
-                            </td>
-                            <td className="px-4 py-3 text-right">
-                              {t.category}
-                            </td>
-                            <td className="px-4 py-3 text-right">
-                              {item.publishedYear}
-                            </td>
-                            <td className="px-4 py-3 text-right">
-                              {t.pagenam}
-                            </td>
-                            <td className="px-4 py-3 flex justify-center">
-                              <button
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  openPdf(item);
-                                }}
-                                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r text-secondary font-medium hover:shadow-lg transform"
-                                aria-label={`تحميل ${t.title}`}
-                              >
-                                <FaFilePdf aria-hidden="true" /> PDF
-                              </button>
-                            </td>
-                          </motion.tr>
-                        );
-                      })
-                    )}
-                  </AnimatePresence>
-                </tbody>
-              </table>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              <AnimatePresence>
-                {paginatedData.map((item) =>
-                  item.translations.map((t) => (
-                    <motion.article
-                      key={`${item.id}-${t.languageid}`}
-                      layout
-                      initial={{ opacity: 0, y: 25 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{
-                        duration: 0.4,
-                        ease: "easeOut",
-                      }}
-                      whileHover={{ y: -6 }}
-                      className="relative bg-white/90 dark:bg-gray-900/90 border border-secondary/30 dark:border-secondary/20 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-70 pointer-events-none" />
-                      <div className="relative p-6 flex flex-col justify-between h-full">
-                        <h3 className="text-note font-semibold text-gray-800 dark:text-white mb-4 leading-snug line-clamp-2">
-                          {t.title}
-                        </h3>
-                        <div className="space-y-2 text-subtitle text-gray-600 dark:text-gray-400">
-                          <p>
-                            <span className="font-semibold text-secondary">
-                              المؤلف:
-                            </span>{" "}
-                            {t.authors.join(", ")}
-                          </p>
-                          <p>
-                            <span className="font-semibold text-secondary">
-                              الناشر:
-                            </span>{" "}
-                            {t.publicationVenue}
-                          </p>
-                          {t.category && (
-                            <p>
-                              <span className="font-semibold text-secondary">
-                                الدرجة العلمية:
-                              </span>{" "}
-                              {t.category}
-                            </p>
-                          )}
-                        </div>
-                        <div className="my-5 border-t border-secondary/20" />
-                        <motion.button
-                          whileTap={{ scale: 0.97 }}
-                          whileHover={{
-                            backgroundPosition: "100% 0",
-                            transition: {
-                              duration: 0.4,
-                            },
-                          }}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            openPdf(item);
-                          }}
-                          className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary hover:border-secondary border-3 bg-[length:200%_100%] text-white font-medium shadow hover:shadow-lg transition-all duration-300"
-                          aria-label={`عرض PDF لـ ${t.title}`}
-                        >
-                          <FaFilePdf className="text-lg" aria-hidden="true" />
-                          <span>عرض PDF</span>
-                        </motion.button>
-                      </div>
-                    </motion.article>
-                  ))
-                )}
-              </AnimatePresence>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Pagination */}
-      {totalPages > 1 && (
-        <nav
-          className="w-11/12 mx-auto flex justify-center my-8"
-          aria-label="التنقل بين الصفحات"
-        >
-          <div className="flex items-center gap-2">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => {
-                swiperRef.current?.slidePrev();
-                if (currentPage > 1) paginate(currentPage - 1);
-              }}
-              disabled={currentPage === 1}
-              aria-label="الصفحة السابقة"
-              className="bg-white text-primary hover:bg-primary dark:text-Muharram_primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
-            >
-              <ChevronRight size={20} />
-            </Button>
-
-            <div className="w-64">
-              <Swiper
-                onSwiper={(swiper) => (swiperRef.current = swiper)}
-                slidesPerView={5}
-                spaceBetween={10}
-                grabCursor={true}
-                centeredSlides={false}
-                loop={true}
-              >
-                {Array.from({ length: totalPages }, (_, i) => {
-                  const pageNum = i + 1;
-                  return (
-                    <SwiperSlide key={pageNum} className="flex justify-center">
-                      <Button
-                        variant={
-                          currentPage === pageNum ? "default" : "outline"
-                        }
-                        onClick={() => {
-                          paginate(pageNum);
-                          swiperRef.current?.slideToLoop(pageNum - 1);
-                        }}
-                        className={`w-10 h-10 rounded-lg transition-colors duration-300 ${
-                          currentPage === pageNum
-                            ? "bg-primary dark:bg-Muharram_primary text-white"
-                            : "bg-white text-primary hover:bg-primary dark:text-Muharram_primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
-                        }`}
-                        aria-label={`الصفحة ${pageNum}`}
-                        aria-current={
-                          currentPage === pageNum ? "page" : undefined
-                        }
-                      >
-                        {pageNum}
-                      </Button>
-                    </SwiperSlide>
-                  );
-                })}
-              </Swiper>
-            </div>
-
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => {
-                swiperRef.current?.slideNext();
-                if (currentPage < totalPages) paginate(currentPage + 1);
-              }}
-              disabled={currentPage === totalPages}
-              aria-label="الصفحة التالية"
-              className="bg-white text-primary dark:text-Muharram_primary hover:bg-primary dark:hover:bg-[rgba(0,0,0,0.5)] hover:text-white"
-            >
-              <ChevronLeft size={20} />
-            </Button>
-          </div>
-        </nav>
+        </ResearchGrid>
       )}
-    </main>
+
+      {totalPages > 1 && (
+        <SwiperPagination
+          currentPage={page}
+          totalPages={totalPages}
+          onPageChange={paginate}
+        />
+      )}
+    </>
   );
 }
