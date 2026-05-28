@@ -201,7 +201,7 @@ export function ResearchCard({ item, onSummary }: ResearchCardProps) {
 export function ResearchGrid({ children }: { children: React.ReactNode }) {
   return (
     <AnimatePresence mode="popLayout">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
         {children}
       </div>
     </AnimatePresence>
@@ -237,7 +237,7 @@ export function EmptyState({ onReset }: { onReset?: () => void }) {
           onClick={onReset}
           className="mt-4 text-sm text-primary hover:underline font-medium"
         >
-   مسح الفلاتر
+          مسح الفلاتر
         </button>
       )}
     </motion.div>
