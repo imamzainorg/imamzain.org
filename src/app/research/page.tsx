@@ -1,7 +1,7 @@
 "use client";
 
 import Breadcrumbs from "@/components/breadcrumb";
-import SliderHero from "./_components/slider-hero";
+import SliderHero from "./scientific-platform/_components/shared/slider-hero";
 import Link from "next/link";
 import {
   BadgeCheck,
