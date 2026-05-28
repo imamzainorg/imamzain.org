@@ -1,11 +1,10 @@
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
-import { motion } from "framer-motion";
-import { GraduationCap } from "lucide-react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
 import { SearchSection } from "./shared/search-section";
+import FilterSidebar from "./shared/FilterSidebar";
 import {
   ResearchCard,
   ResearchGrid,
@@ -18,24 +17,7 @@ import { SwiperPagination } from "./shared/swiper-pagination";
 import studentData from "@/data/student.json";
 import { StudentResearch } from "@/types/student";
 
-// ─── Types ─────────────────────────────────────────────────────
-
-type DegreeType = "all" | "bachelor" | "master" | "phd";
-
 // ─── Constants ─────────────────────────────────────────────────
-
-const TABS = [
-  { id: "all", label: "الكل" },
-  { id: "bachelor", label: "بكالوريوس" },
-  { id: "master", label: "ماجستير" },
-  { id: "phd", label: "دكتوراه" },
-] as const;
-
-const CATEGORY_MAP: Record<string, string> = {
-  bachelor: "بكالوريوس",
-  master: "رسالة ماجستير",
-  phd: "دكتوراه",
-};
 
 const PER_PAGE = 21;
 
@@ -60,7 +42,7 @@ function toCard(
     publishedYear: item.publishedYear,
     badge: t.publicationVenue,
     badgeSecondary: t.category,
-  
+
     pdfUrl: item.pdfUrl,
   };
 }
@@ -77,7 +59,7 @@ function toRow(
     language: t.language,
     category: t.category,
     publishedYear: item.publishedYear,
-      pagenam: t.pagenam,
+    pagenam: t.pagenam,
     pdfUrl: item.pdfUrl,
   };
 }
@@ -86,46 +68,32 @@ function toRow(
 
 export default function StudentResearchPage() {
   const sp = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const [activeTab, setActiveTab] = useState<DegreeType>(
-    () => (sp.get("degree") as DegreeType) || "all",
-  );
-
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(sp.get("search") ?? "");
   const [viewMode, setViewMode] = useState<"cards" | "table">("cards");
+  const [filters, setFilters] = useState<Record<string, string>>({
+    category: sp.get("category") ?? "",
+    publicationVenue: sp.get("publicationVenue") ?? "",
+    author: sp.get("author") ?? "",
+    publishedYear: sp.get("publishedYear") ?? "",
+  });
   const [highlightId, setHighlightId] = useState<string | null>(null);
   const [page, setPage] = useState(1);
   const [sortBy, setSortBy] = useState("year-desc");
-
-  // ─── Tabs ───────────────────────────────────────────────────
-
-  const handleTab = useCallback((id: string) => {
-    setActiveTab(id as DegreeType);
-    setSearch("");
-    setPage(1);
-  }, []);
 
   // ─── Filter + Search + Sort ─────────────────────────────────
 
   const filtered = useMemo(() => {
     const all = studentData as StudentResearch[];
 
-    // filter by degree
-    const byCategory =
-      activeTab === "all"
-        ? all
-        : all.filter((item) =>
-            item.translations.some(
-              (t) => t.category === CATEGORY_MAP[activeTab],
-            ),
-          );
-
     // search
     const term = search.trim().toLowerCase();
 
     const searched = !term
-      ? byCategory
-      : byCategory.filter((item) =>
+      ? all
+      : all.filter((item) =>
           item.translations.some(
             (t) =>
               t.title?.toLowerCase().includes(term) ||
@@ -134,18 +102,49 @@ export default function StudentResearchPage() {
           ),
         );
 
+    // apply sidebar filters
+    const withFilters = searched.filter((item) => {
+      if (filters.category) {
+        const ok = item.translations.some(
+          (t) =>
+            (t.category ?? "").toLowerCase() === filters.category.toLowerCase(),
+        );
+        if (!ok) return false;
+      }
+      if (filters.publicationVenue) {
+        const ok = item.translations.some(
+          (t) =>
+            (t.publicationVenue ?? "").toLowerCase() ===
+            filters.publicationVenue.toLowerCase(),
+        );
+        if (!ok) return false;
+      }
+      if (filters.author) {
+        const ok = item.translations.some((t) =>
+          (t.authors || []).some(
+            (a) => a.toLowerCase() === filters.author.toLowerCase(),
+          ),
+        );
+        if (!ok) return false;
+      }
+      if (filters.publishedYear) {
+        if (
+          (item.publishedYear ?? "").toLowerCase() !==
+          filters.publishedYear.toLowerCase()
+        )
+          return false;
+      }
+      return true;
+    });
+
     // sort
-    return [...searched].sort((a, b) => {
+    return [...withFilters].sort((a, b) => {
       switch (sortBy) {
         case "year-desc":
-          return (
-            parseInt(b.publishedYear) - parseInt(a.publishedYear)
-          );
+          return parseInt(b.publishedYear) - parseInt(a.publishedYear);
 
         case "year-asc":
-          return (
-            parseInt(a.publishedYear) - parseInt(b.publishedYear)
-          );
+          return parseInt(a.publishedYear) - parseInt(b.publishedYear);
 
         case "title-asc":
           return (a.translations[0]?.title ?? "").localeCompare(
@@ -160,9 +159,7 @@ export default function StudentResearchPage() {
           );
 
         case "author-asc":
-          return (
-            a.translations[0]?.authors?.[0] ?? ""
-          ).localeCompare(
+          return (a.translations[0]?.authors?.[0] ?? "").localeCompare(
             b.translations[0]?.authors?.[0] ?? "",
             "ar",
           );
@@ -171,71 +168,85 @@ export default function StudentResearchPage() {
           return 0;
       }
     });
-  }, [search, activeTab, sortBy]);
+  }, [search, sortBy, filters]);
+
+  const updateParams = useCallback(
+    (updates: Record<string, string | number | null>) => {
+      const params = new URLSearchParams(sp.toString());
+      Object.entries(updates).forEach(([key, value]) => {
+        if (value === null || value === "") params.delete(key);
+        else params.set(key, String(value));
+      });
+      if (!Object.prototype.hasOwnProperty.call(updates, "page")) {
+        params.set("page", "1");
+      }
+      router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    },
+    [sp, pathname, router],
+  );
+
+  const filterOptions = useMemo(() => {
+    const categories = new Set<string>();
+    const publicationVenues = new Set<string>();
+    const authors = new Set<string>();
+    const years = new Set<string>();
+
+    (studentData as StudentResearch[]).forEach((item) => {
+      item.translations.forEach((t) => {
+        if (t.category) categories.add(t.category);
+        if (t.publicationVenue) publicationVenues.add(t.publicationVenue);
+        (t.authors || []).forEach((a) => a && authors.add(a));
+      });
+
+      if (item.publishedYear) years.add(item.publishedYear);
+    });
+
+    return {
+      category: ["الكل", ...Array.from(categories).sort()],
+      publicationVenue: ["الكل", ...Array.from(publicationVenues).sort()],
+      author: ["الكل", ...Array.from(authors).sort()],
+      publishedYear: ["الكل", ...Array.from(years).sort().reverse()],
+    } as Record<string, string[]>;
+  }, []);
 
   // ─── Pagination ─────────────────────────────────────────────
 
   const totalPages = Math.ceil(filtered.length / PER_PAGE);
 
-  const paginated = filtered.slice(
-    (page - 1) * PER_PAGE,
-    page * PER_PAGE,
-  );
+  const paginated = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE);
 
   const tableRows = paginated.flatMap((item) =>
     item.translations.map((t) => toRow(item, t)),
   );
 
-  const paginate = useCallback((p: number) => {
-    setPage(p);
-    setHighlightId(null);
+  const paginate = useCallback(
+    (p: number) => {
+      setPage(p);
+      setHighlightId(null);
+      updateParams({ page: p });
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }, []);
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    },
+    [updateParams],
+  );
 
   // ─── Render ─────────────────────────────────────────────────
 
   return (
     <>
-      <motion.header
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-12"
-      >
-        <div className="flex justify-center mb-4">
-          <GraduationCap
-            size={48}
-            className="text-primary"
-            aria-hidden="true"
-          />
-        </div>
-
-        <h2 className="text-body font-bold text-gray-900 dark:text-white mb-3">
-          بحوث الطلاب
-        </h2>
-
-        <p className="text-gray-600 text-note leading-8 dark:text-gray-300 max-w-2xl mx-auto">
-          بحوث طلاب البكالوريوس والماجستير والدكتوراه ضمن مشاريع علمية متنوعة.
-        </p>
-      </motion.header>
+   
 
       <SearchSection
         searchValue={search}
         onSearchChange={(v) => {
           setSearch(v);
           setPage(1);
+          updateParams({ search: v });
         }}
-        searchPlaceholder={
-          activeTab === "all"
-            ? "ابحث في جميع البحوث..."
-            : `ابحث في ${
-                TABS.find((t) => t.id === activeTab)?.label
-              }...`
-        }
+        searchPlaceholder="ابحث في جميع البحوث..."
         resultCount={filtered.length}
         resultUnit="بحث"
         sortOptions={SORT_OPTIONS}
@@ -243,49 +254,83 @@ export default function StudentResearchPage() {
         onSortChange={setSortBy}
         viewMode={viewMode}
         onViewModeChange={setViewMode}
-        tabs={[...TABS]}
-        activeTab={activeTab}
-        onTabChange={handleTab}
       />
+      <div
+        className={`flex gap-6 ${
+          viewMode === "table" ? "flex-col" : "flex-col lg:flex-row"
+        }`}
+      >
+        <aside className={` ${viewMode === "table" ? "w-full" : "w-3/12"}`}>
+          <FilterSidebar
+            horizontal={viewMode === "table"}
+            filters={filterOptions}
+            filterValues={filters}
+            onFilterChange={(k, v) => {
+              const value = v === "الكل" ? "" : v;
 
-      {filtered.length === 0 ? (
-        <EmptyState
-          onReset={() => {
-            setSearch("");
-            setActiveTab("all");
-          }}
-        />
-      ) : viewMode === "table" ? (
-        <ResearchTable
-          rows={tableRows}
-          startIndex={(page - 1) * PER_PAGE}
-          highlightId={highlightId}
-          onRowClick={setHighlightId}
-          onRowDoubleClick={(url) =>
-            url && window.open(url, "_blank")
-          }
-          showCategory
-        />
-      ) : (
-        <ResearchGrid>
-          {paginated.map((item) =>
-            item.translations.map((t) => (
-              <ResearchCard
-                key={`${item.id}-${t.languageid}`}
-                item={toCard(item, t)}
-              />
-            )),
+              setFilters((p) => ({ ...p, [k]: value }));
+              setPage(1);
+
+              updateParams({ [k]: value || null });
+            }}
+            reset={() => {
+              setFilters({
+                category: "",
+                publicationVenue: "",
+                author: "",
+                publishedYear: "",
+              });
+              setSearch("");
+              updateParams({
+                category: null,
+                publicationVenue: null,
+                author: null,
+                publishedYear: null,
+                search: null,
+                page: null,
+              });
+            }}
+          />
+        </aside>
+
+        <main className="flex-1 ">
+          {filtered.length === 0 ? (
+            <EmptyState
+              onReset={() => {
+                setSearch("");
+              }}
+            />
+          ) : viewMode === "table" ? (
+            <ResearchTable
+              rows={tableRows}
+              startIndex={(page - 1) * PER_PAGE}
+              highlightId={highlightId}
+              onRowClick={setHighlightId}
+              onRowDoubleClick={(url) => url && window.open(url, "_blank")}
+              showCategory
+            />
+          ) : (
+            <ResearchGrid>
+              {paginated.map((item) =>
+                item.translations.map((t) => (
+                  <ResearchCard
+                    key={`${item.id}-${t.languageid}`}
+                    item={toCard(item, t)}
+                  />
+                )),
+              )}
+            </ResearchGrid>
           )}
-        </ResearchGrid>
-      )}
 
-      {totalPages > 1 && (
-        <SwiperPagination
-          currentPage={page}
-          totalPages={totalPages}
-          onPageChange={paginate}
-        />
-      )}
+          {totalPages > 1 && (
+            <SwiperPagination
+              currentPage={page}
+              totalPages={totalPages}
+              onPageChange={paginate}
+            />
+          )}
+        </main>
+      </div>
     </>
   );
 }
