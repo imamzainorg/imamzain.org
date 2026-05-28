@@ -33,9 +33,9 @@ export function ResearchTable({
   showCategory = false,
 }: ResearchTableProps) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-gray-100 dark:border-gray-800 dark:bg-gray-900">
+    <div className="overflow-hidden rounded-2xl  border border-gray-100 dark:border-gray-800 dark:bg-gray-900">
       {/* حاوية تمرير أفقي للموبايل */}
-      <div className="overflow-x-auto touch-pan-x">
+      <div className="overflow-x-auto touch-pan-x ">
         <table className="min-w-[1100px] w-full table-fixed text-sm">
           <thead>
             <tr
