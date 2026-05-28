@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
 import { SearchSection } from "./shared/search-section";
+import FilterSidebar from "./shared/FilterSidebar";
 import {
   ResearchCard,
   ResearchGrid,
@@ -40,7 +41,7 @@ function text(item: Research) {
     item.section,
     item.topic,
     item.author,
-    item.publishedYear,
+    String(item.publishedYear ?? ""),
     item.conference,
   ]
     .join(" ")
@@ -76,16 +77,24 @@ function toCard(item: Research): CardData {
 
 export default function ConferencePapers() {
   const sp = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
   const [all] = useState<Research[]>(() => [...researchData].reverse());
   const [selected, setSelected] = useState<CardData | null>(null);
-  const [page, setPage] = useState(1);
   const [sortVal, setSortVal] = useState("year-desc");
   const [search, setSearch] = useState(sp.get("search") ?? "");
   const [filters, setFilters] = useState<Record<string, string>>({
-    conference: "",
-    author: "",
-    publishedYear: "",
+    conference: sp.get("conference") ?? "",
+    author: sp.get("author") ?? "",
+    publishedYear: sp.get("publishedYear") ?? "",
   });
+
+  // ✅ page مصدره URL فقط، بدون useState
+  const page = useMemo(
+    () => Math.max(1, Number(sp.get("page") || "1")),
+    [sp],
+  );
 
   const uniq = useMemo(
     () => ({
@@ -96,6 +105,15 @@ export default function ConferencePapers() {
         .sort((a, b) => Number(b) - Number(a)),
     }),
     [all],
+  );
+
+  const filterOptions = useMemo(
+    () => ({
+      conference: uniq.conferences as string[],
+      author: uniq.authors as string[],
+      publishedYear: uniq.years as string[],
+    }),
+    [uniq],
   );
 
   const filtered = useMemo(() => {
@@ -114,7 +132,9 @@ export default function ConferencePapers() {
               ?.toLowerCase()
               .includes(filters.author.toLowerCase())) &&
           (!filters.publishedYear ||
-            item.publishedYear?.toString().includes(filters.publishedYear)),
+            item.publishedYear
+              ?.toString()
+              .includes(filters.publishedYear)),
       ),
       sf,
       so,
@@ -124,91 +144,93 @@ export default function ConferencePapers() {
   const totalPages = Math.ceil(filtered.length / PER_PAGE);
   const current = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE);
 
+  // ✅ دالة واحدة بدون useCallback لتجنب تعارض React Compiler
+  const updateParams = (updates: Record<string, string | number | null>) => {
+    const params = new URLSearchParams(sp.toString());
+    Object.entries(updates).forEach(([key, value]) => {
+      if (value === null || value === "") params.delete(key);
+      else params.set(key, String(value));
+    });
+    if (!Object.prototype.hasOwnProperty.call(updates, "page")) {
+      params.set("page", "1");
+    }
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+  };
+
+  const resetAll = () => {
+    setSearch("");
+    setFilters({ conference: "", author: "", publishedYear: "" });
+    router.push(pathname, { scroll: false });
+  };
+
   const handleSearch = (v: string) => {
     setSearch(v);
-    setPage(1);
+    updateParams({ search: v });
   };
+
   const handleFilter = (k: string, v: string) => {
     setFilters((p) => ({ ...p, [k]: v }));
-    setPage(1);
+    updateParams({ [k]: v || null });
   };
+
   const handleSort = (v: string) => {
     setSortVal(v);
-    setPage(1);
+    updateParams({ sort: v });
   };
 
   return (
     <>
-      <SearchSection
-        searchValue={search}
-        onSearchChange={handleSearch}
-        searchPlaceholder="ابحث في العنوان، المؤلف، المؤتمر..."
-        resultCount={filtered.length}
-        resultUnit="بحث"
-        sortOptions={SORT_OPTIONS}
-        sortValue={sortVal}
-        onSortChange={handleSort}
-        filters={[
-          {
-            key: "conference",
-            label: "المؤتمر",
-            options: uniq.conferences.filter(
-              (item): item is string => item !== undefined,
-            ),
-            placeholder: "كل المؤتمرات",
-          },
-          {
-            key: "author",
-            label: "المؤلف",
-            options: uniq.authors.filter(
-              (item): item is string => item !== undefined,
-            ),
-            placeholder: "كل المؤلفين",
-          },
-          {
-            key: "publishedYear",
-            label: "سنة النشر",
-            options: uniq.years.filter(
-              (item): item is string => item !== undefined,
-            ),
-            placeholder: "كل السنوات",
-          },
-        ]}
-        filterValues={filters}
-        onFilterChange={handleFilter}
-      />
+      <div className="flex flex-col lg:flex-row gap-6">
+        <aside className="w-3/12">
+          <FilterSidebar
+            filters={filterOptions}
+            filterValues={filters}
+            onFilterChange={handleFilter}
+            reset={resetAll}
+          />
+        </aside>
 
-      {filtered.length === 0 ? (
-        <EmptyState
-          onReset={() => {
-            setSearch("");
-            setFilters({ conference: "", author: "", publishedYear: "" });
-          }}
-        />
-      ) : (
-        <ResearchGrid>
-          {current.map((item) => (
-            <ResearchCard
-              key={item.id ?? item.title}
-              item={toCard(item)}
-              onSummary={setSelected}
+        <main className="flex-1">
+          <SearchSection
+            searchValue={search}
+            onSearchChange={handleSearch}
+            searchPlaceholder="ابحث في العنوان، المؤلف، المؤتمر..."
+            resultCount={filtered.length}
+            resultUnit="بحث"
+            sortOptions={SORT_OPTIONS}
+            sortValue={sortVal}
+            onSortChange={handleSort}
+          />
+
+          {filtered.length === 0 ? (
+            <EmptyState onReset={resetAll} />
+          ) : (
+            <ResearchGrid>
+              {current.map((item) => (
+                <ResearchCard
+                  key={item.id ?? item.title}
+                  item={toCard(item)}
+                  onSummary={setSelected}
+                />
+              ))}
+            </ResearchGrid>
+          )}
+
+          {totalPages > 1 && (
+            <SwiperPagination
+              currentPage={page}
+              totalPages={totalPages}
+              onPageChange={(p) => {
+                // ✅ بدون setPage، URL هو المصدر
+                updateParams({ page: p });
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
             />
-          ))}
-        </ResearchGrid>
-      )}
+          )}
 
-      {totalPages > 1 && (
-        <SwiperPagination
-          currentPage={page}
-          totalPages={totalPages}
-          onPageChange={(p) => {
-            setPage(p);
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-        />
-      )}
-
-      <SummaryModal item={selected} onClose={() => setSelected(null)} />
+          <SummaryModal item={selected} onClose={() => setSelected(null)} />
+        </main>
+      </div>
     </>
   );
 }
