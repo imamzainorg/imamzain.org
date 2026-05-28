@@ -17,5 +17,5 @@ export type Book = {
 	series: string
 	category?: string[]
 	description?: string,
-	Conferences?: string
+	Conferences?: string[]
 }
