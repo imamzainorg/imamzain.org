@@ -32,7 +32,12 @@ export default function Page() {
     setCurrentPlaylist(playlist);
     setVideoId(videoUrl);
   };
-
+const internalPlaylists = playlists.filter(
+  (playlist) =>
+    (playlist.displayLocation === "internal" ||
+      playlist.displayLocation === "both") &&
+    playlist.videos.length > 0
+);
   const closeModal = () => {
     setVideoId(null);
     setCurrentPlaylist(null);
@@ -49,7 +54,7 @@ export default function Page() {
     <div>
       <VideoComponent />
       <div className="pb-32 container">
-        {playlists.map((playlist: YouTubePlaylist, index: number) => (
+        {internalPlaylists.map((playlist: YouTubePlaylist, index: number) => (
           <PlaylistSection
             key={index}
             playlist={playlist}
