@@ -1,8 +1,57 @@
 [
   {
+    "id": 13,
+    "title": "من دعاء الامام زين العابدين عليه السلام في يوم عرفة",
+    "url": "https://www.youtube.com/watch?v=joVW87ORUvE&t=7s",
+    "displayLocation": "home",
+    "videos": [
+      {
+        "title": "من دعاء الامام زين العابدين عليه السلام في يوم عرفة",
+        "url": "joVW87ORUvE",
+        "date": " 26‏/05‏/2026",
+        "desc": "",
+        "thumbnail": "/general/From-the-supplication-of-Imam-Zayn-al-Abidin-(peace-be-upon-him)-on-the-Day-of-Arafah.png",
+        "slug": "From-the-supplication-of-Imam-Zayn-al-Abidin-(peace-be-upon-him)-on-the-Day-of-Arafah"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "مؤسسة الإمام زين العابدين (ع) تستقبل الباحث الاسلامي والمحقق سماحة الشيخ قيس العطار في زيارة علمية",
+    "url": "https://www.youtube.com/watch?v=jLLlYoT8Gic",
+    "displayLocation": "home",
+    "videos": [
+      {
+        "title": "مؤسسة الإمام زين العابدين (ع) تستقبل الباحث الاسلامي والمحقق سماحة الشيخ قيس العطار في زيارة علمية",
+        "url": "jLLlYoT8Gic",
+        "date": "25‏/05‏/2026 ",
+        "desc": "",
+        "thumbnail": "/general/Imam-Zayn-al-Abidin-Foundation-Welcomes-Shaykh-Qays-Al-Attar.png",
+        "slug": "Imam-Zayn-al-Abidin-Foundation-Welcomes-Shaykh-Qays-Al-Attar"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "title": "من اهم شروط الطواف في الحج | تقديم : الشيخ حسين الأسدي",
+    "url": "https://www.youtube.com/watch?v=hZRDm3lYCOI",
+    "displayLocation": "home",
+    "videos": [
+      {
+        "title": "من اهم شروط الطواف في الحج | تقديم : الشيخ حسين الأسدي",
+        "url": "hZRDm3lYCOI",
+        "date": "22‏/05‏/2026",
+        "desc": "",
+        "thumbnail": "/general/tawaf-conditions-hajj-hussein-al-asadi.png",
+        "slug": "min-aham-shurut-al-tawaf-fi-al-hajj-al-shaykh-hussein-al-asadi"
+      }
+    ]
+  },
+  {
     "id": 10,
     "title": "ثلاثون درساً من دعاء أبي حمزة الثمالي",
     "url": "https://www.youtube.com/watch?v=GTwC3hVv_0c&list=PLi1h0SEPzOA5H9jFEY4i2Qk3IhCF60ZcK&index=6",
+    "displayLocation": "both",
     "videos": [
       {
         "title": "ثلاثون درساً من دعاء أبي حمزة الثمالي | الدرس الأول",
@@ -58,6 +107,7 @@
     "id": 1,
     "title": "الملتقى الثاني البقيع: الهوية والتاريخ",
     "url": "https://www.youtube.com/watch?v=pJt4S9yUKqg&list=PLi1h0SEPzOA7_e_zG7YYf_-bYzr0v9LkK",
+    "displayLocation": "both",
     "videos": [
       {
         "title": "كلمة مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات في الملتقى الثاني البقيع",
@@ -105,6 +155,7 @@
     "id": 2,
     "title": "شهر محرم الحرام ١٤٤٧هـ | العشرة السجادية",
     "url": "https://www.youtube.com/watch?v=afk0frMXGsE&list=PLi1h0SEPzOA6grhNJ1HCsNVnk0wjvhqiU",
+    "displayLocation": "both",
     "videos": [
       {
         "title": "الشيخ بشير الحسناوي | التاسع العشرون من شهر محرم الحرام",
@@ -192,6 +243,7 @@
     "id": 3,
     "title": "مجالس عزاء ١٤٤٧هـ",
     "url": "https://www.youtube.com/watch?v=jtNIjIlw1CA&list=PLi1h0SEPzOA7qCKJ6DNLpxxdEVXgQXehF",
+    "displayLocation": "both",
     "videos": [
       {
         "title": "مجلس عزاء شهادة الإمام الحسن العسكري (ع) المقام في مؤسسة الإمام زين العابدين (ع) للبحوث والدراسات",
@@ -239,6 +291,7 @@
     "id": 4,
     "title": " مجالس شهر محرم الحرام ١٤٤٧هـ",
     "url": "https://www.youtube.com/watch?v=S_fpKTxFE5k&list=PLi1h0SEPzOA5FgG-xJjr6ZT5oqP8RfD1X",
+    "displayLocation": "both",
     "videos": [
       {
         "title": "الشيخ محمد امين العبادي | السابع من شهر محرم الحرام",
@@ -294,6 +347,7 @@
     "id": 5,
     "title": "ويجازي بالجليل",
     "url": "https://www.youtube.com/watch?v=dCxP3LDsWhE&list=PLi1h0SEPzOA6zlKPmTJCi5L3S82b7U9Ct",
+    "displayLocation": "both",
     "videos": [
       {
         "title": "برنامج ويجازي بالجليل - الحلقة الاولى",
@@ -397,6 +451,7 @@
     "id": 6,
     "title": "مفهوم المنهج التربوي والاخلاقي",
     "url": "https://www.youtube.com/watch?v=nN-kDcOWQH8&list=PLi1h0SEPzOA7Q9goeGnOktF4LOzJ7Mzg9",
+    "displayLocation": "both",
     "videos": [
       {
         "title": "مفهوم المنهج التربوي والاخلاقي - الحلقة الاولى",
@@ -436,6 +491,7 @@
     "id": 7,
     "title": "نفحات تربوية واجتماعية من حياة الامام زين العابدين",
     "url": "https://www.youtube.com/watch?v=FjaUCKDsALM&list=PLi1h0SEPzOA79nt51XjkWQjcRr_8UMTsO",
+    "displayLocation": "both",
     "videos": [
       {
         "title": "النشمي يدعوا الباحثين والكتاب للمشاركة في قراءة وكتابة تراث الامام زين العابدين عليه السلام",
@@ -475,6 +531,7 @@
     "id": 8,
     "title": "من دعاء مكارم الاخلاق ",
     "url": "https://www.youtube.com/watch?v=lsY6dEqSLeE&list=PLi1h0SEPzOA6oG27BNv9cTFOAXIYmJlar",
+    "displayLocation": "both",
     "videos": [
       {
         "title": "من دعاء مكارم الاخلاق - المقطع الأول",
@@ -602,6 +659,7 @@
     "id": 9,
     "title": "الملتقى التشاوري الاول لخطباء المنبر الحسيني",
     "url": "https://www.youtube.com/watch?v=c2In_ZUNTsI&list=PLi1h0SEPzOA6AnHe_HTGGMGvH-aoXd-T9",
+    "displayLocation": "both",
     "videos": [
       {
         "title": "كلمة المتولي الشرعي سماحة الشيخ عبد المهدي الكربلائي في الملتقى التشاوري الأول لخطباء المنبر الحسيني",
