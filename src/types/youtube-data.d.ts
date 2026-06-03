@@ -13,4 +13,5 @@ export type YouTubePlaylist = {
 	url: string
 	title: string
 	videos: YouTubeVideo[]
+	 displayLocation: "home" | "internal" | "both"
 }
