@@ -65,14 +65,14 @@ export default function GallerySection() {
 
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
-  const sliderImageIds = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21];
+  const sliderImageIds = [373,295,335, 354, 58, 209, 247, 46, 76, 205, 331];
 
   const categoryImages = [
-    { id: 2, category: "نشاطات" },
-    { id: 4, category: "ندوات" },
-    { id: 6, category: "مناسبات" },
-    { id: 8, category: "مسابقات" },
-    { id: 10, category: "اخبار" },
+    { id: 218, category: "نشاطات" },
+    { id: 236, category: "ندوات" },
+    { id: 195, category: "مناسبات" },
+    { id: 309, category: "مسابقات" },
+    { id: 265, category: "اخبار" },
   ];
 
   useEffect(() => {
