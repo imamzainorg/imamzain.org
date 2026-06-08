@@ -11,6 +11,7 @@ function dedupeSeries(books: Book[]): Book[] {
 	const filteredByCategory = books.filter((book) =>
 		book.category?.includes("الإصدارات"),
 	)
+
 	const uniqueSeriesMap = new Map<string, Book>()
 
 	filteredByCategory.forEach((book) => {
@@ -23,7 +24,9 @@ function dedupeSeries(books: Book[]): Book[] {
 		}
 	})
 
-	return Array.from(uniqueSeriesMap.values())
+	return Array.from(uniqueSeriesMap.values()).sort(
+		(a, b) => b.id - a.id,
+	)
 }
 
 export default function PublicationsPage() {
