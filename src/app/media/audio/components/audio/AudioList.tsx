@@ -102,12 +102,11 @@ export default function AudioList({
         item.title.toLowerCase().includes(q) ||
         (item.speaker ?? "").toLowerCase().includes(q);
       const matchSpeaker = !speakerFilter || item.speaker === speakerFilter;
-      const matchCategory =
-        !categoryFilter || item.category?.includes(categoryFilter);
+
       const minutes = (item.durationSeconds ?? 0) / 60;
       const matchDuration =
         minutes >= durationRange[0] && minutes <= durationRange[1];
-      return matchSearch && matchSpeaker && matchCategory && matchDuration;
+      return matchSearch && matchSpeaker && matchDuration;
     });
 
     const sortMap: Record<string, (a: AudioItem, b: AudioItem) => number> = {
@@ -119,7 +118,7 @@ export default function AudioList({
     if (sortFilter && sortMap[sortFilter])
       result = [...result].sort(sortMap[sortFilter]);
     return result;
-  }, [items, search, speakerFilter, categoryFilter, durationRange, sortFilter]);
+  }, [items, search, speakerFilter, durationRange, sortFilter]);
 
   // ─── Pagination ────────────────────────────────────────────────────────────
   const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
@@ -129,31 +128,33 @@ export default function AudioList({
   }, [filtered, currentPage]);
 
   // ─── Handlers ─────────────────────────────────────────────────────────────
-  const resetPage = () => setCurrentPage(1);
-  const handleSearch = useCallback((v: string) => {
-    setSearch(v);
-    resetPage();
-  }, []);
-  {
+// ✅ بعد
+const resetPage = useCallback(() => setCurrentPage(1), []);
     /*   const handleCategoryFilter = useCallback((v: string) => {
     setCategoryFilter(v);
     resetPage();
   }, []);*/
-  }
-  const handleDurationRange = useCallback((range: [number, number]) => {
-    setDurationRange(range);
-    resetPage();
-  }, []);
-  const handleSortFilter = useCallback((v: string) => {
-    setSortFilter(v);
-    resetPage();
-  }, []);
-  const handleSpeakerSelect = useCallback((speaker: string) => {
-    setSpeakerFilter(speaker);
-    setSpeakerSearch("");
-    setIsSpeakerDropdownOpen(false);
-    resetPage();
-  }, []);
+const handleSearch = useCallback((v: string) => {
+  setSearch(v);
+  resetPage();
+}, [resetPage]);
+
+const handleDurationRange = useCallback((range: [number, number]) => {
+  setDurationRange(range);
+  resetPage();
+}, [resetPage]);
+
+const handleSortFilter = useCallback((v: string) => {
+  setSortFilter(v);
+  resetPage();
+}, [resetPage]);
+
+const handleSpeakerSelect = useCallback((speaker: string) => {
+  setSpeakerFilter(speaker);
+  setSpeakerSearch("");
+  setIsSpeakerDropdownOpen(false);
+  resetPage();
+}, [resetPage]);
   const handleSpeakerSearchChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setSpeakerSearch(e.target.value);
@@ -406,7 +407,7 @@ export default function AudioList({
               </button>
             </div>
           ) : (
-            <div className="grid gap-3">
+            <div className="grid md:grid-cols-2 gap-3">
               {paginated.map((item) => (
                 <AudioCard
                   key={item.id}
@@ -444,7 +445,7 @@ export default function AudioList({
         <button
           onClick={() => setIsMobileFiltersOpen(true)}
           className="
-            lg:hidden fixed bottom-6  -translate-x-1/2 z-40
+            lg:hidden fixed bottom-6   left-1/2 -translate-x-1/2 z-40
             flex items-center gap-2
             bg-primary text-white
             px-5 py-3 rounded-full shadow-lg shadow-primary/30
