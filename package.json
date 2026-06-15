@@ -10,7 +10,7 @@
     "clear": "rm -rf .next",
     "knip": "knip",
     "dev:clear": "bun run clear && bun run dev",
-    "analyze": "npx tsx scripts/analyze-audio.ts"
+    "analyze": "bun scripts/analyze-audio.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
@@ -23,12 +23,14 @@
     "@vercel/speed-insights": "^1.3.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.23.26",
+    "fluent-ffmpeg": "^2.1.3",
+    "framer-motion": "^12.40.0",
     "i18n-iso-countries": "^7.14.0",
     "lucide-react": "0.468.0",
     "music-metadata": "^11.12.3",
     "next": "^16.0.10",
     "node-html-parser": "^7.0.1",
+    "qrcode.react": "^4.2.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-icons": "^5.5.0",
