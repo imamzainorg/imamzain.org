@@ -40,16 +40,16 @@ function AudioWavePlayerContent() {
   );
 
   // ─── Audio player hook ────────────────────────────────────────────────────
-  const {
-    activeId,
-    isPlaying,
-    currentTimes,
-    volumes,
-    playPause,
-    seek,
-    setVolume,
-  } = useAudioPlayer();
-
+const {
+  activeId,
+  isPlaying,
+  currentTimes,
+  volumes,
+  playPause,
+  seek,
+  seekAndPlay,
+  setVolume,
+} = useAudioPlayer();
   // Wrap playPause to include callbacks
   const handlePlayPause = useCallback(
     (item: AudioItem) => {
@@ -59,14 +59,33 @@ function AudioWavePlayerContent() {
   );
 
   // ─── Seek handler ─────────────────────────────────────────────────────────
-  const handleSeek = useCallback(
-    (item: AudioItem, pct: number) => {
+const handleSeek = useCallback(
+  (item: AudioItem, pct: number) => {
+    if (activeId === item.id) {
       seek(item, pct, (progress) => {
         drawItem(item, progress, true);
       });
-    },
-    [seek, drawItem],
-  );
+      return;
+    }
+
+    const duration = item.durationSeconds ?? 0;
+
+    seekAndPlay(
+      item,
+      duration * pct,
+      (progress) => onProgress(item.id, progress),
+      onStop,
+    );
+  },
+  [
+    activeId,
+    seek,
+    seekAndPlay,
+    drawItem,
+    onProgress,
+    onStop,
+  ],
+);
 
   // ─── Redraw active item on progress ───────────────────────────────────────
   // (waveform redraws happen inside RAF via onProgress callback above)
