@@ -54,13 +54,17 @@ export default function Publications({
       transition: { duration: 0.3 },
     },
   };
-const sortedPublications = [...publications]
-	.filter(
-		(book) =>
-			Array.isArray(book.category) &&
-			book.category.includes("الإصدارات")
-	)
-	.sort((a, b) => b.id - a.id);
+  const sortedPublications = publications
+    .filter(
+      (book) =>
+        Array.isArray(book.category) && book.category.includes("الإصدارات"),
+    )
+    .sort((a, b) => b.id - a.id)
+    .filter(
+      (book, index, arr) =>
+        !book.series ||
+        arr.findIndex((b) => b.series === book.series) === index,
+    );
   return (
     <div className="container w-full flex flex-col items-center pt-20">
       <div className="flex w-full items-center justify-between my-8">
@@ -74,7 +78,7 @@ const sortedPublications = [...publications]
       </div>
 
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 gap-y-6 items-start my-8">
-  {sortedPublications.slice(0, booksToShow).map((book) => (
+        {sortedPublications.slice(0, booksToShow).map((book) => (
           <Link key={book.id} href={`/publications/${book.slug}`}>
             <motion.div
               className="flex flex-col justify-between rounded-2xl h-3/4 bg-gradient-to-t from-[#e1e8d7] via-[#e1e8d7]/10 to-transparent dark:from-Muharram_secondary/20 dark:via-Muharram_secondary/5 dark:to-transparent"
