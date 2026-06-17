@@ -19,13 +19,15 @@ const Videos = dynamic(() => import("./_components/videos"))
 const Application = dynamic(() => import("./_components/application"))
 
 const desktopImages = [
+	"/general/Biography-of-the Infallible-Ones.jpg",
 	"/images/fhrs-alsahefe.jpg",
-	"/images/ziara-imamzain-web.jpg",
 	"/images/albaqi.jpg",
+	"/images/ziara-imamzain-web.jpg",
+	
 	"/images/web.jpg",
 
 	//"/images/albaqi-2.png",
-	"/images/hero-4.jpg", // تراتيل القانتين
+	//"/images/hero-4.jpg", // تراتيل القانتين
 	"/images/hero-5.jpg", // البعد الاجتماعي
 	"/images/hero-7.jpg", // بناء الامن النفسي
 ]
