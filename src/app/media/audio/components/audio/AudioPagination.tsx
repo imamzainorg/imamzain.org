@@ -1,7 +1,14 @@
-// components/audio/AudioPagination.tsx
 "use client";
 
-import { memo } from "react";
+import { memo, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import type SwiperCore from "swiper";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/button";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 interface PaginationProps {
   currentPage: number;
@@ -14,72 +21,83 @@ const AudioPagination = memo(function AudioPagination({
   totalPages,
   onPageChange,
 }: PaginationProps) {
-  if (totalPages <= 1) return null;
+  const swiperRef = useRef<SwiperCore | null>(null);
 
-  const getPages = (): (number | "...")[] => {
-    if (totalPages <= 7) {
-      return Array.from({ length: totalPages }, (_, i) => i + 1);
-    }
-    const pages: (number | "...")[] = [1];
-    if (currentPage > 3) pages.push("...");
-    for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) {
-      pages.push(i);
-    }
-    if (currentPage < totalPages - 2) pages.push("...");
-    pages.push(totalPages);
-    return pages;
+  const go = (page: number) => {
+    if (page < 1 || page > totalPages) return;
+
+    onPageChange(page);
+    swiperRef.current?.slideTo(page - 1);
   };
+
+  if (totalPages <= 1) return null;
 
   return (
     <nav
-      className="flex items-center justify-center gap-1.5 mt-8 flex-wrap"
+      className="w-11/12 mx-auto flex justify-center my-8"
       aria-label="التنقل بين الصفحات"
-      dir="rtl"
     >
-      {/* Previous */}
-      <button
-        onClick={() => onPageChange(currentPage - 1)}
-        disabled={currentPage === 1}
-        className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-slate-600 bg-white border border-slate-200 hover:border-primary hover:text-primary disabled:opacity-40 disabled:cursor-not-allowed transition-all"
-      >
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-          <path d="m9 18 6-6-6-6" />
-        </svg>
-        السابق
-      </button>
+      <div className="flex items-center gap-2">
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => go(currentPage - 1)}
+          disabled={currentPage === 1}
+          aria-label="الصفحة السابقة"
+          className="bg-white text-primary hover:bg-primary hover:text-white"
+        >
+          <ChevronRight size={20} />
+        </Button>
 
-      {/* Page numbers */}
-      {getPages().map((page, idx) =>
-        page === "..." ? (
-          <span key={`dots-${idx}`} className="px-2 py-2 text-slate-400 text-sm">
-            ···
-          </span>
-        ) : (
-          <button
-            key={page}
-            onClick={() => onPageChange(page as number)}
-            className={`w-9 h-9 rounded-lg text-sm font-semibold transition-all ${
-              page === currentPage
-                ? "bg-primary text-white shadow-md shadow-primary/30"
-                : "bg-white border border-slate-200 text-slate-600 hover:border-primary hover:text-primary"
-            }`}
+        <div className="w-[240px] overflow-hidden">
+          <Swiper
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+              swiper.slideTo(Math.max(0, currentPage - 1));
+            }}
+            slidesPerView={5}
+            spaceBetween={8}
+            grabCursor
           >
-            {page}
-          </button>
-        )
-      )}
+            {Array.from({ length: totalPages }, (_, i) => {
+              const pageNum = i + 1;
 
-      {/* Next */}
-      <button
-        onClick={() => onPageChange(currentPage + 1)}
-        disabled={currentPage === totalPages}
-        className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-slate-600 bg-white border border-slate-200 hover:border-primary hover:text-primary disabled:opacity-40 disabled:cursor-not-allowed transition-all"
-      >
-        التالي
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-          <path d="m15 18-6-6 6-6" />
-        </svg>
-      </button>
+              return (
+                <SwiperSlide key={pageNum}>
+                  <Button
+                    variant={
+                      currentPage === pageNum ? "default" : "outline"
+                    }
+                    onClick={() => go(pageNum)}
+                    className={`w-10 h-10 rounded-lg ${
+                      currentPage === pageNum
+                        ? "bg-primary text-white"
+                        : "bg-white text-primary hover:bg-primary hover:text-white"
+                    }`}
+                    aria-label={`الصفحة ${pageNum}`}
+                    aria-current={
+                      currentPage === pageNum ? "page" : undefined
+                    }
+                  >
+                    {pageNum}
+                  </Button>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
+
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => go(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          aria-label="الصفحة التالية"
+          className="bg-white text-primary hover:bg-primary hover:text-white"
+        >
+          <ChevronLeft size={20} />
+        </Button>
+      </div>
     </nav>
   );
 });
