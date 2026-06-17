@@ -8,7 +8,9 @@ import NewsShare from "@/components/news-share";
 import { dataFetcher } from "@/lib/dataFetcher";
 import { Post } from "@/types/post";
 import SwiperGallery from "../_components/swiper-gallery";
-
+import "swiper/css";
+import "swiper/css/navigation"; 
+import "swiper/css/pagination";
 export const revalidate = 300;
 import HeaderSections from "@/components/header-sections";
 
