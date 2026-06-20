@@ -1,6 +1,7 @@
 import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
+	allowedDevOrigins: ["192.168.47.12"],
 	images: {
 		deviceSizes: [640, 1080, 1920],
 		imageSizes: [128, 256, 384],
