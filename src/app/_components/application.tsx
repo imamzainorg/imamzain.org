@@ -28,7 +28,7 @@ export default function Application() {
 					animate="visible"
 					className="relative z-10 w-full lg:w-1/2 flex flex-col gap-6 lg:gap-10 xl:gap-16 max-lg:text-center"
 				>
-					<Link href={"/application"} className="group">
+					<Link href={"/applications/anwar-sajjadyia"} className="group">
 						<motion.h2
 							className="text-title font-bold text-center lg:text-start bg-gradient-to-r from-primary/35 via-secondary/50 to-primary/80 bg-clip-text text-transparent leading-tight group-hover:scale-105 transition-transform duration-300"
 							whileHover={{ scale: 1.02 }}
@@ -90,7 +90,7 @@ export default function Application() {
 								<div className="relative">
 									<div className="absolute inset-0 bg-gradient-to-r rounded-2xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
 									<Image
-										src={"/application/app-store.svg"}
+										src={"/applications/app-store.svg"}
 										alt="Download on App Store"
 										width={500}
 										height={500}
@@ -133,7 +133,7 @@ export default function Application() {
 								<div className="relative">
 									<div className="absolute inset-0 bg-gradient-to-r rounded-2xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
 									<Image
-										src={"/application/google-play.svg"}
+										src={"/applications/google-play.svg"}
 										alt="Get it on Google Play"
 										width={500}
 										height={500}
@@ -145,7 +145,7 @@ export default function Application() {
 					</div>
 				</motion.div>
 
-				<Link href={"/application"} className="relative group">
+				<Link href={"/applications/anwar-sajjadyia"} className="relative group">
 					<motion.div
 						className="relative flex justify-center items-center w-[24rem] h-[28rem] perspective-1000"
 						whileHover={{ scale: 1.02 }}
@@ -181,7 +181,7 @@ export default function Application() {
 							<div className="relative w-full h-full">
 								<div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-3xl blur-xl"></div>
 								<Image
-									src={"/application/01.png"}
+									src={"/applications/anwar-sajjadyia/01.png"}
 									alt="App Screenshot 1"
 									fill
 									sizes="(max-width: 1024px) 50vw, 224px"
@@ -217,7 +217,7 @@ export default function Application() {
 							<div className="relative w-full h-full">
 								<div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-3xl blur-xl"></div>
 								<Image
-									src={"/application/02.png"}
+									src={"/applications/anwar-sajjadyia/02.png"}
 									alt="App Screenshot 2"
 									fill
 									sizes="(max-width: 1024px) 50vw, 224px"

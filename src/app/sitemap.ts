@@ -67,7 +67,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		createSitemapEntry("/news", new Date(), "daily", 0.9),
 		createSitemapEntry("/news/archives", new Date(), "daily", 0.7),
 
-		createSitemapEntry("/application", new Date(), "monthly", 0.8),
+		createSitemapEntry("/applications", new Date(), "monthly", 0.8),
+		createSitemapEntry(
+			"/applications/anwar-sajjadyia",
+			new Date(),
+			"monthly",
+			0.7,
+		),
+		createSitemapEntry(
+			"/applications/maarif-al-sajjad",
+			new Date(),
+			"monthly",
+			0.6,
+		),
+		createSitemapEntry(
+			"/applications/maarif-al-sajjad/privacy-policy",
+			new Date(),
+			"yearly",
+			0.3,
+		),
 
 		createSitemapEntry("/his-life", new Date(), "monthly", 0.8),
 

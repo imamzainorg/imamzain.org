@@ -110,6 +110,9 @@ export default {
 			colors: {
 				primary: "#006654",
 				secondary: "#bb9661",
+				// Darker gold for text/borders on light backgrounds (WCAG AA ~5:1 on white).
+				// #bb9661 is reserved for decorative accents / large fills only.
+				secondary_dark: "#8a6a36",
 				Muharram_primary: "#231F20",
 				Muharram_secondary: "#a43232",
 				"dark-background": "rgb(37,52,63)",

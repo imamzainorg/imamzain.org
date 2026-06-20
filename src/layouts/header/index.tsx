@@ -77,7 +77,7 @@ const links = [
 			{ label: "اتصل بنا", href: "/services" },
 			{ label: "الزيارة بالإنابة", href: "/visitation" },
 			{ label: "نقاط البيع المباشر", href: "/services/stores" },
-			{ label: "تطبيق أنوار سجادية", href: "/application" },
+			{ label: "التطبيقات", href: "/applications" },
 		],
 	},
 	{

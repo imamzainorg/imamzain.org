@@ -22,8 +22,9 @@ const MainSection = () => {
 		<div className="relative top-0 h-[50rem] lg:h-[40rem] w-full">
 			<div className="absolute top-0 right-0  w-full h-full -z-20">
 				<Image
-					src={"/application/main-bg.jpg"}
-					alt="Some image"
+					src={"/applications/anwar-sajjadyia/main-bg.jpg"}
+					alt=""
+					aria-hidden
 					fill
 					sizes="100vw"
 					priority
@@ -49,8 +50,8 @@ const MainSection = () => {
 								target="_blank"
 							>
 								<Image
-									src={"/application/app-store.svg"}
-									alt={"/application/app-store.svg"}
+									src={"/applications/app-store.svg"}
+									alt="تنزيل تطبيق أنوار سجادية من App Store"
 									width={500}
 									height={500}
 									className="object-center w-28 h-16 lg:w-40 lg:h-24"
@@ -62,8 +63,8 @@ const MainSection = () => {
 								target="_blank"
 							>
 								<Image
-									src={"/application/google-play.svg"}
-									alt={"/application/google-play.svg"}
+									src={"/applications/google-play.svg"}
+									alt="احصل على تطبيق أنوار سجادية من Google Play"
 									width={500}
 									height={500}
 									className="object-center w-28 h-16 lg:w-40 lg:h-24"
@@ -74,8 +75,8 @@ const MainSection = () => {
 					<div className="relative flex justify-center items-center ml-10 w-[20rem] h-[24rem] ">
 						<div className="absolute bottom-0 left-0 w-[8rem] h-[20rem] animate-[slideInLeft_1s_ease-out]">
 							<Image
-								src={"/application/01.png"}
-								alt={`/application/02.png`}
+								src={"/applications/anwar-sajjadyia/01.png"}
+								alt="لقطة من واجهة تطبيق أنوار سجادية"
 								fill
 								sizes="128px"
 								className="object-center"
@@ -84,8 +85,8 @@ const MainSection = () => {
 
 						<div className="absolute bottom-0 left-16 w-[12rem] h-[24rem] animate-[slideInLeft_1s_ease-out]">
 							<Image
-								src={"/application/02.png"}
-								alt={`/application/02.png`}
+								src={"/applications/anwar-sajjadyia/02.png"}
+								alt="لقطة من شاشة تطبيق أنوار سجادية"
 								fill
 								sizes="192px"
 								className="object-center"
@@ -114,8 +115,8 @@ const InformationSection = () => {
 				<div className="flex flex-col lg:flex-row justify-center gap-10 items-center">
 					<div className="relative w-[26rem] h-[22rem]  ">
 						<Image
-							src={"/application/05.png"}
-							alt={`/application/02.png`}
+							src={"/applications/anwar-sajjadyia/05.png"}
+							alt="عرض الصحيفة السجادية داخل تطبيق أنوار سجادية"
 							fill
 							sizes="(max-width: 1024px) 100vw, 416px"
 							className="absolute object-cover"
@@ -149,7 +150,7 @@ const ImamzainSection = () => {
 	return (
 		<>
 			<div className="bg-[#D3FBFD]">
-				<div className="container flex justify-center gap-5 lg:gap-10 py-10 w-full h-[40rem]">
+				<div className="container flex flex-col lg:flex-row justify-center items-center gap-10 py-10 w-full lg:h-[40rem]">
 					<div className="flex flex-col lg:flex-row justify-center items-center gap-10 self-end">
 						<p className="text-xl w-[12rem] max-lg:pb-5 lg:w-60 text-center">
 							الإمام زين العابدين(ع) وما أخذه من مساحة واسعة في
@@ -157,8 +158,8 @@ const ImamzainSection = () => {
 						</p>
 						<div className="relative w-[12rem] h-[24rem]">
 							<Image
-								src={"/application/01.png"}
-								alt="/application/01.png"
+								src={"/applications/anwar-sajjadyia/01.png"}
+								alt="الإمام زين العابدين (ع) في الأدب العربي"
 								fill
 								sizes="192px"
 								className="absolute w-[12rem] h-[24rem] object-center"
@@ -169,8 +170,8 @@ const ImamzainSection = () => {
 					<div className="flex flex-col lg:flex-row justify-center items-center gap-10 self-start">
 						<div className="relative w-[12rem] h-[24rem]">
 							<Image
-								src={"/application/02.png"}
-								alt="/application/02.png"
+								src={"/applications/anwar-sajjadyia/02.png"}
+								alt="السيرة العطرة للإمام زين العابدين (ع) في التطبيق"
 								fill
 								sizes="192px"
 								className="absolute w-[12rem] h-[24rem] object-center"
@@ -205,8 +206,8 @@ const MessageRights = () => {
 
 					<div className="relative w-[24rem] h-[24rem] ">
 						<Image
-							src={"/application/06.png"}
-							alt={`/application/06.png`}
+							src={"/applications/anwar-sajjadyia/06.png"}
+							alt="عرض رسالة الحقوق داخل تطبيق أنوار سجادية"
 							fill
 							sizes="(max-width: 1024px) 100vw, 384px"
 							className="absolute object-cover"
@@ -229,8 +230,8 @@ const MasnadSection = () => {
 					<div className=" w-full h-full flex flex-col-reverse lg:flex-row justify-center gap-10 items-center pt-10">
 						<div className="relative w-[26rem] h-[22rem] ">
 							<Image
-								src={"/application/05.png"}
-								alt={`/application/05.png`}
+								src={"/applications/anwar-sajjadyia/05.png"}
+								alt="مسند الإمام زين العابدين (ع) داخل التطبيق"
 								fill
 								sizes="(max-width: 1024px) 100vw, 416px"
 								className="absolute object-cover"
@@ -262,8 +263,9 @@ const ShrinesVisitationSection = () => {
 			<div className="relative top-0 h-[40rem] lg:h-[70rem] w-full mx-auto ">
 				<div className="absolute top-0 right-0  w-full h-full -z-0 ">
 					<Image
-						src={"/application/07.png"}
-						alt="Some image"
+						src={"/applications/anwar-sajjadyia/07.png"}
+						alt=""
+						aria-hidden
 						fill
 						sizes="100vw"
 						className="object-cover"
@@ -301,43 +303,37 @@ const ShrinesVisitationSection = () => {
 const FeaturesSection = () => {
 	const features = [
 		{
-			imageSrc: "/application/feature-1.png",
-			imageAlt: "feature-1",
+			imageSrc: "/applications/anwar-sajjadyia/feature-1.png",
 			title: "التاريخ الهجري",
 			description:
 				"انطلاقاً من الحاجة إلى التاريخ الهجري، اضيف التاريخ المتزامن مع الثبوت الشرعي في الصفحة الرئيسية",
 		},
 		{
-			imageSrc: "/application/feature-2.png",
-			imageAlt: "feature-2",
+			imageSrc: "/applications/anwar-sajjadyia/feature-2.png",
 			title: "شهداء الدفاع الكفائي",
 			description:
 				"وفاءً لحقهم العظيم .. اشتمل التطبيق على سيرة الشهداء مع التذكير بيوم شهادتهم حسب التقويم الهجري",
 		},
 		{
-			imageSrc: "/application/feature-3.png",
-			imageAlt: "feature-3",
+			imageSrc: "/applications/anwar-sajjadyia/feature-3.png",
 			title: "المناسبات الإسلامية",
 			description:
 				"نظراً لأهمية التذكير بالمناسبات الإسلامية طيلة السنة تزين التطبيق بهذه الخدمة",
 		},
 		{
-			imageSrc: "/application/feature-4.png",
-			imageAlt: "feature-4",
+			imageSrc: "/applications/anwar-sajjadyia/feature-4.png",
 			title: "الوضع الليلي والوضع النهاري",
 			description:
 				"يقدم تطبيق أنوار سجادية خيارات الوضع الليلي والوضع النهاري لتخصيص تجربة الاستخدام، مما يضمن راحة العينين أثناء القراءة في مختلف الأوقات.",
 		},
 		{
-			imageSrc: "/application/feature-5.png",
-			imageAlt: "feature-5",
+			imageSrc: "/applications/anwar-sajjadyia/feature-5.png",
 			title: "حكمة اليوم",
 			description:
 				"في كل يوم من أيام سنة ستظهر لك حكمة من أقوال الإمام زين العابدين (عليه السلام) مع قابلية المشاركة",
 		},
 		{
-			imageSrc: "/application/feature-5.png",
-			imageAlt: "feature-5",
+			imageSrc: "/applications/anwar-sajjadyia/feature-5.png",
 			title: "المكتبة التخصصية",
 			description:
 				"ستضاف قريباً المكتبة التخصصية بالإمام زين العابدين(ع)",
@@ -362,10 +358,11 @@ const FeaturesSection = () => {
 					>
 						<Image
 							src={feature.imageSrc}
-							alt={feature.imageAlt}
-							width={300}
-							height={300}
-							className="w-8 h-8 object-cover sdfasdf"
+							alt=""
+							aria-hidden
+							width={32}
+							height={32}
+							className="w-8 h-8 object-cover"
 						/>
 
 						<div className="flex flex-col justify-between items-center gap-4 text-center">

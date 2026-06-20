@@ -20,15 +20,20 @@ const nextConfig: NextConfig = {
 			{
 				source: "/home",
 				destination: "/",
-
-			}, {
-        source: "/api/audio/:path*",
-        destination: "https://cdn.imamzain.org/:path*",
-      },
+			},
+			{
+				source: "/api/audio/:path*",
+				destination: "https://cdn.imamzain.org/:path*",
+			},
 		]
 	},
 	async redirects() {
 		return [
+			{
+				source: "/application",
+				destination: "/applications/anwar-sajjadyia",
+				permanent: true,
+			},
 			{
 				source: "/library/al-sahifa",
 				destination: "/library/al-sahifa/al-sahifa-al-sajjadiya-index",
