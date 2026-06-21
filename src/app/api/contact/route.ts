@@ -43,12 +43,17 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 			headers: {
 				"Content-Type": "application/json",
 			},
+			// Backend CreateContactDto rejects unknown fields (forbidNonWhitelisted),
+			// so no `recipient` — the admin recipient is fixed server-side (EMAIL_TO).
+			// `country` must be an ISO 3166-1 alpha-2 code; omit it entirely when
+			// empty, since the optional validator still rejects "".
 			body: JSON.stringify({
 				name,
 				email,
-				country,
 				message,
-				recipient: "info@imamzain.org",
+				...(country
+					? { country: String(country).toUpperCase() }
+					: {}),
 			}),
 		})
 
