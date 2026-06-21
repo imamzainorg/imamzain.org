@@ -14,7 +14,15 @@ export async function POST(request: NextRequest) {
 			)
 		}
 
-		// Call your actual backend API
+		// Normalize the phone toward E.164 (backend requires /^\+[1-9]\d{1,14}$/):
+		// drop spaces/dashes/parens and turn a leading "00" international prefix
+		// into "+".
+		const normalizedPhone = String(visitorPhone)
+			.replace(/[\s()-]/g, "")
+			.replace(/^00/, "+")
+
+		// Call your actual backend API. CreateProxyVisitDto uses snake_case field
+		// names and rejects unknown fields (forbidNonWhitelisted).
 		const response = await fetch(
 			`${process.env.API_URL}/api/v1/forms/proxy-visit`,
 			{
@@ -23,9 +31,9 @@ export async function POST(request: NextRequest) {
 					"Content-Type": "application/json",
 				},
 				body: JSON.stringify({
-					visitorName,
-					visitorPhone,
-					visitorCountry,
+					visitor_name: visitorName,
+					visitor_phone: normalizedPhone,
+					visitor_country: String(visitorCountry).toUpperCase(),
 				}),
 			},
 		)
