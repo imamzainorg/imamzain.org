@@ -57,7 +57,7 @@ export default function FilterSidebarWrapper({
         className="
           lg:hidden
           fixed bottom-4 right-4 z-50
-          bg-primary text-white
+          bg-primary dark:bg-Muharram_secondary  text-white
           px-4 py-2 rounded-full
           shadow-lg
           flex items-center gap-2
@@ -81,7 +81,7 @@ export default function FilterSidebarWrapper({
       <aside
         className={`
           fixed bottom-0 left-0 right-0 z-40
-          bg-white
+          bg-white 
           rounded-t-2xl
           p-4
           transition-transform
@@ -96,8 +96,9 @@ export default function FilterSidebarWrapper({
         <div
           className="
             lg:bg-secondary/5
+         dark:lg:bg-Muharram_secondary/10
             rounded-2xl
-            p-6
+            p-6 
             space-y-5
             border border-gray-200
             shadow-md
@@ -112,15 +113,16 @@ export default function FilterSidebarWrapper({
           </button>
 
           {/* Filters */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:grid-cols-1">
+          <div className="grid grid-col  sm:grid-cols-2  gap-4 lg:grid-cols-1  ">
             <FilterSelect
               instanceId="category-select"
-              icon={<LayoutGrid size={16} className="hidden md:inline" />}
+              icon={<LayoutGrid size={16} className="hidden md:inline " />}
               label="الموضوع"
               placeholder="اختر الموضوع..."
               options={filters.categories}
               value={category}
               onChange={setCategory}
+          
             />
 
             <FilterSelect
@@ -163,6 +165,8 @@ export default function FilterSidebarWrapper({
                 hover:bg-red-50
                 hover:text-red-600
                 hover:border-red-500
+             
+                dark:bg-gray-100
               "
               onClick={handleReset}
             >
@@ -198,7 +202,7 @@ export function FilterSelect({
 }: FilterSelectProps) {
   return (
     <div className="space-y-1">
-      <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
+      <label className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-black">
         {icon}
         <span className="hidden md:inline">{label}</span>
       </label>
