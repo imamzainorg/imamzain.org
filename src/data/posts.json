@@ -1,10 +1,506 @@
 [
   {
-    "id": 65,
-    "slug": "annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage",
-    "image": "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-15.jpg",
+    "id": 69,
+    "slug": "annual-majlis-day-7-muharram-imam-zain-alabidin-foundation",
+    "image": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-26.jpg",
     "title": "استمرار المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
-    "summary": "التغطية المصورة لليوم الثالث",
+    "summary": "التغطية المصورة لليوم السابع من المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
+    "content": "استمرار المجلس السنوي الذي تقيمه مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات لليوم السابع",
+    "views": 200,
+    "date": "2026-6-23",
+    "last_update": "2026-6-23",
+    "category": "مجالس",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-1.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-2.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-3.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-4.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-5.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-6.jpg"
+      },
+      {
+        "id": 7,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-7.jpg"
+      },
+      {
+        "id": 8,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-8.jpg"
+      },
+      {
+        "id": 9,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-9.jpg"
+      },
+      {
+        "id": 10,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-10.jpg"
+      },
+      {
+        "id": 11,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-11.jpg"
+      },
+      {
+        "id": 12,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-12.jpg"
+      },
+      {
+        "id": 13,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-13.jpg"
+      },
+      {
+        "id": 14,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-14.jpg"
+      },
+      {
+        "id": 15,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-15.jpg"
+      },
+      {
+        "id": 16,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-16.jpg"
+      },
+      {
+        "id": 17,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-17.jpg"
+      },
+      {
+        "id": 18,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-18.jpg"
+      },
+      {
+        "id": 19,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-19.jpg"
+      },
+      {
+        "id": 20,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-20.jpg"
+      },
+      {
+        "id": 21,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-21.jpg"
+      },
+      {
+        "id": 22,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-22.jpg"
+      },
+      {
+        "id": 23,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-23.jpg"
+      },
+      {
+        "id": 24,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-24.jpg"
+      },
+      {
+        "id": 26,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-26.jpg"
+      },
+      {
+        "id": 27,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-27.jpg"
+      },
+      {
+        "id": 28,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-28.jpg"
+      },
+      {
+        "id": 29,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-29.jpg"
+      },
+      {
+        "id": 30,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-30.jpg"
+      },
+      {
+        "id": 31,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-31.jpg"
+      },
+      {
+        "id": 32,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-32.jpg"
+      },
+      {
+        "id": 33,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-33.jpg"
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "slug": "annual-majlis-day-6-muharram-imam-zain-alabidin-foundation",
+    "image": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-1.jpg",
+    "title": "استمرار المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
+    "summary": "التغطية المصورة لليوم السادس من المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
+    "content": "استمرار المجلس السنوي الذي تقيمه مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات لليوم السادس",
+    "views": 200,
+    "date": "2026-6-22",
+    "last_update": "2026-6-22",
+    "category": "مجالس",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-1.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-2.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-3.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-4.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-5.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-6.jpg"
+      },
+      {
+        "id": 7,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-7.jpg"
+      },
+      {
+        "id": 8,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-8.jpg"
+      },
+      {
+        "id": 9,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-9.jpg"
+      },
+      {
+        "id": 10,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-10.jpg"
+      },
+      {
+        "id": 11,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-11.jpg"
+      },
+      {
+        "id": 12,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-12.jpg"
+      },
+      {
+        "id": 13,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-13.jpg"
+      },
+      {
+        "id": 14,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-14.jpg"
+      },
+      {
+        "id": 15,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-15.jpg"
+      },
+      {
+        "id": 16,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-16.jpg"
+      },
+      {
+        "id": 17,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-17.jpg"
+      },
+      {
+        "id": 18,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-18.jpg"
+      },
+      {
+        "id": 19,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-19.jpg"
+      },
+      {
+        "id": 20,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-20.jpg"
+      },
+      {
+        "id": 21,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-21.jpg"
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "slug": "annual-majlis-day-5-muharram-imam-zain-alabidin-foundation",
+    "image": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-19.jpg",
+    "title": "استمرار المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
+    "summary": "التغطية المصورة لليوم الخامس من المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
+    "content": "استمرار المجلس السنوي الذي تقيمه مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات لليوم الخامس",
+    "views": 200,
+    "date": "2026-6-21",
+    "last_update": "2026-6-21",
+    "category": "مجالس",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-1.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-2.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-3.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-4.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-5.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-6.jpg"
+      },
+      {
+        "id": 7,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-7.jpg"
+      },
+      {
+        "id": 8,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-8.jpg"
+      },
+      {
+        "id": 9,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-9.jpg"
+      },
+      {
+        "id": 10,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-10.jpg"
+      },
+      {
+        "id": 11,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-11.jpg"
+      },
+      {
+        "id": 12,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-12.jpg"
+      },
+      {
+        "id": 13,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-13.jpg"
+      },
+      {
+        "id": 14,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-14.jpg"
+      },
+      {
+        "id": 15,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-15.jpg"
+      },
+      {
+        "id": 16,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-16.jpg"
+      },
+      {
+        "id": 17,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-17.jpg"
+      },
+      {
+        "id": 18,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-18.jpg"
+      },
+      {
+        "id": 19,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-19.jpg"
+      },
+      {
+        "id": 20,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-20.jpg"
+      },
+      {
+        "id": 21,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-21.jpg"
+      },
+      {
+        "id": 22,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-22.jpg"
+      },
+      {
+        "id": 23,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-23.jpg"
+      },
+      {
+        "id": 24,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-24.jpg"
+      },
+      {
+        "id": 25,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-25.jpg"
+      },
+      {
+        "id": 26,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-26.jpg"
+      },
+      {
+        "id": 27,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-27.jpg"
+      },
+      {
+        "id": 28,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-28.jpg"
+      },
+      {
+        "id": 29,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-29.jpg"
+      },
+      {
+        "id": 30,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-30.jpg"
+      },
+      {
+        "id": 31,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-31.jpg"
+      },
+      {
+        "id": 32,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-32.jpg"
+      },
+      {
+        "id": 33,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-33.jpg"
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "slug": "annual-majlis-day-4-muharram-imam-zain-alabidin-foundation",
+    "image": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-1.jpg",
+    "title": " المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
+    "summary": "التغطية المصورة لليوم الرابع من المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
+    "content": "استمرار المجلس السنوي الذي تقيمه مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات لليوم الرابع",
+    "views": 200,
+    "date": "2026-6-20",
+    "last_update": "2026-6-20",
+    "category": "مجالس",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-1.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-2.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-3.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-4.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-5.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-6.jpg"
+      },
+      {
+        "id": 7,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-7.jpg"
+      },
+      {
+        "id": 8,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-8.jpg"
+      },
+      {
+        "id": 9,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-9.jpg"
+      },
+      {
+        "id": 10,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-10.jpg"
+      },
+      {
+        "id": 11,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-11.jpg"
+      },
+      {
+        "id": 12,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-12.jpg"
+      },
+      {
+        "id": 13,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-13.jpg"
+      },
+      {
+        "id": 14,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-14.jpg"
+      },
+      {
+        "id": 15,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-15.jpg"
+      },
+      {
+        "id": 16,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-16.jpg"
+      },
+      {
+        "id": 17,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-17.jpg"
+      },
+      {
+        "id": 18,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-18.jpg"
+      },
+      {
+        "id": 19,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-19.jpg"
+      },
+      {
+        "id": 20,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-20.jpg"
+      },
+      {
+        "id": 21,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-21.jpg"
+      },
+      {
+        "id": 22,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-22.jpg"
+      },
+      {
+        "id": 23,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-23.jpg"
+      },
+      {
+        "id": 24,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-24.jpg"
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "slug": "annual-majlis-day-3-muharram-imam-zain-alabidin-foundation",
+    "image": "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-15.jpg",
+    "title": " المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
+    "summary": "التغطية المصورة لليوم الثالث من المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
     "content": "استمرار المجلس السنوي الذي تقيمه مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات لليوم الثالث",
     "views": 200,
     "date": "2026-6-19",
@@ -113,9 +609,9 @@
   },
   {
     "id": 63,
-    "slug": "annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom",
+    "slug": "annual-majlis-day-1-muharram-imam-zain-alabidin-foundation",
     "image": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-4.jpg",
-    "title": "تقيم مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات مجلسها السنوي في أول أيام شهر محرم الحرام، إحياءً لذكرى استشهاد سيد الشهداء الإمام الحسين (عليه السلام) وأهل بيته وأصحابه الأطهار.",
+    "title": " مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تقيم مجلسها السنوي في أول أيام شهر محرم الحرام، إحياءً لذكرى استشهاد سيد الشهداء الإمام الحسين (عليه السلام) وأهل بيته وأصحابه الأطهار.",
     "summary": "كم يا هلالَ محرمٍ تُشجينا    ما زال قوسُك نبلُه يَرمينا كلُّ المصائبِ قد تهون سوى  التي تركت فؤادَ محمدٍ محزونا",
     "content": "<p>أقامت مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات مجلسها السنوي في أول أيام شهر محرم الحرام، إحياءً لذكرى استشهاد سيد الشهداء الإمام الحسين (عليه السلام) وأهل بيته وأصحابه الأطهار.</p><p>وشهد المجلس حضور جمعٍ من طلبة الحوزة العلمية والمؤمنين الكرام، حيث ارتقى المنبر الخطيب الحسيني الشيخ محمد أمين العبادي، متناولاً في محاضرته جوانب من النهضة الحسينية المباركة وما تحمله من قيم الإصلاح والتضحية والثبات على المبادئ.</p><p>واختُتم المجلس بأجواءٍ إيمانية خاشعة سادها الحزن والأسى على مصاب أهل البيت (عليهم السلام)، مع التأكيد على أهمية إحياء الشعائر الحسينية واستلهام الدروس والعبر من واقعة الطف الخالدة.</p><p>عظم الله أجورنا وأجوركم بمصاب أبي عبد الله الحسين (عليه السلام).</p>",
     "views": 300,
@@ -517,7 +1013,6 @@
       }
     ]
   },
-
   {
     "id": 55,
     "slug": "majlis-aza2i-mu2assasat-alimam-zain-alabidin-alehissalam-lilbuhuth-waldirasat",
