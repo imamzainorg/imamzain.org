@@ -1,5 +1,39 @@
+import type { Metadata } from "next"
 import Section from "@/components/section"
 import Breadcrumbs from "@/components/breadcrumb"
+
+export const metadata: Metadata = {
+	title: "كلمة رئيس المؤسسة وأهداف مسابقة الخط العربي",
+	description:
+		"كلمة السيد غسان الخرسان رئيس مؤسسة الإمام زين العابدين عليه السلام وأهداف مسابقة الخط العربي في إحياء تراث الإمام السجاد عبر جماليات الخط وفنونه.",
+	keywords: [
+		"كلمة رئيس مؤسسة الإمام زين العابدين",
+		"أهداف مسابقة الإمام السجاد للخط العربي",
+		"السيد غسان الخرسان",
+		"إحياء تراث الإمام زين العابدين",
+		"الصحيفة السجادية ورسالة الحقوق",
+		"المدرسة البغدادية للخط العربي",
+		"فن الخط العربي والتراث الإسلامي",
+		"مسابقة الخط الدولية",
+	],
+	alternates: { canonical: "/contests/khat/president-goals" },
+	openGraph: {
+		title: "كلمة رئيس المؤسسة وأهداف مسابقة الإمام السجاد الدولية للخط العربي",
+		description:
+			"كلمة السيد غسان الخرسان رئيس مؤسسة الإمام زين العابدين عليه السلام، وأهداف مسابقة الخط العربي في إحياء تراث الإمام ونشر معارفه عبر جماليات الخط.",
+		url: "/contests/khat/president-goals",
+		type: "article",
+		images: ["/contests/khat/landing.jpg"],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "كلمة رئيس المؤسسة وأهداف مسابقة الإمام السجاد الدولية للخط العربي",
+		description:
+			"كلمة السيد غسان الخرسان رئيس مؤسسة الإمام زين العابدين عليه السلام، وأهداف مسابقة الخط العربي في إحياء تراث الإمام عبر جماليات الخط.",
+		images: ["/contests/khat/landing.jpg"],
+	},
+}
+
 export default function PresidentGoals() {
 	return (
 		<>
