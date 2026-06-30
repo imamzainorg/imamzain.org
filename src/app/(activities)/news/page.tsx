@@ -8,8 +8,46 @@ import MeetingsCarousel from "./_components/MeetingsCarousel";
 import { dataFetcher } from "@/lib/dataFetcher";
 import { Post } from "@/types/post";
 import { ChevronRightArrowIcon } from "@/assets/icons/reusable";
+import type { Metadata } from "next";
 
 export const revalidate = 300;
+
+export const metadata: Metadata = {
+  title: "الأخبار والأنشطة",
+  description:
+    "تابعوا آخر أخبار وأنشطة مؤسسة الإمام زين العابدين عليه السلام: المجالس الحسينية والفعاليات والنشاطات الثقافية والإصدارات وأخبار العتبة الحسينية المقدسة.",
+  keywords: [
+    "أخبار مؤسسة الإمام زين العابدين",
+    "أنشطة مؤسسة الإمام زين العابدين",
+    "المجالس الحسينية",
+    "فعاليات ثقافية إسلامية",
+    "أخبار العتبة الحسينية المقدسة",
+    "مجالس عزاء محرم الحرام",
+    "نشاطات دينية كربلاء",
+    "العشرة السجادية الأولى",
+    "إصدارات الصحيفة السجادية",
+  ],
+  alternates: { canonical: "/news" },
+  openGraph: {
+    title: "الأخبار والأنشطة | مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات",
+    description:
+      "آخر أخبار وأنشطة المؤسسة: المجالس الحسينية والفعاليات والنشاطات الثقافية والإصدارات وأخبار العتبة الحسينية المقدسة، مع إمكانية الاشتراك في النشرة البريدية.",
+    url: "/news",
+    type: "website",
+    images: [
+      "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-15.jpg",
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "الأخبار والأنشطة | مؤسسة الإمام زين العابدين عليه السلام",
+    description:
+      "آخر أخبار وأنشطة المؤسسة: المجالس الحسينية والفعاليات والنشاطات الثقافية والإصدارات وأخبار العتبة الحسينية المقدسة.",
+    images: [
+      "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-15.jpg",
+    ],
+  },
+};
 
 export default async function Page() {
   const data = await dataFetcher<Post[]>("posts.json");
