@@ -109,11 +109,11 @@
 		}
 
 		return (
-			<div ref={containerRef} className="space-y-6 bg-white/70 dark:bg-black/40 backdrop-blur-md p-6 rounded-xl shadow-sm">
+			<div ref={containerRef} className="space-y-6 bg-white/70 dark:bg-Muharram_secondary/10 backdrop-blur-md p-6 rounded-xl shadow-sm">
 				{subject.phrases?.map((phrase: Phrase) => (
 					<div key={phrase.id}>
 						<div
-							className="flex-1 text-note max-w-none leading-relaxed text-gray-800 dark:text-gray-200"
+							className="flex-1 text-note max-w-none leading-relaxed text-gray-800 dark:text-Muharram_primary"
 							// safe: phrase.content comes from trusted static JSON; highlight wraps matches in <mark> only
 							dangerouslySetInnerHTML={{
 								__html: highlightContent(phrase.content),
