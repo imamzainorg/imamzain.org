@@ -41,7 +41,7 @@ export default function FilterSidebarWrapper({
         className="
           lg:hidden
   fixed bottom-4 right-4 z-50
-          bg-primary text-white
+          bg-primary dark:bg-Muharram_primary text-white
           px-4 py-2 rounded-full
           shadow-lg 
           flex items-center gap-2
@@ -79,15 +79,16 @@ export default function FilterSidebarWrapper({
   `}
       >
         <div
-          className="
+             className="
             lg:bg-secondary/5
+         dark:lg:bg-Muharram_secondary/10
             rounded-2xl
-            p-6
+            p-6 
             space-y-5
             border border-gray-200
             shadow-md
           "
-        >
+        > 
           {/* Mobile Close */}
           <button
             onClick={() => setMobileFilterOpen(false)}
@@ -164,8 +165,8 @@ export function FilterSelect({
   onChange,
 }: FilterSelectProps) {
   return (
-    <div className="space-y-1">
-      <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
+    <div className="space-y-1 ">
+      <label className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-black">
         {icon}
         <span className="hidden md:inline">{label}</span>
       </label>
@@ -190,7 +191,7 @@ export function FilterSelect({
         onChange={(opt: SingleValue<{ value: string; label: string }>) => {
           onChange(opt ? opt.value : "");
         }}
-        classNamePrefix="react-select"
+        classNamePrefix="react-select "
       />
     </div>
   );
