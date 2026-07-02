@@ -49,7 +49,7 @@ export default function Page() {
 				]}
 			/>
 
-			<h1 className="text-primary text-4xl font-bold text-center mt-10">
+			<h1 className="text-primary dark:text-Muharram_primary text-4xl font-bold text-center mt-10">
 				آلية تقديم البحوث
 			</h1>
 
