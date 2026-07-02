@@ -137,7 +137,7 @@ export default function Page() {
                               toast("تم نسخ الرابط في الحافظة");
                             }}
                             variant="outline"
-                            className="mt-4 inline-flex items-center text-subtitle gap-2 bg-primary border border-primary dark:bg-Muharram_primary dark:border-Muharram_primary text-white transition-all font-medium px-2.5 py-1.5 rounded-xl shadow-sm cursor-pointer hover:scale-105"
+                            className="mt-4 inline-flex items-center text-subtitle gap-2 bg-primary border border-primary dark:bg-Muharram_primary dark:border-Muharram_primary dark:text-white text-white dark:hover:bg-Muharram_primary/80 transition-all font-medium px-2.5 py-1.5 rounded-xl shadow-sm cursor-pointer hover:scale-105"
                           >
                             <NewsShare
                               className="text-subtitle"
