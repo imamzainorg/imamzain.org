@@ -77,16 +77,30 @@ function drawWaveform(
     const bh = barHeight;
     const r = Math.min(2, bw / 2, bh / 2);
 
-    const played = x / w <= progress;
+const played = x / w <= progress;
+const isDark = document.documentElement.classList.contains("dark");
 
-    if (played) {
-      const grad = ctx.createLinearGradient(x, y, x, y + bh);
-      grad.addColorStop(0, "#00a884");
-      grad.addColorStop(1, "#006654");
-      ctx.fillStyle = grad;
-    } else {
-      ctx.fillStyle = isActive ? "#bb966140" : "#00000015";
-    }
+if (played) {
+const isDark = document.documentElement.classList.contains("dark");
+
+const grad = ctx.createLinearGradient(x, y, x, y + bh);
+
+if (isDark) {
+  grad.addColorStop(0, "#a43232"); 
+  grad.addColorStop(1, "#231f20"); // نهاية التدرج في الدارك
+} else {
+  grad.addColorStop(0, "#00a884"); // بداية التدرج في اللايت
+  grad.addColorStop(1, "#006654"); // نهاية التدرج في اللايت
+}
+
+  ctx.fillStyle = grad;
+} else {
+  ctx.fillStyle = isActive
+    ? "#bb966140"
+    : isDark
+      ? "#ffffff20"   // لون الدارك
+      : "#00000015";  // لون اللايت
+}
 
     ctx.beginPath();
     if (r > 0) {
@@ -104,12 +118,15 @@ function drawWaveform(
     }
     ctx.fill();
   }
+const isDark = document.documentElement.classList.contains("dark");
 
   if (progress > 0 && progress < 1) {
     ctx.beginPath();
     ctx.moveTo(progressX, 4);
     ctx.lineTo(progressX, height - 4);
-    ctx.strokeStyle = "#006654";
+  ctx.strokeStyle = isDark
+  ? "#94a3b8"   // لون الدارك
+  : "#006654";  // لون اللايت
     ctx.lineWidth = 2;
     ctx.stroke();
   }

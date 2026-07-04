@@ -44,7 +44,7 @@ export function ResearchCard({ item, onSummary }: ResearchCardProps) {
       transition={{ duration: 0.28, ease: "easeOut" }}
       className="
         group relative flex flex-col h-full
-        bg-white dark:bg-gray-900
+        bg-white dark:bg-Muharram_primary
         rounded-2xl overflow-hidden
         border border-gray-100 dark:border-gray-800
         shadow-sm hover:shadow-xl hover:shadow-primary/10
@@ -69,7 +69,7 @@ export function ResearchCard({ item, onSummary }: ResearchCardProps) {
               className="
               inline-flex items-center gap-1 px-2 py-0.5 text-xs lg:text-sm
               text-[11px] font-semibold
-              bg-primary/8 dark:bg-primary/15 text-primary
+              bg-primary/8 dark:bg-Muharram_primary/30 dark:text-Muharram_secondary/70 text-primary
               rounded-md border border-primary/15
               max-w-[170px] truncate
             "
@@ -82,7 +82,7 @@ export function ResearchCard({ item, onSummary }: ResearchCardProps) {
             <span
               className="
               mr-auto flex items-center gap-1
-              text-[11px] text-gray-400 dark:text-gray-500 shrink-0
+              text-[11px] text-gray-400 dark:text-gray-300 shrink-0
             "
             >
               <Calendar size={10} />
@@ -98,7 +98,7 @@ export function ResearchCard({ item, onSummary }: ResearchCardProps) {
           text-subtitle font-bold leading-[1.6]
           text-gray-900 dark:text-gray-50
           line-clamp-3
-          group-hover:text-primary transition-colors duration-200
+          group-hover:text-primary dark:group-hover:text-Muharram_secondary transition-colors duration-200
         "
         >
           {item.title}
@@ -106,11 +106,11 @@ export function ResearchCard({ item, onSummary }: ResearchCardProps) {
 
         {/* ── المؤلف ── */}
         {displayAuthor && (
-          <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+          <div className="flex items-center gap-2 text-xs text-gray-300 dark:text-gray-400">
             <span
               className="
               flex items-center justify-center w-5 h-5 rounded-full
-              bg-gray-100 dark:bg-gray-800 shrink-0
+              bg-gray-100 dark:bg-gray-200 shrink-0
             "
             >
               <User size={10} />
@@ -119,8 +119,8 @@ export function ResearchCard({ item, onSummary }: ResearchCardProps) {
           </div>
         )}
         {item.badgeSecondary && (
-          <div className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500">
-            <span className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-800 shrink-0">
+          <div className="flex items-center gap-2 text-sm text-gray-300 dark:text-gray-400">
+            <span className="flex items-center justify-center w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-200 shrink-0">
               <FileText size={13} />
             </span>
             <span className="truncate">{item.badgeSecondary}</span>
@@ -143,7 +143,7 @@ export function ResearchCard({ item, onSummary }: ResearchCardProps) {
                 }
                 className="flex items-center justify-center p-2.5 rounded-xl 
            bg-primary text-white hover:bg-primary/90 active:scale-95 
-           transition-all duration-150 shadow-sm shadow-primary/20"
+           transition-all duration-150 shadow-sm shadow-primary/20 dark:hover:bg-Muharram_secondary/30 dark:bg-Muharram_secondary"
                 title="تحميل"
               >
                 <Download size={14} className="opacity-90" />
@@ -156,8 +156,8 @@ export function ResearchCard({ item, onSummary }: ResearchCardProps) {
                   className="
                   flex-1 flex items-center justify-center gap-1.5
                   px-3 py-2 rounded-xl text-xs lg:text-base font-semibold
-                  bg-primary text-white
-                  hover:bg-primary/90 active:scale-95
+                  bg-primary text-white dark:bg-Muharram_secondary
+                  hover:bg-primary/90 dark:hover:bg-Muharram_secondary/30 active:scale-95
                   transition-all duration-150
                   shadow-sm shadow-primary/25
              "
@@ -175,9 +175,9 @@ export function ResearchCard({ item, onSummary }: ResearchCardProps) {
                 className="
                     flex-1 flex items-center justify-center gap-1.5
                     px-3 py-2 rounded-xl text-xs lg:text-base  font-semibold
-                    bg-gray-100 dark:bg-gray-800
-                    text-gray-600 dark:text-gray-300
-                    hover:bg-primary/10 hover:text-primary
+                    bg-gray-100 dark:bg-gray-300
+                    text-gray-600 dark:text-Muharram_primary
+                    hover:bg-primary/10 hover:text-primary dark:hover:text-black dark:hover:bg-red-100 dark:hover:opacity-90 dark:transition-opacity dark:duration-150
                     active:scale-95 transition-all duration-150
                   "
               >
@@ -220,22 +220,22 @@ export function EmptyState({ onReset }: { onReset?: () => void }) {
       <div
         className="
         w-16 h-16 rounded-2xl mb-4
-        bg-gray-100 dark:bg-gray-800
+        bg-gray-100 
         flex items-center justify-center
       "
       >
         <FileSearch size={26} className="text-gray-300 dark:text-gray-600" />
       </div>
-      <p className="text-gray-500 dark:text-gray-400 font-medium">
+      <p className="text-gray-500 dark:text-black font-medium">
         لا توجد نتائج مطابقة
       </p>
-      <p className="text-gray-400 dark:text-gray-500 text-sm mt-1">
+      <p className="text-gray-400 dark:text-black text-sm mt-1">
         جرّب تعديل كلمات البحث أو الفلاتر
       </p>
       {onReset && (
         <button
           onClick={onReset}
-          className="mt-4 text-sm text-primary hover:underline font-medium"
+          className="mt-4 text-sm text-primary dark:text-Muharram_secondary hover:underline font-medium"
         >
           مسح الفلاتر
         </button>

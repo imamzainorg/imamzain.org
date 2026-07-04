@@ -219,7 +219,7 @@ export default function CollectionSearch({
 					}}
 					onFocus={() => searchTerm && setIsOpen(true)}
 					placeholder="ابحث في جميع المحتوى..."
-					className="w-full pr-12 pl-12 py-3.5 border-2 border-gray-200 dark:border-zinc-700 rounded-2xl bg-white dark:bg-zinc-800 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 focus:ring-0 focus:border-primary dark:focus:border-Muharram_primary transition-all shadow-sm hover:shadow-md focus:shadow-lg"
+					className="w-full pr-12 pl-12 py-3.5 border-2 border-gray-200 dark:border-Muharram_primary/50 rounded-2xl bg-white dark:bg-Muharram_secondary/15 text-gray-900 dark:text-Muharram_primary placeholder:text-gray-400 focus:ring-0 focus:border-primary dark:focus:border-Muharram_primary transition-all shadow-sm hover:shadow-md focus:shadow-lg"
 				/>
 				{searchTerm && (
 					<button

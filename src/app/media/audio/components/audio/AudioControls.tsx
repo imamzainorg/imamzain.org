@@ -151,7 +151,7 @@ export const ToolButtons = memo(function ToolButtons({
       <button
         onClick={handleDownload}
         disabled={downloading}
-        className="w-11 h-11 rounded-2xl bg-white/5 hover:bg-white/10 flex items-center justify-center"
+        className="w-11 h-11 rounded-2xl bg-white/5 dark:bg-white hover:bg-white/10 flex items-center justify-center"
       >
         {downloading ? (
           <Loader2 className="w-5 h-5 animate-spin" />
@@ -163,7 +163,7 @@ export const ToolButtons = memo(function ToolButtons({
       {/* Share Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="w-11 h-11 rounded-2xl bg-white/5 hover:bg-white/10 flex items-center justify-center"
+        className="w-11 h-11 rounded-2xl bg-white/5 dark:bg-white hover:bg-white/10 flex items-center justify-center"
       >
         <Share2 className="w-5 h-5" />
       </button>
@@ -284,7 +284,7 @@ export const PlayButton = memo(function PlayButton({
       onClick={onClick}
       className={`
         w-12 h-12 rounded-full flex items-center justify-center
-        bg-primary text-white
+        bg-primary text-white dark:bg-Muharram_secondary dark:text-black
       `}
     >
       {isActive && isPlaying ? "⏸" : "▶"}
@@ -306,7 +306,7 @@ export const StatusBadge = memo(function StatusBadge({
   };
 
   return (
-    <div className="text-sm text-slate-600 font-mono">
+    <div className="text-sm text-slate-600 dark:text-white font-mono">
       {format(currentTime)} / {format(duration || 0)}
     </div>
   );
@@ -333,11 +333,11 @@ export const VolumeControl = memo(function VolumeControl({
         step={0.01}
         value={v}
         onChange={(e) => onChange(parseFloat(e.target.value))}
-        className="w-24 scale-x-[-1] accent-primary"
+        className="w-24 scale-x-[-1] accent-primary dark:accent-Muharram_secondary/60"
       />
 
       <button
-        className="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center shrink-0"
+        className="w-9 h-9 rounded-xl bg-white/5 dark:bg-white hover:bg-white/10 flex items-center justify-center shrink-0"
         title="الصوت"
         onClick={() => onChange(v === 0 ? 1 : 0)}
       >

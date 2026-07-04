@@ -101,8 +101,7 @@ const rewards: Reward[] = [
       <BadgeCheck
         size={70}
         strokeWidth={1}
-        className="mb-5"
-        color="#BA9560"
+        className="mb-5 text-[#BA9560] dark:text-[#000]"
         aria-hidden="true"
       />
     ),
@@ -115,8 +114,7 @@ const rewards: Reward[] = [
       <Crown
         size={70}
         strokeWidth={1}
-        className="mb-5"
-        color="#BA9560"
+        className="mb-5 text-[#BA9560] dark:text-[#000]"
         aria-hidden="true"
       />
     ),
@@ -129,8 +127,7 @@ const rewards: Reward[] = [
       <FileBadge
         size={70}
         strokeWidth={1}
-        className="mb-5"
-        color="#BA9560"
+        className="mb-5 text-[#BA9560] dark:text-[#000]"
         aria-hidden="true"
       />
     ),
@@ -157,7 +154,7 @@ const SectionCard = ({
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.15, type: "spring", stiffness: 100 }}
-      className="relative bg-gradient-to-br from-white to-gray-50/50 dark:from-Muharram_primary dark:to-Muharram_primary/80 rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden group/card backdrop-blur-sm border border-gray-100/20 dark:border-Muharram_secondary/10"
+      className="relative bg-gradient-to-br from-white to-gray-50/50 dark:from-Muharram_primary dark:to-Muharram_primary/90 rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden group/card backdrop-blur-sm border border-gray-100/20 dark:border-Muharram_secondary/10"
       whileHover={{ scale: 1.03, y: -8 }}
     >
       {/* Decorative gradient overlay */}
@@ -222,7 +219,7 @@ const SectionCard = ({
                 >
                   <Link
                     href={sub.href}
-                    className="flex items-center justify-between w-full py-3 px-4 rounded-xl bg-gradient-to-l from-gray-50 to-white hover:from-primary/5 hover:to-primary/10 dark:from-Muharram_secondary/50 dark:to-Muharram_secondary/30 dark:hover:from-Muharram_secondary/70 dark:hover:to-Muharram_secondary/50 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-all duration-300 group/link focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 border border-transparent hover:border-primary/20 dark:hover:border-[#BA9560]/30"
+                    className="flex items-center justify-between w-full py-3 px-4 rounded-xl bg-gradient-to-l from-gray-50 to-white hover:from-primary/5 hover:to-primary/10 dark:from-Muharram_secondary/50 dark:to-Muharram_secondary/30 dark:hover:from-Muharram_secondary/70 dark:hover:to-Muharram_secondary/50 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-all duration-300 group/link focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-Muharram_primary focus:ring-offset-2 border border-transparent hover:border-primary/20 dark:hover:border-[#BA9560]/30"
                     aria-label={`انتقل إلى ${sub.label}`}
                   >
                     <span className="text-subtitle font-medium">
@@ -252,7 +249,7 @@ const RewardCard = ({ reward, index }: { reward: Reward; index: number }) => (
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: index * 0.1, type: "spring", stiffness: 100 }}
     whileHover={{ scale: 1.06, y: -8 }}
-    className="relative text-center flex flex-col items-center w-72 p-8 dark:text-Muharram_secondary rounded-3xl bg-gradient-to-br from-white via-white to-gray-50/50 dark:from-Muharram_primary/40 dark:via-Muharram_primary/30 dark:to-Muharram_primary/20 text-black shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100/50 dark:border-Muharram_secondary/20 backdrop-blur-sm group/reward overflow-hidden"
+    className="relative text-center flex flex-col items-center w-72 p-8 dark:text-Muharram_secondary rounded-3xl bg-gradient-to-br from-white via-white to-gray-50/50 dark:from-Muharram_primary/80 dark:via-Muharram_primary/40 dark:to-Muharram_primary/90 text-black shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100/50 dark:border-Muharram_secondary/20 backdrop-blur-sm group/reward overflow-hidden"
   >
     {/* Decorative shine effect */}
     <div
@@ -261,14 +258,6 @@ const RewardCard = ({ reward, index }: { reward: Reward; index: number }) => (
     />
 
     {/* Sparkle decoration */}
-    <motion.div
-      className="absolute top-4 right-4 text-[#BA9560]/30"
-      animate={{ rotate: 360 }}
-      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-      aria-hidden="true"
-    >
-      <Sparkles className="w-6 h-6" />
-    </motion.div>
 
     <motion.div
       role="img"
@@ -279,16 +268,16 @@ const RewardCard = ({ reward, index }: { reward: Reward; index: number }) => (
     >
       {reward.icon}
     </motion.div>
-    <h3 className="text-note lg:text-base font-bold p-2 relative z-10">
+    <h3 className="text-note lg:text-base font-bold p-2 relative dark:text-black z-10">
       {reward.title}
     </h3>
     <p
-      className="text-xl lg:text-2xl p-2 font-bold text-[#BA9560] dark:text-[#BA9560] relative z-10"
+      className="text-xl lg:text-2xl p-2 font-bold text-[#BA9560] dark:text-Muharram_secondary relative z-10"
       aria-label={`المبلغ: ${reward.amount}`}
     >
       {reward.amount}
     </p>
-    <p className="text-subtitle lg:text-sm p-1 sm:leading-6 xl:leading-7 text-gray-600 dark:text-gray-400 relative z-10">
+    <p className="text-subtitle lg:text-sm p-1 sm:leading-6 xl:leading-7 text-gray-600 dark:text-black relative z-10">
       {reward.subtitle}
     </p>
   </motion.article>
@@ -349,7 +338,7 @@ export default function Page() {
         />
         <Link
           href="/research/send-research"
-          className="relative px-16 py-5 text-white mx-10 text-body  font-semibold bg-gradient-to-l from-primary via-primary to-[#BA9560] hover:from-primary/95 hover:via-primary/90 hover:to-[#BA9560]/95 dark:from-Muharram_primary dark:via-Muharram_primary dark:to-[#BA9560] dark:hover:from-Muharram_primary/95 dark:hover:via-Muharram_primary/90 dark:hover:to-[#BA9560]/95 rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 shadow-lg hover:shadow-xl overflow-hidden group"
+          className="relative px-16 py-5 text-white mx-10 text-body  font-semibold bg-gradient-to-l from-primary via-primary to-[#BA9560] hover:from-primary/95 hover:via-primary/90 hover:to-[#BA9560]/95 dark:from-Muharram_primary dark:via-Muharram_primary dark:to-Muharram_secondary dark:hover:from-Muharram_primary/95 dark:hover:via-Muharram_primary/90 dark:hover:to-Muharram_secondary/95 rounded-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-4 shadow-lg hover:shadow-xl overflow-hidden group"
           aria-label="انتقل إلى صفحة تقديم البحث"
         >
           انشر بحثك
@@ -401,7 +390,7 @@ export default function Page() {
         </div>
 
         <motion.aside
-          className="relative border-r-4 border-[#BA9560]/40 dark:border-[#BA9560]/60 pr-6 italic max-w-2xl mx-auto mt-16 bg-gradient-to-l from-transparent via-gray-50/30 to-transparent dark:via-Muharram_primary/10 py-6 rounded-lg"
+          className="relative border-r-4 border-[#BA9560]/40 dark:border-Muharram_secondary pr-6 italic max-w-2xl mx-auto mt-16 bg-gradient-to-l from-transparent via-gray-50/30 to-transparent dark:via-Muharram_secondary/10 py-6 rounded-lg"
           aria-labelledby="notes-title"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -409,12 +398,12 @@ export default function Page() {
         >
           <h3
             id="notes-title"
-            className="w-full text-right font-bold mt-2 mb-4 p-2 text-note text-[#BA9560] dark:text-[#BA9560] flex items-center gap-2 justify-end"
+            className="w-full text-right font-bold mt-2 mb-4 p-2 text-note text-[#BA9560] dark:text-black flex items-center gap-2 justify-end"
           >
             <span>ملاحظات مهمة</span>
             <Sparkles className="w-5 h-5" aria-hidden="true" />
           </h3>
-          <ol className="list-arabic-indic text-subtitle lg:text-note text-right text-gray-700 dark:text-gray-300 space-y-3 px-4 sm:px-6 md:px-8 lg:px-10 leading-relaxed">
+          <ol className="list-arabic-indic text-subtitle lg:text-note text-right text-gray-700 dark:text-Muharram_primary space-y-3 px-4 sm:px-6 md:px-8 lg:px-10 leading-relaxed">
             {notes.map((note, index) => (
               <motion.li
                 key={index}

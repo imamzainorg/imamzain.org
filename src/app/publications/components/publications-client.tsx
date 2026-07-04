@@ -123,7 +123,7 @@ export default function PublicationsClient({
 						</p>
 					</div>
 				) : (
-					<div className="bg-[rgba(187,150,97,0.1)] dark:bg-[rgba(0,0,0,0.1)] rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
+					<div className="dark:bg-gradient-to-l dark:from-Muharram_secondary/10 dark:to-transparent bg-gradient-to-l from-primary/10 to-transparent rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 gap-x-8 lg:p-10">
 						<AnimatePresence mode="wait">
 							{currentPublications.map((publication) => (
 								<BooklibraryCard
