@@ -1,8 +1,41 @@
 // app/research/send-research/page.tsx
+import type { Metadata } from "next"
 import Breadcrumbs from "@/components/breadcrumb"
 import { ArrowDownToLine } from "lucide-react"
 import Link from "next/link"
 import { ReactNode } from "react"
+
+export const metadata: Metadata = {
+	title: "آلية تقديم البحوث وضوابط النشر والتحكيم",
+	description:
+		"دليل تقديم البحوث والكتب إلى مؤسسة الإمام زين العابدين عليه السلام: الضوابط العامة والمواصفات الفنية وشروط النشر والملكية الفكرية والتحكيم وطرق الإرسال.",
+	keywords: [
+		"آلية تقديم البحوث",
+		"ضوابط نشر البحوث العلمية",
+		"شروط النشر والملكية الفكرية",
+		"المواصفات الفنية للبحث",
+		"تحكيم البحوث العلمية",
+		"إقرار الباحث وتعهده",
+		"تقديم بحث للمؤسسة",
+		"الاستكتاب والبحث العلمي",
+		"مواصفات كتابة البحث العلمي",
+	],
+	alternates: { canonical: "/research/send-research" },
+	openGraph: {
+		title: "آلية تقديم البحوث وضوابط النشر والتحكيم | مؤسسة الإمام زين العابدين عليه السلام",
+		description:
+			"تعرّف على خطوات تقديم بحثك للمؤسسة: الضوابط العامة، والمواصفات الفنية، وشروط النشر والملكية الفكرية، والتحكيم، وإقرار الباحث، وطرق إرسال البحث.",
+		url: "/research/send-research",
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "آلية تقديم البحوث وضوابط النشر والتحكيم",
+		description:
+			"تعرّف على خطوات تقديم بحثك للمؤسسة: الضوابط العامة، والمواصفات الفنية، وشروط النشر والملكية الفكرية، والتحكيم، وطرق إرسال البحث.",
+	},
+}
+
 interface StepSectionProps {
 	step: number
 	title: string

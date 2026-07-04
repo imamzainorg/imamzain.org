@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Breadcrumbs from "@/components/breadcrumb";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,6 +18,38 @@ import {
   Crown,
 } from "lucide-react";
 import { EmailIcon } from "@/assets/icons/reusable";
+
+export const metadata: Metadata = {
+  title: "مسابقة الكتاب",
+  description:
+    "مسابقة الكتاب: جائزة علمية محكمة لتأليف كتب رصينة عن تراث الإمام زين العابدين عليه السلام، مع محاور الكتابة وشروط المشاركة والجوائز وآلية التحكيم والتقديم.",
+  keywords: [
+    "مسابقة الكتاب",
+    "مسابقة كتاب الإمام زين العابدين",
+    "مسابقة علمية محكمة في التأليف",
+    "جوائز التأليف عن الإمام السجاد",
+    "محاور الكتابة عن تراث الإمام السجاد",
+    "شروط المشاركة في مسابقة الكتاب",
+    "الصحيفة السجادية أدعيتها ومضامينها",
+    "تقديم بحث عن الإمام زين العابدين",
+  ],
+  alternates: { canonical: "/contests/kitab" },
+  openGraph: {
+    title: "مسابقة الكتاب | مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات",
+    description:
+      "مسابقة علمية محكمة لتأليف كتب رصينة حول تراث الإمام زين العابدين عليه السلام. تعرّف على محاور الكتابة وشروط المشاركة والجوائز وآلية التحكيم والتقديم.",
+    url: "/contests/kitab",
+    type: "website",
+    images: ["/contests/kitab/hero.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "مسابقة الكتاب | مؤسسة الإمام زين العابدين عليه السلام",
+    description:
+      "مسابقة علمية محكمة لتأليف كتب رصينة حول تراث الإمام زين العابدين عليه السلام، مع محاور الكتابة وشروط المشاركة والجوائز وآلية التحكيم والتقديم.",
+    images: ["/contests/kitab/hero.jpg"],
+  },
+};
 
 export default function Page() {
   return (
