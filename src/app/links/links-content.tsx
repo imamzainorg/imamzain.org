@@ -14,7 +14,6 @@ import {
 	FaPhone,
 	FaLocationDot,
 	FaChevronLeft,
-	FaMobileScreenButton,
 } from "react-icons/fa6"
 
 import {
@@ -35,8 +34,16 @@ const bio =
 	"مؤسسة دينية تهدف الى تسليط الضوء على ما لم يظهر من اثار الإمام السجاد عليه السلام، وبلورة صياغة جديدة وطرح رؤية فكرية شاملة"
 
 const apps = [
-	{ label: "أنوار سجادية", href: APP_URL_ANWAR },
-	{ label: "معارف سجادية", href: APP_URL_MAARIF },
+	{
+		label: "أنوار سجادية",
+		href: APP_URL_ANWAR,
+		logo: "/application/anwar-sajjadiya-logo.png",
+	},
+	{
+		label: "معارف سجادية",
+		href: APP_URL_MAARIF,
+		logo: "/application/maarif-sajjadiya-logo.png",
+	},
 ]
 
 const socials: {
@@ -265,9 +272,15 @@ export default function LinksContent() {
 							>
 								<span
 									aria-hidden="true"
-									className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-secondary text-white shadow-inner"
+									className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-white shadow-inner ring-1 ring-secondary/50"
 								>
-									<FaMobileScreenButton className="h-6 w-6" />
+									<Image
+										src={app.logo}
+										alt=""
+										fill
+										sizes="56px"
+										className="object-contain p-1.5"
+									/>
 								</span>
 								<span className="flex-1 text-right">
 									<span className="block text-[15px] font-bold leading-tight xxs:text-base">
