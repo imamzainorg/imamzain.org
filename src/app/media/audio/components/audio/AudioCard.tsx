@@ -126,11 +126,11 @@ const AudioCard = memo(function AudioCard({
     <article
       id={`audio-card-${item.id}`}
       className={`
-        rounded-2xl border bg-white p-4 sm:p-5 transition-all duration-300
+        rounded-2xl border bg-white dark:bg-Muharram_primary p-4 sm:p-5 transition-all duration-300
         w-full justify-between flex flex-col
         ${
           isActive
-            ? "border-primary/50 shadow-lg shadow-primary/20 ring-1 ring-secondary/30"
+            ? "border-primary/50 dark:border-Muharram_secondary/50  shadow-lg dark:shadow-Muharram_secondary/20 shadow-primary/20 ring-1 ring-secondary/30"
             : "border-slate-200 hover:border-slate-300 hover:shadow-md"
         }
       `}
@@ -139,14 +139,14 @@ const AudioCard = memo(function AudioCard({
       <div className="mb-3">
         <h3
           className={`text-subtitle font-bold transition-colors ${
-            isActive ? "text-primary" : "text-slate-800"
+            isActive ? "text-primary dark:text-Muharram_secondary" : "text-slate-800 dark:text-white"
           }`}
         >
           {item.title}
         </h3>
 
         {item.speaker && (
-          <p className="text-subtitle text-slate-500 mt-1 truncate">
+          <p className="text-subtitle text-slate-500 dark:text-slate-300 mt-1 truncate">
             {item.speaker}
           </p>
         )}

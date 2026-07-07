@@ -23,7 +23,7 @@ export default function SearchInput({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder="ابحث عن كتاب، مؤلف، دار نشر..."
-        className="w-full border border-gray-200 rounded-2xl   px-12 py-4 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all shadow-sm hover:shadow-md"
+        className="w-full border border-gray-200 rounded-2xl dark:bg-Muharram_secondary/10 dark:text-black px-12 py-4 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all shadow-sm hover:shadow-md"
       />
       {value && (
         <button

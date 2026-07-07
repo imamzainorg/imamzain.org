@@ -33,15 +33,15 @@ export function ResearchTable({
   showCategory = false,
 }: ResearchTableProps) {
   return (
-    <div className="overflow-hidden rounded-2xl  border border-gray-100 dark:border-gray-800 dark:bg-gray-900">
+    <div className="overflow-hidden rounded-2xl  border border-gray-100 dark:border-gray-800 dark:bg-Muharram_secondary/15">
       {/* حاوية تمرير أفقي للموبايل */}
       <div className="overflow-x-auto touch-pan-x ">
         <table className="min-w-[1100px] w-full table-fixed text-sm">
           <thead>
             <tr
               className="
-              bg-gray-50/80 dark:bg-gray-800/60
-              text-black
+              bg-gray-50/80 dark:bg-Muharram_primary
+              text-black dark:text-white
               text-xs md:text-sm lg:text-ellipsis font-semibold uppercase tracking-wide
               border-b border-gray-100 dark:border-gray-800
             "
@@ -60,7 +60,7 @@ export function ResearchTable({
             </tr>
           </thead>
 
-          <tbody className=" text-xs md:text-sm lg:text-base bg-white/30 backdrop-blur-xs">
+          <tbody className=" text-xs md:text-sm lg:text-base bg-white/30   backdrop-blur-xs">
             <AnimatePresence>
               {rows.map((row, idx) => {
                 const isHighlighted = highlightId === row.id;
@@ -79,8 +79,8 @@ export function ResearchTable({
                     onDoubleClick={() => onRowDoubleClick?.(row.pdfUrl)}
                     className={`cursor-pointer transition-colors  duration-150 ${
                       isHighlighted
-                        ? "bg-primary/20 dark:bg-primary/12 "
-                        : "hover:bg-primary/10 dark:hover:bg-gray-800/40"
+                        ? "bg-primary/20  "
+                        : "hover:bg-primary/10 dark:hover:bg-Muharram_secondary/30 "
                     }`}
                   >
                     {/* الترقيم */}
