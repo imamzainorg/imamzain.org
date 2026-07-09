@@ -48,6 +48,11 @@ const nextConfig: NextConfig = {
 				permanent: true,
 			},
 			{
+				source: "/applications/maarif-al-sajjad/privacy-policy",
+				destination: "https://maarif.imamzain.org/privacy-policy",
+				permanent: true,
+			},
+			{
 				source: "/library/al-sahifa",
 				destination: "/library/al-sahifa/al-sahifa-al-sajjadiya-index",
 				permanent: true,
