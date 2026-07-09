@@ -73,6 +73,7 @@ export default function JournalsPage() {
     publicationVenue: sp.get("publicationVenue") ?? "",
     author: sp.get("author") ?? "",
     publishedYear: sp.get("publishedYear") ?? "",
+      language: sp.get("language") ?? "",
   });
 
   const all = JournalsData as Journals[];
@@ -81,10 +82,12 @@ export default function JournalsPage() {
     const publicationVenues = new Set<string>();
     const authors = new Set<string>();
     const years = new Set<string>();
+    const languages = new Set<string>();
     all.forEach((item) => {
       item.translations.forEach((t) => {
         if (t.publicationVenue) publicationVenues.add(t.publicationVenue);
         (t.authors || []).forEach((a) => a && authors.add(a));
+          if (t.language) languages.add(t.language);
       });
       if (item.publishedYear) years.add(item.publishedYear);
     });
@@ -92,12 +95,12 @@ export default function JournalsPage() {
       publicationVenue: Array.from(publicationVenues).sort(),
       author: Array.from(authors).sort(),
       publishedYear: Array.from(years).sort().reverse(),
+        language: Array.from(languages).sort(),
     } as Record<string, string[]>;
   }, [all]);
 
   const filtered = useMemo(() => {
     const term = search.trim().toLowerCase();
-
     const base = !term
       ? all
       : all.filter((item) =>
@@ -119,6 +122,7 @@ export default function JournalsPage() {
         );
         if (!ok) return false;
       }
+      
       if (filters.author) {
         const ok = item.translations.some((t) =>
           (t.authors || []).some(
@@ -127,6 +131,16 @@ export default function JournalsPage() {
         );
         if (!ok) return false;
       }
+if (filters.language) {
+  const ok = item.translations.some(
+    (t) =>
+      (t.language ?? "").toLowerCase() ===
+      filters.language.toLowerCase(),
+  );
+
+  if (!ok) return false;
+}
+
       if (filters.publishedYear) {
         if (
           (item.publishedYear ?? "").toLowerCase() !==
@@ -241,9 +255,11 @@ export default function JournalsPage() {
                   publicationVenue: "",
                   author: "",
                   publishedYear: "",
+                    language: "",
                 });
                 setSearch("");
                 updateParams({
+                  language: null,
                   category: null,
                   publicationVenue: null,
                   author: null,
