@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion, useReducedMotion } from "framer-motion"
 import {
-	ArrowLeft,
+	ArrowUpLeft,
 	BadgeCheck,
 	Clock,
 	LibraryBig,
@@ -13,6 +13,8 @@ import {
 export interface AppItem {
 	name: string
 	slug: string
+	/** The app's own site (its subdomain) — the card links out here. */
+	url: string
 	tagline: string
 	description: string
 	category: string
@@ -144,12 +146,14 @@ export default function AppCard({
 					{isAvailable ? (
 						<>
 							<Link
-								href={`/applications/${app.slug}`}
-								aria-label={`اكتشف تطبيق ${app.name}`}
+								href={app.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label={`اكتشف تطبيق ${app.name} — الموقع الرسمي`}
 								className="group/cta relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-l from-primary to-primary/90 px-6 py-4 text-note font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:from-Muharram_secondary dark:to-Muharram_secondary/90 dark:focus:ring-Muharram_secondary"
 							>
 								<span>اكتشف التطبيق</span>
-								<ArrowLeft className="w-5 h-5 transition-transform group-hover/cta:-translate-x-1" />
+								<ArrowUpLeft className="w-5 h-5 transition-transform group-hover/cta:-translate-x-1 group-hover/cta:-translate-y-1" />
 							</Link>
 							{app.store && (
 								<div className="flex items-center justify-center gap-3 pt-1">
@@ -187,14 +191,17 @@ export default function AppCard({
 					) : (
 						<>
 							<Link
-								href={`/applications/${app.slug}`}
-								aria-label={`صفحة تطبيق ${app.name} — قريباً`}
-								className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-secondary_dark px-6 py-4 text-note font-semibold text-secondary_dark transition-colors hover:bg-secondary_dark/10 focus:outline-none focus:ring-2 focus:ring-secondary_dark focus:ring-offset-2 dark:border-Muharram_secondary/40 dark:text-Muharram_secondary dark:focus:ring-Muharram_secondary"
+								href={app.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label={`اكتشف تطبيق ${app.name} — الموقع الرسمي`}
+								className="group/cta inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-secondary_dark px-6 py-4 text-note font-semibold text-secondary_dark transition-colors hover:bg-secondary_dark/10 focus:outline-none focus:ring-2 focus:ring-secondary_dark focus:ring-offset-2 dark:border-Muharram_secondary/40 dark:text-Muharram_secondary dark:focus:ring-Muharram_secondary"
 							>
-								<Clock className="w-5 h-5" />
-								اعرف المزيد — قريباً
+								<span>اكتشف التطبيق</span>
+								<ArrowUpLeft className="w-5 h-5 transition-transform group-hover/cta:-translate-x-1 group-hover/cta:-translate-y-1" />
 							</Link>
-							<p className="text-subtitle text-gray-500 dark:text-gray-400">
+							<p className="inline-flex items-center justify-center gap-1.5 text-subtitle text-gray-500 dark:text-gray-400">
+								<Clock className="w-3.5 h-3.5" />
 								ترقّبوا إطلاقه على المتاجر
 							</p>
 						</>

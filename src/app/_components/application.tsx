@@ -28,7 +28,12 @@ export default function Application() {
 					animate="visible"
 					className="relative z-10 w-full lg:w-1/2 flex flex-col gap-6 lg:gap-10 xl:gap-16 max-lg:text-center"
 				>
-					<Link href={"/applications/anwar-sajjadyia"} className="group">
+					<Link
+						href="https://anwar.imamzain.org"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="group"
+					>
 						<motion.h2
 							className="text-title font-bold text-center lg:text-start bg-gradient-to-r from-primary/35 via-secondary/50 to-primary/80 bg-clip-text text-transparent leading-tight group-hover:scale-105 transition-transform duration-300"
 							whileHover={{ scale: 1.02 }}
@@ -145,7 +150,12 @@ export default function Application() {
 					</div>
 				</motion.div>
 
-				<Link href={"/applications/anwar-sajjadyia"} className="relative group">
+				<Link
+					href="https://anwar.imamzain.org"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="relative group"
+				>
 					<motion.div
 						className="relative flex justify-center items-center w-[24rem] h-[28rem] perspective-1000"
 						whileHover={{ scale: 1.02 }}

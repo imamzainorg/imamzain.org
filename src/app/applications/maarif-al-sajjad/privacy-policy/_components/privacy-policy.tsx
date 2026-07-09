@@ -14,7 +14,7 @@ import {
 } from "lucide-react"
 import { ICON_BADGE, PANEL, Reveal } from "../../_components/shared"
 
-const APP_URL = "/applications/maarif-al-sajjad"
+const APP_URL = "https://maarif.imamzain.org"
 
 /** Reassurance chips — the strongest privacy guarantees, surfaced up top. */
 const guarantees = [
@@ -175,10 +175,12 @@ export default function PrivacyPolicy() {
 							<div className="flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row">
 								<Link
 									href={APP_URL}
+									target="_blank"
+									rel="noopener noreferrer"
 									className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-2xl bg-white px-7 text-note font-semibold text-primary shadow-lg shadow-black/20 transition hover:bg-white/90 active:scale-95 sm:w-auto"
 								>
 									<ArrowRight className="h-5 w-5" />
-									العودة إلى صفحة التطبيق
+									زيارة موقع التطبيق
 								</Link>
 								<Link
 									href="/services"

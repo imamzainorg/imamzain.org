@@ -32,7 +32,19 @@ const nextConfig: NextConfig = {
 		return [
 			{
 				source: "/application",
-				destination: "/applications/anwar-sajjadyia",
+				destination: "/applications",
+				permanent: true,
+			},
+			// Each app now lives on its own subdomain — send the old dedicated
+			// in-site pages to the standalone sites.
+			{
+				source: "/applications/anwar-sajjadyia",
+				destination: "https://anwar.imamzain.org",
+				permanent: true,
+			},
+			{
+				source: "/applications/maarif-al-sajjad",
+				destination: "https://maarif.imamzain.org",
 				permanent: true,
 			},
 			{

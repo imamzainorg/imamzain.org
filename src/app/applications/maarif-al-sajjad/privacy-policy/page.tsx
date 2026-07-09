@@ -34,7 +34,7 @@ export default function Page() {
 						{ name: "التطبيقات", url: "/applications" },
 						{
 							name: "معارف سجادية",
-							url: "/applications/maarif-al-sajjad",
+							url: "https://maarif.imamzain.org",
 						},
 						{
 							name: "سياسة الخصوصية",

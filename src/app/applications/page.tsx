@@ -22,6 +22,7 @@ const apps: AppItem[] = [
 	{
 		name: "أنوار سجادية",
 		slug: "anwar-sajjadyia",
+		url: "https://anwar.imamzain.org",
 		category: "موسوعة شاملة",
 		status: "available",
 		tagline: "الموسوعة المتكاملة عن الإمام زين العابدين (عليه السلام)",
@@ -39,6 +40,7 @@ const apps: AppItem[] = [
 	{
 		name: "معارف سجادية",
 		slug: "maarif-al-sajjad",
+		url: "https://maarif.imamzain.org",
 		category: "رفيق المسير والمسابقة",
 		status: "soon",
 		tagline: "امشِ وتعلَّم في طريقِ يا حسين",
