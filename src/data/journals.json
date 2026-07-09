@@ -459,28 +459,11 @@
     "pdfUrl": "https://cdn.imamzain.org/research/journals/الامام السجاد ع احزان سيد الساجدين ع.pdf"
   },
   {
-    "id": "28",
-    "translations": [
-      {
-        "languageid": 1,
-        "title": " زين العابدين علي بن الحسين  ( عليه السلام )  ",
-        "authors": [
-          ""
-        ],
-        "publicationVenue": "مجلة الولاية العدد 8 - السنة 1",
-        "language": "عربي",
-        "pagenam": 1
-      }
-    ],
-    "publishedYear": "1428 هـ",
-    "pdfUrl": "https://cdn.imamzain.org/research/journals/زين العابدين ع علي بن الحسين ع.pdf"
-  },
-  {
     "id": "29",
     "translations": [
       {
         "languageid": 1,
-        "title": " ملامح من الحياة الاسرية علاقة الاباء والابناء - دراسة في ضوء الصحيفة السجادية للامام زين العابدين  ( عليه السلام )  ",
+        "title": "ملامح من الحياة الاسرية علاقة الاباء والابناء - دراسة في ضوء الصحيفة السجادية للامام زين العابدين  ( عليه السلام )",
         "authors": [
           "شكري ناصر عبد الحسن "
         ],
@@ -1705,7 +1688,7 @@
         "languageid": 1,
         "title": "القاب الامام علي بن الحسين ع المتعلقة بالسجود - دراسة لغوية تاريخية ",
         "authors": [
-          "كريم حمزة حميدي جاسم"  
+          "كريم حمزة حميدي جاسم"
         ],
         "publicationVenue": "مجلة القادسية للعلوم الإنسانية - العدد 1 - مجلد 20 ",
         "language": " عربي ",
@@ -1813,7 +1796,7 @@
         ],
         "publicationVenue": "مجلة القادسية للعلوم الإنسانية - العدد 1 - مجلد 20 ",
         "language": " عربي ",
-        "pagenam":29
+        "pagenam": 29
       }
     ],
     "publishedYear": "2017 م",
@@ -5169,23 +5152,6 @@
     "pdfUrl": "https://cdn.imamzain.org/research/journals/قاعدة المنزلة - قاعدة للسلم والتعايش الاجتماعي والإرشاد النفسي من رسالة الحقوق للامام السجاد ع.pdf"
   },
   {
-    "id": "303",
-    "translations": [
-      {
-        "languageid": 1,
-        "title": " الأدب اللغوي في الصحيفة السجادية ",
-        "authors": [
-          "زهره سليماني"
-        ],
-        "publicationVenue": "مجلة كلية التربية الأساسية للعلوم التربوية و الإنسانية - العدد52 الجزء 2 المجلد 13",
-        "language": " انجليزي - عربي ",
-        "pagenam": 10
-      }
-    ],
-    "publishedYear": "2021 م",
-    "pdfUrl": "https://cdn.imamzain.org/research/journals/الأدب اللغوي في الصحيفة السجادية.pdf"
-  },
-  {
     "id": "304",
     "translations": [
       {
@@ -6186,23 +6152,6 @@
     "pdfUrl": "https://cdn.imamzain.org/research/journals/مناجات المريدين في الصحيفة السجادية.pdf"
   },
   {
-    "id": "363",
-    "translations": [
-      {
-        "languageid": 1,
-        "title": " بحث حول سيرة الامام السجاد ع  ",
-        "authors": [
-          "علي الخامنائي"
-        ],
-        "publicationVenue": "مجلة بقية الله - لبنان - العدد 0 ",
-        "language": " عربي ",
-        "pagenam": 6
-      }
-    ],
-    "publishedYear": "1990 م",
-    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 0 الى العدد 12 - 1990 -1992.pdf"
-  },
-  {
     "id": "364",
     "translations": [
       {
@@ -6217,7 +6166,7 @@
       }
     ],
     "publishedYear": "1991 م",
-    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 0 الى العدد 12 - 1990 -1992.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 1 - 1990 -1992.pdf.pdf"
   },
   {
     "id": "365",
@@ -6234,7 +6183,7 @@
       }
     ],
     "publishedYear": "1991 م",
-    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 0 الى العدد 12 - 1990 -1992.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 2 - 1990 -1992.pdf.pdf"
   },
   {
     "id": "366",
@@ -6251,7 +6200,7 @@
       }
     ],
     "publishedYear": "1991 م",
-    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 0 الى العدد 12 - 1990 -1992.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 3 - 1990 -1992.pdf.pdf"
   },
   {
     "id": "367",
@@ -6268,7 +6217,7 @@
       }
     ],
     "publishedYear": "1991 م",
-    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 0 الى العدد 12 - 1990 -1992.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 4 - 1990 -1992.pdf.pdf"
   },
   {
     "id": "368",
@@ -6285,7 +6234,7 @@
       }
     ],
     "publishedYear": "1991 م",
-    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 0 الى العدد 12 - 1990 -1992.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 5 - 1990 -1992.pdf.pdf"
   },
   {
     "id": "369",
@@ -6302,7 +6251,7 @@
       }
     ],
     "publishedYear": "1991 م",
-    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 0 الى العدد 12 - 1990 -1992.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 6 - 1990 -1992.pdf.pdf"
   },
   {
     "id": "370",
@@ -6319,7 +6268,7 @@
       }
     ],
     "publishedYear": "1991 م",
-    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 0 الى العدد 12 - 1990 -1992.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 7 - 1990 -1992.pdf.pdf"
   },
   {
     "id": "371",
@@ -6336,7 +6285,7 @@
       }
     ],
     "publishedYear": "1991 م",
-    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 0 الى العدد 12 - 1990 -1992.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 8 - 1990 -1992.pdf.pdf"
   },
   {
     "id": "372",
@@ -6353,7 +6302,7 @@
       }
     ],
     "publishedYear": "1991 م",
-    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 0 الى العدد 12 - 1990 -1992.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 9 - 1990 -1992.pdf.pdf"
   },
   {
     "id": "373",
@@ -6370,7 +6319,7 @@
       }
     ],
     "publishedYear": "1992 م",
-    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 0 الى العدد 12 - 1990 -1992.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 10 - 1990 -1992.pdf.pdf"
   },
   {
     "id": "374",
@@ -6387,7 +6336,7 @@
       }
     ],
     "publishedYear": "1992 م",
-    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 0 الى العدد 12 - 1990 -1992.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 11 - 1990 -1992.pdf.pdf"
   },
   {
     "id": "375",
@@ -6404,7 +6353,7 @@
       }
     ],
     "publishedYear": "1992 م",
-    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 0 الى العدد 12 - 1990 -1992.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/بحث حول الامام السجاد ع - العدد 12 - 1990 -1992.pdf.pdf"
   },
   {
     "id": "376",
@@ -9831,7 +9780,7 @@
           "زهرة سليماني"
         ],
         "publicationVenue": "مجلة كلية التربية الأساسية للعلوم التربوية والإنسانية - العدد 52 - المجلد 13 - الجزء 2",
-        "language": " عربي ",
+        "language": "انجليزي",
         "pagenam": 10
       }
     ],
@@ -11540,23 +11489,6 @@
     "pdfUrl": "https://cdn.imamzain.org/research/journals/من دعاء الامام السجاد لأبويه ع 464.pdf"
   },
   {
-    "id": "680",
-    "translations": [
-      {
-        "languageid": 1,
-        "title": "دعاء الامام السجاد ع لابويه ",
-        "authors": [
-          "هيئة التحرير"
-        ],
-        "publicationVenue": "مجلة الاحرار - العدد 465",
-        "language": " عربي ",
-        "pagenam": 1
-      }
-    ],
-    "publishedYear": "2014 م",
-    "pdfUrl": "https://cdn.imamzain.org/research/journals/من دعاء الامام السجاد لأبويه ع 465.pdf"
-  },
-  {
     "id": "681",
     "translations": [
       {
@@ -11595,7 +11527,7 @@
     "translations": [
       {
         "languageid": 1,
-        "title": "من دعاء الامام السجاد ع لابويه ع",
+        "title": "من دعاء الامام السجاد (ع) لابويه (ع)",
         "authors": [
           "هيئة التحرير"
         ],
@@ -12098,7 +12030,7 @@
       }
     ],
     "publishedYear": "2015 م",
-    "pdfUrl": "https://cdn.imamzain.org/research/journals/تراتيل سجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/مهرجان تراتيل سجادية العالمي بنسخته الثانية.pdf"
   },
   {
     "id": "713",
@@ -12156,7 +12088,7 @@
     "translations": [
       {
         "languageid": 1,
-        "title": "بماذا يوصينا ائمتنا ع بالجيران ",
+        "title": "بماذا يوصينا ائمتنا ع بالجيران",
         "authors": [
           "عبد المهدي الكربلائي"
         ],
@@ -12166,7 +12098,7 @@
       }
     ],
     "publishedYear": "2016 م",
-    "pdfUrl": "https://cdn.imamzain.org/research/journals/الامام السجاد ع ومراعاة الجيران.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/بماذا يوصينا ائمتنا ع بالجيران.pdf"
   },
   {
     "id": "717",
