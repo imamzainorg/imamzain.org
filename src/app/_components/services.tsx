@@ -70,6 +70,7 @@ export default function Services() {
                 relative
                 w-full max-w-md
                 bg-[url('/shapes/ziara-bg.svg')]
+				dark:bg-[url('/shapes/ziara-bg_Muharram.svg')]
                 bg-no-repeat
                 bg-contain
                 bg-center

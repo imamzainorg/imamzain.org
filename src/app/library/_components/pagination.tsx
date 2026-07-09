@@ -16,7 +16,7 @@ export default function Pagination({
 }: PaginationProps) {
   return (
     <div className="flex justify-center my-8">
-      <nav className="flex items-center gap-2 bg-white rounded-2xl p-2 shadow-sm border border-gray-100">
+      <nav className="flex items-center gap-2 bg-white rounded-2xl p-2 dark:bg-Muharram_secondary/10 shadow-sm border border-gray-100">
         <Button
           variant="outline"
           size="icon"
@@ -29,7 +29,7 @@ export default function Pagination({
         <div className="flex items-center justify-center gap-2">
           <div className="flex items-center gap-3 md:hidden">
             {/* Current Page */}
-            <span className="px-3 py-1 rounded-md bg-primary/10 text-primary font-medium">
+            <span className="px-3 py-1 rounded-md bg-primary/10 dark:bg-Muharram_primary/20  text-primary font-medium">
               {page} / {totalPages}
             </span>
           </div>

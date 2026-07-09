@@ -60,8 +60,8 @@ export default function ResearchSlider() {
         className="absolute inset-0 pointer-events-none overflow-hidden"
         aria-hidden="true"
       >
-        <div className="absolute -top-20 -right-20 w-96 h-96 bg-primary/5 dark:bg-[#BA9560]/5 rounded-full blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-primary/5 dark:bg-[#BA9560]/5 rounded-full blur-3xl" />
+        <div className="absolute -top-20 -right-20 w-96 h-96 bg-primary/5 dark:bg-Muharram_primary/30 rounded-full blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-primary/5 dark:bg-Muharram_primary/30 rounded-full blur-3xl" />
       </div>
 
       <div className="flex flex-col md:flex-row h-full gap-6 md:gap-8 relative z-10">
@@ -85,7 +85,7 @@ export default function ResearchSlider() {
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <h2 className="text-2xl md:text-title lg:text-4xl xl:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-primary via-primary to-[#BA9560] dark:from-[#BA9560] dark:via-Muharram_primary dark:to-[#BA9560] mb-4 leading-snug lg:leading-tight drop-shadow-sm">
+                <h2 className="text-2xl md:text-title lg:text-4xl xl:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-primary via-primary to-[#BA9560] dark:from-Muharram_secondary dark:via-Muharram_primary dark:to-Muharram_secondary mb-4 leading-snug lg:leading-tight drop-shadow-sm">
                   {slides[currentIndex].title}
                 </h2>
                 {slides[currentIndex].subtitle && (
@@ -102,7 +102,7 @@ export default function ResearchSlider() {
         <div className="relative w-full md:w-1/2 h-1/2 md:h-full rounded-3xl overflow-hidden mt-4 md:mt-0 shadow-2xl group">
           {/* Border glow effect */}
           <div
-            className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/20 via-transparent to-[#BA9560]/20 dark:from-[#BA9560]/30 dark:to-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30 pointer-events-none"
+            className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/20 via-transparent to-[#BA9560]/20 dark:from-Muharram_secondary/10 dark:to-Muharram_secondary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30 pointer-events-none"
             aria-hidden="true"
           />
 
@@ -154,7 +154,7 @@ export default function ResearchSlider() {
           <motion.button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`relative transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-full ${
+            className={`relative transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-Muharram_primary focus:ring-offset-2 rounded-full ${
               index === currentIndex ? "w-10 h-3" : "w-3 h-3"
             }`}
             whileHover={{ scale: 1.2 }}
@@ -166,7 +166,7 @@ export default function ResearchSlider() {
             <div
               className={`w-full h-full rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? "bg-gradient-to-r from-primary via-[#BA9560] to-primary dark:from-[#BA9560] dark:to-Muharram_primary shadow-lg"
+                  ? "bg-gradient-to-r from-primary via-[#BA9560] to-primary dark:from-Muharram_secondary/30 dark:via-Muharram_primary dark:to-Muharram_primary/50 shadow-lg"
                   : "bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500"
               }`}
             />

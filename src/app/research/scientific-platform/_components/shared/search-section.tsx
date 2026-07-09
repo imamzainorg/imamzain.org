@@ -100,7 +100,7 @@ export function SearchSection({
               className={`px-5 py-2 rounded-full font-medium transition-all duration-300 ${
                 activeTab === tab.id
                   ? "bg-primary text-white shadow-lg scale-105"
-                  : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600"
+                  : "bg-gray-100  text-gray-700 dark:text-gray-200 hover:bg-gray-200"
               }`}
             >
               {tab.label}
@@ -113,9 +113,7 @@ export function SearchSection({
       <div
         className="
         flex flex-col sm:flex-row gap-2
-        bg-white dark:bg-gray-900
-        border border-gray-100 dark:border-gray-800
-        rounded-2xl shadow-sm p-3
+    
       "
       >
         {/* Search input */}
@@ -131,11 +129,11 @@ export function SearchSection({
             placeholder={searchPlaceholder}
             className="
               w-full rounded-xl py-2.5 pr-10 pl-9 text-sm
-              bg-gray-50 dark:bg-gray-800
-              border border-gray-100 dark:border-gray-700
-              text-gray-800 dark:text-gray-100
-              placeholder:text-gray-400 dark:placeholder:text-gray-500
-              focus:outline-none focus:ring-2 focus:ring-primary/25 focus:border-primary/40
+              bg-gray-50 dark:bg-Muharram_secondary/10
+              border border-gray-100 dark:border-Muharram_primary
+              text-gray-800 dark:text-black
+              placeholder:text-gray-400 dark:placeholder:text-Muharram_primary
+              focus:outline-none focus:ring-2 focus:ring-primary/25 focus:border-primary/40 dark:focus:ring-Muharram_secondary/25 dark:focus:border-Muharram_primary/40
               transition-all duration-200
             "
           />
@@ -146,15 +144,14 @@ export function SearchSection({
               className="
                 absolute left-2.5 top-1/2 -translate-y-1/2
                 w-5 h-5 rounded-full flex items-center justify-center
-                bg-gray-200 dark:bg-gray-700 text-gray-500
-                hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors
+                bg-gray-200 dark:bg-Muharram_primary/10 text-gray-500
+                hover:bg-gray-300 dark:hover:bg-Muharram_secondary/30 transition-colors
               "
             >
               <X size={10} />
             </button>
           )}
         </div>
-
         <div className="flex items-center gap-2 shrink-0">
           {/* ترتيب */}
           {sortOptions && sortOptions.length > 0 && (
@@ -162,11 +159,11 @@ export function SearchSection({
               value={sortValue}
               onChange={(e) => onSortChange?.(e.target.value)}
               className="
-                rounded-xl px-3 py-2.5 text-sm
-                bg-gray-50 dark:bg-gray-800
-                border border-gray-100 dark:border-gray-700
-                text-gray-700 dark:text-gray-300
-                focus:ring-2 focus:ring-primary/25 outline-none cursor-pointer
+                rounded-xl px-5 py-2 text-sm
+                bg-gray-50 dark:bg-Muharram_secondary/10
+                border border-gray-100 dark:border-Muharram_primary
+                text-gray-700 dark:text-black
+                focus:ring-2 focus:ring-primary/25 dark:focus:ring-Muharram_primary/25 outline-none cursor-pointer
               "
             >
               {sortOptions.map((o) => (
@@ -219,8 +216,8 @@ export function SearchSection({
                 title="بطاقات"
                 className={`p-2.5 transition-colors ${
                   viewMode === "cards"
-                    ? "bg-primary text-white"
-                    : "bg-gray-50 dark:bg-gray-800 text-gray-500 hover:text-primary"
+                    ? "bg-primary text-white dark:bg-Muharram_primary"
+                    : "bg-gray-50 dark:bg-white text-gray-500 hover:text-primary dark:hover:text-Muharram_secondary"
                 }`}
               >
                 <LayoutGrid size={15} />
@@ -230,8 +227,8 @@ export function SearchSection({
                 title="جدول"
                 className={`p-2.5 transition-colors ${
                   viewMode === "table"
-                    ? "bg-primary text-white"
-                    : "bg-gray-50 dark:bg-gray-800 text-gray-500 hover:text-primary"
+                   ? "bg-primary text-white dark:bg-Muharram_primary"
+                    : "bg-gray-50 dark:bg-white text-gray-500 hover:text-primary dark:hover:text-Muharram_secondary"
                 }`}
               >
                 <Table2 size={15} />
@@ -310,7 +307,6 @@ export function SearchSection({
           </span>{" "}
           {resultUnit}
         </p>
-  
       </div>
     </div>
   );

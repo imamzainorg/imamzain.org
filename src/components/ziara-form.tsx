@@ -155,7 +155,7 @@ const ZiaraForm = () => {
 					{/* Submit Button */}
 					<Button
 						onClick={handleSubmit}
-						className="text-white rounded-md bg-secondary dark:bg-Muharram_primary p-4 md:p-6 mt-2 font-bold text-xs md:text-lg"
+						className="text-white rounded-md bg-secondary dark:bg-Muharram_secondary p-4 md:p-6 mt-2 font-bold text-xs md:text-lg"
 					>
 						التسجيل
 					</Button>

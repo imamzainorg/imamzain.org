@@ -45,7 +45,7 @@ export function AudioSearch({ value, onChange, placeholder = "ابحث بالع�
   return (
     <div className="relative flex-1 min-w-0">
       <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
-        <Search className="w-4 h-4 text-slate-400" />
+        <Search className="w-4 h-4 text-slate-400 dark:text-black" />
       </div>
       <input
         ref={inputRef}
@@ -56,11 +56,11 @@ export function AudioSearch({ value, onChange, placeholder = "ابحث بالع�
         dir="rtl"
         className="
           w-full h-12 rounded-2xl pr-11 pl-11 text-sm shadow-sm
-          bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
-          border border-slate-200/70 dark:border-white/10
-          text-slate-700 dark:text-white placeholder-slate-400
+          bg-white/80 dark:bg-Muharram_secondary/15 backdrop-blur-xl
+          border border-slate-200/70 dark:border-Muharram_secondary/30
+          text-slate-700 dark:text-black placeholder-slate-400
           transition-all duration-300
-          focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary/40
+          focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary/40 dark:focus:ring-Muharram_primary/10 dark:focus:border-Muharram_primary/40
         "
       />
       {value && (
@@ -82,20 +82,21 @@ export function AudioFilter({ label, options, value, onChange, icon }: FilterPro
         dir="rtl"
         className="
           w-full h-12 appearance-none rounded-2xl pr-11 pl-10 text-sm shadow-sm cursor-pointer
-          bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+          bg-white/80 dark:bg-Muharram_secondary/15 backdrop-blur-xl
           border border-slate-200/70 dark:border-white/10
-          text-slate-700 dark:text-white
+          text-slate-700 dark:text-black
           transition-all duration-300
-          focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary/40
+          focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary/40 
+          dark:focus:ring-Muharram_primary/10 dark:focus:border-Muharram_primary/40
         "
       >
         <option value="">{label ?? "اختر..."}</option>
         {options.map((opt) => <option key={opt} value={opt}>{opt}</option>)}
       </select>
-      {icon && <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center">{icon}</div>}
+      {icon && <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center dark:text-Muharram_secondary">{icon}</div>}
       <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center gap-1">
         <div className="h-4 border-l border-slate-300 dark:border-slate-600 mr-1" />
-        <ChevronDown className="w-4 h-4 text-slate-400" />
+        <ChevronDown className="w-4 h-4 text-slate-400 dark:text-Muharram_secondary " />
       </div>
     </div>
   );

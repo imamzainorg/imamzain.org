@@ -24,12 +24,12 @@ export function DurationFilter({
   ];
 
   return (
-    <div className=" p-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl border border-slate-200/70 dark:border-white/10 shadow-sm">
+    <div className=" p-4 bg-white/80 dark:bg-Muharram_secondary/15 backdrop-blur-xl rounded-2xl border border-slate-200/70 dark:border-white/10 shadow-sm">
       <div className="flex items-center gap-2 mb-4">
-        <div className="p-1.5 rounded-lg bg-primary/10">
-          <Clock3 className="w-4 h-4 text-primary" />
+        <div className="p-1.5 rounded-lg bg-primary/10 ">
+          <Clock3 className="w-4 h-4 text-primary dark:text-black" />
         </div>
-        <span className="text-sm font-medium text-slate-700 dark:text-white">
+        <span className="text-sm font-medium text-slate-700 dark:text-black">
           مدة الصوت
         </span>
       </div>
