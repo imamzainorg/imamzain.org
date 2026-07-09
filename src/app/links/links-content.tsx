@@ -25,9 +25,9 @@ import {
 
 type IconType = ComponentType<SVGProps<SVGSVGElement>>
 
-// TODO: replace with the real store/landing URLs once provided
-const APP_URL_ANWAR = "#"
-const APP_URL_MAARIF = "#"
+// Each app lives on its own subdomain.
+const APP_URL_ANWAR = "https://anwar.imamzain.org"
+const APP_URL_MAARIF = "https://maarif.imamzain.org"
 
 const title = "مؤسسة الامام زين العابدين للدراسات والبحوث"
 const bio =
