@@ -2,7 +2,7 @@
 import { useState, ReactNode } from "react";
 import Select from "react-select";
 import { Button } from "@/components/button";
-import { User, Building2, Calendar, LayoutGrid } from "lucide-react";
+import { User, Building2, Calendar, LayoutGrid, Languages } from "lucide-react";
 import { SingleValue } from "react-select";
 
 /* ================= TYPES ================= */
@@ -79,7 +79,7 @@ export default function FilterSidebarWrapper({
   `}
       >
         <div
-             className="
+          className="
             lg:bg-secondary/5
          dark:lg:bg-Muharram_secondary/10
             rounded-2xl
@@ -88,7 +88,7 @@ export default function FilterSidebarWrapper({
             border border-gray-200
             shadow-md
           "
-        > 
+        >
           {/* Mobile Close */}
           <button
             onClick={() => setMobileFilterOpen(false)}
@@ -210,6 +210,13 @@ function keyMeta(key: string): {
       placeholder: "ابحث عن مؤلف...",
     };
   }
+  if (k.includes("language")) {
+  return {
+    label: "اللغة",
+    icon: <Languages size={16} className="hidden md:inline" />,
+    placeholder: "اختر اللغة...",
+  };
+}
   if (k.includes("conf")) {
     return {
       label: "المؤتمر",
@@ -262,6 +269,7 @@ function getOrderedFilterKeys(filters: Filters) {
     "authors",
     "publicationvenue",
     "publication",
+      "language",
     "publisher",
     "publishers",
     "publishedyear",
