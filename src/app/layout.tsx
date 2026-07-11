@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Noto_Naskh_Arabic } from "next/font/google"
+import Script from "next/script"
 
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -69,6 +70,10 @@ export default function RootLayout({
 	return (
 		<html lang="ar" dir="rtl" suppressHydrationWarning={true}>
 			<head>
+				{/* Apply the saved theme class before first paint so dark-mode
+				    users never see a light flash (FOUC). External src (not inline)
+				    so React doesn't flag a script tag in the component tree. */}
+				<Script src="/theme-init.js" strategy="beforeInteractive" />
 				<link rel="preconnect" href="https://cdn.imamzain.org" />
 				<link rel="dns-prefetch" href="https://cdn.imamzain.org" />
 			</head>
