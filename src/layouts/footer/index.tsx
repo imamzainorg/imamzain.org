@@ -1,227 +1,249 @@
-"use client";
-import Link from "next/link";
-import Image from "next/image";
-import type { ComponentType, SVGProps } from "react";
+"use client"
+import Link from "next/link"
+import Image from "next/image"
+import type { ComponentType, SVGProps } from "react"
 
-import { Facebook, Instagram, Youtube } from "lucide-react";
-import { TelegramIcon, TikTokIcon, XIcon } from "@/components/brand-icons";
-import DropdownLang from "@/layouts/dropdown-lang";
-import { Accordion, AccordionItem } from "@heroui/react";
+import { ChevronRight, Facebook, Instagram, Youtube } from "lucide-react"
+import { TelegramIcon, TikTokIcon, XIcon } from "@/components/brand-icons"
+import DropdownLang from "@/layouts/dropdown-lang"
+import { Accordion, AccordionItem } from "@heroui/react"
 
-type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
+type IconComponent = ComponentType<SVGProps<SVGSVGElement>>
 
 type Sublink =
-  | { label: string; href: string; slug?: never }
-  | { label: string; slug: string; href?: never };
+	| { label: string; href: string; slug?: never }
+	| { label: string; slug: string; href?: never }
 
 interface LinkSection {
-  label: string;
-  sublinks: Sublink[];
+	label: string
+	sublinks: Sublink[]
 }
 const getSublinkPath = (s: Sublink): string | undefined =>
-  "href" in s ? s.href : "slug" in s ? `/his-life/${s.slug}` : undefined;
+	"href" in s ? s.href : "slug" in s ? `/his-life/${s.slug}` : undefined
 
 const links: LinkSection[] = [
-  {
-    label: "الإمام زين العابدين",
+	{
+		label: "الإمام زين العابدين",
 
-    sublinks: [
-      { label: "ولادته ووالدته", slug: "birth-and-mother" },
-      { label: "ألقابه وكناه", slug: "titles-and-nicknames" },
-      { label: "الأدلة على امامته", slug: "personality-traits" },
-      { label: "كراماته ومميزاته", slug: "karamatuh-wa-mumayizatuh" },
-    ],
-  },
-  {
-    label: "الخدمات",
-    sublinks: [
-      { label: "اتصل بنا", href: "/services" },
-      { label: "نقاط البيع", href: "/services/stores" },
-      { label: "تطبيق انوار سجادية", href: "/application" },
-    ],
-  },
-  {
-    label: "المكتبة ",
-    sublinks: [
-      { label: "المكتبة التخصصية", href: "/library" },
-      {
-        label: "الصحيفة السجادية",
-        href: "library/al-sahifa/al-sahifa-al-sajjadiya-index",
-      },
-      { label: "رسالة الحقوق", href: "/library/risalat-al-huqoq/introduction" },
-    ],
-  },
-  {
-    label: "الوسائط",
-    sublinks: [
-      { label: "المرئيات", href: "/media/videos" },
-      { label: "معرض الصور", href: "/media/images" },
-    ],
-  },
-];
+		sublinks: [
+			{ label: "ولادته ووالدته", slug: "birth-and-mother" },
+			{ label: "ألقابه وكناه", slug: "titles-and-nicknames" },
+			{ label: "الأدلة على امامته", slug: "personality-traits" },
+			{ label: "كراماته ومميزاته", slug: "karamatuh-wa-mumayizatuh" },
+		],
+	},
+	{
+		label: "الخدمات",
+		sublinks: [
+			{ label: "اتصل بنا", href: "/services" },
+			{ label: "نقاط البيع", href: "/services/stores" },
+			{ label: "التطبيقات", href: "/applications" },
+		],
+	},
+	{
+		label: "المكتبة ",
+		sublinks: [
+			{ label: "المكتبة التخصصية", href: "/library" },
+			{
+				label: "الصحيفة السجادية",
+				href: "library/al-sahifa/al-sahifa-al-sajjadiya-index",
+			},
+			{
+				label: "رسالة الحقوق",
+				href: "/library/risalat-al-huqoq/introduction",
+			},
+		],
+	},
+	{
+		label: "الوسائط",
+		sublinks: [
+			{ label: "المرئيات", href: "/media/videos" },
+			{ label: "معرض الصور", href: "/media/images" },
+		],
+	},
+]
 
 const SocialLinks = ({
-  className,
-  iconClassName,
+	className,
+	iconClassName,
 }: {
-  className?: string;
-  iconClassName: string;
+	className?: string
+	iconClassName: string
 }) => (
-  <div className={`flex h-fit gap-6 items-center ${className}`}>
-    {bigNavSocials.map((social, index) => (
-      <Link
-        key={index}
-        href={social.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:scale-105 transition-transform h-fit p-0 m-0"
-      >
-        <social.Icon className={`${iconClassName} ${social.hoverColor}`} />
-      </Link>
-    ))}
-  </div>
-);
+	<div className={`flex h-fit gap-6 items-center ${className}`}>
+		{bigNavSocials.map((social, index) => (
+			<Link
+				key={index}
+				href={social.href}
+				target="_blank"
+				rel="noopener noreferrer"
+				className="hover:scale-105 transition-transform h-fit p-0 m-0"
+			>
+				<social.Icon
+					className={`${iconClassName} ${social.hoverColor}`}
+				/>
+			</Link>
+		))}
+	</div>
+)
 
 const bigNavSocials: {
-  href: string;
-  Icon: IconComponent;
-  hoverColor: string;
+	href: string
+	Icon: IconComponent
+	hoverColor: string
 }[] = [
-  {
-    href: "https://www.instagram.com/imamzainorg/",
-    Icon: Instagram,
-    hoverColor: "dark:hover:text-[#E1306C] hover:text-[#E1306C]",
-  },
-  {
-    href: "https://www.tiktok.com/@imamzainorg",
-    Icon: TikTokIcon,
-    hoverColor: "dark:hover:text-black hover:text-black",
-  },
-  {
-    href: "https://www.facebook.com/@imamzainorg",
-    Icon: Facebook,
-    hoverColor: "dark:hover:text-[#1877F2] hover:text-[#1877F2]",
-  },
-  {
-    href: "https://twitter.com/imamzainorg",
-    Icon: XIcon,
-    hoverColor: "dark:hover:text-black hover:text-black",
-  },
-  {
-    href: "https://www.youtube.com/@imamzainorg",
-    Icon: Youtube,
-    hoverColor: "dark:hover:text-[#FF0000] hover:text-[#FF0000]",
-  },
-  {
-    href: "https://t.me/imamzainorg",
-    Icon: TelegramIcon,
-    hoverColor: "dark:hover:text-[#0088cc] hover:text-[#0088cc]",
-  },
-];
+	{
+		href: "https://www.instagram.com/imamzainorg/",
+		Icon: Instagram,
+		hoverColor: "dark:hover:text-[#E1306C] hover:text-[#E1306C]",
+	},
+	{
+		href: "https://www.tiktok.com/@imamzainorg",
+		Icon: TikTokIcon,
+		hoverColor: "dark:hover:text-black hover:text-black",
+	},
+	{
+		href: "https://www.facebook.com/@imamzainorg",
+		Icon: Facebook,
+		hoverColor: "dark:hover:text-[#1877F2] hover:text-[#1877F2]",
+	},
+	{
+		href: "https://twitter.com/imamzainorg",
+		Icon: XIcon,
+		hoverColor: "dark:hover:text-black hover:text-black",
+	},
+	{
+		href: "https://www.youtube.com/@imamzainorg",
+		Icon: Youtube,
+		hoverColor: "dark:hover:text-[#FF0000] hover:text-[#FF0000]",
+	},
+	{
+		href: "https://t.me/imamzainorg",
+		Icon: TelegramIcon,
+		hoverColor: "dark:hover:text-[#0088cc] hover:text-[#0088cc]",
+	},
+]
 
 export default function Footer() {
-  return (
-    <div className="bg-primary dark:bg-Muharram_primary text-white rounded-t-[2rem] ">
-      {/* Big screen */}
-      <div className="container max-lg:hidden py-10">
-        <div className="flex justify-between pb-10">
-          <DropdownLang broad />
-          <SocialLinks iconClassName="w-6 h-6" />
-        </div>
+	return (
+		<div className="bg-primary dark:bg-Muharram_primary text-white rounded-t-[2rem] ">
+			{/* Big screen */}
+			<div className="container max-lg:hidden py-10">
+				<div className="flex justify-between pb-10">
+					<DropdownLang broad />
+					<SocialLinks iconClassName="w-6 h-6" />
+				</div>
 
-        <div className="flex justify-between gap-20 max-md:p-10 py-8  ">
-          <div className="w-[200px]">
-            <Link href="/">
-              <Image
-                src="/images/logo-vertical-white.svg"
-                alt="Logo"
-                width={250}
-                height={200}
-              />
-            </Link>
-          </div>
+				<div className="flex justify-between gap-20 max-md:p-10 py-8  ">
+					<div className="w-[200px]">
+						<Link href="/">
+							<Image
+								src="/images/logo-vertical-white.svg"
+								alt="Logo"
+								width={250}
+								height={200}
+							/>
+						</Link>
+					</div>
 
-          <div className="w-3/4 grid grid-cols-4 gap-4">
-            {links.map((section: LinkSection, i: number) => (
-              <div key={i} className={`${i === 0 ? "row-span-2" : ""}`}>
-                <h3 className="font-bold text-note mb-4">{section.label}</h3>
-                <ul className="flex flex-col text gap-3">
-                  {section.sublinks.map((s) => {
-                    const path = getSublinkPath(s);
-                    if (!path) return null;
+					<div className="w-3/4 grid grid-cols-4 gap-4">
+						{links.map((section: LinkSection, i: number) => (
+							<div
+								key={i}
+								className={`${i === 0 ? "row-span-2" : ""}`}
+							>
+								<h3 className="font-bold text-note mb-4">
+									{section.label}
+								</h3>
+								<ul className="flex flex-col text gap-3">
+									{section.sublinks.map((s) => {
+										const path = getSublinkPath(s)
+										if (!path) return null
 
-                    return (
-                      <Link
-                        key={path}
-                        href={path}
-                        className="text-subtitle leading-4 lg:leading-7"
-                      >
-                        {s.label}
-                      </Link>
-                    );
-                  })}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="flex justify-end  ">
-          <p className="text-subtitle text-white/40 mt-10">
-            جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه السلام) &copy;{" "}
-            {new Date().getFullYear()}
-          </p>
-        </div>
-      </div>
+										return (
+											<Link
+												key={path}
+												href={path}
+												className="text-subtitle leading-4 lg:leading-7"
+											>
+												{s.label}
+											</Link>
+										)
+									})}
+								</ul>
+							</div>
+						))}
+					</div>
+				</div>
+				<div className="flex justify-end  ">
+					<p className="text-subtitle text-white/40 mt-10">
+						جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه
+						السلام) &copy; {new Date().getFullYear()}
+					</p>
+				</div>
+			</div>
 
-      {/* Small screen */}
-      <div className="lg:hidden p-8">
-        <SocialLinks
-          className="justify-center gap-10 pb-4"
-          iconClassName="w-8 h-8"
-        />
+			{/* Small screen */}
+			<div className="lg:hidden p-8">
+				<SocialLinks
+					className="justify-center gap-10 pb-4"
+					iconClassName="w-8 h-8"
+				/>
 
-        <Accordion>
-          {links.map((section, i) => (
-            <AccordionItem
-              key={i}
-              aria-label={section.label}
-              title={section.label}
-              classNames={{
-                base: "accordion !text-white border-b-[0.1px] border-neutral-300",
-                title: "!text-white",
-                indicator: "text-white",
-              }}
-            >
-              <div className="flex flex-col gap-5 mr-5 pb-3">
-                {section.sublinks.map((s) => {
-                  const path = getSublinkPath(s);
-                  if (!path) return null;
+				<Accordion>
+					{links.map((section, i) => (
+						<AccordionItem
+							key={i}
+							aria-label={section.label}
+							title={section.label}
+							classNames={{
+								base: "accordion !text-white border-b-[0.1px] border-neutral-300",
+								title: "!text-white",
+								indicator: "text-white",
+							}}
+							indicator={({ isOpen }) => (
+								<ChevronRight
+									strokeWidth={1}
+									className={`transition-transform duration-200 ${
+										isOpen ? "-rotate-180" : "rotate-0"
+									}`}
+								/>
+							)}
+						>
+							<div className="flex flex-col gap-5 mr-5 pb-3">
+								{section.sublinks.map((s) => {
+									const path = getSublinkPath(s)
+									if (!path) return null
 
-                  return (
-                    <Link key={path} href={path} className="text-sm text-white">
-                      {s.label}
-                    </Link>
-                  );
-                })}
-              </div>
-            </AccordionItem>
-          ))}
-        </Accordion>
+									return (
+										<Link
+											key={path}
+											href={path}
+											className="text-sm text-white"
+										>
+											{s.label}
+										</Link>
+									)
+								})}
+							</div>
+						</AccordionItem>
+					))}
+				</Accordion>
 
-        <div className=" items-center w-full flex justify-center py-10">
-          <Image
-            className={"w-[200px]"}
-            src="/images/logo-horizontal-white.svg"
-            alt="Logo"
-            width={250}
-            height={200}
-          />
-        </div>
-        <p className="text-center text-sm text-white/40">
-          جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه السلام) &copy;{" "}
-          {new Date().getFullYear()}
-        </p>
-      </div>
-    </div>
-  );
+				<div className=" items-center w-full flex justify-center py-10">
+					<Image
+						className={"w-[200px]"}
+						src="/images/logo-horizontal-white.svg"
+						alt="Logo"
+						width={250}
+						height={200}
+					/>
+				</div>
+				<p className="text-center text-sm text-white/40">
+					جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه السلام)
+					&copy; {new Date().getFullYear()}
+				</p>
+			</div>
+		</div>
+	)
 }

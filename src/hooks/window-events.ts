@@ -15,25 +15,30 @@ export default function useWindowEvents() {
     const isSmallScreen = useMediaQuery({ maxWidth: 1023 });
 
     useEffect(() => {
+        let frame = 0;
+
+        // Coalesce scroll bursts into a single update per animation frame so the
+        // header never recomputes more than once per paint.
         const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-            setIsScrolled(currentScrollY > 50);
-            setIsScrollDown(
-                !(currentScrollY > prevScrollY.current && currentScrollY > 100)
-            );
-            prevScrollY.current = currentScrollY;
+            if (frame) return;
+            frame = requestAnimationFrame(() => {
+                frame = 0;
+                const currentScrollY = window.scrollY;
+                setIsScrolled(currentScrollY > 50);
+                setIsScrollDown(
+                    !(currentScrollY > prevScrollY.current && currentScrollY > 100)
+                );
+                prevScrollY.current = currentScrollY;
+            });
         };
 
-        // const handleResize = () => {
-        //     setScreenSize({ width: window.innerWidth, height: window.innerHeight });
-        // };
+        // passive: the handler never calls preventDefault, so let the browser
+        // keep scrolling on its own thread (avoids scroll-blocking jank).
+        window.addEventListener("scroll", handleScroll, { passive: true });
 
-        // Add event listeners
-        window.addEventListener("scroll", handleScroll);
-
-        // Cleanup
         return () => {
             window.removeEventListener("scroll", handleScroll);
+            if (frame) cancelAnimationFrame(frame);
         };
     }, []);
 

@@ -4,24 +4,24 @@ import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Layouts from "@/layouts";
 
+// Opacity-only cross-fade between routes. No transforms: a full-page translate
+// re-animates the whole document on every load and stacks on top of each
+// section's own entrance motion, which reads as the page "loading twice".
 const pageVariants: Variants = {
   hidden: {
-    opacity: 1,
-    y: 80,
+    opacity: 0,
   },
   enter: {
     opacity: 1,
-    y: 0,
     transition: {
-      duration: 0.6,
+      duration: 0.3,
       ease: [0.22, 1, 0.36, 1],
     },
   },
   exit: {
-    opacity: 1,
-    y: -20,
+    opacity: 0,
     transition: {
-      duration: 0.35,
+      duration: 0.2,
       ease: [0.4, 0, 1, 1],
     },
   },
@@ -39,7 +39,9 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
   return (
     <Layouts>
-      <AnimatePresence mode="wait">
+      {/* initial={false} skips the enter animation on first paint so the page
+          renders immediately at its final position; only route changes fade. */}
+      <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={pathname}
           variants={pageVariants}
