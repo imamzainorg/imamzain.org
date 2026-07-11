@@ -52,15 +52,16 @@ function PageContent() {
                   px-6 py-3 h-14 rounded-xl font-medium text-note
                   shadow-lg border transition-all duration-300 overflow-hidden
                   ${isActive
-                    ? "bg-primary text-white border-primary"
-                    : "bg-primary/15 text-primary hover:border-primary border-transparent"
+                    ? "bg-primary text-white border-primary dark:bg-Muharram_primary dark:border-Muharram_secondary  "
+                    : "bg-primary/15 text-primary hover:border-primary dark:hover:border-black  dark:text-white dark:bg-Muharram_primary/50 border-transparent"
                   }
                 `}
               >
                 {/* shine overlay */}
                 <span className={`
                   absolute inset-0
-                  bg-gradient-to-r from-secondary/0 via-primary/20 to-secondary/0
+                  bg-gradient-to-r from-secondary/0 via-primary/20 to-secondary/0 
+                  dark:from-Muharram_secondary/50 dark:vai-Muharram_primary dark:to-Muharram_secondary/20
                   opacity-0 group-hover:opacity-100 blur-lg
                   transition duration-500
                   ${isActive ? "opacity-100" : ""}

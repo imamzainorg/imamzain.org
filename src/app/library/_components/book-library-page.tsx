@@ -168,11 +168,11 @@ export default function BookLibraryPage() {
         />
       </div>
 
-      <div className="mb-8 rounded-2xl bg-gradient-to-l from-primary/10 to-transparent p-6">
+      <div className="mb-8 rounded-2xl dark:bg-gradient-to-l dark:from-Muharram_secondary/10 dark:to-transparent bg-gradient-to-l from-primary/10 to-transparent p-6">
         <div className="flex flex-col md:flex-row md:justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="p-3 bg-primary/20 rounded-xl">
-              <BookOpen className="w-6 h-6 text-primary" />
+            <div className="p-3 bg-primary/20 dark:bg-Muharram_primary/20 rounded-xl">
+              <BookOpen className="w-6 h-6 text-primary dark:text-Muharram_primary" />
             </div>
             <div>
               <SectionTitle title="قائمة الكتب" />

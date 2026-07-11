@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Posts from "./_components/posts"
 import Publications from "./_components/publications"
 import Services from "./_components/services"
@@ -18,14 +19,52 @@ const GallerySection = dynamic(() => import("./_components/gallery"), {
 const Videos = dynamic(() => import("./_components/videos"))
 const Application = dynamic(() => import("./_components/application"))
 
+export const metadata: Metadata = {
+	title: {
+		absolute:
+			"مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات",
+	},
+	description:
+		"مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات: إحياء تراث الإمام علي بن الحسين السجاد وأئمة البقيع، ونشر بحوثهم وإصداراتهم وأخبار المؤسسة.",
+	keywords: [
+		"مؤسسة الإمام زين العابدين",
+		"الإمام زين العابدين عليه السلام",
+		"الإمام علي بن الحسين السجاد",
+		"أئمة البقيع",
+		"رسالة الحقوق",
+		"تراث أهل البيت",
+		"بحوث ودراسات إسلامية",
+		"إصدارات مؤسسة الإمام زين العابدين",
+		"النيابة في زيارة الإمام السجاد",
+	],
+	alternates: { canonical: "/" },
+	openGraph: {
+		title: "مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات",
+		description:
+			"مؤسسة لإحياء تراث الإمام علي بن الحسين السجاد وأئمة البقيع عليهم السلام ونشر بحوثها وإصداراتها، مع أحدث الأخبار وخدمة النيابة في الزيارة.",
+		url: "/",
+		type: "website",
+		images: ["/general/Biography-of-the Infallible-Ones.jpg"],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات",
+		description:
+			"مؤسسة لإحياء تراث الإمام علي بن الحسين السجاد وأئمة البقيع عليهم السلام ونشر بحوثها وإصداراتها، مع أحدث الأخبار وخدمة النيابة في الزيارة.",
+		images: ["/general/Biography-of-the Infallible-Ones.jpg"],
+	},
+}
+
 const desktopImages = [
+	"/general/Biography-of-the Infallible-Ones.jpg",
 	"/images/fhrs-alsahefe.jpg",
-	"/images/ziara-imamzain-web.jpg",
 	"/images/albaqi.jpg",
+	"/images/ziara-imamzain-web.jpg",
+	
 	"/images/web.jpg",
 
 	//"/images/albaqi-2.png",
-	"/images/hero-4.jpg", // تراتيل القانتين
+	//"/images/hero-4.jpg", // تراتيل القانتين
 	"/images/hero-5.jpg", // البعد الاجتماعي
 	"/images/hero-7.jpg", // بناء الامن النفسي
 ]

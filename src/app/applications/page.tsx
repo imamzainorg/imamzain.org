@@ -16,6 +16,21 @@ export const metadata: Metadata = {
 		"رسالة الحقوق",
 	],
 	alternates: { canonical: "/applications" },
+	openGraph: {
+		title: "تطبيقات مؤسسة الإمام زين العابدين (عليه السلام)",
+		description:
+			"موسوعة أنوار سجادية الشاملة عن الإمام زين العابدين (عليه السلام)، ومعارف سجادية رفيق المسير والمسابقة — تطبيقاتٌ تُعنى بإرث الإمام السجّاد بين يديك أينما كنت.",
+		url: "/applications",
+		type: "website",
+		images: ["/applications/anwar-sajjadyia/02.png"],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "تطبيقات مؤسسة الإمام زين العابدين (عليه السلام)",
+		description:
+			"أنوار سجادية ومعارف سجادية — تطبيقات مؤسسة الإمام زين العابدين (عليه السلام).",
+		images: ["/applications/anwar-sajjadyia/02.png"],
+	},
 }
 
 const apps: AppItem[] = [

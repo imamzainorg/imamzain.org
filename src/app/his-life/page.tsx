@@ -2,6 +2,41 @@ import Breadcrumbs from "@/components/breadcrumb";
 import HisLifeAccordion from "./components/accordion";
 import { dataFetcher } from "@/lib/dataFetcher";
 import { imamzainLife } from "@/types/imamzain-life";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "سيرة الإمام زين العابدين عليه السلام وتراثه",
+  description:
+    "سيرة الإمام علي بن الحسين زين العابدين السجاد عليه السلام: ولادته وألقابه وكناه، الأدلة على إمامته، كراماته، دوره في كربلاء، رسائله وخطبه ومواقفه ووفاته.",
+  keywords: [
+    "سيرة الإمام زين العابدين",
+    "سيرة علي بن الحسين السجاد",
+    "ولادة الإمام زين العابدين",
+    "ألقاب وكنى الإمام السجاد",
+    "الأدلة على إمامة علي بن الحسين",
+    "الإمام السجاد وكربلاء",
+    "كرامات الإمام زين العابدين",
+    "خطب ومواقف الإمام السجاد",
+    "وفاة الإمام زين العابدين",
+    "تراث الإمام السجاد عليه السلام",
+  ],
+  alternates: { canonical: "/his-life" },
+  openGraph: {
+    title: "سيرة الإمام زين العابدين عليه السلام وتراثه",
+    description:
+      "صفحة جامعة لسيرة الإمام علي بن الحسين زين العابدين السجاد عليه السلام: ولادته وألقابه، الأدلة على إمامته، كراماته، دوره في كربلاء، رسائله وخطبه ومواقفه ووفاته.",
+    url: "/his-life",
+    type: "website",
+    images: ["/images/al-abid.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "سيرة الإمام زين العابدين عليه السلام وتراثه",
+    description:
+      "صفحة جامعة لسيرة الإمام علي بن الحسين زين العابدين السجاد عليه السلام: ولادته، إمامته، كراماته، دوره في كربلاء، ورسائله وخطبه ووفاته.",
+    images: ["/images/al-abid.jpg"],
+  },
+};
 
 export default async function Page() {
   const imamzainLife = await dataFetcher<imamzainLife[]>("imamzain.json");

@@ -24,6 +24,15 @@ const ZiaraForm = () => {
 
 		if (!formData.visitorPhone) {
 			newErrors.push("الرجاء إدخال رقم الهاتف")
+		} else {
+			const normalizedPhone = formData.visitorPhone
+				.replace(/[\s()-]/g, "")
+				.replace(/^00/, "+")
+			if (!/^\+[1-9]\d{1,14}$/.test(normalizedPhone)) {
+				newErrors.push(
+					"الرجاء إدخال رقم هاتف دولي يبدأ برمز الدولة، مثال: ‎+9647801234567",
+				)
+			}
 		}
 
 		if (!formData.visitorCountry) {
@@ -104,7 +113,7 @@ const ZiaraForm = () => {
 						className="border-none w-full"
 						labelPlacement="inside"
 						name="visitorPhone"
-						placeholder="رقم الهاتف"
+						placeholder="رقم الهاتف (مثال: ‎+9647801234567)"
 						value={formData.visitorPhone}
 						onChange={(e) =>
 							setFormData({
@@ -132,7 +141,8 @@ const ZiaraForm = () => {
 								/>
 							</>
 						}
-						type="number"
+						type="tel"
+						inputMode="tel"
 					/>
 					{/* Dropdown for Countries */}
 					<CountriesDropdown
@@ -145,7 +155,7 @@ const ZiaraForm = () => {
 					{/* Submit Button */}
 					<Button
 						onClick={handleSubmit}
-						className="text-white rounded-md bg-secondary dark:bg-Muharram_primary p-4 md:p-6 mt-2 font-bold text-xs md:text-lg"
+						className="text-white rounded-md bg-secondary dark:bg-Muharram_secondary p-4 md:p-6 mt-2 font-bold text-xs md:text-lg"
 					>
 						التسجيل
 					</Button>

@@ -28,9 +28,9 @@ export default function TopBar() {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("theme");
-      return saved ? saved : "light";
+      return saved ? saved : "dark";
     }
-    return "light";
+    return "dark";
   });
 
   useEffect(() => {

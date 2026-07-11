@@ -27,8 +27,15 @@ const pageVariants: Variants = {
   },
 };
 
+// Routes that render standalone, without the site header/footer or page transition
+const STANDALONE_ROUTES = ["/links"];
+
 export default function Template({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+
+  if (STANDALONE_ROUTES.includes(pathname)) {
+    return <>{children}</>;
+  }
 
   return (
     <Layouts>

@@ -1,6 +1,39 @@
+import type { Metadata } from "next"
 import Breadcrumbs from "@/components/breadcrumb"
 import Section from "@/components/section"
 import Image from "next/image"
+
+export const metadata: Metadata = {
+	title: "حول المؤسسة",
+	description:
+		"تعرّف على مؤسسة الإمام زين العابدين عليه السلام: رؤيتها في إحياء فكر أئمة البقيع، ورسالتها في إثراء البحث حول الإمام السجاد، مع موقعها ووسائل التواصل.",
+	keywords: [
+		"مؤسسة الإمام زين العابدين",
+		"مؤسسة الإمام السجاد للبحوث والدراسات",
+		"رؤية ورسالة المؤسسة",
+		"أئمة البقيع",
+		"الإمام زين العابدين السجاد",
+		"إحياء فكر العترة الطاهرة",
+		"مؤسسة بحوث ودراسات النجف الأشرف",
+		"التواصل مع مؤسسة الإمام زين العابدين",
+	],
+	alternates: { canonical: "/about" },
+	openGraph: {
+		title: "حول مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات",
+		description:
+			"تعرّف على رؤية ورسالة مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات في إحياء فكر الإمام السجاد وأئمة البقيع، مع موقعها في النجف الأشرف ووسائل التواصل معها.",
+		url: "/about",
+		type: "website",
+		images: ["/images/about-landing.jpg"],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "حول مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات",
+		description:
+			"تعرّف على رؤية ورسالة مؤسسة الإمام زين العابدين عليه السلام في إحياء فكر الإمام السجاد وأئمة البقيع، مع موقعها في النجف الأشرف ووسائل التواصل معها.",
+		images: ["/images/about-landing.jpg"],
+	},
+}
 
 export default function About() {
 	return (

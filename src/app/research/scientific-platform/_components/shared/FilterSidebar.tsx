@@ -2,7 +2,7 @@
 import { useState, ReactNode } from "react";
 import Select from "react-select";
 import { Button } from "@/components/button";
-import { User, Building2, Calendar, LayoutGrid } from "lucide-react";
+import { User, Building2, Calendar, LayoutGrid, Languages } from "lucide-react";
 import { SingleValue } from "react-select";
 
 /* ================= TYPES ================= */
@@ -41,7 +41,7 @@ export default function FilterSidebarWrapper({
         className="
           lg:hidden
   fixed bottom-4 right-4 z-50
-          bg-primary text-white
+          bg-primary dark:bg-Muharram_primary text-white
           px-4 py-2 rounded-full
           shadow-lg 
           flex items-center gap-2
@@ -81,8 +81,9 @@ export default function FilterSidebarWrapper({
         <div
           className="
             lg:bg-secondary/5
+         dark:lg:bg-Muharram_secondary/10
             rounded-2xl
-            p-6
+            p-6 
             space-y-5
             border border-gray-200
             shadow-md
@@ -164,8 +165,8 @@ export function FilterSelect({
   onChange,
 }: FilterSelectProps) {
   return (
-    <div className="space-y-1">
-      <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
+    <div className="space-y-1 ">
+      <label className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-black">
         {icon}
         <span className="hidden md:inline">{label}</span>
       </label>
@@ -190,7 +191,7 @@ export function FilterSelect({
         onChange={(opt: SingleValue<{ value: string; label: string }>) => {
           onChange(opt ? opt.value : "");
         }}
-        classNamePrefix="react-select"
+        classNamePrefix="react-select "
       />
     </div>
   );
@@ -209,6 +210,13 @@ function keyMeta(key: string): {
       placeholder: "ابحث عن مؤلف...",
     };
   }
+  if (k.includes("language")) {
+  return {
+    label: "اللغة",
+    icon: <Languages size={16} className="hidden md:inline" />,
+    placeholder: "اختر اللغة...",
+  };
+}
   if (k.includes("conf")) {
     return {
       label: "المؤتمر",
@@ -261,6 +269,7 @@ function getOrderedFilterKeys(filters: Filters) {
     "authors",
     "publicationvenue",
     "publication",
+      "language",
     "publisher",
     "publishers",
     "publishedyear",

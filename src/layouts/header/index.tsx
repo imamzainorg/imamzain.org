@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect, useSyncExternalStore } from "react"
 import type { ComponentType, SVGProps } from "react"
 import {
 	Facebook,
@@ -20,7 +21,6 @@ import {
 } from "@/components/brand-icons"
 import Image from "next/image"
 import Link from "next/link"
-import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import useWindowEvents from "@/hooks/window-events"
@@ -116,6 +116,32 @@ const navbarVariants = {
 	},
 }
 
+// ---- Theme sync (localStorage <-> React) via useSyncExternalStore ----
+type Theme = "light" | "dark"
+
+let themeListeners: Array<() => void> = []
+
+function getThemeSnapshot(): Theme {
+	if (typeof window === "undefined") return "light"
+	return (localStorage.getItem("theme") as Theme) ?? "light"
+}
+
+function getServerThemeSnapshot(): Theme {
+	return "light"
+}
+
+function subscribeToTheme(callback: () => void) {
+	themeListeners.push(callback)
+	return () => {
+		themeListeners = themeListeners.filter((l) => l !== callback)
+	}
+}
+
+function setStoredTheme(theme: Theme) {
+	localStorage.setItem("theme", theme)
+	themeListeners.forEach((listener) => listener())
+}
+
 export default function Header() {
 	const path = usePathname()
 	const [isMenuVisible, setIsMenuVisible] = useState(false)
@@ -142,25 +168,24 @@ export default function Header() {
 	const handleExpand = (index: number) => {
 		setExpandedIndex((prev) => (prev === index ? null : index))
 	}
-	const [theme, setTheme] = useState<"light" | "dark">(() => {
-		if (typeof window === "undefined") return "light"
-		return (localStorage.getItem("theme") as "light" | "dark") ?? "light"
-	})
+
+	// نقرأ/نشترك بقيمة الثيم من localStorage عبر useSyncExternalStore
+	// (يرجع "light" بالسيرفر دايماً لتفادي hydration mismatch)
+	const theme = useSyncExternalStore(
+		subscribeToTheme,
+		getThemeSnapshot,
+		getServerThemeSnapshot,
+	)
+
 	useEffect(() => {
-		if (theme === "dark") {
-			document.documentElement.classList.add("dark")
-		} else {
-			document.documentElement.classList.remove("dark")
-		}
+		document.documentElement.classList.toggle("dark", theme === "dark")
 	}, [theme])
 
 	const toggleTheme = () => {
-		setTheme((prev) => {
-			const next = prev === "dark" ? "light" : "dark"
-			localStorage.setItem("theme", next)
-			return next
-		})
+		const next = theme === "dark" ? "light" : "dark"
+		setStoredTheme(next)
 	}
+
 	return (
 		<motion.div className="text-white">
 			{/* Header */}

@@ -91,10 +91,10 @@ export function RangeSlider({
 
   return (
     <div className="w-full space-y-3 px-1">
-      <div className="flex justify-between text-xs text-slate-500">
+      <div className="flex justify-between text-xs dark:text-black text-slate-500">
         {" "}
         <span>{formatLabel(value[0])}</span>
-        <span className="text-slate-400">إلى</span>
+        <span className="text-slate-400 dark:text-black ">إلى</span>
         <span>{formatLabel(value[1])}</span>
       </div>
 
@@ -108,11 +108,11 @@ export function RangeSlider({
         onPointerCancel={handlePointerUp}
       >
         {/* Background */}
-        <div className="absolute w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full" />
+        <div className="absolute w-full h-1 bg-slate-200 dark:bg-Muharram_primary rounded-full" />
 
         {/* Selected range — معكوس للـ RTL */}
         <div
-          className="absolute h-2 bg-primary rounded-full"
+          className="absolute h-1 bg-primary dark:bg-Muharram_secondary/70 rounded-full"
           style={{
             right: `${minPercent}%`,
             left: `${100 - maxPercent}%`,
@@ -121,7 +121,7 @@ export function RangeSlider({
 
         {/* Min handle — يظهر على اليمين */}
         <div
-          className={`absolute w-5 h-5 bg-white dark:bg-slate-900 border-2 border-primary rounded-full shadow-md transition-transform ${
+          className={`absolute w-5 h-5 bg-white dark:bg-slate-900 dark:border-Muharram_secondary/70 border-2 border-primary rounded-full shadow-md transition-transform ${
             dragging === "min" ? "scale-125" : "hover:scale-110"
           }`}
           style={{
@@ -136,7 +136,7 @@ export function RangeSlider({
 
         {/* Max handle — يظهر على اليسار */}
         <div
-          className={`absolute w-5 h-5 bg-white dark:bg-slate-900 border-2 border-primary rounded-full shadow-md transition-transform ${
+          className={`absolute w-5 h-5 bg-white dark:bg-slate-900 dark:border-Muharram_secondary/70 border-2 border-primary rounded-full shadow-md transition-transform ${
             dragging === "max" ? "scale-125" : "hover:scale-110"
           }`}
           style={{

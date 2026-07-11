@@ -1,87 +1,1552 @@
-[
-    {
+[ {
+    "id": 73,
+    "slug": "imam-sajjad-mourning-council-day-2-1448",
+    "image": "/general/imam-sajjad-mourning-council-day-2-1448-1.jpg",
+    "title": "التغطية المصورة \nلليوم الثاني من مجلس عزاء شهادة الامام علي بن الحسين السجاد عليه السلام",
+    "summary":"التغطية المصورة \nاليوم الثاني من مجلس عزاء شهادة الامام علي بن الحسين السجاد عليه السلام",
+     "content": "",
+    "views": 400,
+    "date": "2026-7-9",
+    "last_update": "2026-7-9",
+    "category": "مجالس",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/imam-sajjad-mourning-council-day-2-1448-1.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/imam-sajjad-mourning-council-day-2-1448-2.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/imam-sajjad-mourning-council-day-2-1448-3.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/general/imam-sajjad-mourning-council-day-2-1448-4.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/general/imam-sajjad-mourning-council-day-2-1448-5.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/general/imam-sajjad-mourning-council-day-2-1448-6.jpg"
+      },
+      {
+        "id": 7,
+        "path": "/general/imam-sajjad-mourning-council-day-2-1448-7.jpg"
+      },
+      {
+        "id": 8,
+        "path": "/general/imam-sajjad-mourning-council-day-2-1448-8.jpg"
+      }
+      ,
+      {
+        "id": 9,
+        "path": "/general/imam-sajjad-mourning-council-day-2-1448-9.jpg"
+      },
+      {
+        "id": 10,
+        "path": "/general/imam-sajjad-mourning-council-day-2-1448-10.jpg"
+      },
+      {
+        "id": 11,
+        "path": "/general/imam-sajjad-mourning-council-day-2-1448-11.jpg"
+      },
+      {
+        "id": 12,
+        "path": "/general/imam-sajjad-mourning-council-day-2-1448-12.jpg"
+      },
+      {
+        "id": 13,
+        "path": "/general/imam-sajjad-mourning-council-day-2-1448-13.jpg"
+      },
+      {
+        "id": 14,
+        "path": "/general/imam-sajjad-mourning-council-day-2-1448-14.jpg"
+      },
+      {
+        "id": 15,
+        "path": "/general/imam-sajjad-mourning-council-day-2-1448-15.jpg"
+      },
+      {
+        "id": 16,
+        "path": "/general/imam-sajjad-mourning-council-day-2-1448-16.jpg"
+      },
+      {
+        "id": 17,
+        "path": "/general/imam-sajjad-mourning-council-day-2-1448-17.jpg"
+      }
+    ]
+  },{
+   "id": 72,
+    "slug": "imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli",
+    "image": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-22.jpg",
+    "title": "مؤسسة الامام زين العابدين عليه السلام... تعقد مجلسها السنوي في ذكرى شهادة الامام السجاد عليه السلام في مقرها المركزي في النجف  وبحضور جمع من الفضلاء والموالين المعزين بالمناسبة وقد ارتقى المنبر سماحة الشيخ جعفر الوائلي دام توفيقه .",
+    "summary":"مؤسسة الامام زين العابدين عليه السلام... تعقد مجلسها السنوي في ذكرى شهادة الامام السجاد عليه السلام في مقرها المركزي في النجف  وبحضور جمع من الفضلاء والموالين المعزين بالمناسبة وقد ارتقى المنبر سماحة الشيخ جعفر الوائلي دام توفيقه .",
+     "content": "",
+    "views": 600,
+    "date": "2026-7-7",
+    "last_update": "2026-7-7",
+    "category": "مجالس",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-1.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-2.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-3.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-4.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-5.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-6.jpg"
+      },
+      {
+        "id": 7,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-7.jpg"
+      },
+      {
+        "id": 8,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-8.jpg"
+      },
+      {
+        "id": 9,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-9.jpg"
+      },
+      {
+        "id": 10,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-10.jpg"
+      },
+      {
+        "id": 11,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-11.jpg"
+      },
+      {
+        "id": 12,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-12.jpg"
+      },
+      {
+        "id": 13,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-13.jpg"
+      },
+      {
+        "id": 14,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-14.jpg"
+      },
+      {
+        "id": 15,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-15.jpg"
+      }
+      ,
+      {
+        "id": 16,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-16.jpg"
+      },
+      {
+        "id": 17,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-17.jpg"
+      },
+      {
+        "id": 18,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-18.jpg"
+      },
+      {
+        "id": 19,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-19.jpg"
+      },
+      {
+        "id": 20,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-20.jpg"
+      },
+      {
+        "id": 21,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-21.jpg"
+      },
+      {
+        "id": 22,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-22.jpg"
+      },
+      {
+        "id": 23,
+        "path": "/general/imam-sajjad-martyrdom-council-with-sheikh-jaafar-alwaeli-23.jpg"
+      }
+    ]
+},{
+    "id": 71,
+    "slug": "sheikh-jaafar-alwaeli-imam-sajjad-majlis-1448",
+    "image": "/general/sheikh-jaafar-alwaeli-imam-sajjad-majlis-1448.jpg",
+    "title": "بمناســبة ذكرى إستشهاد الإمام علي بن الحسين السجاد عليه السلام تقيم مؤسسة الإمام زيـــن العابدين عليه السلام للبحوث والدراسات مجلـس عزائها السنوي بمشاركةالخطيب الحسيني الشيخ جعفر الوائلي ",
+    "summary":"بمناســبة ذكرى إستشهاد الإمام علي بن الحسين السجاد عليه السلام تقيم مؤسسة الإمام زيـــن العابدين عليه السلام للبحوث والدراسات مجلـس عزائها السنوي بمشاركةالخطيب الحسيني الشيخ جعفر الوائلي ",
+     "content": "المكان: النجف الاشرف _ ملحق شارع الروان \nالزمان: 21 - 25 من شهر المحرم الحرام لعام (1448) هـ\nالوقت: 8:00 صباحاً",
+    "views": 600,
+    "date": "2026-7-4",
+    "last_update": "2026-7-4",
+    "category": "مجالس",
+    "attachments": [
+ 
+    ]
+  },{
+    "id": 70,
+    "slug": "annual-majlis-day-8-muharram-imam-zain-alabidin-foundation",
+    "image": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-1.jpg",
+    "title": "اختتام المجلس السنوي في العشرة الاولى من شهر المحرم الحرام",
+    "summary":"التغطية المصورة \nالثامن من المحرم | الشيخ محمد امين العبادي | مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات... ",
+     "content": "إِنَّ يَوْمَ الْحُسَيْنِ أَقْرَحَ جُفُونَنَا، وَ أَسْبَلَ دُمُوعَنَا، وَ أَذَلَّ عَزِيزَنَا بِأَرْضِ كَرْبٍ وَ بَلَاءٍ، أَوْرَثَتْنَا الْكَرْبَ وَ الْبَلَاءَ إِلَى يَوْمِ الِانْقِضَاءِ.\nفَعَلَى مِثْلِ الْحُسَيْنِ فَلْيَبْكِ الْبَاكُونَ، فَإِنَّ الْبُكَاءَ عَلَيْهِ يَحُطُّ الذُّنُوبَ الْعِظَامَ .\nالتغطية المصورة \nالثامن من المحرم | الشيخ محمد امين العبادي | مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات... ",
+    "views": 1000,
+    "date": "2026-6-24",
+    "last_update": "2026-6-24",
+    "category": "مجالس",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-1.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-2.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-3.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-4.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-5.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-6.jpg"
+      },
+      {
+        "id": 7,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-7.jpg"
+      },
+      {
+        "id": 8,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-8.jpg"
+      },
+      {
+        "id": 9,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-9.jpg"
+      },
+      {
+        "id": 10,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-10.jpg"
+      },
+      {
+        "id": 11,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-11.jpg"
+      },
+      {
+        "id": 12,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-12.jpg"
+      },
+      {
+        "id": 13,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-13.jpg"
+      },
+      {
+        "id": 14,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-14.jpg"
+      },
+      {
+        "id": 15,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-15.jpg"
+      },
+      {
+        "id": 16,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-16.jpg"
+      },
+      {
+        "id": 17,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-17.jpg"
+      },
+      {
+        "id": 18,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-18.jpg"
+      },
+      {
+        "id": 19,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-19.jpg"
+      },
+      {
+        "id": 20,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-20.jpg"
+      },
+      {
+        "id": 21,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-21.jpg"
+      },
+      {
+        "id": 22,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-22.jpg"
+      },
+      {
+        "id": 23,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-23.jpg"
+      },
+      {
+        "id": 24,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-24.jpg"
+      },
+      {
+        "id": 25,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-25.jpg"
+      },
+      {
+        "id": 26,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-26.jpg"
+      },
+      {
+        "id": 27,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-27.jpg"
+      },
+      {
+        "id": 28,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-28.jpg"
+      },
+      {
+        "id": 29,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-29.jpg"
+      },
+      {
+        "id": 30,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-30.jpg"
+      },
+      {
+        "id": 31,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-31.jpg"
+      },
+      {
+        "id": 32,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-32.jpg"
+      },
+      {
+        "id": 33,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-33.jpg"
+      },
+      {
+        "id": 34,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-34.jpg"
+      },
+      {
+        "id": 35,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-35.jpg"
+      },
+      {
+        "id": 36,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-36.jpg"
+      },
+      {
+        "id": 37,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-37.jpg"
+      },
+      {
+        "id": 38,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-38.jpg"
+      },
+      {
+        "id": 39,
+        "path": "/general/annual-majlis-day-8-muharram-imam-zain-alabidin-foundation-39.jpg"
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "slug": "annual-majlis-day-7-muharram-imam-zain-alabidin-foundation",
+    "image": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-26.jpg",
+    "title": "استمرار المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
+    "summary": "التغطية المصورة لليوم السابع من المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
+    "content": "استمرار المجلس السنوي الذي تقيمه مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات لليوم السابع",
+    "views": 200,
+    "date": "2026-6-23",
+    "last_update": "2026-6-23",
+    "category": "مجالس",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-1.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-2.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-3.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-4.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-5.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-6.jpg"
+      },
+      {
+        "id": 7,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-7.jpg"
+      },
+      {
+        "id": 8,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-8.jpg"
+      },
+      {
+        "id": 9,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-9.jpg"
+      },
+      {
+        "id": 10,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-10.jpg"
+      },
+      {
+        "id": 11,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-11.jpg"
+      },
+      {
+        "id": 12,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-12.jpg"
+      },
+      {
+        "id": 13,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-13.jpg"
+      },
+      {
+        "id": 14,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-14.jpg"
+      },
+      {
+        "id": 15,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-15.jpg"
+      },
+      {
+        "id": 16,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-16.jpg"
+      },
+      {
+        "id": 17,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-17.jpg"
+      },
+      {
+        "id": 18,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-18.jpg"
+      },
+      {
+        "id": 19,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-19.jpg"
+      },
+      {
+        "id": 20,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-20.jpg"
+      },
+      {
+        "id": 21,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-21.jpg"
+      },
+      {
+        "id": 22,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-22.jpg"
+      },
+      {
+        "id": 23,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-23.jpg"
+      },
+      {
+        "id": 24,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-24.jpg"
+      },
+      {
+        "id": 26,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-26.jpg"
+      },
+      {
+        "id": 27,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-27.jpg"
+      },
+      {
+        "id": 28,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-28.jpg"
+      },
+      {
+        "id": 29,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-29.jpg"
+      },
+      {
+        "id": 30,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-30.jpg"
+      },
+      {
+        "id": 31,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-31.jpg"
+      },
+      {
+        "id": 32,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-32.jpg"
+      },
+      {
+        "id": 33,
+        "path": "/general/annual-majlis-day-7-muharram-imam-zain-alabidin-foundation-33.jpg"
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "slug": "annual-majlis-day-6-muharram-imam-zain-alabidin-foundation",
+    "image": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-1.jpg",
+    "title": "استمرار المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
+    "summary": "التغطية المصورة لليوم السادس من المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
+    "content": "استمرار المجلس السنوي الذي تقيمه مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات لليوم السادس",
+    "views": 200,
+    "date": "2026-6-22",
+    "last_update": "2026-6-22",
+    "category": "مجالس",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-1.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-2.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-3.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-4.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-5.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-6.jpg"
+      },
+      {
+        "id": 7,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-7.jpg"
+      },
+      {
+        "id": 8,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-8.jpg"
+      },
+      {
+        "id": 9,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-9.jpg"
+      },
+      {
+        "id": 10,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-10.jpg"
+      },
+      {
+        "id": 11,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-11.jpg"
+      },
+      {
+        "id": 12,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-12.jpg"
+      },
+      {
+        "id": 13,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-13.jpg"
+      },
+      {
+        "id": 14,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-14.jpg"
+      },
+      {
+        "id": 15,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-15.jpg"
+      },
+      {
+        "id": 16,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-16.jpg"
+      },
+      {
+        "id": 17,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-17.jpg"
+      },
+      {
+        "id": 18,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-18.jpg"
+      },
+      {
+        "id": 19,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-19.jpg"
+      },
+      {
+        "id": 20,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-20.jpg"
+      },
+      {
+        "id": 21,
+        "path": "/general/annual-majlis-day-6-muharram-imam-zain-alabidin-foundation-21.jpg"
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "slug": "annual-majlis-day-5-muharram-imam-zain-alabidin-foundation",
+    "image": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-19.jpg",
+    "title": "استمرار المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
+    "summary": "التغطية المصورة لليوم الخامس من المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
+    "content": "استمرار المجلس السنوي الذي تقيمه مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات لليوم الخامس",
+    "views": 200,
+    "date": "2026-6-21",
+    "last_update": "2026-6-21",
+    "category": "مجالس",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-1.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-2.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-3.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-4.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-5.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-6.jpg"
+      },
+      {
+        "id": 7,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-7.jpg"
+      },
+      {
+        "id": 8,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-8.jpg"
+      },
+      {
+        "id": 9,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-9.jpg"
+      },
+      {
+        "id": 10,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-10.jpg"
+      },
+      {
+        "id": 11,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-11.jpg"
+      },
+      {
+        "id": 12,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-12.jpg"
+      },
+      {
+        "id": 13,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-13.jpg"
+      },
+      {
+        "id": 14,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-14.jpg"
+      },
+      {
+        "id": 15,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-15.jpg"
+      },
+      {
+        "id": 16,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-16.jpg"
+      },
+      {
+        "id": 17,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-17.jpg"
+      },
+      {
+        "id": 18,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-18.jpg"
+      },
+      {
+        "id": 19,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-19.jpg"
+      },
+      {
+        "id": 20,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-20.jpg"
+      },
+      {
+        "id": 21,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-21.jpg"
+      },
+      {
+        "id": 22,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-22.jpg"
+      },
+      {
+        "id": 23,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-23.jpg"
+      },
+      {
+        "id": 24,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-24.jpg"
+      },
+      {
+        "id": 25,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-25.jpg"
+      },
+      {
+        "id": 26,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-26.jpg"
+      },
+      {
+        "id": 27,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-27.jpg"
+      },
+      {
+        "id": 28,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-28.jpg"
+      },
+      {
+        "id": 29,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-29.jpg"
+      },
+      {
+        "id": 30,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-30.jpg"
+      },
+      {
+        "id": 31,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-31.jpg"
+      },
+      {
+        "id": 32,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-32.jpg"
+      },
+      {
+        "id": 33,
+        "path": "/general/annual-majlis-day-5-muharram-imam-zain-alabidin-foundation-33.jpg"
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "slug": "annual-majlis-day-4-muharram-imam-zain-alabidin-foundation",
+    "image": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-1.jpg",
+    "title": " المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
+    "summary": "التغطية المصورة لليوم الرابع من المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
+    "content": "استمرار المجلس السنوي الذي تقيمه مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات لليوم الرابع",
+    "views": 200,
+    "date": "2026-6-20",
+    "last_update": "2026-6-20",
+    "category": "مجالس",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-1.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-2.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-3.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-4.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-5.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-6.jpg"
+      },
+      {
+        "id": 7,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-7.jpg"
+      },
+      {
+        "id": 8,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-8.jpg"
+      },
+      {
+        "id": 9,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-9.jpg"
+      },
+      {
+        "id": 10,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-10.jpg"
+      },
+      {
+        "id": 11,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-11.jpg"
+      },
+      {
+        "id": 12,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-12.jpg"
+      },
+      {
+        "id": 13,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-13.jpg"
+      },
+      {
+        "id": 14,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-14.jpg"
+      },
+      {
+        "id": 15,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-15.jpg"
+      },
+      {
+        "id": 16,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-16.jpg"
+      },
+      {
+        "id": 17,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-17.jpg"
+      },
+      {
+        "id": 18,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-18.jpg"
+      },
+      {
+        "id": 19,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-19.jpg"
+      },
+      {
+        "id": 20,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-20.jpg"
+      },
+      {
+        "id": 21,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-21.jpg"
+      },
+      {
+        "id": 22,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-22.jpg"
+      },
+      {
+        "id": 23,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-23.jpg"
+      },
+      {
+        "id": 24,
+        "path": "/general/annual-majlis-day-4-muharram-imam-zain-alabidin-foundation-24.jpg"
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "slug": "annual-majlis-day-3-muharram-imam-zain-alabidin-foundation",
+    "image": "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-15.jpg",
+    "title": " المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
+    "summary": "التغطية المصورة لليوم الثالث من المجلس السنوي لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات ضمن برنامج العشرة السجادية الأولى من شهر محرم الحرام",
+    "content": "استمرار المجلس السنوي الذي تقيمه مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات لليوم الثالث",
+    "views": 200,
+    "date": "2026-6-19",
+    "last_update": "2026-6-19",
+    "category": "مجالس",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-1.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-2.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-3.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-4.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-5.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-6.jpg"
+      },
+      {
+        "id": 7,
+        "path": "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-7.jpg"
+      },
+      {
+        "id": 8,
+        "path": "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-8.jpg"
+      },
+      {
+        "id": 9,
+        "path": "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-9.jpg"
+      },
+      {
+        "id": 10,
+        "path": "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-10.jpg"
+      },
+      {
+        "id": 11,
+        "path": "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-11.jpg"
+      },
+      {
+        "id": 12,
+        "path": "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-12.jpg"
+      },
+      {
+        "id": 13,
+        "path": "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-13.jpg"
+      },
+      {
+        "id": 14,
+        "path": "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-14.jpg"
+      },
+      {
+        "id": 15,
+        "path": "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-15.jpg"
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "slug": "foundation-president-service-to-imam-hussain-extends-karbala-values",
+    "image": "/general/foundation-president-service-to-imam-hussain-extends-karbala-values-5.jpg",
+    "title": "رئيس مؤسسة الإمام زين العابدين (ع)  في لقائه بالكادر: خدمة الامام الحسين (عليه السلام ) ليست طقوساً بل امتداد لقيم الطف",
+    "summary": "في مستهل شهر محرم الحرام، عقد سماحة السيد غسان الخرسان (دام توفيقه)، رئيس مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات، اجتماعاً موسعاً بكادر المؤسسة، وجّه خلاله حزمة من التوجيهات الروحية والمنهجية لمنتسبيها، تزامناً مع حلول الذكرى الأليمة لاستشهاد سيد الشهداء الإمام الحسين (عليه السلام).",
+    "content": "<p>في مستهل شهر محرم الحرام، عقد سماحة السيد غسان الخرسان (دام توفيقه)، رئيس مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات، اجتماعاً موسعاً بكادر المؤسسة، وجّه خلاله حزمة من التوجيهات الروحية والمنهجية لمنتسبيها، تزامناً مع حلول الذكرى الأليمة لاستشهاد سيد الشهداء الإمام الحسين (عليه السلام).</p><p>وركز سماحة السيد (دام توفيقه) في كلمته على ضرورة استلهام معاني التضحية والإخلاص من ملحمة الطف الخالدة، مستعرضاً أبعاد المأساة الفاجعة التي تعرض لها الإمام الحسين وصحبه الكرام في كربلاء، والتي تجاوزت وصف الوحشية إلى أقصى حدود الظلم التاريخي.</p><p>واستحضر المشهد الخالد حين عرض الإمام الحسين (ع) على أصحابه الانصراف عنه مفسحاً لهم مجال الاختيار، لتأتيه الاجابة بالإيثار والوفاء، مؤكداً أن أصحاب الإمام فضّلوا الموت معه على الحياة في كنف الطغاة، ضاربين أروع الأمثلة في نبذ المصالح الدنيوية كما تعرض لبيان معاني المحاورة التي دارت بين الحسين واخته زينب ليلة العاشر حين سألته أن هل استخبرت أصحابك لئلا يسلموك عند الوثبة واصطكاك الأسنة؟ واستعرض جواب الامام لها وموقف الاصحاب وتضحياتهم واخلاصهم </p><p>ودعا رئيس المؤسسة المنتسبين إلى مراجعة جادة لمفهوم خدمة الإمام الحسين في زماننا، مشيراً إلى وجود فجوة بين مستوى الولاء الذي أبداه أصحاب الطف وتلك الخدمة التي يقدمها البعض، وحث على الارتقاء بها لتكون خالصة لله ولسيد الشهداء، بعيداً عن أية غايات دنيوية ، معتبراً أن الخدمة الحقيقية هي تلك الخدمة المجردة عن أي غرض فالخدمة للخدمة فقط.</p><p>كما توقف سماحة السيد عند نماذج مضيئة من الزوار والخدم الذين جسّدوا التواضع والإخلاص في مواسم العزاء، داعياً إلى تعزيز هذه الروح في جميع الفعاليات والبرامج التي تشهدها المؤسسة خلال أيام عاشوراء، وأكد على أن إحياء أمر الحسين عليه السلام لا يقتصر على المجالس الحسينية فحسب، بل يمتد إلى نوعية العلاقة مع القضية الحسينية في كل جوانب الحياة.</p><p>وشدد رئيس المؤسسة على ضرورة أن يكون العمل في هذه الأيام المباركة امتداداً عملياً لخط الإمام الحسين في إصلاح النفس والمجتمع، مختتماً كلمته بدعوة المنتسبين إلى مضاعفة الجهود لنشر الوعي الديني والايمان بمبادئ القضية الحسينية، سائلاً المولى عز وجل التوفيق للجميع في خدمة الإمام الحسين عليه السلام والثبات والصبر على مبادئ النهضة الحسينية</p><p>وتجسيداً لتلك التوجيهات فإن المؤسسة تعمل على تقديم مجموعة من البرامج الثقافية والتوعوية خلال شهري محرم الحرام وصفر، تزامناً مع موسم زيارة الأربعين ومن أبرزها</p><p>الخيمة السجادية التي ستقام على طريق يا حسين لتقديم الخدمات الثقافية والإرشادية لزائري كربلاء المقدسة. وبرنامج معارف سجادية، الذي ستطلقه المؤسسة لأول مرة هذا العام على الطريق، بهدف نشر فكر الإمام زين العابدين (عليه السلام) وأهل البيت (سلام الله عليهم)، وتعزيز الوعي العقائدي والمعرفي لدى الزائرين، بما يواكب الرسالة الحسينية.</p>",
+    "views": 600,
+    "date": "2026-6-18",
+    "last_update": "2026-6-18",
+    "category": "نشاطات",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/foundation-president-service-to-imam-hussain-extends-karbala-values-1.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/foundation-president-service-to-imam-hussain-extends-karbala-values-2.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/foundation-president-service-to-imam-hussain-extends-karbala-values-3.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/general/foundation-president-service-to-imam-hussain-extends-karbala-values-4.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/general/foundation-president-service-to-imam-hussain-extends-karbala-values-5.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/general/foundation-president-service-to-imam-hussain-extends-karbala-values-6.jpg"
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "slug": "annual-majlis-day-1-muharram-imam-zain-alabidin-foundation",
+    "image": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-4.jpg",
+    "title": " مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تقيم مجلسها السنوي في أول أيام شهر محرم الحرام، إحياءً لذكرى استشهاد سيد الشهداء الإمام الحسين (عليه السلام) وأهل بيته وأصحابه الأطهار.",
+    "summary": "كم يا هلالَ محرمٍ تُشجينا    ما زال قوسُك نبلُه يَرمينا كلُّ المصائبِ قد تهون سوى  التي تركت فؤادَ محمدٍ محزونا",
+    "content": "<p>أقامت مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات مجلسها السنوي في أول أيام شهر محرم الحرام، إحياءً لذكرى استشهاد سيد الشهداء الإمام الحسين (عليه السلام) وأهل بيته وأصحابه الأطهار.</p><p>وشهد المجلس حضور جمعٍ من طلبة الحوزة العلمية والمؤمنين الكرام، حيث ارتقى المنبر الخطيب الحسيني الشيخ محمد أمين العبادي، متناولاً في محاضرته جوانب من النهضة الحسينية المباركة وما تحمله من قيم الإصلاح والتضحية والثبات على المبادئ.</p><p>واختُتم المجلس بأجواءٍ إيمانية خاشعة سادها الحزن والأسى على مصاب أهل البيت (عليهم السلام)، مع التأكيد على أهمية إحياء الشعائر الحسينية واستلهام الدروس والعبر من واقعة الطف الخالدة.</p><p>عظم الله أجورنا وأجوركم بمصاب أبي عبد الله الحسين (عليه السلام).</p>",
+    "views": 300,
+    "date": "2026-6-17",
+    "last_update": "2026-6-17",
+    "category": "مجالس",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-1.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-2.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-3.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-4.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-5.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-6.jpg"
+      },
+      {
+        "id": 7,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-7.jpg"
+      },
+      {
+        "id": 8,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-8.jpg"
+      },
+      {
+        "id": 9,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-9.jpg"
+      },
+      {
+        "id": 10,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-10.jpg"
+      },
+      {
+        "id": 11,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-11.jpg"
+      },
+      {
+        "id": 12,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-12.jpg"
+      },
+      {
+        "id": 13,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-13.jpg"
+      },
+      {
+        "id": 14,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-14.jpg"
+      },
+      {
+        "id": 15,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-15.jpg"
+      },
+      {
+        "id": 16,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-16.jpg"
+      },
+      {
+        "id": 17,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-17.jpg"
+      },
+      {
+        "id": 18,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-18.jpg"
+      },
+      {
+        "id": 19,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-19.jpg"
+      },
+      {
+        "id": 20,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-20.jpg"
+      },
+      {
+        "id": 21,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-21.jpg"
+      },
+      {
+        "id": 22,
+        "path": "/general/annual-majlis-first-day-muharram-imam-zain-alabidin-foundation-commemorates-imam-hussain-martyrdom-22.jpg"
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "slug": "isdarat-jadida-fi-muasasat-alimam-zain-alabidin-fihris-shuruh-alsahifa-alsajjadiya-wasirat-almasumin",
+    "image": "/general/isdarat-jadida-fi-muasasat-alimam-zain-alabidin-fihris-shuruh-alsahifa-alsajjadiya-wasirat-almasumin-14.jpg",
+    "title": "مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تزيح الستار عن إصداراتها الجديدة( فهرس شروح الصحيفة السجادية وسيرة المعصومين)",
+    "summary": "في خطوة نوعية تهدف إلى تسليط الضوء على تراث أهل البيت (عليهم السلام)....",
+    "content": "<p>في خطوة نوعية تهدف إلى تسليط الضوء على تراث أهل البيت (عليهم السلام)، أقامت مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات جلسة علمية تعريفية خُصصت لتقديم ومناقشة كتابين قيمين حديثي الصدور، هما:</p><ol><li>فهرس شروح الصحيفة السجادية في جزأين.</li><li>سيرة المعصومين عليهم السلام في اثني عشر جزءً</li></ol><p>حاضر في الجلسة كل من المحققين:</p><ul><li>سماحة السيد أسعد القاضي و سماحة الشيخ علي المنصوري.</li></ul><p>شهدت الجلسة حضورًا مميزًا من طلبة الحوزة العلمية، والأساتذة، والباحثين، وممثلين عن المؤسسات والمراكز الثقافية والبحثية المتخصصة في تراث أهل البيت (عليهم السلام).</p><p>افتُتحت الجلسة بتلاوة عطرة من القرآن الكريم، ثم التعريف بالمحققين， تلتها كلمة للمحققين للتعريف بالكتاب.</p><p>لم تكن الجلسة مجرد عرض للكتب， بل تحولت إلى منتدى حواري معمق， شهد نقاشات موسعة دارت حول محاور متعددة ومتنوعة.</p><p><strong>السيد أسعد القاضي:</strong></p><p>فتحدث عن كتاب سيرة المعصومين المكون من اثني عشر جزءً， وهو عبارة عن سيرة مستخرجة من مصادر الحديث الشريف الممتدة حتى منتصف القرن الخامس الهجري， وأكد على توثيق الروايات والأحداث في السيرة， وجمعها لتكون مرجعًا يُعتمد عليه.</p><p><strong>أبرز ما جاء في كلمة الشيخ علي المنصوري:</strong></p><p>ذكر أن كتابه يمثل مزاوجةبين علمين: علم الببليوغرافيا ودراسة النسخ من جهة， وعلم التراجم العامة من جهة أخرى. واستعرض المنهجية العلمية المتبعة في الفهرس， موضحًا كيف يمكن لهذا العمل أن يكون  للدارسين， توفر عليهم سنوات من البحث والتنقيب.</p><p>وختامًا， تؤكد مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات أنها تواصل مسيرتها في الاهتمام بالتحقيق والتأليف لكل ما يتعلق بتراث الإمام السجاد (عليه السلام) من صحيفة ورسائل وأدعية.</p>",
+    "views": 400,
+    "date": "2026-6-16",
+    "last_update": "2026-6-16",
+    "category": "نشاطات",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/isdarat-jadida-fi-muasasat-alimam-zain-alabidin-fihris-shuruh-alsahifa-alsajjadiya-wasirat-almasumin-1.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/isdarat-jadida-fi-muasasat-alimam-zain-alabidin-fihris-shuruh-alsahifa-alsajjadiya-wasirat-almasumin-14.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/isdarat-jadida-fi-muasasat-alimam-zain-alabidin-fihris-shuruh-alsahifa-alsajjadiya-wasirat-almasumin-2.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/general/isdarat-jadida-fi-muasasat-alimam-zain-alabidin-fihris-shuruh-alsahifa-alsajjadiya-wasirat-almasumin-3.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/general/isdarat-jadida-fi-muasasat-alimam-zain-alabidin-fihris-shuruh-alsahifa-alsajjadiya-wasirat-almasumin-4.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/general/isdarat-jadida-fi-muasasat-alimam-zain-alabidin-fihris-shuruh-alsahifa-alsajjadiya-wasirat-almasumin-5.jpg"
+      },
+      {
+        "id": 7,
+        "path": "/general/isdarat-jadida-fi-muasasat-alimam-zain-alabidin-fihris-shuruh-alsahifa-alsajjadiya-wasirat-almasumin-6.jpg"
+      },
+      {
+        "id": 8,
+        "path": "/general/isdarat-jadida-fi-muasasat-alimam-zain-alabidin-fihris-shuruh-alsahifa-alsajjadiya-wasirat-almasumin-7.jpg"
+      },
+      {
+        "id": 9,
+        "path": "/general/isdarat-jadida-fi-muasasat-alimam-zain-alabidin-fihris-shuruh-alsahifa-alsajjadiya-wasirat-almasumin-8.jpg"
+      },
+      {
+        "id": 10,
+        "path": "/general/isdarat-jadida-fi-muasasat-alimam-zain-alabidin-fihris-shuruh-alsahifa-alsajjadiya-wasirat-almasumin-9.jpg"
+      },
+      {
+        "id": 11,
+        "path": "/general/isdarat-jadida-fi-muasasat-alimam-zain-alabidin-fihris-shuruh-alsahifa-alsajjadiya-wasirat-almasumin-10.jpg"
+      },
+      {
+        "id": 12,
+        "path": "/general/isdarat-jadida-fi-muasasat-alimam-zain-alabidin-fihris-shuruh-alsahifa-alsajjadiya-wasirat-almasumin-11.jpg"
+      },
+      {
+        "id": 13,
+        "path": "/general/isdarat-jadida-fi-muasasat-alimam-zain-alabidin-fihris-shuruh-alsahifa-alsajjadiya-wasirat-almasumin-12.jpg"
+      },
+      {
+        "id": 14,
+        "path": "/general/isdarat-jadida-fi-muasasat-alimam-zain-alabidin-fihris-shuruh-alsahifa-alsajjadiya-wasirat-almasumin-13.jpg"
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "slug": "majlis-sanawi-bidhikra-istishhad-alimam-alhusayn-fi-muasasat-alimam-zain-alabidin",
+    "image": "/general/majlis-sanawi-bidhikra-istishhad-alimam-alhusayn-fi-muasasat-alimam-zain-alabidin.jpg",
+    "title": "تدعوكم مؤسسة الإمام زين العابدين(عليه السلام) للبحوث والدراسات إلى حضور مجلسها السنوي بذكرى إستشهاد أبي عبدالله الحسين(عليه السلام)",
+    "summary": "بمشاركة الخطيب الحسيني الشيخ محمد أمين العبادي",
+    "content": "<p>بمشاركة الخطيب الحسيني الشيخ محمد أمين العبادي</p><p>المكان: النجف الاشرف _ ملحق شارع الروان </p><p>الزمان: من اليوم الأول إلى اليوم التاسع من شهر محرم الحرام لعام (1448) هـ</p><p>الوقت: بعد صلاة الظهرين </p>",
+    "views": 300,
+    "date": "2026-6-15",
+    "last_update": "2026-6-15",
+    "category": "مجالس",
+    "attachments": []
+  },
+  {
+    "id": 60,
+    "slug": "jalsa-taarifiya-bilkitabayn-alqayyimayn-fi-muasasat-alimam-zain-alabidin",
+    "image": "/general/jalsa-taarifiya-bilkitabayn-alqayyimayn-fi-muasasat-alimam-zain-alabidin.jpg",
+    "title": "جلسة تعريفية بالكتابين القيمين (فهرس شروح الصحيفة السجادية) و(سيرة المعصومين عليهم السلام) في مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات",
+    "summary": "",
+    "content": "تتشرف مؤسسة الامام زين العابدين عليه السلام بدعوتكم لحظور الجلسة التعريفية بالكتابين القيمين",
+    "views": 600,
+    "date": "2026-6-14",
+    "last_update": "2026-6-14",
+    "category": "نشاطات",
+    "attachments": []
+  },
+  {
+    "id": 59,
+    "slug": "imam-zain-al-abideen-foundation-neusocial-ai-cooperation",
+    "image": "/general/imam-zain-al-abideen-foundation-neusocial-ai-cooperation-5.jpg",
+    "title": "مؤسسة الامام زين العابدين عليه السلام للبحوث والدراسات  تستقبل وفد تعاونية نيوسوشال العلمية لفتح افاق التعاون العلمي والمعرفي وتوظيف الذكاء الاصطناعي في خدمة تراث اهل البيت (سلام الله عليهم)",
+    "summary": "استقبل سماحة السيد غسان الخرسان (دام توفيقه) رئيس مؤسسة زين العابدين عليه السلام للبحوث والدراسات وعضو المجلس العلمي سماحة الشيخ ستار الجيزاني (دام توفيقه)  وفداً من تعاونية نيوسوشال العلمية ضم الدكتور علي الاعسم، يرافقه مستشار الأرشفة الدكتور عادل الربيعي ، والخبير في مجال الموارد المائية وإدارتها المهندس عبد الكريم سلومي، حيث عقد الجانبان لقاءً علمياً وفكرياً مثمراً ",
+    "content": "<p>استقبل سماحة السيد غسان الخرسان (دام توفيقه) رئيس مؤسسة زين العابدين عليه السلام للبحوث والدراسات وعضو المجلس العلمي سماحة الشيخ ستار الجيزاني (دام توفيقه) وفداً من تعاونية نيوسوشال العلمية ضم الدكتور علي الاعسم، يرافقه مستشار الأرشفة الدكتور عادل الربيعي ، والخبير في مجال الموارد المائية وإدارتها المهندس عبد الكريم سلومي، حيث عقد الجانبان لقاءً علمياً وفكرياً مثمراً </p><p>تناول اللقاء بحث سبل التعاون المشترك في مجالات البحث العلمي وإنتاج المعرفة، واستعراض الإمكانات التي تتيحها التقنيات الحديثة، ولا سيما الذكاء الاصطناعي، في خدمة فكر اهل البيت سلام الله عليهم، بما يسهم في تطوير أدوات البحث والتحليل المعرفي، وتيسير الوصول إلى المعرفة الموثقة، وتعزيز الاستفادة منها لدى الباحثين وطلبة العلم.</p><p>وشهد اللقاء نقاشاً معمقاً حول اجراءات البحث الدلالي القائم على الذكاء الاصطناعي، بوصفه نقلة نوعية تتجاوز أساليب البحث التقليدية، من خلال تمكين الباحث من الوصول إلى المفاهيم والعلاقات المعرفية الكامنة في النصوص، وبناء شبكات مترابطة من المعرفة تساعد على فهم أعمق للمضامين الفكرية والعلمية.</p><p>كما جرى بحث إمكانيات الاستفادة من هذه التقنيات في دراسة وتحليل نصوص الصحيفة السجادية المباركة ورسالة الحقوق بالإضافة إلى بقية تراث الإمام السجاد على وجه الخصوص مع إمكانية توسيع نطاق العمل ليشمل احاديث المعصومين سلام الله عليهم من خلال بناء ذاكرة معرفية متخصصة تساعد الباحثين على اكتشاف المفاهيم والروابط الفكرية وإتاحتها بصورة علمية ومنهجية، وذلك في إطار تعاون تقني وعلمي بين المؤسسات المعنية بخدمة التراث الإسلامي.</p><p>وأشاد الدكتور علي الاعسم بالجهود الكبيرة التي يبذلها قسم الأرشفة في المؤسسة، ولا سيما مشروع تحويل عشرات المجلدات والمصادر التراثية إلى صيغ رقمية حديثة، بما يسهم في حفظها وإتاحتها للأجيال القادمة. كما تمت مناقشة إمكانية تنفيذ تجارب مشتركة باستخدام منصة CAIR (كير) لتحويل هذه المصادر إلى منظومات معرفية قابلة للتحليل والاستكشاف والبحث الذكي.</p><p>وخلال اللقاء تم استعراض عدد من التطبيقات المعرفية التي طورتها تعاونية نيوسوشال ومنها تطبيق «أعطني نوراً» للبحث والاستفسار المعرفي ،  وتطبيق «إقرأ» للتفاعل الذكي مع الكتب والمصادر.</p><p>إضافة إلى التقنيات المساندة المتعلقة بالترجمة الفورية، وإنتاج المحتوى الصوتي للكتب، وغيرها من الأدوات التي تهدف إلى تسهيل الوصول إلى المعرفة وتعزيز الاستفادة منها.</p><p>كما دار حوار فكري موسع حول آفاق المعرفة الإسلامية في عصر الذكاء الاصطناعي، وأهمية توجيه هذه التقنيات لخدمة الإنسان والعلم والقيم الحضارية، وجعلها أدوات مساندة للباحثين وطلبة العلوم الدينية والإنسانية، بما يعزز الفهم الرصين للتراث الإسلامي ويخدم مسيرة إنتاج المعرفة.</p><p>وفي ختام اللقاء، أكد الطرفان أهمية استمرار التواصل والتعاون العلمي خلال المرحلة المقبلة، والعمل على استكشاف فرص مشتركة تسهم في تطوير مشاريع بحثية ومعرفية تخدم التراث الإسلامي وتواكب التطورات التقنية الحديثة، سائلين الله تعالى التوفيق والسداد في كل ما من شأنه خدمة العلم والمعرفة وخير المجتمع</p><p>والجدير بالذكر ان العتبة الحسينية المقدسة متمثلة بمؤسسة الامام زين العابدين (عليه السلام) وهيئة التعليم التقني قد قطعت شوطا في مجال البرمجة والعمل على الاستفادة المثلى من التطور الحاصل في التقنيات الخاصة بالمجال البحثي والمعرفي. </p>",
+    "views": 500,
+    "date": "2026-6-12",
+    "last_update": "2026-6-12",
+    "category": "نشاطات",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/imam-zain-al-abideen-foundation-neusocial-ai-cooperation-2.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/imam-zain-al-abideen-foundation-neusocial-ai-cooperation-7.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/imam-zain-al-abideen-foundation-neusocial-ai-cooperation-3.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/general/imam-zain-al-abideen-foundation-neusocial-ai-cooperation-4.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/general/imam-zain-al-abideen-foundation-neusocial-ai-cooperation-5.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/general/imam-zain-al-abideen-foundation-neusocial-ai-cooperation-6.jpg"
+      },
+      {
+        "id": 7,
+        "path": "/general/imam-zain-al-abideen-foundation-neusocial-ai-cooperation-8.jpg"
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "slug": "taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi",
+    "image": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-9.jpg",
+    "title": " مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات تشارك في تقديم واجب العزاء والمواساة لطلبة الحوزة العلمية ولذوي الفقيد الشيخ ستار المرشدي (قدس سره)",
+    "summary": "بقلوب يملؤها الحزن والأسى، تشارك مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات في تقديم واجب العزاء والمواساة لطلبة الحوزة العلمية ولذوي الفقيد الشيخ ستار المرشدي (قدس سره)",
+    "content": "بقلوب يملؤها الحزن والأسى، شاركت مؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات في تقديم واجب العزاء والمواساة لطلبة الحوزة العلمية ولذوي الفقيد الشيخ ستار المرشدي (قدس سره)، الأمين الأسبق للعتبة العسكرية المقدسة. نسأله تعالى أن يسبغ على الفقيد سوابغ رحمته، ويسكنه في عليين مع الأئمة الأطهار (عليهم السلام)، وأن يلهم أهله وذويه جميل الصبر وحسن العزاء. وإنا لله وإنا إليه راجعون.",
+    "views": 100,
+    "date": "2026-5-31",
+    "last_update": "2026-5-31",
+    "category": "نشاطات",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-1.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-2.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-3.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-4.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-5.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-6.jpg"
+      },
+      {
+        "id": 7,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-7.jpg"
+      },
+      {
+        "id": 8,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-8.jpg"
+      },
+      {
+        "id": 9,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi.jpg"
+      },
+      {
+        "id": 10,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-10.jpg"
+      },
+      {
+        "id": 11,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-11.jpg"
+      },
+      {
+        "id": 12,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-12.jpg"
+      },
+      {
+        "id": 13,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-13.jpg"
+      },
+      {
+        "id": 14,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-14.jpg"
+      },
+      {
+        "id": 15,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-15.jpg"
+      },
+      {
+        "id": 16,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-16.jpg"
+      },
+      {
+        "id": 17,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-17.jpg"
+      },
+      {
+        "id": 18,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-18.jpg"
+      },
+      {
+        "id": 19,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-19.jpg"
+      },
+      {
+        "id": 20,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-20.jpg"
+      },
+      {
+        "id": 21,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-21.jpg"
+      },
+      {
+        "id": 22,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-22.jpg"
+      },
+      {
+        "id": 23,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-23.jpg"
+      },
+      {
+        "id": 24,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-24.jpg"
+      },
+      {
+        "id": 25,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-25.jpg"
+      },
+      {
+        "id": 26,
+        "path": "/general/taqdim-wajeb-al3azaa-wal-muwasat-li-talabat-alhouza-al3ilmia-wal-dhawi-lafaqid-alsheikh-staar-almarshadi-26.jpg"
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "slug": "elan-nataij-musabaqat-al-khatt-thuluth-nastaliq-diwani",
+    "image": "/general/elan-nataij-musabaqat-al-khatt-thuluth-nastaliq-diwani.jpg",
+    "title": "إعلان نتائج مسابقة الخط – خط الثلث العادي- خط النستعليق _ الخط الديواني ",
+    "summary": "بعد تقييم الأعمال المقدمة من قبل لجنة التحكيم، يسرّنا أن نعلن أسماء الفائزين في مسابقة خط الثلث العادي و النستعليق والخط الديواني، ونبارك لهم هذا الإنجاز الجميل.",
+    "content": "<P>بعد تقييم الأعمال المقدمة من قبل لجنة التحكيم، يسرّنا أن نعلن أسماء الفائزين في مسابقة خط الثلث العادي و النستعليق والخط الديواني، ونبارك لهم هذا الإنجاز الجميل.</p><p>نهنئ جميع الفائزين، ونشكر كل المشاركين على جهودهم القيمة في إحياء فن الخط العربي وتبليغ رسالة الامام السجاد عليه السلام الى المجتمع</p>",
+    "views": 300,
+    "date": "2026-5-25",
+    "last_update": "2026-5-25",
+    "category": "فعاليات",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/elan-nataij-musabaqat-al-khatt-thuluth-nastaliq-diwani-1.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/elan-nataij-musabaqat-al-khatt-thuluth-nastaliq-diwani.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/elan-nataij-musabaqat-al-khatt-thuluth-nastaliq-diwani-2.jpg"
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "slug": "i3lan-nata2ij-musaabaqat-al-khatt-khatt-ath-thuluth-al-jali-wal-khatt-an-naskh",
+    "image": "/general/i3lan-nata2ij-musaabaqat-al-khatt-khatt-ath-thuluth-al-jali-wal-khatt-an-naskh.jpg",
+    "title": "إعلان نتائج مسابقة الخط – خط الثلث الجلي وخط النسخ",
+    "summary": "بعد تقييم الأعمال المقدمة من قبل لجنة التحكيم، يسرّنا أن نعلن أسماء الفائزين في مسابقة خط الثلث الجلي وخط النسخ، ونبارك لهم هذا الإنجاز الجميل.",
+    "content": "<p>بعد تقييم الأعمال المقدمة من قبل لجنة التحكيم، يسرّنا أن نعلن أسماء الفائزين في مسابقة خط الثلث الجلي وخط النسخ، ونبارك لهم هذا الإنجاز الجميل.</p><p>نهنئ جميع الفائزين، ونشكر كل المشاركين على جهودهم القيمة في إحياء فن الخط العربي وتبليغ رسالة الامام السجاد عليه السلام الى المجتمع</p>",
+    "views": 500,
+    "date": "2026-5-24",
+    "last_update": "2026-5-24",
+    "category": "فعاليات",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/i3lan-nata2ij-musaabaqat-al-khatt-khatt-ath-thuluth-al-jali-wal-khatt-an-naskh-1.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/i3lan-nata2ij-musaabaqat-al-khatt-khatt-ath-thuluth-al-jali-wal-khatt-an-naskh.jpg"
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "slug": "majlis-aza2i-mu2assasat-alimam-zain-alabidin-alehissalam-lilbuhuth-waldirasat",
+    "image": "/general/majlis-aza2i-mu2assasat-alimam-zain-alabidin-alehissalam-lilbuhuth-waldirasat.jpg",
+    "title": " احياء لذكرى شهادة الامام الباقر عليه السلام ومواساة لامام زمانناعقدت مؤسسة الامام زين العابدين عليه السلام في مقرها المركزي في النجف الاشرف مجلس عزاء بالمناسبة وبحضور الخطيب سماحة الشيخ حافظ الدجيلي ",
+    "summary": " احياء لذكرى شهادة الامام الباقر عليه السلام ومواساة لامام زماننا",
+    "content": "<p>   اللّهُمَّ صَلِّ عَلى مُحَمَّدٍ بْنِ عَلِيٍّ باقِرِ العِلْمِ وَإِمامِ الهُدى وَقائِدِ أَهْلِ التَّقْوى ، وَالمُنْتَجَبِ مِنْ عِبادِكَ ، اللّهُمَّ وَكَما جَعَلْتَهُ عَلَما لِعِبادِكَ وَمَناراً لِبِلادِكَ وَمُسْتَوْدَعاً لِحِكْمَتِكَ وَمُتَرْجِما لِوَحْيِكَ وَأَمَرْتَ بِطاعَتِهِ وَحَذَّرْتَ مِنْ مَعْصِيَتِهِ ، فَصَلِّ عَلَيْهِ يا رَبِّ أَفْضَلَ ما صَلَّيْتَ عَلى أَحَدٍ مِنْ ذُرِّيَّةِ أَنْبِيائِكَ وأَصْفِيائِكَ وَرُسُلِكَ وَأُمَنائِكَ يا رَبَّ العالَمِينَ…</p><p>احياء لذكرى شهادة الامام الباقر عليه السلام ومواساة لامام زماننا عقدت مؤسسة الامام زين العابدين عليه السلام في مقرها المركزي في النجف الاشرف مجلس عزاء بالمناسبة وبحضور الخطيب سماحة الشيخ حافظ الدجيلي مستذكرا الدور العلمي للامام وجهوده في رفع قواعد الدين الحق ومعارف اهل البيت عليهم السلام وبحضور جمع من الفضلاء  والموالين المعزين بالمناسبة</p> ",
+    "views": 300,
+    "date": "2026-5-24",
+    "last_update": "2026-5-24",
+    "category": "مجالس",
+    "attachments": [
+      {
+        "id": 1,
+        "path": "/general/majlis-aza2i-mu2assasat-alimam-zain-alabidin-alehissalam-lilbuhuth-waldirasat.jpg"
+      },
+      {
+        "id": 2,
+        "path": "/general/majlis-aza2i-mu2assasat-alimam-zain-alabidin-alehissalam-lilbuhuth-waldirasat-2.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/majlis-aza2i-mu2assasat-alimam-zain-alabidin-alehissalam-lilbuhuth-waldirasat-3.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/general/majlis-aza2i-mu2assasat-alimam-zain-alabidin-alehissalam-lilbuhuth-waldirasat-4.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/general/majlis-aza2i-mu2assasat-alimam-zain-alabidin-alehissalam-lilbuhuth-waldirasat-5.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/general/majlis-aza2i-mu2assasat-alimam-zain-alabidin-alehissalam-lilbuhuth-waldirasat-6.jpg"
+      },
+      {
+        "id": 7,
+        "path": "/general/majlis-aza2i-mu2assasat-alimam-zain-alabidin-alehissalam-lilbuhuth-waldirasat-7.jpg"
+      },
+      {
+        "id": 8,
+        "path": "/general/majlis-aza2i-mu2assasat-alimam-zain-alabidin-alehissalam-lilbuhuth-waldirasat-8.jpg"
+      },
+      {
+        "id": 9,
+        "path": "/general/majlis-aza2i-mu2assasat-alimam-zain-alabidin-alehissalam-lilbuhuth-waldirasat-9.jpg"
+      },
+      {
+        "id": 10,
+        "path": "/general/majlis-aza2i-mu2assasat-alimam-zain-alabidin-alehissalam-lilbuhuth-waldirasat-10.jpg"
+      },
+      {
+        "id": 11,
+        "path": "/general/majlis-aza2i-mu2assasat-alimam-zain-alabidin-alehissalam-lilbuhuth-waldirasat-11.jpg"
+      },
+      {
+        "id": 12,
+        "path": "/general/majlis-aza2i-mu2assasat-alimam-zain-alabidin-alehissalam-lilbuhuth-waldirasat-12.jpg"
+      },
+      {
+        "id": 13,
+        "path": "/general/majlis-aza2i-mu2assasat-alimam-zain-alabidin-alehissalam-lilbuhuth-waldirasat-13.jpg"
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "slug": "wafat-al-shaykh-sattar-al-murshidi",
+    "image": "/general/wafat-al-shaykh-sattar-al-murshidi.jpg",
+    "title": "ببالغ الحزن والأسى تلقت مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات نبأ رحيل سماحة الشيخ ستار المرشدي (طاب ثراه)",
+    "summary": "ببالغ الحزن والأسى تلقت مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات نبأ رحيل سماحة الشيخ ستار المرشدي (طاب ثراه)",
+    "content": "ببالغ الحزن والأسى تلقت مؤسسة الامام زين العابدين (عليه السلام) للبحوث والدراسات نبأ رحيل سماحة الشيخ ستار المرشدي (طاب ثراه) الأمين العام الاسبق للعتبة العسكرية المقدسة  الذي انتقل الى جوار ربه الكريم عصر يوم الجمعة 5 ذي الحجة 1447هـ بعد عمر حافل بالعطاء وخدمة اهل البيت (سلام الله عليهم) نسأل الله تبارك وتعالى ان يتغمده بواسع رحمته ويحشره مع اهل بيت محمد (عليهم السلام) ويلهم ذويه الصبر والسلوان ولا حول ولا قوة الا بالله العلي العظيم",
+    "views": 300,
+    "date": "2026-5-23",
+    "last_update": "2026-5-23",
+    "category": "نشاطات",
+    "attachments": []
+  },
+  {
     "id": 53,
     "slug": "intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal",
     "image": "/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal.jpg",
     "title": "انطلاق أعمال التحكيم في مسابقة زين العابدين الأولى للخط العربي بمشاركة أكثر من 250 لوحة من 10 دول",
     "summary": "انطلقت أعمال لجنة التحكيم الخاصة بـ مسابقة زين العابدين الأولى للخط العربي، بعد اكتمال استلام النتاجات الفنية وإغلاق باب المشاركة، لتدخل المسابقة مرحلتها النهائية وسط حضور لافت عكس حجم التفاعل الواسع مع هذا الحدث الفني والثقافي.",
     "content": "<p>انطلقت أعمال لجنة التحكيم الخاصة بـ مسابقة زين العابدين الأولى للخط العربي، بعد اكتمال استلام النتاجات الفنية وإغلاق باب المشاركة، لتدخل المسابقة مرحلتها النهائية وسط حضور لافت عكس حجم التفاعل الواسع مع هذا الحدث الفني والثقافي.</p><p>وتُنظم المسابقة من قبل مؤسسة الإمام زين العابدين (عليه السلام ) للبحوث والدراسات، بالتعاون مع دار القرآن الكريم في العتبة الحسينية المقدسة ممثلةً بـ مركز (والقلم للخط العربي )، في إطار مشروع ثقافي يسعى إلى إحياء فن الخط العربي وتعزيز حضوره في الفضاء الثقافي الإسلامي.</p><p>وسجلت المسابقة مشاركة أكثر من 250 لوحة خطية قدمها خطاطون وفنانون من عشر دول عربية وإسلامية، تنوعت بين المدارس الكلاسيكية والاتجاهات المعاصرة، بما أظهر مستوى فنيًا متقدمًا وحضورًا نوعيًا يعكس المكانة المتصاعدة للمسابقة في المشهد الثقافي المهتم بفنون الحرف العربي.</p><p>وتتولى لجنة التحكيم، المؤلفة من نخبة من أساتذة الخط العربي والمتخصصين، مراجعة الأعمال وفرزها وفق معايير دقيقة تستند إلى القيم الفنية والجمالية، مع مراعاة أصالة التكوين ودقة التنفيذ والابتكار في المعالجة الخطية، وصولًا إلى اختيار الأعمال الفائزة التي ستُعلن ضمن الحفل الختامي للمسابقة.</p><p>وتجسد المسابقة مساحة فنية ومعرفية تستلهم الإرث الروحي والفكري من الإمام زين العابدين (عليه السلام)، وتؤكد استمرار الحرف العربي بوصفه لغة للجمال والهوية، ومنبرًا ثقافيًا يعبر عن عمق الحضارة الإسلامية وأصالتها.</p>",
-    "views":  250 ,
+    "views": 250,
     "date": "",
     "last_update": "2026-5-15",
     "category": "نشاطات",
     "attachments": [
       {
         "id": 1,
-        "path":"/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-1.jpg"   }
-       , {
+        "path": "/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-1.jpg"
+      },
+      {
         "id": 2,
-        "path":"/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-2.jpg"
-        },
-        {
-          "id": 3,
-          "path":"/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-3.jpg"
-        },
-        {
-          "id": 4,
-          "path":"/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-4.jpg"
-        },
-        {
-          "id": 5,
-          "path":"/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-5.jpg"
-        },
-        {
-          "id": 6,
-          "path":"/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-6.jpg"
-        },
-        {
-          "id": 7,
-          "path":"/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-7.jpg"
-        },
-        {
-          "id": 8,
-          "path":"/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-8.jpg"
-        },
-        {
-          "id": 9,
-          "path":"/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-9.jpg"
-        },
-        {
-          "id": 10,
-          "path":"/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-10.jpg"
-        },
-        {
-          "id": 11,
-          "path":"/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-11.jpg"
-        },
-        {
-          "id": 12,
-          "path":"/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-12.jpg"
-        },
-        {
-          "id": 13,
-          "path":"/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-13.jpg"
-        },
-        {
-          "id": 14,
-          "path":"/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-14.jpg"
-        },
-        {
-          "id": 15,
-          "path":"/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-15.jpg"
-        },
-        {
-          "id": 16,
-          "path":"/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-16.jpg"
-        },
-        {
-          "id": 17,
-          "path":"/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-17.jpg"
-        },
-        {
-          "id": 18,
-          "path":"/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-18.jpg"
-        }
+        "path": "/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-2.jpg"
+      },
+      {
+        "id": 3,
+        "path": "/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-3.jpg"
+      },
+      {
+        "id": 4,
+        "path": "/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-4.jpg"
+      },
+      {
+        "id": 5,
+        "path": "/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-5.jpg"
+      },
+      {
+        "id": 6,
+        "path": "/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-6.jpg"
+      },
+      {
+        "id": 7,
+        "path": "/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-7.jpg"
+      },
+      {
+        "id": 8,
+        "path": "/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-8.jpg"
+      },
+      {
+        "id": 9,
+        "path": "/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-9.jpg"
+      },
+      {
+        "id": 10,
+        "path": "/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-10.jpg"
+      },
+      {
+        "id": 11,
+        "path": "/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-11.jpg"
+      },
+      {
+        "id": 12,
+        "path": "/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-12.jpg"
+      },
+      {
+        "id": 13,
+        "path": "/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-13.jpg"
+      },
+      {
+        "id": 14,
+        "path": "/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-14.jpg"
+      },
+      {
+        "id": 15,
+        "path": "/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-15.jpg"
+      },
+      {
+        "id": 16,
+        "path": "/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-16.jpg"
+      },
+      {
+        "id": 17,
+        "path": "/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-17.jpg"
+      },
+      {
+        "id": 18,
+        "path": "/general/intilaq-a3mal-at-tahkim-fi-musaabaqat-zain-alabidin-al-ulaa-lilkhatt-alarabi-bimusharakat-akthar-min-250-lawha-min-10-dowal-18.jpg"
+      }
     ]
   },
   {
@@ -1783,7 +3248,7 @@
   },
   {
     "id": 33,
-    "slug": "visit-supreme-marja-representative-liver-transplant-center-karbala",
+    "slug": "10000-successful-surgeries-lady-khadija-hospital",
     "image": "https://cdn.imamzain.org/news/news-ataba-33.jpg",
     "title": "في مستشفى السيدة خديجة الكبرى (ع)… قرابة (10) آلاف عملية ناجحة خلال أقل من سنة",
     "summary": "في مستشفى السيدة خديجة الكبرى (ع)… قرابة (10) آلاف عملية ناجحة خلال أقل من سنة",

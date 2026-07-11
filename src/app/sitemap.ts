@@ -11,7 +11,7 @@ import { Book } from "@/types/book"
 import { imamzainLife } from "@/types/imamzain-life"
 import { Dictionary } from "@/types/imamzain-legacy"
 
-const BASE_URL = "https://www.imamzain.org"
+const BASE_URL = "https://imamzain.org"
 
 function createSitemapEntry(
 	url: string,

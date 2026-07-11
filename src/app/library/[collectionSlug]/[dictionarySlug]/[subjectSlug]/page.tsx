@@ -32,7 +32,7 @@ export default async function SubjectPage({
 	return (
 		<>
 			<div className="w-full text-center">
-				<h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+				<h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-Muharram_primary mb-3">
 					{subject.title}
 				</h1>
 			</div>

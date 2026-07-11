@@ -63,7 +63,8 @@ export async function GET(req: NextRequest) {
     } catch {
       return new NextResponse("Invalid url", { status: 400 });
     }
-
+    console.log("ALLOWED_HOSTNAME =", ALLOWED_HOSTNAME);
+    console.log("parsed hostname =", parsedUrl.hostname);
     if (!ALLOWED_HOSTNAME || parsedUrl.hostname !== ALLOWED_HOSTNAME) {
       return new NextResponse("Forbidden", { status: 403 });
     }
@@ -78,7 +79,8 @@ export async function GET(req: NextRequest) {
       controller.signal,
       !isRelative,
     );
-
+    console.log("fetchUrl =", fetchUrl);
+    console.log("response status =", response.status);
     if (!response.ok) {
       return new NextResponse("Fetch failed", { status: response.status });
     }

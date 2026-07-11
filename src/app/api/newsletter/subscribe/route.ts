@@ -30,7 +30,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 		const response = await fetch(apiUrl, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ subscriberEmail }),
+			// Backend SubscribeDto expects `email`, not `subscriberEmail`.
+			body: JSON.stringify({ email: subscriberEmail }),
 		})
 
 		log("INFO", "Backend response status:", response.status)

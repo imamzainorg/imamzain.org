@@ -102,12 +102,11 @@ export default function AudioList({
         item.title.toLowerCase().includes(q) ||
         (item.speaker ?? "").toLowerCase().includes(q);
       const matchSpeaker = !speakerFilter || item.speaker === speakerFilter;
-      const matchCategory =
-        !categoryFilter || item.category?.includes(categoryFilter);
+
       const minutes = (item.durationSeconds ?? 0) / 60;
       const matchDuration =
         minutes >= durationRange[0] && minutes <= durationRange[1];
-      return matchSearch && matchSpeaker && matchCategory && matchDuration;
+      return matchSearch && matchSpeaker && matchDuration;
     });
 
     const sortMap: Record<string, (a: AudioItem, b: AudioItem) => number> = {
@@ -119,7 +118,7 @@ export default function AudioList({
     if (sortFilter && sortMap[sortFilter])
       result = [...result].sort(sortMap[sortFilter]);
     return result;
-  }, [items, search, speakerFilter, categoryFilter, durationRange, sortFilter]);
+  }, [items, search, speakerFilter, durationRange, sortFilter]);
 
   // ─── Pagination ────────────────────────────────────────────────────────────
   const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
@@ -129,31 +128,33 @@ export default function AudioList({
   }, [filtered, currentPage]);
 
   // ─── Handlers ─────────────────────────────────────────────────────────────
-  const resetPage = () => setCurrentPage(1);
-  const handleSearch = useCallback((v: string) => {
-    setSearch(v);
-    resetPage();
-  }, []);
-  {
+// ✅ بعد
+const resetPage = useCallback(() => setCurrentPage(1), []);
     /*   const handleCategoryFilter = useCallback((v: string) => {
     setCategoryFilter(v);
     resetPage();
   }, []);*/
-  }
-  const handleDurationRange = useCallback((range: [number, number]) => {
-    setDurationRange(range);
-    resetPage();
-  }, []);
-  const handleSortFilter = useCallback((v: string) => {
-    setSortFilter(v);
-    resetPage();
-  }, []);
-  const handleSpeakerSelect = useCallback((speaker: string) => {
-    setSpeakerFilter(speaker);
-    setSpeakerSearch("");
-    setIsSpeakerDropdownOpen(false);
-    resetPage();
-  }, []);
+const handleSearch = useCallback((v: string) => {
+  setSearch(v);
+  resetPage();
+}, [resetPage]);
+
+const handleDurationRange = useCallback((range: [number, number]) => {
+  setDurationRange(range);
+  resetPage();
+}, [resetPage]);
+
+const handleSortFilter = useCallback((v: string) => {
+  setSortFilter(v);
+  resetPage();
+}, [resetPage]);
+
+const handleSpeakerSelect = useCallback((speaker: string) => {
+  setSpeakerFilter(speaker);
+  setSpeakerSearch("");
+  setIsSpeakerDropdownOpen(false);
+  resetPage();
+}, [resetPage]);
   const handleSpeakerSearchChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setSpeakerSearch(e.target.value);
@@ -225,16 +226,16 @@ export default function AudioList({
     <div className="flex flex-col gap-4">
       {/* Search */}
       <div>
-        <label className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
-          <SearchIcon className="w-4 h-4 text-primary" /> البحث
+        <label className="flex items-center gap-2 text-sm font-medium  text-slate-700 dark:text-black mb-1.5">
+          <SearchIcon className="w-4 h-4 text-primary dark:text-Muharram_secondary " /> البحث
         </label>
         <AudioSearch value={search} onChange={handleSearch} />
       </div>
 
       {/* Speaker */}
       <div className="w-full relative" ref={speakerDropdownRef}>
-        <label className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
-          <Mic2 className="w-4 h-4 text-primary" /> المحاضر
+        <label className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-black mb-1.5">
+          <Mic2 className="w-4 h-4 text-primary dark:text-Muharram_secondary" /> المحاضر
         </label>
         <div className="relative">
           <input
@@ -244,17 +245,17 @@ export default function AudioList({
             onChange={handleSpeakerSearchChange}
             onFocus={() => setIsSpeakerDropdownOpen(true)}
             placeholder="ابحث عن محاضر..."
-            className="w-full p-4 text-center bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+            className="w-full p-4 text-center dark:text-black bg-white dark:bg-Muharram_secondary/15 border border-slate-300 dark:border-slate-600 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 dark:focus:ring-Muharram_primary/50"
           />
           <div className="absolute left-8 top-1/2 -translate-y-1/2 h-4 border-l border-slate-300 dark:border-slate-600" />
-          <ChevronDown className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+          <ChevronDown className="absolute left-3 top-1/2 dark:text-Muharram_secondary  -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
         </div>
         {isSpeakerDropdownOpen && (
-          <div className="absolute z-50 w-full mt-1 max-h-60 overflow-y-auto bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg">
+          <div className="absolute z-50 w-full mt-1 max-h-60 overflow-y-auto bg-white   border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg">
             {speakerFilter && (
               <button
                 onClick={() => handleSpeakerSelect("")}
-                className="w-full text-right px-4 py-2 text-sm text-primary border-b border-slate-100 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700"
+                className="w-full text-right px-4 py-2 text-sm  dark:text-Muharram_secondary text-primary border-b border-slate-100 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700"
               >
                 ✕ إلغاء اختيار المحاضر
               </button>
@@ -295,8 +296,8 @@ export default function AudioList({
 
       {/* Sort */}
       <div>
-        <label className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
-          <ArrowDownUp className="w-4 h-4 text-primary" /> الترتيب حسب
+        <label className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-black mb-1.5">
+          <ArrowDownUp className="w-4 h-4 text-primary dark:text-Muharram_secondary" /> الترتيب حسب
         </label>
         <AudioFilter
           options={["الأحدث", "الأقدم", "الأطول", "الأقصر"]}
@@ -308,10 +309,10 @@ export default function AudioList({
       {/* Duration */}
       <div>
         <label className="flex items-center justify-between mb-2">
-          <span className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-300">
-            <Clock className="w-4 h-4 text-primary" /> المدة (دقائق)
+          <span className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-black">
+            <Clock className="w-4 h-4 text-primary dark:text-Muharram_secondary" /> المدة (دقائق)
           </span>
-          <span className="text-xs text-primary bg-primary/10 px-2 py-0.5 rounded-full font-medium">
+          <span className="text-xs text-primary bg-primary/10 dark:text-black dark:bg-Muharram_secondary/30  px-2 py-0.5 rounded-full font-medium">
             {durationRange[0]} – {durationRange[1]} د
           </span>
         </label>
@@ -328,9 +329,9 @@ export default function AudioList({
               onClick={() => handleDurationRange([0, minutes])}
               className={`py-1.5 text-xs rounded-lg border transition-colors whitespace-nowrap ${
                 durationRange[0] === 0 && durationRange[1] === minutes
-                  ? "bg-primary/10 border-primary text-primary font-medium"
-                  : "bg-white/50 dark:bg-slate-800/50 border-slate-200 dark:border-slate-700 hover:border-primary hover:bg-primary/5 text-slate-600 dark:text-slate-400"
-              }`}
+                   ? "bg-primary/10 border-primary text-primary dark:bg-Muharram_primary/10 dark:border-Muharram_secondary dark:text-Muharram_secondary font-medium"
+                : "bg-white/50 dark:bg-Muharram_secondary/5 border-slate-200 dark:border-slate-700 hover:border-primary text-slate-600 dark:text-black"
+            }`}
             >
               أقل من {minutes} د
             </button>
@@ -340,8 +341,8 @@ export default function AudioList({
             className={`py-1.5 text-xs rounded-lg border transition-colors col-span-2 ${
               durationRange[0] === 30 &&
               durationRange[1] === maxAvailableDuration
-                ? "bg-primary/10 border-primary text-primary font-medium"
-                : "bg-white/50 dark:bg-slate-800/50 border-slate-200 dark:border-slate-700 hover:border-primary text-slate-600 dark:text-slate-400"
+                ? "bg-primary/10 border-primary text-primary dark:bg-Muharram_primary/10 dark:border-Muharram_secondary dark:text-Muharram_secondary font-medium"
+                : "bg-white/50 dark:bg-Muharram_secondary/5 border-slate-200 dark:border-slate-700 hover:border-primary text-slate-600 dark:text-black"
             }`}
           >
             أكثر من 30 د
@@ -367,7 +368,7 @@ export default function AudioList({
     <div>
       <div className="flex flex-col lg:flex-row gap-6">
         {/* ── Sidebar (desktop only) ── */}
-        <aside className="hidden lg:block bg-secondary/10 dark:bg-slate-900/70 sticky top-28 self-start rounded-2xl p-4 lg:p-5 border border-slate-200/70 dark:border-white/10 shadow-sm w-72 xl:w-80 2xl:w-96 h-fit">
+        <aside className="hidden lg:block bg-secondary/10 dark:bg-Muharram_secondary/10 sticky top-28 self-start rounded-2xl p-4 lg:p-5 border border-slate-200/70 dark:border-white/10 shadow-sm w-72 xl:w-80 2xl:w-96 h-fit">
           <div
             ref={filtersContainerRef}
             className="overflow-y-auto max-h-[calc(100vh-220px)] pb-2 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-slate-300 dark:scrollbar-thumb-slate-600"
@@ -406,7 +407,7 @@ export default function AudioList({
               </button>
             </div>
           ) : (
-            <div className="grid gap-3">
+            <div className="grid md:grid-cols-2 gap-3">
               {paginated.map((item) => (
                 <AudioCard
                   key={item.id}
@@ -444,7 +445,7 @@ export default function AudioList({
         <button
           onClick={() => setIsMobileFiltersOpen(true)}
           className="
-            lg:hidden fixed bottom-6  -translate-x-1/2 z-40
+            lg:hidden fixed bottom-6   left-1/2 -translate-x-1/2 z-40
             flex items-center gap-2
             bg-primary text-white
             px-5 py-3 rounded-full shadow-lg shadow-primary/30
@@ -471,7 +472,8 @@ export default function AudioList({
           <div
             className="
             lg:hidden fixed bottom-0 inset-x-0 z-50
-            bg-white dark:bg-slate-900
+            bg-white 
+
             rounded-t-3xl
             shadow-2xl
             max-h-[60vh]
@@ -480,14 +482,14 @@ export default function AudioList({
           "
           >
             {/* Handle + Header */}
-            <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b border-slate-200 dark:border-slate-700 shrink-0">
+            <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b border-slate-200 dark:border-Muharram_primary shrink-0">
               <div className="w-10 h-1 rounded-full bg-slate-300 dark:bg-slate-600 mx-auto absolute left-1/2 -translate-x-1/2 top-3" />
-              <h2 className="text-sm font-semibold text-slate-700 dark:text-white">
+              <h2 className="text-sm font-semibold text-slate-700 dark:text-black">
                 الفلاتر
               </h2>
               <button
                 onClick={() => setIsMobileFiltersOpen(false)}
-                className="text-slate-400 hover:text-slate-600 dark:hover:text-white"
+                className="text-slate-400 hover:text-slate-600 dark:hover:text-black"
               >
                 <X className="w-5 h-5" />
               </button>

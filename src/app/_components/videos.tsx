@@ -22,7 +22,12 @@ export default function Videos({
 
   const openModal = (videoId: string) => setVideoId(videoId);
   const closeModal = () => setVideoId(null);
-
+const homePlaylists = playlists.filter(
+  (playlist) =>
+    (playlist.displayLocation === "home" ||
+      playlist.displayLocation === "both") &&
+    playlist.videos.length > 0  // تجاهل القوائم الفارغة
+);
   useEffect(() => {
     const updateShow = () => {
       const width = window.innerWidth;
@@ -58,7 +63,9 @@ export default function Videos({
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 auto-rows-[15rem] sm:auto-rows-[15rem] md:auto-rows-[17rem] lg:auto-rows-[12rem] xl:auto-rows-[13rem] gap-4">
-          {playlists.slice(0, show).map((playlist, index) => (
+         {homePlaylists
+  .slice(0, show)
+  .map((playlist, index) => (
             <div
               key={index}
               aria-label="play video"
@@ -81,7 +88,7 @@ export default function Videos({
                   height={600}
                   alt="media pic"
                   className="absolute inset-0 w-full h-full object-cover -z-10"
-                    unoptimized
+                  unoptimized
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent -z-10" />
