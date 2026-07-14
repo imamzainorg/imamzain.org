@@ -8,5 +8,5 @@
 		var d = document.documentElement
 		d.classList.remove("light", "dark")
 		d.classList.add(t)
-	} catch (e) {}
+	} catch {}
 })()
