@@ -12795,3 +12795,3382 @@
     "pdfUrl": "/general/الإمام_السجاد_باعث_الإسلام_من_جديد.pdf"
   }
 ]
+[
+  {
+    "id": "1",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "عاشق الحق أب بيت الحق (مناجاة الامام السجاد عليه السلام لأحياء الليل وحتى طلوع الفجر/شعر)",
+        "authors": ["محمد حسین بهجتی"],
+        "publicationVenue": "درس هایی از مکتب اسلام سال دوازدهم آبان ۱۳۵۰ شماره ۱۰",
+        "language": "فارسي",
+        "pagenam": 2
+      }
+    ],
+    "publishedYear": "1350 ش",
+    "pdfUrl": "/general/عاشق_حق_بدر_خانه_حق.pdf"
+  },
+  {
+    "id": "2",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "ترجمة ونظم وشرح قصيدة الفرزدق، الشاعر المشهور في العصر الإسلامي، في مدح الإمام علي بن الحسين الملقب بزين العابدين وسيد الساجدين (عليه السلام).",
+        "authors": [],
+        "publicationVenue": "دانشکده ادبیات و علوم انسانی دانشگاه تهران (نشریات قدیمی) سال بیست و چهارم - شماره 3 و 4",
+        "language": "فارسي",
+        "pagenam": 26
+      }
+    ],
+    "publishedYear": "1358 ش",
+    "pdfUrl": "/general/ترجمة_قصيدة_الفرزدق.pdf"
+  },
+  {
+    "id": "3",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "بحث في حياة الامام السجاد (ع).",
+        "authors": ["سید علی خامنه ای"],
+        "publicationVenue": "پاسدار اسلام مهر 1361 شماره 1",
+        "language": "فارسي",
+        "pagenam": 5
+      }
+    ],
+    "publishedYear": "1361 ش",
+    "pdfUrl": "/general/بحث_في_حياة_الامام_السجاد_1.pdf"
+  },
+  {
+    "id": "4",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "بحث في حياة الامام السجاد (ع).",
+        "authors": ["سید علی خامنه ای"],
+        "publicationVenue": "پاسدار اسلام آبان ۱۳۶۱ شماره 3",
+        "language": "فارسي",
+        "pagenam": 4
+      }
+    ],
+    "publishedYear": "1361 ش",
+    "pdfUrl": "/general/بحث_في_حياة_الامام_السجاد_2.pdf"
+  },
+  {
+    "id": "5",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "بحث في حياة الامام السجاد (ع).",
+        "authors": ["سید علی خامنه ای"],
+        "publicationVenue": "پاسدار اسلام مرداد ۱۳۶۱ شماره 2",
+        "language": "فارسي",
+        "pagenam": 7
+      }
+    ],
+    "publishedYear": "1361 ش",
+    "pdfUrl": "/general/بحث_في_حياة_الامام_السجاد_3.pdf"
+  },
+  {
+    "id": "6",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "بحث في حياة الامام السجاد (ع).",
+        "authors": ["سید علی خامنه ای"],
+        "publicationVenue": "پاسدار اسلام شهریور ۱۳۶۱ شماره 5",
+        "language": "فارسي",
+        "pagenam": 6
+      }
+    ],
+    "publishedYear": "1361 ش",
+    "pdfUrl": "/general/بحث_في_حياة_الامام_السجاد_4.pdf"
+  },
+  {
+    "id": "7",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "بحث في حياة الامام السجاد (ع).",
+        "authors": ["سید علی خامنه ای"],
+        "publicationVenue": "پاسدار اسلام خرداد ۱۳۶۱ شماره 4",
+        "language": "فارسي",
+        "pagenam": 5
+      }
+    ],
+    "publishedYear": "1361 ش",
+    "pdfUrl": "/general/بحث_في_حياة_الامام_السجاد_5.pdf"
+  },
+  {
+    "id": "8",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "بحث في حياة الامام السجاد (ع).",
+        "authors": ["سید علی خامنه ای"],
+        "publicationVenue": "پاسدار اسلام آذر ۱۳۶۱ شماره ۶",
+        "language": "فارسي",
+        "pagenam": 5
+      }
+    ],
+    "publishedYear": "1362 ش",
+    "pdfUrl": "/general/بحث_في_حياة_الامام_السجاد_6.pdf"
+  },
+  {
+    "id": "9",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الاربعين نظرة في دور الامام السجاد في صناعة التاريخ بعد كارثة كربلاء",
+        "authors": [],
+        "publicationVenue": "جهاد آذر ۱۳۶۲ شماره ۵۹",
+        "language": "فارسي",
+        "pagenam": 20
+      }
+    ],
+    "publishedYear": "1362 ش",
+    "pdfUrl": "/general/الاربعين_نظرة_في_دور_الامام_السجاد.pdf"
+  },
+  {
+    "id": "10",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مواصلة الإمام السجاد لنهضة عاشوراء",
+        "authors": [],
+        "publicationVenue": "پاسدار اسلام شهریور ۱۳۶۸ شماره ۹۳",
+        "language": "فارسي",
+        "pagenam": 2
+      }
+    ],
+    "publishedYear": "1368 ش",
+    "pdfUrl": "/general/مواصلة_الامام_السجاد_لنهضة_عاشوراء.pdf"
+  },
+  {
+    "id": "11",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "إظهارات الامام السجاد (ع) في ثورة كربلاء",
+        "authors": ["على ربانى كلبايكانى"],
+        "publicationVenue": "نشریه نور علم سال 1371 - شماره 46",
+        "language": "فارسي",
+        "pagenam": 20
+      }
+    ],
+    "publishedYear": "1371 ش",
+    "pdfUrl": "/general/اظهارات_الامام_السجاد_في_ثورة_كربلاء.pdf"
+  },
+  {
+    "id": "12",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "صفات الامام السجاد (ع)",
+        "authors": ["محمد رضا مالك"],
+        "publicationVenue": "نشریه پاسدار اسلام ۱۳۷۵ شماره ۱۸۱",
+        "language": "فارسي",
+        "pagenam": 8
+      }
+    ],
+    "publishedYear": "1375 ش",
+    "pdfUrl": "/general/صفات_الامام_السجاد.pdf"
+  },
+  {
+    "id": "13",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الإمام السجاد عليه السلام هو مصدر الكمال الإنساني",
+        "authors": ["محمد محمدي اشتهاردي"],
+        "publicationVenue": "نشریه پاسدار اسلام 1377 شماره 197",
+        "language": "فارسي",
+        "pagenam": 11
+      }
+    ],
+    "publishedYear": "1377 ش",
+    "pdfUrl": "/general/الامام_السجاد_مصدر_الكمال_الانساني.pdf"
+  },
+  {
+    "id": "14",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام السجاد (ع) وتربية الطفل (الجزء الثالث)",
+        "authors": ["علی همت بناری"],
+        "publicationVenue": "فرهنگ کوثر ۱۳۷۷ شماره ۲۱",
+        "language": "فارسي",
+        "pagenam": 8
+      }
+    ],
+    "publishedYear": "1377 ش",
+    "pdfUrl": "/general/الامام_السجاد_وتربية_الطفل_ج3.pdf"
+  },
+  {
+    "id": "15",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "كشاف المصادر الخاص بالإمام السجاد (ع)",
+        "authors": ["ناصر الدين انصارى قمى"],
+        "publicationVenue": "فرهنك كوثر - شماره 14",
+        "language": "فارسي",
+        "pagenam": 14
+      }
+    ],
+    "publishedYear": "1377 ش",
+    "pdfUrl": "/general/كشاف_المصادر_الخاص_بالامام_السجاد.pdf"
+  },
+  {
+    "id": "16",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "نور من نضالات الامام السجاد (ع).",
+        "authors": ["عباس كوثري"],
+        "publicationVenue": "فرهنگ کوثر ۱۳۷۸ شماره ۲۶",
+        "language": "فارسي",
+        "pagenam": 7
+      }
+    ],
+    "publishedYear": "1378 ش",
+    "pdfUrl": "/general/نور_من_نضالات_الامام_السجاد.pdf"
+  },
+  {
+    "id": "17",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "لماذا لم يشارك الامام السجاد عليه السلام في الحملات السياسية؟",
+        "authors": ["غلام حسين اعرابي"],
+        "publicationVenue": "فرهنگ کوثر ۱۳۷۸ شماره ۳۴",
+        "language": "فارسي",
+        "pagenam": 5
+      }
+    ],
+    "publishedYear": "1378 ش",
+    "pdfUrl": "/general/لماذا_لم_يشارك_الامام_السجاد_في_الحملات_السياسية.pdf"
+  },
+  {
+    "id": "18",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "عبادة الإمام السجاد (عليه السلام)",
+        "authors": ["حسین باقر", "مهدی رضایی"],
+        "publicationVenue": "نشریه پاسدار اسلام 1378 شماره 211",
+        "language": "فارسي",
+        "pagenam": 10
+      }
+    ],
+    "publishedYear": "1378 ش",
+    "pdfUrl": "/general/عبادة_الامام_السجاد.pdf"
+  },
+  {
+    "id": "19",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "أسانيد ومشايخ رواة الصحيفة الكاملة (السجادية).",
+        "authors": ["منصور بهلوان"],
+        "publicationVenue": "فصلنامه علوم حديث - شماره 12",
+        "language": "فارسي",
+        "pagenam": 45
+      }
+    ],
+    "publishedYear": "1378 ش",
+    "pdfUrl": "/general/اسانيد_ومشايخ_رواة_الصحيفة_الكاملة.pdf"
+  },
+  {
+    "id": "20",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام السجاد عليه السلام في رمضان",
+        "authors": [],
+        "publicationVenue": "نشریه پاسدار اسلام 1379 شماره 228",
+        "language": "فارسي",
+        "pagenam": 5
+      }
+    ],
+    "publishedYear": "1379 ش",
+    "pdfUrl": "/general/الامام_السجاد_في_رمضان.pdf"
+  },
+  {
+    "id": "21",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام السجاد عليه السلام والدفاع الثقافي",
+        "authors": ["محسن رنجبر"],
+        "publicationVenue": "فرهنگ کوثر 1379 شماره 44",
+        "language": "فارسي",
+        "pagenam": 10
+      }
+    ],
+    "publishedYear": "1379 ش",
+    "pdfUrl": "/general/الامام_السجاد_والدفاع_الثقافي.pdf"
+  },
+  {
+    "id": "22",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الإمام السجاد (عليه السلام) وواقعة الحَرَّة (ثورة المدينة)",
+        "authors": ["عيسى ساجدى فر"],
+        "publicationVenue": "نشريه كوثر - شماره 44",
+        "language": "فارسي",
+        "pagenam": 8
+      }
+    ],
+    "publishedYear": "1379 ش",
+    "pdfUrl": "/general/الامام_السجاد_وواقعة_الحرة.pdf"
+  },
+  {
+    "id": "23",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "ملاحظات حول النسخ الكريمة المدفونة في الحرم الرضوي",
+        "authors": ["رحمت سيرجانى"],
+        "publicationVenue": "اينه بزوهش - دوره 11، شماره 64",
+        "language": "فارسي",
+        "pagenam": 2
+      }
+    ],
+    "publishedYear": "1379 ش",
+    "pdfUrl": "/general/ملاحظات_حول_النسخ_الكريمة_المدفونة_في_الحرم_الرضوي.pdf"
+  },
+  {
+    "id": "24",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الإمام السجاد (عليه السلام) في عصر الظلام والظلمة",
+        "authors": ["علی اکبر حسنی"],
+        "publicationVenue": "ماهنامه مکتب اسلام ۱۳۸۰ شماره 10 - ۱۱",
+        "language": "فارسي",
+        "pagenam": 11
+      }
+    ],
+    "publishedYear": "1380 ش",
+    "pdfUrl": "/general/الامام_السجاد_في_عصر_الظلام.pdf"
+  },
+  {
+    "id": "25",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مواقف الامام السجاد (ع) بعد حادثة كربلاء",
+        "authors": ["محسن رنجبر"],
+        "publicationVenue": "معرفت 1380 شماره 40",
+        "language": "فارسي",
+        "pagenam": 27
+      }
+    ],
+    "publishedYear": "1380 ش",
+    "pdfUrl": "/general/مواقف_الامام_السجاد_بعد_حادثة_كربلاء.pdf"
+  },
+  {
+    "id": "26",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الصلاة والسلام على النبي (ص) على لسان الامام السجاد (ع)",
+        "authors": ["جواد فاضل"],
+        "publicationVenue": "فرهنگ کوثر 1380 شماره 49",
+        "language": "فارسي",
+        "pagenam": 3
+      }
+    ],
+    "publishedYear": "1380 ش",
+    "pdfUrl": "/general/الصلاة_والسلام_على_النبي_على_لسان_الامام_السجاد.pdf"
+  },
+  {
+    "id": "27",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "علوم الصحيفة السجادية",
+        "authors": ["محمد حسين حكيم"],
+        "publicationVenue": "کتاب ماه دین (پياپي 50)، آبان و آذر 1380 شماره2-3",
+        "language": "فارسي",
+        "pagenam": 9
+      }
+    ],
+    "publishedYear": "1380 ش",
+    "pdfUrl": "/general/علوم_الصحيفة_السجادية_1.pdf"
+  },
+  {
+    "id": "28",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "ببليوغرافيا مفصلة للصحيفة السجادية",
+        "authors": ["محمد حسین حکیم"],
+        "publicationVenue": "ماهنامه کتاب ماه دین، شماره 4 (پیاپی 52، دی و بهمن 1380)",
+        "language": "فارسي",
+        "pagenam": 15
+      }
+    ],
+    "publishedYear": "1380 ش",
+    "pdfUrl": "/general/ببليوغرافيا_مفصلة_للصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "29",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "زبور آل محمد (ص) عبر التاريخ",
+        "authors": ["جويا جهابخش"],
+        "publicationVenue": "آیینه پژوهش - شماره 72",
+        "language": "فارسي",
+        "pagenam": 11
+      }
+    ],
+    "publishedYear": "1380 ش",
+    "pdfUrl": "/general/زبور_آل_محمد_عبر_التاريخ.pdf"
+  },
+  {
+    "id": "30",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "نبذة من فضائل ومناقب الإمام السجاد (ع)",
+        "authors": ["علی تقوی", "حسین صادقی"],
+        "publicationVenue": "مبلغان ۱۳۸۱ شماره ۳۴",
+        "language": "فارسي",
+        "pagenam": 16
+      }
+    ],
+    "publishedYear": "1381 ش",
+    "pdfUrl": "/general/نبذة_من_فضائل_ومناقب_الامام_السجاد.pdf"
+  },
+  {
+    "id": "31",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "ببليوغرافيا تفصيلية لتفاسير وترجمات الصحيفة السجادية (الجزء الأخير)",
+        "authors": ["محمد حسین حکیم"],
+        "publicationVenue": "ماهنامه کتاب ماه دین، سال پنجم شماره 6 (پیاپی 54، اسفند 1380 و فرودین 1381)",
+        "language": "فارسي",
+        "pagenam": 16
+      }
+    ],
+    "publishedYear": "1381 ش",
+    "pdfUrl": "/general/ببليوغرافيا_تفصيلية_لتفاسير_وترجمات_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "32",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "عناوين رئيسية (محاور) حول الحراك السياسي للإمام السجاد (ع) في نهضة كربلاء",
+        "authors": ["غلام حسين حسيني"],
+        "publicationVenue": "حكومة اسلامى - 26",
+        "language": "فارسي",
+        "pagenam": 19
+      }
+    ],
+    "publishedYear": "1381 ش",
+    "pdfUrl": "/general/عناوين_رئيسية_حول_الحراك_السياسي_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "33",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "حقوق وواجبات الإنسان من منظور الإمام السجاد (عليه السلام)",
+        "authors": [],
+        "publicationVenue": "حوزه دانشكاه - شماره 31",
+        "language": "فارسي",
+        "pagenam": 14
+      }
+    ],
+    "publishedYear": "1381 ش",
+    "pdfUrl": "/general/حقوق_وواجبات_الإنسان_من_منظور_الامام_السجاد.pdf"
+  },
+  {
+    "id": "34",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "العلاقة بين الإنسان والله في دعاء عرفة للإمام الحسين (ع) والإمام السجاد (ع)",
+        "authors": ["قادر فاضلى"],
+        "publicationVenue": "ميقات - شماره 42",
+        "language": "فارسي",
+        "pagenam": 30
+      }
+    ],
+    "publishedYear": "1381 م",
+    "pdfUrl": "/general/العلاقة_بين_الإنسان_والله_في_دعاء_عرفة.pdf"
+  },
+  {
+    "id": "35",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام السجاد (ع) و حقوق الجيران",
+        "authors": ["غلامرضا گلی زواره قمشه ای"],
+        "publicationVenue": "فرهنگ کوثر ۱۳۸۲ شماره ۵۷",
+        "language": "فارسي",
+        "pagenam": 14
+      }
+    ],
+    "publishedYear": "1382 ش",
+    "pdfUrl": "/general/الامام_السجاد_وحقوق_الجيران.pdf"
+  },
+  {
+    "id": "36",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الإمام السجاد (ع) وطرق التفسير",
+        "authors": ["محمد على اسدى نسب"],
+        "publicationVenue": "فرهنگ کوثر ۱۳۸۲ شماره ۵۷",
+        "language": "فارسي",
+        "pagenam": 11
+      }
+    ],
+    "publishedYear": "1382 ش",
+    "pdfUrl": "/general/الامام_السجاد_وطرق_التفسير.pdf"
+  },
+  {
+    "id": "37",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مظاهر من كلام الامام السجاد (ع)",
+        "authors": ["عباس رفیع پورعلوی علویجه"],
+        "publicationVenue": "فرهنگ کوثر ۱۳۸۲ شماره ۵۷",
+        "language": "فارسي",
+        "pagenam": 10
+      }
+    ],
+    "publishedYear": "1382 ش",
+    "pdfUrl": "/general/مظاهر_من_كلام_الامام_السجاد.pdf"
+  },
+  {
+    "id": "38",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام السجاد (ع) في آثار الشهيد المطهري",
+        "authors": ["مقصود رنجبر"],
+        "publicationVenue": "فرهنگ کوثر 1382 شماره 57",
+        "language": "فارسي",
+        "pagenam": 10
+      }
+    ],
+    "publishedYear": "1382 ش",
+    "pdfUrl": "/general/الامام_السجاد_في_آثار_الشهيد_المطهري.pdf"
+  },
+  {
+    "id": "39",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "القاسم بن محمد من حواري الامام زين العابدين (ع)",
+        "authors": ["ابوالحسن ربانی سبزواری"],
+        "publicationVenue": "فرهنگ کوثر ۱۳۸۲ شماره ۵۷",
+        "language": "فارسي",
+        "pagenam": 8
+      }
+    ],
+    "publishedYear": "1382 ش",
+    "pdfUrl": "/general/القاسم_بن_محمد_من_حواري_الامام_زين_العابدين.pdf"
+  },
+  {
+    "id": "40",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مواصلة العزة و الافتخار الحسيني للإمام السجاد ع",
+        "authors": ["عبد الكريم تبريزي"],
+        "publicationVenue": "مبلغان ۱۳۸۲ شماره ۳۹",
+        "language": "فارسي",
+        "pagenam": 24
+      }
+    ],
+    "publishedYear": "1382 ش",
+    "pdfUrl": "/general/مواصلة_العزة_والافتخار_الحسيني_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "41",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "سيرة الإمام السجاد (عليه السلام) من وجهة نظر القيادة (قيادة إيران)",
+        "authors": ["على نقى مير حسينى"],
+        "publicationVenue": "فرهنك كوثر - شماره 57",
+        "language": "فارسي",
+        "pagenam": 15
+      }
+    ],
+    "publishedYear": "1382 ش",
+    "pdfUrl": "/general/سيرة_الامام_السجاد_من_وجهة_نظر_القيادة.pdf"
+  },
+  {
+    "id": "42",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "جولة في ببليوغرافيا (فهرسة المصادر والمؤلفات حول) الإمام السجاد (ع)",
+        "authors": ["عبد العلى براتى"],
+        "publicationVenue": "فرهنك كوثر - شماره 57",
+        "language": "فارسي",
+        "pagenam": 14
+      }
+    ],
+    "publishedYear": "1382 ش",
+    "pdfUrl": "/general/جولة_في_ببليوغرافيا_الامام_السجاد.pdf"
+  },
+  {
+    "id": "43",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "ملامح شخصية الإمام السجاد (عليه السلام).",
+        "authors": ["محمد إبراهيم ايزدخواه"],
+        "publicationVenue": "فرهنك كوثر - شماره 57",
+        "language": "فارسي",
+        "pagenam": 8
+      }
+    ],
+    "publishedYear": "1382 ش",
+    "pdfUrl": "/general/ملامح_شخصية_الامام_السجاد_1.pdf"
+  },
+  {
+    "id": "44",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الصحيفة السجادية برواية ابن مالك",
+        "authors": ["على صدرا خويى"],
+        "publicationVenue": "علوم حدیث»پاييز 1382 - شماره 29",
+        "language": "فارسي",
+        "pagenam": 15
+      }
+    ],
+    "publishedYear": "1382 ش",
+    "pdfUrl": "/general/الصحيفة_السجادية_برواية_ابن_مالك.pdf"
+  },
+  {
+    "id": "45",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الإمام السجاد (عليه السلام) وحركة التوابين",
+        "authors": ["عيسى ساجدي فر"],
+        "publicationVenue": "نشريه كوثر- شماره 54- تابستان 1382",
+        "language": "فارسي",
+        "pagenam": 10
+      }
+    ],
+    "publishedYear": "1382 ش",
+    "pdfUrl": "/general/الامام_السجاد_وحركة_التوابين.pdf"
+  },
+  {
+    "id": "46",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التربية من وجهة نظر الامام السجاد عليه السلام",
+        "authors": ["علي همت بناري"],
+        "publicationVenue": "قدس، (۱۰ مهر ۱۳۸۲): ص ۱۰",
+        "language": "فارسي",
+        "pagenam": 10
+      }
+    ],
+    "publishedYear": "1382 ش",
+    "pdfUrl": "/general/التربية_من_وجهة_نظر_الامام_السجاد.pdf"
+  },
+  {
+    "id": "47",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "اُمّ الامام السجاد ع",
+        "authors": ["محمد عابدى"],
+        "publicationVenue": "فرهنگ كوثر - 57- 1382",
+        "language": "فارسي",
+        "pagenam": 10
+      }
+    ],
+    "publishedYear": "1382 ش",
+    "pdfUrl": "/general/ام_الامام_السجاد.pdf"
+  },
+  {
+    "id": "48",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الامام السجاد عليه السلام فاتح القلوب",
+        "authors": ["عبد الكريم باك نيا"],
+        "publicationVenue": "نشريه كوثر، شماره 57، بهار 1383",
+        "language": "فارسي",
+        "pagenam": 12
+      }
+    ],
+    "publishedYear": "1383 ش",
+    "pdfUrl": "/general/الامام_السجاد_فاتح_القلوب.pdf"
+  },
+  {
+    "id": "49",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المتأملون (أو المتعمقون) في حديث الإمام السجاد (عليه السلام)",
+        "authors": ["عسكرى", "سلیمانی"],
+        "publicationVenue": "نقد و نظر ۱۳۸۳ شماره 33 و ۳4",
+        "language": "فارسي",
+        "pagenam": 30
+      }
+    ],
+    "publishedYear": "1383 ش",
+    "pdfUrl": "/general/المتأملون_في_حديث_الامام_السجاد.pdf"
+  },
+  {
+    "id": "50",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الإمام السجاد (عليه السلام) ونهضة تقديم الخدمات (للناس)",
+        "authors": ["محمد عابدي"],
+        "publicationVenue": "نشريه كوثر، شماره 57، بهار 1383",
+        "language": "فارسي",
+        "pagenam": 13
+      }
+    ],
+    "publishedYear": "1383 ش",
+    "pdfUrl": "/general/الامام_السجاد_ونهضة_تقديم_الخدمات.pdf"
+  },
+  {
+    "id": "51",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الناظرون (أو المتأملون) في بواطن الأمور في حديث الإمام السجاد (ع)",
+        "authors": ["رضا برنجکار"],
+        "publicationVenue": "نقد و نظر ۱۳۸۳ شماره ۳۳ و ۳۴",
+        "language": "فارسي",
+        "pagenam": 23
+      }
+    ],
+    "publishedYear": "1383 ش",
+    "pdfUrl": "/general/الناظرون_في_بواطن_الامور_في_حديث_الامام_السجاد.pdf"
+  },
+  {
+    "id": "52",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "ملامح شخصية الإمام السجاد (عليه السلام).",
+        "authors": ["محمد عابدى ميانجى"],
+        "publicationVenue": "مبلغان ۱۳۸۳ شماره ۵۸",
+        "language": "فارسي",
+        "pagenam": 14
+      }
+    ],
+    "publishedYear": "1383 ش",
+    "pdfUrl": "/general/ملامح_شخصية_الامام_السجاد_2.pdf"
+  },
+  {
+    "id": "53",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الادب في خطب الامام السجاد (ع) والصحيفة السجادية",
+        "authors": ["سید فضل الله میرقادری"],
+        "publicationVenue": "فصلنامه اندیشه دینی شماره 15، دوره 5",
+        "language": "فارسي",
+        "pagenam": 15
+      }
+    ],
+    "publishedYear": "1384 ش",
+    "pdfUrl": "/general/الادب_في_خطب_الامام_السجاد_والصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "54",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "امام الزمان (ع) في كلام وأدعية الامام السجاد (ع)",
+        "authors": ["جواد حسينى"],
+        "publicationVenue": "نشریه مبلغان - شهريور و مهر 1384 شماره 70",
+        "language": "فارسي",
+        "pagenam": 6
+      }
+    ],
+    "publishedYear": "1384 ش",
+    "pdfUrl": "/general/امام_الزمان_في_كلام_وأدعية_الامام_السجاد.pdf"
+  },
+  {
+    "id": "55",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التجربة التفسيرية والإمام السجاد (ع)",
+        "authors": ["علي شيروانى"],
+        "publicationVenue": "نشریه انجمن معارف اسلامی - پياپي 5 - زمستان 1384 شماره1",
+        "language": "فارسي",
+        "pagenam": 41
+      }
+    ],
+    "publishedYear": "1384 ش",
+    "pdfUrl": "/general/التجربة_التفسيرية_والامام_السجاد.pdf"
+  },
+  {
+    "id": "56",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "(الرياض) الثلاث في شرح الصحيفة السجادية",
+        "authors": ["باقر قربانی زرین"],
+        "publicationVenue": "نشریه: سفینه بهار 1384 شماره 6",
+        "language": "فارسي",
+        "pagenam": 14
+      }
+    ],
+    "publishedYear": "1384 ش",
+    "pdfUrl": "/general/الرياض_الثلاث_في_شرح_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "57",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "أثر التدريب على المهارات الحياتية في خفض الاضطرابات السلوكية لدى طلاب المرحلة المتوسطة في مدرسة الإمام السجاد",
+        "authors": ["قربان همتی علم دارلو", "ستاره شجاعی"],
+        "publicationVenue": "تازه ها و پژوهشهای مشاوره ۱۳۸۴ شماره ۱۶",
+        "language": "فارسي",
+        "pagenam": 24
+      }
+    ],
+    "publishedYear": "1384 ش",
+    "pdfUrl": "/general/أثر_التدريب_على_المهارات_الحياتية_في_مدرسة_الامام_السجاد.pdf"
+  },
+  {
+    "id": "58",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التثقيف عند الامام السجاد (ع) بلغة الدعاء",
+        "authors": ["محمد جواد سلمانپور"],
+        "publicationVenue": "فصلنامه اندیشه دینی، پیاپی 17 (زمستان 1384)",
+        "language": "فارسي",
+        "pagenam": 22
+      }
+    ],
+    "publishedYear": "1384 ش",
+    "pdfUrl": "/general/التثقيف_عند_الامام_السجاد_بلغة_الدعاء.pdf"
+  },
+  {
+    "id": "59",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "أسماء وصفات القرآن في دعاء ختم القران في الصحيفة السجادية",
+        "authors": ["احمد رضا غایی"],
+        "publicationVenue": "نشریه سفینه، پیاپی 9 (زمستان 1384)",
+        "language": "فارسي",
+        "pagenam": 37
+      }
+    ],
+    "publishedYear": "1384 ش",
+    "pdfUrl": "/general/أسماء_وصفات_القرآن_في_دعاء_ختم_القران_في_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "60",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الإمام علي الأصغر زين العابدين عليه السلام",
+        "authors": ["دوايت .م . دونالدسن", "عباس احمد وند"],
+        "publicationVenue": "فصل نامه - علمي - بزوهشنامه تاريخ اسلام - العدد 21",
+        "language": "فارسي",
+        "pagenam": 28
+      }
+    ],
+    "publishedYear": "1384 ش",
+    "pdfUrl": "/general/الامام_علي_الأصغر_زين_العابدين.pdf"
+  },
+  {
+    "id": "61",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الإذن الروائي للسجادية في القرن الحادي عشر",
+        "authors": ["جعفر حسینی اشکوری"],
+        "publicationVenue": "نشریه سفینه، پیاپی 9 (زمستان 1384)",
+        "language": "فارسي",
+        "pagenam": 24
+      }
+    ],
+    "publishedYear": "1384 ش",
+    "pdfUrl": "/general/الإذن_الروائي_للسجادية_في_القرن_الحادي_عشر.pdf"
+  },
+  {
+    "id": "62",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "متطلبات البحث في الصحيفة السجادية",
+        "authors": ["سیداحمد سجادی"],
+        "publicationVenue": "نشریه سفینه، پیاپی 6 (بهار 1384)",
+        "language": "فارسي",
+        "pagenam": 19
+      }
+    ],
+    "publishedYear": "1384 ش",
+    "pdfUrl": "/general/متطلبات_البحث_في_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "63",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "عدد خاص بالصحيفة السجادية",
+        "authors": ["مجموعة"],
+        "publicationVenue": "فصلنامه سفينه تخصصى مطالعات قران وحديث",
+        "language": "فارسي",
+        "pagenam": 200
+      }
+    ],
+    "publishedYear": "1384 ش",
+    "pdfUrl": "/general/عدد_خاص_بالصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "64",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "شرح الدعاء الثاني والأربعين من الصحيفة السجادية بنظرة إلى الكمال العلمي للقرآن.",
+        "authors": ["احمد رضا غايى"],
+        "publicationVenue": "فصلنامه سفينه تخصصى مطالعات قران وحديث - شماره 6",
+        "language": "فارسي",
+        "pagenam": 29
+      }
+    ],
+    "publishedYear": "1384 ش",
+    "pdfUrl": "/general/شرح_الدعاء_الثاني_والأربعين_من_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "65",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "حاشية ابن إدريس على الصحيفة السجادية",
+        "authors": ["مجيد غلامى جليسه"],
+        "publicationVenue": "فصلنامه سفينه - شماره 8",
+        "language": "فارسي",
+        "pagenam": 12
+      }
+    ],
+    "publishedYear": "1384 ش",
+    "pdfUrl": "/general/حاشية_ابن_إدريس_على_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "66",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "العلماء الذين اهتموا بتدوين وشرح الصحيفة السجادية (أو علماء الصحيفة).",
+        "authors": ["أبو الفظضل حافظيان"],
+        "publicationVenue": "فصلنامه سفينه - شماره 7",
+        "language": "فارسي",
+        "pagenam": 7
+      }
+    ],
+    "publishedYear": "1384 ش",
+    "pdfUrl": "/general/العلماء_الذين_اهتموا_بتدوين_وشرح_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "67",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "جهود المجلسي الأول والمجلسي الثاني (رحمهما الله) في سبيل تحقيق متنٍ نقديٍ للصحيفة السجادية وترويجها.",
+        "authors": ["جويا جهابخش"],
+        "publicationVenue": "پیام بهارستان - شماره 54",
+        "language": "فارسي",
+        "pagenam": 11
+      }
+    ],
+    "publishedYear": "1384 ش",
+    "pdfUrl": "/general/جهود_المجلسي_الأول_والمجلسي_الثاني_في_تحقيق_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "68",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "نظرة على كتاب الصحيفة السجادية",
+        "authors": ["وليام جيتيك", "حسين بور قاسميان"],
+        "publicationVenue": "فصلنامه سفينه - شماره 6",
+        "language": "فارسي",
+        "pagenam": 15
+      }
+    ],
+    "publishedYear": "1384 ش",
+    "pdfUrl": "/general/نظرة_على_كتاب_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "69",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تحقيق في نسخة الشهيد الاول للصحيفة السجادية",
+        "authors": ["حسن موسوي بروجردي"],
+        "publicationVenue": "فصلنامه سفينه - شماره 7",
+        "language": "فارسي",
+        "pagenam": 42
+      }
+    ],
+    "publishedYear": "1384 ش",
+    "pdfUrl": "/general/تحقيق_في_نسخة_الشهيد_الاول_للصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "70",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "النبي الأعظم (ص) في نظر الإمام السجاد (ع)",
+        "authors": ["عبد الكريم تبريزي"],
+        "publicationVenue": "نشریه - مبلغان - شهريور و مهر 1385 شماره82",
+        "language": "فارسي",
+        "pagenam": 7
+      }
+    ],
+    "publishedYear": "1385 ش",
+    "pdfUrl": "/general/النبي_الأعظم_في_نظر_الامام_السجاد.pdf"
+  },
+  {
+    "id": "71",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التاريخ السياسي لأئمة الهدى: من عهد الإمام السجاد (ع) إلى الإمام العسكري (ع)",
+        "authors": ["صادق آئینه وند"],
+        "publicationVenue": "کیهان فرهنگی خرداد ۱۳۸۵ شماره ۲۳۶",
+        "language": "فارسي",
+        "pagenam": 8
+      }
+    ],
+    "publishedYear": "1385 ش",
+    "pdfUrl": "/general/التاريخ_السياسي_لأئمة_الهدى_من_عهد_الامام_السجاد.pdf"
+  },
+  {
+    "id": "72",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الإمام السجاد (ع) في ذهن أهل السنة ولغتهم / القسم الأول",
+        "authors": ["سعید طاووسی مسرور"],
+        "publicationVenue": "فروغ وحدت تابستان ۱۳۸۵ شماره ۴",
+        "language": "فارسي",
+        "pagenam": 1
+      }
+    ],
+    "publishedYear": "1385 ش",
+    "pdfUrl": "/general/الامام_السجاد_في_ذهن_أهل_السنة_ولغتهم_القسم_الأول.pdf"
+  },
+  {
+    "id": "73",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الطرق التربوية للإمام السجاد (عليه السلام)",
+        "authors": ["زهرا فلاح پور"],
+        "publicationVenue": "نامه جامعه 1385 شماره 25 و 26",
+        "language": "فارسي",
+        "pagenam": 12
+      }
+    ],
+    "publishedYear": "1385 ش",
+    "pdfUrl": "/general/الطرق_التربوية_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "74",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الجهاد السياسي والاجتماعي للإمام السجاد (عليه السلام) في نظرة واحدة (أو في سطور).",
+        "authors": [],
+        "publicationVenue": "فصلنامه معارف اسلامی، پیاپی 66 (دی ، بهمن ، اسفند 1385)",
+        "language": "فارسي",
+        "pagenam": 9
+      }
+    ],
+    "publishedYear": "1385 ش",
+    "pdfUrl": "/general/الجهاد_السياسي_والاجتماعي_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "75",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "چراغ هاى رابطه روشن است / بازركردان فارسى بخشى از مناجات خمس عشر از امام سجاد ع",
+        "authors": ["باقر مير عبد اللهى"],
+        "publicationVenue": "خردنامه - شماره 6",
+        "language": "فارسي",
+        "pagenam": 5
+      }
+    ],
+    "publishedYear": "1385 ش",
+    "pdfUrl": "/general/چراغ_هاى_رابطه_روشن_است_بازركردان_فارسی_بخشی_از_مناجات_خمس_عشر.pdf"
+  },
+  {
+    "id": "76",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "بضع نسخ خطية متبقية من مدرسة الكرامية في نيشابور.",
+        "authors": ["محمد كاظم رحمتى"],
+        "publicationVenue": "اينه ميراث - شماره 32",
+        "language": "فارسي",
+        "pagenam": 11
+      }
+    ],
+    "publishedYear": "1385 ش",
+    "pdfUrl": "/general/بضع_نسخ_خطية_متبقية_من_مدرسة_الكرامية_في_نيشابور.pdf"
+  },
+  {
+    "id": "77",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "خُطبة الإمام السجاد (ع) في الثورة ضد المؤامرات (أو الخدع).",
+        "authors": ["فاطمه السادات باقى بور"],
+        "publicationVenue": "شمیم یاس بهمن ۱۳۸۶ شماره ۵۹",
+        "language": "فارسي",
+        "pagenam": 8
+      }
+    ],
+    "publishedYear": "1386 ش",
+    "pdfUrl": "/general/خطبة_الامام_السجاد_في_الثورة_ضد_المؤامرات.pdf"
+  },
+  {
+    "id": "78",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "سيرة الامام السجاد",
+        "authors": ["مرتضى عسكرى"],
+        "publicationVenue": "نشریه پیام » سال 1386 - شماره 86",
+        "language": "فارسي",
+        "pagenam": 9
+      }
+    ],
+    "publishedYear": "1386 ش",
+    "pdfUrl": "/general/سيرة_الامام_السجاد.pdf"
+  },
+  {
+    "id": "79",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "بحث في الرسالة المنسوبة للإمام السجاد (ع) الموجهة إلى الزهري",
+        "authors": ["محمد حسن زاهدی توچائی"],
+        "publicationVenue": "نشریه مقالات و بررسیها- پياپي 86 - 1387 شماره1",
+        "language": "فارسي",
+        "pagenam": 1
+      }
+    ],
+    "publishedYear": "1387 ش",
+    "pdfUrl": "/general/بحث_في_الرسالة_المنسوبة_للإمام_السجاد_الموجهة_إلى_الزهري.pdf"
+  },
+  {
+    "id": "80",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الإمام السجاد (عليه السلام) والمحبوبية الاجتماعية.",
+        "authors": ["عبد الكريم باك نيا"],
+        "publicationVenue": "نشریه مبلغان - دي و بهمن 1387 شماره111",
+        "language": "فارسي",
+        "pagenam": 11
+      }
+    ],
+    "publishedYear": "1387 ش",
+    "pdfUrl": "/general/الامام_السجاد_والمحبوبية_الاجتماعية.pdf"
+  },
+  {
+    "id": "81",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "ثورات ابناء الامام زين العابدين (ع)",
+        "authors": ["محمد باقر طالبى"],
+        "publicationVenue": "نشریه: کیهان فرهنگی » تير و مرداد 1387 شماره261-262",
+        "language": "فارسي",
+        "pagenam": 6
+      }
+    ],
+    "publishedYear": "1387 ش",
+    "pdfUrl": "/general/ثورات_ابناء_الامام_زين_العابدين.pdf"
+  },
+  {
+    "id": "82",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الصاحب الإيراني للإمام سجاد ع",
+        "authors": ["مهدى لطفى"],
+        "publicationVenue": "نشریه موعود - بهمن 1388 شماره108",
+        "language": "فارسي",
+        "pagenam": 2
+      }
+    ],
+    "publishedYear": "1388 ش",
+    "pdfUrl": "/general/الصاحب_الإيراني_للإمام_سجاد.pdf"
+  },
+  {
+    "id": "83",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الأميرة رفيعة المقام شهربانو - حديثٌ حول الأم الجليلة وشاهزاده (ابنة الملك) والدة الإمام علي بن الحسين السجاد (عليهما السلام).",
+        "authors": ["احمد مهدوى دامغانى"],
+        "publicationVenue": "اينه ميراث - دوره جديده - سال 7 - ضميمه 16",
+        "language": "فارسي",
+        "pagenam": 84
+      }
+    ],
+    "publishedYear": "1388 ش",
+    "pdfUrl": "/general/الأميرة_رفيعة_المقام_شهربانو_حديث_حول_الأم_الجليلة_والدة_الامام_السجاد.pdf"
+  },
+  {
+    "id": "84",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تقرير السيدة زينب (عليها السلام) عن واقعة كربلاء، ومقدماتها، وتداعياتها.",
+        "authors": ["نادر فضلى"],
+        "publicationVenue": "مجلة سفينه العدد 6 - السنة 22",
+        "language": "فارسي",
+        "pagenam": 12
+      }
+    ],
+    "publishedYear": "1388 ش",
+    "pdfUrl": "/general/تقرير_السيدة_زينب_عن_واقعة_كربلاء.pdf"
+  },
+  {
+    "id": "85",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "نظرة في سيرة الإمام السجاد (عليه السلام).",
+        "authors": [],
+        "publicationVenue": "باسدار اسلام - سال هفتم - شماره 76",
+        "language": "فارسي",
+        "pagenam": 2
+      }
+    ],
+    "publishedYear": "1388 ش",
+    "pdfUrl": "/general/نظرة_في_سيرة_الامام_السجاد.pdf"
+  },
+  {
+    "id": "86",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "حاشية الصحيفة السجادية لمحمد بن اىريس",
+        "authors": ["محمد حسين حكيم"],
+        "publicationVenue": "ميراث حديث شيعه - شماره 20",
+        "language": "فارسي",
+        "pagenam": 114
+      }
+    ],
+    "publishedYear": "1388 هـ",
+    "pdfUrl": "/general/حاشية_الصحيفة_السجادية_لمحمد_ابن_ادريس.pdf"
+  },
+  {
+    "id": "87",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الموت في الصحيفة السجادية",
+        "authors": ["محسن دده بیگى"],
+        "publicationVenue": "مجلة بينات سال هفدهم زمستان ۱۳۸۹ شماره ۴ پیاپی ۶۸",
+        "language": "فارسي",
+        "pagenam": 10
+      }
+    ],
+    "publishedYear": "1389 ش",
+    "pdfUrl": "/general/الموت_في_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "88",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الشخصية القرآنية للإمام السجاد (ع)",
+        "authors": ["مهناز رحيم بور"],
+        "publicationVenue": "نشریه بینات پياپي 68 -زمستان 1389 شماره4",
+        "language": "فارسي",
+        "pagenam": 12
+      }
+    ],
+    "publishedYear": "1389 ش",
+    "pdfUrl": "/general/الشخصية_القرآنية_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "89",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المبنى القرآني لخطاب الإمام السجاد ع",
+        "authors": ["ازاده عباسي"],
+        "publicationVenue": "فصلنامه بینات- سال هفدهم شماره 4 - زمستان 1389",
+        "language": "فارسي",
+        "pagenam": 8
+      }
+    ],
+    "publishedYear": "1389 ش",
+    "pdfUrl": "/general/المبنى_القرآني_لخطاب_الامام_السجاد.pdf"
+  },
+  {
+    "id": "90",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "أسلوب مناظرات الإمام السجاد ع",
+        "authors": ["معصومه السادات حسيني ميرصفي"],
+        "publicationVenue": "نشریه بینات - پياپي 68 - زمستان 1389 شماره4",
+        "language": "فارسي",
+        "pagenam": 21
+      }
+    ],
+    "publishedYear": "1389 ش",
+    "pdfUrl": "/general/أسلوب_مناظرات_الامام_السجاد.pdf"
+  },
+  {
+    "id": "91",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تعظيم القرآن في دعاء ختم القران للإمام السجاد (ع)",
+        "authors": ["حسن پویا"],
+        "publicationVenue": "نشریه - بینات - پياپي 68 - زمستان 1389 شماره4",
+        "language": "فارسي",
+        "pagenam": 18
+      }
+    ],
+    "publishedYear": "1389 ش",
+    "pdfUrl": "/general/تعظيم_القرآن_في_دعاء_ختم_القران_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "92",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "آثار بعض الذنوب على لسان الامام السجاد (ع)",
+        "authors": ["جواد حسینی"],
+        "publicationVenue": "مبلغان تیر و مرداد ۱۳۸۹ شماره ۱۳۰",
+        "language": "فارسي",
+        "pagenam": 11
+      }
+    ],
+    "publishedYear": "1389 ش",
+    "pdfUrl": "/general/آثار_بعض_الذنوب_على_لسان_الامام_السجاد.pdf"
+  },
+  {
+    "id": "93",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دراسة أصول التربية الاجتماعية من وجهة نظر الإمام السجاد (ع) في الصحيفة السجادية",
+        "authors": ["فرشته ملاسلمانی", "علی قائمی", "سعید بهشتی"],
+        "publicationVenue": "وانشناسی تربیتی دوره جدید سال ششم تابستان ۱۳۸۹ شماره ۱۷",
+        "language": "فارسي",
+        "pagenam": 28
+      }
+    ],
+    "publishedYear": "1389 ش",
+    "pdfUrl": "/general/دراسة_أصول_التربية_الاجتماعية_من_وجهة_نظر_الامام_السجاد.pdf"
+  },
+  {
+    "id": "94",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مكانة التأويل في الروايات التفسيرية للإمام السجاد (ع)",
+        "authors": ["منصور پهلوان"],
+        "publicationVenue": "سفینه » تابستان 1389 شماره27",
+        "language": "فارسي",
+        "pagenam": 15
+      }
+    ],
+    "publishedYear": "1389 ش",
+    "pdfUrl": "/general/مكانة_التأويل_في_الروايات_التفسيرية_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "95",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "لماذا فضّل الإمام السجاد (ع) الحج على الجهاد.",
+        "authors": ["احمد عابديني"],
+        "publicationVenue": "فصلنانه بينات - شماره 4 - سال 17",
+        "language": "فارسي",
+        "pagenam": 4
+      }
+    ],
+    "publishedYear": "1389 ش",
+    "pdfUrl": "/general/لماذا_فضل_الامام_السجاد_الحج_على_الجهاد.pdf"
+  },
+  {
+    "id": "96",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مستدرك الصحيفة السجادية",
+        "authors": ["علي صدرايى خويى"],
+        "publicationVenue": "مجلة شهاب ميراث العدد 63-64",
+        "language": "فارسي",
+        "pagenam": 5
+      }
+    ],
+    "publishedYear": "1390 ش",
+    "pdfUrl": "/general/مستدرك_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "97",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "العلاقة بين التقوى ونشر العدل في دعاء مكارم الاخلاق للامام السجاد (ع)",
+        "authors": ["مهناز كريم بور"],
+        "publicationVenue": "بینات سال هجدهم پاییز ۱۳۹۰ شماره ۳ پیاپی ۷۱",
+        "language": "فارسي",
+        "pagenam": 3
+      }
+    ],
+    "publishedYear": "1390 ش",
+    "pdfUrl": "/general/العلاقة_بين_التقوى_ونشر_العدل_في_دعاء_مكارم_الاخلاق.pdf"
+  },
+  {
+    "id": "98",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "منظومة الحقوق والواجبات في العلاقات الاجتماعية من منظور الإسلام استنادا إلى رسالة الحقوق ورسالة الإمام السجاد (ع).",
+        "authors": ["اسماعیل صابرکیوج"],
+        "publicationVenue": "ماهنامه معرفت، سال بیستم شماره 12 (پیاپی 171، اسفند 1390)",
+        "language": "فارسي",
+        "pagenam": 18
+      }
+    ],
+    "publishedYear": "1390 ش",
+    "pdfUrl": "/general/منظومة_الحقوق_والواجبات_في_العلاقات_الاجتماعية_من_منظور_الإسلام.pdf"
+  },
+  {
+    "id": "99",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تطابق موضوعات رسالة الحقوق مع القرآن الكريم.",
+        "authors": ["احمد صادقى اردستاني"],
+        "publicationVenue": "بينات - السنة 17",
+        "language": "فارسي",
+        "pagenam": 17
+      }
+    ],
+    "publishedYear": "1390 ش",
+    "pdfUrl": "/general/تطابق_موضوعات_رسالة_الحقوق_مع_القرآن_الكريم.pdf"
+  },
+  {
+    "id": "100",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مكانة القرآن في روايات الإمام السجاد (عليه السلام).",
+        "authors": ["سهيلا جلالى"],
+        "publicationVenue": "بينات - السنة 17",
+        "language": "فارسي",
+        "pagenam": 18
+      }
+    ],
+    "publishedYear": "1390 ش",
+    "pdfUrl": "/general/مكانة_القرآن_في_روايات_الامام_السجاد.pdf"
+  },
+  {
+    "id": "101",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الصورة النورانية للقرآن في كلام الإمام السجاد (عليه السلام).",
+        "authors": ["نفيسه زروندى رحمانى"],
+        "publicationVenue": "بينات - السنة 17",
+        "language": "فارسي",
+        "pagenam": 13
+      }
+    ],
+    "publishedYear": "1390 ش",
+    "pdfUrl": "/general/الصورة_النورانية_للقرآن_في_كلام_الامام_السجاد.pdf"
+  },
+  {
+    "id": "102",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "البحث عن الأسرة ووظائفها التربوية في تعاليم الإمام السجاد (ع) مع التأكيد على طرق التخلص من الانحراف وزيادة الفضيلة",
+        "authors": ["مهدی ایزدی", "حسین مهدوی منش"],
+        "publicationVenue": "دوفصلنامه مطالعات قرآن و حدیث شماره 11، دوره 6",
+        "language": "فارسي",
+        "pagenam": 43
+      }
+    ],
+    "publishedYear": "1391 ش",
+    "pdfUrl": "/general/البحث_عن_الأسرة_ووظائفها_التربوية_في_تعاليم_الامام_السجاد.pdf"
+  }
+}
+] [
+  {
+    "id": "103",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تأمل في خبر لقاء الإمام زين العابدين (عليه السلام) بمسلم بن عقبة في ثورة الحرة",
+        "authors": ["محمد حسن زاهدی توچائی"],
+        "publicationVenue": "پژوهش های قرآن و حدیث سال چهل و پنجم بهار و تابستان ۱۳۹۱ شماره ۱",
+        "language": "فارسي",
+        "pagenam": 26
+      }
+    ],
+    "publishedYear": "1391 ش",
+    "pdfUrl": "/general/تأمل_في_خبر_لقاء_الامام_زين_العابدين_بمسلم_بن_عقبة.pdf"
+  },
+  {
+    "id": "104",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التجلي العاطفي ومكانته في الصحيفة السجادية.",
+        "authors": ["مهدي تركشوند", "موسى عربي"],
+        "publicationVenue": "مجلة الادب العربي - السنة 4 - العدد 1",
+        "language": "فارسي",
+        "pagenam": 24
+      }
+    ],
+    "publishedYear": "1391 ش",
+    "pdfUrl": "/general/التجلي_العاطفي_ومكانته_في_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "105",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "كم نسخة وقف للصحيفة السجادية في اكاديمية العلوم الجمهورية الأذربيجانية",
+        "authors": ["طاهر نور على بنوا"],
+        "publicationVenue": "كتاب شيعه 5 - العدد 1 - السنة 3",
+        "language": "فارسي",
+        "pagenam": 5
+      }
+    ],
+    "publishedYear": "1391 ش",
+    "pdfUrl": "/general/كم_نسخة_وقف_للصحيفة_السجادية_في_اكاديمية_العلوم_الجمهورية_الأذربيجانية.pdf"
+  },
+  {
+    "id": "106",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الخطوط العريضة للفكر المهدوي من الإمام علي (ع) إلى الإمام السجاد (ع)",
+        "authors": ["امير غنوى"],
+        "publicationVenue": "مشرق موعود - پاييز 1392 شماره27",
+        "language": "فارسي",
+        "pagenam": 22
+      }
+    ],
+    "publishedYear": "1392 ش",
+    "pdfUrl": "/general/الخطوط_العريضة_للفكر_المهدوي_من_الامام_علي_الى_الامام_السجاد.pdf"
+  },
+  {
+    "id": "107",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الخوارق في الصحيفة السجادية",
+        "authors": ["عباس گنجعلی"],
+        "publicationVenue": "نشریه: پژوهش های قرآن و حدیث » 1392 شماره2",
+        "language": "فارسي",
+        "pagenam": 18
+      }
+    ],
+    "publishedYear": "1392 ش",
+    "pdfUrl": "/general/الخوارق_في_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "108",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التحقق من اعتبار الصحيفة السجادية",
+        "authors": ["احمد غلامعلی"],
+        "publicationVenue": "فصلنامه علوم حدیث، سال هجدهم شماره 3 (پیاپی 69، پاییز 1392)",
+        "language": "فارسي",
+        "pagenam": 26
+      }
+    ],
+    "publishedYear": "1392 ش",
+    "pdfUrl": "/general/التحقق_من_اعتبار_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "109",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المضامين المشتركة للأنثروبولوجيا (علم الإنسان) في الصحيفة السجادية والأشعار المنسوبة للإمام السجاد (عليه السلام).",
+        "authors": ["رضا افخمى عقدا", "محبوبه زارع", "وصال ميمندى"],
+        "publicationVenue": "ادب عربى - العدد 1- السنة 5",
+        "language": "فارسي",
+        "pagenam": 18
+      }
+    ],
+    "publishedYear": "1392 ش",
+    "pdfUrl": "/general/المضامين_المشتركة_للأنثروبولوجيا_في_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "110",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "(نظرية المعرفة) كمنهجٍ أساسي للتربية الأخلاقية من منظور الإمام السجاد (ع) في الصحيفة السجادية.",
+        "authors": ["مهدى ايزدى", "حسين مهدوى منش"],
+        "publicationVenue": "فصلنامه بزوهش تحقيقات علوم قران وحديث - شماره 1",
+        "language": "فارسي",
+        "pagenam": 43
+      }
+    ],
+    "publishedYear": "1392 ش",
+    "pdfUrl": "/general/نظرية_المعرفة_كمنهج_أساسي_للتربية_الأخلاقية_من_منظور_الامام_السجاد.pdf"
+  },
+  {
+    "id": "111",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الفكر السياسي عند الامام السجاد",
+        "authors": ["رشيد ركابيان"],
+        "publicationVenue": "نشریه پژوهش نامه تاریخ » زمستان 1393 شماره37",
+        "language": "فارسي",
+        "pagenam": 24
+      }
+    ],
+    "publishedYear": "1393 ش",
+    "pdfUrl": "/general/الفكر_السياسي_عند_الامام_السجاد.pdf"
+  },
+  {
+    "id": "112",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مكانة الاعتصام بالله في كلام الامام السجاد (عليه السلام) - ٢",
+        "authors": ["محمد تقى مصباح"],
+        "publicationVenue": "معرفت سال بیست و سوم دی ۱۳۹۳ شماره ۲۰۵",
+        "language": "فارسي",
+        "pagenam": 7
+      }
+    ],
+    "publishedYear": "1393 ش",
+    "pdfUrl": "/general/مكانة_الاعتصام_بالله_في_كلام_الامام_السجاد_2.pdf"
+  },
+  {
+    "id": "113",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "علاقة الأخلاق بالسياسة في الحياة السياسية للإمام السجاد (عليه السلام)",
+        "authors": ["جلال درخشه", "جبار شجاعی"],
+        "publicationVenue": "سیاست دوره ۴۴ بهار ۱۳۹۳ شماره ۱",
+        "language": "فارسي",
+        "pagenam": 20
+      }
+    ],
+    "publishedYear": "1393 ش",
+    "pdfUrl": "/general/علاقة_الأخلاق_بالسياسة_في_الحياة_السياسية_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "114",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تحليل سلوك الإمام السجاد في الإدارة الثقافية بعد عاشوراء",
+        "authors": ["علیرضا اشتری تفرشی", "منا زینلی طرقی"],
+        "publicationVenue": "راهبرد اجتماعی فرهنگی سال چهارم زمستان ۱۳۹۳ شماره ۱۳",
+        "language": "فارسي",
+        "pagenam": 28
+      }
+    ],
+    "publishedYear": "1393 ش",
+    "pdfUrl": "/general/تحليل_سلوك_الامام_السجاد_في_الإدارة_الثقافية_بعد_عاشوراء.pdf"
+  },
+  {
+    "id": "115",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مکانه الاعتصام بالله فی کلام الامام السجاد علیه السلام - 1",
+        "authors": ["محمد تقى مصباح"],
+        "publicationVenue": "معرفت سال بیست و سوم دی ۱۳۹۳ شماره ۲۰4",
+        "language": "فارسي",
+        "pagenam": 6
+      }
+    ],
+    "publishedYear": "1393 ش",
+    "pdfUrl": "/general/مكانة_الاعتصام_بالله_في_كلام_الامام_السجاد_1.pdf"
+  },
+  {
+    "id": "116",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التحليل الجمالي للصور الفنية والموسيقية للصحيفة السجادية (دراسة حالة الادعية 23، 24، 25)",
+        "authors": ["حسن خلف", "مرضیه آباد", "سید حسین سیدی", "بلاسم محسنی"],
+        "publicationVenue": "مجله الجمعیه العلمیه الایرانیه للغه العربیه و آدابها، فصلیه علمیه محکمه، سال دهم شماره 4 (پیاپی 33، زمستان 1393)",
+        "language": "فارسي",
+        "pagenam": 20
+      }
+    ],
+    "publishedYear": "1393 ش",
+    "pdfUrl": "/general/التحليل_الجمالي_للصور_الفنية_والموسيقية_للصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "117",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "أربع مقالات - حول نسخة \"الصحيفة السجادية\" المعروفة بـ \"نسخة الكفعمي\".",
+        "authors": ["محمد حسين حكيم"],
+        "publicationVenue": "بنياد محقق طباطبايى - سازمان واسناد وكتابخانه ملى جمهورى اسلامى ايران",
+        "language": "فارسي",
+        "pagenam": 52
+      }
+    ],
+    "publishedYear": "1393 ش",
+    "pdfUrl": "/general/أربع_مقالات_حول_نسخة_الصحيفة_السجادية_الكفعمي.pdf"
+  },
+  {
+    "id": "118",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "أربع مقالات - الرواية والدراية والكتابة عند الشيخ الكفعمي في مخطوطةٍ من الصحيفة السجادية الشريفة.",
+        "authors": ["جريا جهانبخش"],
+        "publicationVenue": "بنياد محقق طباطبايى - سازمان واسناد وكتابخانه ملى جمهورى اسلامى ايران",
+        "language": "فارسي",
+        "pagenam": 22
+      }
+    ],
+    "publishedYear": "1393 ش",
+    "pdfUrl": "/general/أربع_مقالات_الرواية_والدراية_والكتابة_عند_الشيخ_الكفعمي.pdf"
+  },
+  {
+    "id": "119",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "أربع مقالات - الصحيفة السجادية وجهود الأدباء والعلماء الأعلام (على غرار الكفعمي).",
+        "authors": ["قيس بهجت العطار", "قاسم شهري"],
+        "publicationVenue": "بنياد محقق طباطبايى - سازمان واسناد وكتابخانه ملى جمهورى اسلامى ايران",
+        "language": "فارسي",
+        "pagenam": 12
+      }
+    ],
+    "publishedYear": "1393 ش",
+    "pdfUrl": "/general/أربع_مقالات_الصحيفة_السجادية_وجهود_الأدباء_والعلماء.pdf"
+  },
+  {
+    "id": "120",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "أربع مقالات - نظرة على تعليقات الأستاذ الأجل الشيخ أبو الحسن الشعراني على الصحيفة السجادية.",
+        "authors": ["إسماعيل باغستاني"],
+        "publicationVenue": "بنياد محقق طباطبايى - سازمان واسناد وكتابخانه ملى جمهورى اسلامى ايران",
+        "language": "فارسي",
+        "pagenam": 23
+      }
+    ],
+    "publishedYear": "1393 ش",
+    "pdfUrl": "/general/أربع_مقالات_نظرة_على_تعليقات_الشيخ_أبو_الحسن_الشعراني.pdf"
+  },
+  {
+    "id": "121",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "خصائص المجتمع المثالي في فكر الامام السجاد (عليه السلام).",
+        "authors": ["سعيد مقدم"],
+        "publicationVenue": "معرفت سال بیست و چهارم اسفند ۱۳۹۴ شماره ۲۱۹ - ویژه جامعه شناسی -",
+        "language": "فارسي",
+        "pagenam": 18
+      }
+    ],
+    "publishedYear": "1394 ش",
+    "pdfUrl": "/general/خصائص_المجتمع_المثالي_في_فكر_الامام_السجاد.pdf"
+  },
+  {
+    "id": "122",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مرتكزات الأخلاق الإسلامية وآداب التعليم والتعلم من وجهة نظر رسالة الحقوق للإمام السجاد ع",
+        "authors": ["زهره جعفری", "راضیه حسینی", "نفیسه سادات شیخ الاسلامی"],
+        "publicationVenue": "پژوهش های اخلاقی سال ششم پاییز ۱۳۹۴ شماره ۱ (پیاپی ۲۱)",
+        "language": "فارسي",
+        "pagenam": 17
+      }
+    ],
+    "publishedYear": "1394 ش",
+    "pdfUrl": "/general/مرتكزات_الأخلاق_الإسلامية_وآداب_التعليم_والتعلم_من_وجهة_نظر_رسالة_الحقوق.pdf"
+  },
+  {
+    "id": "123",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التشخيص وتصوير الإبداع (الصورة الفنية) في أدعية الإمام السجاد (عليه السلام).",
+        "authors": ["محمد حسن فواديان", "موسى عربي"],
+        "publicationVenue": "مجلة الادب العربي - السنة 7 - العدد 1",
+        "language": "فارسي",
+        "pagenam": 19
+      }
+    ],
+    "publishedYear": "1394 ش",
+    "pdfUrl": "/general/التشخيص_وتصوير_الإبداع_في_أدعية_الامام_السجاد.pdf"
+  },
+  {
+    "id": "124",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "أسلوب الإمام السجاد في التربية الدينية",
+        "authors": ["مسعود معینی پور", "سیدمحمدمهدی موسوی", "اکبر رهنما"],
+        "publicationVenue": "دوفصلنامه مطالعات اسلام و روانشناسی شماره 16- دوره 9",
+        "language": "فارسي",
+        "pagenam": 30
+      }
+    ],
+    "publishedYear": "1394 ش",
+    "pdfUrl": "/general/أسلوب_الامام_السجاد_في_التربية_الدينية.pdf"
+  },
+  {
+    "id": "125",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المحسّنات اللفظية في كلام الامام الرضا و الامام السجاد (ع)",
+        "authors": ["مصطفی اسفندیاری (فقیه)", "حسن عبداللهی", "علیرضا نادریان لایین"],
+        "publicationVenue": "فصلنامه فرهنگ رضوی شماره 9، دوره 3",
+        "language": "فارسي",
+        "pagenam": 28
+      }
+    ],
+    "publishedYear": "1394 ش",
+    "pdfUrl": "/general/المحسنات_اللفظية_في_كلام_الامام_الرضا_والامام_السجاد.pdf"
+  },
+  {
+    "id": "126",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "ندوة حول \"التراث المصوّر\" (النسخة الفوتوغرافية) للصحيفة السجادية بخط إبراهيم بن علي الكفعمي.",
+        "authors": ["مرتضى هاشمى بور"],
+        "publicationVenue": "فصلنامه ميراث - شماره 8",
+        "language": "فارسي",
+        "pagenam": 9
+      }
+    ],
+    "publishedYear": "1394 ش",
+    "pdfUrl": "/general/ندوة_حول_التراث_المصور_للصحيفة_السجادية_بخط_الكفعمي.pdf"
+  },
+  {
+    "id": "127",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الاقتباسات القرآنية من الديوان المنسوب للإمام السجاد (ع)",
+        "authors": ["نورالدین پروین", "مهدی حاجیان", "شهریار همتی"],
+        "publicationVenue": "دوفصلنامه پژوهش های قرآنی در ادبیات شماره 5، دوره 3",
+        "language": "فارسي",
+        "pagenam": 13
+      }
+    ],
+    "publishedYear": "1395 ش",
+    "pdfUrl": "/general/الاقتباسات_القرآنية_من_الديوان_المنسوب_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "128",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دور الإمام السجاد (ع) في تصحيح التحريف في السيرة النبوية",
+        "authors": ["حسین حسینیان مقدم"],
+        "publicationVenue": "فصلنامه پژوهش های تاریخی شماره 1، دوره 8",
+        "language": "فارسي",
+        "pagenam": 16
+      }
+    ],
+    "publishedYear": "1395 ش",
+    "pdfUrl": "/general/دور_الامام_السجاد_في_تصحيح_التحريف_في_السيرة_النبوية.pdf"
+  },
+  {
+    "id": "129",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تحليل خطبة الامام السجاد (ع) في الكوفة في ضوء السياق النصي والظرفي",
+        "authors": ["إسماعيل حسيني اجداد"],
+        "publicationVenue": "نشریه مطالعات ادبی متون اسلامی » پاييز 1395 شماره3",
+        "language": "فارسي",
+        "pagenam": 28
+      }
+    ],
+    "publishedYear": "1395 ش",
+    "pdfUrl": "/general/تحليل_خطبة_الامام_السجاد_في_الكوفة_في_ضوء_السياق_النصي_والظرفي.pdf"
+  },
+  {
+    "id": "130",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دراسة مقارنة بين دعاء عرفة للإمام الحسين (ع) والإمام السجاد (ع)",
+        "authors": ["حيدر محلاتى"],
+        "publicationVenue": "آیت بوستان سال اول بهار ۱۳۹۵ شماره ۱",
+        "language": "فارسي",
+        "pagenam": 17
+      }
+    ],
+    "publishedYear": "1395 ش",
+    "pdfUrl": "/general/دراسة_مقارنة_بين_دعاء_عرفة_للإمام_الحسين_والإمام_السجاد.pdf"
+  },
+  {
+    "id": "131",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المنطق الذي يحكم احتجاجات الامام السجاد (ع) بشأن حركة عاشوراء",
+        "authors": ["محمد رنجبرحسینی", "طاهره عطار"],
+        "publicationVenue": "آیت بوستان سال اول پاییز ۱۳۹۵ شماره ۳",
+        "language": "فارسي",
+        "pagenam": 20
+      }
+    ],
+    "publishedYear": "1395 ش",
+    "pdfUrl": "/general/المنطق_الذي_يحكم_احتجاجات_الامام_السجاد_بشأن_حركة_عاشوراء.pdf"
+  },
+  {
+    "id": "132",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "استراتيجيات الإمام السجاد (ع) في نشر ثقافة أهل البيت (ع) والتشيع",
+        "authors": ["سید محمود سامانی", "محمود بختیاری"],
+        "publicationVenue": "سیره پژوهی اهل بیت سال اول بهار و تابستان ۱۳۹۵ شماره ۲",
+        "language": "فارسي",
+        "pagenam": 23
+      }
+    ],
+    "publishedYear": "1395 ش",
+    "pdfUrl": "/general/استراتيجيات_الامام_السجاد_في_نشر_ثقافة_أهل_البيت_والتشيع.pdf"
+  },
+  {
+    "id": "133",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المكانة العرفانية للإمام السجاد (ع) عند الصوفية وأهل العلم",
+        "authors": ["محمدجواد شمس", "وحید محمودی"],
+        "publicationVenue": "فصلنامه عرفان اسلامی شماره 51 - دوره 13",
+        "language": "فارسي",
+        "pagenam": 24
+      }
+    ],
+    "publishedYear": "1396 ش",
+    "pdfUrl": "/general/المكانة_العرفانية_للإمام_السجاد_عند_الصوفية_وأهل_العلم.pdf"
+  },
+  {
+    "id": "134",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "صورة من السيرة العلمية للإمام زين العابدين (ع) من المصادر السنية",
+        "authors": ["مسعود مرادى"],
+        "publicationVenue": "نشریه: تاریخ فرهنگ و تمدن اسلامی » بهار 1396 شماره26",
+        "language": "فارسي",
+        "pagenam": 24
+      }
+    ],
+    "publishedYear": "1396 ش",
+    "pdfUrl": "/general/صورة_من_السيرة_العلمية_للإمام_زين_العابدين_من_المصادر_السنية.pdf"
+  },
+  {
+    "id": "135",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تحليل قصيدة الفرزدق في الإمام السجاد (ع)",
+        "authors": ["مریم شعبان زاده", "محبوبه ايمانى"],
+        "publicationVenue": "نشریه تاریخ فرهنگ و تمدن اسلامی پاييز 1396 شماره28",
+        "language": "فارسي",
+        "pagenam": 28
+      }
+    ],
+    "publishedYear": "1396 ش",
+    "pdfUrl": "/general/تحليل_قصيدة_الفرزدق_في_الإمام_السجاد.pdf"
+  },
+  {
+    "id": "136",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "إعادة قراءة التكييفات القرآنية في الصحيفة السجادية (دراسة الدعاء الأول إلى السابع)",
+        "authors": ["تحیه فتاحی زاده", "عارفه داودی", "مرضیه محصص"],
+        "publicationVenue": "پژوهشنامه معارف قرآنی، پیاپی 29 (تابستان 1396)",
+        "language": "فارسي",
+        "pagenam": 30
+      }
+    ],
+    "publishedYear": "1396 ش",
+    "pdfUrl": "/general/إعادة_قراءة_التكييفات_القرآنية_في_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "137",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تحليل المحتوى للصحيفة السجادية",
+        "authors": ["ليلامرادى", "سيد محمد اميرى", "محبوبه خراسانى"],
+        "publicationVenue": "فصلنامه علمى بزوهشهاى اعتقادى كلامى - العدد 1 - السنة 7",
+        "language": "فارسي",
+        "pagenam": 18
+      }
+    ],
+    "publishedYear": "1396 ش",
+    "pdfUrl": "/general/تحليل_المحتوى_للصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "138",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المقاربة التطبيقية لعلم النفس الإيجابي في دعاء مكارم الأخلاق للإمام السجاد (عليه السلام).",
+        "authors": ["مريم السادات سقايت", "الهام نجفيى", "اكرم شعبانى"],
+        "publicationVenue": "معرفت - شماره 241",
+        "language": "فارسي",
+        "pagenam": 1
+      }
+    ],
+    "publishedYear": "1396 ش",
+    "pdfUrl": "/general/المقاربة_التطبيقية_لعلم_النفس_الإيجابي_في_دعاء_مكارم_الأخلاق.pdf"
+  },
+  {
+    "id": "139",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "أنموذج التدرّب على الأخلاق الإسلامية من وجهة نظر الإمام السجاد (ع) في ضوء تحليل المضمون الموضوعي لدعاء مكارم الأخلاق",
+        "authors": ["اکرم سلیمی", "فتحیه فتاحی زاده", "محمد عترت دوست"],
+        "publicationVenue": "دوفصلنامه اخلاق وحیانی شماره 1، دوره 8",
+        "language": "فارسي",
+        "pagenam": 25
+      }
+    ],
+    "publishedYear": "1397 ش",
+    "pdfUrl": "/general/أنموذج_التدرّب_على_الأخلاق_الإسلامية_من_وجهة_نظر_الامام_السجاد.pdf"
+  },
+  {
+    "id": "140",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التحليل الدلالي لـ \"الوحدة العددية\" لله في كلام الإمام السجاد ع",
+        "authors": ["رحمان عشریه", "حسن رضایی هفتادر", "محمدعلی اسماعیلی"],
+        "publicationVenue": "پژوهشنامه کلام شماره 8- دوره 5",
+        "language": "فارسي",
+        "pagenam": 22
+      }
+    ],
+    "publishedYear": "1397 ش",
+    "pdfUrl": "/general/التحليل_الدلالي_للوحدة_العددية_لله_في_كلام_الامام_السجاد.pdf"
+  },
+  {
+    "id": "141",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تحليل وتحقيق فكرة تعارض أحداث عصر الإمام السجاد (ع) ونصوص الإمامة في الرد على شبهات \"فيصل النور\"",
+        "authors": ["سعید رسالتی", "عزالدین رضانژاد"],
+        "publicationVenue": "پژوهشنامه کلام شماره 8، دوره 5",
+        "language": "فارسي",
+        "pagenam": 16
+      }
+    ],
+    "publishedYear": "1397 ش",
+    "pdfUrl": "/general/تحليل_وتحقيق_فكرة_تعارض_أحداث_عصر_الامام_السجاد_ونصوص_الإمامة.pdf"
+  },
+  {
+    "id": "142",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "حق الأم في فكر الإمام السجاد (ع) وقانون الحقوق الدولي",
+        "authors": ["غلامعلی قاسمی", "مهدی زارع", "محمد ستایش پور"],
+        "publicationVenue": "دوفصلنامه پژوهش نامه اسلامی زنان و خانواده شماره 4، دوره 6",
+        "language": "فارسي",
+        "pagenam": 22
+      }
+    ],
+    "publishedYear": "1397 ش",
+    "pdfUrl": "/general/حق_الأم_في_فكر_الامام_السجاد_وقانون_الحقوق_الدولي.pdf"
+  },
+  {
+    "id": "143",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "أسلوب الحياة في تعاليم الإمام السجاد (ع) يقوم على أساس كيفية ازالة الانحرافات وزيادة الفضيلة",
+        "authors": ["مهدی ایزدی"],
+        "publicationVenue": "دو فصلنامه دین و ارتباطات شماره 54، دوره 25",
+        "language": "فارسي",
+        "pagenam": 32
+      }
+    ],
+    "publishedYear": "1397 ش",
+    "pdfUrl": "/general/أسلوب_الحياة_في_تعاليم_الامام_السجاد_على_أساس_ازالة_الانحرافات_وزيادة_الفضيلة.pdf"
+  },
+  {
+    "id": "144",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الحياة العلمية للإمام السجاد (ع) في مواجهة الانحرافات الفكرية ؛ دراسة حالة أمراض التوحيد",
+        "authors": ["محمد محمود پور"],
+        "publicationVenue": "دوفصلنامه سیره پژوهی اهل بیت (ع) شماره 7، دوره 4",
+        "language": "فارسي",
+        "pagenam": 19
+      }
+    ],
+    "publishedYear": "1397 ش",
+    "pdfUrl": "/general/الحياة_العلمية_للإمام_السجاد_في_مواجهة_الانحرافات_الفكرية.pdf"
+  },
+  {
+    "id": "145",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الولاء أو إعادة الإبداع أو الإبداع الأدبي في ترجمة الشعر (تحليل مقارن لشعر الجامي وشعر الفرزدق في مدح الإمام السجاد (ع))",
+        "authors": ["نرگس انصاری"],
+        "publicationVenue": "دوفصلنامه پژوهش های ترجمه در زبان و ادبیات عربی شماره 18، دوره 8",
+        "language": "فارسي",
+        "pagenam": 32
+      }
+    ],
+    "publishedYear": "1397 ش",
+    "pdfUrl": "/general/الولاء_أو_إعادة_الإبداع_أو_الإبداع_الأدبي_في_ترجمة_الشعر.pdf"
+  },
+  {
+    "id": "146",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الدور المعنوي للإمام السجاد (ع) في امتداد نهضة كربلاء",
+        "authors": ["رقیه اسماعیلی"],
+        "publicationVenue": "رهیافت فرهنگ دینی سال اول زمستان ۱۳۹۷ شماره ۴",
+        "language": "فارسي",
+        "pagenam": 12
+      }
+    ],
+    "publishedYear": "1397 ش",
+    "pdfUrl": "/general/الدور_المعنوي_للإمام_السجاد_في_امتداد_نهضة_كربلاء.pdf"
+  },
+  {
+    "id": "147",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "أسس ومكونات \"أخلاق الجوار\" من وجهة نظر الإمام السجاد (ع)",
+        "authors": ["فاطمه وجدانی"],
+        "publicationVenue": "نشریه نظریه های اجتماعی متفکران مسلمان، سال هشتم شماره 1 (پیاپی 14، بهار و تابستان 1397)",
+        "language": "فارسي",
+        "pagenam": 20
+      }
+    ],
+    "publishedYear": "1397 ش",
+    "pdfUrl": "/general/أسس_ومكونات_أخلاق_الجوار_من_وجهة_نظر_الامام_السجاد.pdf"
+  },
+  {
+    "id": "148",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "قيمة الأحكام التاريخية المتباينة عند أصحاب الإمام خاصة الإمام السجاد (ع)",
+        "authors": ["عباس میرزایی نوکابدی"],
+        "publicationVenue": "نشریه تاریخ اسلام و ایران، سال بیست و نهم شماره 41 (بهار 1398)",
+        "language": "فارسي",
+        "pagenam": 25
+      }
+    ],
+    "publishedYear": "1397 ش",
+    "pdfUrl": "/general/قيمة_الأحكام_التاريخية_المتباينة_عند_أصحاب_الإمام_السجاد.pdf"
+  },
+  {
+    "id": "149",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "جهادالإمام السجاد (ع) في عاشوراء ودراسة عوامل الحفاظ على الإمام في كربلاء.",
+        "authors": ["محمد باقر بور امينى"],
+        "publicationVenue": "فصلنامه زيارت - 36",
+        "language": "فارسي",
+        "pagenam": 12
+      }
+    ],
+    "publishedYear": "1397 ش",
+    "pdfUrl": "/general/جهاد_الامام_السجاد_في_عاشوراء_وعوامل_الحفاظ_على_الامام.pdf"
+  },
+  {
+    "id": "150",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الإدارة المعنوية للإمام السجاد (عليه السلام) في الميدانين الاجتماعي والسياسي.",
+        "authors": ["كبرى مرادى مطلق"],
+        "publicationVenue": "فصلنامه رهيافت فرهنك دينى - شماره 4",
+        "language": "فارسي",
+        "pagenam": 17
+      }
+    ],
+    "publishedYear": "1397 ش",
+    "pdfUrl": "/general/الإدارة_المعنوية_للإمام_السجاد_في_الميدانين_الاجتماعي_والسياسي.pdf"
+  },
+  {
+    "id": "151",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الدور التاريخي الفعّال للإمام السجاد (عليه السلام) من عام 41 إلى 96 هجرية.",
+        "authors": ["حسن قريشى", "سيد محسن شيخ الاسلامى"],
+        "publicationVenue": "فصلنامه ترويجى سخن تاريخ - شماره 27 - مجلد 12",
+        "language": "فارسي",
+        "pagenam": 16
+      }
+    ],
+    "publishedYear": "1397 ش",
+    "pdfUrl": "/general/الدور_التاريخي_الفعال_للإمام_السجاد_من_عام_41_الى_96_هجرية.pdf"
+  },
+  {
+    "id": "152",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تقديم نموذج لتربية المواطن على مستوى المجتمع الإسلامي من خلال مناهج رسالة الحقوق للإمام السجاد (ع).",
+        "authors": ["اکبر صالحی", "فرامرز محمدی پویا", "سینا ترکاشوند"],
+        "publicationVenue": "دوفصلنامه تربیت اسلامی شماره 30، دوره 14",
+        "language": "فارسي",
+        "pagenam": 24
+      }
+    ],
+    "publishedYear": "1398 ش",
+    "pdfUrl": "/general/تقديم_نموذج_لتربية_المواطن_على_مستوى_المجتمع_الإسلامي_من_خلال_مناهج_رسالة_الحقوق.pdf"
+  },
+  {
+    "id": "153",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "بيان السيرة التربوية للإمام السجاد (ع) في الصحيفة السجادية مع التركيز على وثيقة التحول الجذري للتربية والتعليم.",
+        "authors": ["فرامرز محمدی پویا"],
+        "publicationVenue": "فصلنامه پژوهش در مسائل تعلیم و تربیت اسلامی شماره 42، دوره 27",
+        "language": "فارسي",
+        "pagenam": 27
+      }
+    ],
+    "publishedYear": "1398 ش",
+    "pdfUrl": "/general/بيان_السيرة_التربوية_للإمام_السجاد_في_الصحيفة_السجادية_مع_التركيز_على_وثيقة_التحول_الجذري.pdf"
+  },
+  {
+    "id": "154",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "مدخل إلى أصول النقد التربوية مع التركيز على رسالة الحقوق للامام السجاد ع",
+        "authors": ["فاضله میرغفوریان"],
+        "publicationVenue": "دوفصلنامه علوم تربیتی از دیدگاه اسلام شماره 13، دوره 7",
+        "language": "فارسي",
+        "pagenam": 23
+      }
+    ],
+    "publishedYear": "1398 ش",
+    "pdfUrl": "/general/مدخل_إلى_أصول_النقد_التربوية_مع_التركيز_على_رسالة_الحقوق_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "155",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "فاعلية تأريخ عاشوراء من سيرة عاشوراء للإمام السجاد (ع) (من البداية إلى العصر المعاصر)",
+        "authors": ["سينا مير شاهى"],
+        "publicationVenue": "نشریه آیت بوستان (پژوهش نامه معارف حسینی) » بهار 1398 شماره1",
+        "language": "فارسي",
+        "pagenam": 20
+      }
+    ],
+    "publishedYear": "1398 ش",
+    "pdfUrl": "/general/فاعلية_تأريخ_عاشوراء_من_سيرة_عاشوراء_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "156",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تحقيق شخصية الامام السجاد (ع) في ميميه الفرزدق من وجهة نظر جوردون البورت",
+        "authors": ["منصوره سادات طالب الحق", "فریبرز حسین جان زاده", "محمد جعفری"],
+        "publicationVenue": "مطالعات ادبیات تطبیقی سال سیزدهم زمستان ۱۳۹۸ شماره ۵۲",
+        "language": "فارسي",
+        "pagenam": 30
+      }
+    ],
+    "publishedYear": "1398 ش",
+    "pdfUrl": "/general/تحقيق_شخصية_الامام_السجاد_في_ميميه_الفرزدق_من_وجهة_نظر_جوردون_البورت.pdf"
+  },
+  {
+    "id": "157",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التحليل الأخلاقي لسلطة المعلم من خلال إعمال حقه الوارد في رسالة الحقوق للإمام السجاد (عليه السلام)",
+        "authors": ["محمد جواد فلاح"],
+        "publicationVenue": "پژوهشنامه اخلاق سال دوازدهم زمستان ۱۳۹۸ شماره ۴۶",
+        "language": "فارسي",
+        "pagenam": 17
+      }
+    ],
+    "publishedYear": "1398 ش",
+    "pdfUrl": "/general/التحليل_الأخلاقي_لسلطة_المعلم_من_خلال_رسالة_الحقوق_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "158",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "استراتيجيات السيد الساجدين علي بن الحسين (ع) في تعزيز ثقافة عاشوراء",
+        "authors": ["فاطمه معتمد لنگرودی"],
+        "publicationVenue": "پژوهشنامه معارف حسینی سال چهارم پاییز ۱۳۹۸ شماره ۱۵",
+        "language": "فارسي",
+        "pagenam": 20
+      }
+    ],
+    "publishedYear": "1398 ش",
+    "pdfUrl": "/general/استراتيجيات_السيد_الساجدين_علي_بن_الحسين_في_تعزيز_ثقافة_عاشوراء.pdf"
+  },
+  {
+    "id": "159",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "حقوق المواطنة للأقليات الدينية في القرآن الكريم ورسالة الحقوق للإمام السجاد (عليه السلام).",
+        "authors": ["طيبه ابراهيمى", "ليلا سميعى"],
+        "publicationVenue": "پویش در آموزش علوم انسانی العدد 14 - السنة 4",
+        "language": "فارسي",
+        "pagenam": 19
+      }
+    ],
+    "publishedYear": "1398 ش",
+    "pdfUrl": "/general/حقوق_المواطنة_للأقليات_الدينية_في_القرآن_الكريم_ورسالة_الحقوق_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "160",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تبيين العوامل المؤثرة على المسؤولية الاجتماعية للطلاب بناءً على رسالة الحقوق للإمام السجاد (عليه السلام) مع التركيز على دور المدرسة.",
+        "authors": ["اكرم كودرزى", "نيكو ديالمه", "زهرا احمدى"],
+        "publicationVenue": "فصلنامه مسائل كاربردى تعليم وتربيت اسلامى - شماره 2",
+        "language": "فارسي",
+        "pagenam": 34
+      }
+    ],
+    "publishedYear": "1398 ش",
+    "pdfUrl": "/general/تبيين_العوامل_المؤثرة_على_المسؤولية_الاجتماعية_للطلاب_بناءً_على_رسالة_الحقوق_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "161",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "خطاب السياسة الجنائية في رسالة الحقوق للإمام السجاد (عليه السلام): إعادة قراءة الخطاب العقابي.",
+        "authors": ["محمد جواد ساداتى"],
+        "publicationVenue": "فصلنامه مجلس وراهبرد - 100",
+        "language": "فارسي",
+        "pagenam": 24
+      }
+    ],
+    "publishedYear": "1398 ش",
+    "pdfUrl": "/general/خطاب_السياسة_الجنائية_في_رسالة_الحقوق_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "162",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تصنيف دور الإمام السجاد (عليه السلام) في إدارة الأزمات السياسية والاجتماعية.",
+        "authors": ["علي عسكري وزيري"],
+        "publicationVenue": "مجلة فصلنامه مديريت بحران - السنة 12 - العدد 2 - 1399 ش",
+        "language": "فارسي",
+        "pagenam": 25
+      }
+    ],
+    "publishedYear": "1399 ش",
+    "pdfUrl": "/general/تصنيف_دور_الامام_السجاد_في_إدارة_الأزمات_السياسية_والاجتماعية.pdf"
+  },
+  {
+    "id": "163",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "أساليب تفسير الإمام السجاد (ع)",
+        "authors": ["جمال فرزندوحی", "میلاد اسدی"],
+        "publicationVenue": "فصلنامه سراج منیر شماره 39 - دوره 11",
+        "language": "فارسي",
+        "pagenam": 22
+      }
+    ],
+    "publishedYear": "1399 ش",
+    "pdfUrl": "/general/أساليب_تفسير_الامام_السجاد.pdf"
+  },
+  {
+    "id": "164",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التحليل الأخلاقي لـ \"أدب دلال\" مع التركيز على الحياة التعبدية للإمام السجاد (ع)",
+        "authors": ["محمد اسعدی", "سید علی حسینی زاده", "محمد جواد انبیایی"],
+        "publicationVenue": "پژوهشنامه اخلاق سال سیزدهم زمستان ۱۳۹۹ شماره ۵۰",
+        "language": "فارسي",
+        "pagenam": 20
+      }
+    ],
+    "publishedYear": "1399 ش",
+    "pdfUrl": "/general/التحليل_الأخلاقي_لأدب_دلال_مع_التركيز_على_الحياة_التعبدية_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "165",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تحليل الاستشهادات القرآنية للإمام السجاد (ع) في مناظرات مدينة الشام",
+        "authors": ["محمد رنجبرحسینی", "حانیه خطیبی مقدم"],
+        "publicationVenue": "پژوهشنامه معارف حسینی سال پنجم پاییز ۱۳۹۹ شماره ۱۹",
+        "language": "فارسي",
+        "pagenam": 22
+      }
+    ],
+    "publishedYear": "1399 ش",
+    "pdfUrl": "/general/تحليل_الاستشهادات_القرآنية_للإمام_السجاد_في_مناظرات_مدينة_الشام.pdf"
+  },
+  {
+    "id": "166",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "استراتيجيات الإمام السجاد (ع) في الحفاظ على ملحمة عاشوراء ومنجزاتها",
+        "authors": ["على فارسى مدان"],
+        "publicationVenue": "پژوهشنامه معارف حسینی سال پنجم پاییز ۱۳۹۹ شماره ۱۹",
+        "language": "فارسي",
+        "pagenam": 22
+      }
+    ],
+    "publishedYear": "1399 ش",
+    "pdfUrl": "/general/استراتيجيات_الامام_السجاد_في_الحفاظ_على_ملحمة_عاشوراء_ومننجازاتها.pdf"
+  },
+  {
+    "id": "167",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التحقق من صحة كون والدة الإمام السجاد ع من أبناء الملوك",
+        "authors": ["عباس ميرزايى"],
+        "publicationVenue": "پژوهشنامه تاریخ اسلام سال دهم بهار ۱۳۹۹ شماره ۳۷",
+        "language": "فارسي",
+        "pagenam": 22
+      }
+    ],
+    "publishedYear": "1399 ش",
+    "pdfUrl": "/general/التحقق_من_صحة_كون_والدة_الامام_السجاد_من_أبناء_الملوك.pdf"
+  },
+  {
+    "id": "168",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دراسة جدالين تاريخيين حول الإمام السجاد (ع)؛ تاريخ الولادة والعمر عند حضوره في كربلاء.",
+        "authors": ["عباس ميرزايى"],
+        "publicationVenue": "پژوهشنامه تاریخ تشیع، سال چهارم شماره 2 (پیاپی 8، تابستان 1399)",
+        "language": "فارسي",
+        "pagenam": 24
+      }
+    ],
+    "publishedYear": "1399 ش",
+    "pdfUrl": "/general/دراسة_جدالين_تاريخيين_حول_الإمام_السجاد_تاريخ_الولادة_والعمر_عند_حضوره_في_كربلاء.pdf"
+  },
+  {
+    "id": "169",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المعرفة القانونية للأزواج الذين يعيشون معًا وفقًا لرسالة الحقوق",
+        "authors": ["ساجده العبد الخانی"],
+        "publicationVenue": "مجلة مطالعات دین پژوهی، پیاپی 8 (پاییز و زمستان 1399)",
+        "language": "فارسي",
+        "pagenam": 20
+      }
+    ],
+    "publishedYear": "1399 ش",
+    "pdfUrl": "/general/المعرفة_القانونية_للأزواج_الذين_يعيشون_معًا_وفقًا_لرسالة_الحقوق.pdf"
+  },
+  {
+    "id": "170",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "فاعلية تعليم مهارات المواطنة المستندة إلى رسالة الحقوق للإمام السجاد (عليه السلام) على الوعي بحقوق المواطنة والعمل بها لدى طلاب المرحلة المتوسطة.",
+        "authors": ["محبوبه مشهدى", "سميه غلامي"],
+        "publicationVenue": "فصل نامه - علمي - بزوهشى - مسائل كاربردى تعليم وتربيت اسلامي - العدد 15 - المجلد 2",
+        "language": "فارسي",
+        "pagenam": 26
+      }
+    ],
+    "publishedYear": "1399 ش",
+    "pdfUrl": "/general/فاعلية_تعليم_مهارات_المواطنة_المستندة_إلى_رسالة_الحقوق_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "171",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التحقق التاريخي للتقاریر الشيعية مقارنة بالروايات التاريخية عند أهل السنة: دراسة حالة للتقارير المتعلقة بتفاعلات الإمام السجاد (ع) وعبد الملك بن مروان.",
+        "authors": ["عباس ميرزايى توكابادى"],
+        "publicationVenue": "فصل نامه - علمي - بزوهشنامه تاريخ اسلام - العدد 46",
+        "language": "فارسي",
+        "pagenam": 26
+      }
+    ],
+    "publishedYear": "1399 ش",
+    "pdfUrl": "/general/التحقق_التاريخي_للتقارير_الشيعية_مقارنة_بالروايات_التاريخية_عند_أهل_السنة.pdf"
+  },
+  {
+    "id": "172",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الإمام السجاد (عليه السلام) رمز لـ \"جهاد التبيين\" في حماية المجتمع النبوي.",
+        "authors": ["مجتبى عطار زاده"],
+        "publicationVenue": "بزوهشنامه اريخ تشيع - العدد 1 - السنة 4",
+        "language": "فارسي",
+        "pagenam": 23
+      }
+    ],
+    "publishedYear": "1399 ش",
+    "pdfUrl": "/general/الإمام_السجاد_رمز_لجهاد_التبيين_في_حماية_المجتمع_النبوي.pdf"
+  },
+  {
+    "id": "173",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تحليل العلاقات النصية (بين النصوص) للعلم الإلهي في القرآن الكريم والصحيفة السجادية.",
+        "authors": ["صالح سعيدى", "سعيد عباسى"],
+        "publicationVenue": "دو فصلنامه علمى بزوهش هاى زبانشناخنى قران - شماره 1",
+        "language": "فارسي",
+        "pagenam": 19
+      }
+    ],
+    "publishedYear": "1399 ش",
+    "pdfUrl": "/general/تحليل_العلاقات_النصية_للعلم_الإلهي_في_القرآن_الكريم_والصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "174",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المنهج العقلي - الفلسفي في التوحيد في أقوال الإمام السجاد (عليه السلام).",
+        "authors": ["فاطمه قرصعلى"],
+        "publicationVenue": "اموزش معارف وتربيت اسلامى - شماره 1",
+        "language": "فارسي",
+        "pagenam": 22
+      }
+    ],
+    "publishedYear": "1399 ش",
+    "pdfUrl": "/general/المنهج_العقلي_الفلسفي_في_التوحيد_في_أقوال_الإمام_السجاد.pdf"
+  },
+  {
+    "id": "175",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الأوضاع الثقافية والسياسية في عهد الإمام السجاد (ع) وتعامل الإمام مع ذلك العهد",
+        "authors": ["النوره حیدرآوا"],
+        "publicationVenue": "دوفصلنامه تاریخنامه اسلام شماره 6، دوره 3",
+        "language": "فارسي",
+        "pagenam": 19
+      }
+    ],
+    "publishedYear": "1400 ش",
+    "pdfUrl": "/general/الأوضاع_الثقافية_والسياسية_في_عهد_الإمام_السجاد_وتعامل_الإمام_مع_ذلك_العهد.pdf"
+  },
+  {
+    "id": "176",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "معرفة الجمهور المخاطب لخطب الامام السجاد في الكوفة والشام",
+        "authors": ["علي فارسى مدان"],
+        "publicationVenue": "نشریه: آیت بوستان - پژوهش نامه معارف حسینی - دوره 6 شماره 21 - بهار 1400 -",
+        "language": "فارسي",
+        "pagenam": 18
+      }
+    ],
+    "publishedYear": "1400 ش",
+    "pdfUrl": "/general/معرفة_الجمهور_المخاطب_لخطب_الامام_السجاد_في_الكوفة_والشام.pdf"
+  },
+  {
+    "id": "177",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "معرفة الذات ونتائجها وثمراتها في مرآة أدعية الإمام السجاد",
+        "authors": ["اکبر عروتی موفق"],
+        "publicationVenue": "دعاپژوهی سال اول پاییز و زمستان ۱۴۰۰ شماره ۱",
+        "language": "فارسي",
+        "pagenam": 14
+      }
+    ],
+    "publishedYear": "1400 ش",
+    "pdfUrl": "/general/معرفة_الذات_ونتائجها_وثمراتها_في_مرآة_أدعية_الإمام_السجاد.pdf"
+  },
+  {
+    "id": "178",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تحليل ثقافة إعداد المعلمين في روايات طلاب جامعةفرهنگيان بردیس إمام السجاد (ع) في مدينة بيرجند",
+        "authors": ["صادق حامدی نسب", "فرخ رو جلیلی"],
+        "publicationVenue": "پژوهش در تربیت معلم دوره چهارم بهار ۱۴۰۰ شماره ۱ (پیاپی ۷)",
+        "language": "فارسي",
+        "pagenam": 5
+      }
+    ],
+    "publishedYear": "1400 ش",
+    "pdfUrl": "/general/تحليل_ثقافة_إعداد_المعلمين_في_روايات_طلاب_جامعة_فرهنگيان_برديس_إمام_السجاد.pdf"
+  },
+  {
+    "id": "179",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المعطيات التفسيرية لاستدلال الصحيفة السجادية على الإمامة بالقران الكريم",
+        "authors": ["فتحیه فتاحی زاده", "مرضیه محصص", "فاطمه ادایی خضری"],
+        "publicationVenue": "نشریه امامت پژوهی، پیاپی 30 (پاییز و زمستان 1400)",
+        "language": "فارسي",
+        "pagenam": 34
+      }
+    ],
+    "publishedYear": "1400 ش",
+    "pdfUrl": "/general/المعطيات_التفسيرية_لاستدلال_الصحيفة_السجادية_على_الإمامة_بالقران_الكريم.pdf"
+  },
+  {
+    "id": "180",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دراسة مقارنة بين حسن الظن في النصوص الدينية والتفاؤل في علم النفس مع التأكيد على الصحيفة السجادية",
+        "authors": ["محمد حسن ايمانيه", "غلام رضا رئيسيان", "سهيلا بيروزفر", "محمد سعيد عبد خدائى"],
+        "publicationVenue": "مجلة البحث في الدين والصحة - العدد 4 - السنة 7",
+        "language": "فارسي",
+        "pagenam": 14
+      }
+    ],
+    "publishedYear": "1400 ش",
+    "pdfUrl": "/general/دراسة_مقارنة_بين_حسن_الظن_في_النصوص_الدينية_والتفاؤل_في_علم_النفس_مع_التأكيد_على_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "181",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "نموذج الاتجاهات الفكرية لأصحاب الامام السجاد (ع)",
+        "authors": ["حمید رضا مطهری", "محمد باقر شاکری"],
+        "publicationVenue": "تاریخ اسلام سال بیست و دوم بهار ۱۴۰۰ شماره ۱ (پیاپی ۸۵)",
+        "language": "فارسي",
+        "pagenam": 35
+      }
+    ],
+    "publishedYear": "1400 ش",
+    "pdfUrl": "/general/نموذج_الاتجاهات_الفكرية_لأصحاب_الامام_السجاد.pdf"
+  },
+  {
+    "id": "182",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "بررسى نيازهاى اساسى انسان به عنوان عامل درونى انكيزش از ديد كاه امام سجاد ع در دعاهاى صحيفه سجاديه",
+        "authors": ["نسيم افشاركاوه", "عبد الله توكلى"],
+        "publicationVenue": "مديريت در دانشكاه اسلامى 21 - شماره 1",
+        "language": "فارسي",
+        "pagenam": 18
+      }
+    ],
+    "publishedYear": "1400 ش",
+    "pdfUrl": "/general/بررسى_نيازهاى_اساسى_انسان_به_عنوان_عامل_درونى_انكيزش_از_ديدگاه_امام_السجاد.pdf"
+  },
+  {
+    "id": "183",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الانسان الكامل وخليفة الله في منهج ابن عربي وتقييمه وفق تراث الامام السجاد (ع)",
+        "authors": ["زهرا خوش سخن مظفر", "حامد ناجی اصفهانی"],
+        "publicationVenue": "پژوهشنامه مذاهب اسلامی شماره 17، دوره 9",
+        "language": "فارسي",
+        "pagenam": 23
+      }
+    ],
+    "publishedYear": "1401 ش",
+    "pdfUrl": "/general/الانسان_الكامل_وخليفة_الله_في_منهج_ابن_عربي_وتقييمه_وفق_تراث_الامام_السجاد.pdf"
+  },
+  {
+    "id": "184",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دراسة مقارنة بين المصادر السنية والشيعية لروايات تاريخ وفاة الإمام السجاد (ع).",
+        "authors": ["عباس میرزایی"],
+        "publicationVenue": "فصلنامه سخن تاریخ شماره 38، دوره 16",
+        "language": "فارسي",
+        "pagenam": 20
+      }
+    ],
+    "publishedYear": "1401 ش",
+    "pdfUrl": "/general/دراسة_مقارنة_بين_المصادر_السنية_والشيعية_لروايات_تاريخ_وفاة_الإمام_السجاد.pdf"
+  },
+  {
+    "id": "185",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "طريقة الحياة الإسلامية في اقتصاد العائلة اعتمادا على أقوال وحياة الإمام السجاد (ع)",
+        "authors": ["رضا بنی اسدی", "فاطمه غفارنیا"],
+        "publicationVenue": "ماهنامه پژوهش های معاصر در علوم و تحقیقات، دوره: 4، شماره: 33",
+        "language": "فارسي",
+        "pagenam": 12
+      }
+    ],
+    "publishedYear": "1401 ش",
+    "pdfUrl": "/general/طريقة_الحياة_الإسلامية_في_اقتصاد_العائلة_اعتمادا_على_أقوال_وحياة_الإمام_السجاد.pdf"
+  },
+  {
+    "id": "186",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "طبيعة الإنسان في نظرية فرويد ونقدها من وجهة نظر معرفة الانسان للإمام السجاد (ع) في الصحيفة السجادية",
+        "authors": ["عبدالحسین خسروپناه", "امیر قربان پور لفمجانی", "حمید قربان پور لفمجانی"],
+        "publicationVenue": "فصلنامه مطالعات معرفتی در دانشگاه اسلامی شماره 90، دوره 26",
+        "language": "فارسي",
+        "pagenam": 26
+      }
+    ],
+    "publishedYear": "1401 ش",
+    "pdfUrl": "/general/طبيعة_الإنسان_في_نظرية_فرويد_ونقدها_من_وجهة_نظر_معرفة_الانسان_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "187",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "سيرة الفقيه الحكيم المتمثل بالامام السجاد (ع) ، دراسة حالة التقية في مواجهة ثورة الحرة.",
+        "authors": ["مرضیه برزن", "اصغر قائدان", "مریم غلامی", "سعید حلاجی مفرد"],
+        "publicationVenue": "تاریخ اسلام سال بیست و سوم تابستان ۱۴۰۱ شماره ۲ (پیاپی ۹۰)",
+        "language": "فارسي",
+        "pagenam": 22
+      }
+    ],
+    "publishedYear": "1401 ش",
+    "pdfUrl": "/general/سيرة_الفقيه_الحكيم_المتمثل_بالامام_السجاد_دراسة_حالة_التقية_في_مواجهة_ثورة_الحرة.pdf"
+  },
+  {
+    "id": "188",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "زيادة التبصر في النظام الاعتقادي و السياسي للإمام السجاد (ع) من خلال التأكيد على الدعاء 27 من أدعية الصحيفة السجادية",
+        "authors": ["علي فارسى مدان"],
+        "publicationVenue": "دعاپژوهی سال دوم بهار و تابستان ۱۴۰۱ شماره ۲",
+        "language": "فارسي",
+        "pagenam": 24
+      }
+    ],
+    "publishedYear": "1401 ش",
+    "pdfUrl": "/general/زيادة_التبصر_في_النظام_الاعتقادي_والسياسي_للإمام_السجاد_من_خلال_الدعاء_27.pdf"
+  },
+  {
+    "id": "189",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الرابطة بين الدعاء الخمسين من الصحيفة السجادية والقرآن الكريم.",
+        "authors": ["كيوان احسانى", "نوال حزباوى"],
+        "publicationVenue": "فصلنامه علمى مطالعات قرانى - العدد 52 - الدوره 13",
+        "language": "فارسي",
+        "pagenam": 16
+      }
+    ],
+    "publishedYear": "1401 ش",
+    "pdfUrl": "/general/الرابطة_بين_الدعاء_الخمسين_من_الصحيفة_السجادية_والقرآن_الكريم.pdf"
+  },
+  {
+    "id": "190",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تحليل الأسس القرآنية للفضائل والرذائل الأخلاقية الاجتماعية في دعاء مكارم الأخلاق من الصحيفة السجادية.",
+        "authors": ["خديجه احمدى بيغش"],
+        "publicationVenue": "فصلنامه قران وعلوم اجتماعى - العدد 3 - السنة 2",
+        "language": "فارسي",
+        "pagenam": 22
+      }
+    ],
+    "publishedYear": "1401 ش",
+    "pdfUrl": "/general/تحليل_الأسس_القرآنية_للفضائل_والرذائل_الأخلاقية_الاجتماعية_في_دعاء_مكارم_الأخلاق.pdf"
+  },
+  {
+    "id": "191",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "سيرة الإمام زين العابدين (ع) في إصلاح المجتمع وإنقاذه.",
+        "authors": ["محمد باقر رياحى مهر", "حسين سبهرى فرد"],
+        "publicationVenue": "دو فصلنامه علمى تخصصى - مطالعات حديث بزوهى",
+        "language": "فارسي",
+        "pagenam": 21
+      }
+    ],
+    "publishedYear": "1401 ش",
+    "pdfUrl": "/general/سيرة_الإمام_زين_العابدين_في_إصلاح_المجتمع_وإنقاذه.pdf"
+  },
+  {
+    "id": "192",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دراسة وتحليل الأمن الاجتماعي في سيرة الإمام زين العابدين (ع): دراسة حالة في الصحيفة السجادية.",
+        "authors": ["سيد رضا طباطباى نيا", "حميد علوى وفا"],
+        "publicationVenue": "نشريه مديريت بحران ووضعيت هاى اضطراري - السنة 14 - العدد 2",
+        "language": "فارسي",
+        "pagenam": 42
+      }
+    ],
+    "publishedYear": "1401 ش",
+    "pdfUrl": "/general/دراسة_وتحليل_الأمن_الاجتماعي_في_سيرة_الإمام_زين_العابدين_دراسة_حالة_في_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "193",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دراسة ادعية الصحيفة السجادية من منظور أساليب التحليل النصي",
+        "authors": ["محمد فیاض", "نزهت شاکری"],
+        "publicationVenue": "نشریه دعاپژوهی، پیاپی 3 - پاییز و زمستان 1401",
+        "language": "فارسي",
+        "pagenam": 21
+      }
+    ],
+    "publishedYear": "1401 ش",
+    "pdfUrl": "/general/دراسة_ادعية_الصحيفة_السجادية_من_منظور_أساليب_التحليل_النصي.pdf"
+  },
+  {
+    "id": "194",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تتبع المسار التاريخي من التعايش (أو التفاعل) إلى المواجهة بين الأمويين والإمام زين العابدين (عليه السلام).",
+        "authors": ["عباس ميرزايى"],
+        "publicationVenue": "فصل نامة بزوهش هاى تاريخى - دانشكاه أصفهان - شماره 1",
+        "language": "فارسي",
+        "pagenam": 18
+      }
+    ],
+    "publishedYear": "1401 ش",
+    "pdfUrl": "/general/تتبع_المسار_التاريخي_من_التعايش_إلى_المواجهة_بين_الأمويين_والإمام_زين_العابدين.pdf"
+  },
+  {
+    "id": "195",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تحليل الخطاب النقدي لخطبة الإمام السجاد بدمشق على ضوء نظرية نورمان فركلوغ",
+        "authors": ["زهرا مكي"],
+        "publicationVenue": "نشریه علوم قرآن و حدیث » دوره 55، شماره 1 (بهار و تابستان 1402)",
+        "language": "فارسي",
+        "pagenam": 23
+      }
+    ],
+    "publishedYear": "1402 ش",
+    "pdfUrl": "/general/تحليل_الخطاب_النقدي_لخطبة_الإمام_السجاد_بدمشق_على_ضوء_نظرية_نورمان_فركلوغ.pdf"
+  },
+  {
+    "id": "196",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التناقض بين الامامة والخلافة في خطبة الامام السجاد (ع) في مجلس يزيد",
+        "authors": ["محمد حسین جمال زاده"],
+        "publicationVenue": "نشریه معارف اهل بیت (ع)، سال دوم شماره 1 (پیاپی 5، بهار 1402)",
+        "language": "فارسي",
+        "pagenam": 26
+      }
+    ],
+    "publishedYear": "1402 ش",
+    "pdfUrl": "/general/التناقض_بين_الامامة_والخلافة_في_خطبة_الامام_السجاد_في_مجلس_يزيد.pdf"
+  },
+  {
+    "id": "197",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المستندات القرآنية والروائية لدعاء أبي حمزة الثمالي في سياق الموت، وعالم البرزخ، والبعث.",
+        "authors": ["فاطمه اسماعيلي"],
+        "publicationVenue": "مجلة سفينه العدد 78 - السنة 20",
+        "language": "فارسي",
+        "pagenam": 13
+      }
+    ],
+    "publishedYear": "1402 ش",
+    "pdfUrl": "/general/المستندات_القرآنية_والروائية_لدعاء_أبي_حمزة_الثمالي_في_سياق_الموت_وعالم_البرزخ_والبعث.pdf"
+  },
+  {
+    "id": "198",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دراسة وتطبيق لنظرية العدالة الاجتماعية في فكر الإمام السجاد (عليه السلام) -بالاعتماد على الصحيفة السجادية- وفي فلسفة جون رولز.",
+        "authors": ["فروزان نوروزى نزاد", "حسين رحمانى تير كلانى", "سيد حسن قريشى", "على بريمى"],
+        "publicationVenue": "فصلنامه علمى سياسى اجتماعى تاريخ وفرهنك ايران - العدد 4 - السنة 2",
+        "language": "فارسي",
+        "pagenam": 15
+      }
+    ],
+    "publishedYear": "1402 ش",
+    "pdfUrl": "/general/دراسة_وتطبيق_لنظرية_العدالة_الاجتماعية_في_فكر_الإمام_السجاد_وجون_راولز.pdf"
+  },
+  {
+    "id": "199",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "منهج وسيرة الإمام السجاد (عليه السلام) في التربية الأخلاقية.",
+        "authors": ["عنايت شريفى", "على فارس مدان", "رحمان بوالحسنى"],
+        "publicationVenue": "بزوهش نامه اماميه - العدد 14 - السنة 9",
+        "language": "فارسي",
+        "pagenam": 26
+      }
+    ],
+    "publishedYear": "1402 ش",
+    "pdfUrl": "/general/منهج_وسيرة_الإمام_السجاد_في_التربية_الأخلاقية.pdf"
+  },
+  {
+    "id": "200",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "إعادة قراءة مفهوم \"الحق\" وتبيينه على ضوء \"رسالة الحقوق\" للإمام السجاد (عليه السلام).",
+        "authors": ["معين بور صادق", "زهره مترحم", "مهديه خليلى", "محبوبه سلاطين"],
+        "publicationVenue": "سكوباس",
+        "language": "فارسي",
+        "pagenam": 5
+      }
+    ],
+    "publishedYear": "1402 ش",
+    "pdfUrl": "/general/إعادة_قراءة_مفهوم_الحق_على_ضوء_رسالة_الحقوق_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "201",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الأهداف الاستراتيجية في العلاقات والمناسبات العلمية للإمام السجاد (عليه السلام).",
+        "authors": ["محمد حسين ذوفقارى", "اصغر منتظر قائم"],
+        "publicationVenue": "فصل نامه - علمي - بزوهشنامه تاريخ اسلام - العدد 51",
+        "language": "فارسي",
+        "pagenam": 22
+      }
+    ],
+    "publishedYear": "1402 ش",
+    "pdfUrl": "/general/الأهداف_الاستراتيجية_في_العلاقات_والمناسبات_العلمية_للإمام_السجاد.pdf"
+  },
+  {
+    "id": "202",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "أصول ومقومات الصحة الروحية (السلامة المعنوية) من منظور الإمام السجاد (عليه السلام).",
+        "authors": ["حسن زرنوشه", "محمد عترت"],
+        "publicationVenue": "مجلة سلامت معنوى - العدد 4 -السنة 2",
+        "language": "فارسي",
+        "pagenam": 8
+      }
+    ],
+    "publishedYear": "1402 ش",
+    "pdfUrl": "/general/أصول_ومقومات_الصحة_الروحية_من_منظور_الإمام_السجاد.pdf"
+  },
+  {
+    "id": "203",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تبيين الدلالات التربوية لـ \"رسالة الحقوق\".",
+        "authors": ["سيد نقى موسوى تيله بنى"],
+        "publicationVenue": "اسلام وبزوهش تربيتى - السنة 15 - العدد 2- المجلد 30",
+        "language": "فارسي",
+        "pagenam": 14
+      }
+    ],
+    "publishedYear": "1402 ش",
+    "pdfUrl": "/general/تبيين_الدلالات_التربوية_لرسالة_الحقوق.pdf"
+  },
+  {
+    "id": "204",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التعرف على المهارات الإدارية وتبيينها في دعاء \"مكارم الأخلاق\" من الصحيفة السجادية.",
+        "authors": ["حسين كرجى بور"],
+        "publicationVenue": "دو فصلنامه بزوهشى - السنة 3 - العدد 4",
+        "language": "فارسي",
+        "pagenam": 16
+      }
+    ],
+    "publishedYear": "1402 ش",
+    "pdfUrl": "/general/التعرف_على_المهارات_الإدارية_وتبيينها_في_دعاء_مكارم_الأخلاق.pdf"
+  },
+  {
+    "id": "205",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دراسة رجال الصحيفة السجادية برواية عبيد الله بن الفضل.",
+        "authors": ["مهدي عسكري", "مهدي سهراب بور"],
+        "publicationVenue": "ميراث شهاب - العدد 111 - السنة 29",
+        "language": "فارسي",
+        "pagenam": 18
+      }
+    ],
+    "publishedYear": "1402 ش",
+    "pdfUrl": "/general/دراسة_رجال_الصحيفة_السجادية_برواية_عبيد_الله_بن_الفضل.pdf"
+  },
+  {
+    "id": "206",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "إبداعية اختيار الالفاظ في اشعار علي الجشي القيطيفي في مدح الامام السجاد ع",
+        "authors": ["رضا مظفر نيا", "محمد جعفري", "فريبرز حسين جانزاده سرستي"],
+        "publicationVenue": "دو فصلنامه مطالعات إسلامي - العدد 3 - السنة 2",
+        "language": "فارسي",
+        "pagenam": 18
+      }
+    ],
+    "publishedYear": "1402 ش",
+    "pdfUrl": "/general/إبداعية_اختيار_الالفاظ_في_اشعار_علي_الجشي_القيطيفي_في_مدح_الامام_السجاد.pdf"
+  },
+  {
+    "id": "207",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تقييم واعتبار رواية مواجهة الإمام السجاد (عليه السلام) مع يزيد.",
+        "authors": ["سيد رضا مؤدب", "ولى اله مهدوى فر"],
+        "publicationVenue": "دوفصلنامه علمى حديث بزوهى - السنة 16 - العدد 31",
+        "language": "فارسي",
+        "pagenam": 33
+      }
+    ],
+    "publishedYear": "1403 ش",
+    "pdfUrl": "/general/تقييم_واعتبار_رواية_مواجهة_الإمام_السجاد_مع_يزيد.pdf"
+  },
+  {
+    "id": "208",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التحليل التاريخي لاستراتيجيات الإمام السجاد (عليه السلام) في إحياء التشيع بعد واقعة عاشوراء بناءً على نظرية \"بخش\" البث والانتشار",
+        "authors": ["حميد رضا مطهرى", "محمود بختيارى"],
+        "publicationVenue": "نشريه بزوهش هاى تاريخى - العدد 2 - السنة 16",
+        "language": "فارسي",
+        "pagenam": 21
+      }
+    ],
+    "publishedYear": "1403 ش",
+    "pdfUrl": "/general/التحليل_التاريخي_لاستراتيجيات_الإمام_السجاد_في_إحياء_التشيع_بعد_عاشوراء_بناءً_على_نظرية_بخش.pdf"
+  },
+  {
+    "id": "209",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التحليل الجمالي للصور الأدبية (الاستعارة المكنية) في الصحيفة السجادية ونهج البلاغة.",
+        "authors": ["روح الله قرباني", "علي طاهري", "حميد حسيني", "محمد رضا فريدوني"],
+        "publicationVenue": "فصلنامه علمى بزوهش هاى نهج البلاغه - العدد 80- السنة 23",
+        "language": "فارسي",
+        "pagenam": 26
+      }
+    ],
+    "publishedYear": "1403 ش",
+    "pdfUrl": "/general/التحليل_الجمالي_للصور_الأدبية_الاستعارة_المكنية_في_الصحيفة_السجادية_ونهج_البلاغة.pdf"
+  },
+  {
+    "id": "210",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المقومات الأخلاقية لمواجهة التوجهات (المواقف) السلبية لتعزيز الطمأنينة والراحة النفسية من منظور الصحيفة السجادية.",
+        "authors": ["منيره شكيبانى", "محمد مهدى احمدى فراز", "صالحه بيريايى"],
+        "publicationVenue": "دو فصلنامه كتاب قيم - العدد 30 - الدوره 14",
+        "language": "فارسي",
+        "pagenam": 21
+      }
+    ],
+    "publishedYear": "1403 ش",
+    "pdfUrl": "/general/المقومات_الأخلاقية_لمواجهة_التوجهات_السلبية_لتعزيز_الطمأنينة_من_منظور_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "211",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دراسة وتحليل صحة نسبة \"المناجاة الخمس عشرة\" إلى الإمام السجاد (ع) بناءً على تقنيات فحص الأسلوب",
+        "authors": ["عيسى متقى زاده", "سميه مديرى"],
+        "publicationVenue": "دوماهنامه بين المللى - العدد 84",
+        "language": "فارسي",
+        "pagenam": 35
+      }
+    ],
+    "publishedYear": "1403 ش",
+    "pdfUrl": "/general/دراسة_وتحليل_صحة_نسبة_المناجاة_الخمس_عشرة_إلى_الإمام_السجاد_بناءً_على_تقنيات_فحص_الأسلوب.pdf"
+  },
+  {
+    "id": "212",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تبيين وتحليل إجراءات الإمام السجاد (عليه السلام) في مواجهة التحديات الدينية خلال فترة إمامته.",
+        "authors": ["سيد رضى سيد نزاد"],
+        "publicationVenue": "مطالعات دينى نبوت وامامت - العدد 2 - السنة 1",
+        "language": "فارسي",
+        "pagenam": 23
+      }
+    ],
+    "publishedYear": "1403 ش",
+    "pdfUrl": "/general/تبيين_وتحليل_إجراءات_الإمام_السجاد_في_مواجهة_التحديات_الدينية_خلال_فترة_إمامته.pdf"
+  },
+  {
+    "id": "213",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "التعرف على المنهج التربوي للدعاء وتبيينه من منظور تعاليم الإمام السجاد (عليه السلام).",
+        "authors": ["مهرى صادقيان", "مريم نساج"],
+        "publicationVenue": "دو فصلنامه بزوهشى - السنة 14 - العدد 16",
+        "language": "فارسي",
+        "pagenam": 21
+      }
+    ],
+    "publishedYear": "1403 ش",
+    "pdfUrl": "/general/التعرف_على_المنهج_التربوي_للدعاء_وتبيينه_من_منظور_تعاليم_الإمام_السجاد.pdf"
+  },
+  {
+    "id": "214",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "تحليل محتوى موضوعي حول طبيعة العلاقات بين الأبناء والوالدين من منظور الإمام السجاد (عليه السلام).",
+        "authors": ["محمد عترت دوست", "شراره نوشين راد"],
+        "publicationVenue": "مجلة فصلنامه علمى بزوهشى اموزه هاى تربيتى در قران حديث - العدد 2 - السنة 10",
+        "language": "فارسي",
+        "pagenam": 24
+      }
+    ],
+    "publishedYear": "1403 ش",
+    "pdfUrl": "/general/تحليل_محتوى_موضوعي_حول_طبيعة_العلاقات_بين_الأبناء_والوالدين_من_منظور_الإمام_السجاد.pdf"
+  },
+  {
+    "id": "215",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دراسة مقارنة لمعنى الحياة من وجهة نظر الإمام السجاد (ع) وكارل يونغ",
+        "authors": ["نسرين اشتياقى", "معصومه السادات", "زهره اخوان مقدم"],
+        "publicationVenue": "مجلة سفينه العدد 84 - السنة 21",
+        "language": "فارسي",
+        "pagenam": 14
+      }
+    ],
+    "publishedYear": "1403 ش",
+    "pdfUrl": "/general/دراسة_مقارنة_لمعنى_الحياة_من_وجهة_نظر_الإمام_السجاد_وكارل_يونغ.pdf"
+  },
+  {
+    "id": "216",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "نسبة وعلاقة الدنيا والآخرة من منظور الصحيفة السجادية",
+        "authors": ["فاطمه احمدی", "علی اسدی اصل", "عباس اسماعیلی زاده"],
+        "publicationVenue": "مجلة سفينه العدد 84 - السنة 21",
+        "language": "فارسي",
+        "pagenam": 19
+      }
+    ],
+    "publishedYear": "1403 ش",
+    "pdfUrl": "/general/نسبة_وعلاقة_الدنيا_والآخرة_من_منظور_الصحيفة_السجادية.pdf"
+  },
+  {
+    "id": "217",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الصحيفة السجادية في مرآة البحوث",
+        "authors": ["يعقوب نوروزى", "عبد الحسين طالعى", "نيره جعفرى فر"],
+        "publicationVenue": "فصلنامه علمى علوم حديث - العدد 2 - السنة 29",
+        "language": "فارسي",
+        "pagenam": 25
+      }
+    ],
+    "publishedYear": "1403 ش",
+    "pdfUrl": "/general/الصحيفة_السجادية_في_مرآة_البحوث.pdf"
+  },
+  {
+    "id": "218",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دراسة سندية لروايات كتاب \"الإرشاد\" للشيخ المفيد من عصر الإمام السجاد (ع) إلى عصر الإمام المهدي (عج)",
+        "authors": ["على رضا دل", "زهرا خير الهى", "رضا عرب تبريزى"],
+        "publicationVenue": "فصلنامه علمى بزوهشهاى اعتقادى كلامى - العدد 58 - السنة 20",
+        "language": "فارسي",
+        "pagenam": 26
+      }
+    ],
+    "publishedYear": "1404 ش",
+    "pdfUrl": "/general/دراسة_سندية_لروايات_الإرشاد_للشيخ_المفيد_من_عصر_الإمام_السجاد_إلى_الإمام_المهدي.pdf"
+  },
+  {
+    "id": "219",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "المؤشرات التربوية للأمل في كلام الإمام الحسين (ع) والإمام السجاد (ع) مطابقةً مع نظرية \"الأمل\" لـ \"سنايدر\"",
+        "authors": ["مهدى ميرزايى", "بروين روشنى نسب", "زينب حيدرى زاده"],
+        "publicationVenue": "بزوهش نامه معارف حسينى - العدد 38",
+        "language": "فارسي",
+        "pagenam": 17
+      }
+    ],
+    "publishedYear": "1404 ش",
+    "pdfUrl": "/general/المؤشرات_التربوية_للأمل_في_كلام_الإمام_الحسين_والإمام_السجاد_مطابقة_مع_نظرية_سنايدر.pdf"
+  },
+  {
+    "id": "220",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "غائية الدعاء الثاني من الصحيفة السجادية من خلال نظرة تحليلية لخصائص القائد الحضاري الإسلامي",
+        "authors": ["مهديه كشانى", "اباذر كافى موسوى"],
+        "publicationVenue": "مطالعات دين معنويت مديريت - العدد 23 - السنة 12",
+        "language": "فارسي",
+        "pagenam": 18
+      }
+    ],
+    "publishedYear": "1404 ش",
+    "pdfUrl": "/general/غائية_الدعاء_الثاني_من_الصحيفة_السجادية_من_خلال_نظرة_تحليلية_لخصائص_القائد_الحضاري_الإسلامي.pdf"
+  },
+  {
+    "id": "221",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دراسة دور الإمام السجاد (عليه السلام) في تحولات العلوم الإسلامية والفقهية في العصر الأموي",
+        "authors": ["مجيد سليمانى", "رضا شعبانى", "سينا فروزش"],
+        "publicationVenue": "معرفت وبصيرت - العدد 1 - السنة 3",
+        "language": "فارسي",
+        "pagenam": 14
+      }
+    ],
+    "publishedYear": "1404 ش",
+    "pdfUrl": "/general/دراسة_دور_الإمام_السجاد_في_تحولات_العلوم_الإسلامية_والفقهية_في_العصر_الأموي.pdf"
+  },
+  {
+    "id": "222",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "دراسة وتطبيق مضامين الدعاء الحادي والعشرين من الصحيفة السجادية مع مؤلفات علاج القبول والالتزام وعلم النفس الإيجابي",
+        "authors": ["محمد مهدى اله ورديها"],
+        "publicationVenue": "ميراث إسلامي وجالش هاى معاصر - شماره 1",
+        "language": "فارسي",
+        "pagenam": 4
+      }
+    ],
+    "publishedYear": "1404 ش",
+    "pdfUrl": "/general/دراسة_وتطبيق_مضامين_الدعاء_الحادي_والعشرين_من_الصحيفة_السجادية_مع_مؤلفات_علاج_القبول_والالتزام_وعلم_النفس_الإيجابي.pdf"
+  },
+  {
+    "id": "223",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "لقاء في الأسحار: الأجواء العرفانية لدعاء أبي حمزة الثمالي للإمام زين العابدين (عليه السلام) في شهر رمضان.",
+        "authors": ["محمد هادى زاهدى"],
+        "publicationVenue": "استان قدس رضوى",
+        "language": "فارسي",
+        "pagenam": 31
+      }
+    ],
+    "publishedYear": "",
+    "pdfUrl": "/general/لقاء_في_الأسحار_الأجواء_العرفانية_لدعاء_أبي_حمزة_الثمالي_للإمام_زين_العابدين.pdf"
+  },
+  {
+    "id": "224",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "نماذج من فضائل وسيرة الإمام علي بن الحسين (عليه السلام) الفردية",
+        "authors": ["علي اكبر قريشى"],
+        "publicationVenue": "شبكة الامامين الحسنين ع",
+        "language": "فارسي",
+        "pagenam": 27
+      }
+    ],
+    "publishedYear": "",
+    "pdfUrl": "/general/نماذج_من_فضائل_وسيرة_الإمام_علي_بن_الحسين_الفردية.pdf"
+  },
+  {
+    "id": "225",
+    "translations": [
+      {
+        "languageid": 1,
+        "title": "الإمام السجاد (عليه السلام) وتجديد الحياة الإسلامية",
+        "authors": ["جعفر مرتضى عاملي"],
+        "publicationVenue": "رشد اموزش معارف اسلامى",
+        "language": "فارسي",
+        "pagenam": 7
+      }
+    ],
+    "publishedYear": "",
+    "pdfUrl": "/general/الإمام_السجاد_وتجديد_الحياة_الإسلامية.pdf"
+  }
+]
