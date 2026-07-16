@@ -12672,7 +12672,7 @@
       }
     ],
     "publishedYear": "2026 م",
-    "pdfUrl": "/general/بناء العلاقات الإنسانية في القصار من كلمات الامام زين العابدين ع دراسة في ضوء الاقوال المضمرة.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/بناء العلاقات الإنسانية في القصار من كلمات الامام زين العابدين ع دراسة في ضوء الاقوال المضمرة.pdf"
   },
   {
     "id": "849",
@@ -12687,7 +12687,7 @@
       }
     ],
     "publishedYear": "2026 م",
-    "pdfUrl": "/general/الأثر التربوية لدعاء مكارم الاخلاق لكمال النفس الإنسانية في الصحيفة السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/الأثر التربوية لدعاء مكارم الاخلاق لكمال النفس الإنسانية في الصحيفة السجادية.pdf"
   },
   {
     "id": "850",
@@ -12702,7 +12702,7 @@
       }
     ],
     "publishedYear": "2026 م",
-    "pdfUrl": "/general/تجليات_التضمين_في_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/تجليات_التضمين_في_الصحيفة_السجادية.pdf"
   },
   {
     "id": "851",
@@ -12717,7 +12717,7 @@
       }
     ],
     "publishedYear": "2026 م",
-    "pdfUrl": "/general/أساليب الطلب في الدعاء الخامس للامام السجاد ع لنفسه واهل ولايته دراسة بلاغية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/أساليب الطلب في الدعاء الخامس للامام السجاد ع لنفسه واهل ولايته دراسة بلاغية.pdf"
   },
   {
     "id": "852",
@@ -12732,7 +12732,7 @@
       }
     ],
     "publishedYear": "2026 م",
-    "pdfUrl": "/general/تقابل الالفاظ في دعاء الاستقالة للامام السجاد ع.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/تقابل الالفاظ في دعاء الاستقالة للامام السجاد ع.pdf"
   },
   {
     "id": "853",
@@ -12747,7 +12747,7 @@
       }
     ],
     "publishedYear": "2026 م",
-    "pdfUrl": "/general/السلم الحجاجي في دعاء ابي حمزة الثمالي دراسة في الاليات اللغوية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/السلم الحجاجي في دعاء ابي حمزة الثمالي دراسة في الاليات اللغوية.pdf"
   },
   {
     "id": "854",
@@ -12762,7 +12762,7 @@
       }
     ],
     "publishedYear": "2026 م",
-    "pdfUrl": "/general/دعاء الامام السجاد ع في طلب الحوائج.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/دعاء الامام السجاد ع في طلب الحوائج.pdf"
   },
   {
     "id": "855",
@@ -12777,7 +12777,7 @@
       }
     ],
     "publishedYear": "2026 م",
-    "pdfUrl": "/general/تأملات_في_رسالة_الحقوق_للإمام_زين_العابدين_عليه_السلام.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/تأملات_في_رسالة_الحقوق_للإمام_زين_العابدين_عليه_السلام.pdf"
   },
   {
     "id": "856",
@@ -12792,12 +12792,10 @@
       }
     ],
     "publishedYear": "",
-    "pdfUrl": "/general/الإمام_السجاد_باعث_الإسلام_من_جديد.pdf"
-  }
-]
-[
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/الإمام_السجاد_باعث_الإسلام_من_جديد.pdf"
+  },
   {
-    "id": "1",
+    "id": "857",
     "translations": [
       {
         "languageid": 1,
@@ -12809,10 +12807,10 @@
       }
     ],
     "publishedYear": "1350 ش",
-    "pdfUrl": "/general/عاشق_حق_بدر_خانه_حق.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/1-f-1.pdf"
   },
   {
-    "id": "2",
+    "id": "858",
     "translations": [
       {
         "languageid": 1,
@@ -12824,10 +12822,10 @@
       }
     ],
     "publishedYear": "1358 ش",
-    "pdfUrl": "/general/ترجمة_قصيدة_الفرزدق.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/2-f-1.pdf"
   },
   {
-    "id": "3",
+    "id": "859",
     "translations": [
       {
         "languageid": 1,
@@ -12839,10 +12837,10 @@
       }
     ],
     "publishedYear": "1361 ش",
-    "pdfUrl": "/general/بحث_في_حياة_الامام_السجاد_1.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/3-f-1.pdf"
   },
   {
-    "id": "4",
+    "id": "860",
     "translations": [
       {
         "languageid": 1,
@@ -12854,10 +12852,10 @@
       }
     ],
     "publishedYear": "1361 ش",
-    "pdfUrl": "/general/بحث_في_حياة_الامام_السجاد_2.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/4-f-1.pdf"
   },
   {
-    "id": "5",
+    "id": "861",
     "translations": [
       {
         "languageid": 1,
@@ -12869,10 +12867,10 @@
       }
     ],
     "publishedYear": "1361 ش",
-    "pdfUrl": "/general/بحث_في_حياة_الامام_السجاد_3.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/5-f-1.pdf"
   },
   {
-    "id": "6",
+    "id": "862",
     "translations": [
       {
         "languageid": 1,
@@ -12884,10 +12882,10 @@
       }
     ],
     "publishedYear": "1361 ش",
-    "pdfUrl": "/general/بحث_في_حياة_الامام_السجاد_4.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/6-f-1.pdf"
   },
   {
-    "id": "7",
+    "id": "863",
     "translations": [
       {
         "languageid": 1,
@@ -12899,10 +12897,10 @@
       }
     ],
     "publishedYear": "1361 ش",
-    "pdfUrl": "/general/بحث_في_حياة_الامام_السجاد_5.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/7-f-1.pdf"
   },
   {
-    "id": "8",
+    "id": "864",
     "translations": [
       {
         "languageid": 1,
@@ -12914,10 +12912,10 @@
       }
     ],
     "publishedYear": "1362 ش",
-    "pdfUrl": "/general/بحث_في_حياة_الامام_السجاد_6.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/8-f-1.pdf"
   },
   {
-    "id": "9",
+    "id": "865",
     "translations": [
       {
         "languageid": 1,
@@ -12929,10 +12927,10 @@
       }
     ],
     "publishedYear": "1362 ش",
-    "pdfUrl": "/general/الاربعين_نظرة_في_دور_الامام_السجاد.pdf"
+   "pdfUrl": "https://cdn.imamzain.org/research/journals/9-f-1.pdf"
   },
   {
-    "id": "10",
+    "id": "866",
     "translations": [
       {
         "languageid": 1,
@@ -12944,10 +12942,10 @@
       }
     ],
     "publishedYear": "1368 ش",
-    "pdfUrl": "/general/مواصلة_الامام_السجاد_لنهضة_عاشوراء.pdf"
+   "pdfUrl": "https://cdn.imamzain.org/research/journals/10-f-1.pdf"
   },
   {
-    "id": "11",
+    "id": "867",
     "translations": [
       {
         "languageid": 1,
@@ -12959,10 +12957,10 @@
       }
     ],
     "publishedYear": "1371 ش",
-    "pdfUrl": "/general/اظهارات_الامام_السجاد_في_ثورة_كربلاء.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/11-f-1.pdf"
   },
   {
-    "id": "12",
+    "id": "868",
     "translations": [
       {
         "languageid": 1,
@@ -12974,10 +12972,10 @@
       }
     ],
     "publishedYear": "1375 ش",
-    "pdfUrl": "/general/صفات_الامام_السجاد.pdf"
+  "pdfUrl": "https://cdn.imamzain.org/research/journals/12-f-1.pdf"
   },
   {
-    "id": "13",
+    "id": "869",
     "translations": [
       {
         "languageid": 1,
@@ -12989,10 +12987,10 @@
       }
     ],
     "publishedYear": "1377 ش",
-    "pdfUrl": "/general/الامام_السجاد_مصدر_الكمال_الانساني.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/13-f-1.pdf"
   },
   {
-    "id": "14",
+    "id": "870",
     "translations": [
       {
         "languageid": 1,
@@ -13004,10 +13002,10 @@
       }
     ],
     "publishedYear": "1377 ش",
-    "pdfUrl": "/general/الامام_السجاد_وتربية_الطفل_ج3.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/14-f-1.pdf"
   },
   {
-    "id": "15",
+    "id": "871",
     "translations": [
       {
         "languageid": 1,
@@ -13019,10 +13017,10 @@
       }
     ],
     "publishedYear": "1377 ش",
-    "pdfUrl": "/general/كشاف_المصادر_الخاص_بالامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/15-f-1.pdf"
   },
   {
-    "id": "16",
+    "id": "872",
     "translations": [
       {
         "languageid": 1,
@@ -13034,10 +13032,10 @@
       }
     ],
     "publishedYear": "1378 ش",
-    "pdfUrl": "/general/نور_من_نضالات_الامام_السجاد.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/16-f-1.pdf"
   },
   {
-    "id": "17",
+    "id": "873",
     "translations": [
       {
         "languageid": 1,
@@ -13049,10 +13047,10 @@
       }
     ],
     "publishedYear": "1378 ش",
-    "pdfUrl": "/general/لماذا_لم_يشارك_الامام_السجاد_في_الحملات_السياسية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/17-f-1.pdf"
   },
   {
-    "id": "18",
+    "id": "874",
     "translations": [
       {
         "languageid": 1,
@@ -13064,10 +13062,10 @@
       }
     ],
     "publishedYear": "1378 ش",
-    "pdfUrl": "/general/عبادة_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/18-f-1.pdf"
   },
   {
-    "id": "19",
+    "id": "875",
     "translations": [
       {
         "languageid": 1,
@@ -13079,10 +13077,10 @@
       }
     ],
     "publishedYear": "1378 ش",
-    "pdfUrl": "/general/اسانيد_ومشايخ_رواة_الصحيفة_الكاملة.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/19-f-1.pdf"
   },
   {
-    "id": "20",
+    "id": "876",
     "translations": [
       {
         "languageid": 1,
@@ -13094,10 +13092,10 @@
       }
     ],
     "publishedYear": "1379 ش",
-    "pdfUrl": "/general/الامام_السجاد_في_رمضان.pdf"
+       "pdfUrl": "https://cdn.imamzain.org/research/journals/20-f-1.pdf"
   },
   {
-    "id": "21",
+    "id": "877",
     "translations": [
       {
         "languageid": 1,
@@ -13109,14 +13107,14 @@
       }
     ],
     "publishedYear": "1379 ش",
-    "pdfUrl": "/general/الامام_السجاد_والدفاع_الثقافي.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/21-f-1 .pdf"
   },
   {
-    "id": "22",
+    "id": "878",
     "translations": [
       {
         "languageid": 1,
-        "title": "الإمام السجاد (عليه السلام) وواقعة الحَرَّة (ثورة المدينة)",
+        "title": "الإمام السجاد (عليه السلام) وواقعة الحَرَّة (ثورة المدينة)",
         "authors": ["عيسى ساجدى فر"],
         "publicationVenue": "نشريه كوثر - شماره 44",
         "language": "فارسي",
@@ -13124,10 +13122,10 @@
       }
     ],
     "publishedYear": "1379 ش",
-    "pdfUrl": "/general/الامام_السجاد_وواقعة_الحرة.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/22-f-1.pdf"
   },
   {
-    "id": "23",
+    "id": "879",
     "translations": [
       {
         "languageid": 1,
@@ -13139,10 +13137,10 @@
       }
     ],
     "publishedYear": "1379 ش",
-    "pdfUrl": "/general/ملاحظات_حول_النسخ_الكريمة_المدفونة_في_الحرم_الرضوي.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/23-f-1.pdf"
   },
   {
-    "id": "24",
+    "id": "880",
     "translations": [
       {
         "languageid": 1,
@@ -13154,10 +13152,10 @@
       }
     ],
     "publishedYear": "1380 ش",
-    "pdfUrl": "/general/الامام_السجاد_في_عصر_الظلام.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/24-f-1.pdf"
   },
   {
-    "id": "25",
+    "id": "881",
     "translations": [
       {
         "languageid": 1,
@@ -13169,10 +13167,10 @@
       }
     ],
     "publishedYear": "1380 ش",
-    "pdfUrl": "/general/مواقف_الامام_السجاد_بعد_حادثة_كربلاء.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/25-f-1.pdf"
   },
   {
-    "id": "26",
+    "id": "882",
     "translations": [
       {
         "languageid": 1,
@@ -13184,10 +13182,10 @@
       }
     ],
     "publishedYear": "1380 ش",
-    "pdfUrl": "/general/الصلاة_والسلام_على_النبي_على_لسان_الامام_السجاد.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/26-f-1.pdf"
   },
   {
-    "id": "27",
+    "id": "883",
     "translations": [
       {
         "languageid": 1,
@@ -13199,10 +13197,10 @@
       }
     ],
     "publishedYear": "1380 ش",
-    "pdfUrl": "/general/علوم_الصحيفة_السجادية_1.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/27-f-1.pdf"
   },
   {
-    "id": "28",
+    "id": "884",
     "translations": [
       {
         "languageid": 1,
@@ -13214,10 +13212,10 @@
       }
     ],
     "publishedYear": "1380 ش",
-    "pdfUrl": "/general/ببليوغرافيا_مفصلة_للصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/28-f-1.pdf"
   },
   {
-    "id": "29",
+    "id": "885",
     "translations": [
       {
         "languageid": 1,
@@ -13229,10 +13227,10 @@
       }
     ],
     "publishedYear": "1380 ش",
-    "pdfUrl": "/general/زبور_آل_محمد_عبر_التاريخ.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/29-f-1.pdf"
   },
   {
-    "id": "30",
+    "id": "886",
     "translations": [
       {
         "languageid": 1,
@@ -13244,10 +13242,10 @@
       }
     ],
     "publishedYear": "1381 ش",
-    "pdfUrl": "/general/نبذة_من_فضائل_ومناقب_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/30-f-1.pdf"
   },
   {
-    "id": "31",
+    "id": "887",
     "translations": [
       {
         "languageid": 1,
@@ -13259,10 +13257,10 @@
       }
     ],
     "publishedYear": "1381 ش",
-    "pdfUrl": "/general/ببليوغرافيا_تفصيلية_لتفاسير_وترجمات_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/31-f-1.pdf"
   },
   {
-    "id": "32",
+    "id": "888",
     "translations": [
       {
         "languageid": 1,
@@ -13274,10 +13272,10 @@
       }
     ],
     "publishedYear": "1381 ش",
-    "pdfUrl": "/general/عناوين_رئيسية_حول_الحراك_السياسي_للإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/32-f-1.pdf"
   },
   {
-    "id": "33",
+    "id": "889",
     "translations": [
       {
         "languageid": 1,
@@ -13289,10 +13287,10 @@
       }
     ],
     "publishedYear": "1381 ش",
-    "pdfUrl": "/general/حقوق_وواجبات_الإنسان_من_منظور_الامام_السجاد.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/33-f-1.pdf"
   },
   {
-    "id": "34",
+    "id": "890",
     "translations": [
       {
         "languageid": 1,
@@ -13304,10 +13302,10 @@
       }
     ],
     "publishedYear": "1381 م",
-    "pdfUrl": "/general/العلاقة_بين_الإنسان_والله_في_دعاء_عرفة.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/34-f-1.pdf"
   },
   {
-    "id": "35",
+    "id": "891",
     "translations": [
       {
         "languageid": 1,
@@ -13319,10 +13317,10 @@
       }
     ],
     "publishedYear": "1382 ش",
-    "pdfUrl": "/general/الامام_السجاد_وحقوق_الجيران.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/35-f-1.pdf"
   },
   {
-    "id": "36",
+    "id": "892",
     "translations": [
       {
         "languageid": 1,
@@ -13334,10 +13332,10 @@
       }
     ],
     "publishedYear": "1382 ش",
-    "pdfUrl": "/general/الامام_السجاد_وطرق_التفسير.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/36-f-1.pdf"
   },
   {
-    "id": "37",
+    "id": "893",
     "translations": [
       {
         "languageid": 1,
@@ -13349,10 +13347,10 @@
       }
     ],
     "publishedYear": "1382 ش",
-    "pdfUrl": "/general/مظاهر_من_كلام_الامام_السجاد.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/37-f-1.pdf"
   },
   {
-    "id": "38",
+    "id": "894",
     "translations": [
       {
         "languageid": 1,
@@ -13364,10 +13362,10 @@
       }
     ],
     "publishedYear": "1382 ش",
-    "pdfUrl": "/general/الامام_السجاد_في_آثار_الشهيد_المطهري.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/1-f-2.pdf"
   },
   {
-    "id": "39",
+    "id": "895",
     "translations": [
       {
         "languageid": 1,
@@ -13379,10 +13377,10 @@
       }
     ],
     "publishedYear": "1382 ش",
-    "pdfUrl": "/general/القاسم_بن_محمد_من_حواري_الامام_زين_العابدين.pdf"
+  "pdfUrl": "https://cdn.imamzain.org/research/journals/2-f-2.pdf"
   },
   {
-    "id": "40",
+    "id": "896",
     "translations": [
       {
         "languageid": 1,
@@ -13394,10 +13392,10 @@
       }
     ],
     "publishedYear": "1382 ش",
-    "pdfUrl": "/general/مواصلة_العزة_والافتخار_الحسيني_للإمام_السجاد.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/3-f-2.pdf"
   },
   {
-    "id": "41",
+    "id": "897",
     "translations": [
       {
         "languageid": 1,
@@ -13409,10 +13407,10 @@
       }
     ],
     "publishedYear": "1382 ش",
-    "pdfUrl": "/general/سيرة_الامام_السجاد_من_وجهة_نظر_القيادة.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/4-f-2.pdf"
   },
   {
-    "id": "42",
+    "id": "898",
     "translations": [
       {
         "languageid": 1,
@@ -13424,10 +13422,10 @@
       }
     ],
     "publishedYear": "1382 ش",
-    "pdfUrl": "/general/جولة_في_ببليوغرافيا_الامام_السجاد.pdf"
+   "pdfUrl": "https://cdn.imamzain.org/research/journals/5-f-2.pdf"
   },
   {
-    "id": "43",
+    "id": "899",
     "translations": [
       {
         "languageid": 1,
@@ -13439,10 +13437,10 @@
       }
     ],
     "publishedYear": "1382 ش",
-    "pdfUrl": "/general/ملامح_شخصية_الامام_السجاد_1.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/6-f-2.pdf"
   },
   {
-    "id": "44",
+    "id": "900",
     "translations": [
       {
         "languageid": 1,
@@ -13454,10 +13452,10 @@
       }
     ],
     "publishedYear": "1382 ش",
-    "pdfUrl": "/general/الصحيفة_السجادية_برواية_ابن_مالك.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/7-f-2.pdf"
   },
   {
-    "id": "45",
+    "id": "901",
     "translations": [
       {
         "languageid": 1,
@@ -13469,10 +13467,10 @@
       }
     ],
     "publishedYear": "1382 ش",
-    "pdfUrl": "/general/الامام_السجاد_وحركة_التوابين.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/8-f-2.pdf"
   },
   {
-    "id": "46",
+    "id": "902",
     "translations": [
       {
         "languageid": 1,
@@ -13484,10 +13482,10 @@
       }
     ],
     "publishedYear": "1382 ش",
-    "pdfUrl": "/general/التربية_من_وجهة_نظر_الامام_السجاد.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/9-f-2.pdf"
   },
   {
-    "id": "47",
+    "id": "903",
     "translations": [
       {
         "languageid": 1,
@@ -13499,10 +13497,10 @@
       }
     ],
     "publishedYear": "1382 ش",
-    "pdfUrl": "/general/ام_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/10-f-2.pdf"
   },
   {
-    "id": "48",
+    "id": "904",
     "translations": [
       {
         "languageid": 1,
@@ -13514,10 +13512,10 @@
       }
     ],
     "publishedYear": "1383 ش",
-    "pdfUrl": "/general/الامام_السجاد_فاتح_القلوب.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/11-f-2.pdf"
   },
   {
-    "id": "49",
+    "id": "905",
     "translations": [
       {
         "languageid": 1,
@@ -13529,10 +13527,10 @@
       }
     ],
     "publishedYear": "1383 ش",
-    "pdfUrl": "/general/المتأملون_في_حديث_الامام_السجاد.pdf"
+   "pdfUrl": "https://cdn.imamzain.org/research/journals/12-f-2.pdf"
   },
   {
-    "id": "50",
+    "id": "906",
     "translations": [
       {
         "languageid": 1,
@@ -13544,10 +13542,10 @@
       }
     ],
     "publishedYear": "1383 ش",
-    "pdfUrl": "/general/الامام_السجاد_ونهضة_تقديم_الخدمات.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/13-f-2.pdf"
   },
   {
-    "id": "51",
+    "id": "907",
     "translations": [
       {
         "languageid": 1,
@@ -13559,10 +13557,10 @@
       }
     ],
     "publishedYear": "1383 ش",
-    "pdfUrl": "/general/الناظرون_في_بواطن_الامور_في_حديث_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/14-f-2.pdf"
   },
   {
-    "id": "52",
+    "id": "908",
     "translations": [
       {
         "languageid": 1,
@@ -13574,10 +13572,10 @@
       }
     ],
     "publishedYear": "1383 ش",
-    "pdfUrl": "/general/ملامح_شخصية_الامام_السجاد_2.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/15-f-2.pdf"
   },
   {
-    "id": "53",
+    "id": "909",
     "translations": [
       {
         "languageid": 1,
@@ -13589,10 +13587,10 @@
       }
     ],
     "publishedYear": "1384 ش",
-    "pdfUrl": "/general/الادب_في_خطب_الامام_السجاد_والصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/16-f-2.pdf"
   },
   {
-    "id": "54",
+    "id": "910",
     "translations": [
       {
         "languageid": 1,
@@ -13604,10 +13602,10 @@
       }
     ],
     "publishedYear": "1384 ش",
-    "pdfUrl": "/general/امام_الزمان_في_كلام_وأدعية_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/17-f-2.pdf"
   },
   {
-    "id": "55",
+    "id": "911",
     "translations": [
       {
         "languageid": 1,
@@ -13619,10 +13617,10 @@
       }
     ],
     "publishedYear": "1384 ش",
-    "pdfUrl": "/general/التجربة_التفسيرية_والامام_السجاد.pdf"
+     "pdfUrl": "https://cdn.imamzain.org/research/journals/18-f-2.pdf"
   },
   {
-    "id": "56",
+    "id": "912",
     "translations": [
       {
         "languageid": 1,
@@ -13634,10 +13632,10 @@
       }
     ],
     "publishedYear": "1384 ش",
-    "pdfUrl": "/general/الرياض_الثلاث_في_شرح_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/19-f-2.pdf"
   },
   {
-    "id": "57",
+    "id": "913",
     "translations": [
       {
         "languageid": 1,
@@ -13649,10 +13647,10 @@
       }
     ],
     "publishedYear": "1384 ش",
-    "pdfUrl": "/general/أثر_التدريب_على_المهارات_الحياتية_في_مدرسة_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/20-f-2.pdf"
   },
   {
-    "id": "58",
+    "id": "914",
     "translations": [
       {
         "languageid": 1,
@@ -13664,10 +13662,10 @@
       }
     ],
     "publishedYear": "1384 ش",
-    "pdfUrl": "/general/التثقيف_عند_الامام_السجاد_بلغة_الدعاء.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/21-f-2.pdf"
   },
   {
-    "id": "59",
+    "id": "915",
     "translations": [
       {
         "languageid": 1,
@@ -13679,10 +13677,10 @@
       }
     ],
     "publishedYear": "1384 ش",
-    "pdfUrl": "/general/أسماء_وصفات_القرآن_في_دعاء_ختم_القران_في_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/22-f-2.pdf"
   },
   {
-    "id": "60",
+    "id": "916",
     "translations": [
       {
         "languageid": 1,
@@ -13694,10 +13692,10 @@
       }
     ],
     "publishedYear": "1384 ش",
-    "pdfUrl": "/general/الامام_علي_الأصغر_زين_العابدين.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/23-f-2.pdf"
   },
   {
-    "id": "61",
+    "id": "917",
     "translations": [
       {
         "languageid": 1,
@@ -13709,10 +13707,10 @@
       }
     ],
     "publishedYear": "1384 ش",
-    "pdfUrl": "/general/الإذن_الروائي_للسجادية_في_القرن_الحادي_عشر.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/24-f-2.pdf"
   },
   {
-    "id": "62",
+    "id": "918",
     "translations": [
       {
         "languageid": 1,
@@ -13724,10 +13722,10 @@
       }
     ],
     "publishedYear": "1384 ش",
-    "pdfUrl": "/general/متطلبات_البحث_في_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/1-f-3.pdf"
   },
   {
-    "id": "63",
+    "id": "919",
     "translations": [
       {
         "languageid": 1,
@@ -13739,10 +13737,10 @@
       }
     ],
     "publishedYear": "1384 ش",
-    "pdfUrl": "/general/عدد_خاص_بالصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/2-f-3.pdf"
   },
   {
-    "id": "64",
+    "id": "920",
     "translations": [
       {
         "languageid": 1,
@@ -13754,10 +13752,10 @@
       }
     ],
     "publishedYear": "1384 ش",
-    "pdfUrl": "/general/شرح_الدعاء_الثاني_والأربعين_من_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/3-f-3.pdf"
   },
   {
-    "id": "65",
+    "id": "921",
     "translations": [
       {
         "languageid": 1,
@@ -13769,10 +13767,10 @@
       }
     ],
     "publishedYear": "1384 ش",
-    "pdfUrl": "/general/حاشية_ابن_إدريس_على_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/4-f-3.pdf"
   },
   {
-    "id": "66",
+    "id": "922",
     "translations": [
       {
         "languageid": 1,
@@ -13784,10 +13782,10 @@
       }
     ],
     "publishedYear": "1384 ش",
-    "pdfUrl": "/general/العلماء_الذين_اهتموا_بتدوين_وشرح_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/5-f-3.pdf"
   },
   {
-    "id": "67",
+    "id": "923",
     "translations": [
       {
         "languageid": 1,
@@ -13799,10 +13797,10 @@
       }
     ],
     "publishedYear": "1384 ش",
-    "pdfUrl": "/general/جهود_المجلسي_الأول_والمجلسي_الثاني_في_تحقيق_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/6-f-3.pdf"
   },
   {
-    "id": "68",
+    "id": "924",
     "translations": [
       {
         "languageid": 1,
@@ -13814,10 +13812,10 @@
       }
     ],
     "publishedYear": "1384 ش",
-    "pdfUrl": "/general/نظرة_على_كتاب_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/7-f-3.pdf"
   },
   {
-    "id": "69",
+    "id": "925",
     "translations": [
       {
         "languageid": 1,
@@ -13829,10 +13827,10 @@
       }
     ],
     "publishedYear": "1384 ش",
-    "pdfUrl": "/general/تحقيق_في_نسخة_الشهيد_الاول_للصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/8-f-3.pdf"
   },
   {
-    "id": "70",
+    "id": "926",
     "translations": [
       {
         "languageid": 1,
@@ -13844,10 +13842,10 @@
       }
     ],
     "publishedYear": "1385 ش",
-    "pdfUrl": "/general/النبي_الأعظم_في_نظر_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/9-f-3.pdf"
   },
   {
-    "id": "71",
+    "id": "927",
     "translations": [
       {
         "languageid": 1,
@@ -13859,10 +13857,10 @@
       }
     ],
     "publishedYear": "1385 ش",
-    "pdfUrl": "/general/التاريخ_السياسي_لأئمة_الهدى_من_عهد_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/10-f-3.pdf"
   },
   {
-    "id": "72",
+    "id": "928",
     "translations": [
       {
         "languageid": 1,
@@ -13874,10 +13872,10 @@
       }
     ],
     "publishedYear": "1385 ش",
-    "pdfUrl": "/general/الامام_السجاد_في_ذهن_أهل_السنة_ولغتهم_القسم_الأول.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/11-f-3.pdf"
   },
   {
-    "id": "73",
+    "id": "929",
     "translations": [
       {
         "languageid": 1,
@@ -13889,10 +13887,10 @@
       }
     ],
     "publishedYear": "1385 ش",
-    "pdfUrl": "/general/الطرق_التربوية_للإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/12-f-3.pdf"
   },
   {
-    "id": "74",
+    "id": "930",
     "translations": [
       {
         "languageid": 1,
@@ -13904,10 +13902,10 @@
       }
     ],
     "publishedYear": "1385 ش",
-    "pdfUrl": "/general/الجهاد_السياسي_والاجتماعي_للإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/13-f-3.pdf"
   },
   {
-    "id": "75",
+    "id": "931",
     "translations": [
       {
         "languageid": 1,
@@ -13919,10 +13917,10 @@
       }
     ],
     "publishedYear": "1385 ش",
-    "pdfUrl": "/general/چراغ_هاى_رابطه_روشن_است_بازركردان_فارسی_بخشی_از_مناجات_خمس_عشر.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/14-f-3.pdf"
   },
   {
-    "id": "76",
+    "id": "932",
     "translations": [
       {
         "languageid": 1,
@@ -13934,10 +13932,10 @@
       }
     ],
     "publishedYear": "1385 ش",
-    "pdfUrl": "/general/بضع_نسخ_خطية_متبقية_من_مدرسة_الكرامية_في_نيشابور.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/15-f-3.pdf"
   },
   {
-    "id": "77",
+    "id": "933",
     "translations": [
       {
         "languageid": 1,
@@ -13949,10 +13947,10 @@
       }
     ],
     "publishedYear": "1386 ش",
-    "pdfUrl": "/general/خطبة_الامام_السجاد_في_الثورة_ضد_المؤامرات.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/16-f-3.pdf"
   },
   {
-    "id": "78",
+    "id": "934",
     "translations": [
       {
         "languageid": 1,
@@ -13964,10 +13962,10 @@
       }
     ],
     "publishedYear": "1386 ش",
-    "pdfUrl": "/general/سيرة_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/17-f-3.pdf"
   },
   {
-    "id": "79",
+    "id": "935",
     "translations": [
       {
         "languageid": 1,
@@ -13979,10 +13977,10 @@
       }
     ],
     "publishedYear": "1387 ش",
-    "pdfUrl": "/general/بحث_في_الرسالة_المنسوبة_للإمام_السجاد_الموجهة_إلى_الزهري.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/18-f-3.pdf"
   },
   {
-    "id": "80",
+    "id": "936",
     "translations": [
       {
         "languageid": 1,
@@ -13994,10 +13992,10 @@
       }
     ],
     "publishedYear": "1387 ش",
-    "pdfUrl": "/general/الامام_السجاد_والمحبوبية_الاجتماعية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/19-f-3.pdf"
   },
   {
-    "id": "81",
+    "id": "937",
     "translations": [
       {
         "languageid": 1,
@@ -14009,10 +14007,10 @@
       }
     ],
     "publishedYear": "1387 ش",
-    "pdfUrl": "/general/ثورات_ابناء_الامام_زين_العابدين.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/20-f-3.pdf"
   },
   {
-    "id": "82",
+    "id": "938",
     "translations": [
       {
         "languageid": 1,
@@ -14024,10 +14022,10 @@
       }
     ],
     "publishedYear": "1388 ش",
-    "pdfUrl": "/general/الصاحب_الإيراني_للإمام_سجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/21-f-3.pdf"
   },
   {
-    "id": "83",
+    "id": "939",
     "translations": [
       {
         "languageid": 1,
@@ -14039,10 +14037,10 @@
       }
     ],
     "publishedYear": "1388 ش",
-    "pdfUrl": "/general/الأميرة_رفيعة_المقام_شهربانو_حديث_حول_الأم_الجليلة_والدة_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/1-f-4.pdf"
   },
   {
-    "id": "84",
+    "id": "940",
     "translations": [
       {
         "languageid": 1,
@@ -14054,10 +14052,10 @@
       }
     ],
     "publishedYear": "1388 ش",
-    "pdfUrl": "/general/تقرير_السيدة_زينب_عن_واقعة_كربلاء.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/2-f-4.pdf"
   },
   {
-    "id": "85",
+    "id": "941",
     "translations": [
       {
         "languageid": 1,
@@ -14069,10 +14067,10 @@
       }
     ],
     "publishedYear": "1388 ش",
-    "pdfUrl": "/general/نظرة_في_سيرة_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/3-f-4.pdf"
   },
   {
-    "id": "86",
+    "id": "942",
     "translations": [
       {
         "languageid": 1,
@@ -14084,10 +14082,10 @@
       }
     ],
     "publishedYear": "1388 هـ",
-    "pdfUrl": "/general/حاشية_الصحيفة_السجادية_لمحمد_ابن_ادريس.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/4-f-4.pdf"
   },
   {
-    "id": "87",
+    "id": "943",
     "translations": [
       {
         "languageid": 1,
@@ -14099,10 +14097,10 @@
       }
     ],
     "publishedYear": "1389 ش",
-    "pdfUrl": "/general/الموت_في_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/5-f-4.pdf"
   },
   {
-    "id": "88",
+    "id": "944",
     "translations": [
       {
         "languageid": 1,
@@ -14114,10 +14112,10 @@
       }
     ],
     "publishedYear": "1389 ش",
-    "pdfUrl": "/general/الشخصية_القرآنية_للإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/6-f-4.pdf"
   },
   {
-    "id": "89",
+    "id": "945",
     "translations": [
       {
         "languageid": 1,
@@ -14129,10 +14127,10 @@
       }
     ],
     "publishedYear": "1389 ش",
-    "pdfUrl": "/general/المبنى_القرآني_لخطاب_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/7-f-4.pdf"
   },
   {
-    "id": "90",
+    "id": "946",
     "translations": [
       {
         "languageid": 1,
@@ -14144,10 +14142,10 @@
       }
     ],
     "publishedYear": "1389 ش",
-    "pdfUrl": "/general/أسلوب_مناظرات_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/8-f-4.pdf"
   },
   {
-    "id": "91",
+    "id": "947",
     "translations": [
       {
         "languageid": 1,
@@ -14159,10 +14157,10 @@
       }
     ],
     "publishedYear": "1389 ش",
-    "pdfUrl": "/general/تعظيم_القرآن_في_دعاء_ختم_القران_للإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/9-f-4.pdf"
   },
   {
-    "id": "92",
+    "id": "948",
     "translations": [
       {
         "languageid": 1,
@@ -14174,10 +14172,10 @@
       }
     ],
     "publishedYear": "1389 ش",
-    "pdfUrl": "/general/آثار_بعض_الذنوب_على_لسان_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/10-f-4.pdf"
   },
   {
-    "id": "93",
+    "id": "949",
     "translations": [
       {
         "languageid": 1,
@@ -14189,10 +14187,10 @@
       }
     ],
     "publishedYear": "1389 ش",
-    "pdfUrl": "/general/دراسة_أصول_التربية_الاجتماعية_من_وجهة_نظر_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/11-f-4.pdf"
   },
   {
-    "id": "94",
+    "id": "950",
     "translations": [
       {
         "languageid": 1,
@@ -14204,10 +14202,10 @@
       }
     ],
     "publishedYear": "1389 ش",
-    "pdfUrl": "/general/مكانة_التأويل_في_الروايات_التفسيرية_للإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/12-f-4.pdf"
   },
   {
-    "id": "95",
+    "id": "951",
     "translations": [
       {
         "languageid": 1,
@@ -14219,10 +14217,10 @@
       }
     ],
     "publishedYear": "1389 ش",
-    "pdfUrl": "/general/لماذا_فضل_الامام_السجاد_الحج_على_الجهاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/13-f-4.pdf"
   },
   {
-    "id": "96",
+    "id": "952",
     "translations": [
       {
         "languageid": 1,
@@ -14234,10 +14232,10 @@
       }
     ],
     "publishedYear": "1390 ش",
-    "pdfUrl": "/general/مستدرك_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/14-f-4.pdf"
   },
   {
-    "id": "97",
+    "id": "953",
     "translations": [
       {
         "languageid": 1,
@@ -14249,10 +14247,10 @@
       }
     ],
     "publishedYear": "1390 ش",
-    "pdfUrl": "/general/العلاقة_بين_التقوى_ونشر_العدل_في_دعاء_مكارم_الاخلاق.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/15-f-4.pdf"
   },
   {
-    "id": "98",
+    "id": "954",
     "translations": [
       {
         "languageid": 1,
@@ -14264,10 +14262,10 @@
       }
     ],
     "publishedYear": "1390 ش",
-    "pdfUrl": "/general/منظومة_الحقوق_والواجبات_في_العلاقات_الاجتماعية_من_منظور_الإسلام.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/16-f-4.pdf"
   },
   {
-    "id": "99",
+    "id": "955",
     "translations": [
       {
         "languageid": 1,
@@ -14279,10 +14277,10 @@
       }
     ],
     "publishedYear": "1390 ش",
-    "pdfUrl": "/general/تطابق_موضوعات_رسالة_الحقوق_مع_القرآن_الكريم.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/17-f-4.pdf"
   },
   {
-    "id": "100",
+    "id": "956",
     "translations": [
       {
         "languageid": 1,
@@ -14294,10 +14292,10 @@
       }
     ],
     "publishedYear": "1390 ش",
-    "pdfUrl": "/general/مكانة_القرآن_في_روايات_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/18-f-4.pdf"
   },
   {
-    "id": "101",
+    "id": "957",
     "translations": [
       {
         "languageid": 1,
@@ -14309,10 +14307,10 @@
       }
     ],
     "publishedYear": "1390 ش",
-    "pdfUrl": "/general/الصورة_النورانية_للقرآن_في_كلام_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/19-f-4.pdf"
   },
   {
-    "id": "102",
+    "id": "958",
     "translations": [
       {
         "languageid": 1,
@@ -14324,12 +14322,11 @@
       }
     ],
     "publishedYear": "1391 ش",
-    "pdfUrl": "/general/البحث_عن_الأسرة_ووظائفها_التربوية_في_تعاليم_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/20-f-4.pdf"
   }
-}
-] [
+,
   {
-    "id": "103",
+    "id": "959",
     "translations": [
       {
         "languageid": 1,
@@ -14341,10 +14338,10 @@
       }
     ],
     "publishedYear": "1391 ش",
-    "pdfUrl": "/general/تأمل_في_خبر_لقاء_الامام_زين_العابدين_بمسلم_بن_عقبة.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/1-f-5.pdf"
   },
   {
-    "id": "104",
+    "id": "960",
     "translations": [
       {
         "languageid": 1,
@@ -14356,10 +14353,10 @@
       }
     ],
     "publishedYear": "1391 ش",
-    "pdfUrl": "/general/التجلي_العاطفي_ومكانته_في_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/2-f-5.pdf"
   },
   {
-    "id": "105",
+    "id": "961",
     "translations": [
       {
         "languageid": 1,
@@ -14371,10 +14368,10 @@
       }
     ],
     "publishedYear": "1391 ش",
-    "pdfUrl": "/general/كم_نسخة_وقف_للصحيفة_السجادية_في_اكاديمية_العلوم_الجمهورية_الأذربيجانية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/3-f-5.pdf"
   },
   {
-    "id": "106",
+    "id": "962",
     "translations": [
       {
         "languageid": 1,
@@ -14386,10 +14383,10 @@
       }
     ],
     "publishedYear": "1392 ش",
-    "pdfUrl": "/general/الخطوط_العريضة_للفكر_المهدوي_من_الامام_علي_الى_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/4-f-5.pdf"
   },
   {
-    "id": "107",
+    "id": "963",
     "translations": [
       {
         "languageid": 1,
@@ -14401,10 +14398,10 @@
       }
     ],
     "publishedYear": "1392 ش",
-    "pdfUrl": "/general/الخوارق_في_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/5-f-5.pdf"
   },
   {
-    "id": "108",
+    "id": "964",
     "translations": [
       {
         "languageid": 1,
@@ -14416,10 +14413,10 @@
       }
     ],
     "publishedYear": "1392 ش",
-    "pdfUrl": "/general/التحقق_من_اعتبار_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/6-f-5.pdf"
   },
   {
-    "id": "109",
+    "id": "965",
     "translations": [
       {
         "languageid": 1,
@@ -14431,10 +14428,10 @@
       }
     ],
     "publishedYear": "1392 ش",
-    "pdfUrl": "/general/المضامين_المشتركة_للأنثروبولوجيا_في_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/7-f-5.pdf"
   },
   {
-    "id": "110",
+    "id": "966",
     "translations": [
       {
         "languageid": 1,
@@ -14446,10 +14443,10 @@
       }
     ],
     "publishedYear": "1392 ش",
-    "pdfUrl": "/general/نظرية_المعرفة_كمنهج_أساسي_للتربية_الأخلاقية_من_منظور_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/8-f-5.pdf"
   },
   {
-    "id": "111",
+    "id": "967",
     "translations": [
       {
         "languageid": 1,
@@ -14461,10 +14458,10 @@
       }
     ],
     "publishedYear": "1393 ش",
-    "pdfUrl": "/general/الفكر_السياسي_عند_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/9-f-5.pdf"
   },
   {
-    "id": "112",
+    "id": "968",
     "translations": [
       {
         "languageid": 1,
@@ -14476,10 +14473,10 @@
       }
     ],
     "publishedYear": "1393 ش",
-    "pdfUrl": "/general/مكانة_الاعتصام_بالله_في_كلام_الامام_السجاد_2.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/10-f-5.pdf"
   },
   {
-    "id": "113",
+    "id": "969",
     "translations": [
       {
         "languageid": 1,
@@ -14491,10 +14488,10 @@
       }
     ],
     "publishedYear": "1393 ش",
-    "pdfUrl": "/general/علاقة_الأخلاق_بالسياسة_في_الحياة_السياسية_للإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/11-f-5.pdf"
   },
   {
-    "id": "114",
+    "id": "970",
     "translations": [
       {
         "languageid": 1,
@@ -14506,10 +14503,10 @@
       }
     ],
     "publishedYear": "1393 ش",
-    "pdfUrl": "/general/تحليل_سلوك_الامام_السجاد_في_الإدارة_الثقافية_بعد_عاشوراء.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/12-f-5.pdf"
   },
   {
-    "id": "115",
+    "id": "971",
     "translations": [
       {
         "languageid": 1,
@@ -14521,10 +14518,10 @@
       }
     ],
     "publishedYear": "1393 ش",
-    "pdfUrl": "/general/مكانة_الاعتصام_بالله_في_كلام_الامام_السجاد_1.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/13-f-5.pdf"
   },
   {
-    "id": "116",
+    "id": "972",
     "translations": [
       {
         "languageid": 1,
@@ -14536,10 +14533,10 @@
       }
     ],
     "publishedYear": "1393 ش",
-    "pdfUrl": "/general/التحليل_الجمالي_للصور_الفنية_والموسيقية_للصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/14-f-5.pdf"
   },
   {
-    "id": "117",
+    "id": "973",
     "translations": [
       {
         "languageid": 1,
@@ -14551,10 +14548,10 @@
       }
     ],
     "publishedYear": "1393 ش",
-    "pdfUrl": "/general/أربع_مقالات_حول_نسخة_الصحيفة_السجادية_الكفعمي.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/15-f-5.pdf"
   },
   {
-    "id": "118",
+    "id": "974",
     "translations": [
       {
         "languageid": 1,
@@ -14566,10 +14563,10 @@
       }
     ],
     "publishedYear": "1393 ش",
-    "pdfUrl": "/general/أربع_مقالات_الرواية_والدراية_والكتابة_عند_الشيخ_الكفعمي.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/16-f-5.pdf"
   },
   {
-    "id": "119",
+    "id": "975",
     "translations": [
       {
         "languageid": 1,
@@ -14581,10 +14578,10 @@
       }
     ],
     "publishedYear": "1393 ش",
-    "pdfUrl": "/general/أربع_مقالات_الصحيفة_السجادية_وجهود_الأدباء_والعلماء.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/17-f-5.pdf"
   },
   {
-    "id": "120",
+    "id": "976",
     "translations": [
       {
         "languageid": 1,
@@ -14596,10 +14593,10 @@
       }
     ],
     "publishedYear": "1393 ش",
-    "pdfUrl": "/general/أربع_مقالات_نظرة_على_تعليقات_الشيخ_أبو_الحسن_الشعراني.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/18-f-5.pdf"
   },
   {
-    "id": "121",
+    "id": "977",
     "translations": [
       {
         "languageid": 1,
@@ -14611,10 +14608,10 @@
       }
     ],
     "publishedYear": "1394 ش",
-    "pdfUrl": "/general/خصائص_المجتمع_المثالي_في_فكر_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/19-f-5.pdf"
   },
   {
-    "id": "122",
+    "id": "978",
     "translations": [
       {
         "languageid": 1,
@@ -14626,10 +14623,10 @@
       }
     ],
     "publishedYear": "1394 ش",
-    "pdfUrl": "/general/مرتكزات_الأخلاق_الإسلامية_وآداب_التعليم_والتعلم_من_وجهة_نظر_رسالة_الحقوق.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/20-f-5.pdf"
   },
   {
-    "id": "123",
+    "id": "979",
     "translations": [
       {
         "languageid": 1,
@@ -14641,10 +14638,10 @@
       }
     ],
     "publishedYear": "1394 ش",
-    "pdfUrl": "/general/التشخيص_وتصوير_الإبداع_في_أدعية_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/1-f-6.pdf"
   },
   {
-    "id": "124",
+    "id": "980",
     "translations": [
       {
         "languageid": 1,
@@ -14656,10 +14653,10 @@
       }
     ],
     "publishedYear": "1394 ش",
-    "pdfUrl": "/general/أسلوب_الامام_السجاد_في_التربية_الدينية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/2-f-6.pdf"
   },
   {
-    "id": "125",
+    "id": "981",
     "translations": [
       {
         "languageid": 1,
@@ -14671,10 +14668,10 @@
       }
     ],
     "publishedYear": "1394 ش",
-    "pdfUrl": "/general/المحسنات_اللفظية_في_كلام_الامام_الرضا_والامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/3-f-6.pdf"
   },
   {
-    "id": "126",
+    "id": "982",
     "translations": [
       {
         "languageid": 1,
@@ -14686,10 +14683,10 @@
       }
     ],
     "publishedYear": "1394 ش",
-    "pdfUrl": "/general/ندوة_حول_التراث_المصور_للصحيفة_السجادية_بخط_الكفعمي.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/4-f-6.pdf"
   },
   {
-    "id": "127",
+    "id": "983",
     "translations": [
       {
         "languageid": 1,
@@ -14701,10 +14698,10 @@
       }
     ],
     "publishedYear": "1395 ش",
-    "pdfUrl": "/general/الاقتباسات_القرآنية_من_الديوان_المنسوب_للإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/5-f-6.pdf"
   },
   {
-    "id": "128",
+    "id": "984",
     "translations": [
       {
         "languageid": 1,
@@ -14716,10 +14713,10 @@
       }
     ],
     "publishedYear": "1395 ش",
-    "pdfUrl": "/general/دور_الامام_السجاد_في_تصحيح_التحريف_في_السيرة_النبوية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/6-f-6.pdf"
   },
   {
-    "id": "129",
+    "id": "985",
     "translations": [
       {
         "languageid": 1,
@@ -14731,10 +14728,10 @@
       }
     ],
     "publishedYear": "1395 ش",
-    "pdfUrl": "/general/تحليل_خطبة_الامام_السجاد_في_الكوفة_في_ضوء_السياق_النصي_والظرفي.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/7-f-6.pdf"
   },
   {
-    "id": "130",
+    "id": "986",
     "translations": [
       {
         "languageid": 1,
@@ -14746,10 +14743,10 @@
       }
     ],
     "publishedYear": "1395 ش",
-    "pdfUrl": "/general/دراسة_مقارنة_بين_دعاء_عرفة_للإمام_الحسين_والإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/8-f-6.pdf"
   },
   {
-    "id": "131",
+    "id": "987",
     "translations": [
       {
         "languageid": 1,
@@ -14761,10 +14758,10 @@
       }
     ],
     "publishedYear": "1395 ش",
-    "pdfUrl": "/general/المنطق_الذي_يحكم_احتجاجات_الامام_السجاد_بشأن_حركة_عاشوراء.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/9-f-6.pdf"
   },
   {
-    "id": "132",
+    "id": "988",
     "translations": [
       {
         "languageid": 1,
@@ -14776,10 +14773,10 @@
       }
     ],
     "publishedYear": "1395 ش",
-    "pdfUrl": "/general/استراتيجيات_الامام_السجاد_في_نشر_ثقافة_أهل_البيت_والتشيع.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/10-f-6.pdf"
   },
   {
-    "id": "133",
+    "id": "989",
     "translations": [
       {
         "languageid": 1,
@@ -14791,10 +14788,10 @@
       }
     ],
     "publishedYear": "1396 ش",
-    "pdfUrl": "/general/المكانة_العرفانية_للإمام_السجاد_عند_الصوفية_وأهل_العلم.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/11-f-6.pdf"
   },
   {
-    "id": "134",
+    "id": "990",
     "translations": [
       {
         "languageid": 1,
@@ -14806,10 +14803,10 @@
       }
     ],
     "publishedYear": "1396 ش",
-    "pdfUrl": "/general/صورة_من_السيرة_العلمية_للإمام_زين_العابدين_من_المصادر_السنية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/12-f-6.pdf"
   },
   {
-    "id": "135",
+    "id": "991",
     "translations": [
       {
         "languageid": 1,
@@ -14821,10 +14818,10 @@
       }
     ],
     "publishedYear": "1396 ش",
-    "pdfUrl": "/general/تحليل_قصيدة_الفرزدق_في_الإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/13-f-6.pdf"
   },
   {
-    "id": "136",
+    "id": "992",
     "translations": [
       {
         "languageid": 1,
@@ -14836,10 +14833,10 @@
       }
     ],
     "publishedYear": "1396 ش",
-    "pdfUrl": "/general/إعادة_قراءة_التكييفات_القرآنية_في_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/14-f-6.pdf"
   },
   {
-    "id": "137",
+    "id": "993",
     "translations": [
       {
         "languageid": 1,
@@ -14851,10 +14848,10 @@
       }
     ],
     "publishedYear": "1396 ش",
-    "pdfUrl": "/general/تحليل_المحتوى_للصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/15-f-6.pdf"
   },
   {
-    "id": "138",
+    "id": "994",
     "translations": [
       {
         "languageid": 1,
@@ -14866,10 +14863,10 @@
       }
     ],
     "publishedYear": "1396 ش",
-    "pdfUrl": "/general/المقاربة_التطبيقية_لعلم_النفس_الإيجابي_في_دعاء_مكارم_الأخلاق.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/16-f-6.pdf"
   },
   {
-    "id": "139",
+    "id": "995",
     "translations": [
       {
         "languageid": 1,
@@ -14881,10 +14878,10 @@
       }
     ],
     "publishedYear": "1397 ش",
-    "pdfUrl": "/general/أنموذج_التدرّب_على_الأخلاق_الإسلامية_من_وجهة_نظر_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/17-f-6.pdf"
   },
   {
-    "id": "140",
+    "id": "996",
     "translations": [
       {
         "languageid": 1,
@@ -14896,10 +14893,10 @@
       }
     ],
     "publishedYear": "1397 ش",
-    "pdfUrl": "/general/التحليل_الدلالي_للوحدة_العددية_لله_في_كلام_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/18-f-6.pdf"
   },
   {
-    "id": "141",
+    "id": "997",
     "translations": [
       {
         "languageid": 1,
@@ -14911,10 +14908,10 @@
       }
     ],
     "publishedYear": "1397 ش",
-    "pdfUrl": "/general/تحليل_وتحقيق_فكرة_تعارض_أحداث_عصر_الامام_السجاد_ونصوص_الإمامة.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/19-f-6.pdf"
   },
   {
-    "id": "142",
+    "id": "998",
     "translations": [
       {
         "languageid": 1,
@@ -14926,10 +14923,10 @@
       }
     ],
     "publishedYear": "1397 ش",
-    "pdfUrl": "/general/حق_الأم_في_فكر_الامام_السجاد_وقانون_الحقوق_الدولي.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/20-f-6.pdf"
   },
   {
-    "id": "143",
+    "id": "999",
     "translations": [
       {
         "languageid": 1,
@@ -14941,10 +14938,10 @@
       }
     ],
     "publishedYear": "1397 ش",
-    "pdfUrl": "/general/أسلوب_الحياة_في_تعاليم_الامام_السجاد_على_أساس_ازالة_الانحرافات_وزيادة_الفضيلة.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/21-f-6.pdf"
   },
   {
-    "id": "144",
+    "id": "1000",
     "translations": [
       {
         "languageid": 1,
@@ -14956,10 +14953,10 @@
       }
     ],
     "publishedYear": "1397 ش",
-    "pdfUrl": "/general/الحياة_العلمية_للإمام_السجاد_في_مواجهة_الانحرافات_الفكرية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/1-f-7.pdf"
   },
   {
-    "id": "145",
+    "id": "1001",
     "translations": [
       {
         "languageid": 1,
@@ -14971,10 +14968,10 @@
       }
     ],
     "publishedYear": "1397 ش",
-    "pdfUrl": "/general/الولاء_أو_إعادة_الإبداع_أو_الإبداع_الأدبي_في_ترجمة_الشعر.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/2-f-7.pdf"
   },
   {
-    "id": "146",
+    "id": "1002",
     "translations": [
       {
         "languageid": 1,
@@ -14986,10 +14983,10 @@
       }
     ],
     "publishedYear": "1397 ش",
-    "pdfUrl": "/general/الدور_المعنوي_للإمام_السجاد_في_امتداد_نهضة_كربلاء.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/3-f-7.pdf"
   },
   {
-    "id": "147",
+    "id": "1003",
     "translations": [
       {
         "languageid": 1,
@@ -15001,10 +14998,10 @@
       }
     ],
     "publishedYear": "1397 ش",
-    "pdfUrl": "/general/أسس_ومكونات_أخلاق_الجوار_من_وجهة_نظر_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/4-f-7.pdf"
   },
   {
-    "id": "148",
+    "id": "1004",
     "translations": [
       {
         "languageid": 1,
@@ -15016,10 +15013,10 @@
       }
     ],
     "publishedYear": "1397 ش",
-    "pdfUrl": "/general/قيمة_الأحكام_التاريخية_المتباينة_عند_أصحاب_الإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/5-f-7.pdf"
   },
   {
-    "id": "149",
+    "id": "1005",
     "translations": [
       {
         "languageid": 1,
@@ -15031,10 +15028,10 @@
       }
     ],
     "publishedYear": "1397 ش",
-    "pdfUrl": "/general/جهاد_الامام_السجاد_في_عاشوراء_وعوامل_الحفاظ_على_الامام.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/6-f-7.pdf"
   },
   {
-    "id": "150",
+    "id": "1006",
     "translations": [
       {
         "languageid": 1,
@@ -15046,10 +15043,10 @@
       }
     ],
     "publishedYear": "1397 ش",
-    "pdfUrl": "/general/الإدارة_المعنوية_للإمام_السجاد_في_الميدانين_الاجتماعي_والسياسي.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/7-f-7.pdf"
   },
   {
-    "id": "151",
+    "id": "1007",
     "translations": [
       {
         "languageid": 1,
@@ -15061,10 +15058,10 @@
       }
     ],
     "publishedYear": "1397 ش",
-    "pdfUrl": "/general/الدور_التاريخي_الفعال_للإمام_السجاد_من_عام_41_الى_96_هجرية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/8-f-7.pdf"
   },
   {
-    "id": "152",
+    "id": "1008",
     "translations": [
       {
         "languageid": 1,
@@ -15076,10 +15073,10 @@
       }
     ],
     "publishedYear": "1398 ش",
-    "pdfUrl": "/general/تقديم_نموذج_لتربية_المواطن_على_مستوى_المجتمع_الإسلامي_من_خلال_مناهج_رسالة_الحقوق.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/9-f-7.pdf"
   },
   {
-    "id": "153",
+    "id": "1009",
     "translations": [
       {
         "languageid": 1,
@@ -15091,10 +15088,10 @@
       }
     ],
     "publishedYear": "1398 ش",
-    "pdfUrl": "/general/بيان_السيرة_التربوية_للإمام_السجاد_في_الصحيفة_السجادية_مع_التركيز_على_وثيقة_التحول_الجذري.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/10-f-7.pdf"
   },
   {
-    "id": "154",
+    "id": "1010",
     "translations": [
       {
         "languageid": 1,
@@ -15106,10 +15103,10 @@
       }
     ],
     "publishedYear": "1398 ش",
-    "pdfUrl": "/general/مدخل_إلى_أصول_النقد_التربوية_مع_التركيز_على_رسالة_الحقوق_للإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/11-f-7.pdf"
   },
   {
-    "id": "155",
+    "id": "1011",
     "translations": [
       {
         "languageid": 1,
@@ -15121,10 +15118,10 @@
       }
     ],
     "publishedYear": "1398 ش",
-    "pdfUrl": "/general/فاعلية_تأريخ_عاشوراء_من_سيرة_عاشوراء_للإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/12-f-7.pdf"
   },
   {
-    "id": "156",
+    "id": "1012",
     "translations": [
       {
         "languageid": 1,
@@ -15136,10 +15133,10 @@
       }
     ],
     "publishedYear": "1398 ش",
-    "pdfUrl": "/general/تحقيق_شخصية_الامام_السجاد_في_ميميه_الفرزدق_من_وجهة_نظر_جوردون_البورت.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/13-f-7.pdf"
   },
   {
-    "id": "157",
+    "id": "1013",
     "translations": [
       {
         "languageid": 1,
@@ -15151,10 +15148,10 @@
       }
     ],
     "publishedYear": "1398 ش",
-    "pdfUrl": "/general/التحليل_الأخلاقي_لسلطة_المعلم_من_خلال_رسالة_الحقوق_للإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/14-f-7.pdf"
   },
   {
-    "id": "158",
+    "id": "1014",
     "translations": [
       {
         "languageid": 1,
@@ -15166,10 +15163,10 @@
       }
     ],
     "publishedYear": "1398 ش",
-    "pdfUrl": "/general/استراتيجيات_السيد_الساجدين_علي_بن_الحسين_في_تعزيز_ثقافة_عاشوراء.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/15-f-7.pdf"
   },
   {
-    "id": "159",
+    "id": "1015",
     "translations": [
       {
         "languageid": 1,
@@ -15181,10 +15178,10 @@
       }
     ],
     "publishedYear": "1398 ش",
-    "pdfUrl": "/general/حقوق_المواطنة_للأقليات_الدينية_في_القرآن_الكريم_ورسالة_الحقوق_للإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/16-f-7.pdf"
   },
   {
-    "id": "160",
+    "id": "1016",
     "translations": [
       {
         "languageid": 1,
@@ -15196,10 +15193,10 @@
       }
     ],
     "publishedYear": "1398 ش",
-    "pdfUrl": "/general/تبيين_العوامل_المؤثرة_على_المسؤولية_الاجتماعية_للطلاب_بناءً_على_رسالة_الحقوق_للإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/17-f-7.pdf"
   },
   {
-    "id": "161",
+    "id": "1017",
     "translations": [
       {
         "languageid": 1,
@@ -15211,10 +15208,10 @@
       }
     ],
     "publishedYear": "1398 ش",
-    "pdfUrl": "/general/خطاب_السياسة_الجنائية_في_رسالة_الحقوق_للإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/18-f-7.pdf"
   },
   {
-    "id": "162",
+    "id": "1018",
     "translations": [
       {
         "languageid": 1,
@@ -15226,10 +15223,10 @@
       }
     ],
     "publishedYear": "1399 ش",
-    "pdfUrl": "/general/تصنيف_دور_الامام_السجاد_في_إدارة_الأزمات_السياسية_والاجتماعية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/19-f-7.pdf"
   },
   {
-    "id": "163",
+    "id": "1019",
     "translations": [
       {
         "languageid": 1,
@@ -15241,10 +15238,10 @@
       }
     ],
     "publishedYear": "1399 ش",
-    "pdfUrl": "/general/أساليب_تفسير_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/20-f-7.pdf"
   },
   {
-    "id": "164",
+    "id": "1020",
     "translations": [
       {
         "languageid": 1,
@@ -15256,10 +15253,10 @@
       }
     ],
     "publishedYear": "1399 ش",
-    "pdfUrl": "/general/التحليل_الأخلاقي_لأدب_دلال_مع_التركيز_على_الحياة_التعبدية_للإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/1-f-8.pdf"
   },
   {
-    "id": "165",
+    "id": "1021",
     "translations": [
       {
         "languageid": 1,
@@ -15271,10 +15268,10 @@
       }
     ],
     "publishedYear": "1399 ش",
-    "pdfUrl": "/general/تحليل_الاستشهادات_القرآنية_للإمام_السجاد_في_مناظرات_مدينة_الشام.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/2-f-8.pdf"
   },
   {
-    "id": "166",
+    "id": "1022",
     "translations": [
       {
         "languageid": 1,
@@ -15286,10 +15283,10 @@
       }
     ],
     "publishedYear": "1399 ش",
-    "pdfUrl": "/general/استراتيجيات_الامام_السجاد_في_الحفاظ_على_ملحمة_عاشوراء_ومننجازاتها.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/3-f-8.pdf"
   },
   {
-    "id": "167",
+    "id": "1023",
     "translations": [
       {
         "languageid": 1,
@@ -15301,10 +15298,10 @@
       }
     ],
     "publishedYear": "1399 ش",
-    "pdfUrl": "/general/التحقق_من_صحة_كون_والدة_الامام_السجاد_من_أبناء_الملوك.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/4-f-8.pdf"
   },
   {
-    "id": "168",
+    "id": "1024",
     "translations": [
       {
         "languageid": 1,
@@ -15316,10 +15313,10 @@
       }
     ],
     "publishedYear": "1399 ش",
-    "pdfUrl": "/general/دراسة_جدالين_تاريخيين_حول_الإمام_السجاد_تاريخ_الولادة_والعمر_عند_حضوره_في_كربلاء.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/5-f-8.pdf"
   },
   {
-    "id": "169",
+    "id": "1025",
     "translations": [
       {
         "languageid": 1,
@@ -15331,10 +15328,10 @@
       }
     ],
     "publishedYear": "1399 ش",
-    "pdfUrl": "/general/المعرفة_القانونية_للأزواج_الذين_يعيشون_معًا_وفقًا_لرسالة_الحقوق.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/6-f-8.pdf"
   },
   {
-    "id": "170",
+    "id": "1026",
     "translations": [
       {
         "languageid": 1,
@@ -15346,10 +15343,10 @@
       }
     ],
     "publishedYear": "1399 ش",
-    "pdfUrl": "/general/فاعلية_تعليم_مهارات_المواطنة_المستندة_إلى_رسالة_الحقوق_للإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/7-f-8.pdf"
   },
   {
-    "id": "171",
+    "id": "1027",
     "translations": [
       {
         "languageid": 1,
@@ -15361,10 +15358,10 @@
       }
     ],
     "publishedYear": "1399 ش",
-    "pdfUrl": "/general/التحقق_التاريخي_للتقارير_الشيعية_مقارنة_بالروايات_التاريخية_عند_أهل_السنة.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/8-f-8.pdf"
   },
   {
-    "id": "172",
+    "id": "1028",
     "translations": [
       {
         "languageid": 1,
@@ -15376,10 +15373,10 @@
       }
     ],
     "publishedYear": "1399 ش",
-    "pdfUrl": "/general/الإمام_السجاد_رمز_لجهاد_التبيين_في_حماية_المجتمع_النبوي.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/9-f-8.pdf"
   },
   {
-    "id": "173",
+    "id": "1029",
     "translations": [
       {
         "languageid": 1,
@@ -15391,10 +15388,10 @@
       }
     ],
     "publishedYear": "1399 ش",
-    "pdfUrl": "/general/تحليل_العلاقات_النصية_للعلم_الإلهي_في_القرآن_الكريم_والصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/10-f-8.pdf"
   },
   {
-    "id": "174",
+    "id": "1030",
     "translations": [
       {
         "languageid": 1,
@@ -15406,10 +15403,10 @@
       }
     ],
     "publishedYear": "1399 ش",
-    "pdfUrl": "/general/المنهج_العقلي_الفلسفي_في_التوحيد_في_أقوال_الإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/11-f-8.pdf"
   },
   {
-    "id": "175",
+    "id": "1031",
     "translations": [
       {
         "languageid": 1,
@@ -15421,10 +15418,10 @@
       }
     ],
     "publishedYear": "1400 ش",
-    "pdfUrl": "/general/الأوضاع_الثقافية_والسياسية_في_عهد_الإمام_السجاد_وتعامل_الإمام_مع_ذلك_العهد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/12-f-8.pdf"
   },
   {
-    "id": "176",
+    "id": "1032",
     "translations": [
       {
         "languageid": 1,
@@ -15436,10 +15433,10 @@
       }
     ],
     "publishedYear": "1400 ش",
-    "pdfUrl": "/general/معرفة_الجمهور_المخاطب_لخطب_الامام_السجاد_في_الكوفة_والشام.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/13-f-8.pdf"
   },
   {
-    "id": "177",
+    "id": "1033",
     "translations": [
       {
         "languageid": 1,
@@ -15451,10 +15448,10 @@
       }
     ],
     "publishedYear": "1400 ش",
-    "pdfUrl": "/general/معرفة_الذات_ونتائجها_وثمراتها_في_مرآة_أدعية_الإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/14-f-8.pdf"
   },
   {
-    "id": "178",
+    "id": "1034",
     "translations": [
       {
         "languageid": 1,
@@ -15466,10 +15463,10 @@
       }
     ],
     "publishedYear": "1400 ش",
-    "pdfUrl": "/general/تحليل_ثقافة_إعداد_المعلمين_في_روايات_طلاب_جامعة_فرهنگيان_برديس_إمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/15-f-8.pdf"
   },
   {
-    "id": "179",
+    "id": "1035",
     "translations": [
       {
         "languageid": 1,
@@ -15481,10 +15478,10 @@
       }
     ],
     "publishedYear": "1400 ش",
-    "pdfUrl": "/general/المعطيات_التفسيرية_لاستدلال_الصحيفة_السجادية_على_الإمامة_بالقران_الكريم.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/16-f-8.pdf"
   },
   {
-    "id": "180",
+    "id": "1036",
     "translations": [
       {
         "languageid": 1,
@@ -15496,10 +15493,10 @@
       }
     ],
     "publishedYear": "1400 ش",
-    "pdfUrl": "/general/دراسة_مقارنة_بين_حسن_الظن_في_النصوص_الدينية_والتفاؤل_في_علم_النفس_مع_التأكيد_على_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/17-f-8.pdf"
   },
   {
-    "id": "181",
+    "id": "1037",
     "translations": [
       {
         "languageid": 1,
@@ -15511,10 +15508,10 @@
       }
     ],
     "publishedYear": "1400 ش",
-    "pdfUrl": "/general/نموذج_الاتجاهات_الفكرية_لأصحاب_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/18-f-8.pdf"
   },
   {
-    "id": "182",
+    "id": "1038",
     "translations": [
       {
         "languageid": 1,
@@ -15526,10 +15523,10 @@
       }
     ],
     "publishedYear": "1400 ش",
-    "pdfUrl": "/general/بررسى_نيازهاى_اساسى_انسان_به_عنوان_عامل_درونى_انكيزش_از_ديدگاه_امام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/19-f-8.pdf"
   },
   {
-    "id": "183",
+    "id": "1039",
     "translations": [
       {
         "languageid": 1,
@@ -15541,10 +15538,10 @@
       }
     ],
     "publishedYear": "1401 ش",
-    "pdfUrl": "/general/الانسان_الكامل_وخليفة_الله_في_منهج_ابن_عربي_وتقييمه_وفق_تراث_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/20-f-8.pdf"
   },
   {
-    "id": "184",
+    "id": "1040",
     "translations": [
       {
         "languageid": 1,
@@ -15556,10 +15553,10 @@
       }
     ],
     "publishedYear": "1401 ش",
-    "pdfUrl": "/general/دراسة_مقارنة_بين_المصادر_السنية_والشيعية_لروايات_تاريخ_وفاة_الإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/1-f-9.pdf"
   },
   {
-    "id": "185",
+    "id": "1041",
     "translations": [
       {
         "languageid": 1,
@@ -15571,10 +15568,10 @@
       }
     ],
     "publishedYear": "1401 ش",
-    "pdfUrl": "/general/طريقة_الحياة_الإسلامية_في_اقتصاد_العائلة_اعتمادا_على_أقوال_وحياة_الإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/2-f-9.pdf"
   },
   {
-    "id": "186",
+    "id": "1042",
     "translations": [
       {
         "languageid": 1,
@@ -15586,10 +15583,10 @@
       }
     ],
     "publishedYear": "1401 ش",
-    "pdfUrl": "/general/طبيعة_الإنسان_في_نظرية_فرويد_ونقدها_من_وجهة_نظر_معرفة_الانسان_للإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/3-f-9.pdf"
   },
   {
-    "id": "187",
+    "id": "1043",
     "translations": [
       {
         "languageid": 1,
@@ -15601,10 +15598,10 @@
       }
     ],
     "publishedYear": "1401 ش",
-    "pdfUrl": "/general/سيرة_الفقيه_الحكيم_المتمثل_بالامام_السجاد_دراسة_حالة_التقية_في_مواجهة_ثورة_الحرة.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/4-f-9.pdf"
   },
   {
-    "id": "188",
+    "id": "1044",
     "translations": [
       {
         "languageid": 1,
@@ -15616,10 +15613,10 @@
       }
     ],
     "publishedYear": "1401 ش",
-    "pdfUrl": "/general/زيادة_التبصر_في_النظام_الاعتقادي_والسياسي_للإمام_السجاد_من_خلال_الدعاء_27.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/5-f-9.pdf"
   },
   {
-    "id": "189",
+    "id": "1045",
     "translations": [
       {
         "languageid": 1,
@@ -15631,10 +15628,10 @@
       }
     ],
     "publishedYear": "1401 ش",
-    "pdfUrl": "/general/الرابطة_بين_الدعاء_الخمسين_من_الصحيفة_السجادية_والقرآن_الكريم.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/6-f-9.pdf"
   },
   {
-    "id": "190",
+    "id": "1046",
     "translations": [
       {
         "languageid": 1,
@@ -15646,10 +15643,10 @@
       }
     ],
     "publishedYear": "1401 ش",
-    "pdfUrl": "/general/تحليل_الأسس_القرآنية_للفضائل_والرذائل_الأخلاقية_الاجتماعية_في_دعاء_مكارم_الأخلاق.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/7-f-9.pdf"
   },
   {
-    "id": "191",
+    "id": "1047",
     "translations": [
       {
         "languageid": 1,
@@ -15661,10 +15658,10 @@
       }
     ],
     "publishedYear": "1401 ش",
-    "pdfUrl": "/general/سيرة_الإمام_زين_العابدين_في_إصلاح_المجتمع_وإنقاذه.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/8-f-9.pdf"
   },
   {
-    "id": "192",
+    "id": "1048",
     "translations": [
       {
         "languageid": 1,
@@ -15676,10 +15673,10 @@
       }
     ],
     "publishedYear": "1401 ش",
-    "pdfUrl": "/general/دراسة_وتحليل_الأمن_الاجتماعي_في_سيرة_الإمام_زين_العابدين_دراسة_حالة_في_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/9-f-9.pdf"
   },
   {
-    "id": "193",
+    "id": "1049",
     "translations": [
       {
         "languageid": 1,
@@ -15691,10 +15688,10 @@
       }
     ],
     "publishedYear": "1401 ش",
-    "pdfUrl": "/general/دراسة_ادعية_الصحيفة_السجادية_من_منظور_أساليب_التحليل_النصي.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/10-f-9.pdf"
   },
   {
-    "id": "194",
+    "id": "1050",
     "translations": [
       {
         "languageid": 1,
@@ -15706,10 +15703,10 @@
       }
     ],
     "publishedYear": "1401 ش",
-    "pdfUrl": "/general/تتبع_المسار_التاريخي_من_التعايش_إلى_المواجهة_بين_الأمويين_والإمام_زين_العابدين.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/11-f-9.pdf"
   },
   {
-    "id": "195",
+    "id": "1051",
     "translations": [
       {
         "languageid": 1,
@@ -15721,10 +15718,10 @@
       }
     ],
     "publishedYear": "1402 ش",
-    "pdfUrl": "/general/تحليل_الخطاب_النقدي_لخطبة_الإمام_السجاد_بدمشق_على_ضوء_نظرية_نورمان_فركلوغ.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/12-f-9.pdf"
   },
   {
-    "id": "196",
+    "id": "1052",
     "translations": [
       {
         "languageid": 1,
@@ -15736,10 +15733,10 @@
       }
     ],
     "publishedYear": "1402 ش",
-    "pdfUrl": "/general/التناقض_بين_الامامة_والخلافة_في_خطبة_الامام_السجاد_في_مجلس_يزيد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/13-f-9.pdf"
   },
   {
-    "id": "197",
+    "id": "1053",
     "translations": [
       {
         "languageid": 1,
@@ -15751,10 +15748,10 @@
       }
     ],
     "publishedYear": "1402 ش",
-    "pdfUrl": "/general/المستندات_القرآنية_والروائية_لدعاء_أبي_حمزة_الثمالي_في_سياق_الموت_وعالم_البرزخ_والبعث.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/14-f-9.pdf"
   },
   {
-    "id": "198",
+    "id": "1054",
     "translations": [
       {
         "languageid": 1,
@@ -15766,10 +15763,10 @@
       }
     ],
     "publishedYear": "1402 ش",
-    "pdfUrl": "/general/دراسة_وتطبيق_لنظرية_العدالة_الاجتماعية_في_فكر_الإمام_السجاد_وجون_راولز.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/15-f-9.pdf"
   },
   {
-    "id": "199",
+    "id": "1055",
     "translations": [
       {
         "languageid": 1,
@@ -15781,10 +15778,10 @@
       }
     ],
     "publishedYear": "1402 ش",
-    "pdfUrl": "/general/منهج_وسيرة_الإمام_السجاد_في_التربية_الأخلاقية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/16-f-9.pdf"
   },
   {
-    "id": "200",
+    "id": "1056",
     "translations": [
       {
         "languageid": 1,
@@ -15796,10 +15793,10 @@
       }
     ],
     "publishedYear": "1402 ش",
-    "pdfUrl": "/general/إعادة_قراءة_مفهوم_الحق_على_ضوء_رسالة_الحقوق_للإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/17-f-9.pdf"
   },
   {
-    "id": "201",
+    "id": "1057",
     "translations": [
       {
         "languageid": 1,
@@ -15811,10 +15808,10 @@
       }
     ],
     "publishedYear": "1402 ش",
-    "pdfUrl": "/general/الأهداف_الاستراتيجية_في_العلاقات_والمناسبات_العلمية_للإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/18-f-9.pdf"
   },
   {
-    "id": "202",
+    "id": "1058",
     "translations": [
       {
         "languageid": 1,
@@ -15826,10 +15823,10 @@
       }
     ],
     "publishedYear": "1402 ش",
-    "pdfUrl": "/general/أصول_ومقومات_الصحة_الروحية_من_منظور_الإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/19-f-9.pdf"
   },
   {
-    "id": "203",
+    "id": "1059",
     "translations": [
       {
         "languageid": 1,
@@ -15841,10 +15838,10 @@
       }
     ],
     "publishedYear": "1402 ش",
-    "pdfUrl": "/general/تبيين_الدلالات_التربوية_لرسالة_الحقوق.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/20-f-9.pdf"
   },
   {
-    "id": "204",
+    "id": "1060",
     "translations": [
       {
         "languageid": 1,
@@ -15856,10 +15853,10 @@
       }
     ],
     "publishedYear": "1402 ش",
-    "pdfUrl": "/general/التعرف_على_المهارات_الإدارية_وتبيينها_في_دعاء_مكارم_الأخلاق.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/21-f-9.pdf"
   },
   {
-    "id": "205",
+    "id": "1061",
     "translations": [
       {
         "languageid": 1,
@@ -15871,10 +15868,10 @@
       }
     ],
     "publishedYear": "1402 ش",
-    "pdfUrl": "/general/دراسة_رجال_الصحيفة_السجادية_برواية_عبيد_الله_بن_الفضل.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/22-f-9.pdf"
   },
   {
-    "id": "206",
+    "id": "1062",
     "translations": [
       {
         "languageid": 1,
@@ -15886,10 +15883,10 @@
       }
     ],
     "publishedYear": "1402 ش",
-    "pdfUrl": "/general/إبداعية_اختيار_الالفاظ_في_اشعار_علي_الجشي_القيطيفي_في_مدح_الامام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/1-f-10.pdf"
   },
   {
-    "id": "207",
+    "id": "1063",
     "translations": [
       {
         "languageid": 1,
@@ -15901,10 +15898,10 @@
       }
     ],
     "publishedYear": "1403 ش",
-    "pdfUrl": "/general/تقييم_واعتبار_رواية_مواجهة_الإمام_السجاد_مع_يزيد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/2-f-10.pdf"
   },
   {
-    "id": "208",
+    "id": "1064",
     "translations": [
       {
         "languageid": 1,
@@ -15916,10 +15913,10 @@
       }
     ],
     "publishedYear": "1403 ش",
-    "pdfUrl": "/general/التحليل_التاريخي_لاستراتيجيات_الإمام_السجاد_في_إحياء_التشيع_بعد_عاشوراء_بناءً_على_نظرية_بخش.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/3-f-10.pdf"
   },
   {
-    "id": "209",
+    "id": "1065",
     "translations": [
       {
         "languageid": 1,
@@ -15931,10 +15928,10 @@
       }
     ],
     "publishedYear": "1403 ش",
-    "pdfUrl": "/general/التحليل_الجمالي_للصور_الأدبية_الاستعارة_المكنية_في_الصحيفة_السجادية_ونهج_البلاغة.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/4-f-10.pdf"
   },
   {
-    "id": "210",
+    "id": "1066",
     "translations": [
       {
         "languageid": 1,
@@ -15946,10 +15943,10 @@
       }
     ],
     "publishedYear": "1403 ش",
-    "pdfUrl": "/general/المقومات_الأخلاقية_لمواجهة_التوجهات_السلبية_لتعزيز_الطمأنينة_من_منظور_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/5-f-10.pdf"
   },
   {
-    "id": "211",
+    "id": "1067",
     "translations": [
       {
         "languageid": 1,
@@ -15961,10 +15958,10 @@
       }
     ],
     "publishedYear": "1403 ش",
-    "pdfUrl": "/general/دراسة_وتحليل_صحة_نسبة_المناجاة_الخمس_عشرة_إلى_الإمام_السجاد_بناءً_على_تقنيات_فحص_الأسلوب.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/6-f-10.pdf"
   },
   {
-    "id": "212",
+    "id": "1068",
     "translations": [
       {
         "languageid": 1,
@@ -15976,10 +15973,10 @@
       }
     ],
     "publishedYear": "1403 ش",
-    "pdfUrl": "/general/تبيين_وتحليل_إجراءات_الإمام_السجاد_في_مواجهة_التحديات_الدينية_خلال_فترة_إمامته.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/7-f-10.pdf"
   },
   {
-    "id": "213",
+    "id": "1069",
     "translations": [
       {
         "languageid": 1,
@@ -15991,10 +15988,10 @@
       }
     ],
     "publishedYear": "1403 ش",
-    "pdfUrl": "/general/التعرف_على_المنهج_التربوي_للدعاء_وتبيينه_من_منظور_تعاليم_الإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/8-f-10.pdf"
   },
   {
-    "id": "214",
+    "id": "1070",
     "translations": [
       {
         "languageid": 1,
@@ -16006,10 +16003,10 @@
       }
     ],
     "publishedYear": "1403 ش",
-    "pdfUrl": "/general/تحليل_محتوى_موضوعي_حول_طبيعة_العلاقات_بين_الأبناء_والوالدين_من_منظور_الإمام_السجاد.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/9-f-10.pdf"
   },
   {
-    "id": "215",
+    "id": "1071",
     "translations": [
       {
         "languageid": 1,
@@ -16021,10 +16018,10 @@
       }
     ],
     "publishedYear": "1403 ش",
-    "pdfUrl": "/general/دراسة_مقارنة_لمعنى_الحياة_من_وجهة_نظر_الإمام_السجاد_وكارل_يونغ.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/10-f-10.pdf"
   },
   {
-    "id": "216",
+    "id": "1072",
     "translations": [
       {
         "languageid": 1,
@@ -16036,10 +16033,10 @@
       }
     ],
     "publishedYear": "1403 ش",
-    "pdfUrl": "/general/نسبة_وعلاقة_الدنيا_والآخرة_من_منظور_الصحيفة_السجادية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/11-f-10.pdf"
   },
   {
-    "id": "217",
+    "id": "1073",
     "translations": [
       {
         "languageid": 1,
@@ -16051,10 +16048,10 @@
       }
     ],
     "publishedYear": "1403 ش",
-    "pdfUrl": "/general/الصحيفة_السجادية_في_مرآة_البحوث.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/12-f-10.pdf"
   },
   {
-    "id": "218",
+    "id": "1074",
     "translations": [
       {
         "languageid": 1,
@@ -16066,10 +16063,10 @@
       }
     ],
     "publishedYear": "1404 ش",
-    "pdfUrl": "/general/دراسة_سندية_لروايات_الإرشاد_للشيخ_المفيد_من_عصر_الإمام_السجاد_إلى_الإمام_المهدي.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/13-f-10.pdf"
   },
   {
-    "id": "219",
+    "id": "1075",
     "translations": [
       {
         "languageid": 1,
@@ -16081,10 +16078,10 @@
       }
     ],
     "publishedYear": "1404 ش",
-    "pdfUrl": "/general/المؤشرات_التربوية_للأمل_في_كلام_الإمام_الحسين_والإمام_السجاد_مطابقة_مع_نظرية_سنايدر.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/14-f-10.pdf"
   },
   {
-    "id": "220",
+    "id": "1076",
     "translations": [
       {
         "languageid": 1,
@@ -16096,10 +16093,10 @@
       }
     ],
     "publishedYear": "1404 ش",
-    "pdfUrl": "/general/غائية_الدعاء_الثاني_من_الصحيفة_السجادية_من_خلال_نظرة_تحليلية_لخصائص_القائد_الحضاري_الإسلامي.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/15-f-10.pdf"
   },
   {
-    "id": "221",
+    "id": "1077",
     "translations": [
       {
         "languageid": 1,
@@ -16111,10 +16108,10 @@
       }
     ],
     "publishedYear": "1404 ش",
-    "pdfUrl": "/general/دراسة_دور_الإمام_السجاد_في_تحولات_العلوم_الإسلامية_والفقهية_في_العصر_الأموي.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/16-f-10.pdf"
   },
   {
-    "id": "222",
+    "id": "1078",
     "translations": [
       {
         "languageid": 1,
@@ -16126,10 +16123,10 @@
       }
     ],
     "publishedYear": "1404 ش",
-    "pdfUrl": "/general/دراسة_وتطبيق_مضامين_الدعاء_الحادي_والعشرين_من_الصحيفة_السجادية_مع_مؤلفات_علاج_القبول_والالتزام_وعلم_النفس_الإيجابي.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/17-f-10.pdf"
   },
   {
-    "id": "223",
+    "id": "1079",
     "translations": [
       {
         "languageid": 1,
@@ -16141,10 +16138,10 @@
       }
     ],
     "publishedYear": "",
-    "pdfUrl": "/general/لقاء_في_الأسحار_الأجواء_العرفانية_لدعاء_أبي_حمزة_الثمالي_للإمام_زين_العابدين.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/18-f-10.pdf"
   },
   {
-    "id": "224",
+    "id": "1080",
     "translations": [
       {
         "languageid": 1,
@@ -16156,10 +16153,10 @@
       }
     ],
     "publishedYear": "",
-    "pdfUrl": "/general/نماذج_من_فضائل_وسيرة_الإمام_علي_بن_الحسين_الفردية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/19-f-10.pdf"
   },
   {
-    "id": "225",
+    "id": "1081",
     "translations": [
       {
         "languageid": 1,
@@ -16171,6 +16168,6 @@
       }
     ],
     "publishedYear": "",
-    "pdfUrl": "/general/الإمام_السجاد_وتجديد_الحياة_الإسلامية.pdf"
+    "pdfUrl": "https://cdn.imamzain.org/research/journals/20-f-10.pdf"
   }
 ]
