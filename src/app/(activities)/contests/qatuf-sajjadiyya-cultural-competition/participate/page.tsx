@@ -14,16 +14,10 @@ import { cn } from "@/lib/utils"
 import questions from "@/data/contests/qatuf-sajjaddiyya/questions.json"
 import { useSearchParams, useRouter } from "next/navigation"
 import Link from "next/link"
+import { STORAGE_KEYS } from "../storage"
 
 type AnswerState = {
 	[questionIndex: number]: string
-}
-
-const STORAGE_PREFIX = "qutuf_"
-const STORAGE_KEYS = {
-	ATTEMPT: `${STORAGE_PREFIX}attempt_id`,
-	ANSWERS: `${STORAGE_PREFIX}answers`,
-	QUESTION: `${STORAGE_PREFIX}current_question`,
 }
 
 
@@ -133,11 +127,22 @@ function ParticipateContent() {
 			const data = await res.json()
 
 			if (!res.ok) {
-				setSubmitError(
-					data.error ||
-						"حدث خطأ أثناء الإرسال، يرجى المحاولة مجدداً.",
-				)
-				return
+				// If the backend reports this attempt was already submitted —
+				// e.g. an earlier submit succeeded but its response was lost —
+				// treat it as done rather than a dead-end error: clear the saved
+				// progress so the landing page falls back to "ابدأ المسابقة",
+				// and show the thank-you screen.
+				const alreadySubmitted =
+					res.status === 409 &&
+					/already been submitted/i.test(data?.error ?? "")
+
+				if (!alreadySubmitted) {
+					setSubmitError(
+						data.error ||
+							"حدث خطأ أثناء الإرسال، يرجى المحاولة مجدداً.",
+					)
+					return
+				}
 			}
 
 			localStorage.removeItem(STORAGE_KEYS.ATTEMPT)
