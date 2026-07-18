@@ -5,6 +5,7 @@ import { useCallback, useState } from "react"
 import { User, Phone, Mail } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useRouter } from "next/navigation"
+import { participateHref } from "../storage"
 
 type UserInfo = {
 	name: string
@@ -85,9 +86,7 @@ export default function ParticipationForm() {
 				return
 			}
 
-			router.push(
-				`/contests/qatuf-sajjadiyya-cultural-competition/participate?attempt_id=${data.data.attempt_id}`,
-			)
+			router.push(participateHref(data.data.attempt_id))
 		} catch {
 			setErrorMessage("حدث خطأ في الاتصال، يرجى المحاولة مجدداً.")
 		} finally {

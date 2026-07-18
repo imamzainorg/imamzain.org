@@ -17,7 +17,7 @@ import {
 	Users,
 	FileText,
 } from "lucide-react"
-import ParticipationForm from "./components/participation-form"
+import ParticipationSection from "./components/participation-section"
 
 export const metadata: Metadata = {
 	title: "مسابقة قبسات من حياة الإمام السجاد الثقافية - الحلقة الأولى",
@@ -401,7 +401,7 @@ export default function Page() {
 				</div>
 			</section>
 
-			<ParticipationForm />
+			<ParticipationSection />
 		</main>
 	)
 }
