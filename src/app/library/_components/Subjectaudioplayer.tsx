@@ -168,7 +168,7 @@ export default function SubjectAudioPlayer({ src }: SubjectAudioPlayerProps) {
 
           <div className="relative flex-1 flex items-center h-4">
             <div
-              className="absolute inset-x-0 h-1 rounded-full bg-gray-200 dark:bg-gray-300"
+              className="absolute inset-x-0 h-1 rounded-full bg-gray-200 dark:bg-zinc-700"
               aria-hidden="true"
             />
             <div
@@ -228,7 +228,7 @@ export default function SubjectAudioPlayer({ src }: SubjectAudioPlayerProps) {
             onClick={togglePlay}
             disabled={!isLoaded}
             aria-label={isPlaying ? "إيقاف" : "تشغيل"}
-            className="p-2 xl:p-3 rounded-full bg-primary dark:bg-Muharram_primary text-white hover:opacity-90 disabled:opacity-50 transition-opacity"
+            className="p-2 xl:p-3 rounded-full bg-primary dark:bg-Muharram_primary text-white dark:text-Muharram_secondary hover:opacity-90 disabled:opacity-50 transition-opacity"
           >
             {isPlaying ? (
               <Pause className="w-4 h-4 xl:w-6 xl:h-6" fill="currentColor" />
