@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useSyncExternalStore } from "react";
 import Link from "next/link";
 import {
   Calendar,
@@ -15,6 +15,32 @@ import { usePathname } from "next/navigation";
 import useWindowEvents from "@/hooks/window-events";
 import { useLanguages } from "@/context/language-context";
 
+type Theme = "dark" | "light";
+
+// مخزن بسيط خارج الكومبوننت — يُنشأ مرة واحدة فقط لكل التطبيق
+const themeListeners = new Set<() => void>();
+let currentTheme: Theme = "dark";
+
+function subscribeTheme(callback: () => void) {
+  themeListeners.add(callback);
+  return () => themeListeners.delete(callback);
+}
+function getThemeSnapshot(): Theme {
+  return currentTheme;
+}
+function getServerThemeSnapshot(): Theme {
+  return "dark"; // نفس القيمة التي يرسمها السيرفر دائمًا
+}
+function setGlobalTheme(theme: Theme) {
+  currentTheme = theme;
+  if (typeof window !== "undefined") {
+    localStorage.setItem("theme", theme);
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(theme);
+  }
+  themeListeners.forEach((cb) => cb());
+}
+
 export default function TopBar() {
   const [hijriDate, setHijriDate] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -25,27 +51,26 @@ export default function TopBar() {
   const { setLanguage, languages } = useLanguages();
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("theme");
-      return saved ? saved : "dark";
+  // قراءة الثيم بأمان تام من ناحية الـ hydration، بدون useState/useEffect يدوي
+  const theme = useSyncExternalStore(
+    subscribeTheme,
+    getThemeSnapshot,
+    getServerThemeSnapshot
+  );
+
+  // مزامنة القيمة الحقيقية المحفوظة مرة واحدة بعد التحميل
+  useEffect(() => {
+    const saved = localStorage.getItem("theme");
+    if ((saved === "light" || saved === "dark") && saved !== currentTheme) {
+      setGlobalTheme(saved);
+    } else {
+      // تأكد من تطبيق الكلاس حتى لو كانت القيمة نفسها (dark الافتراضية)
+      document.documentElement.classList.add(currentTheme);
     }
-    return "dark";
-  });
-
-  useEffect(() => {
-    document.documentElement.classList.add(theme);
-  }, [theme]);
-
-  // Apply theme on change
-  useEffect(() => {
-    document.documentElement.classList.remove("light", "dark");
-    document.documentElement.classList.add(theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  }, []);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+    setGlobalTheme(theme === "dark" ? "light" : "dark");
   };
 
   useEffect(() => {
