@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
 import { SearchSection } from "./shared/search-section";
@@ -55,14 +55,82 @@ function toRow(item: Journals, t: Journals["translations"][0]): TableRow {
   };
 }
 
-// ─── Component ────────────────────────────────────────────────────────────────
+type SearchLang = "all" | "ar" | "fa";
 
-export default function JournalsPage() {
+const LANGUAGE_ID_MAP: Record<number, "ar" | "fa" | "en"> = {
+  1: "ar",
+  2: "fa",
+  3: "en",
+};
+
+function translationLangCode(
+  t: Journals["translations"][0],
+): "ar" | "fa" | "en" | null {
+  return LANGUAGE_ID_MAP[t.languageid] ?? null;
+}
+
+function translationMatches(
+  t: Journals["translations"][0],
+  term: string,
+  searchLang: SearchLang,
+) {
+  if (searchLang !== "all" && translationLangCode(t) !== searchLang) {
+    return false;
+  }
+  const q = term.toLowerCase();
+  return (
+    (t.title?.toLowerCase() ?? "").includes(q) ||
+    (t.authors?.join(", ").toLowerCase() ?? "").includes(q) ||
+    (t.publicationVenue?.toLowerCase() ?? "").includes(q)
+  );
+}
+
+function pickDisplayTranslation(
+  item: Journals,
+  term: string,
+  searchLang: SearchLang,
+): Journals["translations"][0] {
+  const translations = item.translations;
+  const arT = translations.find((t) => translationLangCode(t) === "ar");
+
+  // نفضّل دايماً الترجمة الي تطابق لغة المتصفح (searchLang)
+  if (searchLang !== "all") {
+    const langMatch = translations.find(
+      (t) => translationLangCode(t) === searchLang,
+    );
+    if (langMatch) return langMatch;
+  }
+
+  // ماكو ترجمة بلغة المتصفح → لو فيه بحث نجرب أي تطابق متوفر
+  if (term.trim()) {
+    const anyMatch = translations.find((t) =>
+      translationMatches(t, term, "all"),
+    );
+    if (anyMatch) return anyMatch;
+  }
+
+  // احتياط أخير: العربي إذا موجود، وإلا أول ترجمة متوفرة
+  return arT ?? translations[0];
+}
+
+// ─── Component (المنطق الداخلي) ────────────────────────────────────────────
+
+function JournalsContent() {
   const sp = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
 
   const [search, setSearch] = useState(sp.get("search") ?? "");
+  const [searchLang, setSearchLang] = useState<SearchLang>("ar");
+
+  useEffect(() => {
+    const browserLang = navigator.language.slice(0, 2).toLowerCase();
+    if (browserLang === "fa") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- كشف لغة المتصفح لازم يصير بعد التركيب بالكلاينت، ما فيه بديل
+      setSearchLang("fa");
+    }
+    // أي لغة متصفح ثانية (ومنها العربي نفسه) → تضل "ar" (الافتراضي والأولوية)
+  }, []);
   const [viewMode, setViewMode] = useState<"cards" | "table">("cards");
   const [sortBy, setSortBy] = useState("year-desc");
   const [highlightId, setHighlightId] = useState<string | null>(null);
@@ -73,7 +141,7 @@ export default function JournalsPage() {
     publicationVenue: sp.get("publicationVenue") ?? "",
     author: sp.get("author") ?? "",
     publishedYear: sp.get("publishedYear") ?? "",
-      language: sp.get("language") ?? "",
+    language: sp.get("language") ?? "",
   });
 
   const all = JournalsData as Journals[];
@@ -87,7 +155,7 @@ export default function JournalsPage() {
       item.translations.forEach((t) => {
         if (t.publicationVenue) publicationVenues.add(t.publicationVenue);
         (t.authors || []).forEach((a) => a && authors.add(a));
-          if (t.language) languages.add(t.language);
+        if (t.language) languages.add(t.language);
       });
       if (item.publishedYear) years.add(item.publishedYear);
     });
@@ -95,7 +163,7 @@ export default function JournalsPage() {
       publicationVenue: Array.from(publicationVenues).sort(),
       author: Array.from(authors).sort(),
       publishedYear: Array.from(years).sort().reverse(),
-        language: Array.from(languages).sort(),
+      language: Array.from(languages).sort(),
     } as Record<string, string[]>;
   }, [all]);
 
@@ -104,11 +172,8 @@ export default function JournalsPage() {
     const base = !term
       ? all
       : all.filter((item) =>
-          item.translations.some(
-            (t) =>
-              (t.title?.toLowerCase() ?? "").includes(term) ||
-              (t.authors?.join(", ").toLowerCase() ?? "").includes(term) ||
-              (t.publicationVenue?.toLowerCase() ?? "").includes(term),
+          item.translations.some((t) =>
+            translationMatches(t, term, searchLang),
           ),
         );
 
@@ -122,7 +187,7 @@ export default function JournalsPage() {
         );
         if (!ok) return false;
       }
-      
+
       if (filters.author) {
         const ok = item.translations.some((t) =>
           (t.authors || []).some(
@@ -131,15 +196,15 @@ export default function JournalsPage() {
         );
         if (!ok) return false;
       }
-if (filters.language) {
-  const ok = item.translations.some(
-    (t) =>
-      (t.language ?? "").toLowerCase() ===
-      filters.language.toLowerCase(),
-  );
+      if (filters.language) {
+        const ok = item.translations.some(
+          (t) =>
+            (t.language ?? "").toLowerCase() ===
+            filters.language.toLowerCase(),
+        );
 
-  if (!ok) return false;
-}
+        if (!ok) return false;
+      }
 
       if (filters.publishedYear) {
         if (
@@ -181,11 +246,11 @@ if (filters.language) {
           return 0;
       }
     });
-  }, [search, sortBy, all, filters]);
+  }, [search, sortBy, all, filters, searchLang]);
   const totalPages = Math.ceil(filtered.length / PER_PAGE);
   const paginated = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE);
-  const tableRows = paginated.flatMap((item) =>
-    item.translations.map((t) => toRow(item, t)),
+  const tableRows = paginated.map((item) =>
+    toRow(item, pickDisplayTranslation(item, search.trim(), searchLang)),
   );
 
   const paginate = (p: number) => {
@@ -255,7 +320,7 @@ if (filters.language) {
                   publicationVenue: "",
                   author: "",
                   publishedYear: "",
-                    language: "",
+                  language: "",
                 });
                 setSearch("");
                 updateParams({
@@ -283,14 +348,39 @@ if (filters.language) {
               />
             ) : (
               <ResearchGrid>
-                {paginated.map((item) =>
-                  item.translations.map((t) => (
+                {paginated.map((item) => {
+                  const term = search.trim();
+
+                  // نفضّل دايماً الترجمات الي تطابق لغة المتصفح
+                  let translationsToShow =
+                    searchLang !== "all"
+                      ? item.translations.filter(
+                          (t) => translationLangCode(t) === searchLang,
+                        )
+                      : item.translations;
+
+                  // ماكو ترجمة بلغة المتصفح لهذا البحث → احتياط
+                  if (translationsToShow.length === 0) {
+                    const arT = item.translations.find(
+                      (t) => translationLangCode(t) === "ar",
+                    );
+                    translationsToShow = [arT ?? item.translations[0]];
+                  }
+
+                  // فوق هذا، لو فيه بحث فعّال، لازم الترجمة المعروضة تكون منطبقة فعلاً
+                  if (term) {
+                    translationsToShow = translationsToShow.filter((t) =>
+                      translationMatches(t, term, "all"),
+                    );
+                  }
+
+                  return translationsToShow.map((t) => (
                     <ResearchCard
                       key={`${item.id}-${t.languageid}`}
                       item={toCard(item, t)}
                     />
-                  )),
-                )}
+                  ));
+                })}
               </ResearchGrid>
             )}
 
@@ -305,5 +395,15 @@ if (filters.language) {
         </div>
       </div>
     </>
+  );
+}
+
+// ─── Component (الغلاف الخارجي مع Suspense) ────────────────────────────────
+
+export default function JournalsPage() {
+  return (
+    <Suspense fallback={<div>...جاري التحميل</div>}>
+      <JournalsContent />
+    </Suspense>
   );
 }
