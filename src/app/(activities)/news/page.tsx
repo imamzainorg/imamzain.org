@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     url: "/news",
     type: "website",
     images: [
-      "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-15.jpg",
+      "https://cdn.imamzain.org/news/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-15.jpg",
     ],
   },
   twitter: {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     description:
       "آخر أخبار وأنشطة المؤسسة: المجالس الحسينية والفعاليات والنشاطات الثقافية والإصدارات وأخبار العتبة الحسينية المقدسة.",
     images: [
-      "/general/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-15.jpg",
+      "https://cdn.imamzain.org/news/annual-majlis-third-day-imam-zain-alabidin-foundation-photo-coverage-15.jpg",
     ],
   },
 };
