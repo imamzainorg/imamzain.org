@@ -13,7 +13,11 @@ interface Props {
   showcaseBooks: Book[];
 }
 
-export default function BookDetailClient({ book, libraryBooks, showcaseBooks }: Props) {
+export default function BookDetailClient({
+  book,
+  libraryBooks,
+  showcaseBooks,
+}: Props) {
   const router = useRouter();
 
   const handleBackToLibrary = () => {
@@ -21,29 +25,45 @@ export default function BookDetailClient({ book, libraryBooks, showcaseBooks }: 
     const savedURL = sessionStorage.getItem("lastLibraryURL");
     const fallbackURL = "/library";
 
-    let targetURL = fallbackURL;
-
-    if (savedURL) {
+    const isSameOrigin = (url: string) => {
       try {
-        const resolvedURL = new URL(savedURL, window.location.href);
-        if (resolvedURL.origin === window.location.origin) {
-          targetURL = savedURL;
-        }
+        return (
+          new URL(url, window.location.href).origin === window.location.origin
+        );
       } catch {
-        targetURL = fallbackURL;
+        return false;
       }
+    };
+
+    const hasInternalReferrer = (() => {
+      if (!document.referrer) return false;
+      try {
+        return new URL(document.referrer).origin === window.location.origin;
+      } catch {
+        return false;
+      }
+    })();
+
+    if (savedURL && isSameOrigin(savedURL)) {
+      router.push(savedURL);
+
+      if (savedPosition) {
+        setTimeout(() => {
+          window.scrollTo({
+            top: parseInt(savedPosition),
+            behavior: "instant",
+          });
+        }, 150);
+      }
+      return;
     }
 
-    router.push(targetURL);
-
-    if (savedPosition) {
-      setTimeout(() => {
-        window.scrollTo({
-          top: parseInt(savedPosition),
-          behavior: "instant",
-        });
-      }, 150);
+    if (hasInternalReferrer && window.history.length > 1) {
+      router.back();
+      return;
     }
+
+    router.push(fallbackURL);
   };
 
   return (
