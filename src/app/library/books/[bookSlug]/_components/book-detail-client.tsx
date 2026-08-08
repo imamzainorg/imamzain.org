@@ -19,20 +19,30 @@ export default function BookDetailClient({ book, libraryBooks, showcaseBooks }: 
   const handleBackToLibrary = () => {
     const savedPosition = sessionStorage.getItem("libraryScrollPosition");
     const savedURL = sessionStorage.getItem("lastLibraryURL");
+    const fallbackURL = "/library";
+
+    let targetURL = fallbackURL;
 
     if (savedURL) {
-      router.push(savedURL);
-
-      setTimeout(() => {
-        if (savedPosition) {
-          window.scrollTo({
-            top: parseInt(savedPosition),
-            behavior: "instant",
-          });
+      try {
+        const resolvedURL = new URL(savedURL, window.location.href);
+        if (resolvedURL.origin === window.location.origin) {
+          targetURL = savedURL;
         }
+      } catch {
+        targetURL = fallbackURL;
+      }
+    }
+
+    router.push(targetURL);
+
+    if (savedPosition) {
+      setTimeout(() => {
+        window.scrollTo({
+          top: parseInt(savedPosition),
+          behavior: "instant",
+        });
       }, 150);
-    } else {
-      router.back();
     }
   };
 
