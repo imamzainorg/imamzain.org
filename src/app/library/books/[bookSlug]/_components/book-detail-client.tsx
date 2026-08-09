@@ -25,28 +25,8 @@ export default function BookDetailClient({
     const savedURL = sessionStorage.getItem("lastLibraryURL");
     const fallbackURL = "/library";
 
-    const isSameOrigin = (url: string) => {
-      try {
-        return (
-          new URL(url, window.location.href).origin === window.location.origin
-        );
-      } catch {
-        return false;
-      }
-    };
-
-    const hasInternalReferrer = (() => {
-      if (!document.referrer) return false;
-      try {
-        return new URL(document.referrer).origin === window.location.origin;
-      } catch {
-        return false;
-      }
-    })();
-
-    if (savedURL && isSameOrigin(savedURL)) {
+    if (savedURL) {
       router.push(savedURL);
-
       if (savedPosition) {
         setTimeout(() => {
           window.scrollTo({
@@ -58,7 +38,7 @@ export default function BookDetailClient({
       return;
     }
 
-    if (hasInternalReferrer && window.history.length > 1) {
+    if (window.history.length > 1) {
       router.back();
       return;
     }
