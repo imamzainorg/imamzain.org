@@ -27,13 +27,11 @@ export default function BookDetailClient({
 }: Props) {
   const router = useRouter();
 
-  // نسجل الكتاب الحالي بستاك التصفح الداخلي أول ما تنفتح صفحته
   useEffect(() => {
     const currentPath = getBookPath(book.id);
     const raw = sessionStorage.getItem(BOOK_STACK_KEY);
     const stack: string[] = raw ? JSON.parse(raw) : [];
 
-    // نتجنب التكرار لو نفس الكتاب انفتح مرتين وراء بعض (مثلاً refresh)
     if (stack[stack.length - 1] !== currentPath) {
       stack.push(currentPath);
       sessionStorage.setItem(BOOK_STACK_KEY, JSON.stringify(stack));
@@ -44,19 +42,16 @@ export default function BookDetailClient({
     const raw = sessionStorage.getItem(BOOK_STACK_KEY);
     const stack: string[] = raw ? JSON.parse(raw) : [];
 
-    // نشيل الكتاب الحالي من الستاك
     stack.pop();
     sessionStorage.setItem(BOOK_STACK_KEY, JSON.stringify(stack));
 
     const previousBookPath = stack.length > 0 ? stack[stack.length - 1] : null;
 
-    // فيه كتاب قبل هذا بمسار التصفح الداخلي؟ نرجعله
     if (previousBookPath) {
       router.push(previousBookPath);
       return;
     }
 
-    // ماكو كتاب قبله (يعني جاي من بره الموقع، مثل كوكل) → نرجع للمكتبة
     const savedPosition = sessionStorage.getItem("libraryScrollPosition");
     const savedURL = sessionStorage.getItem("lastLibraryURL");
     const fallbackURL = "/library";
