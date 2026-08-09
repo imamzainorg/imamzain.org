@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Breadcrumbs from "@/components/breadcrumb";
 import { Book } from "@/types/book";
@@ -13,6 +14,12 @@ interface Props {
   showcaseBooks: Book[];
 }
 
+const BOOK_STACK_KEY = "bookNavigationStack";
+
+function getBookPath(bookId: string | number) {
+  return `/library/books/${bookId}`;
+}
+
 export default function BookDetailClient({
   book,
   libraryBooks,
@@ -20,7 +27,36 @@ export default function BookDetailClient({
 }: Props) {
   const router = useRouter();
 
+  // نسجل الكتاب الحالي بستاك التصفح الداخلي أول ما تنفتح صفحته
+  useEffect(() => {
+    const currentPath = getBookPath(book.id);
+    const raw = sessionStorage.getItem(BOOK_STACK_KEY);
+    const stack: string[] = raw ? JSON.parse(raw) : [];
+
+    // نتجنب التكرار لو نفس الكتاب انفتح مرتين وراء بعض (مثلاً refresh)
+    if (stack[stack.length - 1] !== currentPath) {
+      stack.push(currentPath);
+      sessionStorage.setItem(BOOK_STACK_KEY, JSON.stringify(stack));
+    }
+  }, [book.id]);
+
   const handleBackToLibrary = () => {
+    const raw = sessionStorage.getItem(BOOK_STACK_KEY);
+    const stack: string[] = raw ? JSON.parse(raw) : [];
+
+    // نشيل الكتاب الحالي من الستاك
+    stack.pop();
+    sessionStorage.setItem(BOOK_STACK_KEY, JSON.stringify(stack));
+
+    const previousBookPath = stack.length > 0 ? stack[stack.length - 1] : null;
+
+    // فيه كتاب قبل هذا بمسار التصفح الداخلي؟ نرجعله
+    if (previousBookPath) {
+      router.push(previousBookPath);
+      return;
+    }
+
+    // ماكو كتاب قبله (يعني جاي من بره الموقع، مثل كوكل) → نرجع للمكتبة
     const savedPosition = sessionStorage.getItem("libraryScrollPosition");
     const savedURL = sessionStorage.getItem("lastLibraryURL");
     const fallbackURL = "/library";
@@ -35,11 +71,6 @@ export default function BookDetailClient({
           });
         }, 150);
       }
-      return;
-    }
-
-    if (window.history.length > 1) {
-      router.back();
       return;
     }
 
