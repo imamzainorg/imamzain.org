@@ -2,6 +2,8 @@ import { Book } from "@/types/book";
 import Image from "next/image";
 import Link from "next/link";
 
+const BOOK_STACK_KEY = "bookNavigationStack";
+
 export default function BooklibraryCard({
   publication,
   route = "",
@@ -17,9 +19,28 @@ export default function BooklibraryCard({
     ? publication.author.join("، ")
     : publication.author || "مؤلف غير معروف";
 
+  const normalizedRoute = route.replace(/\/+$/, "");
+
+  const handleClick = () => {
+    if (typeof window === "undefined") return;
+
+    const currentPath = window.location.pathname;
+    const isLibraryListPage = /^\/library\/?$/.test(currentPath);
+    const isLibraryBookRoute = normalizedRoute === "/library/books";
+    if (isLibraryListPage && isLibraryBookRoute) {
+      sessionStorage.setItem("lastLibraryURL", window.location.href);
+      sessionStorage.setItem(
+        "libraryScrollPosition",
+        window.scrollY.toString(),
+      );
+      sessionStorage.setItem(BOOK_STACK_KEY, JSON.stringify([]));
+    }
+  };
+
   return (
     <Link
-      href={`${route}/${publication.slug}`}
+      href={`${normalizedRoute}/${publication.slug}`}
+      onClick={handleClick}
       className="flex items-center gap-4 py-4 lg:py-6 group"
       prefetch={false}
     >
