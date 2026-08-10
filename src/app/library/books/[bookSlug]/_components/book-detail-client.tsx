@@ -16,8 +16,8 @@ interface Props {
 
 const BOOK_STACK_KEY = "bookNavigationStack";
 
-function getBookPath(bookId: string | number) {
-  return `/library/books/${bookId}`;
+function getBookPath(slug: string) {
+  return `/library/books/${slug}`;
 }
 
 export default function BookDetailClient({
@@ -28,7 +28,7 @@ export default function BookDetailClient({
   const router = useRouter();
 
   useEffect(() => {
-    const currentPath = getBookPath(book.id);
+    const currentPath = getBookPath(book.slug);
     const raw = sessionStorage.getItem(BOOK_STACK_KEY);
     const stack: string[] = raw ? JSON.parse(raw) : [];
 
@@ -36,7 +36,7 @@ export default function BookDetailClient({
       stack.push(currentPath);
       sessionStorage.setItem(BOOK_STACK_KEY, JSON.stringify(stack));
     }
-  }, [book.id]);
+  }, [book.slug]);
 
   const handleBackToLibrary = () => {
     const raw = sessionStorage.getItem(BOOK_STACK_KEY);
@@ -100,7 +100,7 @@ export default function BookDetailClient({
         {showcaseBooks.map((item) => (
           <BooklibraryCard
             key={item.id}
-            route="/library/books/"
+            route="/library/books"
             publication={item}
             downloadable
           />
