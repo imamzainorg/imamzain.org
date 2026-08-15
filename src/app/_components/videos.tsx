@@ -22,12 +22,12 @@ export default function Videos({
 
   const openModal = (videoId: string) => setVideoId(videoId);
   const closeModal = () => setVideoId(null);
-const homePlaylists = playlists.filter(
-  (playlist) =>
-    (playlist.displayLocation === "home" ||
-      playlist.displayLocation === "both") &&
-    playlist.videos.length > 0  // تجاهل القوائم الفارغة
-);
+  const homePlaylists = playlists.filter(
+    (playlist) =>
+      (playlist.displayLocation === "home" ||
+        playlist.displayLocation === "both") &&
+      playlist.videos.length > 0, // تجاهل القوائم الفارغة
+  );
   useEffect(() => {
     const updateShow = () => {
       const width = window.innerWidth;
@@ -63,9 +63,7 @@ const homePlaylists = playlists.filter(
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 xl:grid-cols-5 auto-rows-[15rem] sm:auto-rows-[15rem] md:auto-rows-[17rem] lg:auto-rows-[12rem] xl:auto-rows-[13rem] gap-4">
-         {homePlaylists
-  .slice(0, show)
-  .map((playlist, index) => (
+          {homePlaylists.slice(0, show).map((playlist, index) => (
             <div
               key={index}
               aria-label="play video"
@@ -110,13 +108,13 @@ const homePlaylists = playlists.filter(
 
                 <motion.div
                   variants={{
-                    rest: { height: "34%" },
+                    rest: { height: "30%" },
                     hover: {
-                      height: "40%",
+                      height: "34%",
                       transition: { duration: 0.3 },
                     },
                   }}
-                  className="bg-white rounded-tl-xl flex flex-col justify-between p-3"
+                  className="bg-white rounded-tl-xl flex flex-col justify-between p-3 h-[30%] mt-auto"
                 >
                   <div
                     className={`font-semibold text-xs ${
