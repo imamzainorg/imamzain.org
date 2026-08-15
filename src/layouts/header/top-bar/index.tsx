@@ -1,5 +1,10 @@
 "use client";
-import React, { useEffect, useState, useRef, useSyncExternalStore } from "react";
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  useSyncExternalStore,
+} from "react";
 import Link from "next/link";
 import {
   Calendar,
@@ -19,7 +24,7 @@ type Theme = "dark" | "light";
 
 // مخزن بسيط خارج الكومبوننت — يُنشأ مرة واحدة فقط لكل التطبيق
 const themeListeners = new Set<() => void>();
-let currentTheme: Theme = "dark";
+let currentTheme: Theme = "light";
 
 function subscribeTheme(callback: () => void) {
   themeListeners.add(callback);
@@ -29,7 +34,7 @@ function getThemeSnapshot(): Theme {
   return currentTheme;
 }
 function getServerThemeSnapshot(): Theme {
-  return "dark"; // نفس القيمة التي يرسمها السيرفر دائمًا
+  return "light"; // الافتراضي عند أول تحميل
 }
 function setGlobalTheme(theme: Theme) {
   currentTheme = theme;
@@ -55,17 +60,17 @@ export default function TopBar() {
   const theme = useSyncExternalStore(
     subscribeTheme,
     getThemeSnapshot,
-    getServerThemeSnapshot
+    getServerThemeSnapshot,
   );
 
   // مزامنة القيمة الحقيقية المحفوظة مرة واحدة بعد التحميل
   useEffect(() => {
     const saved = localStorage.getItem("theme");
-    if ((saved === "light" || saved === "dark") && saved !== currentTheme) {
-      setGlobalTheme(saved);
+
+    if (saved === "dark") {
+      setGlobalTheme("dark");
     } else {
-      // تأكد من تطبيق الكلاس حتى لو كانت القيمة نفسها (dark الافتراضية)
-      document.documentElement.classList.add(currentTheme);
+      setGlobalTheme("light");
     }
   }, []);
 
@@ -140,7 +145,12 @@ export default function TopBar() {
                   {hijriDate
                     ? hijriDate.split("||")[0]
                     : error
-                      ? new Intl.DateTimeFormat('ar', { day: 'numeric', month: 'long', weekday: 'long', year: 'numeric' }).format(new Date())
+                      ? new Intl.DateTimeFormat("ar", {
+                          day: "numeric",
+                          month: "long",
+                          weekday: "long",
+                          year: "numeric",
+                        }).format(new Date())
                       : "جاري تحميل التاريخ..."}
                 </span>
               </p>
