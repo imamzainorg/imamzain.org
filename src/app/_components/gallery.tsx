@@ -65,7 +65,7 @@ export default function GallerySection() {
 
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
-  const sliderImageIds = [373,295,335, 354, 58, 209, 247, 46, 76, 205, 331];
+  const sliderImageIds = [498,579,335, 354, 806, 209, 473, 823, 452, 205, 457];
 
   const categoryImages = [
     { id: 218, category: "نشاطات" },
