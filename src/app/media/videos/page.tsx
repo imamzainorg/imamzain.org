@@ -1,8 +1,6 @@
 import type { Metadata } from "next"
 import VideosClient from "./_components/videos-client"
 
-export const revalidate = 300
-
 export const metadata: Metadata = {
 	title: "معرض المرئيات والفيديو",
 	description:

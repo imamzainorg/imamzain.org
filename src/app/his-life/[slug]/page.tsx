@@ -2,6 +2,13 @@ import Breadcrumbs from "@/components/breadcrumb"
 import { dataFetcher } from "@/lib/dataFetcher"
 import { imamzainLife } from "@/types/imamzain-life"
 
+export const dynamicParams = false
+
+export async function generateStaticParams() {
+	const sections = await dataFetcher<imamzainLife[]>("imamzain.json")
+	return sections.map((section) => ({ slug: section.slug }))
+}
+
 export default async function Page({
 	params,
 }: {

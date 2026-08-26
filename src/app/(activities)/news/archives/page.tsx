@@ -4,8 +4,6 @@ import { dataFetcher } from "@/lib/dataFetcher";
 import ArchivesClient from "./_components/archives-client";
 import type { Metadata } from "next";
 
-export const revalidate = 300;
-
 export const metadata: Metadata = {
   title: "أرشيف الأخبار",
   description:
