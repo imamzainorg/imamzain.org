@@ -1,29 +1,30 @@
 "use client";
 
-import playlists from "@/data/youtube.json" with  { type: "json" };
-
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { PlayButtonIcon } from "@/assets/icons/reusable";
 import { motion, AnimatePresence } from "framer-motion";
 import VideoComponent from "./video-section";
+
+// Slimmed to the fields this page actually renders; the server page maps
+// youtube.json down to this shape before passing it in.
 export type YouTubeVideo = {
   title: string;
   url: string;
-  date: string;
-  desc: string;
   thumbnail: string;
-  slug: string;
 };
 
 export type YouTubePlaylist = {
-  playlistId?: string;
   url: string;
   title: string;
   videos: YouTubeVideo[];
 };
 
-export default function Page() {
+export default function VideosClient({
+  playlists,
+}: {
+  playlists: YouTubePlaylist[];
+}) {
   const [videoId, setVideoId] = useState<string | null>(null);
   const [currentPlaylist, setCurrentPlaylist] =
     useState<YouTubePlaylist | null>(null);
@@ -32,12 +33,6 @@ export default function Page() {
     setCurrentPlaylist(playlist);
     setVideoId(videoUrl);
   };
-const internalPlaylists = playlists.filter(
-  (playlist) =>
-    (playlist.displayLocation === "internal" ||
-      playlist.displayLocation === "both") &&
-    playlist.videos.length > 0
-);
   const closeModal = () => {
     setVideoId(null);
     setCurrentPlaylist(null);
@@ -54,7 +49,7 @@ const internalPlaylists = playlists.filter(
     <div>
       <VideoComponent />
       <div className="pb-32 container">
-        {internalPlaylists.map((playlist: YouTubePlaylist, index: number) => (
+        {playlists.map((playlist: YouTubePlaylist, index: number) => (
           <PlaylistSection
             key={index}
             playlist={playlist}

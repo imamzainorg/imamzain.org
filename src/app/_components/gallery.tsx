@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import HeaderSections from "@/components/header-sections";
 import SwiperCarousel from "@/components/swiper-carousel";
 import ImageView from "@/components/image-view";
-import galleryImages from "@/data/gallery.json";
+import type { GallerySlide, GalleryCategoryImage } from "./gallery-data";
 
 const getShowCount = () => {
   if (typeof window === "undefined") return 5;
@@ -58,22 +58,18 @@ const categoryMeta: Record<
   },
 };
 
-export default function GallerySection() {
+export default function GallerySection({
+  sliderImages,
+  categoryImages,
+}: {
+  sliderImages: GallerySlide[];
+  categoryImages: GalleryCategoryImage[];
+}) {
   const router = useRouter();
   const [showCount, setShowCount] = useState(getShowCount);
   const [isLoading, setIsLoading] = useState(true);
 
   const [hoveredId, setHoveredId] = useState<number | null>(null);
-
-  const sliderImageIds = [498,579,335, 354, 806, 209, 473, 823, 452, 205, 457];
-
-  const categoryImages = [
-    { id: 218, category: "نشاطات" },
-    { id: 236, category: "ندوات" },
-    { id: 195, category: "مناسبات" },
-    { id: 309, category: "مسابقات" },
-    { id: 265, category: "اخبار" },
-  ];
 
   useEffect(() => {
     const handleResize = () => setShowCount(getShowCount());
@@ -86,19 +82,7 @@ export default function GallerySection() {
     };
   }, []);
 
-  const filteredGallery = galleryImages.filter((item) => item.name !== "khat");
-
-  const sliderImages = filteredGallery
-    .filter((image) => sliderImageIds.includes(image.id))
-    .map((image) => ({ id: image.id, path: image.url }));
-
-  const displayedImages = categoryImages
-    .map((cat) => {
-      const image = filteredGallery.find((img) => img.id === cat.id);
-      return image ? { ...image, linkedCategory: cat.category } : null;
-    })
-    .filter((img): img is NonNullable<typeof img> => img !== null)
-    .slice(0, showCount);
+  const displayedImages = categoryImages.slice(0, showCount);
 
   const navigateToCategory = (category: string) => {
     router.push(`/media/images?category=${encodeURIComponent(category)}`);

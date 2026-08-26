@@ -14,7 +14,6 @@ import {
 import { SummaryModal } from "./shared/summary-modal";
 import { SwiperPagination } from "./shared/swiper-pagination";
 
-import researchData from "@/data/research.json";
 import { Research } from "@/types/research";
 
 // ─── ثوابت ────────────────────────────────────────────────────────────────────
@@ -75,12 +74,12 @@ function toCard(item: Research): CardData {
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function ConferencePapers() {
+export default function ConferencePapers({ data }: { data: Research[] }) {
   const sp = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
 
-  const [all] = useState<Research[]>(() => [...researchData].reverse());
+  const [all] = useState<Research[]>(() => [...data].reverse());
   const [selected, setSelected] = useState<CardData | null>(null);
   const [sortVal, setSortVal] = useState("year-desc");
   const [search, setSearch] = useState(sp.get("search") ?? "");

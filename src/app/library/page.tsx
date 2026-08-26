@@ -1,5 +1,7 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
+import booksData from "@/data/books.json";
+import type { Book } from "@/types/book";
 import BookLibraryPage from "./_components/book-library-page";
 
 export const metadata: Metadata = {
@@ -35,7 +37,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <Suspense fallback={<div>جاري التحميل...</div>}>
-      <BookLibraryPage />
+      <BookLibraryPage books={booksData as Book[]} />
     </Suspense>
   );
 }
