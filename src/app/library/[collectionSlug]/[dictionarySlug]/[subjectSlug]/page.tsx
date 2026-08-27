@@ -1,3 +1,4 @@
+import { Suspense } from "react"
 import {
 	getSubject,
 	getDictionary,
@@ -52,7 +53,11 @@ export default async function SubjectPage({
 
 			<div className="w-1/2 h-0.5 mx-auto bg-gradient-to-l from-transparent via-primary/40 dark:via-Muharram_primary/40 to-transparent" />
 
-			<SubjectView subject={subject} />
+			{/* Suspense boundary lets SubjectView read ?highlight= via
+			    useSearchParams while the page stays statically prerendered. */}
+			<Suspense fallback={null}>
+				<SubjectView subject={subject} />
+			</Suspense>
 
 			<SubjectNavigation
 				collectionSlug={collectionSlug}

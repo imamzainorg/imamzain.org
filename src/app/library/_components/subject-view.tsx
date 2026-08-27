@@ -2,7 +2,8 @@
 
 import SubjectAudioPlayer from "../_components/Subjectaudioplayer"
 import { Explanation, Phrase, Subject } from "@/types/imamzain-legacy"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
+import { useSearchParams } from "next/navigation"
 
 type SubjectViewProps = {
 	subject: Subject
@@ -15,21 +16,15 @@ const removeDiacritics = (text: string) => {
 export default function SubjectView({ subject }: SubjectViewProps) {
 	const containerRef = useRef<HTMLDivElement>(null)
 
-	// Read ?highlight= from the URL after mount instead of receiving it from
-	// the server page: reading searchParams on the server would force the
-	// whole route into dynamic rendering, and highlighting only ever ran
-	// client-side anyway (see the `typeof document` guard below).
-	const [highlightTerm, setHighlightTerm] = useState<string>()
-
-	useEffect(() => {
-		const param = new URLSearchParams(window.location.search).get(
-			"highlight",
-		)
-		// The param must only apply after hydration so the prerendered HTML
-		// stays stable; a state-initializer read would hydration-mismatch.
-		// eslint-disable-next-line react-hooks/set-state-in-effect
-		if (param) setHighlightTerm(param)
-	}, [])
+	// Read ?highlight= reactively rather than from the server: reading
+	// searchParams on the server would force the route dynamic, and
+	// useSearchParams keeps the route statically prerendered (behind the
+	// Suspense boundary in the page) while still updating on query-only
+	// navigations. That last part matters: clicking a search result that
+	// points at the subject already open changes only the query string, and a
+	// one-shot window.location read at mount would never see it. It is empty
+	// during prerender, so highlighting still only appears after hydration.
+	const highlightTerm = useSearchParams().get("highlight") ?? undefined
 
 	useEffect(() => {
 		if (!highlightTerm || !containerRef.current) return
