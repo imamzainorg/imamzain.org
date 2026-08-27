@@ -3,7 +3,12 @@ import { Book } from "@/types/book";
 import { dataFetcher } from "@/lib/dataFetcher";
 import BookDetailClient from "./_components/book-detail-client";
 
-export const revalidate = 300;
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const books = await dataFetcher<Book[]>("books.json");
+  return books.map((book) => ({ bookSlug: book.slug }));
+}
 
 function shuffleArray<T>(array: T[]): T[] {
   const newArr = [...array];

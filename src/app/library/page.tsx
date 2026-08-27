@@ -2,8 +2,6 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import BookLibraryPage from "./_components/book-library-page";
 
-export const revalidate = 300;
-
 export const metadata: Metadata = {
   title: "المكتبة التخصصية لكتب الإمام زين العابدين",
   description:

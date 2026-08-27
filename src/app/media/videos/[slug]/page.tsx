@@ -6,6 +6,18 @@ import Link from "next/link"
 import { dataFetcher } from "@/lib/dataFetcher"
 import { YouTubePlaylist } from "@/types/youtube-data"
 
+export const dynamicParams = false
+
+export async function generateStaticParams() {
+	const playlists = await dataFetcher<YouTubePlaylist[]>("youtube.json")
+	const slugs = new Set(
+		playlists.flatMap((playlist) =>
+			playlist.videos.map((video) => video.slug),
+		),
+	)
+	return Array.from(slugs, (slug) => ({ slug }))
+}
+
 export default async function media({
 	params,
 }: {

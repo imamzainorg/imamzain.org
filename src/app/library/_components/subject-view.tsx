@@ -3,21 +3,28 @@
 import SubjectAudioPlayer from "../_components/Subjectaudioplayer"
 import { Explanation, Phrase, Subject } from "@/types/imamzain-legacy"
 import { useEffect, useRef } from "react"
+import { useSearchParams } from "next/navigation"
 
 type SubjectViewProps = {
 	subject: Subject
-	highlightTerm?: string
 }
 
 const removeDiacritics = (text: string) => {
 	return text.replace(/[\u064B-\u065F\u0670]/g, "")
 }
 
-export default function SubjectView({
-	subject,
-	highlightTerm,
-}: SubjectViewProps) {
+export default function SubjectView({ subject }: SubjectViewProps) {
 	const containerRef = useRef<HTMLDivElement>(null)
+
+	// Read ?highlight= reactively rather than from the server: reading
+	// searchParams on the server would force the route dynamic, and
+	// useSearchParams keeps the route statically prerendered (behind the
+	// Suspense boundary in the page) while still updating on query-only
+	// navigations. That last part matters: clicking a search result that
+	// points at the subject already open changes only the query string, and a
+	// one-shot window.location read at mount would never see it. It is empty
+	// during prerender, so highlighting still only appears after hydration.
+	const highlightTerm = useSearchParams().get("highlight") ?? undefined
 
 	useEffect(() => {
 		if (!highlightTerm || !containerRef.current) return

@@ -5,7 +5,13 @@ import { dataFetcher } from "@/lib/dataFetcher";
 import BooklibraryCard from "../../library/_components/book-library-card";
 import BookCard from "@/components/book-card";
 
-export const revalidate = 300;
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const books = await dataFetcher<Book[]>("books.json");
+  return books.map((book) => ({ slug: book.slug }));
+}
+
 function getRandomItems<T>(array: T[], count: number) {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {

@@ -1,7 +1,17 @@
-import { getDictionary } from "@/lib/imamzain-legacy-loader"
+import { getDictionaries, getDictionary } from "@/lib/imamzain-legacy-loader"
+import { collections } from "@/app/library/_config/collections"
 import Link from "next/link"
 
-export const revalidate = 300
+export const dynamicParams = false
+
+export function generateStaticParams() {
+	return Object.keys(collections).flatMap((collectionSlug) =>
+		getDictionaries(collectionSlug).map((dictionary) => ({
+			collectionSlug,
+			dictionarySlug: dictionary.slug,
+		})),
+	)
+}
 
 export default async function Page({
 	params,

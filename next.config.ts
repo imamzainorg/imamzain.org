@@ -14,10 +14,6 @@ const nextConfig: NextConfig = {
 				source: "/home",
 				destination: "/",
 			},
-			{
-				source: "/api/audio/:path*",
-				destination: "https://cdn.imamzain.org/:path*",
-			},
 		]
 	},
 	async redirects() {
