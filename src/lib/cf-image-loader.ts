@@ -13,13 +13,21 @@ const WIDTH_BUCKETS = [384, 768, 1080, 1920]
  *
  * onerror=redirect falls back to the original file if a transformation is
  * ever unavailable, so worst case is an unresized original, never a 4xx.
- * Non-CDN sources (local /public assets) are returned untouched.
+ * Non-CDN sources (local /public assets, external URLs) are returned as-is.
  */
 export default function cloudflareImageLoader({
 	src,
 	width,
 }: ImageLoaderProps): string {
 	if (!src.startsWith(CDN_PREFIX)) {
+		// A bare relative path (no scheme, no leading slash) is a /public asset.
+		// The default optimizer resolved it against the site root; a plain
+		// passthrough would leave the browser to resolve it against the current
+		// page path and 404. Normalize to root-relative so those assets load.
+		const hasScheme = /^[a-z][a-z0-9+.-]*:/i.test(src)
+		if (!src.startsWith("/") && !hasScheme) {
+			return `/${src}`
+		}
 		return src
 	}
 
