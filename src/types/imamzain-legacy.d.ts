@@ -9,7 +9,7 @@ type Dictionary = {
   id: number;
   title: string;
   slug: string;
-  subjects: DictionarySubjects[];
+  subjects: Subject[];
 };
 
 type Subject = {
@@ -30,4 +30,28 @@ type Explanation = {
   id: number;
   author: string;
   content: string;
+};
+
+// Slim projections that cross the server/client boundary. Keeping these
+// separate from Dictionary/Subject is what stops the full phrase corpus from
+// being serialized into every page under the dictionary layout.
+export type NavSubject = Pick<Subject, "id" | "title" | "slug">;
+
+export type NavDictionary = Pick<Dictionary, "id" | "title" | "slug"> & {
+  subjects: NavSubject[];
+};
+
+export type SearchIndexPhrase = {
+  id: string;
+  text: string;
+};
+
+export type SearchIndexEntry = {
+  dictionaryId: number;
+  dictionaryTitle: string;
+  dictionarySlug: string;
+  subjectId: string;
+  subjectTitle: string;
+  subjectSlug: string;
+  phrases: SearchIndexPhrase[];
 };
