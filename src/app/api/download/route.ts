@@ -11,10 +11,17 @@ export async function GET(req: NextRequest) {
     return new NextResponse("Missing url", { status: 400 });
   }
 
-  // Protocol-relative input ("//host/path") must not reach this branch, since
-  // new URL() would resolve it to a foreign host and open-redirect through us.
-  if (url.startsWith("/") && !url.startsWith("//")) {
-    return NextResponse.redirect(new URL(url, req.nextUrl.origin), 302);
+  // Treat a path-style input as a same-origin file. A string-prefix check can't
+  // safely decide this: the WHATWG URL parser folds backslashes to slashes and
+  // strips tabs/newlines for http(s), so "/\evil.com" or "/\t/evil.com" would
+  // resolve to a foreign host. Resolve first, then verify the origin actually
+  // matches ours before redirecting, so nothing can escape the origin.
+  if (url.startsWith("/")) {
+    const resolved = new URL(url, req.nextUrl.origin);
+    if (resolved.origin !== req.nextUrl.origin) {
+      return new NextResponse("Forbidden", { status: 403 });
+    }
+    return NextResponse.redirect(resolved, 302);
   }
 
   let parsedUrl: URL;
