@@ -19,7 +19,7 @@ export default function Page() {
   return (
     <div className="lg:pt-20">
       <div className="relative text-white flex flex-col items-center space-y-20  ">
-        <div className="absolute top-0 inset-x-0 h-[100%] bg-dark-background -z-10" />
+        <div className="absolute top-0 inset-x-0 h-[100%] bg-[#100a24] -z-10" />
 
         <div className="container mx-auto px-4 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">

@@ -1,5 +1,8 @@
 import type { Metadata } from "next"
-import VideosClient from "./_components/videos-client"
+import { dataFetcher } from "@/lib/dataFetcher"
+import type { YouTubeGroup } from "@/types/youtube-data"
+import { getGroupSlug, sortGroupsByLatest } from "@/lib/youtube"
+import VideosBrowser from "./_components/videos-browser"
 
 export const revalidate = 300
 
@@ -36,6 +39,27 @@ export const metadata: Metadata = {
 	},
 }
 
-export default function Page() {
-	return <VideosClient />
+export default async function VideosPage() {
+	const groups = await dataFetcher<YouTubeGroup[]>("youtube.json")
+
+	// نفس منطق الكود القديم: "internal" أو "both" فقط يظهرن بمعرض /videos
+	// (المجموعات المعلّمة "home" مخصصة للصفحة الرئيسية فقط، بس تظل قابلة
+	// للوصول مباشرة عبر رابطها الخاص لو حد وصلها من مكان ثاني)
+	const galleryGroups = sortGroupsByLatest(
+		groups.filter(
+			(g) =>
+				(g.displayLocation === "internal" || g.displayLocation === "both") &&
+				g.videos.length > 0,
+		),
+	)
+
+	const initialGroup = galleryGroups[0] ?? null
+
+	return (
+		<VideosBrowser
+			key={initialGroup ? getGroupSlug(initialGroup) : "root"}
+			groups={galleryGroups}
+			initialGroupSlug={initialGroup ? getGroupSlug(initialGroup) : null}
+		/>
+	)
 }
