@@ -12,7 +12,7 @@ import {
   ScrollText,
   ShieldCheck,
   Star,
-  Trophy,
+  CheckCircle2,
   Users,
   BookOpen,
   Crown,
@@ -64,17 +64,47 @@ export default function Page() {
           ]}
         />
       </div>
+      <div className="px-4 sm:px-6 lg:px-8 pb-10 pt-2">
+        <div className="max-w-7xl mx-auto">
+          <div className="relative overflow-hidden rounded-[2rem] border border-rose-200/80 bg-gradient-to-r from-rose-50 via-white to-red-50 px-5 py-5 shadow-[0_22px_55px_-28px_rgba(244,63,94,0.45)] sm:px-8">
+            <div className="absolute -top-10 -right-8 h-28 w-28 rounded-full bg-rose-200/25 blur-2xl" />
+            <div className="absolute -bottom-10 -left-8 h-28 w-28 rounded-full bg-rose-200/20 blur-2xl" />
 
+            <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-center gap-4">
+                <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-rose-200 bg-white shadow-sm">
+                  <div className="absolute inset-0 rounded-full bg-rose-300/20 blur-md animate-pulse" />
+                  <CheckCircle2 className="relative h-8 w-8 text-rose-500/80" strokeWidth={1.6} />
+                </div>
+
+                <div className="text-right">
+                  <h2 className="text-2xl font-bold text-rose-700/90 sm:text-3xl">
+                    انتهت المسابقة
+                  </h2>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 rounded-full border border-rose-100 bg-white/70 px-4 py-2 shadow-sm sm:justify-self-end">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-rose-400/40 animate-ping" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-rose-400/70" />
+                </span>
+                <p className="text-sm text-slate-600 sm:text-base">
+                  انتهت فترة المشاركة، وشكرًا لجميع المشاركين
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* Hero Section */}
       <div className="px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
             <div className="w-full lg:w-1/2 space-y-8 tracking-tight">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 border border-primary text-primary px-4 py-2 rounded-full text-subtitle font-medium">
-                <Trophy className="w-4 h-4" />
-                مسابقة علمية محكمة
-              </div>
+            {/* Competition Status */}
+
 
               <h1 className="text-title font-bold text-gray-900 text-right leading-tight">
                 مسابقة الكتاب
@@ -143,6 +173,8 @@ export default function Page() {
           </div>
         </div>
       </div>
+
+
 
       {/* Prizes Section */}
       <div className="px-4 sm:px-6 lg:px-8 py-16">
@@ -313,9 +345,9 @@ export default function Page() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-title font-bold text-gray-900 mb-4">
-              آليةالتحكيم
+              آلية التحكيم
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-sprimaryecondary/80 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-primary/80 mx-auto rounded-full"></div>
           </div>
 
           <div className="bg-gradient-to-r from-white/20 to-white/10 rounded-2xl p-8 mb-8 border border-primary/20">

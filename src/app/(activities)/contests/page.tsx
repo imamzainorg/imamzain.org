@@ -14,9 +14,9 @@ export default function Page() {
 			description:
 				"خمسون سؤالاً مستخرجة من كتاب 'قبسات من حياة الإمام زين العابدين (عليه السلام)'، تختبر إلمام المشاركين بسيرة الإمام وأدعيته وعلومه",
 			category: "ثقافية",
-			deadline: "مفتوحة",
+			deadline: "2026/8/29 م",
 			prize: "مكافآت تشجيعية للعشرة الأوائل",
-			status: "active",
+			status: "closed",
 			link: "/contests/qatuf-sajjadiyya-cultural-competition",
 			image: "/contests/qatuf-sajjadiyya-cultural-competition/landing.jpg",
 		},
