@@ -10,8 +10,6 @@ import { Post } from "@/types/post";
 import { ChevronRightArrowIcon } from "@/assets/icons/reusable";
 import type { Metadata } from "next";
 
-export const revalidate = 300;
-
 export const metadata: Metadata = {
   title: "الأخبار والأنشطة",
   description:

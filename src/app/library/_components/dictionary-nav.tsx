@@ -10,10 +10,10 @@ import {
   FileText,
   Download,
 } from "lucide-react";
-import { Dictionary, Subject } from "@/types/imamzain-legacy";
+import { NavDictionary, NavSubject } from "@/types/imamzain-legacy";
 
 type DictionaryNavProps = {
-  dictionaries: Dictionary[];
+  dictionaries: NavDictionary[];
   collectionSlug: string;
   activeDictionarySlug: string;
 };
@@ -123,7 +123,7 @@ export default function DictionaryNav({
               {/* Subjects List */}
               {isExpanded && dict.subjects && (
                 <div className="mr-9 mt-1 space-y-0.5 animate-in slide-in-from-top-2 duration-200">
-                  {dict.subjects.map((subject: Subject) => {
+                  {dict.subjects.map((subject: NavSubject) => {
                     const subjectPath = `/library/${collectionSlug}/${dict.slug}/${subject.slug}`;
                     const isActiveSubject =
                       pathname === subjectPath ||

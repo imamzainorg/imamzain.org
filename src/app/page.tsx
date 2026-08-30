@@ -8,6 +8,7 @@ import { Book } from "@/types/book"
 import { Post } from "@/types/post"
 import { YouTubePlaylist } from "@/types/youtube-data"
 import hadiths from "@/data/hadiths.json"
+import { getGallerySectionData } from "./_components/gallery-data"
 import AnimatedTextSection from "@/components/animated-text"
 
 import dynamic from "next/dynamic"
@@ -87,6 +88,7 @@ export default async function Page() {
 	const publications = await dataFetcher<Book[]>("books.json")
 	const posts = await dataFetcher<Post[]>("posts.json")
 	const playlists = await dataFetcher<YouTubePlaylist[]>("youtube.json")
+	const { sliderImages, categoryImages } = getGallerySectionData()
 
 	// Select Proper Hadith Based on Date
 	const today = new Date()
@@ -208,7 +210,10 @@ export default async function Page() {
 			<Services />
 			<Publications publications={publications} />
 			<Application />
-			<GallerySection />
+			<GallerySection
+				sliderImages={sliderImages}
+				categoryImages={categoryImages}
+			/>
 			<Videos playlists={playlists} />
 			{/* <Live /> */}
 		</div>

@@ -9,4 +9,5 @@ export type SellPoint = {
   phone: string;
   id: number;
   gps?: string;
+  gpsLink: string;
 };

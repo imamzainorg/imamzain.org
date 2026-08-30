@@ -4,8 +4,6 @@ import { Book } from "@/types/book"
 import booksData from "@/data/books.json"
 import PublicationsClient from "./components/publications-client"
 
-export const revalidate = 300
-
 export const metadata: Metadata = {
 	title: "إصدارات المؤسسة وشروح الصحيفة السجادية",
 	description:
@@ -39,7 +37,7 @@ export const metadata: Metadata = {
 }
 
 // Dedupe to one entry per series (or one per non-series book).
-// Computed once per revalidation window since booksData is static at build time.
+// Computed once at build time since booksData is static.
 function dedupeSeries(books: Book[]): Book[] {
 	const filteredByCategory = books.filter((book) =>
 		book.category?.includes("الإصدارات"),

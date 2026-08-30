@@ -15,7 +15,6 @@ import { ResearchTable, type TableRow } from "./shared/research-table";
 import { SwiperPagination } from "./shared/swiper-pagination";
 
 import { Journals } from "@/types/journals";
-import JournalsData from "@/data/journals.json";
 
 // ─── ثوابت ────────────────────────────────────────────────────────────────────
 
@@ -115,7 +114,7 @@ function pickDisplayTranslation(
 
 // ─── Component (المنطق الداخلي) ────────────────────────────────────────────
 
-function JournalsContent() {
+function JournalsContent({ data }: { data: Journals[] }) {
   const sp = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -144,7 +143,7 @@ function JournalsContent() {
     language: sp.get("language") ?? "",
   });
 
-  const all = JournalsData as Journals[];
+  const all = data;
 
   const filterOptions = useMemo(() => {
     const publicationVenues = new Set<string>();
@@ -400,10 +399,10 @@ function JournalsContent() {
 
 // ─── Component (الغلاف الخارجي مع Suspense) ────────────────────────────────
 
-export default function JournalsPage() {
+export default function JournalsPage({ data }: { data: Journals[] }) {
   return (
     <Suspense fallback={<div>...جاري التحميل</div>}>
-      <JournalsContent />
+      <JournalsContent data={data} />
     </Suspense>
   );
 }
