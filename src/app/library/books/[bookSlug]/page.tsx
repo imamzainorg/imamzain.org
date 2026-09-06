@@ -3,7 +3,12 @@ import { Book } from "@/types/book";
 import { dataFetcher } from "@/lib/dataFetcher";
 import BookDetailClient from "./_components/book-detail-client";
 
-export const revalidate = 300;
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const books = await dataFetcher<Book[]>("books.json");
+  return books.map((book) => ({ bookSlug: book.slug }));
+}
 
 function shuffleArray<T>(array: T[]): T[] {
   const newArr = [...array];
@@ -57,10 +62,16 @@ export default async function Page({
   const random = shuffleArray(remainingBooks).slice(0, 2);
   const showcaseBooks = [...related, ...random];
 
+  // Other parts of the same series, including this one — the only thing
+  // BookCard needs from the full catalog.
+  const seriesParts = book.series
+    ? books.filter((item) => item.series === book.series)
+    : [];
+
   return (
     <BookDetailClient
       book={book}
-      libraryBooks={books}
+      seriesParts={seriesParts}
       showcaseBooks={showcaseBooks}
     />
   );

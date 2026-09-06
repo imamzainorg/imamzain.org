@@ -3,28 +3,16 @@ import type { NextConfig } from "next"
 const nextConfig: NextConfig = {
 	allowedDevOrigins: ["192.168.47.12"],
 	images: {
-		deviceSizes: [640, 1080, 1920],
-		imageSizes: [128, 256, 384],
-		qualities: [75],
-		minimumCacheTTL: 31536000,
-		formats: ["image/webp"],
-		remotePatterns: [
-			{
-				protocol: "https",
-				hostname: "cdn.imamzain.org",
-				pathname: "/**",
-			},
-		],
+		// Images are transformed by Cloudflare on cdn.imamzain.org, not by
+		// Vercel's optimizer; the loader owns sizing, quality and format.
+		loader: "custom",
+		loaderFile: "./src/lib/cf-image-loader.ts",
 	},
 	async rewrites() {
 		return [
 			{
 				source: "/home",
 				destination: "/",
-			},
-			{
-				source: "/api/audio/:path*",
-				destination: "https://cdn.imamzain.org/:path*",
 			},
 		]
 	},

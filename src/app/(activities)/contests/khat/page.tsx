@@ -18,6 +18,7 @@ import {
 	LucideIcon,
 	Download,
 	ArrowLeft,
+	CheckCircle2,
 	Calendar,
 	Globe,
 } from "lucide-react"
@@ -558,7 +559,39 @@ export default function Page() {
 					]}
 				/>
 			</div>
+         <div className="px-4 sm:px-6 lg:px-8 pb-10 pt-2">
+        <div className="max-w-7xl mx-auto">
+          <div className="relative overflow-hidden rounded-[2rem] border border-rose-200/80 bg-gradient-to-r from-rose-50 via-white to-red-50 px-5 py-5 shadow-[0_22px_55px_-28px_rgba(244,63,94,0.45)] sm:px-8">
+            <div className="absolute -top-10 -right-8 h-28 w-28 rounded-full bg-rose-200/25 blur-2xl" />
+            <div className="absolute -bottom-10 -left-8 h-28 w-28 rounded-full bg-rose-200/20 blur-2xl" />
 
+            <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-center gap-4">
+                <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-rose-200 bg-white shadow-sm">
+                  <div className="absolute inset-0 rounded-full bg-rose-300/20 blur-md animate-pulse" />
+                  <CheckCircle2 className="relative h-8 w-8 text-rose-500/80" strokeWidth={1.6} />
+                </div>
+
+                <div className="text-right">
+                  <h2 className="text-2xl font-bold text-rose-700/90 sm:text-3xl">
+                    انتهت المسابقة
+                  </h2>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 rounded-full border border-rose-100 bg-white/70 px-4 py-2 shadow-sm sm:justify-self-end">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-rose-400/40 animate-ping" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-rose-400/70" />
+                </span>
+                <p className="text-sm text-slate-600 sm:text-base">
+                  انتهت فترة المشاركة، وشكرًا لجميع المشاركين
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 			{/* Hero Section - Completely Redesigned */}
 			<section className="px-4 sm:px-6 lg:px-8 py-16">
 				<div className="max-w-7xl mx-auto">

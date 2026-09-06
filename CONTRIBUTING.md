@@ -240,6 +240,17 @@ The default is feat→minor, fix/perf/refactor/etc.→patch, `!`/`BREAKING CHANG
 
 ---
 
+## Media uploads (R2 / CDN)
+
+All site media lives in the `imamzain-media` R2 bucket behind `cdn.imamzain.org`. Every upload **must** set these HTTP headers on the object at upload time:
+
+- `Cache-Control: public, max-age=31536000, immutable` (all objects)
+- `Content-Disposition: attachment; filename*=UTF-8''<url-encoded basename>` (downloadable types: pdf, mp3, mp4, wav, zip, docx)
+
+The site's `/api/download` route just 302-redirects to the CDN, so the saved filename comes from this metadata, not from the app. If a batch was uploaded without the headers, backfill with `bun scripts/r2-set-metadata.ts` (see the header comment in that script for credentials and a `--dry-run` mode).
+
+---
+
 ## Questions / changes to this doc
 
 Open a PR. This file is `docs`-typed, so just:

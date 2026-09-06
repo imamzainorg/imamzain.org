@@ -1,19 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   ChevronDown,
   ChevronLeft,
+  Loader2,
   BookOpen,
   FileText,
   Download,
 } from "lucide-react";
-import { Dictionary, Subject } from "@/types/imamzain-legacy";
+import { NavDictionary, NavSubject } from "@/types/imamzain-legacy";
 
 type DictionaryNavProps = {
-  dictionaries: Dictionary[];
+  dictionaries: NavDictionary[];
   collectionSlug: string;
   activeDictionarySlug: string;
 };
@@ -26,6 +27,47 @@ export default function DictionaryNav({
   const pathname = usePathname();
   const [expandedDicts, setExpandedDicts] = useState(
     new Set([activeDictionarySlug]),
+  );
+
+  // The page only ships the active dictionary's subjects in full; the rest
+  // arrive here with an empty `subjects` array. Expanding one of those
+  // fetches its subjects from the static /api/library-nav route on demand,
+  // so opening this sidebar never has to download every dictionary at once.
+  const [fetchedSubjects, setFetchedSubjects] = useState<
+    Record<string, NavSubject[]>
+  >({});
+  // A set, not a single slug: expanding a second non-active dictionary
+  // before the first one's fetch resolves must not hide the first one's
+  // loading spinner (a single scalar here would let the second overwrite
+  // the first and leave it looking broken until it resolves in the
+  // background).
+  const [loadingSlugs, setLoadingSlugs] = useState<Set<string>>(new Set());
+
+  const loadSubjects = useCallback(
+    (dictionarySlug: string) => {
+      setLoadingSlugs((prev) => new Set(prev).add(dictionarySlug));
+      fetch(`/api/library-nav/${collectionSlug}/${dictionarySlug}`)
+        .then((res) => {
+          if (!res.ok) throw new Error(String(res.status));
+          return res.json();
+        })
+        .then((subjects: NavSubject[]) => {
+          setFetchedSubjects((prev) => ({ ...prev, [dictionarySlug]: subjects }));
+        })
+        .catch(() => {
+          // Leave it unfetched; the collapse/expand toggle below retries on
+          // the next click since fetchedSubjects[slug] stays undefined.
+        })
+        .finally(() => {
+          setLoadingSlugs((prev) => {
+            if (!prev.has(dictionarySlug)) return prev;
+            const next = new Set(prev);
+            next.delete(dictionarySlug);
+            return next;
+          });
+        });
+    },
+    [collectionSlug],
   );
 
   const getDownloadInfo = (slug: string) => {
@@ -44,14 +86,26 @@ export default function DictionaryNav({
     }
   };
 
-  const toggleDict = (slug: string) => {
+  const toggleDict = (dict: NavDictionary) => {
+    const slug = dict.slug;
+    const willExpand = !expandedDicts.has(slug);
+
     const newExpanded = new Set(expandedDicts);
-    if (newExpanded.has(slug)) {
-      newExpanded.delete(slug);
-    } else {
+    if (willExpand) {
       newExpanded.add(slug);
+    } else {
+      newExpanded.delete(slug);
     }
     setExpandedDicts(newExpanded);
+
+    if (
+      willExpand &&
+      dict.subjects.length === 0 &&
+      dict.subjectCount > 0 &&
+      !fetchedSubjects[slug]
+    ) {
+      loadSubjects(slug);
+    }
   };
 
   const downloadInfo = getDownloadInfo(collectionSlug);
@@ -74,12 +128,18 @@ export default function DictionaryNav({
         {dictionaries.map((dict) => {
           const isExpanded = expandedDicts.has(dict.slug);
           const isActive = dict.slug === activeDictionarySlug;
+          const subjects =
+            dict.subjects.length > 0
+              ? dict.subjects
+              : fetchedSubjects[dict.slug];
+          const isLoadingSubjects =
+            isExpanded && !subjects && loadingSlugs.has(dict.slug);
 
           return (
             <div key={dict.slug}>
               <div className="flex items-stretch gap-1">
                 <button
-                  onClick={() => toggleDict(dict.slug)}
+                  onClick={() => toggleDict(dict)}
                   className="p-2 hover:bg-gray-100 dark:hover:bg-Muharram_secondary/30 rounded-lg transition-colors flex-shrink-0"
                   aria-label={isExpanded ? "طي القسم" : "توسيع القسم"}
                 >
@@ -115,15 +175,22 @@ export default function DictionaryNav({
                         : "bg-gray-100 dark:bg-Muharram_secondary/30 text-gray-500 dark:text-Muharram_primary"
                     }`}
                   >
-                    {(dict.subjects?.length || 0).toLocaleString("ar-EG")}
+                    {dict.subjectCount.toLocaleString("ar-EG")}
                   </span>
                 </Link>
               </div>
 
               {/* Subjects List */}
-              {isExpanded && dict.subjects && (
+              {isLoadingSubjects && (
+                <div className="mr-9 mt-1 flex items-center gap-2 px-3 py-2 text-sm text-gray-400">
+                  <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                  جاري التحميل...
+                </div>
+              )}
+
+              {isExpanded && subjects && (
                 <div className="mr-9 mt-1 space-y-0.5 animate-in slide-in-from-top-2 duration-200">
-                  {dict.subjects.map((subject: Subject) => {
+                  {subjects.map((subject: NavSubject) => {
                     const subjectPath = `/library/${collectionSlug}/${dict.slug}/${subject.slug}`;
                     const isActiveSubject =
                       pathname === subjectPath ||

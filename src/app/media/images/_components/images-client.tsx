@@ -6,7 +6,6 @@ import { useSearchParams } from "next/navigation";
 import Breadcrumbs from "@/components/breadcrumb";
 import ImageView from "@/components/image-view";
 import Image from "next/image";
-import galleryImages from "@/data/gallery.json";
 import { Gallery } from "@/types/gallery";
 import {
   FiFilter,
@@ -53,7 +52,7 @@ const ROW_PATTERNS: Record<ScreenSize, number[][]> = {
 
 const ROW_HEIGHT = 280;
 
-function GalleryClient() {
+function GalleryClient({ images }: { images: Gallery[] }) {
   const searchParams = useSearchParams();
   const categoryFromUrl = searchParams.get("category");
   const INITIAL_COUNT = 30;
@@ -109,21 +108,7 @@ function GalleryClient() {
     return () => window.removeEventListener("resize", updateLimit);
   }, []);
 
-  const allImages = useMemo(
-    () =>
-      galleryImages.map((item) => ({
-        id: item.id,
-        url: item.url,
-        title: item.name,
-        description: item.description,
-        category: item.category,
-        date: item.date,
-        location: item.location,
-        photographer: item.photographer || "غير محدد",
-        tags: item.tags,
-      })) as Gallery[],
-    [],
-  );
+  const allImages = images;
 
   // Filter and sort images
   const filteredImages = useMemo(() => {
@@ -616,7 +601,7 @@ function GalleryClient() {
   );
 }
 
-export default function Page() {
+export default function ImagesClient({ images }: { images: Gallery[] }) {
   return (
     <Suspense
       fallback={
@@ -625,7 +610,7 @@ export default function Page() {
         </div>
       }
     >
-      <GalleryClient />
+      <GalleryClient images={images} />
     </Suspense>
   );
 }

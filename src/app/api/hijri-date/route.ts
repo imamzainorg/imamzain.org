@@ -54,5 +54,11 @@ export async function GET() {
 	}
 }
 
-// Required for Vercel deployment
-export const dynamic = "force-dynamic"
+// The upstream date only changes daily and the fetch above already caches
+// for 12h, but force-dynamic (previously set here) opted the route itself
+// out of caching, so every one of this route's ~8,000 daily calls (one per
+// pageview, from the header) invoked the function and counted as an origin
+// read. revalidate lets Next cache this route's own response for the same
+// window, so only the first call in each 12h period reaches the function;
+// the rest are served from cache.
+export const revalidate = 43200

@@ -5,7 +5,13 @@ import { dataFetcher } from "@/lib/dataFetcher";
 import BooklibraryCard from "../../library/_components/book-library-card";
 import BookCard from "@/components/book-card";
 
-export const revalidate = 300;
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const books = await dataFetcher<Book[]>("books.json");
+  return books.map((book) => ({ slug: book.slug }));
+}
+
 function getRandomItems<T>(array: T[], count: number) {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -46,6 +52,12 @@ export default async function Page({
 
   const randomBooks = getRandomItems(remainingBooks, 2); // الآن هذا آمن
 
+  // Other parts of the same series, including this one — the only thing
+  // BookCard needs from the full catalog.
+  const seriesParts = publication.series
+    ? publications.filter((book) => book.series === publication.series)
+    : [];
+
   return (
     <div className="md:container space-y-16 my-12 max-w-screen-xl mx-auto px-4">
       <Breadcrumbs
@@ -56,7 +68,7 @@ export default async function Page({
         ]}
       />
 
-      <BookCard publication={publication} publications={publications} />
+      <BookCard publication={publication} seriesParts={seriesParts} />
 
       {/* كتب ذات صلة */}
       <div className="smart-library">
