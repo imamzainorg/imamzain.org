@@ -1,9 +1,9 @@
 "use client"
 
-import { useState, useMemo, useCallback, useDeferredValue } from "react"
+import { useState, useMemo, useCallback, useDeferredValue, useRef } from "react"
 import { Search, X } from "lucide-react"
 import { useRouter } from "next/navigation"
-import { Dictionary } from "@/types/imamzain-legacy"
+import { SearchIndexEntry } from "@/types/imamzain-legacy"
 
 type SearchResult = {
 	dictionaryId: number
@@ -17,15 +17,7 @@ type SearchResult = {
 }
 
 type CollectionSearchProps = {
-	collection: Dictionary[]
 	collectionSlug: string
-}
-
-const stripHtml = (html: string) => {
-	return html
-		.replace(/<[^>]*>/g, " ")
-		.replace(/\s+/g, " ")
-		.trim()
 }
 
 const removeDiacritics = (text: string) => {
@@ -33,12 +25,36 @@ const removeDiacritics = (text: string) => {
 }
 
 export default function CollectionSearch({
-	collection,
 	collectionSlug,
 }: CollectionSearchProps) {
 	const [searchTerm, setSearchTerm] = useState("")
 	const [isOpen, setIsOpen] = useState(false)
 	const router = useRouter()
+
+	// The index is fetched on first interaction rather than handed down as a
+	// prop: it is ~2.5 MB, and as a prop it was serialized into every one of
+	// the ~520 pages under this layout. As a static JSON file it is fetched
+	// once and then cached by the browser across all of them.
+	const [index, setIndex] = useState<SearchIndexEntry[] | null>(null)
+	const [indexError, setIndexError] = useState(false)
+	const indexRequested = useRef(false)
+
+	const loadIndex = useCallback(() => {
+		if (indexRequested.current) return
+		indexRequested.current = true
+
+		fetch(`/api/library-search-index/${collectionSlug}`)
+			.then((res) => {
+				if (!res.ok) throw new Error(String(res.status))
+				return res.json()
+			})
+			.then((data: SearchIndexEntry[]) => setIndex(data))
+			.catch(() => {
+				// Allow a later interaction to retry.
+				indexRequested.current = false
+				setIndexError(true)
+			})
+	}, [collectionSlug])
 
 	// Use deferred value for search term to prevent blocking UI
 	const deferredSearchTerm = useDeferredValue(searchTerm)
@@ -48,78 +64,76 @@ export default function CollectionSearch({
 		const term = removeDiacritics(deferredSearchTerm.trim().toLowerCase())
 		if (!term || term.length < 2) return []
 
+		if (!index) return []
+
 		const results: SearchResult[] = []
 
-		for (const dictionary of collection) {
-			for (const subject of dictionary.subjects || []) {
-				const subjectTitle = removeDiacritics(
-					subject.title.toLowerCase(),
-				)
-				const titleMatches = subjectTitle.includes(term)
+		for (const entry of index) {
+			const subjectTitle = removeDiacritics(
+				entry.subjectTitle.toLowerCase(),
+			)
+			const titleMatches = subjectTitle.includes(term)
 
-				// Check phrases only if title doesn't match (for better preview)
-				if (titleMatches) {
-					// Use first phrase for preview when title matches
-					const firstPhrase = subject.phrases?.[0]
-					if (firstPhrase) {
-						const content = stripHtml(firstPhrase.content)
-						const preview =
-							content.length > 150
-								? content.substring(0, 150) + "..."
-								: content
+			// Check phrases only if title doesn't match (for better preview)
+			if (titleMatches) {
+				// Use first phrase for preview when title matches
+				const firstPhrase = entry.phrases[0]
+				if (firstPhrase) {
+					const content = firstPhrase.text
+					const preview =
+						content.length > 150
+							? content.substring(0, 150) + "..."
+							: content
+
+					results.push({
+						dictionaryId: entry.dictionaryId,
+						dictionaryTitle: entry.dictionaryTitle,
+						dictionarySlug: entry.dictionarySlug,
+						subjectId: entry.subjectId,
+						subjectTitle: entry.subjectTitle,
+						subjectSlug: entry.subjectSlug,
+						phraseId: firstPhrase.id,
+						matchedText: preview,
+					})
+				}
+			} else {
+				// Check phrases content
+				for (const phrase of entry.phrases) {
+					const content = phrase.text
+					const contentLower = removeDiacritics(content.toLowerCase())
+
+					if (contentLower.includes(term)) {
+						const matchIndex = contentLower.indexOf(term)
+						const start = Math.max(0, matchIndex - 60)
+						const end = Math.min(
+							content.length,
+							matchIndex + term.length + 60,
+						)
+						const matchedText =
+							(start > 0 ? "..." : "") +
+							content.substring(start, end) +
+							(end < content.length ? "..." : "")
 
 						results.push({
-							dictionaryId: dictionary.id,
-							dictionaryTitle: dictionary.title,
-							dictionarySlug: dictionary.slug,
-							subjectId: subject.id,
-							subjectTitle: subject.title,
-							subjectSlug: subject.slug,
-							phraseId: firstPhrase.id,
-							matchedText: preview,
+							dictionaryId: entry.dictionaryId,
+							dictionaryTitle: entry.dictionaryTitle,
+							dictionarySlug: entry.dictionarySlug,
+							subjectId: entry.subjectId,
+							subjectTitle: entry.subjectTitle,
+							subjectSlug: entry.subjectSlug,
+							phraseId: phrase.id,
+							matchedText,
 						})
-					}
-				} else {
-					// Check phrases content
-					for (const phrase of subject.phrases || []) {
-						const content = stripHtml(phrase.content)
-						const contentLower = removeDiacritics(
-							content.toLowerCase(),
-						)
 
-						if (contentLower.includes(term)) {
-							const index = contentLower.indexOf(term)
-							const start = Math.max(0, index - 60)
-							const end = Math.min(
-								content.length,
-								index + term.length + 60,
-							)
-							const matchedText =
-								(start > 0 ? "..." : "") +
-								content.substring(start, end) +
-								(end < content.length ? "..." : "")
-
-							results.push({
-								dictionaryId: dictionary.id,
-								dictionaryTitle: dictionary.title,
-								dictionarySlug: dictionary.slug,
-								subjectId: subject.id,
-								subjectTitle: subject.title,
-								subjectSlug: subject.slug,
-								phraseId: phrase.id,
-								matchedText,
-							})
-
-							// Only take first matching phrase per subject to avoid duplicates
-							break
-						}
+						// Only take first matching phrase per subject to avoid duplicates
+						break
 					}
 				}
 			}
 		}
 
 		return results
-	}, [deferredSearchTerm, collection])
+	}, [deferredSearchTerm, index])
 
 	const highlightText = useCallback(
 		(text: string) => {
@@ -203,8 +217,9 @@ export default function CollectionSearch({
 		)
 	}
 
-	// Show loading state when search is deferred
-	const isSearching = searchTerm !== deferredSearchTerm
+	// Show loading state while the index is still downloading, or when the
+	// search itself is deferred
+	const isSearching = searchTerm !== deferredSearchTerm || (!index && !indexError)
 
 	return (
 		<div className="relative">
@@ -214,10 +229,14 @@ export default function CollectionSearch({
 					type="text"
 					value={searchTerm}
 					onChange={(e) => {
+						loadIndex()
 						setSearchTerm(e.target.value)
 						setIsOpen(true)
 					}}
-					onFocus={() => searchTerm && setIsOpen(true)}
+					onFocus={() => {
+						loadIndex()
+						if (searchTerm) setIsOpen(true)
+					}}
 					placeholder="ابحث في جميع المحتوى..."
 					className="w-full pr-12 pl-12 py-3.5 border-2 border-gray-200 dark:border-Muharram_primary/50 rounded-2xl bg-white dark:bg-Muharram_secondary/15 text-gray-900 dark:text-Muharram_primary placeholder:text-gray-400 focus:ring-0 focus:border-primary dark:focus:border-Muharram_primary transition-all shadow-sm hover:shadow-md focus:shadow-lg"
 				/>
@@ -250,6 +269,18 @@ export default function CollectionSearch({
 										جاري البحث...
 									</p>
 								</div>
+							</div>
+						) : indexError ? (
+							<div className="p-12 text-center">
+								<div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gray-100 dark:bg-zinc-700 flex items-center justify-center">
+									<Search className="w-8 h-8 text-gray-400" />
+								</div>
+								<p className="text-gray-500 dark:text-gray-400 font-medium">
+									تعذّر تحميل البحث
+								</p>
+								<p className="text-sm text-gray-400 dark:text-gray-500 mt-1">
+									تحقق من الاتصال وحاول مرة أخرى
+								</p>
 							</div>
 						) : searchResults.length === 0 ? (
 							<div className="p-12 text-center">

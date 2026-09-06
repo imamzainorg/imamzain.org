@@ -13,8 +13,14 @@ import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
 
-export const revalidate = 300
 import HeaderSections from "@/components/header-sections"
+
+export const dynamicParams = false
+
+export async function generateStaticParams() {
+	const posts = await dataFetcher<Post[]>("posts.json")
+	return posts.map((post) => ({ slug: post.slug }))
+}
 
 export default async function page({
 	params,

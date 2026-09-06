@@ -4,7 +4,6 @@ import { useMemo, useCallback, useState, useEffect, useRef } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { BookOpen, ArrowUpDown } from "lucide-react";
 
-import booksData from "@/data/books.json";
 import { Book } from "@/types/book";
 
 import BooklibraryCard from "./book-library-card";
@@ -22,7 +21,7 @@ const toArray = (val?: string | string[]): string[] =>
 const getYear = (date?: string): string =>
   date ? new Date(date).getFullYear().toString() : "";
 
-export default function BookLibraryPage() {
+export default function BookLibraryPage({ books }: { books: Book[] }) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -43,7 +42,7 @@ export default function BookLibraryPage() {
   const [localSearch, setLocalSearch] = useState(filters.query);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const allBooks = useMemo(() => booksData as Book[], []);
+  const allBooks = books;
 
   const filterOptions = useMemo(() => {
     const authors = new Set<string>();

@@ -1,11 +1,14 @@
 {
     "entry": [
+        "src/lib/cf-image-loader.ts",
         "src/app/**/*.{ts,tsx}",
         "!src/app/**/*.test.{ts,tsx}",
         "!src/app/**/*.spec.{ts,tsx}",
-        "!src/app/**/*.stories.{ts,tsx}"
+        "!src/app/**/*.stories.{ts,tsx}",
+        "scripts/**/*.ts"
     ],
     "project": [
-        "src/**/*.{ts,tsx}"
+        "src/**/*.{ts,tsx}",
+        "scripts/**/*.ts"
     ]
 }

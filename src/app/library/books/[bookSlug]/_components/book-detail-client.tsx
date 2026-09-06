@@ -10,7 +10,7 @@ import { ArrowRight } from "lucide-react";
 
 interface Props {
   book: Book;
-  libraryBooks: Book[];
+  seriesParts: Book[];
   showcaseBooks: Book[];
 }
 
@@ -22,7 +22,7 @@ function getBookPath(slug: string) {
 
 export default function BookDetailClient({
   book,
-  libraryBooks,
+  seriesParts,
   showcaseBooks,
 }: Props) {
   const router = useRouter();
@@ -90,7 +90,7 @@ export default function BookDetailClient({
           <span className="font-medium  ">العودة الى الصفحة السابقة</span>
         </button>
       </div>
-      <BookCard key={book.id} publication={book} publications={libraryBooks} />
+      <BookCard key={book.id} publication={book} seriesParts={seriesParts} />
 
       <h2 className="text-center font-semibold border-t border-b p-4 sm:text-2xl xl:text-4xl">
         كتب ذات صلة

@@ -1,7 +1,7 @@
 import {
   getDictionaries,
   getDictionary,
-  getFullDictionaries,
+  getNavDictionaries,
 } from "@/lib/imamzain-legacy-loader";
 import Breadcrumbs from "@/components/breadcrumb";
 import Link from "next/link";
@@ -26,8 +26,11 @@ export default async function Layout({
   const activeDictionary = getDictionary(collectionSlug, dictionarySlug);
   if (!activeDictionary) notFound();
 
-  // Get full dictionaries for search
-  const fullDictionaries = getFullDictionaries(collectionSlug);
+  // Only the active dictionary's subjects are included in full; DictionaryNav
+  // fetches the rest on demand if the reader expands a different one. Both
+  // consumers below are client components, so whatever is passed here is
+  // serialized into every page under this layout.
+  const navDictionaries = getNavDictionaries(collectionSlug, dictionarySlug);
 
   return (
     <div className="px-4 sm:px-10 py-10 min-h-screen md:container mx-auto">
@@ -45,10 +48,7 @@ export default async function Layout({
 
       {/* Search Bar */}
       <div className="my-8 w-4/5 mx-auto">
-        <CollectionSearch
-          collection={fullDictionaries}
-          collectionSlug={collectionSlug}
-        />
+        <CollectionSearch collectionSlug={collectionSlug} />
       </div>
 
       {/* Mobile dictionaries */}
@@ -77,7 +77,7 @@ export default async function Layout({
         {/* Sidebar - Now with expandable tree */}
         <aside className="hidden lg:flex lg:w-1/4 flex-col gap-6 sticky top-28 self-start max-h-[calc(100vh-8rem)] overflow-hidden">
           <DictionaryNav
-            dictionaries={fullDictionaries}
+            dictionaries={navDictionaries}
             collectionSlug={collectionSlug}
             activeDictionarySlug={dictionarySlug}
           />

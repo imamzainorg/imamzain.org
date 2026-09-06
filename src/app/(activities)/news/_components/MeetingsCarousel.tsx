@@ -5,18 +5,23 @@ import Image from "next/image"
 import { Post } from "@/types/post"
 import { useState, useEffect } from "react"
 
+// Slimmed to the fields this carousel renders; the server page filters to
+// the مجالس category and takes the last 3 (in display order) before this
+// ever reaches the client, so meetingsData is already what latestMeetings
+// used to compute here from the full 85-post catalog.
+export type MeetingSlide = Pick<
+	Post,
+	"id" | "slug" | "image" | "title" | "summary" | "date"
+>
+
 interface MeetingsCarouselProps {
-	meetingsData: Post[]
+	meetingsData: MeetingSlide[]
 }
 
 export default function MeetingsCarousel({
 	meetingsData,
 }: MeetingsCarouselProps) {
-	// آخر 3 اجتماعات
 	const latestMeetings = meetingsData
-		.filter((item) => item.category === "مجالس")
-		.slice(-3)
-		.reverse()
 	const [activeIndex, setActiveIndex] = useState(0)
 
 	useEffect(() => {

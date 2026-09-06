@@ -35,10 +35,15 @@ const encodeImageUrl = (url: string): string => {
 
 export default function BookCard({
   publication,
-  publications,
+  seriesParts,
 }: {
   publication: Book;
-  publications: Book[];
+  // Only the other books sharing publication.series (including this one),
+  // not the whole catalog — this used to be filtered here from a
+  // `publications: Book[]` prop holding every book, which meant every
+  // book/publication detail page shipped all ~138 books to the client just
+  // to find the handful in the same series.
+  seriesParts: Book[];
 }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -46,10 +51,6 @@ export default function BookCard({
   const imageUrl = publication.image
     ? encodeImageUrl(publication.image)
     : "/placeholder-book.png"; // ✅ صورة بديلة بدل string فارغ
-
-  const seriesParts = publication.series
-    ? publications.filter((book) => book.series === publication.series)
-    : [];
 
   return (
     <div className="space-y-16 my-12 max-w-screen-xl mx-auto px-4">

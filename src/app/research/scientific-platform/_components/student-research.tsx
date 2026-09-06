@@ -14,7 +14,6 @@ import {
 import { ResearchTable, type TableRow } from "./shared/research-table";
 import { SwiperPagination } from "./shared/swiper-pagination";
 
-import studentData from "@/data/student.json";
 import { StudentResearch } from "@/types/student";
 
 // ─── Constants ─────────────────────────────────────────────────
@@ -66,7 +65,11 @@ function toRow(
 
 // ─── Component ─────────────────────────────────────────────────
 
-export default function StudentResearchPage() {
+export default function StudentResearchPage({
+  data,
+}: {
+  data: StudentResearch[];
+}) {
   const sp = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -86,7 +89,7 @@ export default function StudentResearchPage() {
   // ─── Filter + Search + Sort ─────────────────────────────────
 
   const filtered = useMemo(() => {
-    const all = studentData as StudentResearch[];
+    const all = data;
 
     // search
     const term = search.trim().toLowerCase();
@@ -168,7 +171,7 @@ export default function StudentResearchPage() {
           return 0;
       }
     });
-  }, [search, sortBy, filters]);
+  }, [search, sortBy, filters, data]);
 
   const updateParams = useCallback(
     (updates: Record<string, string | number | null>) => {
@@ -191,7 +194,7 @@ export default function StudentResearchPage() {
     const authors = new Set<string>();
     const years = new Set<string>();
 
-    (studentData as StudentResearch[]).forEach((item) => {
+    data.forEach((item) => {
       item.translations.forEach((t) => {
         if (t.category) categories.add(t.category);
         if (t.publicationVenue) publicationVenues.add(t.publicationVenue);
@@ -207,7 +210,7 @@ export default function StudentResearchPage() {
       author: ["الكل", ...Array.from(authors).sort()],
       publishedYear: ["الكل", ...Array.from(years).sort().reverse()],
     } as Record<string, string[]>;
-  }, []);
+  }, [data]);
 
   // ─── Pagination ─────────────────────────────────────────────
 

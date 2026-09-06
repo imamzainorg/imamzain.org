@@ -10,24 +10,32 @@ import {
   VideoRecordingIcon,
 } from "@/assets/icons/reusable";
 import HeaderSections from "@/components/header-sections";
-import { YouTubePlaylist } from "@/types/youtube-data";
+
+// Slimmed to the one video this component ever reads (playlist.videos[0])
+// and the fields it renders; the server page filters and slices
+// youtube.json down to this shape before passing it in.
+type HomeVideo = Pick<
+  import("@/types/youtube-data").YouTubeVideo,
+  "title" | "desc" | "date" | "thumbnail" | "url"
+>;
+
+type HomePlaylist = {
+  videos: HomeVideo[]; // always exactly one entry: the playlist's first video
+};
 
 export default function Videos({
   playlists,
 }: {
-  playlists: YouTubePlaylist[];
+  playlists: HomePlaylist[];
 }) {
   const [videoId, setVideoId] = useState<string | null>(null);
   const [show, setShow] = useState<number>(7);
 
   const openModal = (videoId: string) => setVideoId(videoId);
   const closeModal = () => setVideoId(null);
-  const homePlaylists = playlists.filter(
-    (playlist) =>
-      (playlist.displayLocation === "home" ||
-        playlist.displayLocation === "both") &&
-      playlist.videos.length > 0, // تجاهل القوائم الفارغة
-  );
+  // Already filtered to displayLocation home/both and sliced to the max
+  // number of tiles any breakpoint shows by the server page.
+  const homePlaylists = playlists;
   useEffect(() => {
     const updateShow = () => {
       const width = window.innerWidth;
