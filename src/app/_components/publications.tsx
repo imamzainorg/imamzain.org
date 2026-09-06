@@ -54,17 +54,10 @@ export default function Publications({
       transition: { duration: 0.3 },
     },
   };
-  const sortedPublications = publications
-    .filter(
-      (book) =>
-        Array.isArray(book.category) && book.category.includes("الإصدارات"),
-    )
-    .sort((a, b) => b.id - a.id)
-    .filter(
-      (book, index, arr) =>
-        !book.series ||
-        arr.findIndex((b) => b.series === book.series) === index,
-    );
+  // `publications` arrives already filtered, sorted and deduped by the
+  // server page (it used to be the full catalog, filtered here on every
+  // visit); this just keeps the name so the render below is unchanged.
+  const sortedPublications = publications;
   return (
     <div className="container w-full flex flex-col items-center pt-20">
       <div className="flex w-full items-center justify-between my-8">

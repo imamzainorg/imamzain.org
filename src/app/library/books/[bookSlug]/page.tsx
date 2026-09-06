@@ -62,10 +62,16 @@ export default async function Page({
   const random = shuffleArray(remainingBooks).slice(0, 2);
   const showcaseBooks = [...related, ...random];
 
+  // Other parts of the same series, including this one — the only thing
+  // BookCard needs from the full catalog.
+  const seriesParts = book.series
+    ? books.filter((item) => item.series === book.series)
+    : [];
+
   return (
     <BookDetailClient
       book={book}
-      libraryBooks={books}
+      seriesParts={seriesParts}
       showcaseBooks={showcaseBooks}
     />
   );

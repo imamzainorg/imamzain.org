@@ -52,6 +52,12 @@ export default async function Page({
 
   const randomBooks = getRandomItems(remainingBooks, 2); // الآن هذا آمن
 
+  // Other parts of the same series, including this one — the only thing
+  // BookCard needs from the full catalog.
+  const seriesParts = publication.series
+    ? publications.filter((book) => book.series === publication.series)
+    : [];
+
   return (
     <div className="md:container space-y-16 my-12 max-w-screen-xl mx-auto px-4">
       <Breadcrumbs
@@ -62,7 +68,7 @@ export default async function Page({
         ]}
       />
 
-      <BookCard publication={publication} publications={publications} />
+      <BookCard publication={publication} seriesParts={seriesParts} />
 
       {/* كتب ذات صلة */}
       <div className="smart-library">

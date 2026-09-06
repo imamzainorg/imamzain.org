@@ -37,7 +37,12 @@ type Explanation = {
 // being serialized into every page under the dictionary layout.
 export type NavSubject = Pick<Subject, "id" | "title" | "slug">;
 
+// `subjects` is populated only for the dictionary the current page is
+// showing; the rest carry `subjectCount` for the sidebar badge and get
+// their subjects fetched on demand (see /api/library-nav) if the reader
+// expands one of them without navigating there.
 export type NavDictionary = Pick<Dictionary, "id" | "title" | "slug"> & {
+  subjectCount: number;
   subjects: NavSubject[];
 };
 
