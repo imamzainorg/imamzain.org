@@ -37,8 +37,14 @@ export function parseArabicDate(date: string): number {
 
 export function sortGroupsByLatest(groups: YouTubeGroup[]): YouTubeGroup[] {
 	return [...groups].sort((a, b) => {
-		const dateA = parseArabicDate(a.videos[0]?.date ?? "")
-		const dateB = parseArabicDate(b.videos[0]?.date ?? "")
+		const dateA = Math.max(
+			...a.videos.map((video) => parseArabicDate(video.date)),
+			0,
+		)
+		const dateB = Math.max(
+			...b.videos.map((video) => parseArabicDate(video.date)),
+			0,
+		)
 		return dateB - dateA
 	})
 }
@@ -106,25 +112,21 @@ export function videoMatchesCategory(
 
 export type FlatVideo = {
 	video: YouTubeVideo
-	groupSlug: string
 	groupTitle: string
 }
 
-// يسطّح كل فيديوهات كل المجموعات بقائمة وحدة مرتبة بالأحدث — يستخدم لقسم
-// "أحدث الفيديوهات". ما يشمل حلقات المجموعة الحالية (excludeGroupSlug)
-// حتى ما نكرر نفس الفيديو اللي أصلاً معروض بالمشغل الرئيسي.
+// يسطّح كل فيديوهات المجموعات بقائمة وحدة مرتبة بالأحدث — يستخدم لقسم
+// "أحدث الفيديوهات". استبعاد المجموعة الحالية يتم عند الاستدعاء اعتمادًا
+// على slugs الفيديوهات حتى يبقى هذا المساعد عامًا.
 // ملاحظة: ما نقص (slice) هنا — القص يصير بعد فلترة التصنيف/البحث بالمكوّن
 // اللي يستدعي هالدالة، حتى ما نخسر فيديوهات مطابقة بسبب القص المبكر
 export function flattenLatestVideos(
 	groups: YouTubeGroup[],
-	excludeGroupSlug?: string,
 ): FlatVideo[] {
 	const flat: FlatVideo[] = []
 	for (const group of groups) {
-		const groupSlug = getGroupSlug(group)
-		if (groupSlug === excludeGroupSlug) continue
 		for (const video of group.videos) {
-			flat.push({ video, groupSlug, groupTitle: group.title })
+			flat.push({ video, groupTitle: group.title })
 		}
 	}
 	return flat.sort(
@@ -137,17 +139,14 @@ export function flattenLatestVideos(
 // يشتغل بنفس المنطق سواء المجموعة فيها فيديو مفرد أو سلسلة كاملة
 export function getLatestVideoPerGroup(
 	groups: YouTubeGroup[],
-	excludeGroupSlug?: string,
 ): FlatVideo[] {
 	const result: FlatVideo[] = []
 	for (const group of groups) {
-		const groupSlug = getGroupSlug(group)
-		if (groupSlug === excludeGroupSlug) continue
 		if (group.videos.length === 0) continue
 		const latest = [...group.videos].sort(
 			(a, b) => parseArabicDate(b.date) - parseArabicDate(a.date),
 		)[0]
-		result.push({ video: latest, groupSlug, groupTitle: group.title })
+		result.push({ video: latest, groupTitle: group.title })
 	}
 	return result.sort(
 		(a, b) => parseArabicDate(b.video.date) - parseArabicDate(a.video.date),
