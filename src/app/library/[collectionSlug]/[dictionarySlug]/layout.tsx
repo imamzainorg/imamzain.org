@@ -26,9 +26,11 @@ export default async function Layout({
   const activeDictionary = getDictionary(collectionSlug, dictionarySlug);
   if (!activeDictionary) notFound();
 
-  // Titles and slugs only. Both consumers below are client components, so
-  // whatever is passed here is serialized into every page under this layout.
-  const navDictionaries = getNavDictionaries(collectionSlug);
+  // Only the active dictionary's subjects are included in full; DictionaryNav
+  // fetches the rest on demand if the reader expands a different one. Both
+  // consumers below are client components, so whatever is passed here is
+  // serialized into every page under this layout.
+  const navDictionaries = getNavDictionaries(collectionSlug, dictionarySlug);
 
   return (
     <div className="px-4 sm:px-10 py-10 min-h-screen md:container mx-auto">

@@ -84,8 +84,61 @@ const mobileImages = [
 	"/images/hero-7-vertical.jpg", // بناء الامن النفسي
 ]
 
+// Highest number of items any breakpoint of the corresponding home section
+// actually renders (see the useState defaults in each client component).
+// Slicing to these counts here, instead of shipping the full dataset for the
+// client to slice, is what keeps the home page's RSC payload small: it used
+// to include every post, book and playlist even though only a handful are
+// ever shown.
+const HOME_POSTS_COUNT = 4
+const HOME_PUBLICATIONS_COUNT = 10
+const HOME_PLAYLISTS_COUNT = 7
+
+function homePublications(books: Book[]): Book[] {
+	// Mirrors the filter/sort/dedupe Publications previously ran client-side
+	// over the full catalog on every visit.
+	return books
+		.filter(
+			(book) =>
+				Array.isArray(book.category) && book.category.includes("الإصدارات"),
+		)
+		.sort((a, b) => b.id - a.id)
+		.filter(
+			(book, index, arr) =>
+				!book.series || arr.findIndex((b) => b.series === book.series) === index,
+		)
+		.slice(0, HOME_PUBLICATIONS_COUNT)
+}
+
+function homePlaylists(playlists: YouTubePlaylist[]) {
+	// Videos only ever reads playlist.videos[0] and displayLocation, so the
+	// rest of each playlist's videos never needs to leave the server.
+	return playlists
+		.filter(
+			(playlist) =>
+				(playlist.displayLocation === "home" ||
+					playlist.displayLocation === "both") &&
+				playlist.videos.length > 0,
+		)
+		.slice(0, HOME_PLAYLISTS_COUNT)
+		.map((playlist) => {
+			const [firstVideo] = playlist.videos
+			return {
+				videos: [
+					{
+						title: firstVideo.title,
+						desc: firstVideo.desc,
+						date: firstVideo.date,
+						thumbnail: firstVideo.thumbnail,
+						url: firstVideo.url,
+					},
+				],
+			}
+		})
+}
+
 export default async function Page() {
-	const publications = await dataFetcher<Book[]>("books.json")
+	const books = await dataFetcher<Book[]>("books.json")
 	const posts = await dataFetcher<Post[]>("posts.json")
 	const playlists = await dataFetcher<YouTubePlaylist[]>("youtube.json")
 	const { sliderImages, categoryImages } = getGallerySectionData()
@@ -134,7 +187,7 @@ export default async function Page() {
 					]}
 				/>
 			</div>
-			<Posts newsPosts={posts} />
+			<Posts newsPosts={posts.slice(0, HOME_POSTS_COUNT)} />
 
 			<div className="pt-20">
 				<div
@@ -208,13 +261,13 @@ export default async function Page() {
 				/>
 			</div>
 			<Services />
-			<Publications publications={publications} />
+			<Publications publications={homePublications(books)} />
 			<Application />
 			<GallerySection
 				sliderImages={sliderImages}
 				categoryImages={categoryImages}
 			/>
-			<Videos playlists={playlists} />
+			<Videos playlists={homePlaylists(playlists)} />
 			{/* <Live /> */}
 		</div>
 	)

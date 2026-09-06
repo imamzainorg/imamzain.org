@@ -3,6 +3,7 @@ import risalatData from "@/data/imamzain-legacy/risalat-al-huqoq.json" with { ty
 import type {
 	Dictionary,
 	NavDictionary,
+	NavSubject,
 	SearchIndexEntry,
 	Subject,
 } from "@/types/imamzain-legacy"
@@ -56,21 +57,47 @@ export function getFullDictionaries(legacySlug: string): Dictionary[] {
  * sidebar nav to render titles and links.
  *
  * The nav is a client component, so whatever it receives is serialized into
- * every page under the dictionary layout. Handing it the full dictionaries
- * embedded the entire 2.5 MB corpus in all ~520 of those pages.
+ * every page under the dictionary layout. Only the active dictionary's
+ * subjects are included in full; the rest carry a subjectCount for the badge
+ * and an empty subjects array. Al-sahifa's 7 dictionaries together run
+ * ~520 subjects, so shipping all of them on every page (as this used to)
+ * accounted for most of that page's weight. If the reader expands a
+ * different dictionary without navigating, DictionaryNav fetches its
+ * subjects from /api/library-nav on demand.
  */
-export function getNavDictionaries(legacySlug: string): NavDictionary[] {
+export function getNavDictionaries(
+	legacySlug: string,
+	activeDictionarySlug: string,
+): NavDictionary[] {
 	const legacy = getLegacy(legacySlug)
 	if (!legacy) return []
 	return legacy.dictionaries.map((dictionary) => ({
 		id: dictionary.id,
 		title: dictionary.title,
 		slug: dictionary.slug,
-		subjects: (dictionary.subjects || []).map((subject) => ({
-			id: subject.id,
-			title: subject.title,
-			slug: subject.slug,
-		})),
+		subjectCount: dictionary.subjects?.length || 0,
+		subjects:
+			dictionary.slug === activeDictionarySlug
+				? getNavSubjects(legacySlug, dictionary.slug)
+				: [],
+	}))
+}
+
+/**
+ * Titles and slugs for every subject in one dictionary. Used both for the
+ * active dictionary above and by the /api/library-nav static route that
+ * DictionaryNav fetches when the reader expands a non-active dictionary.
+ */
+export function getNavSubjects(
+	legacySlug: string,
+	dictionarySlug: string,
+): NavSubject[] {
+	const dictionary = getDictionary(legacySlug, dictionarySlug)
+	if (!dictionary) return []
+	return (dictionary.subjects || []).map((subject) => ({
+		id: subject.id,
+		title: subject.title,
+		slug: subject.slug,
 	}))
 }
 

@@ -4,7 +4,9 @@ import Newsletter from "./_components/newsletter";
 import SectionTitle from "@/components/section";
 import Breadcrumbs from "@/components/breadcrumb";
 import PostCard from "./_components/news-card";
-import MeetingsCarousel from "./_components/MeetingsCarousel";
+import MeetingsCarousel, {
+  type MeetingSlide,
+} from "./_components/MeetingsCarousel";
 import { dataFetcher } from "@/lib/dataFetcher";
 import { Post } from "@/types/post";
 import { ChevronRightArrowIcon } from "@/assets/icons/reusable";
@@ -58,6 +60,22 @@ export default async function Page() {
   const imamHussainPosts = data.filter(
     (post) => post.category === "العتبة الحسينية",
   );
+
+  // Last 3 مجالس posts in display order — MeetingsCarousel used to compute
+  // this itself from the full 85-post catalog (including every post's HTML
+  // content and attachments), which meant the whole catalog was serialized
+  // into this page just to show 3 items.
+  const latestMeetings: MeetingSlide[] = majalis
+    .slice(-3)
+    .reverse()
+    .map(({ id, slug, image, title, summary, date }) => ({
+      id,
+      slug,
+      image,
+      title,
+      summary,
+      date,
+    }));
 
   // Latest from foundation activities (prioritizing your content)
   const latestFoundationContent = [
@@ -186,7 +204,7 @@ export default async function Page() {
       {/* Meetings Section */}
       <div className="mt-12">
         <SectionTitle title="مجالس" />
-        <MeetingsCarousel meetingsData={data} />
+        <MeetingsCarousel meetingsData={latestMeetings} />
       </div>
 
       {/* اخبار العتبة الحسينية المقدسة - Repositioned and Resized */}
