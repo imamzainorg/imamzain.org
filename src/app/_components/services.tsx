@@ -15,7 +15,7 @@ export default function Services() {
       "
 		>
 			{/* الطبقة الداكنة الخلفية */}
-			<div className="absolute top-0 inset-x-0 h-[90%] bg-dark-background -z-10" />
+			<div className="absolute top-0 inset-x-0 h-[90%] bg-[#101c1a] -z-10" />
 
 			<div className="container mx-auto px-4 relative">
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">

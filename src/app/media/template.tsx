@@ -18,14 +18,14 @@ export default function Template({ children }: { children: React.ReactNode }) {
         document.body.classList.remove("bg-dark-background")
       }
     } else if (path.startsWith("/media/images")) {
-      document.body.style.backgroundColor = "#0a051a"
+      document.body.style.backgroundColor = "#101c1a"
       document.body.classList.remove("bg-gradient-to-b")
       if (hasDarkBgClass) {
         document.body.classList.remove("bg-dark-background")
       }
     } else if (path.startsWith("/media/videos")) {
       document.body.classList.add("bg-dark-background")
-      document.body.style.backgroundColor = ""
+      document.body.style.backgroundColor = "#101c1a"
       document.body.classList.remove("bg-gradient-to-b")
     } else {
       document.body.style.backgroundColor = ""
