@@ -49,68 +49,7 @@ export function sortGroupsByLatest(groups: YouTubeGroup[]): YouTubeGroup[] {
 	})
 }
 
-// يحسب عدد الفيديوهات بكل تصنيف من الداتا نفسها — ما يعتمد على قائمة
-// أسماء ثابتة، فيشتغل تلقائيًا مع أي تصنيف تضيفه لاحقًا. بما إن التصنيف
-// صار مصفوفة على مستوى الفيديو (فيديو وحد ممكن يكون بأكثر من تصنيف)،
-// كل فيديو يُحسب مرة لكل تصنيف عنده
-function normalizeCategories(categories?: string[] | null): string[] {
-	if (!Array.isArray(categories)) return []
-	return [...new Set(categories.map((category) => category.trim()).filter(Boolean))]
-}
-
-export function getCategoryCounts(
-	groups: YouTubeGroup[],
-): { category: string; count: number }[] {
-	const counts = new Map<string, number>()
-	for (const group of groups) {
-		const seenInGroup = new Set<string>()
-		for (const category of normalizeCategories(group.categories)) {
-			seenInGroup.add(category)
-			counts.set(category, (counts.get(category) ?? 0) + 1)
-		}
-
-		for (const video of group.videos) {
-			for (const category of normalizeCategories(video.categories)) {
-				if (seenInGroup.has(category)) continue
-				counts.set(category, (counts.get(category) ?? 0) + 1)
-			}
-		}
-	}
-	return Array.from(counts.entries()).map(([category, count]) => ({
-		category,
-		count,
-	}))
-}
-
-// فلترة على مستوى المجموعة (تستخدم لقسم "البرامج والسلاسل" وسايدبار
-// السلاسل) — المجموعة تنعرض لو أي حلقة بداخلها عندها هذا التصنيف، حتى لو
-// باقي حلقاتها بتصنيفات ثانية
-export function filterGroupsByCategory(
-	groups: YouTubeGroup[],
-	category: string | null,
-): YouTubeGroup[] {
-	if (!category) return groups
-	return groups.filter((g) => {
-		if (normalizeCategories(g.categories).includes(category)) return true
-		return g.videos.some((v) => normalizeCategories(v.categories).includes(category))
-	})
-}
-
-// فلترة على مستوى الفيديو المنفرد (تستخدم لقسم "أحدث الفيديوهات" حتى لا
-// نعرض حلقات من نفس المجموعة ما تطابق التصنيف المختار)
-export function videoMatchesCategory(
-	video: YouTubeVideo,
-	category: string | null,
-	groupCategories?: string[] | null,
-): boolean {
-	if (!category) return true
-	return (
-		normalizeCategories(video.categories).includes(category) ||
-		normalizeCategories(groupCategories).includes(category)
-	)
-}
-
-export type FlatVideo = {
+type FlatVideo = {
 	video: YouTubeVideo
 	groupTitle: string
 }
