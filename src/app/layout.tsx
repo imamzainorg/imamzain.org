@@ -9,6 +9,7 @@ import "@/style/globals.css"
 import { Toaster } from "sonner"
 
 import { Providers } from "@/app/providers"
+import { IconSprite } from "@/components/icon-sprite"
 
 const notoNaskhArabic = Noto_Naskh_Arabic({
 	subsets: ["arabic"],
@@ -78,6 +79,7 @@ export default function RootLayout({
 				<link rel="dns-prefetch" href="https://cdn.imamzain.org" />
 			</head>
 			<body className={`${notoNaskhArabic.className} bg-pattern`}>
+				<IconSprite />
 				<Providers>{children}</Providers>
 				<Toaster />
 				<Analytics />
