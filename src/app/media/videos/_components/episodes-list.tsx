@@ -12,7 +12,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 
 import type { YouTubeVideo } from "@/types/youtube-data";
-import { thumbnailUrl } from "@/lib/youtube";
+import { thumbnailUrl, parseArabicDate } from "@/lib/youtube";
 
 export default function EpisodesList({
   videos,
@@ -34,9 +34,11 @@ export default function EpisodesList({
   const [activeIndex, setActiveIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
-  // ترتيب الفيديوهات
+  // ترتيب الفيديوهات (الأقدم أولاً) حسب تاريخ كل حلقة
   const sortedVideos = useMemo(() => {
-    return [...videos];
+    return [...videos].sort(
+      (a, b) => parseArabicDate(a.date) - parseArabicDate(b.date),
+    );
   }, [videos]);
 
   // إيجاد index الحلقة الحالية
@@ -62,10 +64,12 @@ export default function EpisodesList({
   // اختصارات لوحة المفاتيح
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // منع التصفح إذا كان التركيز داخل حقل إدخال
+      // منع التصفح إذا كان التركيز داخل حقل إدخال أو زر (الأزرار تملك
+      // تفعيل Enter/Space خاص بيها، فلا داعي لتكرار المعالجة هنا)
       if (
         e.target instanceof HTMLInputElement ||
-        e.target instanceof HTMLTextAreaElement
+        e.target instanceof HTMLTextAreaElement ||
+        e.target instanceof HTMLButtonElement
       ) {
         return;
       }
@@ -76,29 +80,18 @@ export default function EpisodesList({
       } else if (e.key === "ArrowLeft" && !edge.start) {
         e.preventDefault();
         swiperRef.current?.slidePrev();
-      } else if (e.key === "Enter" && !edge.end) {
-        // تشغيل الحلقة التالية
-        const nextIndex = currentIndex + 1;
-        if (nextIndex < sortedVideos.length) {
-          onSelect(sortedVideos[nextIndex].slug);
+      } else if (e.key === "Enter") {
+        // تشغيل الحلقة الظاهرة حالياً في السلايدر (نفس إطار المرجع
+        // اللي تشتغل عليه مفاتيح الأسهم)، وليس الحلقة قيد التشغيل
+        if (activeIndex >= 0 && activeIndex < sortedVideos.length) {
+          onSelect(sortedVideos[activeIndex].slug);
         }
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [edge, currentIndex, sortedVideos, onSelect]);
-
-  // حفظ آخر حلقة تم مشاهدتها
-  useEffect(() => {
-    if (currentSlug) {
-      try {
-        localStorage.setItem("lastWatchedVideo", currentSlug);
-      } catch {
-        // تجاهل أخطاء localStorage
-      }
-    }
-  }, [currentSlug]);
+  }, [edge, activeIndex, sortedVideos, onSelect]);
 
   // إذا كانت السلسلة تحتوي على حلقة واحدة فقط
   if (videos.length <= 1) return null;
@@ -208,8 +201,10 @@ export default function EpisodesList({
 
         <Swiper
           dir="rtl"
+          initialSlide={currentIndex >= 0 ? currentIndex : 0}
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
+            swiper.slideTo(currentIndex >= 0 ? currentIndex : 0, 0);
             syncEdge(swiper);
           }}
           onSlideChange={syncEdge}
