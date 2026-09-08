@@ -7,6 +7,7 @@ import Breadcrumbs from "@/components/breadcrumb";
 import ImageView from "@/components/image-view";
 import Image from "next/image";
 import { Gallery } from "@/types/gallery";
+import { Loader2 } from "lucide-react";
 import {
   FiFilter,
   FiChevronDown,
@@ -52,7 +53,7 @@ const ROW_PATTERNS: Record<ScreenSize, number[][]> = {
 
 const ROW_HEIGHT = 280;
 
-function GalleryClient({ images }: { images: Gallery[] }) {
+function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
   const searchParams = useSearchParams();
   const categoryFromUrl = searchParams.get("category");
   const INITIAL_COUNT = 30;
@@ -108,7 +109,43 @@ function GalleryClient({ images }: { images: Gallery[] }) {
     return () => window.removeEventListener("resize", updateLimit);
   }, []);
 
-  const allImages = images;
+  // The page ships only the first 30 images (sorted newest-first) as
+  // initialImages so first paint has content instantly. Search/sort/filter
+  // need the full 819-item corpus, which is fetched here in the background
+  // from the static /api/gallery-index route and swapped in once it lands.
+  const [allImages, setAllImages] = useState<Gallery[]>(initialImages);
+  const [isFullyLoaded, setIsFullyLoaded] = useState(false);
+  const [loadError, setLoadError] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetch("/api/gallery-index")
+      .then((res) => {
+        if (!res.ok) throw new Error(String(res.status));
+        return res.json();
+      })
+      .then((data: Gallery[]) => {
+        if (cancelled) return;
+        setAllImages(data);
+        setIsFullyLoaded(true);
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setLoadError(true);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // Until the full corpus has loaded, allImages only holds the initial 30
+  // images, so search/category filtering against it would silently miss
+  // the other ~789. Block those interactions (rather than the sort control,
+  // which is harmless to apply early and simply re-applies once the full
+  // array swaps in) while the background fetch is in flight.
+  const corpusReady = isFullyLoaded || loadError;
 
   // Filter and sort images
   const filteredImages = useMemo(() => {
@@ -267,14 +304,25 @@ function GalleryClient({ images }: { images: Gallery[] }) {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             {/* Search */}
             <div className="relative w-full md:w-auto flex-1 max-w-lg">
-              <FiSearch
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
-                size={20}
-              />
+              {corpusReady ? (
+                <FiSearch
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
+                  size={20}
+                />
+              ) : (
+                <Loader2
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5 animate-spin"
+                />
+              )}
               <input
                 type="text"
-                placeholder="ابحث في الصور..."
-                className="w-full bg-gray-900/70 border border-gray-700 rounded-xl py-3 pr-12 pl-5 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                placeholder={
+                  corpusReady
+                    ? "ابحث في الصور..."
+                    : "جاري تحميل جميع الصور للبحث..."
+                }
+                disabled={!corpusReady}
+                className="w-full bg-gray-900/70 border border-gray-700 rounded-xl py-3 pr-12 pl-5 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -307,23 +355,35 @@ function GalleryClient({ images }: { images: Gallery[] }) {
           {/* Filters panel */}
           {isFilterOpen && (
             <div className="mt-6 pt-6 border-t border-gray-700/50 animate-slide-down">
-              <h3 className="text-lg font-semibold mb-4 text-gray-300">
+              <h3 className="text-lg font-semibold mb-4 text-gray-300 flex items-center gap-2">
                 التصنيفات
+                {!corpusReady && (
+                  <Loader2 className="w-4 h-4 animate-spin text-gray-400" />
+                )}
               </h3>
               <div className="flex flex-wrap gap-3">
-                {categories.map((category) => (
-                  <button
-                    key={category}
-                    className={`px-4 py-2 rounded-xl transition-all ${
-                      activeCategory === category
-                        ? "bg-primary"
-                        : "bg-gray-900/70 hover:bg-gray-800"
-                    }`}
-                    onClick={() => setActiveCategory(category)}
-                  >
-                    {category}
-                  </button>
-                ))}
+                {categories.map((category) => {
+                  // Category filtering needs the full corpus to be correct
+                  // (a category may have no matches among the first 30
+                  // images). "All" needs no filtering, so it stays enabled.
+                  const disabled =
+                    !corpusReady && category !== "جميع الصور";
+
+                  return (
+                    <button
+                      key={category}
+                      disabled={disabled}
+                      className={`px-4 py-2 rounded-xl transition-all ${
+                        activeCategory === category
+                          ? "bg-primary"
+                          : "bg-gray-900/70 hover:bg-gray-800"
+                      } ${disabled ? "opacity-60 cursor-not-allowed" : ""}`}
+                      onClick={() => setActiveCategory(category)}
+                    >
+                      {category}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           )}
@@ -601,7 +661,11 @@ function GalleryClient({ images }: { images: Gallery[] }) {
   );
 }
 
-export default function ImagesClient({ images }: { images: Gallery[] }) {
+export default function ImagesClient({
+  initialImages,
+}: {
+  initialImages: Gallery[];
+}) {
   return (
     <Suspense
       fallback={
@@ -610,7 +674,7 @@ export default function ImagesClient({ images }: { images: Gallery[] }) {
         </div>
       }
     >
-      <GalleryClient images={images} />
+      <GalleryClient initialImages={initialImages} />
     </Suspense>
   );
 }

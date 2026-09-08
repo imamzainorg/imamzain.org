@@ -2,7 +2,7 @@
 "use client";
 
 import { useRef, useCallback, useEffect } from "react";
-import type { AudioItem } from "@/types/audio";
+import type { AudioItemLight } from "@/types/audio";
 
 const BREAKPOINTS = [
   { key: "xs", peaks: 100,  show: "block sm:hidden" },
@@ -144,7 +144,7 @@ function getProgressFromClick(
 }
 
 export function useWaveform(
-  items: AudioItem[],
+  items: AudioItemLight[],
   onSeek?: (itemId: number, time: number) => void,
   onPlay?: (itemId: number) => void,
 ) {
@@ -153,6 +153,9 @@ export function useWaveform(
   const previewTimesRef = useRef<Record<number, number>>({});
   // RAF ref لمنع رسم متعدد في نفس الـ frame
   const pendingDrawRef = useRef<Record<number, number>>({});
+  // كاش لموجات الصوت المجلوبة — كل عنصر يُجلب مرة واحدة فقط عند اتصال الـ canvas
+  const peaksCacheRef = useRef<Record<number, number[]>>({});
+  const peaksPendingRef = useRef<Record<number, Promise<number[]>>>({});
 
   useEffect(() => {
     items.forEach((item) => {
@@ -162,44 +165,37 @@ export function useWaveform(
     });
   }, [items]);
 
-  const drawItem = useCallback(
-    (item: AudioItem, progress: number = 0, isActive: boolean = false) => {
-      if (!item.peaks) return;
+  // جلب peaks عنصر واحد عند الطلب مع كاش وتجميع الطلبات المتزامنة
+  const fetchPeaks = useCallback((itemId: number): Promise<number[]> => {
+    const cached = peaksCacheRef.current[itemId];
+    if (cached) return Promise.resolve(cached);
 
-      // إلغاء أي رسم pending لنفس الـ item
-      if (pendingDrawRef.current[item.id]) {
-        cancelAnimationFrame(pendingDrawRef.current[item.id]);
-      }
+    const pending = peaksPendingRef.current[itemId];
+    if (pending) return pending;
 
-      pendingDrawRef.current[item.id] = requestAnimationFrame(() => {
-        delete pendingDrawRef.current[item.id];
-        BREAKPOINTS.forEach((bp) => {
-          const canvas = canvasRefs.current[item.id]?.[bp.key];
-          if (!canvas || !canvas.isConnected) return;
-          const sliced = slicePeaks(item.peaks!, bp.peaks);
-          const containerWidth = canvas.parentElement?.offsetWidth ?? canvas.offsetWidth;
-          if (containerWidth > 0) {
-            drawWaveform(canvas, sliced, progress, containerWidth, isActive);
-          }
-        });
+    const promise = fetch(`/api/audio-peaks/${itemId}`)
+      .then((res) => res.json() as Promise<{ peaks: number[] }>)
+      .then(({ peaks }) => {
+        peaksCacheRef.current[itemId] = peaks;
+        delete peaksPendingRef.current[itemId];
+        return peaks;
+      })
+      .catch((err) => {
+        delete peaksPendingRef.current[itemId];
+        throw err;
       });
-    },
-    []
-  );
 
-  // رسم فوري بدون RAF — للـ click حيث السرعة أهم
-  const drawItemImmediate = useCallback(
-    (item: AudioItem, progress: number = 0, isActive: boolean = false) => {
-      if (!item.peaks) return;
-      // إلغاء أي RAF pending
-      if (pendingDrawRef.current[item.id]) {
-        cancelAnimationFrame(pendingDrawRef.current[item.id]);
-        delete pendingDrawRef.current[item.id];
-      }
+    peaksPendingRef.current[itemId] = promise;
+    return promise;
+  }, []);
+
+  // رسم peaks عنصر عبر كل الـ breakpoints المتصلة حالياً
+  const renderItemPeaks = useCallback(
+    (itemId: number, peaks: number[], progress: number, isActive: boolean) => {
       BREAKPOINTS.forEach((bp) => {
-        const canvas = canvasRefs.current[item.id]?.[bp.key];
+        const canvas = canvasRefs.current[itemId]?.[bp.key];
         if (!canvas || !canvas.isConnected) return;
-        const sliced = slicePeaks(item.peaks!, bp.peaks);
+        const sliced = slicePeaks(peaks, bp.peaks);
         const containerWidth = canvas.parentElement?.offsetWidth ?? canvas.offsetWidth;
         if (containerWidth > 0) {
           drawWaveform(canvas, sliced, progress, containerWidth, isActive);
@@ -209,10 +205,54 @@ export function useWaveform(
     []
   );
 
+  const drawItem = useCallback(
+    (item: AudioItemLight, progress: number = 0, isActive: boolean = false) => {
+      const scheduleDraw = (peaks: number[]) => {
+        // إلغاء أي رسم pending لنفس الـ item
+        if (pendingDrawRef.current[item.id]) {
+          cancelAnimationFrame(pendingDrawRef.current[item.id]);
+        }
+        pendingDrawRef.current[item.id] = requestAnimationFrame(() => {
+          delete pendingDrawRef.current[item.id];
+          renderItemPeaks(item.id, peaks, progress, isActive);
+        });
+      };
+
+      const cached = peaksCacheRef.current[item.id];
+      if (cached) {
+        scheduleDraw(cached);
+      } else {
+        fetchPeaks(item.id).then(scheduleDraw).catch(() => {});
+      }
+    },
+    [fetchPeaks, renderItemPeaks]
+  );
+
+  // رسم فوري بدون RAF — للـ click حيث السرعة أهم
+  const drawItemImmediate = useCallback(
+    (item: AudioItemLight, progress: number = 0, isActive: boolean = false) => {
+      // إلغاء أي RAF pending
+      if (pendingDrawRef.current[item.id]) {
+        cancelAnimationFrame(pendingDrawRef.current[item.id]);
+        delete pendingDrawRef.current[item.id];
+      }
+
+      const cached = peaksCacheRef.current[item.id];
+      if (cached) {
+        renderItemPeaks(item.id, cached, progress, isActive);
+      } else {
+        fetchPeaks(item.id)
+          .then((peaks) => renderItemPeaks(item.id, peaks, progress, isActive))
+          .catch(() => {});
+      }
+    },
+    [fetchPeaks, renderItemPeaks]
+  );
+
   const previewSeek = useCallback(
     (itemId: number, time: number) => {
       const item = items.find((i) => i.id === itemId);
-      if (!item?.durationSeconds || !item.peaks) return;
+      if (!item?.durationSeconds) return;
       const clamped = Math.max(0, Math.min(item.durationSeconds, time));
       previewTimesRef.current[itemId] = clamped;
       drawItem(item, clamped / item.durationSeconds, false);
@@ -268,7 +308,9 @@ export function useWaveform(
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
         items.forEach((item) => {
-          if (item.peaks) {
+          // فقط العناصر التي رُسمت فعلياً (وبالتالي peaks متوفرة بالكاش) —
+          // لا داعي لجلب peaks عنصر لم يُعرض بعد لمجرد تغيير حجم النافذة
+          if (peaksCacheRef.current[item.id]) {
             const savedTime = previewTimesRef.current[item.id] ?? 0;
             const progress = item.durationSeconds
               ? savedTime / item.durationSeconds
@@ -312,41 +354,53 @@ export function useWaveform(
 
       if (el) {
         const item = items.find((i) => i.id === itemId);
-        if (!item?.peaks) return;
+        if (!item) return;
 
         // cursor
         el.style.cursor = "pointer";
 
-        // click
+        // click — متاح فوراً، لا يحتاج peaks (فقط المدة لحساب زمن الـ seek)
         const handleClick = (e: MouseEvent) => {
           handleWaveformClick(itemId, bpKey, e.clientX);
         };
         el.addEventListener("click", handleClick);
         (el as CanvasWithHandler)._waveformClickHandler = handleClick;
 
-        // رسم أولي — يحترم الوقت المحفوظ إذا كان موجوداً
         const bp = BREAKPOINTS.find((b) => b.key === bpKey)!;
-        setTimeout(() => {
-          if (el.isConnected && item.peaks) {
-            const sliced = slicePeaks(item.peaks!, bp.peaks);
-            const containerWidth = el.parentElement?.offsetWidth ?? el.offsetWidth;
-            if (containerWidth > 0) {
-              const savedTime = previewTimesRef.current[itemId] ?? 0;
-              const progress = item.durationSeconds
-                ? savedTime / item.durationSeconds
-                : 0;
-              drawWaveform(el, sliced, progress, containerWidth, false);
-            }
+
+        // رسم أولي — يحترم الوقت المحفوظ إذا كان موجوداً
+        const drawInitial = (peaks: number[]) => {
+          if (!el.isConnected) return;
+          const sliced = slicePeaks(peaks, bp.peaks);
+          const containerWidth = el.parentElement?.offsetWidth ?? el.offsetWidth;
+          if (containerWidth > 0) {
+            const savedTime = previewTimesRef.current[itemId] ?? 0;
+            const progress = item.durationSeconds
+              ? savedTime / item.durationSeconds
+              : 0;
+            drawWaveform(el, sliced, progress, containerWidth, false);
           }
-        }, 0);
+        };
+
+        // peaks هذا العنصر تُجلب عند اتصال أول canvas له فقط (تُخزّن بالكاش
+        // فتُستخدم مباشرة من باقي الـ breakpoints دون طلب إضافي)
+        const cachedPeaks = peaksCacheRef.current[itemId];
+        if (cachedPeaks) {
+          setTimeout(() => drawInitial(cachedPeaks), 0);
+        } else {
+          fetchPeaks(itemId)
+            .then((peaks) => setTimeout(() => drawInitial(peaks), 0))
+            .catch(() => {});
+        }
 
         // ResizeObserver
         let debounceTimeout: NodeJS.Timeout;
         const observer = new ResizeObserver(() => {
           clearTimeout(debounceTimeout);
           debounceTimeout = setTimeout(() => {
-            if (el.isConnected && item.peaks) {
-              const sliced = slicePeaks(item.peaks!, bp.peaks);
+            const peaks = peaksCacheRef.current[itemId];
+            if (el.isConnected && peaks) {
+              const sliced = slicePeaks(peaks, bp.peaks);
               const containerWidth = el.parentElement?.offsetWidth ?? el.offsetWidth;
               if (containerWidth > 0) {
                 const savedTime = previewTimesRef.current[itemId] ?? 0;
@@ -362,7 +416,7 @@ export function useWaveform(
         (el as CanvasWithHandler)._resizeObserver = observer;
       }
     },
-    [items, handleWaveformClick]
+    [items, handleWaveformClick, fetchPeaks]
   );
 
   return {
