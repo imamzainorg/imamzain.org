@@ -2,7 +2,7 @@
 
 import { memo, useCallback, useRef } from "react";
 
-import type { AudioItem } from "@/types/audio";
+import type { AudioItemLight } from "@/types/audio";
 import { BREAKPOINTS, type BreakpointKey } from "../../hooks/useWaveform";
 import {
   PlayButton,
@@ -12,15 +12,15 @@ import {
 } from "./AudioControls";
 
 interface AudioCardProps {
-  item: AudioItem;
+  item: AudioItemLight;
   isActive: boolean;
   isPlaying: boolean;
   currentTime: number;
   volume: number;
   duration?: number;
  
-  onPlayPause: (item: AudioItem) => void;
-  onSeek: (item: AudioItem, pct: number) => void;
+  onPlayPause: (item: AudioItemLight) => void;
+  onSeek: (item: AudioItemLight, pct: number) => void;
   onVolumeChange: (itemId: number, value: number) => void;
   setCanvasRef: (
     itemId: number,

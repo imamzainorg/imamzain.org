@@ -4,7 +4,7 @@ import { memo, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { QRCodeCanvas } from "qrcode.react";
 import { Download, Share2, Loader2 } from "lucide-react";
-import type { AudioItem } from "@/types/audio";
+import type { AudioItemLight } from "@/types/audio";
 
 // ─── Toast بسيط ───────────────────────────────
 function toast(message: string) {
@@ -31,7 +31,7 @@ function toast(message: string) {
 
 // ─── Component ───────────────────────────────
 interface ToolButtonsProps {
-  item: AudioItem;
+  item: AudioItemLight;
 }
 
 export const ToolButtons = memo(function ToolButtons({

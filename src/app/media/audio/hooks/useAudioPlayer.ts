@@ -2,7 +2,7 @@
 "use client";
 
 import { useRef, useState, useCallback, useEffect } from "react";
-import type { AudioItem } from "@/types/audio";
+import type { AudioItemLight } from "@/types/audio";
 
 export interface AudioPlayerState {
   activeId: number | null;
@@ -61,7 +61,7 @@ export function useAudioPlayer() {
   // ─── Seek + Play ──────────────────────────────────────────────────────────
   const seekAndPlay = useCallback(
     (
-      item: AudioItem,
+      item: AudioItemLight,
       time: number,
       onProgress: (progress: number, currentTime: number) => void,
       onStop: (itemId: number) => void,
@@ -139,7 +139,7 @@ export function useAudioPlayer() {
   // ─── Play / Pause ─────────────────────────────────────────────────────────
   const playPause = useCallback(
     (
-      item: AudioItem,
+      item: AudioItemLight,
       onProgress: (progress: number, currentTime: number) => void,
       onStop: (itemId: number) => void,
     ) => {
@@ -201,7 +201,7 @@ export function useAudioPlayer() {
   // ─── Seek ─────────────────────────────────────────────────────────────────
   const seek = useCallback(
     (
-      item: AudioItem,
+      item: AudioItemLight,
       pct: number,
       onProgress: (progress: number, currentTime: number) => void,
     ) => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { BookCopyIcon, GraduationCapIcon, NewspaperIcon } from "lucide-react";
@@ -14,10 +14,12 @@ import type { Research } from "@/types/research";
 
 // ─── أنواع ────────────────────────────────────────────────────────────────────
 
+// بحوث التخرج فقط تصل كخاصية جاهزة من page.tsx (هي التبويب الافتراضي).
+// بيانات الدوريات والمؤتمرات كبيرة (journals.json وحده ~730 كيلوبايت) وتخص
+// تبويبين لا يظهران إلا عند الطلب، فتُجلب من مسارات API ثابتة عند الحاجة
+// فقط بدل شحنها مع كل زيارة بغض النظر عن التبويب الظاهر.
 type PlatformData = {
   studentData: StudentResearchItem[];
-  journalsData: JournalsItem[];
-  researchData: Research[];
 };
 
 type ActiveView = "student-research" | "conferences" | "journals";
@@ -27,11 +29,86 @@ const TABS = [
   { id: "journals",        icon: BookCopyIcon,       title: "الدوريات العربية"},
 ] as const;
 
+// ─── حالة تحميل/خطأ بسيطة لتبويب لم تصل بياناته بعد ───────────────────────────
+
+function TabLoading() {
+  return (
+    <div className="flex items-center justify-center p-20 text-gray-400">
+      <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin mr-3" />
+      جاري التحميل...
+    </div>
+  );
+}
+
+function TabError({ onRetry }: { onRetry: () => void }) {
+  return (
+    <div className="flex flex-col items-center justify-center gap-4 p-20 text-gray-400">
+      <p>تعذّر تحميل البيانات، تحقق من الاتصال وحاول مرة أخرى.</p>
+      <button
+        onClick={onRetry}
+        className="px-5 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors dark:bg-Muharram_primary"
+      >
+        إعادة المحاولة
+      </button>
+    </div>
+  );
+}
+
 // ─── PageContent ──────────────────────────────────────────────────────────────
 
-function PageContent({ studentData, journalsData, researchData }: PlatformData) {
+function PageContent({ studentData }: PlatformData) {
   const initialView = (useSearchParams().get("type") as ActiveView) || "student-research";
   const [activeView, setActiveView] = useState<ActiveView>(initialView);
+
+  const [journalsData, setJournalsData] = useState<JournalsItem[] | null>(null);
+  const [journalsError, setJournalsError] = useState(false);
+  const journalsRequested = useRef(false);
+
+  const [researchData, setResearchData] = useState<Research[] | null>(null);
+  const [researchError, setResearchError] = useState(false);
+  const researchRequested = useRef(false);
+
+  const loadJournals = useCallback(() => {
+    if (journalsRequested.current) return;
+    journalsRequested.current = true;
+    setJournalsError(false);
+    fetch("/api/research-data/journals")
+      .then((res) => {
+        if (!res.ok) throw new Error(String(res.status));
+        return res.json();
+      })
+      .then((data: JournalsItem[]) => setJournalsData(data))
+      .catch(() => {
+        // نسمح بإعادة المحاولة لاحقاً (زر "إعادة المحاولة"، أو الرجوع لهذا
+        // التبويب من جديد).
+        journalsRequested.current = false;
+        setJournalsError(true);
+      });
+  }, []);
+
+  const loadResearch = useCallback(() => {
+    if (researchRequested.current) return;
+    researchRequested.current = true;
+    setResearchError(false);
+    fetch("/api/research-data/conferences")
+      .then((res) => {
+        if (!res.ok) throw new Error(String(res.status));
+        return res.json();
+      })
+      .then((data: Research[]) => setResearchData(data))
+      .catch(() => {
+        researchRequested.current = false;
+        setResearchError(true);
+      });
+  }, []);
+
+  // يجلب بيانات التبويب الفعّال أول ما يظهر: سواء وصل الزائر مباشرة برابط
+  // يحمل ?type=journals أو ?type=conferences (من صفحة /research)، أو بدّل
+  // التبويب يدوياً من داخل الصفحة نفسها.
+  useEffect(() => {
+    if (activeView === "journals") loadJournals();
+    if (activeView === "conferences") loadResearch();
+  }, [activeView, loadJournals, loadResearch]);
 
   return (
     <div className="p-6 container">
@@ -69,7 +146,7 @@ function PageContent({ studentData, journalsData, researchData }: PlatformData) 
                 {/* shine overlay */}
                 <span className={`
                   absolute inset-0
-                  bg-gradient-to-r from-secondary/0 via-primary/20 to-secondary/0 
+                  bg-gradient-to-r from-secondary/0 via-primary/20 to-secondary/0
                   dark:from-Muharram_secondary/50 dark:vai-Muharram_primary dark:to-Muharram_secondary/20
                   opacity-0 group-hover:opacity-100 blur-lg
                   transition duration-500
@@ -94,9 +171,23 @@ function PageContent({ studentData, journalsData, researchData }: PlatformData) 
           exit={{ opacity: 0, y: -6 }}
           transition={{ duration: 0.25 }}
         >
-          {activeView === "conferences"      && <ConferencePapers data={researchData} />}
+          {activeView === "conferences" &&
+            (researchData ? (
+              <ConferencePapers data={researchData} />
+            ) : researchError ? (
+              <TabError onRetry={loadResearch} />
+            ) : (
+              <TabLoading />
+            ))}
           {activeView === "student-research" && <StudentResearch  data={studentData} />}
-          {activeView === "journals"         && <Journals         data={journalsData} />}
+          {activeView === "journals" &&
+            (journalsData ? (
+              <Journals data={journalsData} />
+            ) : journalsError ? (
+              <TabError onRetry={loadJournals} />
+            ) : (
+              <TabLoading />
+            ))}
         </motion.div>
       </AnimatePresence>
     </div>

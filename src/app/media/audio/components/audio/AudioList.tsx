@@ -10,7 +10,7 @@ import {
   SlidersHorizontal,
   X,
 } from "lucide-react";
-import type { AudioItem } from "@/types/audio";
+import type { AudioItemLight } from "@/types/audio";
 import type { BreakpointKey } from "../../hooks/useWaveform";
 import { Button } from "@/components/button";
 import AudioCard from "./AudioCard";
@@ -21,13 +21,13 @@ import { DurationFilter } from "./DurationFilter";
 const ITEMS_PER_PAGE = 10;
 
 interface AudioListProps {
-  items: AudioItem[];
+  items: AudioItemLight[];
   activeId: number | null;
   isPlaying: boolean;
   currentTimes: Record<number, number>;
   volumes: Record<number, number>;
-  onPlayPause: (item: AudioItem) => void;
-  onSeek: (item: AudioItem, pct: number) => void;
+  onPlayPause: (item: AudioItemLight) => void;
+  onSeek: (item: AudioItemLight, pct: number) => void;
   onVolumeChange: (itemId: number, value: number) => void;
   setCanvasRef: (
     itemId: number,
@@ -109,7 +109,7 @@ export default function AudioList({
       return matchSearch && matchSpeaker && matchDuration;
     });
 
-    const sortMap: Record<string, (a: AudioItem, b: AudioItem) => number> = {
+    const sortMap: Record<string, (a: AudioItemLight, b: AudioItemLight) => number> = {
       الأحدث: (a, b) => b.id - a.id,
       الأقدم: (a, b) => a.id - b.id,
       الأطول: (a, b) => (b.durationSeconds ?? 0) - (a.durationSeconds ?? 0),

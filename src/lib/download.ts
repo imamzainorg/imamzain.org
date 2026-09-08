@@ -4,10 +4,6 @@ export function downloadViaProxy(url: string, filename?: string) {
     const proxyUrl =
         `/api/download?url=${encodeURIComponent(url)}&name=${encodeURIComponent(resolvedFilename)}`
 
-    console.log("original url:", url)
-    console.log("resolved filename:", resolvedFilename)
-    console.log("proxy url:", proxyUrl)
-
     const a = document.createElement("a")
     a.href = proxyUrl
     a.download = resolvedFilename

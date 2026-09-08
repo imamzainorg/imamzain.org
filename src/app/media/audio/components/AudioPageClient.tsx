@@ -2,7 +2,7 @@
 
 import { useEffect, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
-import type { AudioItem } from "@/types/audio";
+import type { AudioItemLight } from "@/types/audio";
 import Breadcrumbs from "@/components/breadcrumb";
 
 import { useAudioPlayer } from "../hooks/useAudioPlayer";
@@ -11,7 +11,7 @@ import { Suspense } from "react";
 import AudioHero from "./audio/AudioHero";
 import AudioList from "./audio/AudioList";
 
-function AudioWavePlayerContent({ items }: { items: AudioItem[] }) {
+function AudioWavePlayerContent({ items }: { items: AudioItemLight[] }) {
   const searchParams = useSearchParams();
 
   // ─── Waveform drawing ─────────────────────────────────────────────────────
@@ -48,7 +48,7 @@ const {
 } = useAudioPlayer();
   // Wrap playPause to include callbacks
   const handlePlayPause = useCallback(
-    (item: AudioItem) => {
+    (item: AudioItemLight) => {
       playPause(item, (progress) => onProgress(item.id, progress), onStop);
     },
     [playPause, onProgress, onStop],
@@ -56,7 +56,7 @@ const {
 
   // ─── Seek handler ─────────────────────────────────────────────────────────
 const handleSeek = useCallback(
-  (item: AudioItem, pct: number) => {
+  (item: AudioItemLight, pct: number) => {
     if (activeId === item.id) {
       seek(item, pct, (progress) => {
         drawItem(item, progress, true);
@@ -136,7 +136,7 @@ const handleSeek = useCallback(
     </main>
   );
 }
-export default function AudioPageClient({ items }: { items: AudioItem[] }) {
+export default function AudioPageClient({ items }: { items: AudioItemLight[] }) {
   return (
     <Suspense fallback={null}>
       <AudioWavePlayerContent items={items} />

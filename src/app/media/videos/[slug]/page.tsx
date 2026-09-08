@@ -5,7 +5,24 @@ import type { YouTubeGroup, YouTubeVideo } from "@/types/youtube-data";
 import { findGroupBySlug, getGroupSlug, thumbnailUrl } from "@/lib/youtube";
 import VideosBrowser from "../_components/videos-browser";
 
-export const dynamic = "force-dynamic";
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const groups = await dataFetcher<YouTubeGroup[]>("youtube.json");
+
+  // كل مجموعة تولّد رابطين محتملين: سلق كل فيديو بداخلها، وسلق المجموعة
+  // نفسها (getGroupSlug). نستخدم Set للتخلص من التكرار لأن سلق المجموعة
+  // غالبًا يطابق سلق أول فيديو بداخلها (بالتصميم، راجع تعليق youtube.ts)
+  const slugs = new Set<string>();
+  for (const group of groups) {
+    for (const video of group.videos) {
+      slugs.add(video.slug);
+    }
+    slugs.add(getGroupSlug(group));
+  }
+
+  return Array.from(slugs).map((slug) => ({ slug }));
+}
 
 type Props = {
   params: Promise<{ slug: string }>;

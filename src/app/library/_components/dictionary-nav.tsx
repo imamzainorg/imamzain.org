@@ -8,7 +8,6 @@ import {
   ChevronLeft,
   Loader2,
   BookOpen,
-  FileText,
   Download,
 } from "lucide-react";
 import { NavDictionary, NavSubject } from "@/types/imamzain-legacy";
@@ -206,13 +205,23 @@ export default function DictionaryNav({
                             : "hover:bg-gray-50 dark:hover:bg-Muharram_secondary/15 text-gray-600 dark:text-Muharram_primary  hover:text-gray-900 dark:hover:text-Muharram_primary/80"
                         }`}
                       >
-                        <FileText
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           className={`w-3.5 h-3.5 flex-shrink-0 ${
                             isActiveSubject
                               ? "text-primary dark:text-Muharram_primary"
                               : "text-gray-400"
                           }`}
-                        />
+                        >
+                          <use href="#icon-file-text" />
+                        </svg>
                         <span className="flex-1 text-xs md:text-base leading-tight">
                           {subject.title}
                         </span>
