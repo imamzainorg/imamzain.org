@@ -3,6 +3,7 @@ export type Legacy = {
   title: string;
   slug: string;
   dictionaries: Dictionary[];
+
 };
 
 type Dictionary = {
@@ -17,6 +18,7 @@ type Subject = {
   title: string;
   slug: string;
   audio: string;
+  margins?: Margins;
   phrases: Phrase[];
 };
 
@@ -32,6 +34,10 @@ type Explanation = {
   content: string;
 };
 
+export type Margins = {
+  id: number;
+  content: string;
+};
 // Slim projections that cross the server/client boundary. Keeping these
 // separate from Dictionary/Subject is what stops the full phrase corpus from
 // being serialized into every page under the dictionary layout.

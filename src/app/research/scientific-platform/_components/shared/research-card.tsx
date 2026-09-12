@@ -60,7 +60,6 @@ export function ResearchCard({ item, onSummary }: ResearchCardProps) {
         opacity-0 group-hover:opacity-100 transition-opacity duration-300
       "
       />
-
       <div className="flex flex-col flex-1 p-5 gap-3">
         {/* ── Badges + سنة ── */}
         <div className="flex flex-wrap items-center gap-1.5">
@@ -168,14 +167,15 @@ export function ResearchCard({ item, onSummary }: ResearchCardProps) {
               )}
 
               {/* عرض PDF */}
+
               <a
-                href={item.pdfUrl}
+                href={`/api/download?url=${encodeURIComponent(item.pdfUrl)}&mode=inline`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
                     flex-1 flex items-center justify-center gap-1.5
                     px-3 py-2 rounded-xl text-xs lg:text-base  font-semibold
-                    bg-gray-100 dark:bg-gray-300
+                     bg-gray-100 dark:bg-gray-300
                     text-gray-600 dark:text-Muharram_primary
                     hover:bg-primary/10 hover:text-primary dark:hover:text-black dark:hover:bg-red-100 dark:hover:opacity-90 dark:transition-opacity dark:duration-150
                     active:scale-95 transition-all duration-150

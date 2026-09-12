@@ -1,11 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const ALLOWED_HOSTNAME = process.env.ALLOWED_HOSTNAME;
+const ALLOWED_HOSTNAMES = new Set(
+  ["cdn.imamzain.org", process.env.ALLOWED_HOSTNAME]
+    .filter(Boolean)
+    .map((hostname) => hostname!.trim().toLowerCase()),
+);
 
 // The `name` query param is still accepted for URL compatibility but ignored:
 // filenames come from the Content-Disposition metadata stored on the R2 objects.
 export async function GET(req: NextRequest) {
   const url = req.nextUrl.searchParams.get("url");
+  const mode = req.nextUrl.searchParams.get("mode");
 
   if (!url) {
     return new NextResponse("Missing url", { status: 400 });
@@ -31,8 +36,26 @@ export async function GET(req: NextRequest) {
     return new NextResponse("Invalid url", { status: 400 });
   }
 
-  if (!ALLOWED_HOSTNAME || parsedUrl.hostname !== ALLOWED_HOSTNAME) {
+  if (!ALLOWED_HOSTNAMES.has(parsedUrl.hostname.toLowerCase())) {
     return new NextResponse("Forbidden", { status: 403 });
+  }
+
+  if (mode === "inline") {
+    const response = await fetch(parsedUrl);
+    if (!response.ok || !response.body) {
+      return new NextResponse("Unable to load file", { status: response.status || 502 });
+    }
+
+    return new NextResponse(response.body, {
+      status: response.status,
+      headers: {
+        "Content-Type": response.headers.get("content-type") ?? "application/pdf",
+        "Content-Disposition": "inline",
+        ...(response.headers.get("content-length")
+          ? { "Content-Length": response.headers.get("content-length")! }
+          : {}),
+      },
+    });
   }
 
   return NextResponse.redirect(parsedUrl, 302);
