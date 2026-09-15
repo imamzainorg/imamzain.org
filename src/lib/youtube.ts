@@ -54,6 +54,15 @@ type FlatVideo = {
 	groupTitle: string
 }
 
+function getVideoId(video: YouTubeVideo): string {
+	try {
+		const url = new URL(video.url)
+		return url.searchParams.get("v") ?? url.pathname.split("/").pop() ?? video.url
+	} catch {
+		return video.url || video.slug
+	}
+}
+
 // يسطّح كل فيديوهات المجموعات بقائمة وحدة مرتبة بالأحدث — يستخدم لقسم
 // "أحدث الفيديوهات". استبعاد المجموعة الحالية يتم عند الاستدعاء اعتمادًا
 // على slugs الفيديوهات حتى يبقى هذا المساعد عامًا.
@@ -63,8 +72,12 @@ export function flattenLatestVideos(
 	groups: YouTubeGroup[],
 ): FlatVideo[] {
 	const flat: FlatVideo[] = []
+	const seenVideoIds = new Set<string>()
 	for (const group of groups) {
 		for (const video of group.videos) {
+			const videoId = getVideoId(video)
+			if (seenVideoIds.has(videoId)) continue
+			seenVideoIds.add(videoId)
 			flat.push({ video, groupTitle: group.title })
 		}
 	}
@@ -80,11 +93,17 @@ export function getLatestVideoPerGroup(
 	groups: YouTubeGroup[],
 ): FlatVideo[] {
 	const result: FlatVideo[] = []
+	const seenGroupIds = new Set<number>()
+	const seenVideoIds = new Set<string>()
 	for (const group of groups) {
-		if (group.videos.length === 0) continue
+		if (group.videos.length === 0 || seenGroupIds.has(group.id)) continue
+		seenGroupIds.add(group.id)
 		const latest = [...group.videos].sort(
 			(a, b) => parseArabicDate(b.date) - parseArabicDate(a.date),
 		)[0]
+		const videoId = getVideoId(latest)
+		if (seenVideoIds.has(videoId)) continue
+		seenVideoIds.add(videoId)
 		result.push({ video: latest, groupTitle: group.title })
 	}
 	return result.sort(
