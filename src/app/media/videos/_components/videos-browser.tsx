@@ -18,9 +18,8 @@ import FilterBar from "./filter-bar";
 
 type SortOrder = "newest" | "oldest";
 
-// عدد قليل ومقصود — قسم "أحدث الفيديوهات" (بدون بحث) يعرض فيديو وحد
-// يمثل كل قائمة (سواء قائمة فيها حلقة وحدة أو سلسلة كاملة)، مو كل حلقة
-const LATEST_VIDEOS_LIMIT = 6;
+// عرض تدريجي للقائمة العامة؛ كل دفعة تحتوي تمثيلًا واحدًا كحد أقصى لكل مجموعة.
+const PUBLIC_VIDEOS_PAGE_SIZE = 12;
 
 // أثناء البحث نفتش بكل حلقة بكل مجموعة (مو تمثيل وحد لكل مجموعة)، فنسمح
 // بعدد نتائج أكبر — الهدف "لگيت الفيديو اللي أدور عليه" مو استعراض مختصر
@@ -54,6 +53,9 @@ export default function VideosBrowser({
 
   const [search, setSearch] = useState("");
   const [sortOrder] = useState<SortOrder>("newest");
+  const [visiblePublicVideos, setVisiblePublicVideos] = useState(
+    PUBLIC_VIDEOS_PAGE_SIZE,
+  );
 
   const currentVideo =
     currentGroup?.videos.find((v) => v.slug === currentVideoSlug) ??
@@ -113,27 +115,13 @@ export default function VideosBrowser({
       .slice(0, DROPDOWN_RESULTS_LIMIT);
   }, [groups, searchTerm]);
 
-  const latestVideos = useMemo(() => {
-    const currentGroupVideoSlugs = new Set(
-      currentGroup?.videos.map((video) => video.slug),
-    );
-
-    // بلا بحث: فيديو وحد يمثل كل مجموعة (نفس السلوك الأصلي، عرض مختصر)
-    // مع بحث: كل حلقة بكل مجموعة — وإلا الحلقات الوسطى بالسلاسل ما
-    // كانت تنلگى أبدًا (كانت تنفلتر بس فوق أحدث حلقة من كل مجموعة)
-    const source = searchTerm
-      ? flattenLatestVideos(groups)
-      : getLatestVideoPerGroup(groups);
-
-    const withoutCurrentGroup = source.filter(
-      ({ video }) => !currentGroupVideoSlugs.has(video.slug),
-    );
+  const publicVideos = useMemo(() => {
+    // القائمة العامة تعرض فيديو واحدًا فقط من كل مجموعة، حتى أثناء البحث.
+    const source = getLatestVideoPerGroup(groups);
 
     const searched = searchTerm
-      ? withoutCurrentGroup.filter(({ video }) =>
-          video.title.includes(searchTerm),
-        )
-      : withoutCurrentGroup;
+      ? source.filter(({ video }) => video.title.includes(searchTerm))
+      : source;
 
     const sorted = [...searched].sort((a, b) => {
       const diff =
@@ -141,11 +129,13 @@ export default function VideosBrowser({
       return sortOrder === "newest" ? diff : -diff;
     });
 
-    return sorted.slice(
-      0,
-      searchTerm ? SEARCH_RESULTS_LIMIT : LATEST_VIDEOS_LIMIT,
-    );
-  }, [groups, currentGroup, searchTerm, sortOrder]);
+    return sorted;
+  }, [groups, searchTerm, sortOrder]);
+
+  const latestVideos = publicVideos.slice(
+    0,
+    searchTerm ? SEARCH_RESULTS_LIMIT : visiblePublicVideos,
+  );
 
   if (!currentGroup || !currentVideo) {
     return (
@@ -203,7 +193,7 @@ export default function VideosBrowser({
 
       <div className="mt-12">
         <h2 className="text-white font-bold text-lg mb-4">
-          {searchTerm ? `نتائج البحث عن "${searchTerm}"` : "أحدث الفيديوهات"}
+          {searchTerm ? `نتائج البحث عن "${searchTerm}"` : "الفيديوهات العامة"}
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
           {latestVideos.map(({ video }) => (
@@ -221,6 +211,24 @@ export default function VideosBrowser({
             </p>
           )}
         </div>
+        {!searchTerm && visiblePublicVideos < publicVideos.length && (
+          <div className="mt-6 flex justify-center">
+            <button
+              type="button"
+              onClick={() =>
+                setVisiblePublicVideos((count) =>
+                  Math.min(
+                    count + PUBLIC_VIDEOS_PAGE_SIZE,
+                    publicVideos.length,
+                  ),
+                )
+              }
+              className="rounded-lg border border-white/10 bg-white/[0.035] px-5 py-2 text-sm font-medium text-slate-300 transition hover:border-secondary/40 hover:bg-secondary/10 hover:text-secondary"
+            >
+              عرض المزيد
+            </button>
+          </div>
+        )}
       </div>
 
       {seriesGroups.length > 0 && (
