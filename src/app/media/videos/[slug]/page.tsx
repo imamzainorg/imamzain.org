@@ -116,9 +116,8 @@ export default async function VideoGroupPage({ params }: Props) {
       g.videos.length > 0,
   );
 
-  // إذا وصل حد لرابط مجموعة معلّمة "home" مباشرة (من الصفحة الرئيسية
-  // مثلاً)، نضيفها بالقائمة يدويًا حتى ما يفتح على صفحة فاضية رغم إنها
-  // مستثناة من معرض /videos العام
+  // إذا وصل المستخدم لرابط مجموعة مستثناة من المعرض العام، نضيفها يدويًا
+  // حتى يفتح الرابط على محتواه بدل صفحة فارغة.
   const groupsForBrowser = galleryGroups.some((g) => g.id === group.id)
     ? galleryGroups
     : [group, ...galleryGroups];
