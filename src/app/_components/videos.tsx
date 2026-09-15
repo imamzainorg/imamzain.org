@@ -23,17 +23,13 @@ type HomePlaylist = {
   videos: HomeVideo[]; // always exactly one entry: the playlist's first video
 };
 
-export default function Videos({
-  playlists,
-}: {
-  playlists: HomePlaylist[];
-}) {
+export default function Videos({ playlists }: { playlists: HomePlaylist[] }) {
   const [videoId, setVideoId] = useState<string | null>(null);
   const [show, setShow] = useState<number>(7);
 
   const openModal = (videoId: string) => setVideoId(videoId);
   const closeModal = () => setVideoId(null);
-  // Already filtered to displayLocation home/both and sliced to the max
+  // Already filtered to displayLocation both and sliced to the max
   // number of tiles any breakpoint shows by the server page.
   const homePlaylists = playlists;
   useEffect(() => {
