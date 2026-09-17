@@ -42,9 +42,7 @@ export const metadata: Metadata = {
 export default async function VideosPage() {
   const groups = await dataFetcher<YouTubeGroup[]>("youtube.json");
 
-  // نفس منطق الكود القديم: "internal" أو "both" فقط يظهرن بمعرض /videos
-  // (المجموعات المعلّمة "home" مخصصة للصفحة الرئيسية فقط، بس تظل قابلة
-  // للوصول مباشرة عبر رابطها الخاص لو حد وصلها من مكان ثاني)
+  // المعرض الداخلي يعرض المجموعات المعلّمة "internal" أو "both" فقط.
   const galleryGroups = sortGroupsByLatest(
     groups.filter(
       (g) =>
