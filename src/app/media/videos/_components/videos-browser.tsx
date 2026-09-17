@@ -111,7 +111,10 @@ export default function VideosBrowser({
   const dropdownResults = useMemo(() => {
     if (!searchTerm) return [];
     return flattenLatestVideos(groups)
-      .filter(({ video }) => video.title.includes(searchTerm))
+      .filter(
+        ({ video }) =>
+          video.title.includes(searchTerm) || video.desc.includes(searchTerm),
+      )
       .slice(0, DROPDOWN_RESULTS_LIMIT);
   }, [groups, searchTerm]);
 
@@ -120,7 +123,10 @@ export default function VideosBrowser({
     const source = getLatestVideoPerGroup(groups);
 
     const searched = searchTerm
-      ? source.filter(({ video }) => video.title.includes(searchTerm))
+      ? source.filter(
+          ({ video }) =>
+            video.title.includes(searchTerm) || video.desc.includes(searchTerm),
+        )
       : source;
 
     const sorted = [...searched].sort((a, b) => {

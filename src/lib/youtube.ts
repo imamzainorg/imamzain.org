@@ -1,13 +1,8 @@
 import type { YouTubeGroup, YouTubeVideo } from "@/types/youtube-data"
 
-// ⚠️ افتراض: مسارات الثمبنيل بالجيسون نسبية (مثل "general/xxx.png") وتُبنى
-// فوق نفس قاعدة الـ CDN المستخدمة بباقي الموقع. عدّل هذا الثابت إذا كانت
-// القاعدة الفعلية مختلفة، أو إذا الحقل صار يحتوي روابط كاملة أحيانًا.
-const CDN_BASE = "https://cdn.imamzain.org"
-
 export function thumbnailUrl(path: string): string {
 	if (path.startsWith("http")) return path
-	return `${CDN_BASE}/${path}`
+	return `/${path.replace(/^\/+/, "")}`
 }
 
 // السلق اللي يمثل المجموعة كاملة بالرابط — نستخدم سلق أول فيديو بالمجموعة
