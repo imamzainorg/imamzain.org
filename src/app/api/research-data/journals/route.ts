@@ -9,6 +9,8 @@ import type { Journals } from "@/types/journals"
 // visitor's active tab resolves to "journals" (landing on ?type=journals,
 // or switching tabs client-side), instead of shipping journals.json's
 // ~730KB unconditionally alongside the default student-research tab.
+export const dynamic = "force-static"
+
 export async function GET() {
 	return NextResponse.json(journalsData as Journals[], {
 		headers: {

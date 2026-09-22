@@ -7,6 +7,7 @@ import { collections } from "@/app/library/_config/collections"
 // serverless invocation and no origin transfer per request. DictionaryNav
 // fetches this only when the reader expands a dictionary other than the one
 // the current page already shipped in full.
+export const dynamic = "force-static"
 export const dynamicParams = false
 
 export function generateStaticParams() {

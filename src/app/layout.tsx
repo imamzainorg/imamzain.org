@@ -2,9 +2,6 @@ import type { Metadata } from "next"
 import { Noto_Naskh_Arabic } from "next/font/google"
 import Script from "next/script"
 
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
-
 import "@/style/globals.css"
 import { Toaster } from "sonner"
 
@@ -82,8 +79,6 @@ export default function RootLayout({
 				<IconSprite />
 				<Providers>{children}</Providers>
 				<Toaster />
-				<Analytics />
-				<SpeedInsights />
 			</body>
 		</html>
 	)

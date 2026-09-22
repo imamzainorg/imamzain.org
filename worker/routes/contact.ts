@@ -1,5 +1,3 @@
-import { NextRequest, NextResponse } from "next/server"
-
 interface ContactFormBody {
 	name?: string
 	email?: string
@@ -7,7 +5,7 @@ interface ContactFormBody {
 	message?: string
 }
 
-export async function POST(request: NextRequest): Promise<NextResponse> {
+export async function contact(request: Request, env: Env): Promise<Response> {
 	try {
 		const body: ContactFormBody = await request.json()
 		const { name, email, country, message } = body
@@ -19,7 +17,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 				email,
 				message,
 			})
-			return NextResponse.json(
+			return Response.json(
 				{ error: "Missing required fields" },
 				{ status: 400 },
 			)
@@ -29,13 +27,10 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 		const emailRegex = /\S+@\S+\.\S+/
 		if (!emailRegex.test(email)) {
 			console.warn("Validation failed: Invalid email format", { email })
-			return NextResponse.json(
-				{ error: "Invalid email format" },
-				{ status: 400 },
-			)
+			return Response.json({ error: "Invalid email format" }, { status: 400 })
 		}
 
-		const apiUrl = `${process.env.API_URL}/api/v1/forms/contact`
+		const apiUrl = `${env.API_URL}/api/v1/forms/contact`
 		console.log("Sending request to backend API:", apiUrl)
 
 		const response = await fetch(apiUrl, {
@@ -51,9 +46,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 				name,
 				email,
 				message,
-				...(country
-					? { country: String(country).toUpperCase() }
-					: {}),
+				...(country ? { country: String(country).toUpperCase() } : {}),
 			}),
 		})
 
@@ -71,7 +64,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
 		if (!response.ok) {
 			console.error("Backend responded with error:", data)
-			return NextResponse.json(
+			return Response.json(
 				{
 					error:
 						(data as { error?: string })?.error ||
@@ -82,7 +75,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 		}
 
 		console.log("Backend success response:", data)
-		return NextResponse.json(data, { status: 200 })
+		return Response.json(data, { status: 200 })
 	} catch (error: unknown) {
 		if (error instanceof Error) {
 			console.error("🔥 Contact API Error:", {
@@ -94,9 +87,6 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 			console.error("Unknown error:", error)
 		}
 
-		return NextResponse.json(
-			{ error: "Failed to send message" },
-			{ status: 500 },
-		)
+		return Response.json({ error: "Failed to send message" }, { status: 500 })
 	}
 }

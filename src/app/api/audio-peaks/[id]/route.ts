@@ -8,6 +8,7 @@ import type { AudioItem } from "@/types/audio"
 // useWaveform fetches this only when a given item's canvas actually mounts
 // and needs to draw its waveform, instead of every item's peaks array
 // shipping eagerly in the audio list page's RSC payload.
+export const dynamic = "force-static"
 export const dynamicParams = false
 
 export function generateStaticParams() {

@@ -20,7 +20,7 @@ If something here is wrong or unclear, fix it in the same PR as your code change
 6. **Releases live on `main`.** Tags + the GitHub Release + `CHANGELOG.md` updates are created by [release-please](https://github.com/googleapis/release-please) — never by hand. Cutting a release = merging the open `release: vX.Y.Z` PR that the bot keeps open.
 7. **Delete your branch** after merge.
 
-This is **GitHub Flow**: one long-lived branch (`main`), short-lived feature branches off it, Vercel preview deployments on every PR as your staging environment. No `dev`/`staging` branch — we don't need one.
+This is **GitHub Flow**: one long-lived branch (`main`), short-lived feature branches off it, Cloudflare preview deployments on every PR as your staging environment. No `dev`/`staging` branch — we don't need one.
 
 ---
 
@@ -140,7 +140,7 @@ git push -u origin fix/audio-download-403
 # Open PR → base: main
 ```
 
-Get it reviewed, merge it. Vercel deploys to production within minutes of the merge. release-please will pick up the `fix:` and add it to its open release PR for the next patch release — merge that whenever you want to tag the version.
+Get it reviewed, merge it. Cloudflare deploys `main` to production within minutes of the merge. release-please will pick up the `fix:` and add it to its open release PR for the next patch release — merge that whenever you want to tag the version.
 
 There's no special "hotfix" branch prefix or process. The speed comes from how fast the team reviews and merges, not from a different workflow.
 
@@ -155,7 +155,7 @@ The flow:
 3. **Squash-merge** the release PR. The action then:
    - Tags the merge commit `vX.Y.Z`.
    - Creates the GitHub Release page with the generated notes.
-4. Vercel deploys the new tag.
+4. Cloudflare deploys the merge to production, as it does every merge to `main`.
 
 That's it. **You never run a command locally to release.** If you find yourself typing `npm version` or `git tag v...` — stop. The bot does it.
 
@@ -181,7 +181,7 @@ Before requesting review:
 - [ ] Branch is up to date with `main` (the `main` ruleset enforces this — GitHub will prompt you to "Update branch" with one click).
 - [ ] `bun run lint` passes.
 - [ ] `bun run build` passes.
-- [ ] You actually opened the affected page(s) in the Vercel preview and clicked around. CI doesn't catch visual regressions.
+- [ ] You actually opened the affected page(s) in the Cloudflare preview and clicked around. CI doesn't catch visual regressions.
 - [ ] For UI changes: include a screenshot or short clip in the PR body.
 - [ ] PR description has a **Test plan** section that a reviewer can follow.
 - [ ] No leftover `console.log`, `// TODO from me`, or commented-out code.
@@ -192,7 +192,7 @@ Before requesting review:
 
 Drawn from real history on this repo. Each one cost someone time.
 
-- ❌ **Direct push to `main`.** Even for a one-line fix. Open the PR; the CI run + the Vercel preview alone are worth it. Blocked server-side anyway.
+- ❌ **Direct push to `main`.** Even for a one-line fix. Open the PR; the CI run + the Cloudflare preview alone are worth it. Blocked server-side anyway.
 - ❌ **`merge branch main` commits.** These come from `git pull` on a diverged local branch. Use `git pull --rebase` instead, or set `pull.rebase = true` globally.
 - ❌ **Placeholder commit messages.** `Implement feature X to enhance user experience and fix bug Y in module Z` is on the record forever. Write the real subject.
 - ❌ **One PR fixing six unrelated things.** Reviewer can't reason about it, and one revert blows away five good changes.
@@ -218,7 +218,7 @@ We use [release-please](https://github.com/googleapis/release-please) (Google) t
 4. Squash-merging that PR triggers the action again, which:
    - Tags the merge commit `vX.Y.Z`.
    - Creates the GitHub Release page with the generated notes.
-5. Vercel deploys the tag automatically.
+5. Cloudflare deploys the merge to production automatically.
 
 ### Configuration
 
@@ -237,6 +237,29 @@ The default is feat→minor, fix/perf/refactor/etc.→patch, `!`/`BREAKING CHANG
 - **Release PR not opening?** No releasable commits since the last tag. Only `feat` / `fix` / `perf` / `refactor` / `revert` / breaking-change commits trigger one. A run of only `chore`/`docs`/`ci`/`style` commits is silently ignored, by design.
 - **Release PR shows the wrong version?** Check the commit types since the last tag — a missed `BREAKING CHANGE:` footer or stray `feat:` can flip the bump.
 - **Release PR CI didn't run / App auth failing?** The workflow uses the `imamzain-release-please` GitHub App (App ID + private key are stored as repo secrets `RELEASE_PLEASE_APP_ID` and `RELEASE_PLEASE_APP_PRIVATE_KEY`). If the App is uninstalled from the repo, the secrets are removed, or the private key is revoked, the workflow fails with a clear auth error. Re-install the App at org Settings → GitHub Apps and re-grant access to this repo, then re-run the workflow.
+
+---
+
+## Hosting (Cloudflare)
+
+The site runs on Cloudflare Workers as the `imamzain-org` Worker ([`wrangler.jsonc`](wrangler.jsonc)), within the free plan:
+
+- **Pages are static files.** `bun run build` exports every route to `out/` (`output: "export"` in [`next.config.ts`](next.config.ts)). Cloudflare serves them directly without running any code, so page views are free and unmetered. There is no ISR and no request-time rendering: a page shows what existed when it was built, and new content goes live with the next deploy.
+- **Server code lives in [`worker/`](worker/)**, not in `src/app/api`. The forms, `/api/download` and `/api/hijri-date` need a server, so they are Worker routes. A new endpoint must be added to both `ROUTES` in [`worker/index.ts`](worker/index.ts) and `assets.run_worker_first` in `wrangler.jsonc`. Route handlers under `src/app/api` must be static (they are prebuilt to JSON files), or the build fails.
+- **Redirects live in [`public/_redirects`](public/_redirects)** and response headers in [`public/_headers`](public/_headers). A static export ignores `redirects()`/`rewrites()`/`headers()` in `next.config.ts`.
+- **Local development:** `bun run dev` for the site, plus `bun run dev:worker` in a second terminal when you need the forms or the Hijri date (in dev, Next forwards unknown `/api/*` paths to the Worker on port 8787). `bun run preview` serves the production build exactly as Cloudflare will.
+- **Deploys** run in GitHub Actions ([`deploy.yml`](.github/workflows/deploy.yml)) on every merge to `main`:
+  1. The build is checked against the free-plan limits (`scripts/check-cloudflare-limits.mjs`).
+  2. The new version is uploaded without going live and smoke-tested on its own preview URL (`scripts/smoke-test.mjs`).
+  3. Only then is it promoted. If imamzain.org fails the same test right after, the workflow rolls back to the previous version by itself.
+
+  A failed deploy never takes the site down; it stays on the last good version. It needs the `CLOUDFLARE_API_TOKEN` secret (Cloudflare's "Edit Cloudflare Workers" token template).
+- **Previews:** every PR gets a preview URL posted as a comment by the `preview` job in [`predeploy.yml`](.github/workflows/predeploy.yml). Check your change there before merging.
+- **Uptime:** [`uptime.yml`](.github/workflows/uptime.yml) tests imamzain.org every 15 minutes. It opens an issue labelled `outage` when the site fails and closes it on recovery.
+- **Manual rollback:** Cloudflare dashboard → Workers & Pages → `imamzain-org` → Deployments → pick a previous version → Rollback. The same is available as `bunx wrangler rollback`.
+- **The production route** `imamzain.org/*` is attached to the Worker in the Cloudflare dashboard (Settings → Domains & Routes), not in `wrangler.jsonc`. Deploys leave it untouched. Deleting it hands traffic back to whatever the imamzain.org DNS record points at.
+- `bun run deploy` also deploys from your machine (needs `wrangler login`). Prefer merging to `main`, because only the workflow smoke-tests before going live.
+- **After changing `wrangler.jsonc`**, run `bun run cf-typegen` and commit `worker/worker-configuration.d.ts`.
 
 ---
 

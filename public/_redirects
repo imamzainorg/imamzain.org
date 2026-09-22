@@ -1,0 +1,13 @@
+# Applied by Cloudflare Workers Static Assets before any file is served.
+# Format: source destination [status]
+/home / 200
+/application /applications 308
+
+# Each app now lives on its own subdomain — send the old dedicated in-site
+# pages to the standalone sites.
+/applications/anwar-sajjadyia https://anwar.imamzain.org 308
+/applications/maarif-al-sajjad https://maarif.imamzain.org 308
+/applications/maarif-al-sajjad/privacy-policy https://maarif.imamzain.org/privacy-policy 308
+
+/library/al-sahifa /library/al-sahifa/al-sahifa-al-sajjadiya-index 308
+/library/risalat-al-huqoq /library/risalat-al-huqoq/introduction 308
