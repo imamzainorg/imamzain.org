@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "dev:worker": "wrangler dev",
-    "build": "next build",
-    "preview": "next build && wrangler dev",
-    "deploy": "next build && wrangler deploy",
+    "build": "next build && node scripts/flatten-export-segments.mjs",
+    "preview": "bun run build && wrangler dev",
+    "deploy": "bun run build && wrangler deploy",
     "cf-typegen": "wrangler types worker/worker-configuration.d.ts",
     "lint": "eslint .",
     "clear": "rm -rf .next",
