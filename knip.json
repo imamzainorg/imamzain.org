@@ -9,6 +9,7 @@
     ],
     "project": [
         "src/**/*.{ts,tsx}",
-        "scripts/**/*.ts"
+        "scripts/**/*.ts",
+        "worker/**/*.ts"
     ]
 }
