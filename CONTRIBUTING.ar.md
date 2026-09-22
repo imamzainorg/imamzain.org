@@ -32,7 +32,7 @@
 6. **التاجات (tags) والإصدارات** تُنشأها أداة [release-please](https://github.com/googleapis/release-please) تلقائياً عند دمج PR إصدار يفتحه الـ bot — لا تُنشأ يدوياً ولا بسكربت محلي.
 7. **احذف فرعك** بعد ما يتم دمج الـ PR.
 
-نحن نتبع **GitHub Flow**: فرع واحد طويل العمر (`main`)، فروع ميزات قصيرة العمر تتفرع منه، ومعاينات Vercel على كل PR كبيئة staging. لا يوجد فرع `dev`/`staging` — لسنا بحاجة إليه.
+نحن نتبع **GitHub Flow**: فرع واحد طويل العمر (`main`)، فروع ميزات قصيرة العمر تتفرع منه، ومعاينات Cloudflare على كل PR كبيئة staging. لا يوجد فرع `dev`/`staging` — لسنا بحاجة إليه.
 
 ---
 
@@ -214,7 +214,7 @@ git push -u origin fix/audio-download-403
 # افتح PR إلى main
 ```
 
-راجعه وادمجه. Vercel ينشر إلى الإنتاج خلال دقائق من الدمج. release-please سيلتقط الـ `fix:` ويضيفه إلى PR الإصدار المفتوح للإصدار الـ patch القادم — ادمجه متى تشاء لتاج النسخة.
+راجعه وادمجه. Cloudflare ينشر `main` إلى الإنتاج خلال دقائق من الدمج. release-please سيلتقط الـ `fix:` ويضيفه إلى PR الإصدار المفتوح للإصدار الـ patch القادم — ادمجه متى تشاء لتاج النسخة.
 
 **لا يوجد بادئة `hotfix` أو تدفق منفصل.** السرعة تأتي من سرعة المراجعة والدمج، لا من تدفق مختلف.
 
@@ -232,7 +232,7 @@ git push -u origin fix/audio-download-403
    - tag على commit الـ merge بـ `vX.Y.Z`.
    - يفتح GitHub Release بصفحة notes مولّدة.
 
-4. Vercel ينشر الـ tag الجديد.
+4. Cloudflare ينشر الدمج إلى الإنتاج، كما يفعل مع كل دمج في `main`.
 
 هذا كل شيء. **لا تشغّل أي أمر محلي للإصدار.** إذا وجدت نفسك تكتب `npm version` أو `git tag v...` — توقّف. الـ bot يعمل ذلك.
 
@@ -252,7 +252,7 @@ git push -u origin fix/audio-download-403
 4. Squash-merge هذا الـ PR يطلق الـ action مرة ثانية، فيعمل:
    - tag على commit الـ merge بـ `vX.Y.Z`.
    - يفتح GitHub Release بصفحة notes مولّدة.
-5. Vercel ينشر الـ tag تلقائياً.
+5. Cloudflare ينشر الدمج إلى الإنتاج تلقائياً.
 
 ### الإعدادات
 
@@ -400,7 +400,7 @@ git branch recovered-work <hash>
 
 من تاريخ المشروع الحقيقي. كل واحد منها كلّف شخصاً وقتاً.
 
-- ❌ **دفع مباشر إلى `main`.** حتى لو سطر واحد. افتح PR — مجرّد تشغيل CI و معاينة Vercel وحدهما يستحقان الوقت. ممنوع على مستوى الـ server على أي حال.
+- ❌ **دفع مباشر إلى `main`.** حتى لو سطر واحد. افتح PR — مجرّد تشغيل CI و معاينة Cloudflare وحدهما يستحقان الوقت. ممنوع على مستوى الـ server على أي حال.
 - ❌ **commits بصيغة `merge branch main`.** هذه تأتي من `git pull` على فرع متشعّب. استخدم `git pull --rebase` بدلاً منها، أو فعّل `pull.rebase = true` كما في قسم الإعداد أعلاه.
 - ❌ **رسائل commit نائبة (placeholder).** `Implement feature X to enhance user experience and fix bug Y in module Z` بقيت في التاريخ للأبد. اكتب الموضوع الحقيقي.
 - ❌ **PR واحد يصلح ستة أشياء غير مرتبطة.** المراجِع لا يستطيع فهمه، وأي revert يدمّر خمسة تغييرات جيدة.

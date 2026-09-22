@@ -1,0 +1,39 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	// imamzain.org on Cloudflare Workers. `next build` exports every page to
+	// out/ as static files, served by Workers Static Assets for free and without
+	// running any code. worker/ handles only the few endpoints that need a
+	// server. Deploy: `bun run deploy` (or push to main when Workers Builds is
+	// connected to the repository).
+	"name": "imamzain-org",
+	"main": "worker/index.ts",
+	"compatibility_date": "2026-09-01",
+	"assets": {
+		"directory": "./out",
+		"binding": "ASSETS",
+		"html_handling": "auto-trailing-slash",
+		"not_found_handling": "404-page",
+		// Only these paths run worker/; keep in sync with ROUTES in
+		// worker/index.ts. Every other request, including the prebuilt JSON under
+		// /api, is answered from out/ without invoking the Worker.
+		"run_worker_first": [
+			"/api/contact",
+			"/api/contests/qatuf-sajjadiyya/start",
+			"/api/contests/qatuf-sajjadiyya/submit",
+			"/api/download",
+			"/api/hijri-date",
+			"/api/newsletter/subscribe",
+			"/api/newsletter/unsubscribe",
+			"/api/proxy-visit"
+		]
+	},
+	// Not secrets: the public backend base URL and the CDN the download helper
+	// may redirect to.
+	"vars": {
+		"API_URL": "https://api.imamzain.org",
+		"ALLOWED_HOSTNAME": "cdn.imamzain.org"
+	},
+	"observability": {
+		"enabled": true
+	}
+}
