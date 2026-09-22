@@ -248,7 +248,17 @@ The site runs on Cloudflare Workers as the `imamzain-org` Worker ([`wrangler.jso
 - **Server code lives in [`worker/`](worker/)**, not in `src/app/api`. The forms, `/api/download` and `/api/hijri-date` need a server, so they are Worker routes. A new endpoint must be added to both `ROUTES` in [`worker/index.ts`](worker/index.ts) and `assets.run_worker_first` in `wrangler.jsonc`. Route handlers under `src/app/api` must be static (they are prebuilt to JSON files), or the build fails.
 - **Redirects live in [`public/_redirects`](public/_redirects)** and response headers in [`public/_headers`](public/_headers). A static export ignores `redirects()`/`rewrites()`/`headers()` in `next.config.ts`.
 - **Local development:** `bun run dev` for the site, plus `bun run dev:worker` in a second terminal when you need the forms or the Hijri date (in dev, Next forwards unknown `/api/*` paths to the Worker on port 8787). `bun run preview` serves the production build exactly as Cloudflare will.
-- **Deploys:** Workers Builds deploys `main` to production on every merge and gives each PR branch its own preview URL. `bun run deploy` deploys from your machine (needs `wrangler login`).
+- **Deploys** run in GitHub Actions ([`deploy.yml`](.github/workflows/deploy.yml)) on every merge to `main`:
+  1. The build is checked against the free-plan limits (`scripts/check-cloudflare-limits.mjs`).
+  2. The new version is uploaded without going live and smoke-tested on its own preview URL (`scripts/smoke-test.mjs`).
+  3. Only then is it promoted. If imamzain.org fails the same test right after, the workflow rolls back to the previous version by itself.
+
+  A failed deploy never takes the site down; it stays on the last good version. It needs the `CLOUDFLARE_API_TOKEN` secret (Cloudflare's "Edit Cloudflare Workers" token template).
+- **Previews:** every PR gets a preview URL posted as a comment by the `preview` job in [`predeploy.yml`](.github/workflows/predeploy.yml). Check your change there before merging.
+- **Uptime:** [`uptime.yml`](.github/workflows/uptime.yml) tests imamzain.org every 15 minutes. It opens an issue labelled `outage` when the site fails and closes it on recovery.
+- **Manual rollback:** Cloudflare dashboard → Workers & Pages → `imamzain-org` → Deployments → pick a previous version → Rollback. The same is available as `bunx wrangler rollback`.
+- **The production route** `imamzain.org/*` is attached to the Worker in the Cloudflare dashboard (Settings → Domains & Routes), not in `wrangler.jsonc`. Deploys leave it untouched. Deleting it hands traffic back to whatever the imamzain.org DNS record points at.
+- `bun run deploy` also deploys from your machine (needs `wrangler login`). Prefer merging to `main`, because only the workflow smoke-tests before going live.
 - **After changing `wrangler.jsonc`**, run `bun run cf-typegen` and commit `worker/worker-configuration.d.ts`.
 
 ---

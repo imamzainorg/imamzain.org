@@ -8,6 +8,10 @@
 	"name": "imamzain-org",
 	"main": "worker/index.ts",
 	"compatibility_date": "2026-09-01",
+	// Every version also gets its own preview URL on workers.dev; CI tests a new
+	// version there before promoting it (.github/workflows/deploy.yml).
+	"workers_dev": true,
+	"preview_urls": true,
 	"assets": {
 		"directory": "./out",
 		"binding": "ASSETS",
