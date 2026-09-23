@@ -11,7 +11,7 @@ export type YouTubeVideo = {
 	categories: string[]
 }
 
-export type DisplayLocation = "home" | "internal" | "both"
+export type DisplayLocation = "internal" | "both"
 
 export type YouTubeGroup = {
 	id: number

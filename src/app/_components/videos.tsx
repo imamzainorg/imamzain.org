@@ -10,6 +10,7 @@ import {
   VideoRecordingIcon,
 } from "@/assets/icons/reusable";
 import HeaderSections from "@/components/header-sections";
+import { thumbnailUrl } from "@/lib/youtube";
 
 // Slimmed to the one video this component ever reads (playlist.videos[0])
 // and the fields it renders; the server page filters and slices
@@ -23,17 +24,13 @@ type HomePlaylist = {
   videos: HomeVideo[]; // always exactly one entry: the playlist's first video
 };
 
-export default function Videos({
-  playlists,
-}: {
-  playlists: HomePlaylist[];
-}) {
+export default function Videos({ playlists }: { playlists: HomePlaylist[] }) {
   const [videoId, setVideoId] = useState<string | null>(null);
   const [show, setShow] = useState<number>(7);
 
   const openModal = (videoId: string) => setVideoId(videoId);
   const closeModal = () => setVideoId(null);
-  // Already filtered to displayLocation home/both and sliced to the max
+  // Already filtered to displayLocation both and sliced to the max
   // number of tiles any breakpoint shows by the server page.
   const homePlaylists = playlists;
   useEffect(() => {
@@ -89,7 +86,7 @@ export default function Videos({
                 transition={{ duration: 0.3 }}
               >
                 <Image
-                  src={playlist.videos[0].thumbnail || ""}
+                  src={thumbnailUrl(playlist.videos[0].thumbnail)}
                   width={600}
                   height={600}
                   alt="media pic"
@@ -134,10 +131,7 @@ export default function Videos({
                     {playlist.videos[0].title}
                   </div>
 
-                  <div className="flex justify-between items-center text-xs text-slate-400 gap-2">
-                    <div className="truncate w-3/5">
-                      {playlist.videos[0].desc}
-                    </div>
+                  <div className="flex justify-end items-center text-xs text-slate-400 gap-2">
                     <div className="flex items-center gap-1">
                       <TimeIcon className="w-3 h-3" stroke="#aaa" />
                       <span>{playlist.videos[0].date}</span>
