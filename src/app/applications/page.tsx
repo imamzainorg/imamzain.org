@@ -65,6 +65,7 @@ const apps: AppItem[] = [
     front: "/applications/maarif-al-sajjad/homepage.webp",
     back: "/applications/maarif-al-sajjad/roadmap.webp",
     store: {
+      appStore: "https://maarif-web.imamzain.org/",
       googlePlay:
         "https://play.google.com/store/apps/details?id=org.imamzain.maarif_sajjadyia",
     },
