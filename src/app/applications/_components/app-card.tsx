@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import {  LibraryBig } from "lucide-react";
-/* import { ArrowUpLeft, BadgeCheck, Clock, LibraryBig } from "lucide-react"; */
+ import { ArrowUpLeft} from "lucide-react"; 
 
 export interface AppItem {
   name: string;
@@ -128,7 +128,7 @@ export default function AppCard({
         <div className="mt-auto flex flex-col gap-3 pt-5">
           {isAvailable ? (
             <>
-              {/* 			<Link
+              			<Link
 								href={app.url}
 								target="_blank"
 								rel="noopener noreferrer"
@@ -138,7 +138,7 @@ export default function AppCard({
 								<span>اكتشف التطبيق</span>
 								<ArrowUpLeft className="w-5 h-5 transition-transform group-hover/cta:-translate-x-1 group-hover/cta:-translate-y-1" />
 							</Link>
-							 */}
+							 
               {(app.store?.appStore || app.store?.googlePlay) && (
                 <div className="flex items-center justify-center gap-3 pt-1">
                   {app.store?.appStore && (
@@ -179,7 +179,7 @@ export default function AppCard({
             </>
           ) : (
             <>
-              {/*  	
+               	
 			  	<Link
 								href={app.url}
 								target="_blank"
@@ -189,7 +189,7 @@ export default function AppCard({
 							>
 								<span>اكتشف التطبيق</span>
 								<ArrowUpLeft className="w-5 h-5 transition-transform group-hover/cta:-translate-x-1 group-hover/cta:-translate-y-1" />
-							</Link> */}
+							</Link> 
               {(app.store?.appStore || app.store?.googlePlay) && (
                 <div className="flex items-center justify-center gap-3 pt-1">
                   {app.store?.appStore && (
