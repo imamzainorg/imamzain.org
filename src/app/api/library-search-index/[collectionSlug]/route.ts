@@ -5,6 +5,7 @@ import { collections } from "@/app/library/_config/collections"
 // Prerendered to a static JSON file at build time (no dynamic APIs are used
 // here), so it is served from the CDN edge like any other static asset: no
 // serverless invocation and no origin transfer per request.
+export const dynamic = "force-static"
 export const dynamicParams = false
 
 export function generateStaticParams() {
