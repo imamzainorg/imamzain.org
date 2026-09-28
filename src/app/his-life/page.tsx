@@ -1,15 +1,21 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, BookOpen, IdCard, MapPin, Quote, ScrollText } from "lucide-react"
+import { ArrowLeft } from "lucide-react"
 import Breadcrumbs from "@/components/breadcrumb"
-import HeaderSections from "@/components/header-sections"
+import AnimatedQuote from "./_components/animated-quote"
+import { MoreLink, SectionTitle, TitleIcon, outlinePanel, shieldPanel } from "./_components/brand"
+import CaptivityRoute from "./_components/captivity-route"
+import { Reveal } from "./_components/motion"
 import Stories from "./_components/stories"
+import Timeline from "./_components/timeline"
 import TitlesExplorer from "./_components/titles-explorer"
 import {
 	captivityStops,
 	eras,
 	facts,
 	featuredQuote,
+	huqooq,
 	intro,
 	kunyas,
 	letters,
@@ -55,368 +61,255 @@ export const metadata: Metadata = {
 	},
 }
 
-const sectionNav = [
-	{ href: "#journey", label: "رحلة حياته" },
-	{ href: "#titles", label: "ألقابه" },
-	{ href: "#stories", label: "مشاهد من حياته" },
-	{ href: "#words", label: "من كلامه" },
-	{ href: "#circle", label: "من حوله" },
-	{ href: "#sources", label: "النصوص الكاملة" },
-]
-
-const card = "rounded-3xl bg-white shadow-sm ring-1 ring-black/5"
-const moreLink =
-	"inline-flex items-center gap-1 font-semibold text-primary hover:underline dark:text-Muharram_primary"
-
-function SectionHeader({ title, text }: { title: string; text: string }) {
-	return (
-		<div className="mb-10 space-y-4">
-			<HeaderSections title={title} />
-			<p className="max-w-3xl text-lg leading-loose text-gray-600 md:text-xl">{text}</p>
-		</div>
-	)
-}
-
-function Route({ stops }: { stops: string[] }) {
-	return (
-		<ol className="mt-5 flex flex-wrap items-center gap-2" aria-label="مسار الرحلة">
-			{stops.map((stop, i) => (
-				<li key={`${stop}-${i}`} className="flex items-center gap-2">
-					<span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary dark:bg-Muharram_primary/10 dark:text-Muharram_primary">
-						<MapPin className="h-3.5 w-3.5" />
-						{stop}
-					</span>
-					{i < stops.length - 1 && (
-						<ArrowLeft className="h-4 w-4 text-secondary dark:text-Muharram_secondary" />
-					)}
-				</li>
-			))}
-		</ol>
-	)
-}
+const solidButton =
+	"group inline-flex items-center gap-3 rounded-xl border-2 border-primary bg-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-primary/90 dark:border-Muharram_primary dark:bg-Muharram_primary"
+const outlineButton =
+	"group inline-flex items-center gap-3 rounded-xl border-2 border-primary px-6 py-3 font-semibold text-primary transition-colors hover:bg-primary hover:text-white dark:border-Muharram_primary dark:text-Muharram_primary dark:hover:bg-Muharram_primary dark:hover:text-white"
 
 export default async function Page() {
 	const chapters = await getChapters()
 
 	return (
 		<div className="pb-12">
-			<Breadcrumbs
-				links={[
-					{ name: "الصفحة الرئيسية", url: "/" },
-					{ name: "سيرة الإمام زين العابدين (عليه السلام)", url: "#" },
-				]}
-			/>
+			<div className="container">
+				<Breadcrumbs
+					links={[
+						{ name: "الصفحة الرئيسية", url: "/" },
+						{ name: "سيرة الإمام زين العابدين (عليه السلام)", url: "#" },
+					]}
+				/>
 
-			{/* Hero: who he was, in one screen */}
-			<section className="grid items-start gap-10 lg:grid-cols-[3fr_2fr]">
-				<div>
-					<p className="inline-block rounded-full bg-secondary/15 px-4 py-1 text-sm font-semibold text-secondary_dark dark:bg-Muharram_secondary/10 dark:text-Muharram_secondary">
-						سيرة الإمام الرابع من أئمة أهل البيت (عليهم السلام)
-					</p>
-					<h1 className="mt-5 text-primary dark:text-Muharram_primary">
-						<span className="block text-hero font-bold">زين العابدين</span>
-						<span className="mt-3 block text-2xl font-semibold text-gray-700 md:text-3xl">
-							الإمام علي بن الحسين (عليه السلام)
-						</span>
-					</h1>
-					<p className="mt-6 max-w-2xl text-lg leading-loose text-gray-700 md:text-xl md:leading-loose">
-						{intro}
-					</p>
-					<nav aria-label="أقسام الصفحة" className="mt-8 flex flex-wrap gap-2">
-						{sectionNav.map((item) => (
-							<a
-								key={item.href}
-								href={item.href}
-								className="rounded-full border border-primary/30 bg-white px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white dark:border-Muharram_primary/30 dark:text-Muharram_primary dark:hover:bg-Muharram_primary dark:hover:text-white md:text-base"
-							>
-								{item.label}
+				{/* Hero: who he was, in one screen */}
+				<section className="grid items-center gap-14 lg:grid-cols-[3fr_2fr]">
+					<Reveal x={60} y={0}>
+						<p className="flex items-center gap-2 font-semibold text-secondary_dark dark:text-Muharram_secondary">
+							<TitleIcon className="w-3" />
+							سيرة الإمام الرابع من أئمة أهل البيت (عليهم السلام)
+						</p>
+						<h1 className="mt-4 text-primary dark:text-Muharram_primary">
+							<span className="block text-hero font-bold">زين العابدين</span>
+							<span className="mt-3 block text-2xl font-semibold text-gray-700 md:text-3xl">
+								الإمام علي بن الحسين (عليه السلام)
+							</span>
+						</h1>
+						<p className="mt-6 max-w-2xl text-lg leading-loose text-gray-700 md:text-xl md:leading-loose">
+							{intro}
+						</p>
+						<div className="mt-8 flex flex-wrap gap-3">
+							<a href="#journey" className={solidButton}>
+								<span className="h-2 w-2 rounded-full bg-secondary dark:bg-Muharram_secondary" />
+								ابدأ رحلة حياته
 							</a>
-						))}
-					</nav>
-				</div>
+							<a href="#stories" className={outlineButton}>
+								مشاهد من حياته
+								<ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+							</a>
+						</div>
+					</Reveal>
 
-				<aside className={`${card} overflow-hidden`} aria-labelledby="facts-title">
-					<h2
-						id="facts-title"
-						className="flex items-center gap-3 bg-primary px-6 py-4 text-lg font-bold text-white dark:bg-Muharram_primary"
-					>
-						<IdCard className="h-5 w-5 text-secondary dark:text-Muharram_secondary" />
-						بطاقة تعريفية
-					</h2>
-					<dl className="divide-y divide-gray-100">
-						{facts.map((fact) => (
-							<div key={fact.label} className="grid grid-cols-[6.5rem_1fr] gap-3 px-6 py-3">
-								<dt className="text-sm font-semibold leading-7 text-secondary_dark dark:text-Muharram_secondary">
-									{fact.label}
-								</dt>
-								<dd className="leading-7 text-gray-800">{fact.value}</dd>
-							</div>
-						))}
-					</dl>
-				</aside>
+					<Reveal x={-60} y={0} delay={0.2}>
+						<aside className={`${shieldPanel} p-8 md:p-10`} aria-labelledby="facts-title">
+							<h2 id="facts-title" className="flex items-center gap-3 text-xl font-bold">
+								<TitleIcon className="w-3" />
+								بطاقة تعريفية
+							</h2>
+							<dl className="mt-4">
+								{facts.map((fact) => (
+									<div
+										key={fact.label}
+										className="grid grid-cols-[6rem_1fr] gap-3 border-b border-white/10 py-3 last:border-0"
+									>
+										<dt className="text-sm font-semibold leading-7 text-secondary dark:text-white/60">
+											{fact.label}
+										</dt>
+										<dd className="leading-7 text-white">{fact.value}</dd>
+									</div>
+								))}
+							</dl>
+						</aside>
+					</Reveal>
+				</section>
+			</div>
+
+			{/* Journey: his life in six stages, drawn as you scroll */}
+			<section id="journey" className="container scroll-mt-32 pt-28">
+				<SectionTitle
+					title="رحلة حياته"
+					text="سبع وخمسون سنة، بدأت في المدينة وانتهت فيها، مرّت بكربلاء والكوفة والشام. هذه محطاتها الكبرى، ومع كل محطة رابط إلى نصوصها الكاملة."
+				/>
+				<Timeline eras={eras} />
 			</section>
 
-			<div className="mt-24 space-y-28">
-				{/* Journey: his life as six stages */}
-				<section id="journey" className="scroll-mt-32">
-					<SectionHeader
-						title="رحلة حياته"
-						text="سبع وخمسون سنة، بدأت في المدينة وانتهت فيها، مرّت بكربلاء والكوفة والشام. هذه محطاتها الكبرى باختصار، ومع كل محطة رابط إلى نصوصها الكاملة."
-					/>
-					<ol className="relative max-w-4xl space-y-8 before:absolute before:bottom-4 before:right-[1.05rem] before:top-4 md:before:right-[1.35rem] before:w-0.5 before:bg-secondary/40 dark:before:bg-Muharram_secondary/30">
-						{eras.map((era, i) => (
-							<li key={era.title} className="relative pr-11 md:pr-16">
-								<span className="absolute right-0 top-5 flex h-9 w-9 items-center justify-center rounded-full bg-primary font-bold md:h-11 md:w-11 md:text-lg text-white ring-4 ring-yellow-50 dark:bg-Muharram_primary">
-									{arabicNumber(i + 1)}
-								</span>
-								<article className={`${card} p-5 md:p-8`}>
-									<div className="flex flex-wrap items-center gap-2 text-sm font-semibold">
-										<span className="rounded-full bg-secondary/15 px-3 py-1 text-secondary_dark dark:bg-Muharram_secondary/10 dark:text-Muharram_secondary">
-											{era.period}
-										</span>
-										{era.age && (
-											<span className="rounded-full bg-gray-100 px-3 py-1 text-gray-600">
-												عمره {era.age}
-											</span>
-										)}
-									</div>
-									<h3 className="mt-3 text-2xl font-bold text-primary dark:text-Muharram_primary">
-										{era.title}
-									</h3>
-									<p className="mt-3 text-lg leading-loose text-gray-700">{era.text}</p>
-									{era.route && <Route stops={era.route} />}
-									{era.quote && (
-										<figure className="mt-5 rounded-2xl bg-secondary/5 p-5 dark:bg-Muharram_secondary/5">
-											<blockquote className="text-lg font-semibold leading-loose text-gray-800">
-												«{era.quote.text}»
-											</blockquote>
-											<figcaption className="mt-2 text-sm text-secondary_dark dark:text-Muharram_secondary">
-												{era.quote.by}
-											</figcaption>
-										</figure>
-									)}
-									{era.events && (
-										<ul className="mt-5 space-y-2">
-											{era.events.map((event) => (
-												<li key={event.href}>
-													<Link
-														href={event.href}
-														className="group flex items-start gap-2 leading-8 text-gray-700 hover:text-primary dark:hover:text-Muharram_primary"
-													>
-														<span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-secondary dark:bg-Muharram_secondary" />
-														<span className="group-hover:underline">{event.text}</span>
-													</Link>
-												</li>
-											))}
-										</ul>
-									)}
-									<Link href={era.link.href} className={`${moreLink} mt-6`}>
-										{era.link.label}
-										<ArrowLeft className="h-4 w-4" />
-									</Link>
-								</article>
-							</li>
-						))}
-					</ol>
-				</section>
-
-				{/* Titles: what people called him, and why */}
-				<section id="titles" className="scroll-mt-32">
-					<SectionHeader
+			{/* Titles: a dark band like the home page's services section */}
+			<section id="titles" className="relative mt-28 scroll-mt-24 overflow-hidden bg-[#101c1a] py-20 md:py-28">
+				<div aria-hidden className="absolute inset-0 bg-[url('/shapes/bg.svg')] bg-[length:500px] opacity-[0.04]" />
+				<div className="container relative">
+					<SectionTitle
+						light
 						title="ألقابه: لماذا سُمّي بها؟"
 						text="لكل لقب من ألقابه قصة تكشف جانباً من شخصيته. اختر لقباً لتعرف سببه ومصدره."
 					/>
 					<TitlesExplorer titles={titles} />
-					<div className="mt-8 grid gap-6 md:grid-cols-2">
-						<div className={`${card} p-6`}>
-							<h3 className="text-lg font-bold text-primary dark:text-Muharram_primary">
-								ألقاب أخرى ذكرتها المصادر
-							</h3>
-							<ul className="mt-4 flex flex-wrap gap-2">
-								{otherTitles.map((name) => (
-									<li key={name} className="rounded-full bg-gray-100 px-3 py-1 text-gray-700">
-										{name}
-									</li>
-								))}
-							</ul>
+					<div className="mt-16 grid gap-10 border-t border-white/10 pt-10 md:grid-cols-2">
+						<div>
+							<h3 className="font-bold text-secondary dark:text-white">ألقاب أخرى ذكرتها المصادر</h3>
+							<p className="mt-3 text-lg leading-loose text-white/70">{otherTitles.join(" · ")}</p>
 						</div>
-						<div className={`${card} p-6`}>
-							<h3 className="text-lg font-bold text-primary dark:text-Muharram_primary">كناه</h3>
-							<ul className="mt-4 flex flex-wrap gap-2">
-								{kunyas.names.map((name) => (
-									<li
-										key={name}
-										className="rounded-full bg-secondary/10 px-3 py-1 font-semibold text-secondary_dark dark:bg-Muharram_secondary/10 dark:text-Muharram_secondary"
-									>
-										{name}
-									</li>
-								))}
-							</ul>
-							<p className="mt-4 text-gray-600">{kunyas.note}</p>
+						<div>
+							<h3 className="font-bold text-secondary dark:text-white">كناه</h3>
+							<p className="mt-3 text-xl font-semibold text-white">{kunyas.names.join("، ")}</p>
+							<p className="mt-2 text-white/60">{kunyas.note}</p>
 						</div>
 					</div>
-				</section>
+				</div>
+			</section>
 
-				{/* Stories: short retellings, filterable by theme */}
-				<section id="stories" className="scroll-mt-32">
-					<SectionHeader
-						title="مشاهد من حياته"
-						text="قصص قصيرة من سيرته كما رواها معاصروه والمؤرخون، مروية بلغة ميسّرة. لكل مشهد رابط إلى روايته الكاملة بسندها ومصدرها."
-					/>
-					<Stories stories={stories} />
-				</section>
+			{/* Stories: a carousel of short retellings */}
+			<section id="stories" className="container scroll-mt-32 pt-28">
+				<SectionTitle
+					title="مشاهد من حياته"
+					text="قصص قصيرة من سيرته كما رواها معاصروه والمؤرخون، مروية بلغة ميسّرة. لكل مشهد رابط إلى روايته الكاملة بسندها ومصدرها."
+				/>
+				<Stories stories={stories} />
+			</section>
 
-				{/* Words: sermons along the captivity route, then letters */}
-				<section id="words" className="scroll-mt-32">
-					<SectionHeader
-						title="من كلامه"
-						text="بعد كربلاء لم يبقَ مع الإمام سلاح غير الكلمة، فجعل من طريق السبي منبراً. وفي المدينة واصل برسائله ومواعظه."
-					/>
-
-					<figure className="relative overflow-hidden rounded-3xl bg-primary p-8 text-white dark:bg-Muharram_primary md:p-12">
-						<Quote
-							aria-hidden
-							className="absolute left-6 top-6 h-24 w-24 rotate-180 text-white/10 md:h-32 md:w-32"
+			{/* Featured words over the salutation calligraphy */}
+			<section
+				id="words"
+				className="relative mt-24 scroll-mt-24 bg-[url('/images/imam-legacy-bg-symbol.jpg')] bg-cover bg-center"
+			>
+				<div className="bg-[#101c1a]/80 py-24 backdrop-blur-[2px] md:py-32">
+					<div className="container flex flex-col items-center text-center">
+						<TitleIcon className="w-5" />
+						<AnimatedQuote
+							text={featuredQuote.text}
+							className="mt-8 max-w-4xl text-3xl font-bold leading-relaxed text-white md:text-5xl md:leading-relaxed"
 						/>
-						<blockquote className="relative max-w-4xl text-2xl font-bold leading-relaxed md:text-4xl md:leading-relaxed">
-							«{featuredQuote.text}»
-						</blockquote>
-						<figcaption className="relative mt-6 flex flex-wrap items-center justify-between gap-4">
-							<span className="text-secondary dark:text-white/70">{featuredQuote.context}</span>
-							<Link
-								href={featuredQuote.href}
-								className="inline-flex items-center gap-1 font-semibold text-white hover:underline"
-							>
-								المشهد كاملاً
-								<ArrowLeft className="h-4 w-4" />
-							</Link>
-						</figcaption>
-					</figure>
+						<p className="mt-6 text-lg text-secondary dark:text-white/70">{featuredQuote.context}</p>
+						<MoreLink href={featuredQuote.href} light className="mt-4">
+							المشهد كاملاً
+						</MoreLink>
+					</div>
+				</div>
+			</section>
 
-					<h3 className="mt-14 text-2xl font-bold text-primary dark:text-Muharram_primary">
-						خطبه في رحلة السبي
-					</h3>
-					<ol className="mt-6 grid gap-6 lg:grid-cols-3">
-						{captivityStops.map((stop, i) => (
-							<li key={stop.place} className={`${card} p-6`}>
-								<div className="flex items-center gap-3">
-									<span className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary/15 font-bold text-secondary_dark dark:bg-Muharram_secondary/10 dark:text-Muharram_secondary">
-										{arabicNumber(i + 1)}
+			{/* Sermons along the captivity route, then letters */}
+			<section className="container pt-24">
+				<SectionTitle
+					title="من كلامه"
+					text="بعد كربلاء لم يبقَ مع الإمام سلاح غير الكلمة، فجعل من طريق السبي منبراً. وفي المدينة واصل برسائله ومواعظه."
+				/>
+				<h3 className="mb-12 text-2xl font-bold text-gray-800">خطبه في رحلة السبي</h3>
+				<CaptivityRoute stops={captivityStops} />
+
+				<h3 className="mb-8 mt-24 text-2xl font-bold text-gray-800">رسائله ومواعظه</h3>
+				<Reveal>
+					<div className={`${outlinePanel} relative p-8 md:p-12 lg:pl-80`}>
+						<h4 className="text-3xl font-bold text-primary dark:text-Muharram_primary">{huqooq.title}</h4>
+						<p className="mt-4 max-w-2xl text-lg leading-loose text-gray-700">{huqooq.text}</p>
+						<Link href={huqooq.href} className={`${outlineButton} mt-6`}>
+							اقرأها في المكتبة
+							<ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+						</Link>
+						<div className="absolute -top-10 left-16 hidden w-52 lg:block" aria-hidden>
+							<Image src="/shapes/book-bg.svg" width={208} height={240} alt="" className="w-full dark:hidden" />
+							<Image
+								src="/shapes/book-bg_Muharram.svg"
+								width={208}
+								height={240}
+								alt=""
+								className="hidden w-full dark:block"
+							/>
+							<span className="absolute inset-x-0 top-[14%] text-center text-2xl font-bold text-white">
+								رسالة
+								<br />
+								الحقوق
+							</span>
+						</div>
+					</div>
+				</Reveal>
+				<ul className="mt-10 grid gap-x-16 md:grid-cols-2">
+					{letters.map((letter, i) => (
+						<li key={letter.title}>
+							<Reveal y={20} delay={(i % 2) * 0.1}>
+								<Link href={letter.href} className="group block border-b border-secondary/30 py-6">
+									<span className="flex items-center gap-3 text-xl font-bold text-primary dark:text-Muharram_primary">
+										<TitleIcon className="w-2.5" />
+										{letter.title}
+										<ArrowLeft className="h-4 w-4 opacity-0 transition-all duration-200 group-hover:-translate-x-1 group-hover:opacity-100" />
 									</span>
-									<h4 className="flex items-center gap-1 text-xl font-bold text-primary dark:text-Muharram_primary">
-										<MapPin className="h-5 w-5" />
-										{stop.place}
-									</h4>
-								</div>
-								<ul className="mt-5 space-y-5">
-									{stop.items.map((item) => (
-										<li key={item.title} className="border-r-2 border-secondary/40 pr-4 dark:border-Muharram_secondary/30">
-											<Link
-												href={item.href}
-												className="font-bold text-gray-900 hover:text-primary hover:underline dark:hover:text-Muharram_primary"
-											>
-												{item.title}
-											</Link>
-											<p className="mt-1 leading-loose text-gray-600">{item.text}</p>
-										</li>
-									))}
-								</ul>
-							</li>
-						))}
-					</ol>
-
-					<h3 className="mt-14 text-2xl font-bold text-primary dark:text-Muharram_primary">
-						رسائله ومواعظه
-					</h3>
-					<ul className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-						{letters.map((letter) => (
-							<li
-								key={letter.title}
-								className={
-									letter.external
-										? "flex flex-col rounded-3xl bg-secondary/10 p-6 ring-1 ring-secondary/30 dark:bg-Muharram_secondary/5 dark:ring-Muharram_secondary/20"
-										: `${card} flex flex-col p-6`
-								}
-							>
-								<h4 className="flex items-center gap-2 text-lg font-bold text-primary dark:text-Muharram_primary">
-									<ScrollText className="h-5 w-5 text-secondary dark:text-Muharram_secondary" />
-									{letter.title}
-								</h4>
-								<p className="mt-3 flex-1 leading-loose text-gray-700">{letter.text}</p>
-								<Link href={letter.href} className={`${moreLink} mt-4`}>
-									{letter.external ? "اقرأها في المكتبة" : "النص الكامل"}
-									<ArrowLeft className="h-4 w-4" />
+									<span className="mt-2 block leading-loose text-gray-600">{letter.text}</span>
 								</Link>
-							</li>
-						))}
-					</ul>
-				</section>
+							</Reveal>
+						</li>
+					))}
+				</ul>
+			</section>
 
-				{/* Circle: family and companions */}
-				<section id="circle" className="scroll-mt-32">
-					<SectionHeader
-						title="من حوله"
-						text="من أهل بيته وأصحابه الذين حملوا عنه العلم وشهدوا له."
-					/>
-					<ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-						{people.map((person) => (
-							<li key={person.name} className={`${card} flex flex-col p-6`}>
-								<div className="flex items-center gap-4">
-									<span
-										aria-hidden
-										className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary text-2xl font-bold text-white dark:bg-Muharram_primary"
-									>
-										{person.initial}
-									</span>
-									<div>
-										<h3 className="text-lg font-bold text-gray-900">{person.name}</h3>
-										<p className="text-sm font-semibold text-secondary_dark dark:text-Muharram_secondary">
-											{person.relation}
-										</p>
-									</div>
-								</div>
-								<p className="mt-4 flex-1 leading-loose text-gray-700">{person.text}</p>
-								<Link href={person.href} className={`${moreLink} mt-4`}>
-									المزيد عنه
-									<ArrowLeft className="h-4 w-4" />
-								</Link>
-							</li>
-						))}
-					</ul>
-				</section>
-
-				{/* Sources: the full narrations, chapter by chapter */}
-				<section id="sources" className="scroll-mt-32">
-					<SectionHeader
-						title="النصوص الكاملة من المصادر"
-						text="كل ما سبق مأخوذ من هذه الفصول، وفيها الروايات كما وردت في كتب الحديث والتاريخ بأسانيدها ومصادرها، للقارئ الذي يريد الرجوع إلى النص الأصلي."
-					/>
-					<ol className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-						{chapters.map((chapter, i) => (
-							<li key={chapter.slug}>
-								<Link
-									href={`/his-life/${chapter.slug}`}
-									className={`${card} group flex h-full flex-col p-6 transition-shadow hover:shadow-lg`}
+			{/* Circle: family and companions */}
+			<section id="circle" className="container scroll-mt-32 pt-28">
+				<SectionTitle title="من حوله" text="من أهل بيته وأصحابه الذين حملوا عنه العلم وشهدوا له." />
+				<ul className="grid gap-x-12 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+					{people.map((person, i) => (
+						<li key={person.name}>
+							<Reveal y={30} delay={(i % 3) * 0.12} className="flex gap-5">
+								<span
+									aria-hidden
+									className="flex h-20 w-20 shrink-0 items-center justify-center bg-[url('/shapes/ziara-bg.svg')] bg-contain bg-center bg-no-repeat text-3xl font-bold text-white dark:bg-[url('/shapes/ziara-bg_Muharram.svg')]"
 								>
-									<div className="flex items-center justify-between text-sm text-gray-500">
-										<span className="font-semibold text-secondary_dark dark:text-Muharram_secondary">
-											الفصل {arabicNumber(i + 1)}
+									{person.initial}
+								</span>
+								<div>
+									<h3 className="text-xl font-bold text-gray-900">{person.name}</h3>
+									<p className="mt-1 font-semibold text-secondary_dark dark:text-Muharram_secondary">
+										{person.relation}
+									</p>
+									<p className="mt-3 leading-loose text-gray-700">{person.text}</p>
+									<MoreLink href={person.href} className="mt-3">
+										المزيد عنه
+									</MoreLink>
+								</div>
+							</Reveal>
+						</li>
+					))}
+				</ul>
+			</section>
+
+			{/* Sources: the full narrations, as a table of contents */}
+			<section id="sources" className="container scroll-mt-32 pt-28">
+				<SectionTitle
+					title="النصوص الكاملة من المصادر"
+					text="كل ما سبق مأخوذ من هذه الفصول، وفيها الروايات كما وردت في كتب الحديث والتاريخ بأسانيدها ومصادرها، للقارئ الذي يريد الرجوع إلى النص الأصلي."
+				/>
+				<Reveal>
+					<div className={`${outlinePanel} px-6 py-4 md:px-12 md:py-8`}>
+						<ol className="grid gap-x-14 md:grid-cols-2">
+							{chapters.map((chapter, i) => (
+								<li key={chapter.slug}>
+									<Link
+										href={`/his-life/${chapter.slug}`}
+										className="group flex items-start gap-4 border-b border-dashed border-secondary/40 py-5"
+									>
+										<span className="w-9 shrink-0 text-2xl font-bold text-secondary dark:text-Muharram_secondary">
+											{arabicNumber(i + 1)}
 										</span>
-										<span className="inline-flex items-center gap-1">
-											<BookOpen className="h-4 w-4" />
+										<span className="flex-1">
+											<span className="flex items-center gap-2 text-xl font-bold text-primary dark:text-Muharram_primary">
+												{chapter.title}
+												<ArrowLeft className="h-4 w-4 opacity-0 transition-all duration-200 group-hover:-translate-x-1 group-hover:opacity-100" />
+											</span>
+											<span className="mt-1 line-clamp-2 leading-7 text-gray-600">{chapter.summary}</span>
+										</span>
+										<span className="shrink-0 pt-1.5 text-sm text-gray-500">
 											{readingTimeLabel(chapter.readingMinutes)}
 										</span>
-									</div>
-									<h3 className="mt-3 text-xl font-bold text-primary group-hover:underline dark:text-Muharram_primary">
-										{chapter.title}
-									</h3>
-									<p className="mt-3 line-clamp-3 leading-loose text-gray-600">{chapter.summary}</p>
-								</Link>
-							</li>
-						))}
-					</ol>
-				</section>
-			</div>
+									</Link>
+								</li>
+							))}
+						</ol>
+					</div>
+				</Reveal>
+			</section>
 		</div>
 	)
 }

@@ -172,3 +172,21 @@ html.dark {
 .narration a {
 	@apply font-semibold text-primary underline underline-offset-4 dark:text-Muharram_primary;
 }
+
+/* Story carousel on /his-life: brand-colored dots, side slides dimmed. */
+.stories-swiper {
+	--swiper-pagination-color: theme("colors.secondary");
+	--swiper-pagination-bullet-inactive-color: theme("colors.primary");
+	--swiper-pagination-bullet-inactive-opacity: 0.25;
+}
+.dark .stories-swiper {
+	--swiper-pagination-color: theme("colors.Muharram_secondary");
+	--swiper-pagination-bullet-inactive-color: theme("colors.Muharram_primary");
+}
+.stories-swiper .swiper-slide {
+	opacity: 0.45;
+	transition: opacity 0.4s ease;
+}
+.stories-swiper .swiper-slide-active {
+	opacity: 1;
+}

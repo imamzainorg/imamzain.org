@@ -395,13 +395,13 @@ export const captivityStops: { place: string; items: WordItem[] }[] = [
 	},
 ]
 
-export const letters: (WordItem & { external?: boolean })[] = [
-	{
-		title: "رسالة الحقوق",
-		text: "أشهر ما وصل من تراثه: منظومة جامعة لحق الله، وحق النفس والجوارح، وحقوق الناس على اختلاف صلاتهم بالإنسان.",
-		href: "/library/risalat-al-huqoq/introduction",
-		external: true,
-	},
+export const huqooq: WordItem = {
+	title: "رسالة الحقوق",
+	text: "أشهر ما وصل من تراثه: منظومة جامعة لحق الله، وحق النفس والجوارح، وحقوق الناس على اختلاف صلاتهم بالإنسان، من الأرحام والجيران إلى الأصحاب وسائر الناس.",
+	href: "/library/risalat-al-huqoq/introduction",
+}
+
+export const letters: WordItem[] = [
 	{
 		title: "رسالته في الزهد",
 		text: "«كفانا الله وإياكم كيد الظالمين، وبغي الحاسدين، وبطش الجبارين». يحذّر فيها المؤمنين من فتنة الطواغيت وأتباعهم.",
