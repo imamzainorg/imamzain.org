@@ -1,13 +1,16 @@
 import { dataFetcher } from "@/lib/dataFetcher"
 import type { imamzainLife } from "@/types/imamzain-life"
-import { chapterMeta, type ChapterMeta } from "../_data/biography"
+import { chapterOrder } from "../_data/biography"
 import { anchorId } from "./anchors"
 
-// A narration card: an optional number ("3- قال المفيد: ...") and its paragraphs (trusted HTML).
+// A narration: an optional number ("3- قال المفيد: ...") and its paragraphs (trusted HTML).
 export type Entry = { id?: string; number?: number; paragraphs: string[] }
 export type Section = { id?: string; title?: string; entries: Entry[] }
-export type Chapter = ChapterMeta & {
+export type Chapter = {
+	slug: string
 	title: string
+	// The chapter's own opening words, for search results and link previews.
+	description: string
 	sections: Section[]
 	readingMinutes: number
 }
@@ -57,19 +60,21 @@ function parseSections(html: string): Section[] {
 
 export async function getChapters(): Promise<Chapter[]> {
 	const raw = await dataFetcher<imamzainLife[]>("imamzain.json")
-	const order = new Map(chapterMeta.map((meta, i) => [meta.slug, i]))
+	const order = new Map(chapterOrder.map((slug, i) => [slug, i]))
 
 	return raw
 		.map((chapter) => {
-			const meta = chapterMeta.find((m) => m.slug === chapter.slug)
-			const words = chapter.content.replace(/<[^>]+>/g, " ").split(/\s+/).length
+			const text = chapter.content
+				.replace(/<small>[\s\S]*?<\/small>/g, " ")
+				.replace(/<[^>]+>/g, " ")
+				.replace(/\s+/g, " ")
+				.trim()
 			return {
 				slug: chapter.slug,
-				summary: "",
-				...meta,
 				title: chapter.title,
+				description: text.length > 160 ? `${text.slice(0, 157).trimEnd()}…` : text,
 				sections: parseSections(chapter.content),
-				readingMinutes: Math.max(1, Math.round(words / 180)),
+				readingMinutes: Math.max(1, Math.round(text.split(" ").length / 180)),
 			}
 		})
 		.sort((a, b) => (order.get(a.slug) ?? order.size) - (order.get(b.slug) ?? order.size))

@@ -13,13 +13,13 @@ import TitlesExplorer from "./_components/titles-explorer"
 import {
 	captivityStops,
 	eras,
+	allTitles,
 	facts,
 	featuredQuote,
 	huqooq,
 	intro,
 	kunyas,
 	letters,
-	otherTitles,
 	people,
 	stories,
 	titles,
@@ -84,7 +84,7 @@ export default async function Page() {
 					<Reveal x={60} y={0}>
 						<p className="flex items-center gap-2 font-semibold text-secondary_dark dark:text-Muharram_secondary">
 							<TitleIcon className="w-3" />
-							سيرة الإمام الرابع من أئمة أهل البيت (عليهم السلام)
+							{intro.heading}
 						</p>
 						<h1 className="mt-4 text-primary dark:text-Muharram_primary">
 							<span className="block text-hero font-bold">زين العابدين</span>
@@ -93,7 +93,7 @@ export default async function Page() {
 							</span>
 						</h1>
 						<p className="mt-6 max-w-2xl text-lg leading-loose text-gray-700 md:text-xl md:leading-loose">
-							{intro}
+							{intro.text}
 						</p>
 						<div className="mt-8 flex flex-wrap gap-3">
 							<a href="#journey" className={solidButton}>
@@ -131,11 +131,11 @@ export default async function Page() {
 				</section>
 			</div>
 
-			{/* Journey: his life in six stages, drawn as you scroll */}
+			{/* Journey: the stages of his life, drawn as you scroll */}
 			<section id="journey" className="container scroll-mt-32 pt-28">
 				<SectionTitle
 					title="رحلة حياته"
-					text="سبع وخمسون سنة، بدأت في المدينة وانتهت فيها، مرّت بكربلاء والكوفة والشام. هذه محطاتها الكبرى، ومع كل محطة رابط إلى نصوصها الكاملة."
+					text="محطات من حياته كما وردت في المصادر، ومع كل محطة رابط إلى نصوصها الكاملة."
 				/>
 				<Timeline eras={eras} />
 			</section>
@@ -146,29 +146,34 @@ export default async function Page() {
 				<div className="container relative">
 					<SectionTitle
 						light
-						title="ألقابه: لماذا سُمّي بها؟"
-						text="لكل لقب من ألقابه قصة تكشف جانباً من شخصيته. اختر لقباً لتعرف سببه ومصدره."
+						title="ألقابه وكناه"
+						text="اختر لقباً لتقرأ ما ورد فيه في المصادر."
 					/>
 					<TitlesExplorer titles={titles} />
 					<div className="mt-16 grid gap-10 border-t border-white/10 pt-10 md:grid-cols-2">
-						<div>
-							<h3 className="font-bold text-secondary dark:text-white">ألقاب أخرى ذكرتها المصادر</h3>
-							<p className="mt-3 text-lg leading-loose text-white/70">{otherTitles.join(" · ")}</p>
-						</div>
+						<figure>
+							<h3 className="font-bold text-secondary dark:text-white">ألقابه</h3>
+							<blockquote className="mt-3 text-lg leading-loose text-white/80">{allTitles.text}</blockquote>
+							<figcaption className="mt-2 text-sm text-white/50">{allTitles.source}</figcaption>
+						</figure>
 						<div>
 							<h3 className="font-bold text-secondary dark:text-white">كناه</h3>
-							<p className="mt-3 text-xl font-semibold text-white">{kunyas.names.join("، ")}</p>
-							<p className="mt-2 text-white/60">{kunyas.note}</p>
+							{kunyas.map((kunya) => (
+								<figure key={kunya.text} className="mt-3">
+									<blockquote className="text-lg leading-loose text-white/80">{kunya.text}</blockquote>
+									<figcaption className="mt-1 text-sm text-white/50">{kunya.source}</figcaption>
+								</figure>
+							))}
 						</div>
 					</div>
 				</div>
 			</section>
 
-			{/* Stories: a carousel of short retellings */}
+			{/* Stories: a carousel of passages from the narrations */}
 			<section id="stories" className="container scroll-mt-32 pt-28">
 				<SectionTitle
 					title="مشاهد من حياته"
-					text="قصص قصيرة من سيرته كما رواها معاصروه والمؤرخون، مروية بلغة ميسّرة. لكل مشهد رابط إلى روايته الكاملة بسندها ومصدرها."
+					text="مقتطفات من الروايات كما وردت في المصادر. اسحب لتتصفحها، ولكل مشهد رابط إلى روايته الكاملة بسندها."
 				/>
 				<Stories stories={stories} />
 			</section>
@@ -185,7 +190,9 @@ export default async function Page() {
 							text={featuredQuote.text}
 							className="mt-8 max-w-4xl text-3xl font-bold leading-relaxed text-white md:text-5xl md:leading-relaxed"
 						/>
-						<p className="mt-6 text-lg text-secondary dark:text-white/70">{featuredQuote.context}</p>
+						<p className="mt-6 text-lg text-secondary dark:text-white/70">
+							{featuredQuote.title} · {featuredQuote.source}
+						</p>
 						<MoreLink href={featuredQuote.href} light className="mt-4">
 							المشهد كاملاً
 						</MoreLink>
@@ -197,7 +204,7 @@ export default async function Page() {
 			<section className="container pt-24">
 				<SectionTitle
 					title="من كلامه"
-					text="بعد كربلاء لم يبقَ مع الإمام سلاح غير الكلمة، فجعل من طريق السبي منبراً. وفي المدينة واصل برسائله ومواعظه."
+					text="من خطبه ورسائله كما وردت في المصادر."
 				/>
 				<h3 className="mb-12 text-2xl font-bold text-gray-800">خطبه في رحلة السبي</h3>
 				<CaptivityRoute stops={captivityStops} />
@@ -238,7 +245,10 @@ export default async function Page() {
 										{letter.title}
 										<ArrowLeft className="h-4 w-4 opacity-0 transition-all duration-200 group-hover:-translate-x-1 group-hover:opacity-100" />
 									</span>
-									<span className="mt-2 block leading-loose text-gray-600">{letter.text}</span>
+									<span className="mt-2 block text-lg leading-loose text-gray-700">{letter.text}</span>
+									<span className="mt-1 block text-sm text-secondary_dark dark:text-Muharram_secondary">
+										{letter.source}
+									</span>
 								</Link>
 							</Reveal>
 						</li>
@@ -248,7 +258,7 @@ export default async function Page() {
 
 			{/* Circle: family and companions */}
 			<section id="circle" className="container scroll-mt-32 pt-28">
-				<SectionTitle title="من حوله" text="من أهل بيته وأصحابه الذين حملوا عنه العلم وشهدوا له." />
+				<SectionTitle title="من حوله" text="من أبرز أصحابه ومعاصريه." />
 				<ul className="grid gap-x-12 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
 					{people.map((person, i) => (
 						<li key={person.name}>
@@ -264,7 +274,10 @@ export default async function Page() {
 									<p className="mt-1 font-semibold text-secondary_dark dark:text-Muharram_secondary">
 										{person.relation}
 									</p>
-									<p className="mt-3 leading-loose text-gray-700">{person.text}</p>
+									<p className="mt-3 text-lg leading-loose text-gray-700">{person.text}</p>
+									{person.source && (
+										<p className="mt-1 text-sm text-secondary_dark dark:text-Muharram_secondary">{person.source}</p>
+									)}
 									<MoreLink href={person.href} className="mt-3">
 										المزيد عنه
 									</MoreLink>
@@ -279,7 +292,7 @@ export default async function Page() {
 			<section id="sources" className="container scroll-mt-32 pt-28">
 				<SectionTitle
 					title="النصوص الكاملة من المصادر"
-					text="كل ما سبق مأخوذ من هذه الفصول، وفيها الروايات كما وردت في كتب الحديث والتاريخ بأسانيدها ومصادرها، للقارئ الذي يريد الرجوع إلى النص الأصلي."
+					text="الروايات كاملة كما وردت في كتب الحديث والتاريخ بأسانيدها ومصادرها."
 				/>
 				<Reveal>
 					<div className={`${outlinePanel} px-6 py-4 md:px-12 md:py-8`}>
@@ -298,7 +311,7 @@ export default async function Page() {
 												{chapter.title}
 												<ArrowLeft className="h-4 w-4 opacity-0 transition-all duration-200 group-hover:-translate-x-1 group-hover:opacity-100" />
 											</span>
-											<span className="mt-1 line-clamp-2 leading-7 text-gray-600">{chapter.summary}</span>
+											<span className="mt-1 line-clamp-2 leading-7 text-gray-600">{chapter.description}</span>
 										</span>
 										<span className="shrink-0 pt-1.5 text-sm text-gray-500">
 											{readingTimeLabel(chapter.readingMinutes)}

@@ -1,11 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import type { Title } from "../_data/biography"
 import { MoreLink } from "./brand"
 
+// Plain CSS transitions on purpose: a framer-motion `layoutId` underline here kept the
+// whole page stuck in app/template.tsx's fade-out when navigating back to /his-life.
 export default function TitlesExplorer({ titles }: { titles: Title[] }) {
 	const [active, setActive] = useState(0)
 	const title = titles[active]
@@ -28,43 +29,33 @@ export default function TitlesExplorer({ titles }: { titles: Title[] }) {
 						onClick={() => setActive(i)}
 						className={cn(
 							"relative w-fit py-1 text-right text-2xl font-bold transition-colors duration-200 md:text-3xl",
-							i === active ? "text-secondary dark:text-white" : "text-white/50 hover:text-white/80",
+							"after:absolute after:-bottom-0.5 after:right-0 after:h-0.5 after:w-full after:origin-right after:bg-secondary after:transition-transform after:duration-300 dark:after:bg-Muharram_secondary",
+							i === active
+								? "text-secondary after:scale-x-100 dark:text-white"
+								: "text-white/50 after:scale-x-0 hover:text-white/80",
 						)}
 					>
 						{t.name}
-						{i === active && (
-							<motion.span
-								layoutId="title-underline"
-								className="absolute -bottom-0.5 right-0 h-0.5 w-full bg-secondary dark:bg-Muharram_secondary"
-							/>
-						)}
 					</button>
 				))}
 			</div>
 
 			<div id="title-panel" role="tabpanel" aria-labelledby={`title-tab-${active}`} aria-live="polite">
-				<AnimatePresence mode="wait">
-					<motion.div
-						key={title.name}
-						initial={{ opacity: 0, y: 24 }}
-						animate={{ opacity: 1, y: 0 }}
-						exit={{ opacity: 0, y: -16 }}
-						transition={{ duration: 0.35, ease: "easeOut" }}
-					>
-						<p className="text-xl leading-loose text-white/90">{title.meaning}</p>
-						{title.quote && (
-							<blockquote className="mt-6 border-r-4 border-secondary pr-5 text-2xl font-semibold leading-loose text-white dark:border-Muharram_secondary md:text-3xl md:leading-loose">
-								«{title.quote}»
+				<div key={title.name} className="space-y-8 animate-fade-in-up motion-reduce:animate-none">
+					{title.quotes.map((quote) => (
+						<figure key={quote.text} className="border-r-4 border-secondary pr-5 dark:border-Muharram_secondary">
+							<blockquote className="text-xl leading-loose text-white md:text-2xl md:leading-loose">
+								{quote.text}
 							</blockquote>
-						)}
-						<div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/15 pt-5">
-							<span className="text-sm text-white/60">{title.source}</span>
-							<MoreLink href={title.href} light>
-								النص الكامل
-							</MoreLink>
-						</div>
-					</motion.div>
-				</AnimatePresence>
+							<figcaption className="mt-3 flex flex-wrap items-center justify-between gap-3">
+								<span className="text-sm text-white/60">{quote.source}</span>
+								<MoreLink href={quote.href} light>
+									النص الكامل
+								</MoreLink>
+							</figcaption>
+						</figure>
+					))}
+				</div>
 			</div>
 		</div>
 	)
