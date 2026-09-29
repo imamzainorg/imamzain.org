@@ -33,6 +33,10 @@ const PREVIEW_WIDTH = 200;
 const VIEWPORT_MARGIN = 10;
 const ARROW_SIZE = 10;
 const OPEN_TRANSITION_MS = 320;
+const REDUCED_TRANSITION_MS = 120;
+// تأثير التصغير اختياري: يُطبَّق فقط على عنصر يحمل هذه السمة (يغلّف محتوى الصفحة)،
+// ويجب أن يبقى الهيدر الثابت/الـ sticky خارجه، لأن أي transform يجعل العنصر مرجعًا لأبنائه الثابتين.
+const SCALE_ROOT_SELECTOR = "[data-page-scale-root]";
 
 function sourceLabels(explanations: Explanation[]): string[] {
   const seen = new Map<string, number>();
@@ -72,8 +76,10 @@ function usePrefersReducedMotion(): boolean {
   );
 }
 
+// التبويبات غير النشطة (tabindex=-1) لا تدخل في حلقة التركيز
 const FOCUSABLE_SELECTOR =
-  'button:not([disabled]), [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+  'button:not([disabled]):not([tabindex="-1"]), [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
 function getPortalRoot(): HTMLElement {
   let root = document.getElementById("explanation-portal-root");
   if (!root) {
@@ -85,6 +91,7 @@ function getPortalRoot(): HTMLElement {
   }
   return root;
 }
+
 export default function ExplanationTrigger({
   segmentKey,
   text,
@@ -122,11 +129,14 @@ export default function ExplanationTrigger({
     placement: "bottom" as "bottom" | "top",
   });
 
-  const triggerRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLSpanElement>(null);
   const previewRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const backButtonRef = useRef<HTMLButtonElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const closeTimerRef = useRef<number | null>(null);
+  const scaleRestoreRef = useRef<(() => void) | null>(null);
+  const suppressFocusPreviewRef = useRef(false);
   const titleId = useId();
   const previewId = useId();
 
@@ -134,11 +144,21 @@ export default function ExplanationTrigger({
   const hasMultipleSources = explanations.length > 1;
   const labels = useMemo(() => sourceLabels(explanations), [explanations]);
 
+  // الإغلاق بحركة خروج: نُعيد الحالة البصرية أولًا ثم نُزيل اللوحة بعد انتهاء الانتقال
   const handleClose = useCallback(() => {
+    if (closeTimerRef.current !== null) return;
     setEntered(false);
-    closeExplanation();
-    triggerRef.current?.focus();
-  }, []);
+    // إعادة التركيز للزر لا يجب أن تُظهر معاينة الـ hover
+    suppressFocusPreviewRef.current = true;
+    triggerRef.current?.focus({ preventScroll: true });
+    closeTimerRef.current = window.setTimeout(
+      () => {
+        closeTimerRef.current = null;
+        closeExplanation();
+      },
+      reducedMotion ? REDUCED_TRANSITION_MS : OPEN_TRANSITION_MS,
+    );
+  }, [reducedMotion]);
 
   const handleOpen = useCallback(() => {
     if (!hasExplanations) return;
@@ -147,6 +167,25 @@ export default function ExplanationTrigger({
     setSelectedIndex(getLastSourceIndex(segmentKey));
     openExplanation({ segmentKey, text, explanations, highlightTerm });
   }, [segmentKey, text, explanations, highlightTerm, hasExplanations]);
+
+  // إن أُغلقت اللوحة من الخارج نلغي مؤقّت الإغلاق حتى لا يُغلق شرحًا آخر لاحقًا
+  useEffect(() => {
+    if (!isOpen && closeTimerRef.current !== null) {
+      window.clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  }, [isOpen]);
+
+  // عند إلغاء تركيب المكوّن أثناء الإغلاق نُنهي الإغلاق فورًا
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current !== null) {
+        window.clearTimeout(closeTimerRef.current);
+        closeTimerRef.current = null;
+        closeExplanation();
+      }
+    };
+  }, []);
 
   // ── حفظ آخر مصدر مُختار ──
   useEffect(() => {
@@ -165,49 +204,73 @@ export default function ExplanationTrigger({
     return () => cancelAnimationFrame(raf);
   }, [isOpen]);
 
-  // ── تأثير "الوضع الغامر" على الصفحة الأصلية: تصغير + تعتيم خفيف ──
+  // ── قفل التمرير طوال فترة الفتح، مع تعويض عرض شريط التمرير حتى لا يهتز المحتوى ──
   useEffect(() => {
     if (!isOpen) return;
     const body = document.body;
-    const originalTransform = body.style.transform;
-    const originalFilter = body.style.filter;
-    const originalTransition = body.style.transition;
-    const originalTransformOrigin = body.style.transformOrigin;
+    const html = document.documentElement;
     const originalOverflow = body.style.overflow;
+    const scrollbarWidth = window.innerWidth - html.clientWidth;
+    const side =
+      getComputedStyle(html).direction === "rtl" ? "paddingLeft" : "paddingRight";
+    const originalPadding = body.style[side];
 
-    body.style.overflow = "hidden";
-
-    if (!reducedMotion) {
-      body.style.transformOrigin = "center top";
-      body.style.transition = `transform ${OPEN_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1), filter ${OPEN_TRANSITION_MS}ms ease`;
-      const raf = requestAnimationFrame(() => {
-        body.style.transform = "scale(0.97)";
-        body.style.filter = "brightness(0.92)";
-      });
-      return () => {
-        cancelAnimationFrame(raf);
-        body.style.transform = originalTransform;
-        body.style.filter = originalFilter;
-        // نعطي وقت للحركة العكسية قبل إزالة transition تمامًا
-        requestAnimationFrame(() => {
-          setTimeout(() => {
-            body.style.transition = originalTransition;
-            body.style.transformOrigin = originalTransformOrigin;
-          }, OPEN_TRANSITION_MS);
-        });
-        body.style.overflow = originalOverflow;
-      };
+    if (scrollbarWidth > 0) {
+      const current = parseFloat(getComputedStyle(body)[side]) || 0;
+      body.style[side] = `${current + scrollbarWidth}px`;
     }
+    body.style.overflow = "hidden";
 
     return () => {
       body.style.overflow = originalOverflow;
+      body.style[side] = originalPadding;
     };
-  }, [isOpen, reducedMotion]);
+  }, [isOpen]);
+
+  // ── تأثير "الوضع الغامر": تصغير + تعتيم خفيف لغلاف المحتوى، يدخل ويخرج مع اللوحة ──
+  useEffect(() => {
+    if (!isOpen || !entered || reducedMotion) return;
+    const target = document.querySelector<HTMLElement>(SCALE_ROOT_SELECTOR);
+    if (!target) return;
+
+    // إن كانت هناك حركة عكسية سابقة لم تنتهِ نُنهيها أولًا لنلتقط القيم الأصلية الصحيحة
+    scaleRestoreRef.current?.();
+
+    const original = {
+      transform: target.style.transform,
+      filter: target.style.filter,
+      transition: target.style.transition,
+      transformOrigin: target.style.transformOrigin,
+    };
+
+    // نقطة الارتكاز عند منتصف الجزء المرئي من الشاشة، فلا "تقفز" الصفحة وهي ممرَّرة
+    const originY = window.innerHeight / 2 - target.getBoundingClientRect().top;
+    target.style.transformOrigin = `50% ${originY}px`;
+    target.style.transition = `transform ${OPEN_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1), filter ${OPEN_TRANSITION_MS}ms ease`;
+    target.style.transform = "scale(0.97)";
+    target.style.filter = "brightness(0.92)";
+
+    return () => {
+      target.style.transform = original.transform;
+      target.style.filter = original.filter;
+
+      let timer = 0;
+      const restore = () => {
+        window.clearTimeout(timer);
+        target.style.transition = original.transition;
+        target.style.transformOrigin = original.transformOrigin;
+        scaleRestoreRef.current = null;
+      };
+      // نعطي وقتًا للحركة العكسية قبل إزالة transition تمامًا
+      timer = window.setTimeout(restore, OPEN_TRANSITION_MS);
+      scaleRestoreRef.current = restore;
+    };
+  }, [isOpen, entered, reducedMotion]);
 
   // ── Focus أولي + Escape + Focus trap ──
   useEffect(() => {
     if (!isOpen) return;
-    backButtonRef.current?.focus();
+    backButtonRef.current?.focus({ preventScroll: true });
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -238,7 +301,7 @@ export default function ExplanationTrigger({
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [isOpen, handleClose]);
 
-  // ── تموضع معاينة الـ Hover ──
+  // ── تموضع معاينة الـ Hover (متزامن قبل الرسم لتفادي وميضها في الزاوية) ──
   useLayoutEffect(() => {
     if (!showHoverPreview) return;
     const trigger = triggerRef.current;
@@ -275,40 +338,57 @@ export default function ExplanationTrigger({
         Math.min(triggerCenter - left, width - ARROW_SIZE - 4),
       );
 
-      setPos({ top, left, arrowLeft, placement });
+      setPos((prev) =>
+        prev.top === top &&
+        prev.left === left &&
+        prev.arrowLeft === arrowLeft &&
+        prev.placement === placement
+          ? prev
+          : { top, left, arrowLeft, placement },
+      );
     };
 
-    const raf = requestAnimationFrame(updatePosition);
+    updatePosition();
     window.addEventListener("scroll", updatePosition, true);
     window.addEventListener("resize", updatePosition);
 
     return () => {
-      cancelAnimationFrame(raf);
       window.removeEventListener("scroll", updatePosition, true);
       window.removeEventListener("resize", updatePosition);
     };
   }, [showHoverPreview]);
 
-  const selectTab = useCallback((idx: number) => {
-    setSelectedIndex(idx);
-  }, []);
+  const selectTab = useCallback(
+    (idx: number, moveFocus = false) => {
+      setSelectedIndex(idx);
+      if (moveFocus) {
+        // ننقل التركيز للتبويب الجديد ليتبع الحلقة المرئية اختيار لوحة المفاتيح
+        requestAnimationFrame(() => {
+          document.getElementById(`${titleId}-tab-${idx}`)?.focus();
+        });
+      }
+    },
+    [titleId],
+  );
 
   const handleTabKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
+      // الاتجاه RTL: التبويب الأول على اليمين
       if (e.key === "ArrowLeft") {
         e.preventDefault();
-        selectTab((selectedIndex + 1) % explanations.length);
+        selectTab((selectedIndex + 1) % explanations.length, true);
       } else if (e.key === "ArrowRight") {
         e.preventDefault();
         selectTab(
           (selectedIndex - 1 + explanations.length) % explanations.length,
+          true,
         );
       } else if (e.key === "Home") {
         e.preventDefault();
-        selectTab(0);
+        selectTab(0, true);
       } else if (e.key === "End") {
         e.preventDefault();
-        selectTab(explanations.length - 1);
+        selectTab(explanations.length - 1, true);
       }
     },
     [selectedIndex, explanations.length, selectTab],
@@ -332,9 +412,10 @@ export default function ExplanationTrigger({
               position: "fixed",
               top: pos.top,
               left: pos.left,
-              width: PREVIEW_WIDTH,
+              width: "max-content",
+              maxWidth: `calc(100vw - ${VIEWPORT_MARGIN * 2}px)`,
             }}
-            className="z-[9999] max-w-[calc(100vw-1.5rem)] rounded-lg border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 shadow-xl px-3 py-2.5 text-xs"
+            className="z-[9999] rounded-lg border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 shadow-xl px-3 py-2.5 text-xs pointer-events-none"
           >
             <span
               aria-hidden="true"
@@ -345,7 +426,7 @@ export default function ExplanationTrigger({
                   : "absolute -bottom-1 -translate-x-1/2 w-2.5 h-2.5 rotate-45 bg-white dark:bg-zinc-800 border-b border-r border-gray-200 dark:border-zinc-700"
               }
             />
-            <div className="flex items-center gap-1.5 text-primary dark:text-Muharram_primary font-medium">
+            <div className="flex items-center gap-1.5 whitespace-nowrap text-primary dark:text-Muharram_primary font-medium">
               <span aria-hidden="true">◐</span>
               <span>اقرأ الشرح</span>
             </div>
@@ -360,7 +441,7 @@ export default function ExplanationTrigger({
     : entered
       ? "translateY(0)"
       : "translateY(24px)";
-  const panelOpacity = reducedMotion ? (entered ? 1 : 0) : entered ? 1 : 0;
+  const panelOpacity = entered ? 1 : 0;
   const backdropOpacity = entered ? 1 : 0;
 
   const panel =
@@ -372,7 +453,7 @@ export default function ExplanationTrigger({
               style={{
                 opacity: backdropOpacity,
                 transition: reducedMotion
-                  ? "opacity 120ms ease"
+                  ? `opacity ${REDUCED_TRANSITION_MS}ms ease`
                   : `opacity ${OPEN_TRANSITION_MS}ms ease`,
               }}
               onClick={handleClose}
@@ -388,10 +469,11 @@ export default function ExplanationTrigger({
                 transform: panelTransform,
                 opacity: panelOpacity,
                 transition: reducedMotion
-                  ? "opacity 120ms ease"
+                  ? `opacity ${REDUCED_TRANSITION_MS}ms ease`
                   : `transform ${OPEN_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1), opacity ${OPEN_TRANSITION_MS}ms ease`,
               }}
-              className="relative w-full sm:max-w-2xl sm:mx-4 bg-white dark:bg-zinc-800 rounded-t-2xl sm:rounded-2xl shadow-2xl h-[92vh] sm:h-[85vh] flex flex-col overflow-hidden"
+              // dvh بدل vh: شريط عنوان المتصفح على الجوال لا يقصّ أسفل اللوحة
+              className="relative w-full sm:max-w-2xl sm:mx-4 bg-white dark:bg-zinc-800 rounded-t-2xl sm:rounded-2xl shadow-2xl h-[92vh] h-[92dvh] sm:h-[85vh] sm:h-[85dvh] flex flex-col overflow-hidden"
             >
               {/* رأس: زر العودة + عنوان الكلمة/الجملة */}
               <div className="shrink-0 px-5 sm:px-8 pt-5 pb-4 border-b border-gray-100 dark:border-zinc-700">
@@ -406,7 +488,7 @@ export default function ExplanationTrigger({
                 </button>
                 <h2
                   id={titleId}
-                  className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-100 leading-relaxed"
+                  className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-100 leading-relaxed break-words"
                 >
                   شرح: «{text}»
                 </h2>
@@ -431,7 +513,7 @@ export default function ExplanationTrigger({
                         tabIndex={idx === selectedIndex ? 0 : -1}
                         onClick={() => selectTab(idx)}
                         onKeyDown={handleTabKeyDown}
-                        className={`px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
+                        className={`px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary/70 dark:focus-visible:outline-Muharram_primary/70 ${
                           idx === selectedIndex
                             ? "bg-primary text-white dark:bg-Muharram_primary dark:text-zinc-900"
                             : "bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-zinc-700 dark:text-gray-300 dark:hover:bg-zinc-600"
@@ -447,7 +529,7 @@ export default function ExplanationTrigger({
               {/* محتوى الشرح — قابل للتمرير */}
               <div
                 ref={contentRef}
-                className="flex-1 overflow-y-auto overscroll-contain px-5 sm:px-8 py-6"
+                className="flex-1 overflow-y-auto overscroll-contain px-5 sm:px-8 pt-6 pb-[max(1.5rem,env(safe-area-inset-bottom))]"
               >
                 <div
                   id={`${titleId}-panel`}
@@ -493,19 +575,48 @@ export default function ExplanationTrigger({
 
   return (
     <span className="relative inline">
-      <button
+      {/*
+        span بدل button: عنصر button يبقى inline-block ولا يلتف على أكثر من سطر،
+        فتنكسر الجمل الطويلة داخل النص. الـ span يلتف طبيعيًا ويسمح بتحديد النص.
+      */}
+      <span
         ref={triggerRef}
-        type="button"
+        role="button"
+        tabIndex={0}
         onClick={handleOpen}
+        onKeyDown={(e) => {
+          if (e.repeat) return;
+          if (e.key === "Enter") {
+            e.preventDefault();
+            handleOpen();
+          } else if (e.key === " ") {
+            // نمنع تمرير الصفحة، والفتح يتم عند keyup كي لا يُنشّط Space زر العودة فور نقل التركيز إليه
+            e.preventDefault();
+          }
+        }}
+        onKeyUp={(e) => {
+          if (e.key === " ") {
+            e.preventDefault();
+            handleOpen();
+          }
+        }}
         onMouseEnter={() => canHover && setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
-        onFocus={() => canHover && setIsHovering(true)}
+        onFocus={(e) => {
+          if (suppressFocusPreviewRef.current) {
+            suppressFocusPreviewRef.current = false;
+            return;
+          }
+          if (canHover && e.currentTarget.matches(":focus-visible")) {
+            setIsHovering(true);
+          }
+        }}
         onBlur={() => setIsHovering(false)}
         aria-haspopup="dialog"
         aria-expanded={isOpen}
         aria-describedby={showHoverPreview ? previewId : undefined}
         aria-label={`${text} — شرح متاح${hasMultipleSources ? ` (${explanations.length} مصادر)` : ""}`}
-        className={`text-inherit cursor-pointer rounded-[3px] px-0.5 -mx-0.5 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary/70 dark:focus-visible:outline-Muharram_primary/70 ${
+        className={`cursor-pointer rounded-[3px] px-0.5 -mx-0.5 box-decoration-clone transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary/70 dark:focus-visible:outline-Muharram_primary/70 ${
           isOpen
             ? "bg-primary/[0.18] dark:bg-Muharram_primary/[0.26] ring-1 ring-primary/30 dark:ring-Muharram_primary/30"
             : showHoverPreview
@@ -514,7 +625,7 @@ export default function ExplanationTrigger({
         }`}
       >
         {highlightPlain(text, highlightTerm, segmentKey)}
-      </button>
+      </span>
 
       {hoverPreview}
       {panel}
