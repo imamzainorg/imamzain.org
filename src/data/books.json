@@ -225,7 +225,7 @@
     "parts": 1,
     "views": 57,
     "image": "https://cdn.imamzain.org/books/دعاء ابي حمزة الثمالي.jpg",
-    "pdf": "/general/ثلاثون درسا من دعاء ابي حمزة الثمالي.pdf",
+  "pdf": "https://cdn.imamzain.org/books/دعاء ابي حمزة الثمالي.pdf",
     "series": null,
     "partNumber": null,
     "totalParts": null,
@@ -418,7 +418,8 @@
     "parts": 1,
     "views": 87,
     "image": "https://cdn.imamzain.org/books/الاسس الفكرية والمنهجية عند الامام السجاد (عليه السلام) البعد الاجتماعي.jpg",
-    "pdf": "/general/البعد الاجتماعي.pdf",
+      "pdf": "https://cdn.imamzain.org/books/الاسس الفكرية والمنهجية عند الامام السجاد (عليه السلام) البعد الاجتماعي.pdf",
+
     "series": null,
     "partNumber": null,
     "totalParts": null,
