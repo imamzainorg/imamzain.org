@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Book } from "@/types/book";
@@ -20,7 +19,7 @@ export default function BooklibraryCard({
   const printHouse = publication.printHouse || "غير محدد";
   const author = Array.isArray(publication.author)
     ? publication.author.join("، ")
-    : publication.author || "مؤلف غير معروف";
+    : publication.author?.trim() || "";
 
   const normalizedRoute = route.replace(/\/+$/, "");
 
@@ -76,7 +75,7 @@ export default function BooklibraryCard({
         <h2 className="text-primary dark:text-Muharram_primary font-bold text-subtitle leading-snug line-clamp-2">
           {publication.title}
         </h2>
-        <span className="text-sm font-medium text-gray-700 line-clamp-1">
+        <span className="min-h-5 text-sm font-medium text-gray-700 line-clamp-1">
           {author}
         </span>
         <span className="text-sm font-light text-gray-500">
