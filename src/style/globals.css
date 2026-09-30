@@ -154,3 +154,35 @@ html.dark {
 		repeat;
 	z-index: 1;
 }
+
+/* Narration cards on /his-life chapter pages. The content is source HTML:
+   <strong> opens with the narrator or author, <small> is the source citation. */
+.narration p {
+	@apply text-xl leading-[2.1] text-gray-800 md:text-[1.35rem] md:leading-[2.2];
+}
+.narration p + p {
+	@apply mt-4;
+}
+.narration strong {
+	@apply font-bold text-primary dark:text-Muharram_primary;
+}
+.narration small {
+	@apply mx-1 inline-block rounded-full bg-secondary/10 px-3 align-middle text-sm font-semibold leading-7 text-secondary_dark dark:bg-Muharram_secondary/10 dark:text-Muharram_secondary;
+}
+.narration a {
+	@apply font-semibold text-primary underline underline-offset-4 dark:text-Muharram_primary;
+}
+
+/* Story carousel on /his-life: brand-colored progress bar, soft fade where the next card peeks in. */
+.stories-swiper {
+	--swiper-scrollbar-bg-color: theme("colors.primary / 12%");
+	--swiper-scrollbar-drag-bg-color: theme("colors.secondary");
+	--swiper-scrollbar-size: 5px;
+	--swiper-scrollbar-sides-offset: 30%;
+	-webkit-mask-image: linear-gradient(to right, transparent, #000 5%);
+	mask-image: linear-gradient(to right, transparent, #000 5%);
+}
+.dark .stories-swiper {
+	--swiper-scrollbar-bg-color: theme("colors.Muharram_primary / 12%");
+	--swiper-scrollbar-drag-bg-color: theme("colors.Muharram_secondary");
+}

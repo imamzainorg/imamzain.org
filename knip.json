@@ -7,6 +7,9 @@
         "!src/app/**/*.stories.{ts,tsx}",
         "scripts/**/*.ts"
     ],
+    "ignoreDependencies": [
+        "@heroui/theme"
+    ],
     "project": [
         "src/**/*.{ts,tsx}",
         "scripts/**/*.ts",
