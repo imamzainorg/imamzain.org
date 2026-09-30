@@ -91,9 +91,9 @@ export default function BookCard({
         )}
 
         {/* معلومات الكتاب */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-start p-6 md:p-10 gap-8">
+        <div className="flex flex-col lg:flex-row items-center lg:items-stretch p-6 md:p-10 gap-8">
           <div className="w-full lg:w-1/3 flex justify-center relative group">
-            <div className="relative w-full max-w-xs aspect-[3/4] rounded-xl overflow-hidden bg-transparent">
+            <div className="relative w-full max-w-xs aspect-[3/4] lg:aspect-auto lg:h-full rounded-xl overflow-hidden bg-transparent">
               <Image
                 src={imageUrl}
                 fill
@@ -111,9 +111,12 @@ export default function BookCard({
               <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
                 {publication.title}
               </h1>
-              <p className="text-xl text-gray-600 mt-2">
-                تأليف: <span className="font-medium">{publication.author}</span>
-              </p>
+              {publication.author && (
+                <p className="text-xl text-gray-600 mt-2">
+                  تأليف:{" "}
+                  <span className="font-medium">{publication.author}</span>
+                </p>
+              )}
             </div>
 
             {/* الأزرار */}
