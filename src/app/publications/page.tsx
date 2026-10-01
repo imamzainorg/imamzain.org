@@ -64,7 +64,7 @@ export default function PublicationsPage() {
 	const publications = dedupeSeries(booksData as Book[])
 
 	return (
-		<div className="min-h-screen">
+		<div className="container min-h-screen pb-12">
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },

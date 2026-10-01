@@ -1,38 +1,28 @@
 "use client";
 
-import { useRouter, usePathname } from "next/navigation";
-import { DownloadIcon } from "@/assets/icons/reusable";
-import { Book } from "@/types/book";
+import { usePathname } from "next/navigation";
+import {
+  CalendarIcon,
+  Download,
+  FileText,
+  Languages,
+  Printer,
+  Share2,
+  ShoppingCartIcon,
+  Users,
+  BookOpen,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/button";
 import { toast } from "sonner";
-import NewsShare from "@/components/news-share";
-import {
-  ShoppingCartIcon,
-  BookOpen,
-  Languages,
-  FileText,
-  CalendarIcon,
-  Printer,
-  Users,
-} from "lucide-react";
+import { Book } from "@/types/book";
+import { cn } from "@/lib/utils";
+import { outlineButton, shieldPanel, solidButton } from "@/components/brand";
+import { Reveal } from "@/components/motion";
 
-// ── encode روابط الصور ──
-const encodeImageUrl = (url: string): string => {
-  if (!url) return "";
-  try {
-    const urlObj = new URL(url);
-    urlObj.pathname = urlObj.pathname
-      .split("/")
-      .map((segment) => encodeURIComponent(decodeURIComponent(segment)))
-      .join("/");
-    return urlObj.toString();
-  } catch {
-    return encodeURI(url);
-  }
-};
+const MISSING = "غير محدد";
 
+// The book page: its cover, title and actions, then its particulars in a green shield.
 export default function BookCard({
   publication,
   seriesParts,
@@ -45,202 +35,135 @@ export default function BookCard({
   // to find the handful in the same series.
   seriesParts: Book[];
 }) {
-  const router = useRouter();
   const pathname = usePathname();
 
-  const imageUrl = publication.image
-    ? encodeImageUrl(publication.image)
-    : "/placeholder-book.png"; // ✅ صورة بديلة بدل string فارغ
+  // The image loader encodes CDN paths itself; encoding here too would break them.
+  const imageUrl = publication.image || "/images/placeholder.jpg";
+
+  // The data holds some languages as a list although the type says string.
+  const language = Array.isArray(publication.language)
+    ? (publication.language as string[]).join("، ")
+    : publication.language;
+
+  const facts = [
+    { label: "عدد الصفحات", value: publication.pages ?? MISSING, Icon: BookOpen },
+    { label: "عدد الأجزاء", value: publication.parts ?? MISSING, Icon: FileText },
+    { label: "تاريخ الطبع", value: publication.printDate ?? MISSING, Icon: CalendarIcon },
+    { label: "اللغة", value: language || MISSING, Icon: Languages },
+    { label: "المطبعة", value: publication.printHouse ?? MISSING, Icon: Printer },
+    {
+      label: "أخرى",
+      value: publication.otherNames?.length
+        ? publication.otherNames.join(", ")
+        : "لا يوجد",
+      Icon: Users,
+    },
+  ];
 
   return (
-    <div className="space-y-16 my-12 max-w-screen-xl mx-auto px-4">
-      <div className="relative rounded-3xl shadow-2xl border border-gray-200 bg-gradient-to-tr from-white via-secondary/10 to-secondary/30 dark:via-Muharram_secondary/10 dark:to-Muharram_secondary/30 overflow-hidden">
-        {/* أجزاء السلسلة */}
-        {seriesParts.length > 1 && (
-          <div className="px-6 md:px-10 py-6">
-            <h3 className="text-xl font-bold mb-4 text-gray-800 text-center">
-              أجزاء السلسلة
-            </h3>
+    <div>
+      <div className="grid items-center gap-14 lg:grid-cols-[3fr_2fr] lg:gap-20">
+        <Reveal x={60} y={0}>
+          <h1 className="text-3xl font-extrabold leading-snug text-primary dark:text-Muharram_primary md:text-4xl md:leading-snug">
+            {publication.title}
+          </h1>
+          {publication.author && (
+            <p className="mt-3 text-xl text-gray-600">
+              تأليف:{" "}
+              <span className="font-bold text-gray-900">{publication.author}</span>
+            </p>
+          )}
 
-            <div className="flex flex-wrap gap-3 justify-center">
-              {seriesParts.map((part, index) => (
-                <button
-                  key={part.id}
-                  onClick={() => {
-                    const base = pathname.substring(
-                      0,
-                      pathname.lastIndexOf("/"),
-                    );
-                    router.push(`${base}/${part.slug}`);
-                  }}
-                  className={`px-5 py-2 rounded-full border-2 transition-all text-sm font-medium
-                    ${
+          {seriesParts.length > 1 && (
+            <div className="mt-8">
+              <p className="mb-3 font-bold text-secondary_dark dark:text-Muharram_secondary">
+                أجزاء السلسلة
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {seriesParts.map((part, index) => (
+                  <Link
+                    key={part.id}
+                    href={`${pathname.substring(0, pathname.lastIndexOf("/"))}/${part.slug}`}
+                    aria-current={part.slug === publication.slug ? "page" : undefined}
+                    className={cn(
+                      "rounded-xl border-2 px-4 py-2 font-semibold transition-colors",
                       part.slug === publication.slug
-                        ? "bg-primary text-white border-primary dark:bg-Muharram_primary dark:border-Muharram_primary shadow-md"
-                        : "border-white text-gray-700 hover:bg-gray-100 hover:border-gray-400"
-                    }
-                  `}
-                >
-                  الجزء {index + 1}
-                </button>
-              ))}
+                        ? "border-primary bg-primary text-white dark:border-Muharram_primary dark:bg-Muharram_primary"
+                        : "border-primary/25 text-primary hover:border-primary dark:border-Muharram_primary/25 dark:text-Muharram_primary dark:hover:border-Muharram_primary",
+                    )}
+                  >
+                    الجزء {index + 1}
+                  </Link>
+                ))}
+              </div>
             </div>
+          )}
 
-            <div className="w-full h-[0.5px] mt-5 bg-gradient-to-r from-transparent via-primary dark:via-Muharram_primary dark:to-transparent to-transparent" />
-          </div>
-        )}
-
-        {/* معلومات الكتاب */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-stretch p-6 md:p-10 gap-8">
-          <div className="w-full lg:w-1/3 flex justify-center relative group">
-            <div className="relative w-full max-w-xs aspect-[3/4] lg:aspect-auto lg:h-full rounded-xl overflow-hidden bg-transparent">
-              <Image
-                src={imageUrl}
-                fill
-                sizes="(max-width: 1024px) 100vw, 320px"
-                alt={publication.title}
-                className="object-contain transition-transform"
-                priority
-                unoptimized
-              />
-            </div>
-          </div>
-
-          <div className="w-full lg:w-2/3 space-y-6 text-center lg:text-right">
-            <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-                {publication.title}
-              </h1>
-              {publication.author && (
-                <p className="text-xl text-gray-600 mt-2">
-                  تأليف:{" "}
-                  <span className="font-medium">{publication.author}</span>
-                </p>
-              )}
-            </div>
-
-            {/* الأزرار */}
-            <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4">
-              {publication.pdf ? (
-                <Link
-                  href={publication.pdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-emerald-700 hover:from-primary/90 hover:to-emerald-700/90 dark:from-Muharram_primary dark:to-Muharram_primary/70 dark:hover:to-Muharram_primary/20 transition-all text-white font-medium px-6 py-3 rounded-full shadow-md hover:shadow-lg"
-                >
-                  <DownloadIcon fill="#ffffff" />
-                  تنزيل الكتاب
-                </Link>
-              ) : (
-                <span className="inline-flex items-center gap-2 bg-gray-400 dark:bg-gray-600 text-white font-medium px-6 py-3 rounded-full shadow-md cursor-not-allowed">
-                  الكتاب غير متوفر
-                </span>
-              )}
-
-              <Button
-                onClick={() => {
-                  if (typeof window !== "undefined") {
-                    navigator.clipboard.writeText(window.location.href);
-                    toast("تم نسخ الرابط في الحافظة");
-                  }
-                }}
-                variant="outline"
-                className="inline-flex p-6 text-md items-center gap-2 bg-white border border-primary text-primary hover:bg-primary/10 dark:border-Muharram_primary dark:text-Muharram_primary dark:hover:bg-Muharram_primary/10 transition-all font-medium rounded-full shadow-sm"
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            {publication.pdf ? (
+              <Link
+                href={publication.pdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={solidButton}
               >
-                <NewsShare iconSize={20} />
-                مشاركة
-              </Button>
+                <Download className="h-5 w-5" />
+                تنزيل الكتاب
+              </Link>
+            ) : (
+              <span className="inline-flex cursor-not-allowed items-center rounded-xl border-2 border-gray-300 bg-gray-100 px-6 py-3 font-semibold text-gray-500">
+                الكتاب غير متوفر
+              </span>
+            )}
 
-              {publication.category?.includes("publications") && (
-                <Link
-                  href={`/services/stores`}
-                  className="inline-flex items-center gap-2 bg-white border border-primary text-primary hover:bg-primary/10 dark:border-Muharram_primary dark:text-Muharram_primary dark:hover:bg-Muharram_primary/10 transition-all font-medium px-6 py-3 rounded-full shadow-sm"
-                >
-                  <ShoppingCartIcon className="w-5 h-5" />
-                  اماكن البيع المباشر
-                </Link>
-              )}
-            </div>
+            <button
+              type="button"
+              onClick={() => {
+                navigator.clipboard.writeText(window.location.href);
+                toast("تم نسخ الرابط في الحافظة");
+              }}
+              className={outlineButton}
+            >
+              <Share2 className="h-5 w-5" />
+              مشاركة
+            </button>
 
-            {/* التفاصيل */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6">
-              <Detail
-                label="عدد الصفحات"
-                icon={
-                  <BookOpen className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-                }
-                value={publication.pages ?? "غير محدد"} // ✅ fallback
-              />
-              <Detail
-                label="عدد الأجزاء"
-                icon={
-                  <FileText className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-                }
-                value={publication.parts ?? "غير محدد"} // ✅ fallback
-              />
-              <Detail
-                label="تاريخ الطبع"
-                icon={
-                  <CalendarIcon className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-                }
-                value={publication.printDate ?? "غير محدد"} // ✅ fallback
-              />
-              <Detail
-                label="اللغة"
-                icon={
-                  <Languages className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-                }
-                value={publication.language ?? "غير محدد"} // ✅ fallback
-              />
-              <Detail
-                label="المطبعة"
-                icon={
-                  <Printer className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-                }
-                value={publication.printHouse ?? "غير محدد"} // ✅ fallback
-              />
-              <Detail
-                label="أخرى"
-                icon={
-                  <Users className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-                }
-                value={
-                  publication.otherNames?.length
-                    ? publication.otherNames.join(", ") // ✅ مصحح
-                    : "لا يوجد"
-                }
-              />
-            </div>
+            {publication.category?.includes("الإصدارات") && (
+              <Link href="/services/stores" className={outlineButton}>
+                <ShoppingCartIcon className="h-5 w-5" />
+                اماكن البيع المباشر
+              </Link>
+            )}
           </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+        </Reveal>
 
-function Detail({
-  label,
-  value,
-  icon,
-  english = false,
-}: {
-  label: string;
-  value: string | number;
-  icon?: React.ReactNode;
-  english?: boolean;
-}) {
-  return (
-    <div className="bg-gray-50 p-3 rounded-lg flex flex-col items-center lg:items-start">
-      <div className="flex items-center gap-2 text-gray-700">
-        {icon}
-        <span className="font-medium">{label}</span>
+        <Reveal x={-60} y={0} delay={0.15}>
+          <div className="relative mx-auto aspect-[3/4] w-full max-w-xs">
+            <Image
+              src={imageUrl}
+              fill
+              sizes="(max-width: 1024px) 320px, 30vw"
+              alt={publication.title}
+              className="object-contain drop-shadow-[0_22px_24px_rgba(0,0,0,0.35)]"
+              priority
+            />
+          </div>
+        </Reveal>
       </div>
-      <span
-        dir={english ? "ltr" : "rtl"}
-        className={`text-gray-500 mt-1 ${english ? "text-left" : ""}`}
-      >
-        {value}
-      </span>
+
+      <Reveal className="mt-20">
+        <dl className={`${shieldPanel} grid gap-x-12 p-8 md:grid-cols-2 md:p-12 lg:grid-cols-3`}>
+          {facts.map(({ label, value, Icon }) => (
+            <div key={label} className="border-b border-white/10 py-4 last:border-0 md:[&:nth-last-child(-n+2)]:border-0 lg:[&:nth-last-child(-n+3)]:border-0">
+              <dt className="flex items-center gap-2 text-sm font-semibold text-secondary dark:text-white/60">
+                <Icon className="h-4 w-4" />
+                {label}
+              </dt>
+              <dd className="mt-1 text-lg leading-8 text-white">{value}</dd>
+            </div>
+          ))}
+        </dl>
+      </Reveal>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import Breadcrumbs from "@/components/breadcrumb";
+import { SectionTitle } from "@/components/brand";
 import { redirect } from "next/navigation";
 import { Book } from "@/types/book";
 import { dataFetcher } from "@/lib/dataFetcher";
@@ -59,7 +60,7 @@ export default async function Page({
     : [];
 
   return (
-    <div className="md:container space-y-16 my-12 max-w-screen-xl mx-auto px-4">
+    <div className="container pb-12">
       <Breadcrumbs
         links={[
           { name: "الرئيسية", url: "/" },
@@ -71,21 +72,16 @@ export default async function Page({
       <BookCard publication={publication} seriesParts={seriesParts} />
 
       {/* كتب ذات صلة */}
-      <div className="smart-library">
-        <h2 className="text-center font-semibold border-t border-b p-4 sm:text-2xl xl:text-4xl">
-          كتب ذات صلة
-        </h2>
-        <div className="bg-secondary dark:bg-Muharram_primary bg-opacity-10 dark:bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
+      <section className="pt-28">
+        <SectionTitle title="كتب ذات صلة" className="mb-12" />
+        <ul className="grid grid-cols-2 gap-x-6 gap-y-14 md:grid-cols-4">
           {[...relatedBooks, ...randomBooks].map((libraryBook) => (
-            <BooklibraryCard
-              route="/publications"
-              key={libraryBook.id}
-              publication={libraryBook}
-              downloadable
-            />
+            <li key={libraryBook.id}>
+              <BooklibraryCard route="/publications" publication={libraryBook} />
+            </li>
           ))}
-        </div>
-      </div>
+        </ul>
+      </section>
     </div>
   );
 }
