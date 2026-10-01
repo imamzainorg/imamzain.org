@@ -15,8 +15,8 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
   return (
     <Layouts>
-      {/* The route change itself is animated by <PageCurtain /> in the root layout. This wrapper
-          only adds the page's rise-in behind it (see .page-enter in globals.css). It is plain CSS,
+      {/* The route change itself is animated by <RouteProgress /> in the root layout. This wrapper
+          only fades the new page in (see .page-enter in globals.css). It is plain CSS,
           not framer-motion: Next remounts this template on every route, so an AnimatePresence in
           here never gets to play an exit. */}
       <div className="page-enter">{children}</div>

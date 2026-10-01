@@ -6,7 +6,7 @@
    One variable so the whole site can be re-toned in a single place. Set on :root because
    HeroUI's base styles paint :root, which a bare `html` selector would lose to. */
 :root {
-	--page-bg: #faf9f6;
+	--page-bg: #fdfdfc;
 	background-color: var(--page-bg);
 }
 
@@ -46,31 +46,33 @@ html.dark {
 	animation: mega-item-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) backwards;
 }
 
-/* Page transition. A curtain (page-curtain.tsx) sweeps over the screen when a link is clicked
-   and lifts once the next page has loaded; the new page then rises in behind it. The rise only
-   plays after the first navigation (html[data-nav]), so a fresh load never starts invisible. */
-.page-curtain {
-	transform: translateY(100%);
-	visibility: hidden;
+/* Page transition. A thin bar (route-progress.tsx) runs along the top while the next page loads,
+   and the new page fades in quickly. The fade only plays after the first navigation
+   (html[data-nav]), so a fresh load never starts invisible. */
+.route-progress {
+	opacity: 0;
+	transform: scaleX(0);
+	transform-origin: right;
 }
-.page-curtain[data-phase="cover"] {
-	visibility: visible;
-	transform: translateY(0);
-	transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+.route-progress[data-phase="loading"] {
+	opacity: 1;
+	transform: scaleX(0.85);
+	transition: transform 6s cubic-bezier(0.05, 0.7, 0.1, 1);
 }
-.page-curtain[data-phase="reveal"] {
-	visibility: visible;
-	transform: translateY(-100%);
-	transition: transform 0.55s cubic-bezier(0.76, 0, 0.24, 1);
+.route-progress[data-phase="done"] {
+	opacity: 0;
+	transform: scaleX(1);
+	transition:
+		transform 0.2s ease-out,
+		opacity 0.3s ease 0.2s;
 }
-@keyframes page-rise {
+@keyframes page-fade {
 	from {
 		opacity: 0;
-		transform: translateY(18px);
 	}
 }
 html[data-nav] .page-enter {
-	animation: page-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.2s backwards;
+	animation: page-fade 0.18s ease-out;
 }
 
 @media (prefers-reduced-motion: reduce) {
