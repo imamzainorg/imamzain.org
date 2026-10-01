@@ -1,12 +1,21 @@
 import type { Metadata } from "next"
-import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
+import BookPanel from "@/components/book-panel"
 import Breadcrumbs from "@/components/breadcrumb"
+import DarkBand from "@/components/dark-band"
 import AnimatedQuote from "./_components/animated-quote"
-import { MoreLink, SectionTitle, TitleIcon, outlinePanel, shieldPanel } from "./_components/brand"
+import {
+	MoreLink,
+	SectionTitle,
+	TitleIcon,
+	outlineButton,
+	outlinePanel,
+	shieldPanel,
+	solidButton,
+} from "@/components/brand"
 import CaptivityRoute from "./_components/captivity-route"
-import { Reveal } from "./_components/motion"
+import { Reveal } from "@/components/motion"
 import Stories from "./_components/stories"
 import Timeline from "./_components/timeline"
 import TitlesExplorer from "./_components/titles-explorer"
@@ -60,11 +69,6 @@ export const metadata: Metadata = {
 		images: ["/images/al-abid.jpg"],
 	},
 }
-
-const solidButton =
-	"group inline-flex items-center gap-3 rounded-xl border-2 border-primary bg-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-primary/90 dark:border-Muharram_primary dark:bg-Muharram_primary"
-const outlineButton =
-	"group inline-flex items-center gap-3 rounded-xl border-2 border-primary px-6 py-3 font-semibold text-primary transition-colors hover:bg-primary hover:text-white dark:border-Muharram_primary dark:text-Muharram_primary dark:hover:bg-Muharram_primary dark:hover:text-white"
 
 export default async function Page() {
 	const chapters = await getChapters()
@@ -141,33 +145,30 @@ export default async function Page() {
 			</section>
 
 			{/* Titles: a dark band like the home page's services section */}
-			<section id="titles" className="relative mt-28 scroll-mt-24 overflow-hidden bg-[#101c1a] py-20 md:py-28">
-				<div aria-hidden className="absolute inset-0 bg-[url('/shapes/bg.svg')] bg-[length:500px] opacity-[0.04]" />
-				<div className="container relative">
-					<SectionTitle
-						light
-						title="ألقابه وكناه"
-						text="اختر لقباً لتقرأ ما ورد فيه في المصادر."
-					/>
-					<TitlesExplorer titles={titles} />
-					<div className="mt-16 grid gap-10 border-t border-white/10 pt-10 md:grid-cols-2">
-						<figure>
-							<h3 className="font-bold text-secondary dark:text-white">ألقابه</h3>
-							<blockquote className="mt-3 text-lg leading-loose text-white/80">{allTitles.text}</blockquote>
-							<figcaption className="mt-2 text-sm text-white/50">{allTitles.source}</figcaption>
-						</figure>
-						<div>
-							<h3 className="font-bold text-secondary dark:text-white">كناه</h3>
-							{kunyas.map((kunya) => (
-								<figure key={kunya.text} className="mt-3">
-									<blockquote className="text-lg leading-loose text-white/80">{kunya.text}</blockquote>
-									<figcaption className="mt-1 text-sm text-white/50">{kunya.source}</figcaption>
-								</figure>
-							))}
-						</div>
+			<DarkBand id="titles" className="mt-28">
+				<SectionTitle
+					light
+					title="ألقابه وكناه"
+					text="اختر لقباً لتقرأ ما ورد فيه في المصادر."
+				/>
+				<TitlesExplorer titles={titles} />
+				<div className="mt-16 grid gap-10 border-t border-white/10 pt-10 md:grid-cols-2">
+					<figure>
+						<h3 className="font-bold text-secondary dark:text-white">ألقابه</h3>
+						<blockquote className="mt-3 text-lg leading-loose text-white/80">{allTitles.text}</blockquote>
+						<figcaption className="mt-2 text-sm text-white/50">{allTitles.source}</figcaption>
+					</figure>
+					<div>
+						<h3 className="font-bold text-secondary dark:text-white">كناه</h3>
+						{kunyas.map((kunya) => (
+							<figure key={kunya.text} className="mt-3">
+								<blockquote className="text-lg leading-loose text-white/80">{kunya.text}</blockquote>
+								<figcaption className="mt-1 text-sm text-white/50">{kunya.source}</figcaption>
+							</figure>
+						))}
 					</div>
 				</div>
-			</section>
+			</DarkBand>
 
 			{/* Stories: a carousel of passages from the narrations */}
 			<section id="stories" className="container scroll-mt-32 pt-28">
@@ -183,7 +184,7 @@ export default async function Page() {
 				id="words"
 				className="relative mt-24 scroll-mt-24 bg-[url('/images/imam-legacy-bg-symbol.jpg')] bg-cover bg-center"
 			>
-				<div className="bg-[#101c1a]/80 py-24 backdrop-blur-[2px] md:py-32">
+				<div className="bg-[#101c1a]/80 py-24 dark:bg-[#171314]/80 backdrop-blur-[2px] md:py-32">
 					<div className="container flex flex-col items-center text-center">
 						<TitleIcon className="w-5" />
 						<AnimatedQuote
@@ -210,31 +211,12 @@ export default async function Page() {
 				<CaptivityRoute stops={captivityStops} />
 
 				<h3 className="mb-8 mt-24 text-2xl font-bold text-gray-800">رسائله ومواعظه</h3>
-				<Reveal>
-					<div className={`${outlinePanel} relative p-8 md:p-12 lg:pl-80`}>
-						<h4 className="text-3xl font-bold text-primary dark:text-Muharram_primary">{huqooq.title}</h4>
-						<p className="mt-4 max-w-2xl text-lg leading-loose text-gray-700">{huqooq.text}</p>
-						<Link href={huqooq.href} className={`${outlineButton} mt-6`}>
-							اقرأها في المكتبة
-							<ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-						</Link>
-						<div className="absolute -top-10 left-16 hidden w-52 lg:block" aria-hidden>
-							<Image src="/shapes/book-bg.svg" width={208} height={240} alt="" className="w-full dark:hidden" />
-							<Image
-								src="/shapes/book-bg_Muharram.svg"
-								width={208}
-								height={240}
-								alt=""
-								className="hidden w-full dark:block"
-							/>
-							<span className="absolute inset-x-0 top-[14%] text-center text-2xl font-bold text-white">
-								رسالة
-								<br />
-								الحقوق
-							</span>
-						</div>
-					</div>
-				</Reveal>
+				<BookPanel title={huqooq.title} text={huqooq.text} spine={["رسالة", "الحقوق"]}>
+					<Link href={huqooq.href} className={outlineButton}>
+						اقرأها في المكتبة
+						<ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+					</Link>
+				</BookPanel>
 				<ul className="mt-10 grid gap-x-16 md:grid-cols-2">
 					{letters.map((letter, i) => (
 						<li key={letter.title}>

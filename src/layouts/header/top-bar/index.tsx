@@ -116,7 +116,7 @@ export default function TopBar() {
     <>
       <div
         className={`w-full transition-all duration-300 max-lg:hidden ${
-          isScrolled || path !== "/" ? "bg-white" : ""
+          isScrolled || path !== "/" ? "bg-[var(--page-bg)]" : ""
         }`}
       >
         <div className="container">

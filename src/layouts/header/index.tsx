@@ -272,7 +272,7 @@ export default function Header() {
 
 										{hasSubLinks && (
 											<div className="absolute top-full right-0 min-w-56 transform scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 z-50">
-												<div className="bg-white shadow-xl rounded-xl py-4 px-4 space-y-2">
+												<div className="rounded-2xl border border-secondary/30 bg-[var(--page-bg)] p-3 shadow-xl dark:border-Muharram_secondary/30">
 													{link.subLinks.map(
 														(subLink, subIndex) => (
 															<Link
@@ -280,7 +280,7 @@ export default function Header() {
 																href={
 																	subLink.href
 																}
-																className="block px-2 py-2 rounded-md text-subtitle text-gray-800 hover:bg-gray-100 transition"
+																className="block rounded-lg px-3 py-2 text-subtitle text-gray-800 transition hover:bg-primary/10 hover:text-primary dark:hover:bg-Muharram_primary/10 dark:hover:text-Muharram_primary"
 															>
 																{subLink.label}
 															</Link>

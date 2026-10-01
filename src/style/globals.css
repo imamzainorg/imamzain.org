@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* The page canvas every route sits on: warm cream under the site pattern (Tailwind yellow-50).
+   One variable so the whole site can be re-toned in a single place. Set on :root because
+   HeroUI's base styles paint :root, which a bare `html` selector would lose to. */
+:root {
+	--page-bg: #fefce8;
+	background-color: var(--page-bg);
+}
+
 html {
 	@apply m-0 p-0 w-full;
 	transition:
@@ -10,10 +18,9 @@ html {
 }
 
 html.dark {
-	background-color: white !important;
+	background-color: var(--page-bg) !important;
 	color: inherit !important;
 }
-
 .image-mask {
 	mask-repeat: no-repeat;
 	mask-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA0ODAuMzYgODQxLjg5Ij4KICA8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjkuMi4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogMi4xLjAgQnVpbGQgMjIpICAtLT4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLnN0MCB7CiAgICAgICAgZmlsbDogIzAwNjY1NDsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPHBhdGggY2xhc3M9InN0MCIgZD0iTS4zMyw1ODcuNDZoLjFjMC00OS42Mi43MS0zMDIuOS0uMTktMzUyLjUxLTEuMDItNTYsMjMuNjEtMTAwLjk4LDY0Ljk3LTEzMy45NSw0MS41Ni0zMy4xNCw4OC45OC01OC44NywxMzMuMjYtODguNjgsMjUuNDctMTcuMTUsNDkuMTItMTUuOTQsNzQuMTYuODQsNTAuNjksMzMuOTcsMTAzLjIyLDY1LjM0LDE1Mi41OCwxMDEuMTIsMzUuNjUsMjUuODQsNTMuNzUsNjUuMjEsNTQuNDUsMTA4LjgyLDEuNjksMTA0Ljk1LjIsNDEzLjU4Ljc2LDUxOC41NS4xNiwyOS4yMS0xMS43Myw0NS41LTQwLjcyLDUyLjcyLTQwLjYxLDEwLjEyLTgwLDI1LjM0LTEyMC43OCwzNC40Ni0zMi45OSw3LjM4LTY4LjYyLDE2LjkyLTEwMC42OSwxMS40NC01OS43NS0xMC4yMS0xMTcuNDItMzIuMDItMTc2LjYyLTQ2LjI3QzguOTMsNzg2LjEzLS42NSw3NjcuMDcuMDMsNzM2LjMyYzEuMTEtNDkuNi4zLTk5LjI0LjMtMTQ4Ljg2WiIvPgo8L3N2Zz4=);
@@ -26,15 +33,42 @@ html.dark {
 .scrollbar-hide::-webkit-scrollbar {
 	display: none;
 }
+/* react-select, themed like the site's other fields (2px primary border, rounded-xl). */
 .react-select__control {
 	border-radius: 0.75rem !important;
-	border-color: #e5e7eb !important;
+	border-width: 2px !important;
+	border-color: rgb(0 102 84 / 0.25) !important;
 	min-height: 48px !important;
+	box-shadow: none !important;
 }
 
 .react-select__control--is-focused {
-	border-color: #2b994f !important;
-	box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2) !important;
+	border-color: #006654 !important;
+}
+
+.dark .react-select__control {
+	border-color: rgb(35 31 32 / 0.25) !important;
+}
+
+.dark .react-select__control--is-focused {
+	border-color: #231f20 !important;
+}
+
+.react-select__option--is-focused {
+	background-color: rgb(0 102 84 / 0.08) !important;
+}
+
+.react-select__option--is-selected {
+	background-color: #006654 !important;
+	color: #fff !important;
+}
+
+.dark .react-select__option--is-focused {
+	background-color: rgb(35 31 32 / 0.08) !important;
+}
+
+.dark .react-select__option--is-selected {
+	background-color: #231f20 !important;
 }
 
 .react-select__menu {
@@ -185,4 +219,58 @@ html.dark {
 .dark .stories-swiper {
 	--swiper-scrollbar-bg-color: theme("colors.Muharram_primary / 12%");
 	--swiper-scrollbar-drag-bg-color: theme("colors.Muharram_secondary");
+}
+
+/* News article bodies are CMS HTML. Many were written against an old template that wrapped them
+   in Tailwind class names (a gray lead box, a blue closing note, a left border that lands on the
+   wrong side in RTL). Tailwind never scans src/data, so those classes only work by accident; the
+   article styles itself here instead, and the legacy callouts are matched by their class names. */
+.news-body {
+	@apply text-lg leading-loose text-gray-800 md:text-xl md:leading-[2.1];
+}
+.news-body :is(div, main, p) {
+	font-size: inherit;
+	line-height: inherit;
+	font-weight: inherit;
+	color: inherit;
+}
+.news-body :is(p, div, main, ul, ol) + :is(p, div, main, ul, ol, h2, h3) {
+	@apply mt-6;
+}
+.news-body :is(h2, h3) {
+	@apply mb-3 mt-10 text-2xl font-bold leading-snug text-primary dark:text-Muharram_primary;
+}
+.news-body strong {
+	@apply font-bold text-primary dark:text-Muharram_primary;
+}
+.news-body ul {
+	@apply list-disc space-y-2 pr-8;
+}
+.news-body ol {
+	@apply list-decimal space-y-2 pr-8;
+}
+.news-body a {
+	@apply font-semibold text-primary underline underline-offset-4 dark:text-Muharram_primary;
+}
+.news-body div[class*="border-l-4"] {
+	@apply border-secondary pr-6 text-xl font-semibold text-gray-900 dark:border-Muharram_secondary md:text-2xl md:leading-[2];
+	background: none;
+	border-left-width: 0;
+	border-right-width: 4px;
+	border-radius: 0;
+	padding-block: 0;
+	padding-left: 0;
+	margin-bottom: 0;
+}
+.news-body div[class*="bg-blue-50"],
+.news-body div[class*="bg-green"] {
+	@apply border-secondary/60 pr-5 text-gray-700 dark:border-Muharram_secondary/60;
+	background: none;
+	border-width: 0;
+	border-right-width: 3px;
+	border-radius: 0;
+	padding-block: 0;
+	padding-left: 0;
+	font-style: normal;
+	font-weight: inherit;
 }

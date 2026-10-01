@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { MapPin } from "lucide-react"
 import type { WordItem } from "../_data/biography"
-import { useShown } from "./motion"
+import { useShown } from "@/components/motion"
 
 const noMotion = "motion-reduce:!transform-none motion-reduce:!transition-none"
 

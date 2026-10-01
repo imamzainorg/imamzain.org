@@ -6,8 +6,8 @@ import { motion, useScroll, useSpring } from "framer-motion"
 import { MapPin } from "lucide-react"
 import { cn } from "@/lib/utils"
 import type { Era } from "../_data/biography"
-import { MoreLink } from "./brand"
-import { Reveal, useShown } from "./motion"
+import { MoreLink } from "@/components/brand"
+import { Reveal, useShown } from "@/components/motion"
 
 function Year({ era, className }: { era: Era; className?: string }) {
 	return (
