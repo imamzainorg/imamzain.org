@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Breadcrumbs from "@/components/breadcrumb";
+import { SectionTitle, outlineButton } from "@/components/brand";
 import { Book } from "@/types/book";
 import BooklibraryCard from "@/app/library/_components/book-library-card";
 import BookCard from "@/components/book-card";
@@ -73,7 +74,7 @@ export default function BookDetailClient({
   };
 
   return (
-    <div className="space-y-10 my-8">
+    <div className="container pb-12">
       <Breadcrumbs
         links={[
           { name: "الرئيسية", url: "/" },
@@ -81,31 +82,28 @@ export default function BookDetailClient({
           { name: book.title, url: "#" },
         ]}
       />
-      <div className="container mx-auto px-4">
-        <button
-          onClick={handleBackToLibrary}
-          className="flex items-center gap-2 bg-primary p-2 rounded-xl  hover:bg-primary/90 text-white hover:text-primary-dark transition-colors group mb-4"
-        >
-          <ArrowRight className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-          <span className="font-medium  ">العودة الى الصفحة السابقة</span>
-        </button>
-      </div>
+
+      <button
+        type="button"
+        onClick={handleBackToLibrary}
+        className={`${outlineButton} mb-12 !px-4 !py-2`}
+      >
+        <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+        العودة الى الصفحة السابقة
+      </button>
+
       <BookCard key={book.id} publication={book} seriesParts={seriesParts} />
 
-      <h2 className="text-center font-semibold border-t border-b p-4 sm:text-2xl xl:text-4xl">
-        كتب ذات صلة
-      </h2>
-
-      <div className="bg-secondary md:container dark:bg-Muharram_primary/20 bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
-        {showcaseBooks.map((item) => (
-          <BooklibraryCard
-            key={item.id}
-            route="/library/books"
-            publication={item}
-            downloadable
-          />
-        ))}
-      </div>
+      <section className="pt-28">
+        <SectionTitle title="كتب ذات صلة" className="mb-12" />
+        <ul className="grid grid-cols-2 gap-x-6 gap-y-14 md:grid-cols-4">
+          {showcaseBooks.map((item) => (
+            <li key={item.id}>
+              <BooklibraryCard route="/library/books" publication={item} />
+            </li>
+          ))}
+        </ul>
+      </section>
     </div>
   );
 }

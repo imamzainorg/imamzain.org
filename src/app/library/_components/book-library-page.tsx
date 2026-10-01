@@ -2,16 +2,17 @@
 
 import { useMemo, useCallback, useState, useEffect, useRef } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import { BookOpen, ArrowUpDown } from "lucide-react";
+import { ArrowUpDown } from "lucide-react";
 
 import { Book } from "@/types/book";
 
 import BooklibraryCard from "./book-library-card";
 import FilterSidebar from "./FilterSidebar";
-import SearchInput from "./search-input";
-import Pagination from "./pagination";
 import Breadcrumbs from "@/components/breadcrumb";
-import SectionTitle from "@/components/section";
+import { outlineButton } from "@/components/brand";
+import PageHeader from "@/components/page-header";
+import Pagination from "@/components/pagination";
+import SearchField from "@/components/search-field";
 
 const PER_PAGE = 8;
 
@@ -156,87 +157,90 @@ export default function BookLibraryPage({ books }: { books: Book[] }) {
   }, [localSearch]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="min-h-screen mx-auto px-4 gap-6" dir="rtl">
-      <div className="mb-6">
-        <Breadcrumbs
-          links={[
-            { name: "الصفحة الرئيسية", url: "/" },
-            { name: "المكتبة التخصصية", url: "/library" },
-            { name: "قائمة الكتب", url: "#" },
-          ]}
+    <div className="container min-h-screen pb-12" dir="rtl">
+      <Breadcrumbs
+        links={[
+          { name: "الصفحة الرئيسية", url: "/" },
+          { name: "المكتبة التخصصية", url: "/library" },
+          { name: "قائمة الكتب", url: "#" },
+        ]}
+      />
+
+      <PageHeader title="قائمة الكتب" text="اكتشف مجموعتنا المتنوعة من الكتب" />
+
+      <div className="mt-16 lg:grid lg:grid-cols-[18rem_1fr] lg:gap-12 xl:grid-cols-[20rem_1fr] xl:gap-16">
+        <FilterSidebar
+          filters={filterOptions}
+          author={filters.author}
+          setAuthor={(val) => updateParams({ author: val })}
+          publisher={filters.publisher}
+          setPublisher={(val) => updateParams({ publisher: val })}
+          category={filters.category}
+          setCategory={(val) => updateParams({ category: val })}
+          conferences={filters.conferences}
+          setConferences={(val) => updateParams({ conferences: val })}
+          reset={resetFilters}
         />
-      </div>
 
-      <div className="mb-8 rounded-2xl dark:bg-gradient-to-l dark:from-Muharram_secondary/10 dark:to-transparent bg-gradient-to-l from-primary/10 to-transparent p-6">
-        <div className="flex flex-col md:flex-row md:justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="p-3 bg-primary/20 dark:bg-Muharram_primary/20 rounded-xl">
-              <BookOpen className="w-6 h-6 text-primary dark:text-Muharram_primary" />
-            </div>
-            <div>
-              <SectionTitle title="قائمة الكتب" />
-              <p className="text-gray-600 mt-1">اكتشف مجموعتنا المتنوعة من الكتب</p>
+        <main className="min-w-0">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center">
+            <SearchField
+              className="md:flex-1"
+              label="البحث في الكتب"
+              placeholder="ابحث عن كتاب، مؤلف، دار نشر..."
+              value={localSearch}
+              onChange={setLocalSearch}
+              onClear={resetFilters}
+            />
+            <div className="relative">
+              <label htmlFor="library-sort" className="sr-only">
+                ترتيب الكتب
+              </label>
+              <select
+                id="library-sort"
+                value={filters.sort}
+                onChange={(e) => updateParams({ sort: e.target.value })}
+                className="w-full cursor-pointer appearance-none rounded-xl border-2 border-primary/25 bg-white py-3.5 pl-10 pr-4 text-lg text-gray-900 transition-colors focus:border-primary focus:outline-none dark:border-Muharram_primary/25 dark:focus:border-Muharram_primary md:w-52"
+              >
+                <option value="latest">الأحدث</option>
+                <option value="common">الأكثر مشاهدة</option>
+              </select>
+              <ArrowUpDown className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-primary dark:text-Muharram_primary" />
             </div>
           </div>
-          <div className="relative">
-            <select
-              value={filters.sort}
-              onChange={(e) => updateParams({ sort: e.target.value })}
-              className="appearance-none bg-white border rounded-xl px-4 py-2.5 pr-10 focus:ring-2 focus:ring-primary/20 outline-none transition-all cursor-pointer"
-            >
-              <option value="latest">الأحدث</option>
-              <option value="common">الأكثر مشاهدة</option>
-            </select>
-            <ArrowUpDown className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
-          </div>
-        </div>
-      </div>
 
-      <div className="flex flex-col lg:flex-row gap-6">
-        <aside>
-          <FilterSidebar
-            filters={filterOptions}
-            author={filters.author}
-            setAuthor={(val) => updateParams({ author: val })}
-            publisher={filters.publisher}
-            setPublisher={(val) => updateParams({ publisher: val })}
-            category={filters.category}
-            setCategory={(val) => updateParams({ category: val })}
-            conferences={filters.conferences}
-            setConferences={(val) => updateParams({ conferences: val })}
-            reset={resetFilters}
-          />
-        </aside>
-
-        <main className="flex-1 space-y-6">
-          <SearchInput value={localSearch} onChange={setLocalSearch} onClear={resetFilters} />
+          <p className="mt-6 font-semibold text-gray-600">
+            {filteredBooks.length} كتاب
+          </p>
 
           {paginatedBooks.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-14 md:grid-cols-3">
               {paginatedBooks.map((book, index) => (
-                <BooklibraryCard
-                  key={book.id}
-                  publication={book}
-                  route="/library/books"
-                  priority={index < 4} // أول 4 كتب تُحمَّل بأولوية
-                />
+                <li key={book.id}>
+                  <BooklibraryCard
+                    publication={book}
+                    route="/library/books"
+                    priority={index < 4} // أول 4 كتب تُحمَّل بأولوية
+                    as="h2"
+                  />
+                </li>
               ))}
-            </div>
+            </ul>
           ) : (
-            <div className="text-center py-20 bg-white rounded-2xl border border-dashed border-gray-300 shadow-sm">
-              <p className="text-gray-500 text-lg font-medium">لا توجد نتائج تطابق بحثك</p>
-              <button
-                onClick={resetFilters}
-                className="mt-4 text-primary font-semibold hover:underline"
-              >
+            <div className="flex flex-col items-center py-24 text-center">
+              <p className="text-2xl font-bold text-gray-800">لا توجد نتائج تطابق بحثك</p>
+              <button type="button" onClick={resetFilters} className={`${outlineButton} mt-6`}>
                 إعادة ضبط الفلاتر
               </button>
             </div>
           )}
 
-          {totalPages > 1 && (
-            <Pagination page={filters.page} totalPages={totalPages} onPageChange={handlePageChange} />
-          )}
+          <Pagination
+            className="mt-16"
+            page={filters.page}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
         </main>
       </div>
     </div>

@@ -122,7 +122,7 @@ export default function SubjectAudioPlayer({ src }: SubjectAudioPlayerProps) {
   const progressPercent = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   return (
-    <div className="w-full py-2 border-b border-gray-100 dark:border-zinc-700">
+    <div className="w-full border-b border-secondary/30 pb-4">
       <audio ref={audioRef} src={src} preload="metadata" />
 
       <div className="flex items-center gap-3">

@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 import SubjectView from "@/app/library/_components/subject-view";
 import SubjectNavigation from "@/app/library/_components/subject-navigation";
 import { collections } from "@/app/library/_config/collections";
+import { SectionTitle } from "@/components/brand";
 
 export const dynamicParams = false;
 
@@ -45,13 +46,7 @@ export default async function SubjectPage({
 
   return (
     <>
-      <div className="w-full text-center">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-Muharram_primary mb-3">
-          {subject.title}
-        </h1>
-      </div>
-
-      <div className="w-1/2 h-0.5 mx-auto bg-gradient-to-l from-transparent via-primary/40 dark:via-Muharram_primary/40 to-transparent" />
+      <SectionTitle as="h1" title={subject.title} className="mb-10" />
 
       {/* Suspense boundary lets SubjectView read ?highlight= via
 			    useSearchParams while the page stays statically prerendered. */}

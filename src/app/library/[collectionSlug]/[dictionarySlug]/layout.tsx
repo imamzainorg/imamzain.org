@@ -33,7 +33,7 @@ export default async function Layout({
   const navDictionaries = getNavDictionaries(collectionSlug, dictionarySlug);
 
   return (
-    <div className="px-4 sm:px-10 py-10 min-h-screen md:container mx-auto">
+    <div className="container min-h-screen pb-12">
       <Breadcrumbs
         links={[
           { name: "الصفحة الرئيسية", url: "/" },
@@ -47,35 +47,33 @@ export default async function Layout({
       />
 
       {/* Search Bar */}
-      <div className="my-8 w-4/5 mx-auto">
+      <div className="mb-12 max-w-3xl">
         <CollectionSearch collectionSlug={collectionSlug} />
       </div>
 
       {/* Mobile dictionaries */}
-      <div className="my-6 lg:hidden bg-white dark:bg-zinc-900 p-4 rounded-xl shadow-sm">
-        <h2 className="font-semibold mb-3 text-center text-gray-700 dark:text-gray-200">
-          اختر القسم
-        </h2>
-        <div className="flex flex-wrap justify-center gap-2">
+      <nav aria-label="أقسام الكتاب" className="mb-10 lg:hidden">
+        <div className="flex flex-wrap gap-2">
           {dictionaries.map((dict) => (
             <Link
               key={dict.slug}
               href={`/library/${collectionSlug}/${dict.slug}`}
-              className={`px-4 py-2 rounded-full text-sm transition ${
+              aria-current={dict.slug === dictionarySlug ? "page" : undefined}
+              className={`rounded-xl border-2 px-4 py-2 font-semibold transition-colors ${
                 dict.slug === dictionarySlug
-                  ? "bg-primary/15 text-primary dark:text-Muharram_primary"
-                  : "bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200"
+                  ? "border-primary bg-primary text-white dark:border-Muharram_primary dark:bg-Muharram_primary"
+                  : "border-primary/25 text-primary hover:border-primary dark:border-Muharram_primary/25 dark:text-Muharram_primary"
               }`}
             >
               {dict.title}
             </Link>
           ))}
         </div>
-      </div>
+      </nav>
 
-      <div className="flex gap-10 mt-8">
-        {/* Sidebar - Now with expandable tree */}
-        <aside className="hidden lg:flex lg:w-1/4 flex-col gap-6 sticky top-28 self-start max-h-[calc(100vh-8rem)] overflow-hidden">
+      <div className="lg:grid lg:grid-cols-[18rem_1fr] lg:gap-14 xl:grid-cols-[20rem_1fr] xl:gap-20">
+        {/* Sidebar: the book's sections and subjects */}
+        <aside className="hidden max-h-[calc(100vh-9rem)] flex-col lg:sticky lg:top-32 lg:flex lg:self-start">
           <DictionaryNav
             dictionaries={navDictionaries}
             collectionSlug={collectionSlug}
@@ -83,7 +81,7 @@ export default async function Layout({
           />
         </aside>
 
-        <main className="flex-1 space-y-8">{children}</main>
+        <main className="min-w-0">{children}</main>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import { getDictionaries, getDictionary } from "@/lib/imamzain-legacy-loader";
 import { collections } from "@/app/library/_config/collections";
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 export const dynamicParams = false;
 
@@ -22,36 +23,24 @@ export default async function Page({
   const activeDictionary = getDictionary(collectionSlug, dictionarySlug);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full ">
+    <ol className="grid gap-x-12 md:grid-cols-2">
       {activeDictionary?.subjects.map((subject) => (
-    <Link
-  key={subject.id}
-  href={`/library/${collectionSlug}/${activeDictionary.slug}/${subject.slug}`}
-  id={subject.slug}
-  className="group relative w-full h-full rounded-2xl border border-primary/10 dark:border-white/[0.06] bg-white dark:bg-Muharram_secondary/[0.07] px-4 py-4 sm:px-5 flex items-center justify-between gap-3 transition-colors duration-500 hover:border-primary/50 dark:hover:border-Muharram_primary/20"
->
-  {/* خط جانبي رفيع — يزداد وضوحًا عند التمرير */}
-  <span className="absolute right-0 top-3 bottom-3 w-[3px] rounded-full bg-primary/20 dark:bg-Muharram_primary/20 group-hover:bg-primary/60 dark:group-hover:bg-Muharram_primary/60 transition-colors duration-500" />
-
-  <div className="flex flex-col gap-1.5 min-w-0 pr-3">
-    <h2 className="text-subtitle text-gray-800 dark:text-Muharram_primary/90 leading-7 line-clamp-2 group-hover:text-primary dark:group-hover:text-Muharram_primary transition-colors duration-500">
-      {subject.title}
-    </h2>
-    <span className="h-px w-4 bg-primary/25 dark:bg-Muharram_primary/25 group-hover:w-6 transition-all duration-500" />
-  </div>
-
-  {/* دائرة رقم الموضوع */}
-  <span
-    className="shrink-0 w-11 h-11 flex items-center justify-center rounded-full border border-primary/15 dark:border-Muharram_primary/15
-               text-base font-mono tabular-nums text-gray-500 dark:text-Muharram_secondary/80
-               group-hover:border-primary/50 dark:group-hover:border-Muharram_primary/50
-               group-hover:text-primary dark:group-hover:text-Muharram_primary
-               transition-colors duration-500 font-semibold"
-  >
-    {subject.id}
-  </span>
-</Link>
+        <li key={subject.id}>
+          <Link
+            href={`/library/${collectionSlug}/${activeDictionary.slug}/${subject.slug}`}
+            id={subject.slug}
+            className="group flex items-start gap-4 border-b border-dashed border-secondary/40 py-5"
+          >
+            <span className="w-10 shrink-0 pt-0.5 text-xl font-bold text-secondary dark:text-Muharram_secondary">
+              {subject.id}
+            </span>
+            <span className="flex flex-1 items-start gap-2 text-lg leading-8 text-gray-800 transition-colors group-hover:text-primary dark:group-hover:text-Muharram_primary md:text-xl md:leading-9">
+              {subject.title}
+              <ArrowLeft className="mt-2 h-4 w-4 shrink-0 text-primary opacity-0 transition-all duration-200 group-hover:-translate-x-1 group-hover:opacity-100 dark:text-Muharram_primary" />
+            </span>
+          </Link>
+        </li>
       ))}
-    </div>
+    </ol>
   );
 }

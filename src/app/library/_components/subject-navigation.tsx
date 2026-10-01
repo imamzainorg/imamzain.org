@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ChevronRight, ChevronLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { pagerLink } from "@/components/brand";
 
 type SubjectNavigationProps = {
   collectionSlug: string;
@@ -26,61 +27,43 @@ export default function SubjectNavigation({
   if (!prevSubject && !nextSubject) return null;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-12 pt-8 border-t-2 border-gray-100 dark:border-zinc-700">
+    <nav
+      aria-label="التنقل بين المواضيع"
+      className="mt-20 flex flex-col gap-4 sm:flex-row"
+    >
       {prevSubject ? (
         <Link
           href={`/library/${collectionSlug}/${dictionarySlug}/${prevSubject.slug}`}
-          className="group relative overflow-hidden flex items-center gap-4 p-5 rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-Muharram_secondary/30 dark:to-Muharram_secondary/60 border-2 border-gray-100 dark:border-zinc-700 hover:border-primary dark:hover:border-Muharram_primary hover:shadow-lg transition-all"
+          className={pagerLink}
         >
-          <div className="absolute inset-0 bg-gradient-to-l from-primary/5 to-transparent dark:from-Muharram_primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-
-          <div className="relative flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 dark:bg-Muharram_primary/10 group-hover:bg-primary/20 dark:group-hover:bg-Muharram_primary/20 flex items-center justify-center transition-colors">
-            <ChevronRight className="w-6 h-6 text-primary dark:text-Muharram_primary" />
-          </div>
-
-          <div className="relative flex-1 text-right min-w-0">
-            <div className="text-xs font-medium text-gray-500 dark:text-black mb-1">
-              الموضوع السابق
-            </div>
-            <div className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-Muharram_primary transition-colors truncate">
-              {prevSubject.title}
-            </div>
-            <div className="text-xs text-gray-500 dark:text-black mt-1">
-              رقم {prevSubject.id}
-            </div>
-          </div>
+          <span className="inline-flex items-center gap-1 text-sm text-gray-500">
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            الموضوع السابق · رقم {prevSubject.id}
+          </span>
+          <span className="line-clamp-2 text-lg font-bold leading-8 text-primary dark:text-Muharram_primary">
+            {prevSubject.title}
+          </span>
         </Link>
       ) : (
-        <div />
+        <div className="flex-1" />
       )}
 
-      {/* Next Subject */}
       {nextSubject ? (
         <Link
           href={`/library/${collectionSlug}/${dictionarySlug}/${nextSubject.slug}`}
-          className="group relative overflow-hidden flex items-center gap-4 p-5 rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-Muharram_secondary/30 dark:to-Muharram_secondary/60 border-2 border-gray-100 dark:border-zinc-700 hover:border-primary dark:hover:border-Muharram_primary hover:shadow-lg transition-all"
+          className={`${pagerLink} items-end text-left`}
         >
-          <div className="absolute inset-0 bg-gradient-to-l from-primary/5 to-transparent dark:from-Muharram_primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-
-          <div className="relative flex-1 text-left min-w-0">
-            <div className="text-xs font-medium text-gray-500 dark:text-black mb-1">
-              الموضوع التالي
-            </div>
-            <div className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-Muharram_primary transition-colors truncate">
-              {nextSubject.title}
-            </div>
-            <div className="text-xs text-gray-500 dark:text-black mt-1">
-              رقم {nextSubject.id}
-            </div>
-          </div>
-
-          <div className="relative flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 dark:bg-Muharram_primary/10 group-hover:bg-primary/20 dark:group-hover:bg-Muharram_primary/20 flex items-center justify-center transition-colors">
-            <ChevronLeft className="w-6 h-6 text-primary dark:text-Muharram_primary" />
-          </div>
+          <span className="inline-flex items-center gap-1 text-sm text-gray-500">
+            الموضوع التالي · رقم {nextSubject.id}
+            <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+          </span>
+          <span className="line-clamp-2 text-lg font-bold leading-8 text-primary dark:text-Muharram_primary">
+            {nextSubject.title}
+          </span>
         </Link>
       ) : (
-        <div />
+        <div className="flex-1" />
       )}
-    </div>
+    </nav>
   );
 }
