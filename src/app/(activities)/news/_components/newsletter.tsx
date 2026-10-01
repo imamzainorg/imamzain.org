@@ -1,141 +1,93 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { toast } from "sonner";
-import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { useState } from "react"
+import { toast } from "sonner"
+import { CheckCircle2 } from "lucide-react"
+import { shieldPanel, whiteButton } from "@/components/brand"
 
+// The newsletter sign-up as a green shield. Used on /news and beside every article.
 export default function NewsletterSection() {
-  const [subscriberEmail, setSubscriberEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [sent, setSent] = useState(false);
+	const [subscriberEmail, setSubscriberEmail] = useState("")
+	const [isSubmitting, setIsSubmitting] = useState(false)
+	const [sent, setSent] = useState(false)
+	const [errorMsg, setErrorMsg] = useState("")
 
-  // الرسالة التي ستظهر تحت حقل الإدخال
-  const [errorMsg, setErrorMsg] = useState("");
+	const handleSubmit = async (event: React.FormEvent) => {
+		event.preventDefault()
 
-  // للتحكم بظهور النصوص
-  const [showText, setShowText] = useState(true);
+		setIsSubmitting(true)
+		setErrorMsg("")
 
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
+		try {
+			const response = await fetch("/api/newsletter/subscribe", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ subscriberEmail }),
+			})
 
-    setIsSubmitting(true);
-    setErrorMsg("");
+			const data = await response.json().catch(() => ({}))
 
-    try {
-      const response = await fetch("/api/newsletter/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ subscriberEmail }),
-      });
+			if (response.ok) {
+				toast("شكراً لاشتراكك في صحيفتنا الاخبارية", {
+					description: subscriberEmail,
+				})
 
-      const data = await response.json().catch(() => ({}));
+				setSubscriberEmail("")
+				setSent(true)
+				return
+			}
 
-      if (response.ok) {
-        toast("شكراً لاشتراكك في صحيفتنا الاخبارية", {
-          description: subscriberEmail,
-        });
+			setErrorMsg(data?.message || "حدثت مشكلة في اضافة البريد الالكتروني")
+		} catch {
+			setErrorMsg("حدث خطأ عند محاولة الاضافة، حاول مرة أخرى")
+		} finally {
+			setIsSubmitting(false)
+		}
+	}
 
-        setSubscriberEmail("");
-        setSent(true);
-        setShowText(false); // إخفاء النصوص بعد الاشتراك
-        return;
-      }
+	return (
+		<div className={`${shieldPanel} relative isolate p-8 md:p-10`}>
+			<div
+				aria-hidden
+				className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-[40px] bg-[url('/shapes/bg.svg')] bg-[length:320px] opacity-[0.07]"
+			/>
 
-      setErrorMsg(data?.message || "حدثت مشكلة في اضافة البريد الالكتروني");
-    } catch {
-      setErrorMsg("حدث خطأ عند محاولة الاضافة، حاول مرة أخرى");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  return (
-    <div className="w-full lg:w-5/12 flex flex-col items-center lg:items-start">
-      <div className="w-[280px] h-[280px] sm:w-[300px] sm:h-[300px] lg:w-[360px] xl:w-[500px] lg:h-[360px] xl:h-[500px]
-                      dark:bg-[url('/shapes/ziara-bg_Muharram.svg')] bg-[url('/shapes/ziara-bg.svg')]
-                      bg-container rotate-180 bg-center bg-no-repeat flex justify-center items-center
-                      text-white relative isolate"
-      >
-        <div className="absolute w-full h-full bg-[url('/shapes/bg.svg')]" />
-
-        <div className="rotate-180 text-center w-full px-4">
-          {/* النصوص تظهر فقط إذا showText true */}
-          {showText && (
-            <>
-              <motion.span
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="text-title font-semibold tracking-wide"
-              >
-                اشترك في
-              </motion.span>
-              <motion.p
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-body mt-4 md:mt-8  tracking-wide font-normal"
-              >
-                النشرة البريدية الخاصة
-                <br /> بالأعلانات والنشاطات
-              </motion.p>
-            </>
-          )}
-
-          {/* فورم الاشتراك */}
-          {!sent ? (
-            <form
-              onSubmit={handleSubmit}
-              className="w-full flex flex-col gap-4 mt-8"
-            >
-              <input
-                type="email"
-                value={subscriberEmail}
-                onChange={(e) => setSubscriberEmail(e.target.value)}
-                disabled={isSubmitting}
-                required
-                placeholder="البريد الالكتروني"
-                className="rounded-md w-4/6 sm:w-5/6 text-subtitle px-4 py-2 
-                           text-black text-center mx-auto"
-              />
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="bg-secondary hover:bg-secondary/80 
-                           dark:bg-Muharram_secondary dark:hover:bg-Muharram_secondary/80
-                           px-4 py-1 xl:px-8 xl:py-2 w-fit mx-auto rounded-md text-subtitle
-                           disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? "جاري الاشتراك..." : "اشترك الان"}
-              </button>
-
-              {errorMsg && (
-                <motion.p
-                  initial={{ opacity: 0, y: -5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-red-600 text-md mt-1 text-center"
-                >
-                  {errorMsg}
-                </motion.p>
-              )}
-            </form>
-          ) : (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1 }}
-              className="flex flex-col gap-6 pb-32 md:pb-44 items-center "
-            >
-              <CheckCircle2 className="w-20 h-20 md:w-24 md:h-24 xl:w-32 xl:h-32" />
-              <p className="text-xl md:text-2xl text-center">
-                تم الاشتراك بنجاح في النشرة البريدية
-              </p>
-            </motion.div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
+			{sent ? (
+				<div className="flex flex-col items-center gap-5 py-6 text-center">
+					<CheckCircle2 className="h-16 w-16 text-secondary dark:text-white" />
+					<p className="text-xl font-bold leading-loose">تم الاشتراك بنجاح في النشرة البريدية</p>
+				</div>
+			) : (
+				<>
+					<h3 className="text-2xl font-extrabold md:text-3xl">اشترك في النشرة البريدية</h3>
+					<p className="mt-3 text-lg leading-loose text-white/80">
+						النشرة البريدية الخاصة بالإعلانات والنشاطات
+					</p>
+					<form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
+						<label htmlFor="newsletter-email" className="sr-only">
+							البريد الالكتروني
+						</label>
+						<input
+							id="newsletter-email"
+							type="email"
+							value={subscriberEmail}
+							onChange={(e) => setSubscriberEmail(e.target.value)}
+							disabled={isSubmitting}
+							required
+							placeholder="البريد الالكتروني"
+							className="w-full rounded-xl border-2 border-white/30 bg-white/10 px-4 py-3 text-lg text-white placeholder:text-white/60 focus:border-white focus:outline-none disabled:opacity-60"
+						/>
+						<button type="submit" disabled={isSubmitting} className={`${whiteButton} w-full`}>
+							{isSubmitting ? "جاري الاشتراك..." : "اشترك الان"}
+						</button>
+						{errorMsg && (
+							<p role="alert" className="text-center text-sm font-semibold text-red-200">
+								{errorMsg}
+							</p>
+						)}
+					</form>
+				</>
+			)}
+		</div>
+	)
 }
