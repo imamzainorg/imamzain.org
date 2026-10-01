@@ -1,6 +1,6 @@
 "use client"
 
-import { Autocomplete, AutocompleteItem } from "@heroui/react"
+import { Autocomplete, AutocompleteItem, type AutocompleteProps } from "@heroui/react"
 import { Globe } from "lucide-react"
 import React, { useState } from "react"
 import countries from "i18n-iso-countries"
@@ -12,9 +12,11 @@ countries.registerLocale(ar)
 
 const CountriesDropdown = ({
 	className,
+	inputProps,
 	onCountryChange,
 }: {
 	className?: string
+	inputProps?: AutocompleteProps["inputProps"]
 	onCountryChange?: (key: Key | null) => void
 }) => {
 	const countryNamesInArabic = countries.getNames("ar", {
@@ -60,6 +62,7 @@ const CountriesDropdown = ({
 			}
 			className={`w-full country-autocomplete ${className ?? ""}`}
 			placeholder="البلد"
+			inputProps={inputProps}
 			size="lg"
 			value={selectedCountry}
 			onSelectionChange={(key) => handleCountryChange(key)}

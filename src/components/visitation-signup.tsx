@@ -1,6 +1,14 @@
+import { ArrowDown } from "lucide-react"
 import { SectionTitle } from "@/components/brand"
 import { Reveal } from "@/components/motion"
 import ZiaraForm from "@/components/ziara-form"
+import { arabicNumber } from "@/lib/format"
+
+const steps = [
+	{ title: "اكتب الاسم", text: "اسم من تريد أن تُؤدّى الزيارة عنه" },
+	{ title: "أضف رقم هاتفك", text: "مع رمز الدولة، للتواصل عند الحاجة" },
+	{ title: "اضغط تسجيل", text: "ويُدرج اسمك في قائمة الزائرين" },
+]
 
 const intro =
 	"سجل اسمك ليتم أداء زيارة الإمام زين العابدين وأئمة البقيع (عليهم السلام) نيابةً عنك عند قبورهم الطاهرة."
@@ -36,10 +44,32 @@ export default function VisitationSignup({ asPage }: { asPage?: boolean }) {
 							</>
 						)}
 						<p className="max-w-xl text-lg leading-loose text-white/75 md:text-xl md:leading-loose">{intro}</p>
+
+						<ol className="max-w-xl space-y-3">
+							{steps.map((step, i) => (
+								<li key={step.title} className="flex items-center gap-4">
+									<span className="grid size-10 shrink-0 place-items-center rounded-full bg-secondary text-lg font-extrabold text-white dark:bg-Muharram_secondary">
+										{arabicNumber(i + 1)}
+									</span>
+									<span>
+										<span className="block text-lg font-bold">{step.title}</span>
+										<span className="block text-white/70">{step.text}</span>
+									</span>
+								</li>
+							))}
+						</ol>
+
+						<a
+							href="#signup"
+							className="inline-flex items-center gap-2 rounded-xl border-2 border-secondary bg-secondary px-6 py-3 text-lg font-bold text-white transition hover:brightness-110 dark:border-Muharram_secondary dark:bg-Muharram_secondary lg:hidden"
+						>
+							سجّل الآن
+							<ArrowDown className="size-5 animate-bounce" />
+						</a>
 					</Reveal>
 
 					<Reveal y={60} className="flex justify-center">
-						<div className="w-full max-w-md rounded-[40px] bg-[url('/shapes/ziara-bg.svg')] bg-contain bg-center bg-no-repeat px-6 py-28 dark:bg-[url('/shapes/ziara-bg_Muharram.svg')] sm:px-10">
+						<div id="signup" className="w-full max-w-xl scroll-mt-28 rounded-[40px] drop-shadow-[0_0_45px_rgba(187,150,97,0.35)] bg-[url('/shapes/ziara-bg.svg')] bg-contain bg-center bg-no-repeat px-6 pb-24 pt-32 dark:bg-[url('/shapes/ziara-bg_Muharram.svg')] sm:px-14">
 							<ZiaraForm />
 						</div>
 					</Reveal>

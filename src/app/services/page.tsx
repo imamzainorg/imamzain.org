@@ -1,11 +1,9 @@
 "use client";
 
 import { useState, ChangeEvent, FormEvent } from "react";
-import { Input } from "@heroui/react";
-import { Clock, Mail, MailOpen, MapPin, Phone, CheckCircle2 } from "lucide-react";
-import { MessageIcon, PersonIcon } from "@/assets/icons/reusable";
+import { Clock, Mail, MapPin, MessageSquare, Phone, CheckCircle2, Loader2, Send, UserRound } from "lucide-react";
 import Breadcrumbs from "@/components/breadcrumb";
-import { outlinePanel, shieldPanel, whiteButton } from "@/components/brand";
+import { outlinePanel, shieldPanel, solidButton } from "@/components/brand";
 import CountriesDropdown from "@/components/countries-input";
 import { Reveal } from "@/components/motion";
 import PageHeader from "@/components/page-header";
@@ -19,6 +17,54 @@ const details = [
   { label: "الايميل", value: "info@imamzain.org", href: "mailto:info@imamzain.org", Icon: Mail, ltr: true },
   { label: "الهاتف", value: "+964 782 943 9996", href: "tel:+9647829439996", Icon: Phone, ltr: true },
 ];
+
+const fieldClass =
+  "h-14 w-full rounded-xl border-2 border-primary/20 bg-white px-4 text-lg text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-primary dark:border-Muharram_primary/25 dark:focus:border-Muharram_primary";
+const invalidClass = "!border-red-500";
+
+// A labelled field: the label sits above (it never disappears like a placeholder), the icon inside
+// at the start, and the error right under the input.
+function Field({
+  id,
+  label,
+  hint,
+  required,
+  error,
+  Icon,
+  top,
+  children,
+}: {
+  id: string;
+  label: string;
+  hint?: string;
+  required?: boolean;
+  error?: string;
+  Icon: typeof Mail;
+  top?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <label htmlFor={id} className="mb-2 flex items-center gap-2 font-bold text-gray-900">
+        {label}
+        {required && <span aria-hidden className="text-red-600">*</span>}
+        {hint && <span className="text-sm font-normal text-gray-500">{hint}</span>}
+      </label>
+      <div className="relative">
+        <Icon
+          aria-hidden
+          className={`pointer-events-none absolute right-4 h-5 w-5 text-secondary_dark dark:text-Muharram_secondary ${top ? "top-4" : "top-[1.1rem]"}`}
+        />
+        {children}
+      </div>
+      {error && (
+        <p role="alert" className="mt-2 text-sm font-semibold text-red-600">
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
 
 interface FormData {
   name: string;
@@ -34,7 +80,8 @@ export default function Page() {
     country: "",
     message: "",
   });
-  const [error, setError] = useState<string>("");
+  const [errors, setErrors] = useState<{ email?: string; message?: string; form?: string }>({});
+  const [sending, setSending] = useState<boolean>(false);
   const [submitted, setSubmitted] = useState<boolean>(false);
 
   const handleChange = (
@@ -54,30 +101,32 @@ export default function Page() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setError("");
+    const next: typeof errors = {};
 
-    if (!isValidEmail(formData.email)) {
-      setError("يرجى إدخال بريد إلكتروني صالح");
-      return;
-    }
+    if (!isValidEmail(formData.email)) next.email = "يرجى إدخال بريد إلكتروني صالح";
+    if (!isValidMessage(formData.message)) next.message = "يجب ان يكون طول الرسالة بين 10 و2000 حرف";
+    setErrors(next);
+    if (next.email || next.message) return;
 
-    if (!isValidMessage(formData.message)) {
-      setError("يجب ان يكون طول الرسالة بين 10 و2000 حرف");
-      return;
-    }
+    setSending(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+        }),
+      });
 
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...formData,
-      }),
-    });
-
-    if (response.ok) {
-      setSubmitted(true);
-    } else {
-      setError("حدث خطأ أثناء إرسال الرسالة");
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        setErrors({ form: "حدث خطأ أثناء إرسال الرسالة" });
+      }
+    } catch {
+      setErrors({ form: "تعذر الاتصال بالخادم، حاول مرة أخرى" });
+    } finally {
+      setSending(false);
     }
   };
 
@@ -156,100 +205,96 @@ export default function Page() {
           <Reveal x={-60} y={0} delay={0.15}>
             <form
               onSubmit={handleSubmit}
-              className={`${shieldPanel} mx-2 flex flex-col gap-5 p-8 md:p-10`}
+              noValidate
+              className="mx-2 flex flex-col gap-6 rounded-[2rem] border-2 border-primary/15 bg-white p-8 shadow-xl dark:border-Muharram_primary/20 md:p-10"
             >
-              <h2 className="text-2xl font-extrabold md:text-3xl">أرسل لنا رسالة</h2>
+              <div>
+                <h2 className="text-2xl font-extrabold text-primary dark:text-Muharram_primary md:text-3xl">
+                  أرسل لنا رسالة
+                </h2>
+                <p className="mt-2 text-gray-600">نرد عادةً خلال أيام العمل. الحقول المعلّمة بنجمة مطلوبة.</p>
+              </div>
 
-              {error && (
-                <p role="alert" className="text-center font-semibold text-red-200">
-                  {error}
+              {errors.form && (
+                <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 font-semibold text-red-700">
+                  {errors.form}
                 </p>
               )}
 
-              <Input
-                size="lg"
-                labelPlacement="inside"
-                name="name"
-                placeholder="اسمك الثلاثي"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full"
-                classNames={{ input: "border-none focus:ring-0" }}
-                startContent={
-                  <>
-                    <PersonIcon
-                      stroke="#bb9661"
-                      fill="#bb9661"
-                      strokeWidth={0.1}
-                      className="dark:hidden"
-                    />
-                    <PersonIcon
-                      stroke="#a43232"
-                      fill="#a43232"
-                      strokeWidth={0.1}
-                      className="hidden dark:block"
-                    />
-                  </>
-                }
-              />
-              <Input
-                size="lg"
-                labelPlacement="inside"
-                name="email"
-                placeholder="الايميل"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full"
-                classNames={{ input: "border-none focus:ring-0" }}
-                startContent={
-                  <>
-                    <MailOpen
-                      stroke="#bb9661"
-                      fill="none"
-                      strokeWidth={1.5}
-                      className="dark:hidden"
-                    />
-                    <MailOpen
-                      stroke="#a43232"
-                      fill="none"
-                      strokeWidth={1.5}
-                      className="hidden dark:block"
-                    />
-                  </>
-                }
-              />
-              <CountriesDropdown
-                className="w-full"
-                onCountryChange={(e) => setFormData({ ...formData, country: e })}
-              />
-              <div className="relative w-full">
-                <textarea
-                  className="h-32 w-full resize-none rounded-xl p-4 pr-12 text-gray-900 focus:outline-none focus:ring-2 focus:ring-secondary dark:focus:ring-Muharram_secondary"
-                  name="message"
-                  placeholder="اكتب رسالتك"
-                  value={formData.message}
+              <Field id="contact-name" label="الاسم" hint="اختياري" Icon={UserRound}>
+                <input
+                  id="contact-name"
+                  name="name"
+                  autoComplete="name"
+                  placeholder="اسمك الثلاثي"
+                  value={formData.name}
                   onChange={handleChange}
-                ></textarea>
-                <div className="absolute right-3 top-4">
-                  <MessageIcon
-                    width={24}
-                    height={24}
-                    stroke="#bb9661"
-                    fill="none"
-                    className="dark:hidden"
-                  />
-                  <MessageIcon
-                    width={24}
-                    height={24}
-                    stroke="#a43232"
-                    fill="none"
-                    className="hidden dark:block"
-                  />
-                </div>
+                  className={`${fieldClass} pr-12`}
+                />
+              </Field>
+
+              <Field id="contact-email" label="البريد الإلكتروني" required error={errors.email} Icon={Mail}>
+                <input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  dir="ltr"
+                  autoComplete="email"
+                  placeholder="name@example.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  aria-invalid={Boolean(errors.email)}
+                  className={`${fieldClass} pr-12 text-right ${errors.email ? invalidClass : ""}`}
+                />
+              </Field>
+
+              <div>
+                <p className="mb-2 flex items-center gap-2 font-bold text-gray-900">
+                  البلد
+                  <span className="text-sm font-normal text-gray-500">اختياري</span>
+                </p>
+                <CountriesDropdown
+                  className="w-full"
+                  inputProps={{
+                    classNames: {
+                      inputWrapper:
+                        "h-14 rounded-xl border-2 border-primary/20 bg-white shadow-none data-[hover=true]:bg-white group-data-[focus=true]:border-primary group-data-[focus=true]:bg-white",
+                      input: "text-lg text-gray-900",
+                    },
+                  }}
+                  onCountryChange={(e) => setFormData({ ...formData, country: e })}
+                />
               </div>
 
-              <button type="submit" className={`${whiteButton} w-full`}>
-                ارسال
+              <Field id="contact-message" label="الرسالة" required error={errors.message} Icon={MessageSquare} top>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  placeholder="اكتب رسالتك هنا"
+                  rows={5}
+                  maxLength={2000}
+                  value={formData.message}
+                  onChange={handleChange}
+                  aria-invalid={Boolean(errors.message)}
+                  className={`${fieldClass} min-h-36 resize-y py-4 pr-12 ${errors.message ? invalidClass : ""}`}
+                />
+                <span className="mt-1 block text-left text-sm text-gray-500" dir="ltr">
+                  {formData.message.length} / 2000
+                </span>
+              </Field>
+
+              <button type="submit" disabled={sending} className={`${solidButton} w-full disabled:opacity-70`}>
+                {sending ? (
+                  <>
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                    جارٍ الإرسال...
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-5 w-5 -scale-x-100" />
+                    ارسال الرسالة
+                  </>
+                )}
               </button>
             </form>
           </Reveal>
