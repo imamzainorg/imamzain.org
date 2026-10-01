@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* The page canvas every route sits on: warm cream under the site pattern (Tailwind yellow-50).
+/* The page canvas every route sits on: a soft off-white under the site pattern.
    One variable so the whole site can be re-toned in a single place. Set on :root because
    HeroUI's base styles paint :root, which a bare `html` selector would lose to. */
 :root {
-	--page-bg: #fefce8;
+	--page-bg: #faf9f6;
 	background-color: var(--page-bg);
 }
 
@@ -25,6 +25,62 @@ html.dark {
 	mask-repeat: no-repeat;
 	mask-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA0ODAuMzYgODQxLjg5Ij4KICA8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjkuMi4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogMi4xLjAgQnVpbGQgMjIpICAtLT4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLnN0MCB7CiAgICAgICAgZmlsbDogIzAwNjY1NDsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPHBhdGggY2xhc3M9InN0MCIgZD0iTS4zMyw1ODcuNDZoLjFjMC00OS42Mi43MS0zMDIuOS0uMTktMzUyLjUxLTEuMDItNTYsMjMuNjEtMTAwLjk4LDY0Ljk3LTEzMy45NSw0MS41Ni0zMy4xNCw4OC45OC01OC44NywxMzMuMjYtODguNjgsMjUuNDctMTcuMTUsNDkuMTItMTUuOTQsNzQuMTYuODQsNTAuNjksMzMuOTcsMTAzLjIyLDY1LjM0LDE1Mi41OCwxMDEuMTIsMzUuNjUsMjUuODQsNTMuNzUsNjUuMjEsNTQuNDUsMTA4LjgyLDEuNjksMTA0Ljk1LjIsNDEzLjU4Ljc2LDUxOC41NS4xNiwyOS4yMS0xMS43Myw0NS41LTQwLjcyLDUyLjcyLTQwLjYxLDEwLjEyLTgwLDI1LjM0LTEyMC43OCwzNC40Ni0zMi45OSw3LjM4LTY4LjYyLDE2LjkyLTEwMC42OSwxMS40NC01OS43NS0xMC4yMS0xMTcuNDItMzIuMDItMTc2LjYyLTQ2LjI3QzguOTMsNzg2LjEzLS42NSw3NjcuMDcuMDMsNzM2LjMyYzEuMTEtNDkuNi4zLTk5LjI0LjMtMTQ4Ljg2WiIvPgo8L3N2Zz4=);
 }
+/* Mega menu: the panel eases down from the bar, then its cards rise in one after another. */
+@keyframes mega-in {
+	from {
+		opacity: 0;
+		transform: translateY(-10px) scale(0.985);
+	}
+}
+@keyframes mega-item-in {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+}
+.mega-panel {
+	transform-origin: top center;
+	animation: mega-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mega-item {
+	animation: mega-item-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+/* Page transition. A curtain (page-curtain.tsx) sweeps over the screen when a link is clicked
+   and lifts once the next page has loaded; the new page then rises in behind it. The rise only
+   plays after the first navigation (html[data-nav]), so a fresh load never starts invisible. */
+.page-curtain {
+	transform: translateY(100%);
+	visibility: hidden;
+}
+.page-curtain[data-phase="cover"] {
+	visibility: visible;
+	transform: translateY(0);
+	transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.page-curtain[data-phase="reveal"] {
+	visibility: visible;
+	transform: translateY(-100%);
+	transition: transform 0.55s cubic-bezier(0.76, 0, 0.24, 1);
+}
+@keyframes page-rise {
+	from {
+		opacity: 0;
+		transform: translateY(18px);
+	}
+}
+html[data-nav] .page-enter {
+	animation: page-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.2s backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.mega-panel,
+	.mega-item,
+	html[data-nav] .page-enter {
+		animation: none;
+	}
+}
+
 .scrollbar-hide {
 	-ms-overflow-style: none;
 	scrollbar-width: none;
