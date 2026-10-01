@@ -55,12 +55,11 @@ export function AudioSearch({ value, onChange, placeholder = "ابحث بالع�
         placeholder={placeholder}
         dir="rtl"
         className="
-          w-full h-12 rounded-2xl pr-11 pl-11 text-sm shadow-sm
-          bg-white/80 dark:bg-Muharram_secondary/15 backdrop-blur-xl
-          border border-slate-200/70 dark:border-Muharram_secondary/30
-          text-slate-700 dark:text-black placeholder-slate-400
-          transition-all duration-300
-          focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary/40 dark:focus:ring-Muharram_primary/10 dark:focus:border-Muharram_primary/40
+          w-full h-12 rounded-xl pr-11 pl-11 text-base
+          bg-white border-2 border-primary/25 dark:border-Muharram_primary/25
+          text-slate-800 placeholder-slate-400
+          transition-colors duration-300
+          focus:outline-none focus:border-primary dark:focus:border-Muharram_primary
         "
       />
       {value && (
@@ -81,13 +80,11 @@ export function AudioFilter({ label, options, value, onChange, icon }: FilterPro
         onChange={(e) => onChange(e.target.value)}
         dir="rtl"
         className="
-          w-full h-12 appearance-none rounded-2xl pr-11 pl-10 text-sm shadow-sm cursor-pointer
-          bg-white/80 dark:bg-Muharram_secondary/15 backdrop-blur-xl
-          border border-slate-200/70 dark:border-white/10
-          text-slate-700 dark:text-black
-          transition-all duration-300
-          focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary/40 
-          dark:focus:ring-Muharram_primary/10 dark:focus:border-Muharram_primary/40
+          w-full h-12 appearance-none rounded-xl pr-11 pl-10 text-base cursor-pointer
+          bg-white border-2 border-primary/25 dark:border-Muharram_primary/25
+          text-slate-800
+          transition-colors duration-300
+          focus:outline-none focus:border-primary dark:focus:border-Muharram_primary
         "
       >
         <option value="">{label ?? "اختر..."}</option>

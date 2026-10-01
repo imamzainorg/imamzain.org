@@ -3,6 +3,7 @@
 import { useLayoutEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import Breadcrumbs from "@/components/breadcrumb";
+import { SectionTitle } from "@/components/brand";
 import type { YouTubeGroup, YouTubeVideo } from "@/types/youtube-data";
 import {
   getGroupSlug,
@@ -163,13 +164,12 @@ export default function VideosBrowser({
         ]}
       />
 
-      <h1 className="text-white font-bold text-xl md:text-2xl mb-1">
-        الفيديوهات
-      </h1>
-      <p className="text-slate-400 text-sm mb-6">
-        مكتبة تضم المحاضرات والبرامج والندوات الخاصة بالإمام زين العابدين عليه
-        السلام
-      </p>
+      <SectionTitle
+        light
+        title="الفيديوهات"
+        text="مكتبة تضم المحاضرات والبرامج والندوات الخاصة بالإمام زين العابدين عليه السلام"
+        className="mb-10"
+      />
 
       {/* المحتوى الرئيسي أول شي بالـ DOM (= يمين الصفحة بلغة RTL)،
 			    والسايدبار بعده (= يسار الصفحة) */}

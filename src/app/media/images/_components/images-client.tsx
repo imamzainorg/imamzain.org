@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { useState, useCallback, useEffect, useMemo, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import Breadcrumbs from "@/components/breadcrumb";
+import { SectionTitle } from "@/components/brand";
 import ImageView from "@/components/image-view";
 import Image from "next/image";
 import { Gallery } from "@/types/gallery";
@@ -271,17 +272,11 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
   }, [filteredImages.length, visibleImagesCount]);
 
   return (
-    <div className="min-h-screen text-white overflow-hidden">
-      {/* Background effects */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-purple-900/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-900/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-cyan-900/10 rounded-full blur-3xl" />
-      </div>
-
-      <div className="relative z-10 px-4 py-8">
+    <div className="min-h-screen overflow-hidden text-white">
+      <div className="container relative z-10 pb-8">
         <Breadcrumbs
-          className="text-white mr-8"
+          className="text-white"
+          dotColor="bg-secondary"
           links={[
             { name: "الصفحة الرئيسية", url: "/" },
             { name: "الوسائط المتعددة", url: "#" },
@@ -290,28 +285,29 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
         />
 
         {/* Header */}
-        <div className="text-center mb-12 animate-fade-in">
-          <h1 className="text-title 2xl:text-7xl font-bold mb-4 bg-gradient-to-r from-primary via-primary/50 to-primary bg-clip-text text-transparent">
-            معرض الصور
-          </h1>
-          <p className="text-gray-300 max-w-2xl mx-auto text-body leading-relaxed">
-            استكشف عالمنا البصري حيث لكل صورة قصتها وحجمها الفريد
-          </p>
-        </div>
+        <header className="mb-12">
+          <SectionTitle
+            light
+            as="h1"
+            title="معرض الصور"
+            text="استكشف عالمنا البصري حيث لكل صورة قصتها وحجمها الفريد"
+            className="mb-0"
+          />
+        </header>
 
         {/* Control bar */}
-        <div className="bg-gray-800/50 backdrop-blur-lg rounded-2xl p-6 mb-10 border w-4/5 mx-auto border-gray-700/50">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="mb-12 rounded-[28px] border border-white/15 bg-white/[0.04] p-5 md:p-6">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center">
             {/* Search */}
-            <div className="relative w-full md:w-auto flex-1 max-w-lg">
+            <div className="relative w-full flex-1">
               {corpusReady ? (
                 <FiSearch
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-secondary"
                   size={20}
                 />
               ) : (
                 <Loader2
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5 animate-spin"
+                  className="absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 animate-spin text-secondary"
                 />
               )}
               <input
@@ -322,17 +318,21 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
                     : "جاري تحميل جميع الصور للبحث..."
                 }
                 disabled={!corpusReady}
-                className="w-full bg-gray-900/70 border border-gray-700 rounded-xl py-3 pr-12 pl-5 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full rounded-xl border-2 border-white/20 bg-white/5 py-3 pl-5 pr-12 text-lg text-white transition-colors placeholder:text-white/50 focus:border-secondary focus:outline-none disabled:cursor-not-allowed disabled:opacity-60"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
 
             {/* Controls */}
-            <div className="flex flex-wrap gap-4 items-center">
+            <div className="flex flex-wrap items-center gap-3">
               <button
-                className={`flex items-center gap-2 px-4 py-3 rounded-xl transition-all ${
-                  isFilterOpen ? "bg-gray-900/70" : "bg-primary"
+                type="button"
+                aria-expanded={isFilterOpen}
+                className={`flex items-center gap-2 rounded-xl border-2 px-5 py-3 font-semibold transition-colors ${
+                  isFilterOpen
+                    ? "border-secondary bg-secondary/15 text-white"
+                    : "border-white/20 text-white hover:border-white/60"
                 }`}
                 onClick={() => setIsFilterOpen(!isFilterOpen)}
               >
@@ -342,7 +342,8 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
               </button>
 
               <select
-                className="bg-gray-900/70 border border-gray-700 rounded-xl py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                aria-label="ترتيب الصور"
+                className="rounded-xl border-2 border-white/20 bg-[#101c1a] px-4 py-3 dark:bg-[#171314] text-lg text-white transition-colors focus:border-secondary focus:outline-none"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
               >
@@ -354,11 +355,11 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
 
           {/* Filters panel */}
           {isFilterOpen && (
-            <div className="mt-6 pt-6 border-t border-gray-700/50 animate-slide-down">
-              <h3 className="text-lg font-semibold mb-4 text-gray-300 flex items-center gap-2">
+            <div className="mt-6 border-t border-white/10 pt-6 animate-slide-down">
+              <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-secondary">
                 التصنيفات
                 {!corpusReady && (
-                  <Loader2 className="w-4 h-4 animate-spin text-gray-400" />
+                  <Loader2 className="h-4 w-4 animate-spin text-white/60" />
                 )}
               </h3>
               <div className="flex flex-wrap gap-3">
@@ -372,12 +373,14 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
                   return (
                     <button
                       key={category}
+                      type="button"
                       disabled={disabled}
-                      className={`px-4 py-2 rounded-xl transition-all ${
+                      aria-pressed={activeCategory === category}
+                      className={`rounded-xl border-2 px-4 py-2 font-semibold transition-colors ${
                         activeCategory === category
-                          ? "bg-primary"
-                          : "bg-gray-900/70 hover:bg-gray-800"
-                      } ${disabled ? "opacity-60 cursor-not-allowed" : ""}`}
+                          ? "border-secondary bg-secondary/15 text-white"
+                          : "border-white/20 text-white/80 hover:border-white/60 hover:text-white"
+                      } ${disabled ? "cursor-not-allowed opacity-60" : ""}`}
                       onClick={() => setActiveCategory(category)}
                     >
                       {category}
@@ -389,21 +392,21 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
           )}
         </div>
 
-        <div className="w-4/5 mx-auto">
+        <div>
           {/* Gallery */}
           <div className="mb-16">
             <div className="flex justify-between items-center mb-6">
               <div>
-                <h2 className="text-2xl font-bold bg-primary bg-clip-text text-transparent">
+                <h2 className="text-2xl font-bold text-white">
                   {activeCategory}
                 </h2>
-                <p className="text-gray-400 text-sm mt-1">
+                <p className="mt-1 text-sm text-white/60">
                   مناسبات • مسابقات • أخبار
                 </p>
               </div>
-              <div className="text-gray-400">
+              <div className="text-white/60">
                 عرض{" "}
-                <span className="text-primary font-bold">
+                <span className="font-bold text-secondary">
                   {visibleImagesCount} من {filteredImages.length}
                 </span>{" "}
                 صورة
@@ -465,7 +468,7 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
                               <div
                                 key={img.id}
                                 onClick={() => openLightbox(img)}
-                                className="group relative overflow-hidden rounded-2xl border border-gray-800/50 bg-gray-950 cursor-pointer transition-all duration-500 hover:border-primary hover:shadow-2xl hover:-translate-y-1"
+                                className="group relative cursor-pointer overflow-hidden rounded-3xl border border-white/10 bg-black/30 transition-all duration-500 hover:-translate-y-1 hover:border-secondary hover:shadow-2xl"
                                 style={{ flex: finalPattern[i] }}
                               >
                                 <ImageView
@@ -483,7 +486,7 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
                                       <span className="line-clamp-1">
                                         {img.description}
                                       </span>
-                                      <span className="text-primary font-semibold">
+                                      <span className="font-semibold text-secondary">
                                         {img.location}
                                       </span>
                                     </div>
@@ -527,7 +530,7 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
                     className="absolute top-4 left-4 w-12 h-12 bg-gray-900/80 rounded-full flex items-center justify-center z-50 hover:bg-red-600 transition-all hover:scale-110"
                     onClick={closeLightbox}
                   >
-                    <FiX color="#006654" size={24} />
+                    <FiX color="#bb9661" size={24} />
                   </button>
 
                   {/* Prev button */}
@@ -595,7 +598,7 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
                   {/* Description */}
                   <div>
                     <h3 className="text-base font-semibold mb-1.5 flex items-center gap-2">
-                      <FiInfo size={16} color="#006654" />
+                      <FiInfo size={16} color="#bb9661" />
                       الوصف
                     </h3>
                     <p className="text-gray-400 bg-gray-900/40 rounded-md p-3 text-sm leading-relaxed">
@@ -607,7 +610,7 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
                   <div className="grid grid-cols-2 gap-3">
                     <div className="bg-gray-900/40 rounded-md p-3">
                       <div className="flex items-center gap-1.5 mb-1">
-                        <FiCalendar size={14} color="#006654" />
+                        <FiCalendar size={14} color="#bb9661" />
                         <span className="text-xs text-gray-400">التاريخ</span>
                       </div>
                       <p className="text-sm font-medium">{selectedImage.date}</p>
@@ -615,7 +618,7 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
 
                     <div className="bg-gray-900/40 rounded-md p-3">
                       <div className="flex items-center gap-1.5 mb-1">
-                        <FiMapPin size={14} color="#006654" />
+                        <FiMapPin size={14} color="#bb9661" />
                         <span className="text-xs text-gray-400">المكان</span>
                       </div>
                       <p className="text-sm font-medium">
@@ -625,7 +628,7 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
 
                     <div className="bg-gray-900/40 rounded-md p-3 col-span-2">
                       <div className="flex items-center gap-1.5 mb-1">
-                        <FiCamera size={14} color="#006654" />
+                        <FiCamera size={14} color="#bb9661" />
                         <span className="text-xs text-gray-400">المصور</span>
                       </div>
                       <p className="text-sm font-medium">
@@ -644,7 +647,7 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
                       {selectedImage.tags.map((tag, idx) => (
                         <span
                           key={idx}
-                          className="px-2 py-1 bg-gradient-to-r from-primary/40 to-primary rounded-md text-xs"
+                          className="rounded-md bg-white/10 px-2 py-1 text-xs text-secondary"
                         >
                           #{tag}
                         </span>

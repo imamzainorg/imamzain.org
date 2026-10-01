@@ -14,7 +14,7 @@ import type { AudioItemLight } from "@/types/audio";
 import type { BreakpointKey } from "../../hooks/useWaveform";
 import { Button } from "@/components/button";
 import AudioCard from "./AudioCard";
-import AudioPagination from "./AudioPagination";
+import Pagination from "@/components/pagination";
 import { AudioSearch, AudioFilter } from "./AudioFilters";
 import { DurationFilter } from "./DurationFilter";
 
@@ -368,7 +368,7 @@ const handleSpeakerSelect = useCallback((speaker: string) => {
     <div>
       <div className="flex flex-col lg:flex-row gap-6">
         {/* ── Sidebar (desktop only) ── */}
-        <aside className="hidden lg:block bg-secondary/10 dark:bg-Muharram_secondary/10 sticky top-28 self-start rounded-2xl p-4 lg:p-5 border border-slate-200/70 dark:border-white/10 shadow-sm w-72 xl:w-80 2xl:w-96 h-fit">
+        <aside className="hidden h-fit w-72 self-start rounded-[28px] border border-primary/30 p-5 dark:border-Muharram_primary/30 lg:sticky lg:top-32 lg:block xl:w-80 2xl:w-96">
           <div
             ref={filtersContainerRef}
             className="overflow-y-auto max-h-[calc(100vh-220px)] pb-2 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-slate-300 dark:scrollbar-thumb-slate-600"
@@ -407,7 +407,7 @@ const handleSpeakerSelect = useCallback((speaker: string) => {
               </button>
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 gap-3">
+            <div className="grid gap-5 md:grid-cols-2">
               {paginated.map((item) => (
                 <AudioCard
                   key={item.id}
@@ -429,16 +429,12 @@ const handleSpeakerSelect = useCallback((speaker: string) => {
       </div>
 
       {/* Pagination */}
-      <AudioPagination
-        currentPage={currentPage}
+      <Pagination
+        className="mt-14"
+        page={currentPage}
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
-      {totalPages > 1 && (
-        <p className="text-center text-xs text-slate-400 mt-4">
-          الصفحة {currentPage} من {totalPages}
-        </p>
-      )}
 
       {/* ── Mobile FAB زر الفلترة ── */}
       {!isMobileFiltersOpen && (

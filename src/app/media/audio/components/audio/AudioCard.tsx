@@ -126,19 +126,19 @@ const AudioCard = memo(function AudioCard({
     <article
       id={`audio-card-${item.id}`}
       className={`
-        rounded-2xl border bg-white dark:bg-Muharram_primary p-4 sm:p-5 transition-all duration-300
+        rounded-3xl border-2 bg-white dark:bg-Muharram_primary p-5 sm:p-6 transition-all duration-300
         w-full justify-between flex flex-col
         ${
           isActive
-            ? "border-primary/50 dark:border-Muharram_secondary/50  shadow-lg dark:shadow-Muharram_secondary/20 shadow-primary/20 ring-1 ring-secondary/30"
-            : "border-slate-200 hover:border-slate-300 hover:shadow-md"
+            ? "border-primary dark:border-Muharram_secondary shadow-lg shadow-primary/10 dark:shadow-Muharram_secondary/20"
+            : "border-primary/15 hover:border-primary/40 dark:border-white/10"
         }
       `}
     >
       {/* Title */}
       <div className="mb-3">
         <h3
-          className={`text-subtitle font-bold transition-colors ${
+          className={`text-lg font-bold leading-8 transition-colors ${
             isActive ? "text-primary dark:text-Muharram_secondary" : "text-slate-800 dark:text-white"
           }`}
         >
@@ -179,7 +179,7 @@ const AudioCard = memo(function AudioCard({
       </div>
 
       {/* Footer */}
-      <div className="mt-3 pt-3 border-t flex justify-between border-slate-100">
+      <div className="mt-4 flex justify-between border-t border-secondary/30 pt-4">
         <StatusBadge currentTime={currentTime} duration={duration} />
 
         <VolumeControl
