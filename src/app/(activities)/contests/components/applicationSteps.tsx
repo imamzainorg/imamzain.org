@@ -4,6 +4,8 @@ import { defineStepper } from "@stepperize/react"
 import { DownloadIcon, NewspaperIcon, PhoneIcon, MailIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
+import { solidButton } from "@/components/brand"
+import { Note } from "./contest-ui"
 
 function toArabicNumerals(input: string | number): string {
 	return input
@@ -37,146 +39,107 @@ export const ApplyStepper = () => {
 	const methods = stepper.useStepper()
 
 	return (
-		<div className="w-full min-h-screen px-4 py-8 bg-gradient-to-b from-gray-50 to-white">
-			<div className="max-w-6xl mx-auto flex flex-col gap-8">
-				{/* =========================
-            Navigation
-        ========================= */}
-				<ol className="flex text-note leading-relaxed gap-4 justify-center">
+		<div className="w-full">
+			<div className="flex flex-col gap-8">
+				{/* Navigation */}
+				<ol className="flex flex-wrap gap-3">
 					{["1", "2"].map((id, index) => {
 						const icons = [NewspaperIcon, MailIcon]
 						const Icon = icons[index]
+						const active = methods.current.id === id
 
 						return (
-							<li
-								key={id}
-								onClick={() => methods.goTo(id as "1" | "2")}
-								className={cn(
-									"cursor-pointer flex flex-col items-center gap-3 px-6 py-4 rounded-xl border-2 transition",
-									methods.current.id === id
-										? "border-primary bg-primary/5 shadow-md"
-										: "border-gray-200 hover:border-primary/50",
-								)}
-							>
-								<div className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100">
-									<Icon className="w-5 h-5 text-gray-700" />
-								</div>
-								<span className="font-bold text-gray-800">
+							<li key={id}>
+								<button
+									type="button"
+									onClick={() => methods.goTo(id as "1" | "2")}
+									aria-pressed={active}
+									className={cn(
+										"flex items-center gap-3 rounded-xl border-2 px-5 py-3 font-semibold transition-colors",
+										active
+											? "border-primary bg-primary text-white dark:border-Muharram_primary dark:bg-Muharram_primary"
+											: "border-primary/25 text-primary hover:border-primary dark:border-Muharram_primary/25 dark:text-Muharram_primary",
+									)}
+								>
+									<Icon className="h-5 w-5" />
 									{methods.get(id as "1" | "2").title}
-								</span>
+								</button>
 							</li>
 						)
 					})}
 				</ol>
 
-				{/* =========================
-            Content
-        ========================= */}
-				<div className="bg-white border-2 rounded-2xl p-6 shadow-lg">
+				{/* Content */}
+				<div className="rounded-[28px] border-2 border-primary/15 bg-white/60 p-6 dark:border-Muharram_primary/20 md:p-10">
 					{methods.switch({
-						/* =========================
-               STEP 1
-            ========================= */
+						/* STEP 1 */
 						"1": () => (
-							<div className="space-y-6">
-								<h2 className="text-body font-bold text-gray-800 flex items-center gap-3">
-									<NewspaperIcon className="w-6 h-6 text-primary" />
+							<div className="space-y-8">
+								<h3 className="text-2xl font-bold text-primary dark:text-Muharram_primary md:text-3xl">
 									شروط المشاركة
-								</h2>
+								</h3>
 
-								<ul className="space-y-4">
+								<ol>
 									{rules.map((rule, index) => (
 										<li
 											key={index}
-											className="bg-gray-50 p-4 rounded-xl border-r-4 border-primary text-subtitle leading-relaxed"
+											className="flex items-start gap-4 border-b border-dashed border-secondary/40 py-4"
 										>
-											<span className="font-bold text-primary ml-2 text-subtitle">
-												{toArabicNumerals(index + 1)}.
+											<span className="w-9 shrink-0 text-2xl font-bold text-secondary dark:text-Muharram_secondary">
+												{toArabicNumerals(index + 1)}
 											</span>
-											{rule}
+											<span className="text-lg leading-loose text-gray-800 md:text-xl md:leading-loose">
+												{rule}
+											</span>
 										</li>
 									))}
-								</ul>
-								<div className="bg-secondary/5 border border-secondary rounded-xl p-5 sm:p-6 items-center justify-center flex flex-col">
-									<p className="text-subtitle text-gray-800 leading-relaxed">
-										<span className="font-bold text-yellow-700  mb-2 items-center justify-center flex">
-											⚠️ ملاحظة مهمة
-										</span>
-										يُرفق مع العمل:
-										<span className="font-semibold text-gray-900">
-											{" "}
-											استمارة المسابقة، سيرة ذاتية مختصرة،
-											صورة شخصية، وصورة جواز السفر
-										</span>
+								</ol>
+
+								<div className="space-y-4">
+									<p className="font-bold text-secondary_dark dark:text-Muharram_secondary">
+										ملاحظة مهمة
 									</p>
-
-									<div className="mt-4 text-subtitle flex items-center justify-center  gap-2 text-primary font-semibold">
-										<div>
-											<div className="flex p-1 items-center justify-center ">
-												{" "}
-												<DownloadIcon className="w-3 h-3 md:w-5 md:h-5 ml-2" />
-												<Link
-													download
-													href="/contests/khat/form.pdf"
-													className="underline underline-offset-4 hover:text-primary/80 transition"
-												>
-													تحميل استمارة المسابقة
-												</Link>
-											</div>
-
-											<br />
-
-											<p className="text-subtitle leading-relaxed	 text-gray-600 mt-4 items-center justify-center flex">
-												اخر خطوة لإتمام الاشتراك هي
-												ارسال عملك الى منظمين المسابقة
-												في العتبة الحسينية المقدسة
-												{
-													" دار القرآن الكريم مركز والقلم للخط العربي كربلاء المقدسة شارع السدرة عكد الجاجين "
-												}
-											</p>
-										</div>
-									</div>
+									<Note>
+										يُرفق مع العمل: استمارة المسابقة، سيرة ذاتية مختصرة، صورة شخصية، وصورة جواز السفر
+									</Note>
+									<Link
+										download
+										href="/contests/khat/form.pdf"
+										className="inline-flex items-center gap-3 text-lg font-bold text-primary underline underline-offset-4 hover:text-primary/80 dark:text-Muharram_primary"
+									>
+										<DownloadIcon className="h-5 w-5" />
+										تحميل استمارة المسابقة
+									</Link>
+									<p className="text-lg leading-loose text-gray-600">
+										اخر خطوة لإتمام الاشتراك هي ارسال عملك الى منظمين المسابقة في العتبة الحسينية المقدسة
+										{" دار القرآن الكريم مركز والقلم للخط العربي كربلاء المقدسة شارع السدرة عكد الجاجين "}
+									</p>
 								</div>
 							</div>
 						),
 
-						/* =========================
-               STEP 2
-            ========================= */
+						/* STEP 2 */
 						"2": () => (
-							<div className="flex flex-col items-center gap-8 text-center">
-								<h2 className="text-note leading-relaxed font-bold w-full md:w-6/12 text-gray-800">
-									اخر خطوة لإتمام الاشتراك هي ارسال عملك الى
-									منظمين المسابقة في العتبة الحسينية المقدسة
-									{""}
-								</h2>
-
-								<p className="text-subtitle text-gray-600 max-w-2xl">
-									وحسب ما مذكور في النقطة الاخيرة من الشروط
+							<div className="space-y-8">
+								<h3 className="max-w-3xl text-2xl font-bold leading-snug text-primary dark:text-Muharram_primary md:text-3xl md:leading-snug">
+									اخر خطوة لإتمام الاشتراك هي ارسال عملك الى منظمين المسابقة في العتبة الحسينية المقدسة
+								</h3>
+								<p className="text-lg leading-loose text-gray-600">وحسب ما مذكور في النقطة الاخيرة من الشروط</p>
+								<p className="text-lg font-semibold leading-loose text-gray-700">
+									للاستفسار والتواصل، يرجى استخدام وسائل الاتصال التالية:
 								</p>
-								<p className="text-subtitle font-semibold text-gray-600 max-w-2xl">
-									للاستفسار والتواصل، يرجى استخدام وسائل
-									الاتصال التالية:
-								</p>
-								<div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-3xl">
-									{/* Email */}
+								<div className="grid w-full max-w-3xl gap-6 sm:grid-cols-2">
 									<Link
 										href="mailto:khat@imamzain.org"
-										className="flex flex-col items-center gap-4 p-6 border-2 rounded-xl hover:shadow-xl hover:border-primary transition"
+										className="flex flex-col items-center gap-3 rounded-3xl border-2 border-primary/25 p-6 transition-colors hover:border-primary"
 									>
-										<MailIcon className="w-10 h-10 text-primary" />
-										<span className="text-note font-bold mt-1">
-											khat@imamzain.org
-										</span>
+										<MailIcon className="h-9 w-9 text-primary dark:text-Muharram_primary" strokeWidth={1.4} />
+										<span className="text-xl font-bold">khat@imamzain.org</span>
 									</Link>
 
-									{/* Phone */}
-									<div className="flex flex-col items-center gap-4 p-6 border-2 rounded-xl hover:shadow-xl hover:border-primary transition">
-										<PhoneIcon className="w-10 h-10 text-primary" />
-										<span
-											dir="ltr"
-											className="text-note font-bold mt-1"
-										>
+									<div className="flex flex-col items-center gap-3 rounded-3xl border-2 border-primary/25 p-6">
+										<PhoneIcon className="h-9 w-9 text-primary dark:text-Muharram_primary" strokeWidth={1.4} />
+										<span dir="ltr" className="text-xl font-bold">
 											+964 781 970 7817
 										</span>
 									</div>
@@ -186,24 +149,16 @@ export const ApplyStepper = () => {
 					})}
 				</div>
 
-				{/* =========================
-            Buttons
-        ========================= */}
-				<div className="flex justify-between text-note ">
+				{/* Buttons */}
+				<div className="flex">
 					{methods.current.id !== "1" && (
-						<button
-							onClick={() => methods.prev()}
-							className="p-4 bg-primary text-white rounded-lg hover:bg-primary/90 transition ml-auto"
-						>
+						<button type="button" onClick={() => methods.prev()} className={`${solidButton} ml-auto`}>
 							شروط وتنزيل الاستمارة
 						</button>
 					)}
 
 					{methods.current.id !== "2" && (
-						<button
-							onClick={() => methods.next()}
-							className="p-4 bg-primary text-white rounded-lg hover:bg-primary/90 transition ml-auto"
-						>
+						<button type="button" onClick={() => methods.next()} className={`${solidButton} ml-auto`}>
 							الاستعلام والتواصل
 						</button>
 					)}
