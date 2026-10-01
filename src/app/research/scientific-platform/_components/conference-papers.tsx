@@ -12,7 +12,7 @@ import {
   type CardData,
 } from "./shared/research-card";
 import { SummaryModal } from "./shared/summary-modal";
-import { SwiperPagination } from "./shared/swiper-pagination";
+import Pagination from "@/components/pagination";
 
 import { Research } from "@/types/research";
 
@@ -216,8 +216,9 @@ export default function ConferencePapers({ data }: { data: Research[] }) {
           )}
 
           {totalPages > 1 && (
-            <SwiperPagination
-              currentPage={page}
+            <Pagination
+              className="mt-14"
+              page={page}
               totalPages={totalPages}
               onPageChange={(p) => {
                 // ✅ بدون setPage، URL هو المصدر

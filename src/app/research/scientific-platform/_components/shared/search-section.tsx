@@ -2,14 +2,9 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Search,
-  X,
-  Filter,
-  LayoutGrid,
-  Table2,
-  ChevronDown,
-} from "lucide-react";
+import { X, Filter, LayoutGrid, Table2, ChevronDown } from "lucide-react";
+import FilterChips from "@/components/filter-chips";
+import SearchField from "@/components/search-field";
 
 // ─── أنواع ────────────────────────────────────────────────────────────────────
 
@@ -84,87 +79,38 @@ export function SearchSection({
   };
   const totalActive = activeFiltersCount + (searchValue ? 1 : 0);
 
+  const field =
+    "rounded-xl border-2 border-primary/25 bg-white px-4 py-3 text-base text-gray-900 transition-colors focus:border-primary focus:outline-none dark:border-Muharram_primary/25 dark:focus:border-Muharram_primary";
+
   return (
-    <div className="mb-6 space-y-3">
+    <div className="mb-8 space-y-5">
       {/* ── Tabs (اختياري) ── */}
       {tabs && tabs.length > 0 && (
-        <nav
-          className="flex justify-center items-center gap-4 mb-6 flex-wrap"
-          aria-label="فلترة حسب الدرجة العلمية"
-        >
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => onTabChange?.(tab.id)}
-              aria-current={activeTab === tab.id ? "page" : undefined}
-              className={`px-5 py-2 rounded-full font-medium transition-all duration-300 ${
-                activeTab === tab.id
-                  ? "bg-primary text-white shadow-lg scale-105"
-                  : "bg-gray-100  text-gray-700 dark:text-gray-200 hover:bg-gray-200"
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </nav>
+        <FilterChips
+          label="فلترة حسب الدرجة العلمية"
+          options={tabs.map((tab) => ({ key: tab.id, label: tab.label }))}
+          value={activeTab ?? ""}
+          onChange={(id) => onTabChange?.(id)}
+        />
       )}
 
       {/* ── شريط البحث الرئيسي ── */}
-      <div
-        className="
-        flex flex-col sm:flex-row gap-2
-    
-      "
-      >
-        {/* Search input */}
-        <div className="relative flex-1">
-          <Search
-            size={16}
-            className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
-          />
-          <input
-            type="text"
-            value={searchValue}
-            onChange={(e) => onSearchChange(e.target.value)}
-            placeholder={searchPlaceholder}
-            className="
-              w-full rounded-xl py-2.5 pr-10 pl-9 text-sm
-              bg-gray-50 dark:bg-Muharram_secondary/10
-              border border-gray-100 dark:border-Muharram_primary
-              text-gray-800 dark:text-black
-              placeholder:text-gray-400 dark:placeholder:text-Muharram_primary
-              focus:outline-none focus:ring-2 focus:ring-primary/25 focus:border-primary/40 dark:focus:ring-Muharram_secondary/25 dark:focus:border-Muharram_primary/40
-              transition-all duration-200
-            "
-          />
-          {searchValue && (
-            <button
-              onClick={() => onSearchChange("")}
-              aria-label="مسح"
-              className="
-                absolute left-2.5 top-1/2 -translate-y-1/2
-                w-5 h-5 rounded-full flex items-center justify-center
-                bg-gray-200 dark:bg-Muharram_primary/10 text-gray-500
-                hover:bg-gray-300 dark:hover:bg-Muharram_secondary/30 transition-colors
-              "
-            >
-              <X size={10} />
-            </button>
-          )}
-        </div>
-        <div className="flex items-center gap-2 shrink-0">
+      <div className="flex flex-col gap-3 sm:flex-row">
+        <SearchField
+          className="flex-1"
+          label={searchPlaceholder}
+          placeholder={searchPlaceholder}
+          value={searchValue}
+          onChange={onSearchChange}
+        />
+        <div className="flex shrink-0 items-center gap-3">
           {/* ترتيب */}
           {sortOptions && sortOptions.length > 0 && (
             <select
+              aria-label="الترتيب"
               value={sortValue}
               onChange={(e) => onSortChange?.(e.target.value)}
-              className="
-                rounded-xl px-5 py-2 text-sm
-                bg-gray-50 dark:bg-Muharram_secondary/10
-                border border-gray-100 dark:border-Muharram_primary
-                text-gray-700 dark:text-black
-                focus:ring-2 focus:ring-primary/25 dark:focus:ring-Muharram_primary/25 outline-none cursor-pointer
-              "
+              className={`${field} cursor-pointer`}
             >
               {sortOptions.map((o) => (
                 <option key={o.value} value={o.value}>
@@ -177,32 +123,28 @@ export function SearchSection({
           {/* فلاتر */}
           {filters && filters.length > 0 && (
             <button
+              type="button"
+              aria-expanded={showFilters}
               onClick={() => setShowFilters(!showFilters)}
-              className={`
-                flex items-center gap-1.5 px-3 py-2.5 rounded-xl text-sm font-semibold
-                border transition-all duration-200
-                ${
-                  showFilters
-                    ? "bg-primary text-white border-primary"
-                    : "bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-400 border-gray-100 dark:border-gray-700 hover:text-primary hover:border-primary/30"
-                }
-              `}
+              className={`flex items-center gap-2 rounded-xl border-2 px-4 py-3 font-semibold transition-colors ${
+                showFilters
+                  ? "border-primary bg-primary text-white dark:border-Muharram_primary dark:bg-Muharram_primary"
+                  : "border-primary/25 text-primary hover:border-primary dark:border-Muharram_primary/25 dark:text-Muharram_primary"
+              }`}
             >
-              <Filter size={14} />
+              <Filter size={16} />
               فلاتر
               {totalActive > 0 && (
                 <span
-                  className={`
-                  text-[10px] font-bold rounded-full w-4 h-4
-                  flex items-center justify-center
-                  ${showFilters ? "bg-white text-primary" : "bg-primary text-white"}
-                `}
+                  className={`flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold ${
+                    showFilters ? "bg-white text-primary" : "bg-primary text-white"
+                  }`}
                 >
                   {totalActive}
                 </span>
               )}
               <ChevronDown
-                size={13}
+                size={14}
                 className={`transition-transform duration-200 ${showFilters ? "rotate-180" : ""}`}
               />
             </button>
@@ -210,29 +152,29 @@ export function SearchSection({
 
           {/* تبديل العرض */}
           {viewMode && onViewModeChange && (
-            <div className="flex rounded-xl border border-gray-100 dark:border-gray-700 overflow-hidden">
-              <button
-                onClick={() => onViewModeChange("cards")}
-                title="بطاقات"
-                className={`p-2.5 transition-colors ${
-                  viewMode === "cards"
-                    ? "bg-primary text-white dark:bg-Muharram_primary"
-                    : "bg-gray-50 dark:bg-white text-gray-500 hover:text-primary dark:hover:text-Muharram_secondary"
-                }`}
-              >
-                <LayoutGrid size={15} />
-              </button>
-              <button
-                onClick={() => onViewModeChange("table")}
-                title="جدول"
-                className={`p-2.5 transition-colors ${
-                  viewMode === "table"
-                   ? "bg-primary text-white dark:bg-Muharram_primary"
-                    : "bg-gray-50 dark:bg-white text-gray-500 hover:text-primary dark:hover:text-Muharram_secondary"
-                }`}
-              >
-                <Table2 size={15} />
-              </button>
+            <div className="flex overflow-hidden rounded-xl border-2 border-primary/25 dark:border-Muharram_primary/25">
+              {(
+                [
+                  { mode: "cards", title: "بطاقات", Icon: LayoutGrid },
+                  { mode: "table", title: "جدول", Icon: Table2 },
+                ] as const
+              ).map(({ mode, title, Icon }) => (
+                <button
+                  key={mode}
+                  type="button"
+                  title={title}
+                  aria-label={title}
+                  aria-pressed={viewMode === mode}
+                  onClick={() => onViewModeChange(mode)}
+                  className={`p-3 transition-colors ${
+                    viewMode === mode
+                      ? "bg-primary text-white dark:bg-Muharram_primary"
+                      : "bg-white text-primary hover:bg-primary/10 dark:text-Muharram_primary"
+                  }`}
+                >
+                  <Icon size={18} />
+                </button>
+              ))}
             </div>
           )}
         </div>
@@ -248,31 +190,19 @@ export function SearchSection({
             transition={{ duration: 0.22, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div
-              className="
-              bg-white dark:bg-gray-900
-              border border-gray-100 dark:border-gray-800
-              rounded-2xl p-4 shadow-sm
-            "
-            >
+            <div className="rounded-[28px] border border-primary/30 p-5 dark:border-Muharram_primary/30">
               <div
-                className={`grid gap-3 ${filters.length === 1 ? "grid-cols-1" : filters.length === 2 ? "grid-cols-2" : "grid-cols-1 md:grid-cols-3"}`}
+                className={`grid gap-4 ${filters.length === 1 ? "grid-cols-1" : filters.length === 2 ? "grid-cols-2" : "grid-cols-1 md:grid-cols-3"}`}
               >
                 {filters.map((f) => (
                   <div key={f.key}>
-                    <label className="block text-xs font-semibold text-gray-400 dark:text-gray-500 mb-1.5 uppercase tracking-wide">
+                    <label className="mb-2 block text-sm font-bold text-primary dark:text-Muharram_primary">
                       {f.label}
                     </label>
                     <select
                       value={filterValues[f.key] ?? ""}
                       onChange={(e) => onFilterChange?.(f.key, e.target.value)}
-                      className="
-                        w-full rounded-xl px-3 py-2 text-sm
-                        bg-gray-50 dark:bg-gray-800
-                        border border-gray-100 dark:border-gray-700
-                        text-gray-700 dark:text-gray-300
-                        focus:ring-2 focus:ring-primary/25 outline-none
-                      "
+                      className={`${field} w-full`}
                     >
                       <option value="">{f.placeholder}</option>
                       {f.options.map((o) => (
@@ -285,12 +215,13 @@ export function SearchSection({
                 ))}
               </div>
               {totalActive > 0 && (
-                <div className="flex justify-end mt-3 pt-3 border-t border-gray-50 dark:border-gray-800">
+                <div className="mt-4 flex justify-end border-t border-secondary/30 pt-4">
                   <button
+                    type="button"
                     onClick={clearAll}
-                    className="text-xs font-semibold text-red-400 hover:text-red-500 flex items-center gap-1"
+                    className="flex items-center gap-1.5 font-semibold text-primary hover:underline dark:text-Muharram_primary"
                   >
-                    <X size={11} /> مسح الكل
+                    <X size={14} /> مسح الكل
                   </button>
                 </div>
               )}
@@ -300,14 +231,12 @@ export function SearchSection({
       </AnimatePresence>
 
       {/* ── شريط النتائج ── */}
-      <div className="flex items-center justify-between px-1">
-        <p className="text-sm text-gray-400 dark:text-gray-500">
-          <span className="font-bold text-primary text-base">
-            {resultCount.toLocaleString("ar-EG")}
-          </span>{" "}
-          {resultUnit}
-        </p>
-      </div>
+      <p className="font-semibold text-gray-600">
+        <span className="text-xl font-extrabold text-primary dark:text-Muharram_primary">
+          {resultCount.toLocaleString("ar-EG")}
+        </span>{" "}
+        {resultUnit}
+      </p>
     </div>
   );
 }

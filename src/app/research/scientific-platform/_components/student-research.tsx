@@ -12,7 +12,7 @@ import {
   type CardData,
 } from "./shared/research-card";
 import { ResearchTable, type TableRow } from "./shared/research-table";
-import { SwiperPagination } from "./shared/swiper-pagination";
+import Pagination from "@/components/pagination";
 
 import { StudentResearch } from "@/types/student";
 
@@ -326,8 +326,9 @@ export default function StudentResearchPage({
           )}
 
           {totalPages > 1 && (
-            <SwiperPagination
-              currentPage={page}
+            <Pagination
+              className="mt-14"
+              page={page}
               totalPages={totalPages}
               onPageChange={paginate}
             />
