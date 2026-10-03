@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import Breadcrumbs from "@/components/breadcrumb"
@@ -19,6 +20,28 @@ export const dynamicParams = false
 export async function generateStaticParams() {
 	const posts = await dataFetcher<Post[]>("posts.json")
 	return posts.map((post) => ({ slug: post.slug }))
+}
+
+// Each article gets its own title, summary and photo, so a shared link previews that article
+// and not the site as a whole.
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+	const { slug } = await params
+	const post = (await dataFetcher<Post[]>("posts.json")).find((item) => item.slug === slug)
+	if (!post) return {}
+	return {
+		title: post.title,
+		description: post.summary,
+		alternates: { canonical: `/news/${slug}` },
+		openGraph: {
+			type: "article",
+			title: post.title,
+			description: post.summary,
+			url: `/news/${slug}`,
+			publishedTime: post.date,
+			images: [post.image],
+		},
+		twitter: { card: "summary_large_image", title: post.title, description: post.summary, images: [post.image] },
+	}
 }
 
 export default async function page({

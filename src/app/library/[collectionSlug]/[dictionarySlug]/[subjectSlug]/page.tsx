@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import {
   getSubject,
@@ -22,6 +23,25 @@ export function generateStaticParams() {
       })),
     ),
   );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ collectionSlug: string; dictionarySlug: string; subjectSlug: string }>;
+}): Promise<Metadata> {
+  const { collectionSlug, dictionarySlug, subjectSlug } = await params;
+  const subject = getSubject(collectionSlug, dictionarySlug, subjectSlug);
+  const collection = collections[collectionSlug];
+  if (!subject || !collection) return {};
+  const title = `${subject.title} - ${collection.title}`;
+  const url = `/library/${collectionSlug}/${dictionarySlug}/${subjectSlug}`;
+  return {
+    title,
+    alternates: { canonical: url },
+    openGraph: { type: "article", title, url },
+    twitter: { card: "summary_large_image", title },
+  };
 }
 
 export default async function SubjectPage({

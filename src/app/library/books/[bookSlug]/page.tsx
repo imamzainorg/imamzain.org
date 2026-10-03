@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Book } from "@/types/book";
 import { dataFetcher } from "@/lib/dataFetcher";
@@ -17,6 +18,21 @@ function shuffleArray<T>(array: T[]): T[] {
     [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
   }
   return newArr;
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ bookSlug: string }> }): Promise<Metadata> {
+  const { bookSlug } = await params;
+  const book = (await dataFetcher<Book[]>("books.json")).find((item) => item.slug === bookSlug);
+  if (!book) return {};
+  const description = book.description || `${book.title}${book.author ? " - " + book.author : ""}`;
+  const url = `/library/books/${book.slug}`;
+  return {
+    title: book.title,
+    description,
+    alternates: { canonical: url },
+    openGraph: { type: "book", title: book.title, description, url, images: [book.image] },
+    twitter: { card: "summary_large_image", title: book.title, description, images: [book.image] },
+  };
 }
 
 export default async function Page({

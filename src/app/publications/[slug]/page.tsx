@@ -1,5 +1,6 @@
 import Breadcrumbs from "@/components/breadcrumb";
 import { SectionTitle } from "@/components/brand";
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { Book } from "@/types/book";
 import { dataFetcher } from "@/lib/dataFetcher";
@@ -20,6 +21,21 @@ function getRandomItems<T>(array: T[], count: number) {
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
   return shuffled.slice(0, count);
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const book = (await dataFetcher<Book[]>("books.json")).find((item) => item.slug === slug);
+  if (!book) return {};
+  const description = book.description || `${book.title}${book.author ? " - " + book.author : ""}`;
+  const url = `/publications/${book.slug}`;
+  return {
+    title: book.title,
+    description,
+    alternates: { canonical: url },
+    openGraph: { type: "book", title: book.title, description, url, images: [book.image] },
+    twitter: { card: "summary_large_image", title: book.title, description, images: [book.image] },
+  };
 }
 
 export default async function Page({
