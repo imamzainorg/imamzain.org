@@ -397,3 +397,21 @@ html[data-nav] .page-enter {
 	font-style: normal;
 	font-weight: inherit;
 }
+
+/* Lenis (smooth scrolling) */
+html.lenis,
+html.lenis body {
+	height: auto;
+}
+
+.lenis.lenis-smooth {
+	scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+	overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+	overflow: clip;
+}

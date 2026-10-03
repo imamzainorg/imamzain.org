@@ -8,6 +8,7 @@ import { Toaster } from "sonner"
 import { Providers } from "@/app/providers"
 import { IconSprite } from "@/components/icon-sprite"
 import { RouteProgress } from "@/components/route-progress"
+import SmoothScroll from "@/components/smooth-scroll"
 
 const notoNaskhArabic = Noto_Naskh_Arabic({
 	subsets: ["arabic"],
@@ -79,6 +80,7 @@ export default function RootLayout({
 			<body className={`${notoNaskhArabic.className} bg-pattern`}>
 				<IconSprite />
 				<Providers>{children}</Providers>
+				<SmoothScroll />
 				<RouteProgress />
 				<Toaster />
 			</body>
