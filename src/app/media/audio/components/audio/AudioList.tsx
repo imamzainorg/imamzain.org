@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useCallback, useRef, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import {
   ChevronDown,
   Clock,
@@ -55,7 +56,35 @@ export default function AudioList({
     0, 120,
   ]);
   const [sortFilter, setSortFilter] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
+  // A shared link (?id=X) opens on the page that holds that recording.
+  const sharedId = Number(useSearchParams().get("id"));
+  // The shared recording stays highlighted for a few seconds, then settles back.
+  const [highlightId, setHighlightId] = useState<number | null>(
+    items.some((item) => item.id === sharedId) ? sharedId : null,
+  );
+  useEffect(() => {
+    if (highlightId === null) return;
+    // The page is still laying out when the link opens, so keep trying until the card has a size.
+    let tries = 0;
+    const scroll = setInterval(() => {
+      const card = document.getElementById(`audio-card-${highlightId}`);
+      if (card && card.getBoundingClientRect().height > 0) {
+        card.scrollIntoView({ behavior: "smooth", block: "center" });
+        clearInterval(scroll);
+      } else if (++tries > 20) {
+        clearInterval(scroll);
+      }
+    }, 250);
+    const fade = setTimeout(() => setHighlightId(null), 9000);
+    return () => {
+      clearInterval(scroll);
+      clearTimeout(fade);
+    };
+  }, [highlightId]);
+  const [currentPage, setCurrentPage] = useState(() => {
+    const index = items.findIndex((item) => item.id === sharedId);
+    return index < 0 ? 1 : Math.floor(index / ITEMS_PER_PAGE) + 1;
+  });
   const [isSpeakerDropdownOpen, setIsSpeakerDropdownOpen] = useState(false);
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false); // ← جديد
 
@@ -413,6 +442,7 @@ const handleSpeakerSelect = useCallback((speaker: string) => {
                   key={item.id}
                   item={item}
                   isActive={activeId === item.id}
+                  isShared={highlightId === item.id}
                   isPlaying={activeId === item.id && isPlaying}
                   currentTime={currentTimes[item.id] ?? 0}
                   duration={item.durationSeconds ?? 0}
