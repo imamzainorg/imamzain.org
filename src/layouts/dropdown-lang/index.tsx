@@ -27,26 +27,32 @@ export default function DropdownLang({ broad }: { broad?: boolean }) {
   return (
     <div className="relative cursor-pointer py-1 dropdown-lang">
       <button
-        className={`flex items-center justify-between bg-white rounded-full px-1 border shadow ${
-          broad ? "h-7" : ""
-        }`}
+        className={
+          broad
+            ? "flex h-11 items-center gap-2 rounded-xl border-2 border-white/25 bg-white/10 px-4 text-white transition hover:border-white hover:bg-white hover:text-primary"
+            : "flex items-center justify-between bg-white rounded-full px-1 border shadow"
+        }
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        <Globe className="mx-3 w-3 h-3 text-black" />
+        <Globe className={broad ? "size-4" : "mx-3 w-3 h-3 text-black"} />
 
         {/* ⭐ الحل هنا */}
         <span
-          className="text-sm w-fit font-medium text-black"
+          className={`text-sm w-fit font-medium ${broad ? "" : "text-black"}`}
           suppressHydrationWarning
         >
           {currentLanguage.name}
         </span>
 
-        <ChevronDown className="mx-3 w-3 h-3 text-black" />
+        <ChevronDown className={broad ? "size-4" : "mx-3 w-3 h-3 text-black"} />
       </button>
 
       {isOpen && (
-        <div className="absolute top-5 left-4 bg-white rounded-lg w-fit z-50 flex flex-col text-gray-800 shadow-xl translate-y-2 animate-dropdown transition-all duration-300">
+        <div className={`absolute z-50 flex flex-col bg-white text-gray-800 shadow-xl animate-dropdown ${
+            broad
+              ? "bottom-full left-0 mb-2 min-w-full overflow-hidden rounded-xl"
+              : "top-5 left-4 w-fit translate-y-2 rounded-lg"
+          }`}>
           {languages.map((language, index) => (
             <button
               key={index}
