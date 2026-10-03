@@ -16,11 +16,14 @@ import {
   FiX,
   FiSearch,
   FiCalendar,
-  FiTag,
   FiMapPin,
   FiCamera,
-  FiInfo,
+  FiChevronLeft,
+  FiChevronRight,
 } from "react-icons/fi";
+
+const lightboxControl =
+  "grid size-12 shrink-0 place-items-center rounded-full border-2 border-white/25 bg-white/10 text-white transition hover:border-secondary hover:bg-secondary";
 
 type ScreenSize = "sm" | "md" | "lg" | "xl";
 
@@ -273,7 +276,7 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
 
   return (
     <div className="min-h-screen overflow-hidden text-white">
-      <div className="container relative z-10 pb-8">
+      <div className="container pb-8">
         <Breadcrumbs
           className="text-white"
           dotColor="bg-secondary"
@@ -517,144 +520,121 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
         {/* Lightbox */}
         {lightboxOpen && selectedImage && (
           <div
-            className="fixed inset-0 bg-black/50 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-fade-in"
+            className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 px-4 pb-6 pt-28 backdrop-blur-md animate-fade-in"
             onClick={(e) => e.target === e.currentTarget && closeLightbox()}
           >
-            {/* ✅ تصحيح 4: felx → flex */}
-            <div className="w-full lg:w-4/5 flex items-center justify-center h-[64vh]  gap-6">
-              {/* Image section */}
-              <div>
-                <div className="relative flex-1 flex items-center justify-center bg-gray-900/30 rounded-2xl overflow-hidden p-4">
-                  {/* Close button */}
-                  <button
-                    className="absolute top-4 left-4 w-12 h-12 bg-gray-900/80 rounded-full flex items-center justify-center z-50 hover:bg-red-600 transition-all hover:scale-110"
-                    onClick={closeLightbox}
-                  >
-                    <FiX color="#bb9661" size={24} />
-                  </button>
-
-                  {/* Prev button */}
-                  <button
-                    className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-gray-900/80 rounded-full hidden md:flex items-center justify-center z-50 hover:bg-primary transition-all hover:scale-110"
-                    onClick={() => navigateImage("prev")}
-                  >
-                    <span className="text-2xl">←</span>
-                  </button>
-
-                  {/* Next button */}
-                  <button
-                    className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-gray-900/80 rounded-full hidden md:flex items-center justify-center z-50 hover:bg-primary transition-all hover:scale-110"
-                    onClick={() => navigateImage("next")}
-                  >
-                    <span className="text-2xl">→</span>
-                  </button>
-
-                  {/* Main image */}
-                  <Image
-                    src={selectedImage.url}
-                    alt={selectedImage.title}
-                    width={1200}
-                    height={800}
-                    unoptimized
-                    className="max-w-full lg:max-h-[50vh] xl:max-h-[55vh] 2xl:max-h-[60vh] object-contain rounded-lg"
-                    priority
-                  />
-                </div>
-
-                <div className="md:flex gap-2 mt-4 lg:mt-0 hidden justify-center">
-                  {relatedImages.map((img) => (
-                    <div
-                      key={img.id}
-                      className={`h-40 rounded-lg overflow-hidden border-2 cursor-pointer transition-all ${
-                        selectedImage?.id === img.id
-                          ? "border-primary scale-110"
-                          : "border-gray-700 hover:border-gray-500"
-                      }`}
-                      onClick={() => setSelectedImage(img)}
-                    >
-                      <Image
-                        src={img.url}
-                        alt={img.title}
-                        width={80}
-                        height={80}
-                        unoptimized
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
+            <div className="flex h-full max-h-[52rem] w-full max-w-7xl flex-col gap-4">
+              {/* Top bar */}
+              <div className="flex items-center justify-end text-white">
+                <button
+                  type="button"
+                  aria-label="إغلاق"
+                  className={lightboxControl}
+                  onClick={closeLightbox}
+                >
+                  <FiX size={22} />
+                </button>
               </div>
 
-              {/* Details section */}
-              <div className="lg:w-4/12 bg-gray-900/80 backdrop-blur-lg hidden lg:block rounded-2xl p-6 overflow-y-auto max-h-[64vh]">
-                <h2 className="text-2xl font-bold mb-2">
-                  {selectedImage.title}
-                </h2>
-                <span className="inline-block px-3 py-1 bg-primary rounded-full text-sm mb-6">
-                  {selectedImage.category}
-                </span>
-
-                <div className="space-y-4">
-                  {/* Description */}
-                  <div>
-                    <h3 className="text-base font-semibold mb-1.5 flex items-center gap-2">
-                      <FiInfo size={16} color="#bb9661" />
-                      الوصف
-                    </h3>
-                    <p className="text-gray-400 bg-gray-900/40 rounded-md p-3 text-sm leading-relaxed">
-                      {selectedImage.description}
-                    </p>
+              <div className="grid min-h-0 flex-1 gap-5 lg:grid-cols-[1fr_24rem]">
+                {/* Photo, with the arrows beside it and the carousel beneath */}
+                <div className="flex min-h-0 min-w-0 flex-col gap-4">
+                  <div className="flex min-h-0 flex-1 items-center gap-3 md:gap-4">
+                    <button
+                      type="button"
+                      aria-label="الصورة السابقة"
+                      className={`${lightboxControl} max-md:hidden`}
+                      onClick={() => navigateImage("prev")}
+                    >
+                      <FiChevronRight size={24} />
+                    </button>
+                    <div className="flex h-full min-w-0 flex-1 items-center justify-center rounded-3xl bg-black/30 p-3">
+                      <Image
+                        src={selectedImage.url}
+                        alt={selectedImage.title}
+                        width={1600}
+                        height={1067}
+                        unoptimized
+                        className="max-h-full max-w-full rounded-2xl object-contain"
+                        priority
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      aria-label="الصورة التالية"
+                      className={`${lightboxControl} max-md:hidden`}
+                      onClick={() => navigateImage("next")}
+                    >
+                      <FiChevronLeft size={24} />
+                    </button>
                   </div>
 
-                  {/* Info grid */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-gray-900/40 rounded-md p-3">
-                      <div className="flex items-center gap-1.5 mb-1">
-                        <FiCalendar size={14} color="#bb9661" />
-                        <span className="text-xs text-gray-400">التاريخ</span>
-                      </div>
-                      <p className="text-sm font-medium">{selectedImage.date}</p>
-                    </div>
-
-                    <div className="bg-gray-900/40 rounded-md p-3">
-                      <div className="flex items-center gap-1.5 mb-1">
-                        <FiMapPin size={14} color="#bb9661" />
-                        <span className="text-xs text-gray-400">المكان</span>
-                      </div>
-                      <p className="text-sm font-medium">
-                        {selectedImage.location}
-                      </p>
-                    </div>
-
-                    <div className="bg-gray-900/40 rounded-md p-3 col-span-2">
-                      <div className="flex items-center gap-1.5 mb-1">
-                        <FiCamera size={14} color="#bb9661" />
-                        <span className="text-xs text-gray-400">المصور</span>
-                      </div>
-                      <p className="text-sm font-medium">
-                        {selectedImage.photographer}
-                      </p>
-                    </div>
+                  <div className="hidden h-20 shrink-0 justify-center gap-3 md:flex">
+                    {relatedImages.map((img) => (
+                      <button
+                        type="button"
+                        key={img.id}
+                        aria-label={img.title}
+                        className={`h-full aspect-[4/3] overflow-hidden rounded-xl border-2 transition ${
+                          selectedImage.id === img.id
+                            ? "border-secondary"
+                            : "border-transparent opacity-50 hover:opacity-90"
+                        }`}
+                        onClick={() => setSelectedImage(img)}
+                      >
+                        <Image
+                          src={img.url}
+                          alt=""
+                          width={120}
+                          height={90}
+                          unoptimized
+                          className="h-full w-full object-cover"
+                        />
+                      </button>
+                    ))}
                   </div>
+                </div>
 
-                  {/* Tags */}
-                  <div>
-                    <h3 className="text-base font-semibold mb-2 flex items-center gap-2">
-                      <FiTag size={16} />
-                      الوسوم
-                    </h3>
-                    <div className="flex flex-wrap gap-1.5">
+                {/* Details: the same height as the photo and the carousel */}
+                <aside className="hidden min-h-0 flex-col overflow-y-auto rounded-3xl bg-white/[0.07] p-7 text-white lg:flex">
+                  <span className="w-fit rounded-full bg-secondary px-4 py-1 text-sm font-bold text-white">
+                    {selectedImage.category}
+                  </span>
+                  <h2 className="mt-4 text-2xl font-extrabold leading-snug">{selectedImage.title}</h2>
+                  {selectedImage.description && (
+                    <p className="mt-4 text-base leading-8 text-white/80">{selectedImage.description}</p>
+                  )}
+
+                  <dl className="mt-6 space-y-4 border-t border-white/15 pt-6">
+                    {[
+                      { label: "التاريخ", value: selectedImage.date, Icon: FiCalendar },
+                      { label: "المكان", value: selectedImage.location, Icon: FiMapPin },
+                      { label: "المصور", value: selectedImage.photographer, Icon: FiCamera },
+                    ]
+                      .filter((row) => row.value)
+                      .map(({ label, value, Icon }) => (
+                        <div key={label} className="flex items-center gap-4">
+                          <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-white/10 text-secondary">
+                            <Icon size={20} />
+                          </span>
+                          <div className="min-w-0">
+                            <dt className="text-sm text-white/60">{label}</dt>
+                            <dd className="text-base font-semibold">{value}</dd>
+                          </div>
+                        </div>
+                      ))}
+                  </dl>
+
+                  {selectedImage.tags.length > 0 && (
+                    <div className="mt-6 flex flex-wrap gap-2 border-t border-white/15 pt-6">
                       {selectedImage.tags.map((tag, idx) => (
-                        <span
-                          key={idx}
-                          className="rounded-md bg-white/10 px-2 py-1 text-xs text-secondary"
-                        >
+                        <span key={idx} className="rounded-full bg-white/10 px-3 py-1 text-sm text-secondary">
                           #{tag}
                         </span>
                       ))}
                     </div>
-                  </div>
-                </div>
+                  )}
+                </aside>
               </div>
             </div>
           </div>
