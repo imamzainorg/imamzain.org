@@ -138,12 +138,12 @@ export default function DictionaryNav({
                   className={cn(
                     "flex flex-1 items-center gap-3 rounded-xl px-3 py-2.5 leading-7 transition-colors",
                     isActive
-                      ? "bg-primary font-bold text-white dark:bg-Muharram_primary"
+                      ? "font-bold text-primary dark:text-Muharram_primary"
                       : "font-semibold text-gray-800 hover:bg-primary/10 hover:text-primary dark:hover:bg-Muharram_primary/10 dark:hover:text-Muharram_primary",
                   )}
                 >
                   <span className="flex-1">{dict.title}</span>
-                  <span className={cn("text-sm font-semibold", isActive ? "text-white/80" : "text-secondary_dark dark:text-Muharram_secondary")}>
+                  <span className="text-sm font-semibold text-secondary_dark dark:text-Muharram_secondary">
                     {dict.subjectCount.toLocaleString("ar-EG")}
                   </span>
                 </Link>
