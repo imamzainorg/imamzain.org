@@ -106,15 +106,15 @@ export default function DictionaryNav({
   const downloadInfo = getDownloadInfo(collectionSlug);
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
-      <p className="mb-4 flex items-center gap-2 font-bold text-primary dark:text-Muharram_primary">
+    <div className="flex min-h-0 flex-1 flex-col rounded-[2rem] border-2 border-primary/15 bg-white p-5 shadow-xl shadow-primary/10 dark:border-Muharram_primary/20">
+      <p className="mb-3 flex items-center gap-2 border-b-2 border-dashed border-secondary/40 pb-3 text-lg font-bold text-primary dark:border-Muharram_secondary/40 dark:text-Muharram_primary">
         <TitleIcon className="w-3" />
         الأقسام والموضوعات
       </p>
 
       <nav
         aria-label="الأقسام والموضوعات"
-        className="min-h-0 flex-1 overflow-y-auto overscroll-contain border-r-2 border-secondary/25 pb-2 dark:border-Muharram_secondary/25"
+        className="min-h-0 flex-1 space-y-1 overflow-y-auto overscroll-contain pb-1 pl-1"
         onWheel={(e) => {
           e.stopPropagation();
         }}
@@ -136,21 +136,21 @@ export default function DictionaryNav({
                   href={`/library/${collectionSlug}/${dict.slug}`}
                   aria-current={isActive ? "page" : undefined}
                   className={cn(
-                    "-mr-0.5 flex flex-1 items-center gap-3 border-r-2 py-2 pr-4 leading-7 transition-colors",
+                    "flex flex-1 items-center gap-3 rounded-xl px-3 py-2.5 leading-7 transition-colors",
                     isActive
-                      ? "border-primary font-bold text-primary dark:border-Muharram_primary dark:text-Muharram_primary"
-                      : "border-transparent text-gray-700 hover:border-secondary hover:text-primary dark:hover:border-Muharram_secondary dark:hover:text-Muharram_primary",
+                      ? "bg-primary font-bold text-white dark:bg-Muharram_primary"
+                      : "font-semibold text-gray-800 hover:bg-primary/10 hover:text-primary dark:hover:bg-Muharram_primary/10 dark:hover:text-Muharram_primary",
                   )}
                 >
                   <span className="flex-1">{dict.title}</span>
-                  <span className="text-sm font-semibold text-secondary_dark dark:text-Muharram_secondary">
+                  <span className={cn("text-sm font-semibold", isActive ? "text-white/80" : "text-secondary_dark dark:text-Muharram_secondary")}>
                     {dict.subjectCount.toLocaleString("ar-EG")}
                   </span>
                 </Link>
                 <button
                   type="button"
                   onClick={() => toggleDict(dict)}
-                  className="shrink-0 rounded-lg p-2 text-gray-500 transition-colors hover:text-primary dark:hover:text-Muharram_primary"
+                  className="ml-1 grid size-9 shrink-0 place-items-center rounded-lg text-gray-500 transition-colors hover:bg-primary/10 hover:text-primary dark:hover:text-Muharram_primary"
                   aria-label={isExpanded ? "طي القسم" : "توسيع القسم"}
                   aria-expanded={isExpanded}
                 >
@@ -171,7 +171,7 @@ export default function DictionaryNav({
               )}
 
               {isExpanded && subjects && (
-                <ol className="mb-3 mr-8 space-y-0.5">
+                <ol className="mb-2 mr-4 space-y-0.5 border-r-2 border-secondary/30 pr-2 dark:border-Muharram_secondary/30">
                   {subjects.map((subject: NavSubject) => {
                     const subjectPath = `/library/${collectionSlug}/${dict.slug}/${subject.slug}`;
                     const isActiveSubject =
@@ -184,10 +184,10 @@ export default function DictionaryNav({
                           href={subjectPath}
                           aria-current={isActiveSubject ? "page" : undefined}
                           className={cn(
-                            "flex items-start gap-3 py-1.5 text-base leading-7 transition-colors",
+                            "flex items-start gap-3 rounded-lg px-3 py-1.5 text-base leading-7 transition-colors",
                             isActiveSubject
-                              ? "font-bold text-primary dark:text-Muharram_primary"
-                              : "text-gray-600 hover:text-primary dark:hover:text-Muharram_primary",
+                              ? "bg-primary/10 font-bold text-primary dark:bg-Muharram_primary/10 dark:text-Muharram_primary"
+                              : "text-gray-700 hover:bg-primary/[0.06] hover:text-primary dark:hover:text-Muharram_primary",
                           )}
                         >
                           <span className="w-6 shrink-0 text-sm text-secondary_dark dark:text-Muharram_secondary">

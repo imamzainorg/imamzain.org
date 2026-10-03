@@ -1,6 +1,10 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import { pagerLink } from "@/components/brand";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+const card =
+  "group flex items-center gap-4 rounded-2xl border-2 border-primary/20 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-primary hover:shadow-lg dark:border-Muharram_primary/25 dark:hover:border-Muharram_primary";
+const tile =
+  "grid size-12 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white dark:bg-Muharram_primary/10 dark:text-Muharram_primary dark:group-hover:bg-Muharram_primary";
 
 type SubjectNavigationProps = {
   collectionSlug: string;
@@ -29,40 +33,50 @@ export default function SubjectNavigation({
   return (
     <nav
       aria-label="التنقل بين المواضيع"
-      className="mt-20 flex flex-col gap-4 sm:flex-row"
+      className="mt-16 grid grid-cols-1 gap-4 border-t-2 border-dashed border-secondary/40 pt-8 dark:border-Muharram_secondary/40 md:grid-cols-2"
     >
       {prevSubject ? (
         <Link
           href={`/library/${collectionSlug}/${dictionarySlug}/${prevSubject.slug}`}
-          className={pagerLink}
+          className={card}
         >
-          <span className="inline-flex items-center gap-1 text-sm text-gray-500">
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            الموضوع السابق · رقم {prevSubject.id}
+          <span className={tile}>
+            <ChevronRight className="size-6" />
           </span>
-          <span className="line-clamp-2 text-lg font-bold leading-8 text-primary dark:text-Muharram_primary">
-            {prevSubject.title}
-          </span>
+          <div className="min-w-0 flex-1 text-right">
+            <div className="mb-1 text-sm font-semibold text-secondary_dark dark:text-Muharram_secondary">
+              الموضوع السابق
+            </div>
+            <div className="line-clamp-2 text-lg font-bold leading-8 text-gray-900 transition-colors group-hover:text-primary dark:text-white dark:group-hover:text-Muharram_primary">
+              {prevSubject.title}
+            </div>
+            <div className="mt-0.5 text-sm text-gray-500">رقم {prevSubject.id}</div>
+          </div>
         </Link>
       ) : (
-        <div className="flex-1" />
+        <div />
       )}
 
       {nextSubject ? (
         <Link
           href={`/library/${collectionSlug}/${dictionarySlug}/${nextSubject.slug}`}
-          className={`${pagerLink} items-end text-left`}
+          className={card}
         >
-          <span className="inline-flex items-center gap-1 text-sm text-gray-500">
-            الموضوع التالي · رقم {nextSubject.id}
-            <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-          </span>
-          <span className="line-clamp-2 text-lg font-bold leading-8 text-primary dark:text-Muharram_primary">
-            {nextSubject.title}
+          <div className="min-w-0 flex-1 text-right">
+            <div className="mb-1 text-sm font-semibold text-secondary_dark dark:text-Muharram_secondary">
+              الموضوع التالي
+            </div>
+            <div className="line-clamp-2 text-lg font-bold leading-8 text-gray-900 transition-colors group-hover:text-primary dark:text-white dark:group-hover:text-Muharram_primary">
+              {nextSubject.title}
+            </div>
+            <div className="mt-0.5 text-sm text-gray-500">رقم {nextSubject.id}</div>
+          </div>
+          <span className={tile}>
+            <ChevronLeft className="size-6" />
           </span>
         </Link>
       ) : (
-        <div className="flex-1" />
+        <div />
       )}
     </nav>
   );

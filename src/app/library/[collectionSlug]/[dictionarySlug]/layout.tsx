@@ -73,7 +73,7 @@ export default async function Layout({
 
       <div className="lg:grid lg:grid-cols-[18rem_1fr] lg:gap-14 xl:grid-cols-[20rem_1fr] xl:gap-20">
         {/* Sidebar: the book's sections and subjects */}
-        <aside className="hidden max-h-[calc(100vh-9rem)] flex-col lg:sticky lg:top-32 lg:flex lg:self-start">
+        <aside className="hidden max-h-[calc(100vh-11rem)] flex-col lg:sticky lg:top-40 lg:flex lg:self-start">
           <DictionaryNav
             dictionaries={navDictionaries}
             collectionSlug={collectionSlug}
