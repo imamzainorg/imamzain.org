@@ -4,7 +4,7 @@ import { useMemo, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { SearchIcon } from "lucide-react"
-import { MoreLink, outlineButton, shieldPanel } from "@/components/brand"
+import { MoreLink, outlineButton, infoPanel } from "@/components/brand"
 import PageHeader from "@/components/page-header"
 import Pagination from "@/components/pagination"
 import SearchField from "@/components/search-field"
@@ -19,8 +19,8 @@ const intro =
 // The newest release, in a green shield beside the page title.
 function LatestBook({ book }: { book: Book }) {
 	return (
-		<div className={`${shieldPanel} p-8 md:p-10`}>
-			<p className="text-sm font-semibold text-secondary dark:text-white/70">أحدث الإصدارات</p>
+		<div className={`${infoPanel} p-8 md:p-10`}>
+			<p className="text-sm font-semibold text-secondary_dark dark:text-white/70">أحدث الإصدارات</p>
 			<div className="mt-5 flex items-center gap-6">
 				<Link href={`/publications/${book.slug}`} className="relative block h-52 w-36 shrink-0">
 					<Image
@@ -34,8 +34,8 @@ function LatestBook({ book }: { book: Book }) {
 				</Link>
 				<div className="min-w-0">
 					<h2 className="line-clamp-3 text-xl font-bold leading-snug">{book.title}</h2>
-					{book.author && <p className="mt-2 line-clamp-2 text-white/70">{book.author}</p>}
-					<MoreLink href={`/publications/${book.slug}`} light className="mt-4">
+					{book.author && <p className="mt-2 line-clamp-2 text-gray-600 dark:text-white/70">{book.author}</p>}
+					<MoreLink href={`/publications/${book.slug}`} className="mt-4">
 						تفاصيل الكتاب
 					</MoreLink>
 				</div>

@@ -1,5 +1,5 @@
 import Breadcrumbs from "@/components/breadcrumb"
-import { outlinePanel, shieldPanel } from "@/components/brand"
+import { outlinePanel, infoPanel } from "@/components/brand"
 import { Reveal } from "@/components/motion"
 import VisitationSignup from "@/components/visitation-signup"
 import { arabicNumber } from "@/lib/format"
@@ -43,16 +43,16 @@ export default function Page() {
 
       <div className="container pt-24">
         <Reveal>
-          <dl className={`${shieldPanel} grid gap-y-10 p-8 text-center md:grid-cols-3 md:p-12`}>
+          <dl className={`${infoPanel} grid gap-y-10 p-8 text-center md:grid-cols-3 md:p-12`}>
             {stats.map((stat, i) => (
               <div
                 key={stat.title}
-                className={i > 0 ? "md:border-r md:border-white/15" : undefined}
+                className={i > 0 ? "md:border-r md:border-primary/15 dark:md:border-white/15" : undefined}
               >
-                <dd className="text-5xl font-extrabold text-secondary dark:text-white md:text-6xl">
+                <dd className="text-5xl font-extrabold text-secondary_dark dark:text-white md:text-6xl">
                   {arabicNumber(stat.value)}
                 </dd>
-                <dt className="mt-3 text-lg font-semibold text-white/85 md:text-xl">{stat.title}</dt>
+                <dt className="mt-3 text-lg font-semibold text-gray-700 dark:text-white/85 md:text-xl">{stat.title}</dt>
               </div>
             ))}
           </dl>

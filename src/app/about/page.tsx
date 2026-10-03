@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import { Mail, Phone } from "lucide-react"
 import Breadcrumbs from "@/components/breadcrumb"
-import { MoreLink, SectionTitle, TitleIcon, leadText, outlinePanel, photoFrame, shieldPanel } from "@/components/brand"
+import { MoreLink, SectionTitle, TitleIcon, leadText, outlinePanel, photoFrame, infoPanel } from "@/components/brand"
 import { Reveal } from "@/components/motion"
 import PageHeader from "@/components/page-header"
 
@@ -93,13 +93,13 @@ export default function About() {
 			<section className="pt-28">
 				<div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
 					<Reveal x={60} y={0}>
-						<div className={`${shieldPanel} p-8 md:p-12`}>
-							<h2 className="flex items-center gap-3 text-3xl font-extrabold">
+						<div className={`${infoPanel} p-8 md:p-12`}>
+							<h2 className="flex items-center gap-3 text-3xl font-extrabold text-primary dark:text-white">
 								<TitleIcon className="w-4" />
 								رسالة المؤسسة
 							</h2>
-							<p className="mt-6 text-lg leading-loose text-white/85 md:text-xl md:leading-loose">{mission}</p>
-							<MoreLink href="/about/vision-and-goals#message" light className="mt-6">
+							<p className="mt-6 text-lg leading-loose text-gray-700 dark:text-white/85 md:text-xl md:leading-loose">{mission}</p>
+							<MoreLink href="/about/vision-and-goals#message" className="mt-6">
 								المزيد عن رسالة المؤسسة
 							</MoreLink>
 						</div>

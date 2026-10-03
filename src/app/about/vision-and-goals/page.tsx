@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import Breadcrumbs from "@/components/breadcrumb"
-import { SectionTitle, photoFrame, shieldPanel } from "@/components/brand"
+import { SectionTitle, photoFrame, infoPanel } from "@/components/brand"
 import { Reveal } from "@/components/motion"
 import PageHeader from "@/components/page-header"
 import { arabicNumber } from "@/lib/format"
@@ -125,8 +125,8 @@ function VisionText({ paragraphs }: { paragraphs: string[] }) {
 				}
 				if (text.startsWith("رؤية المؤسسة:")) {
 					return (
-						<div key={i} className={`${shieldPanel} !mt-10 p-8 md:p-10`}>
-							<p className="text-xl font-bold leading-loose text-white md:text-2xl md:leading-loose">{text}</p>
+						<div key={i} className={`${infoPanel} !mt-10 p-8 md:p-10`}>
+							<p className="text-xl font-bold leading-loose text-primary dark:text-white md:text-2xl md:leading-loose">{text}</p>
 						</div>
 					)
 				}

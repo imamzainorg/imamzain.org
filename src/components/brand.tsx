@@ -103,6 +103,10 @@ export const leadText = "text-lg leading-loose text-gray-700 md:text-xl"
 export const shieldPanel =
 	"rounded-[40px] bg-primary text-white outline outline-2 outline-offset-[6px] outline-secondary/60 dark:bg-Muharram_primary dark:outline-Muharram_secondary/60"
 
+// The same shape in off-white, for cards that hold information rather than a call to action.
+export const infoPanel =
+	"rounded-[40px] border border-primary/10 bg-white/70 text-gray-900 shadow-lg shadow-primary/5 outline outline-2 outline-offset-[6px] outline-secondary/60 dark:border-white/10 dark:bg-white/[0.04] dark:text-white dark:shadow-none dark:outline-Muharram_secondary/60"
+
 // A photo in the shield's gold offset outline. Put the <Image> inside; the frame clips it.
 export const photoFrame =
 	"overflow-hidden rounded-[40px] outline outline-2 outline-offset-[6px] outline-secondary/60 dark:outline-Muharram_secondary/60"

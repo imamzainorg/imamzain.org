@@ -17,7 +17,7 @@ import Link from "next/link";
 import { toast } from "sonner";
 import { Book } from "@/types/book";
 import { cn } from "@/lib/utils";
-import { outlineButton, shieldPanel, solidButton } from "@/components/brand";
+import { outlineButton, infoPanel, solidButton } from "@/components/brand";
 import { Reveal } from "@/components/motion";
 
 const MISSING = "غير محدد";
@@ -152,14 +152,14 @@ export default function BookCard({
       </div>
 
       <Reveal className="mt-20">
-        <dl className={`${shieldPanel} grid gap-x-12 p-8 md:grid-cols-2 md:p-12 lg:grid-cols-3`}>
+        <dl className={`${infoPanel} grid gap-x-12 p-8 md:grid-cols-2 md:p-12 lg:grid-cols-3`}>
           {facts.map(({ label, value, Icon }) => (
-            <div key={label} className="border-b border-white/10 py-4 last:border-0 md:[&:nth-last-child(-n+2)]:border-0 lg:[&:nth-last-child(-n+3)]:border-0">
-              <dt className="flex items-center gap-2 text-sm font-semibold text-secondary dark:text-white/60">
+            <div key={label} className="border-b border-primary/10 py-4 last:border-0 dark:border-white/10 md:[&:nth-last-child(-n+2)]:border-0 lg:[&:nth-last-child(-n+3)]:border-0">
+              <dt className="flex items-center gap-2 text-sm font-semibold text-secondary_dark dark:text-white/60">
                 <Icon className="h-4 w-4" />
                 {label}
               </dt>
-              <dd className="mt-1 text-lg leading-8 text-white">{value}</dd>
+              <dd className="mt-1 text-lg leading-8">{value}</dd>
             </div>
           ))}
         </dl>

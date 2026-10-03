@@ -11,7 +11,7 @@ import {
 	TitleIcon,
 	outlineButton,
 	outlinePanel,
-	shieldPanel,
+	infoPanel,
 	solidButton,
 } from "@/components/brand"
 import CaptivityRoute from "./_components/captivity-route"
@@ -112,8 +112,8 @@ export default async function Page() {
 					</Reveal>
 
 					<Reveal x={-60} y={0} delay={0.2}>
-						<aside className={`${shieldPanel} p-8 md:p-10`} aria-labelledby="facts-title">
-							<h2 id="facts-title" className="flex items-center gap-3 text-xl font-bold">
+						<aside className={`${infoPanel} p-8 md:p-10`} aria-labelledby="facts-title">
+							<h2 id="facts-title" className="flex items-center gap-3 text-xl font-bold text-primary dark:text-white">
 								<TitleIcon className="w-3" />
 								بطاقة تعريفية
 							</h2>
@@ -121,12 +121,12 @@ export default async function Page() {
 								{facts.map((fact) => (
 									<div
 										key={fact.label}
-										className="grid grid-cols-[6rem_1fr] gap-3 border-b border-white/10 py-3 last:border-0"
+										className="grid grid-cols-[6rem_1fr] gap-3 border-b border-primary/10 py-3 last:border-0 dark:border-white/10"
 									>
-										<dt className="text-sm font-semibold leading-7 text-secondary dark:text-white/60">
+										<dt className="text-sm font-semibold leading-7 text-secondary_dark dark:text-white/60">
 											{fact.label}
 										</dt>
-										<dd className="leading-7 text-white">{fact.value}</dd>
+										<dd className="leading-7">{fact.value}</dd>
 									</div>
 								))}
 							</dl>
