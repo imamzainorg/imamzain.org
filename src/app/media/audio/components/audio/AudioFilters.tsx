@@ -1,8 +1,9 @@
 "use client";
 
+import Dropdown from "@/components/dropdown";
 import { useCallback, useRef } from "react";
 import {
-  Search, X, ChevronDown,
+  Search, X,
   Clock3, FolderOpen, ArrowDownUp,
 } from "lucide-react";
 
@@ -74,28 +75,14 @@ export function AudioSearch({ value, onChange, placeholder = "ابحث بالع�
 export function AudioFilter({ label, options, value, onChange, icon }: FilterProps) {
   if (!options?.length) return null;
   return (
-    <div className="relative w-full">
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        dir="rtl"
-        className="
-          w-full h-12 appearance-none rounded-xl pr-11 pl-10 text-base cursor-pointer
-          bg-white border-2 border-primary/25 dark:border-Muharram_primary/25
-          text-slate-800
-          transition-colors duration-300
-          focus:outline-none focus:border-primary dark:focus:border-Muharram_primary
-        "
-      >
-        <option value="">{label ?? "اختر..."}</option>
-        {options.map((opt) => <option key={opt} value={opt}>{opt}</option>)}
-      </select>
-      {icon && <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center dark:text-Muharram_secondary">{icon}</div>}
-      <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center gap-1">
-        <div className="h-4 border-l border-slate-300 dark:border-slate-600 mr-1" />
-        <ChevronDown className="w-4 h-4 text-slate-400 dark:text-Muharram_secondary " />
-      </div>
-    </div>
+    <Dropdown
+      label={label ?? "اختر..."}
+      value={value}
+      onChange={onChange}
+      icon={icon}
+      className="w-full"
+      options={[{ value: "", label: label ?? "اختر..." }, ...options.map((o) => ({ value: o, label: o }))]}
+    />
   );
 }
 

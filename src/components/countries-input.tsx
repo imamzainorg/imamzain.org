@@ -63,6 +63,11 @@ const CountriesDropdown = ({
 			className={`w-full country-autocomplete ${className ?? ""}`}
 			placeholder="البلد"
 			inputProps={inputProps}
+			listboxProps={{
+				itemClasses: {
+					base: "rounded-xl px-3.5 py-2.5 text-base font-medium text-gray-900 data-[hover=true]:bg-primary/10 data-[focus-visible=true]:bg-primary/10 data-[selected=true]:font-bold data-[selected=true]:text-primary",
+				},
+			}}
 			size="lg"
 			value={selectedCountry}
 			onSelectionChange={(key) => handleCountryChange(key)}

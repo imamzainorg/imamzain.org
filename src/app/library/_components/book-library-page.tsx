@@ -1,5 +1,6 @@
 "use client";
 
+import Dropdown from "@/components/dropdown";
 import { useMemo, useCallback, useState, useEffect, useRef } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { ArrowUpDown } from "lucide-react";
@@ -192,21 +193,17 @@ export default function BookLibraryPage({ books }: { books: Book[] }) {
               onChange={setLocalSearch}
               onClear={resetFilters}
             />
-            <div className="relative">
-              <label htmlFor="library-sort" className="sr-only">
-                ترتيب الكتب
-              </label>
-              <select
-                id="library-sort"
-                value={filters.sort}
-                onChange={(e) => updateParams({ sort: e.target.value })}
-                className="w-full cursor-pointer appearance-none rounded-xl border-2 border-primary/25 bg-white py-3.5 pl-10 pr-4 text-lg text-gray-900 transition-colors focus:border-primary focus:outline-none dark:border-Muharram_primary/25 dark:focus:border-Muharram_primary md:w-52"
-              >
-                <option value="latest">الأحدث</option>
-                <option value="common">الأكثر مشاهدة</option>
-              </select>
-              <ArrowUpDown className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-primary dark:text-Muharram_primary" />
-            </div>
+            <Dropdown
+              label="ترتيب الكتب"
+              value={filters.sort}
+              onChange={(sort) => updateParams({ sort })}
+              icon={<ArrowUpDown />}
+              className="md:w-52"
+              options={[
+                { value: "latest", label: "الأحدث" },
+                { value: "common", label: "الأكثر مشاهدة" },
+              ]}
+            />
           </div>
 
           <p className="mt-6 font-semibold text-gray-600">

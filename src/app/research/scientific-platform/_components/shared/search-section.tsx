@@ -1,8 +1,9 @@
 "use client";
 
+import Dropdown from "@/components/dropdown";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Filter, LayoutGrid, Table2, ChevronDown } from "lucide-react";
+import { X, Filter, ArrowUpDown, LayoutGrid, Table2, ChevronDown } from "lucide-react";
 import FilterChips from "@/components/filter-chips";
 import SearchField from "@/components/search-field";
 
@@ -79,9 +80,6 @@ export function SearchSection({
   };
   const totalActive = activeFiltersCount + (searchValue ? 1 : 0);
 
-  const field =
-    "rounded-xl border-2 border-primary/25 bg-white px-4 py-3 text-base text-gray-900 transition-colors focus:border-primary focus:outline-none dark:border-Muharram_primary/25 dark:focus:border-Muharram_primary";
-
   return (
     <div className="mb-8 space-y-5">
       {/* ── Tabs (اختياري) ── */}
@@ -106,18 +104,14 @@ export function SearchSection({
         <div className="flex shrink-0 items-center gap-3">
           {/* ترتيب */}
           {sortOptions && sortOptions.length > 0 && (
-            <select
-              aria-label="الترتيب"
-              value={sortValue}
-              onChange={(e) => onSortChange?.(e.target.value)}
-              className={`${field} cursor-pointer`}
-            >
-              {sortOptions.map((o) => (
-                <option key={o.value} value={o.value}>
-                  {o.label}
-                </option>
-              ))}
-            </select>
+            <Dropdown
+              label="الترتيب"
+              value={sortValue ?? ""}
+              onChange={(v) => onSortChange?.(v)}
+              icon={<ArrowUpDown />}
+              className="min-w-44"
+              options={sortOptions}
+            />
           )}
 
           {/* فلاتر */}
@@ -199,18 +193,13 @@ export function SearchSection({
                     <label className="mb-2 block text-sm font-bold text-primary dark:text-Muharram_primary">
                       {f.label}
                     </label>
-                    <select
+                    <Dropdown
+                      label={f.label}
+                      placeholder={f.placeholder}
                       value={filterValues[f.key] ?? ""}
-                      onChange={(e) => onFilterChange?.(f.key, e.target.value)}
-                      className={`${field} w-full`}
-                    >
-                      <option value="">{f.placeholder}</option>
-                      {f.options.map((o) => (
-                        <option key={o} value={o}>
-                          {o}
-                        </option>
-                      ))}
-                    </select>
+                      onChange={(v) => onFilterChange?.(f.key, v)}
+                      options={[{ value: "", label: f.placeholder }, ...f.options.map((o) => ({ value: o, label: o }))]}
+                    />
                   </div>
                 ))}
               </div>

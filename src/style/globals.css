@@ -91,25 +91,92 @@ html[data-nav] .page-enter {
 .scrollbar-hide::-webkit-scrollbar {
 	display: none;
 }
-/* react-select, themed like the site's other fields (2px primary border, rounded-xl). */
+/* Dropdown panels (the shared Dropdown, react-select and the HeroUI country list) */
+@keyframes dropdown-in {
+	from {
+		opacity: 0;
+		transform: translateY(-6px) scale(0.98);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.dropdown-panel {
+	animation: dropdown-in 0.16s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.dropdown-panel {
+		animation: none;
+	}
+}
+
+/* react-select, themed like the shared Dropdown. */
 .react-select__control {
 	border-radius: 0.75rem !important;
 	border-width: 2px !important;
 	border-color: rgb(0 102 84 / 0.25) !important;
 	min-height: 48px !important;
 	box-shadow: none !important;
+	cursor: pointer !important;
+}
+
+.react-select__control:hover {
+	border-color: #006654 !important;
 }
 
 .react-select__control--is-focused {
 	border-color: #006654 !important;
 }
 
+.react-select__placeholder {
+	color: #6b7280 !important;
+	font-weight: 600;
+}
+
+.react-select__single-value {
+	font-weight: 600;
+}
+
+.react-select__indicator-separator {
+	display: none !important;
+}
+
+.react-select__dropdown-indicator {
+	color: #bb9661 !important;
+}
+
 .dark .react-select__control {
 	border-color: rgb(35 31 32 / 0.25) !important;
 }
 
+.dark .react-select__control:hover,
 .dark .react-select__control--is-focused {
 	border-color: #231f20 !important;
+}
+
+.react-select__menu {
+	z-index: 9999 !important;
+	margin-top: 8px !important;
+	padding: 0.375rem;
+	border: 1px solid rgb(0 102 84 / 0.1);
+	border-radius: 1rem !important;
+	box-shadow: 0 25px 50px -12px rgb(0 102 84 / 0.2) !important;
+	overflow: hidden;
+	animation: dropdown-in 0.16s ease-out;
+}
+
+.react-select__menu-list {
+	padding: 0 !important;
+}
+
+.react-select__option {
+	border-radius: 0.75rem;
+	padding: 0.625rem 0.875rem !important;
+	font-weight: 500;
+	cursor: pointer !important;
 }
 
 .react-select__option--is-focused {
@@ -117,8 +184,9 @@ html[data-nav] .page-enter {
 }
 
 .react-select__option--is-selected {
-	background-color: #006654 !important;
-	color: #fff !important;
+	background-color: rgb(0 102 84 / 0.12) !important;
+	color: #006654 !important;
+	font-weight: 700;
 }
 
 .dark .react-select__option--is-focused {
@@ -126,11 +194,8 @@ html[data-nav] .page-enter {
 }
 
 .dark .react-select__option--is-selected {
-	background-color: #231f20 !important;
-}
-
-.react-select__menu {
-	z-index: 9999 !important;
+	background-color: rgb(35 31 32 / 0.14) !important;
+	color: #231f20 !important;
 }
 
 .hero-mask {

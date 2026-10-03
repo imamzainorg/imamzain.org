@@ -7,10 +7,12 @@ import Breadcrumbs from "@/components/breadcrumb";
 import { SectionTitle } from "@/components/brand";
 import ImageView from "@/components/image-view";
 import Image from "next/image";
+import Dropdown from "@/components/dropdown";
 import { Gallery } from "@/types/gallery";
 import { Loader2 } from "lucide-react";
 import {
   FiFilter,
+  FiArrowDown,
   FiChevronDown,
   FiChevronUp,
   FiX,
@@ -344,15 +346,18 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
                 {isFilterOpen ? <FiChevronUp /> : <FiChevronDown />}
               </button>
 
-              <select
-                aria-label="ترتيب الصور"
-                className="rounded-xl border-2 border-white/20 bg-[#101c1a] px-4 py-3 dark:bg-[#171314] text-lg text-white transition-colors focus:border-secondary focus:outline-none"
+              <Dropdown
+                label="ترتيب الصور"
+                variant="dark"
                 value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-              >
-                <option value="newest">الأحدث أولاً</option>
-                <option value="oldest">الأقدم أولاً</option>
-              </select>
+                onChange={setSortBy}
+                icon={<FiArrowDown />}
+                className="min-w-44"
+                options={[
+                  { value: "newest", label: "الأحدث أولاً" },
+                  { value: "oldest", label: "الأقدم أولاً" },
+                ]}
+              />
             </div>
           </div>
 
