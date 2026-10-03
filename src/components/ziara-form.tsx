@@ -152,7 +152,13 @@ const ZiaraForm = () => {
 					aria-label="رقم الهاتف"
 					name="visitorPhone"
 					placeholder="‎+9647801234567"
-					description="اكتب الرقم مع رمز الدولة، ويبدأ بعلامة +"
+					description={
+							<>
+								اكتب الرقم مع رمز الدولة، ويبدأ بعلامة +
+								<br />
+								سنستخدم رقمك لإرسال رسالة إليك عند إتمام الزيارة نيابةً عنك، ولا نستخدمه لغير ذلك.
+							</>
+						}
 					value={formData.visitorPhone}
 					onChange={(e) => setFormData({ ...formData, visitorPhone: e.target.value })}
 					classNames={{ ...inputClassNames, description: "text-white/70" }}
