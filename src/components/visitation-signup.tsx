@@ -69,7 +69,7 @@ export default function VisitationSignup({ asPage }: { asPage?: boolean }) {
 					</Reveal>
 
 					<Reveal y={60} className="flex justify-center">
-						<div id="signup" className="w-full max-w-xl scroll-mt-28 rounded-[40px] drop-shadow-[0_0_45px_rgba(187,150,97,0.35)] bg-[url('/shapes/ziara-bg.svg')] bg-contain bg-center bg-no-repeat px-6 pb-24 pt-32 dark:bg-[url('/shapes/ziara-bg_Muharram.svg')] sm:px-14">
+						<div id="signup" className="w-full max-w-xl scroll-mt-28 rounded-[40px] drop-shadow-[0_0_45px_rgba(187,150,97,0.35)] bg-[url('/shapes/ziara-bg.svg')] bg-[length:100%_100%] bg-center bg-no-repeat px-6 pb-24 pt-32 dark:bg-[url('/shapes/ziara-bg_Muharram.svg')] sm:px-14">
 							<ZiaraForm />
 						</div>
 					</Reveal>

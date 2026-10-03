@@ -42,7 +42,7 @@ const socials: { href: string; label: string; Icon: IconComponent; hover: string
 
 export default function Footer() {
 	return (
-		<footer className="relative overflow-hidden rounded-t-[2.5rem] bg-[#101c1a] text-white dark:bg-[#171314]">
+		<footer className="relative overflow-hidden rounded-t-[2.5rem] bg-primary text-white dark:bg-Muharram_primary">
 			<div aria-hidden className="absolute inset-0 bg-[url('/shapes/bg.svg')] bg-[length:500px] opacity-[0.04]" />
 			{/* A gold hairline along the top edge. */}
 			<div aria-hidden className="absolute inset-x-12 top-0 h-px bg-gradient-to-l from-transparent via-secondary/70 to-transparent dark:via-Muharram_secondary/70" />
