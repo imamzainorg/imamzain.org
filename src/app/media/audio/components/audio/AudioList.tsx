@@ -56,35 +56,41 @@ export default function AudioList({
     0, 120,
   ]);
   const [sortFilter, setSortFilter] = useState("");
-  // A shared link (?id=X) opens on the page that holds that recording.
+  // A shared link (?id=X) opens on the page that holds that recording and highlights it for a
+  // few seconds. The search params can arrive after the first render (the page is static), so
+  // this adjusts state while rendering the first time an id shows up rather than in an initializer.
   const sharedId = Number(useSearchParams().get("id"));
-  // The shared recording stays highlighted for a few seconds, then settles back.
-  const [highlightId, setHighlightId] = useState<number | null>(
-    items.some((item) => item.id === sharedId) ? sharedId : null,
-  );
+  const [currentPage, setCurrentPage] = useState(1);
+  const [highlightId, setHighlightId] = useState<number | null>(null);
+  const [handledId, setHandledId] = useState<number | null>(null);
+  const sharedIndex = Number.isFinite(sharedId) ? items.findIndex((item) => item.id === sharedId) : -1;
+  if (sharedIndex >= 0 && handledId !== sharedId) {
+    setHandledId(sharedId);
+    setHighlightId(sharedId);
+    setCurrentPage(Math.floor(sharedIndex / ITEMS_PER_PAGE) + 1);
+  }
   useEffect(() => {
     if (highlightId === null) return;
     // The page is still laying out when the link opens, so keep trying until the card has a size.
     let tries = 0;
+    let fade: ReturnType<typeof setTimeout> | undefined;
     const scroll = setInterval(() => {
       const card = document.getElementById(`audio-card-${highlightId}`);
       if (card && card.getBoundingClientRect().height > 0) {
         card.scrollIntoView({ behavior: "smooth", block: "center" });
         clearInterval(scroll);
-      } else if (++tries > 20) {
+        // The highlight counts down from the moment the reader can actually see it.
+        fade = setTimeout(() => setHighlightId(null), 10000);
+      } else if (++tries > 60) {
         clearInterval(scroll);
+        setHighlightId(null);
       }
     }, 250);
-    const fade = setTimeout(() => setHighlightId(null), 9000);
     return () => {
       clearInterval(scroll);
       clearTimeout(fade);
     };
   }, [highlightId]);
-  const [currentPage, setCurrentPage] = useState(() => {
-    const index = items.findIndex((item) => item.id === sharedId);
-    return index < 0 ? 1 : Math.floor(index / ITEMS_PER_PAGE) + 1;
-  });
   const [isSpeakerDropdownOpen, setIsSpeakerDropdownOpen] = useState(false);
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false); // ← جديد
 
