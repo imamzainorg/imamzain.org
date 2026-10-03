@@ -130,7 +130,7 @@ const AudioCard = memo(function AudioCard({
       className={`
         relative scroll-mt-40 rounded-3xl border-2 bg-white dark:bg-Muharram_primary p-5 sm:p-6 transition-all duration-500
         w-full justify-between flex flex-col
-        ${isShared ? "ring-4 ring-secondary ring-offset-4 ring-offset-transparent shadow-2xl shadow-secondary/30 dark:ring-Muharram_secondary" : ""}
+        ${isShared ? "!border-secondary dark:!border-Muharram_secondary" : ""}
         ${
           isActive
             ? "border-primary dark:border-Muharram_secondary shadow-lg shadow-primary/10 dark:shadow-Muharram_secondary/20"
@@ -138,12 +138,6 @@ const AudioCard = memo(function AudioCard({
         }
       `}
     >
-      {isShared && (
-        <span className="absolute -top-3 right-6 rounded-full bg-secondary px-3 py-0.5 text-sm font-bold text-white shadow dark:bg-Muharram_secondary">
-          الرابط المشارَك
-        </span>
-      )}
-
       {/* Title */}
       <div className="mb-3">
         <h3
