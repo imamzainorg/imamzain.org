@@ -120,7 +120,7 @@ export default function SubjectView({ subject, margin }: SubjectViewProps) {
   return (
     <div
       ref={containerRef}
-      className="space-y-6 bg-white/70 dark:bg-Muharram_secondary/10 backdrop-blur-md p-6 rounded-xl shadow-sm"
+      className="space-y-10"
     >
       {subject.audio && (
         <SubjectAudioPlayer src={subject.audio} title={subject.title} />
@@ -129,7 +129,7 @@ export default function SubjectView({ subject, margin }: SubjectViewProps) {
       {subject.phrases?.map((phrase: Phrase) => (
         <div key={phrase.id}>
           <div
-            className="flex-1 text-note max-w-none leading-relaxed text-gray-800 dark:text-Muharram_primary"
+            className="max-w-none text-xl leading-[2.2] text-gray-900 md:text-2xl md:leading-[2.3]"
             // safe: phrase.content comes from trusted static JSON; highlight wraps matches in <mark> only
             dangerouslySetInnerHTML={{
               __html: highlightContent(phrase.content),
@@ -139,18 +139,18 @@ export default function SubjectView({ subject, margin }: SubjectViewProps) {
           {/* Explanations */}
           {phrase.explanations?.length > 0 &&
             phrase.explanations.some((e: Explanation) => e.content) && (
-              <div className="mt-6 pt-6 border-t border-gray-100 dark:border-zinc-700 space-y-4">
+              <div className="mt-8 space-y-6 border-r-4 border-secondary/60 pr-6 dark:border-Muharram_secondary/60">
                 {phrase.explanations.map(
                   (explanation: Explanation, idx: number) =>
                     explanation.content ? (
-                      <div key={idx} className="pr-14">
+                      <div key={idx}>
                         {explanation.author && (
-                          <div className="text-sm font-medium text-primary dark:text-Muharram_primary mb-2">
+                          <div className="mb-2 font-bold text-secondary_dark dark:text-Muharram_secondary">
                             {explanation.author}
                           </div>
                         )}
                         <div
-                          className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
+                          className="text-lg leading-loose text-gray-700"
                           // safe: explanation.content comes from trusted static JSON; highlight wraps matches in <mark> only
                           dangerouslySetInnerHTML={{
                             __html: highlightContent(explanation.content),
@@ -165,9 +165,9 @@ export default function SubjectView({ subject, margin }: SubjectViewProps) {
       ))}
 
       {subjectMargin?.content && (
-        <div className="mt-10 border-t-2 border-double border-primary/30 dark:border-Muharram_primary/30 pt-6 text-right">
+        <div className="mt-12 border-t border-secondary/40 pt-6 text-right dark:border-Muharram_secondary/40">
           <div
-            className="text-xs leading-loose text-gray-500 dark:text-gray-400"
+            className="text-base leading-loose text-gray-600"
             dangerouslySetInnerHTML={{
               __html: highlightContent(subjectMargin.content),
             }}

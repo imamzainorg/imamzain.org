@@ -1,5 +1,10 @@
 import Link from "next/link";
-import { ChevronRight, ChevronLeft } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+const card =
+  "group flex items-center gap-4 rounded-2xl border-2 border-primary/20 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-primary hover:shadow-lg dark:border-Muharram_primary/25 dark:hover:border-Muharram_primary";
+const tile =
+  "grid size-12 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white dark:bg-Muharram_primary/10 dark:text-Muharram_primary dark:group-hover:bg-Muharram_primary";
 
 type SubjectNavigationProps = {
   collectionSlug: string;
@@ -26,61 +31,53 @@ export default function SubjectNavigation({
   if (!prevSubject && !nextSubject) return null;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-12 pt-8 border-t-2 border-gray-100 dark:border-zinc-700">
+    <nav
+      aria-label="التنقل بين المواضيع"
+      className="mt-16 grid grid-cols-1 gap-4 border-t-2 border-dashed border-secondary/40 pt-8 dark:border-Muharram_secondary/40 md:grid-cols-2"
+    >
       {prevSubject ? (
         <Link
           href={`/library/${collectionSlug}/${dictionarySlug}/${prevSubject.slug}`}
-          className="group relative overflow-hidden flex items-center gap-4 p-5 rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-Muharram_secondary/30 dark:to-Muharram_secondary/60 border-2 border-gray-100 dark:border-zinc-700 hover:border-primary dark:hover:border-Muharram_primary hover:shadow-lg transition-all"
+          className={card}
         >
-          <div className="absolute inset-0 bg-gradient-to-l from-primary/5 to-transparent dark:from-Muharram_primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-
-          <div className="relative flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 dark:bg-Muharram_primary/10 group-hover:bg-primary/20 dark:group-hover:bg-Muharram_primary/20 flex items-center justify-center transition-colors">
-            <ChevronRight className="w-6 h-6 text-primary dark:text-Muharram_primary" />
-          </div>
-
-          <div className="relative flex-1 text-right min-w-0">
-            <div className="text-xs font-medium text-gray-500 dark:text-black mb-1">
+          <span className={tile}>
+            <ChevronRight className="size-6" />
+          </span>
+          <div className="min-w-0 flex-1 text-right">
+            <div className="mb-1 text-sm font-semibold text-secondary_dark dark:text-Muharram_secondary">
               الموضوع السابق
             </div>
-            <div className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-Muharram_primary transition-colors truncate">
+            <div className="line-clamp-2 text-lg font-bold leading-8 text-gray-900 transition-colors group-hover:text-primary dark:text-white dark:group-hover:text-Muharram_primary">
               {prevSubject.title}
             </div>
-            <div className="text-xs text-gray-500 dark:text-black mt-1">
-              رقم {prevSubject.id}
-            </div>
+            <div className="mt-0.5 text-sm text-gray-500">رقم {prevSubject.id}</div>
           </div>
         </Link>
       ) : (
         <div />
       )}
 
-      {/* Next Subject */}
       {nextSubject ? (
         <Link
           href={`/library/${collectionSlug}/${dictionarySlug}/${nextSubject.slug}`}
-          className="group relative overflow-hidden flex items-center gap-4 p-5 rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-Muharram_secondary/30 dark:to-Muharram_secondary/60 border-2 border-gray-100 dark:border-zinc-700 hover:border-primary dark:hover:border-Muharram_primary hover:shadow-lg transition-all"
+          className={card}
         >
-          <div className="absolute inset-0 bg-gradient-to-l from-primary/5 to-transparent dark:from-Muharram_primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-
-          <div className="relative flex-1 text-left min-w-0">
-            <div className="text-xs font-medium text-gray-500 dark:text-black mb-1">
+          <div className="min-w-0 flex-1 text-right">
+            <div className="mb-1 text-sm font-semibold text-secondary_dark dark:text-Muharram_secondary">
               الموضوع التالي
             </div>
-            <div className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-Muharram_primary transition-colors truncate">
+            <div className="line-clamp-2 text-lg font-bold leading-8 text-gray-900 transition-colors group-hover:text-primary dark:text-white dark:group-hover:text-Muharram_primary">
               {nextSubject.title}
             </div>
-            <div className="text-xs text-gray-500 dark:text-black mt-1">
-              رقم {nextSubject.id}
-            </div>
+            <div className="mt-0.5 text-sm text-gray-500">رقم {nextSubject.id}</div>
           </div>
-
-          <div className="relative flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 dark:bg-Muharram_primary/10 group-hover:bg-primary/20 dark:group-hover:bg-Muharram_primary/20 flex items-center justify-center transition-colors">
-            <ChevronLeft className="w-6 h-6 text-primary dark:text-Muharram_primary" />
-          </div>
+          <span className={tile}>
+            <ChevronLeft className="size-6" />
+          </span>
         </Link>
       ) : (
         <div />
       )}
-    </div>
+    </nav>
   );
 }

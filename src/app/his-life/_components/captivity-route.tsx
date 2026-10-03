@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { MapPin } from "lucide-react"
 import type { WordItem } from "../_data/biography"
-import { useShown } from "./motion"
+import { useShown } from "@/components/motion"
 
 const noMotion = "motion-reduce:!transform-none motion-reduce:!transition-none"
 
@@ -36,7 +36,7 @@ export default function CaptivityRoute({ stops }: { stops: { place: string; item
 							transition: `opacity 0.6s ease-out ${0.2 + i * 0.35}s, transform 0.6s ease-out ${0.2 + i * 0.35}s`,
 						}}
 					>
-						<span className="absolute right-0 top-0 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg ring-8 ring-yellow-50 dark:bg-Muharram_primary lg:relative lg:mx-auto">
+						<span className="absolute right-0 top-0 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg ring-8 ring-[var(--page-bg)] dark:bg-Muharram_primary lg:relative lg:mx-auto">
 							<MapPin className="h-6 w-6" />
 						</span>
 						<h4 className="pt-3 text-2xl font-bold text-primary dark:text-Muharram_primary lg:mt-4 lg:pt-0 lg:text-center">

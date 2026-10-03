@@ -1,18 +1,14 @@
 "use client"
 
 import { useState, useCallback, useEffect, Suspense } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import Breadcrumbs from "@/components/breadcrumb"
-import {
-	ChevronLeft,
-	ChevronRight,
-	Send,
-	CheckCircle,
-	Home,
-} from "lucide-react"
+import { ChevronLeft, ChevronRight, Send, CheckCircle2, Home } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useSearchParams, useRouter } from "next/navigation"
 import Link from "next/link"
+import Breadcrumbs from "@/components/breadcrumb"
+import { SectionTitle, outlineButton, shieldPanel, solidButton, whiteButton } from "@/components/brand"
+import { Reveal } from "@/components/motion"
+import { Panel } from "../../components/contest-ui"
 import { STORAGE_KEYS } from "../storage"
 
 type AnswerState = {
@@ -163,31 +159,22 @@ function ParticipateContent({ questions }: { questions: ContestQuestion[] }) {
 
 	if (step === "submitted") {
 		return (
-			<div className="min-h-screen flex items-center justify-center px-4">
-				<motion.div
-					initial={{ opacity: 0, scale: 0.9 }}
-					animate={{ opacity: 1, scale: 1 }}
-					className="text-center space-y-6 max-w-md"
-				>
-					<div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto">
-						<CheckCircle className="w-12 h-12 text-green-600" />
-					</div>
-					<div className="space-y-2">
-						<h2 className="text-2xl lg:text-3xl font-bold text-slate-800">
-							شكراً لمشاركتك!
-						</h2>
-						<p className="text-slate-600 text-base lg:text-lg">
+			<div className="container flex min-h-screen items-center justify-center pb-12 pt-32">
+				<Reveal y={24} className="w-full">
+					<div
+						className={`${shieldPanel} mx-auto flex max-w-xl flex-col items-center gap-5 p-10 text-center md:p-14`}
+					>
+						<CheckCircle2 className="h-16 w-16 text-secondary dark:text-white" strokeWidth={1.4} />
+						<h2 className="text-3xl font-extrabold">شكراً لمشاركتك!</h2>
+						<p className="text-xl leading-loose text-white/85">
 							تم استلام إجاباتك بنجاح. نتمنى لك التوفيق.
 						</p>
+						<Link href="/" className={`${whiteButton} mt-2`}>
+							<Home className="h-5 w-5" />
+							العودة إلى الرئيسية
+						</Link>
 					</div>
-					<Link
-						href="/"
-						className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all"
-					>
-						<Home className="w-5 h-5" />
-						العودة إلى الرئيسية
-					</Link>
-				</motion.div>
+				</Reveal>
 			</div>
 		)
 	}
@@ -197,136 +184,158 @@ function ParticipateContent({ questions }: { questions: ContestQuestion[] }) {
 	const currentQ = questions[currentQuestion]
 
 	return (
-		<div className="min-h-screen pb-32">
-			<div className="px-4 pt-8">
-				<Breadcrumbs
-					links={[
-						{ name: "الرئيسية", url: "/" },
-						{ name: "المسابقات", url: "/contests" },
-						{
-							name: "قطوف سجادية",
-							url: "/contests/qatuf-sajjadiyya-cultural-competition",
-						},
-						{ name: "مشاركة", url: "#" },
-					]}
-				/>
-			</div>
+		<div className="container pb-12">
+			<Breadcrumbs
+				links={[
+					{ name: "الرئيسية", url: "/" },
+					{ name: "المسابقات", url: "/contests" },
+					{
+						name: "قطوف سجادية",
+						url: "/contests/qatuf-sajjadiyya-cultural-competition",
+					},
+					{ name: "مشاركة", url: "#" },
+				]}
+			/>
 
-			<div className="max-w-5xl mx-auto px-4 py-6 space-y-6">
-				{/* Progress */}
-				<div className="flex items-center justify-between text-sm text-slate-500">
-					<span>
-						السؤال {currentQuestion + 1} من {totalQuestions}
-					</span>
-					<span>
-						{answeredCount} / {totalQuestions} مُجاب
-					</span>
-				</div>
+			<SectionTitle as="h1" title="المشاركة في مسابقة قبسات من حياة الإمام السجاد" className="mb-12" />
 
-				{/* Navigation Grid */}
-				<div className="bg-white/80 backdrop-blur-sm border border-slate-200/60 rounded-2xl p-4 shadow-sm">
-					<p className="text-xs text-slate-500 mb-3 font-medium">
-						تنقل بين الأسئلة
-					</p>
-					<div className="flex flex-wrap gap-2">
-						{questions.map((_, i) => (
-							<button
-								key={i}
-								onClick={() => setCurrentQuestion(i)}
-								className={cn(
-									"w-9 h-9 rounded-lg text-sm font-semibold transition-all border-2",
-									i === currentQuestion
-										? "border-primary bg-primary text-white shadow-md scale-110"
-										: answers[i]
-											? "border-green-400 bg-green-50 text-green-700"
-											: "border-slate-200 bg-white text-slate-500 hover:border-slate-300",
-								)}
-							>
-								{i + 1}
+			<div className="grid gap-10 lg:grid-cols-[1fr_19rem] lg:items-start lg:gap-14">
+				<div className="min-w-0 space-y-8">
+					{/* Progress */}
+					<div>
+						<div className="flex items-center justify-between gap-4 text-base font-semibold text-gray-600 md:text-lg">
+							<span>
+								السؤال {currentQuestion + 1} من {totalQuestions}
+							</span>
+							<span>
+								{answeredCount} / {totalQuestions} مُجاب
+							</span>
+						</div>
+						<div
+							role="progressbar"
+							aria-label="الأسئلة المُجابة"
+							aria-valuemin={0}
+							aria-valuemax={totalQuestions}
+							aria-valuenow={answeredCount}
+							className="mt-3 h-2 overflow-hidden rounded-full bg-primary/10 dark:bg-Muharram_primary/15"
+						>
+							<div
+								className="h-full rounded-full bg-secondary transition-[width] duration-300 dark:bg-Muharram_secondary"
+								style={{ width: `${(answeredCount / totalQuestions) * 100}%` }}
+							/>
+						</div>
+					</div>
+
+					{/* Question */}
+					<Panel className="p-6 md:p-10">
+						<h2 className="text-xl font-extrabold leading-loose text-primary dark:text-Muharram_primary md:text-2xl md:leading-loose">
+							<span className="text-secondary_dark dark:text-Muharram_secondary">{currentQuestion + 1}.</span>{" "}
+							{currentQ.question}
+						</h2>
+
+						<div role="radiogroup" aria-label="الخيارات" className="mt-8 space-y-3">
+							{Object.entries(currentQ.options).map(([key, value]) => {
+								const selected = selectedAnswer === key
+								return (
+									<button
+										key={key}
+										type="button"
+										role="radio"
+										aria-checked={selected}
+										onClick={() => handleAnswerSelect(key)}
+										className={cn(
+											"flex w-full items-center gap-4 rounded-2xl border-2 px-5 py-4 text-right text-lg leading-loose transition-colors md:text-xl md:leading-loose",
+											selected
+												? "border-primary bg-primary/5 font-semibold text-primary dark:border-Muharram_primary dark:bg-Muharram_primary/10 dark:text-Muharram_primary"
+												: "border-primary/20 text-gray-800 hover:border-primary/60 dark:border-Muharram_primary/20 dark:hover:border-Muharram_primary/60",
+										)}
+									>
+										<span
+											aria-hidden
+											className={cn(
+												"flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2",
+												selected
+													? "border-primary dark:border-Muharram_primary"
+													: "border-secondary/60 dark:border-Muharram_secondary/60",
+											)}
+										>
+											{selected && <span className="h-3 w-3 rounded-full bg-primary dark:bg-Muharram_primary" />}
+										</span>
+										{value}
+									</button>
+								)
+							})}
+						</div>
+					</Panel>
+
+					{/* Navigation Buttons */}
+					<div className="flex items-center justify-between gap-3">
+						<button
+							type="button"
+							onClick={handlePrevious}
+							disabled={currentQuestion === 0}
+							className={`${outlineButton} !gap-2 !px-5`}
+						>
+							<ChevronRight className="h-4 w-4" />
+							السابق
+						</button>
+
+						{currentQuestion < totalQuestions - 1 ? (
+							<button type="button" onClick={handleNext} className={`${outlineButton} !gap-2 !px-5`}>
+								التالي
+								<ChevronLeft className="h-4 w-4" />
 							</button>
-						))}
+						) : (
+							<div />
+						)}
+					</div>
+
+					{/* Submit Section */}
+					<div className="space-y-4">
+						{submitError && (
+							<p role="alert" className="text-center text-lg font-semibold text-red-600">
+								{submitError}
+							</p>
+						)}
+						<button
+							type="button"
+							onClick={handleSubmit}
+							disabled={isSubmitting}
+							className={`${solidButton} w-full !py-4 text-lg`}
+						>
+							<Send className="h-5 w-5" />
+							{isSubmitting ? "جارٍ الإرسال..." : "إرسال الإجابات"}
+						</button>
 					</div>
 				</div>
 
-				{/* Question Card */}
-				<AnimatePresence mode="wait">
-					<motion.div
-						key={currentQuestion}
-						initial={{ opacity: 0, x: 20 }}
-						animate={{ opacity: 1, x: 0 }}
-						exit={{ opacity: 0, x: -20 }}
-						className="bg-white/80 backdrop-blur-sm border border-slate-200/60 rounded-2xl p-6 shadow-sm space-y-5"
-					>
-						<h2 className="text-lg lg:text-xl font-bold text-slate-800 leading-relaxed">
-							{currentQuestion + 1}. {currentQ.question}
-						</h2>
-
-						<div className="space-y-3">
-							{Object.entries(currentQ.options).map(
-								([key, value]) => (
-									<button
-										key={key}
-										onClick={() => handleAnswerSelect(key)}
-										className={cn(
-											"w-full p-4 border-2 rounded-xl text-right transition-all",
-											selectedAnswer === key
-												? "border-primary bg-primary/10 text-primary font-semibold"
-												: "border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700",
-										)}
-									>
-										{value}
-									</button>
-								),
-							)}
+				{/* Question navigator */}
+				<aside className="lg:sticky lg:top-32">
+					<Panel className="p-5">
+						<p className="mb-4 font-bold text-primary dark:text-Muharram_primary">تنقل بين الأسئلة</p>
+						<div className="grid grid-cols-6 gap-2 sm:grid-cols-10 lg:grid-cols-6">
+							{questions.map((_, i) => (
+								<button
+									key={i}
+									type="button"
+									onClick={() => setCurrentQuestion(i)}
+									aria-label={`السؤال ${i + 1}`}
+									aria-current={i === currentQuestion ? "step" : undefined}
+									className={cn(
+										"aspect-square rounded-lg border-2 text-sm font-semibold transition-colors",
+										i === currentQuestion
+											? "border-primary bg-primary text-white dark:border-Muharram_primary dark:bg-Muharram_primary"
+											: answers[i]
+												? "border-secondary bg-secondary/15 text-secondary_dark dark:border-Muharram_secondary dark:bg-Muharram_secondary/15 dark:text-Muharram_secondary"
+												: "border-primary/20 text-gray-600 hover:border-primary/60 dark:border-Muharram_primary/20 dark:hover:border-Muharram_primary/60",
+									)}
+								>
+									{i + 1}
+								</button>
+							))}
 						</div>
-					</motion.div>
-				</AnimatePresence>
-
-				{/* Navigation Buttons */}
-				<div className="flex items-center justify-between gap-3">
-					<button
-						onClick={handlePrevious}
-						disabled={currentQuestion === 0}
-						className="flex items-center gap-2 px-4 py-2 rounded-xl border-2 border-slate-200 text-slate-600 font-semibold disabled:opacity-40 hover:border-slate-300 hover:bg-slate-50 transition-all"
-					>
-						<ChevronRight className="w-4 h-4" />
-						السابق
-					</button>
-
-					{currentQuestion < totalQuestions - 1 ? (
-						<button
-							onClick={handleNext}
-							className="flex items-center gap-2 px-4 py-2 rounded-xl border-2 border-slate-200 text-slate-600 font-semibold hover:border-slate-300 hover:bg-slate-50 transition-all"
-						>
-							التالي
-							<ChevronLeft className="w-4 h-4" />
-						</button>
-					) : (
-						<div />
-					)}
-				</div>
-
-				{/* Submit Section */}
-				<div className="space-y-3">
-					{submitError && (
-						<p className="text-red-500 text-sm font-semibold text-center">
-							{submitError}
-						</p>
-					)}
-					<button
-						onClick={handleSubmit}
-						disabled={isSubmitting}
-						className={cn(
-							"w-full py-4 rounded-xl font-bold text-lg transition-all shadow-lg flex items-center justify-center gap-2",
-							!isSubmitting
-								? "bg-gradient-to-r from-primary to-secondary text-white hover:shadow-xl hover:scale-[1.01] active:scale-[0.99]"
-								: "bg-slate-200 text-slate-400 cursor-not-allowed",
-						)}
-					>
-						<Send className="w-5 h-5" />
-						{isSubmitting ? "جارٍ الإرسال..." : "إرسال الإجابات"}
-					</button>
-				</div>
+					</Panel>
+				</aside>
 			</div>
 		</div>
 	)
@@ -338,7 +347,7 @@ export default function ParticipateClient({
 	questions: ContestQuestion[]
 }) {
 	return (
-		<Suspense fallback={<div>Loading...</div>}>
+		<Suspense fallback={<div className="min-h-screen" aria-hidden />}>
 			<ParticipateContent questions={questions} />
 		</Suspense>
 	)

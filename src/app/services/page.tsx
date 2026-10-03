@@ -1,12 +1,70 @@
 "use client";
 
 import { useState, ChangeEvent, FormEvent } from "react";
-import { Button, Input } from "@heroui/react";
-import { MailOpen } from "lucide-react";
-import { MessageIcon, PersonIcon } from "@/assets/icons/reusable";
+import { Clock, Mail, MapPin, MessageSquare, Phone, CheckCircle2, Loader2, Send, UserRound } from "lucide-react";
 import Breadcrumbs from "@/components/breadcrumb";
-import Section from "@/components/section";
+import { outlinePanel, shieldPanel, solidButton } from "@/components/brand";
 import CountriesDropdown from "@/components/countries-input";
+import { Reveal } from "@/components/motion";
+import PageHeader from "@/components/page-header";
+
+const intro =
+  "تواصل مع مؤسسة الإمام زين العابدين عليه السلام في النجف الأشرف عبر العنوان والبريد والهاتف وساعات العمل، أو أرسل رسالتك مباشرة عبر نموذج التواصل.";
+
+const details = [
+  { label: "العنوان", value: "النجف الأشرف - ملحق شارع الروان", Icon: MapPin },
+  { label: "ساعات العمل", value: "من السبت إلى الخميس (8 صباحاً - 2 ظهراً)", Icon: Clock },
+  { label: "الايميل", value: "info@imamzain.org", href: "mailto:info@imamzain.org", Icon: Mail, ltr: true },
+  { label: "الهاتف", value: "+964 782 943 9996", href: "tel:+9647829439996", Icon: Phone, ltr: true },
+];
+
+const fieldClass =
+  "h-14 w-full rounded-xl border-2 border-primary/20 bg-white px-4 text-lg text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-primary dark:border-Muharram_primary/25 dark:focus:border-Muharram_primary";
+const invalidClass = "!border-red-500";
+
+// A labelled field: the label sits above (it never disappears like a placeholder), the icon inside
+// at the start, and the error right under the input.
+function Field({
+  id,
+  label,
+  hint,
+  required,
+  error,
+  Icon,
+  top,
+  children,
+}: {
+  id: string;
+  label: string;
+  hint?: string;
+  required?: boolean;
+  error?: string;
+  Icon: typeof Mail;
+  top?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <label htmlFor={id} className="mb-2 flex items-center gap-2 font-bold text-gray-900">
+        {label}
+        {required && <span aria-hidden className="text-red-600">*</span>}
+        {hint && <span className="text-sm font-normal text-gray-500">{hint}</span>}
+      </label>
+      <div className="relative">
+        <Icon
+          aria-hidden
+          className={`pointer-events-none absolute right-4 h-5 w-5 text-secondary_dark dark:text-Muharram_secondary ${top ? "top-4" : "top-[1.1rem]"}`}
+        />
+        {children}
+      </div>
+      {error && (
+        <p role="alert" className="mt-2 text-sm font-semibold text-red-600">
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
 
 interface FormData {
   name: string;
@@ -22,7 +80,8 @@ export default function Page() {
     country: "",
     message: "",
   });
-  const [error, setError] = useState<string>("");
+  const [errors, setErrors] = useState<{ email?: string; message?: string; form?: string }>({});
+  const [sending, setSending] = useState<boolean>(false);
   const [submitted, setSubmitted] = useState<boolean>(false);
 
   const handleChange = (
@@ -42,35 +101,37 @@ export default function Page() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setError("");
+    const next: typeof errors = {};
 
-    if (!isValidEmail(formData.email)) {
-      setError("يرجى إدخال بريد إلكتروني صالح");
-      return;
-    }
+    if (!isValidEmail(formData.email)) next.email = "يرجى إدخال بريد إلكتروني صالح";
+    if (!isValidMessage(formData.message)) next.message = "يجب ان يكون طول الرسالة بين 10 و2000 حرف";
+    setErrors(next);
+    if (next.email || next.message) return;
 
-    if (!isValidMessage(formData.message)) {
-      setError("يجب ان يكون طول الرسالة بين 10 و2000 حرف");
-      return;
-    }
+    setSending(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+        }),
+      });
 
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...formData,
-      }),
-    });
-
-    if (response.ok) {
-      setSubmitted(true);
-    } else {
-      setError("حدث خطأ أثناء إرسال الرسالة");
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        setErrors({ form: "حدث خطأ أثناء إرسال الرسالة" });
+      }
+    } catch {
+      setErrors({ form: "تعذر الاتصال بالخادم، حاول مرة أخرى" });
+    } finally {
+      setSending(false);
     }
   };
 
   return (
-    <div className="container">
+    <div className="container pb-12">
       <Breadcrumbs
         links={[
           { name: "الصفحة الرئيسية", url: "/" },
@@ -79,160 +140,166 @@ export default function Page() {
         ]}
       />
 
-      <div className="mr-4 lg:mr-8">
-        <Section title="تواصل معنا" />
-      </div>
+      <PageHeader title="تواصل معنا" text={intro} className="mb-20" />
+
       {submitted ? (
-        <div className="flex items-center justify-center max-w-screen-md mx-auto animate-fadeIn">
-          <div className="bg-white/20 backdrop-blur-md shadow-xl p-10 rounded-3xl w-full flex flex-col items-center gap-4 text-center">
-            <h2 className="text-2xl font-bold">شكراً لتواصلك معنا</h2>
-            <p className="text-base">
+        <Reveal>
+          <div className={`${shieldPanel} mx-auto flex max-w-2xl flex-col items-center gap-4 p-10 text-center md:p-14`}>
+            <CheckCircle2 className="h-16 w-16 text-secondary dark:text-white" strokeWidth={1.4} />
+            <h2 className="text-3xl font-extrabold">شكراً لتواصلك معنا</h2>
+            <p className="text-xl leading-loose text-white/85">
               سوف نقوم بمراجعة رسالتك والرد عليك قريباً
             </p>
           </div>
-        </div>
+        </Reveal>
       ) : (
-        <div className=" md:container grid md:grid-cols-2 gap-8 max-w-screen-xl mx-auto   bg-primary dark:bg-Muharram_primary bg-pattern p-6 rounded-3xl">
-          <div className="flex flex-col gap-5 justify-center text-white">
-            <h3 className=" font-extrabold text-body">معلومات التواصل</h3>
-            <p className="text-note mb-2 lg:mb-4">
-              النجف الأشرف - ملحق شارع الروان
-            </p>
-            <p className="text-note leading-5 ">
-              <strong className="">ساعات العمل:</strong> من السبت إلى الخميس (8
-              صباحاً - 2 ظهراً)
-            </p>
-            <div className="flex flex-col mt-2 lg:mt-6 text-note gap-1 justify-center items-center xs:flex-row xs:gap-4">
-              <p className="mb-2"> info@imamzain.org</p>
-              <p className="" dir="ltr">
-                {" "}
-                +964 782 943 9996
-              </p>
+        <div className="grid items-start gap-14 lg:grid-cols-2 lg:gap-20">
+          <Reveal x={60} y={0}>
+            <h2 className="mb-2 text-2xl font-extrabold text-primary dark:text-Muharram_primary md:text-3xl">
+              معلومات التواصل
+            </h2>
+            <ul>
+              {details.map(({ label, value, href, Icon, ltr }) => {
+                const content = (
+                  <>
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-secondary text-secondary_dark dark:border-Muharram_secondary dark:text-Muharram_secondary">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <span>
+                      <span className="block text-sm font-semibold text-secondary_dark dark:text-Muharram_secondary">
+                        {label}
+                      </span>
+                      <span
+                        dir={ltr ? "ltr" : undefined}
+                        className="mt-0.5 block text-lg font-bold text-gray-900 md:text-xl"
+                      >
+                        {value}
+                      </span>
+                    </span>
+                  </>
+                );
+                return (
+                  <li key={label} className="border-b border-dashed border-secondary/40">
+                    {href ? (
+                      <a href={href} className="flex items-center gap-4 py-4 hover:opacity-80">
+                        {content}
+                      </a>
+                    ) : (
+                      <div className="flex items-center gap-4 py-4">{content}</div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+
+            <div className={`${outlinePanel} mt-10 overflow-hidden`}>
+              <iframe
+                title="موقع مؤسسة الإمام زين العابدين على الخريطة"
+                className="block h-64 w-full"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.679731674454!2d44.3607952!3d31.9966964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x155ed74306dd573d%3A0x16b7bd7757d9a76!2z2YXYpNiz2LPYqSDYp9mE2KfZhdin2YUg2LLZitmGINin2YTYudin2KjYr9mK2YYgKNi5KSDZhNmE2KjYrdmI2Ksg2YjYp9mE2K_Ysdin2LPYp9iq!5e0!3m2!1sen!2siq!4v1735032144406!5m2!1sen!2siq"
+                loading="lazy"
+              />
             </div>
-            <iframe
-              className="rounded-2xl w-full h-60 shadow-lg"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.679731674454!2d44.3607952!3d31.9966964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x155ed74306dd573d%3A0x16b7bd7757d9a76!2z2YXYpNiz2LPYqSDYp9mE2KfZhdin2YUg2LLZitmGINin2YTYudin2KjYr9mK2YYgKNi5KSDZhNmE2KjYrdmI2Ksg2YjYp9mE2K_Ysdin2LPYp9iq!5e0!3m2!1sen!2siq!4v1735032144406!5m2!1sen!2siq"
-              loading="lazy"
-            />
-          </div>
+          </Reveal>
 
-          <form
-            onSubmit={handleSubmit}
-            className="bg-white/20 backdrop-blur-md p-8 rounded-3xl flex flex-col gap-5 shadow-xl"
-          >
-            {error && (
-              <p className="text-red-500 text-subtitle text-center">{error}</p>
-            )}
-
-            <Input
-              size="lg"
-              labelPlacement="inside"
-              name="name"
-              placeholder="اسمك الثلاثي"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full"
-              classNames={{ input: "border-none focus:ring-0" }}
-              startContent={
-                <>
-                  <PersonIcon
-                    stroke="#bb9661"
-                    fill="#bb9661"
-                    strokeWidth={0.1}
-                    className="dark:hidden"
-                  />
-                  <PersonIcon
-                    stroke="#a43232"
-                    fill="#a43232"
-                    strokeWidth={0.1}
-                    className="hidden dark:block"
-                  />
-                </>
-              }
-            />
-            <Input
-              size="lg"
-              labelPlacement="inside"
-              name="email"
-              placeholder="الايميل"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full"
-              classNames={{ input: "border-none focus:ring-0" }}
-              startContent={
-                <>
-                  <MailOpen
-                    stroke="#bb9661"
-                    fill="none"
-                    strokeWidth={1.5}
-                    className="dark:hidden"
-                  />
-                  <MailOpen
-                    stroke="#a43232"
-                    fill="none"
-                    strokeWidth={1.5}
-                    className="hidden dark:block"
-                  />
-                </>
-              }
-            />
-            <CountriesDropdown
-              className="w-full"
-              onCountryChange={(e) => setFormData({ ...formData, country: e })}
-            />
-            <div className="relative w-full">
-              <textarea
-                className="w-full h-28 rounded-xl p-4 pr-10 focus:ring-2 focus:ring-secondary dark:focus:ring-Muharram_secondary resize-none"
-                name="message"
-                placeholder="اكتب رسالتك"
-                value={formData.message}
-                onChange={handleChange}
-              ></textarea>
-              <div className="absolute left top-6 mr-3 transform -translate-y-1/2">
-                <>
-                  <MessageIcon
-                    width={24}
-                    height={24}
-                    stroke="#bb9661"
-                    fill="none"
-                    className="dark:hidden"
-                  />
-                  <MessageIcon
-                    width={24}
-                    height={24}
-                    stroke="#a43232"
-                    fill="none"
-                    className="hidden dark:block"
-                  />
-                </>
-              </div>
-            </div>
-
-            <Button
-              type="submit"
-              className="text-white rounded-xl bg-secondary dark:bg-Muharram_secondary px-6 py-4 font-bold text-base hover:scale-105 transition"
+          <Reveal x={-60} y={0} delay={0.15}>
+            <form
+              onSubmit={handleSubmit}
+              noValidate
+              className="mx-2 flex flex-col gap-6 rounded-[2rem] border-2 border-primary/15 bg-white p-8 shadow-xl dark:border-Muharram_primary/20 md:p-10"
             >
-              ارسال
-            </Button>
-          </form>
+              <div>
+                <h2 className="text-2xl font-extrabold text-primary dark:text-Muharram_primary md:text-3xl">
+                  أرسل لنا رسالة
+                </h2>
+                <p className="mt-2 text-gray-600">نرد عادةً خلال أيام العمل. الحقول المعلّمة بنجمة مطلوبة.</p>
+              </div>
+
+              {errors.form && (
+                <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 font-semibold text-red-700">
+                  {errors.form}
+                </p>
+              )}
+
+              <Field id="contact-name" label="الاسم" hint="اختياري" Icon={UserRound}>
+                <input
+                  id="contact-name"
+                  name="name"
+                  autoComplete="name"
+                  placeholder="اسمك الثلاثي"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className={`${fieldClass} pr-12`}
+                />
+              </Field>
+
+              <Field id="contact-email" label="البريد الإلكتروني" required error={errors.email} Icon={Mail}>
+                <input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  dir="ltr"
+                  autoComplete="email"
+                  placeholder="name@example.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  aria-invalid={Boolean(errors.email)}
+                  className={`${fieldClass} pr-12 text-right ${errors.email ? invalidClass : ""}`}
+                />
+              </Field>
+
+              <div>
+                <p className="mb-2 flex items-center gap-2 font-bold text-gray-900">
+                  البلد
+                  <span className="text-sm font-normal text-gray-500">اختياري</span>
+                </p>
+                <CountriesDropdown
+                  className="w-full"
+                  inputProps={{
+                    classNames: {
+                      inputWrapper:
+                        "h-14 rounded-xl border-2 border-primary/20 bg-white shadow-none data-[hover=true]:bg-white group-data-[focus=true]:border-primary group-data-[focus=true]:bg-white",
+                      input: "text-lg text-gray-900",
+                    },
+                  }}
+                  onCountryChange={(e) => setFormData({ ...formData, country: e })}
+                />
+              </div>
+
+              <Field id="contact-message" label="الرسالة" required error={errors.message} Icon={MessageSquare} top>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  placeholder="اكتب رسالتك هنا"
+                  rows={5}
+                  maxLength={2000}
+                  value={formData.message}
+                  onChange={handleChange}
+                  aria-invalid={Boolean(errors.message)}
+                  className={`${fieldClass} min-h-36 resize-y py-4 pr-12 ${errors.message ? invalidClass : ""}`}
+                />
+                <span className="mt-1 block text-left text-sm text-gray-500" dir="ltr">
+                  {formData.message.length} / 2000
+                </span>
+              </Field>
+
+              <button type="submit" disabled={sending} className={`${solidButton} w-full disabled:opacity-70`}>
+                {sending ? (
+                  <>
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                    جارٍ الإرسال...
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-5 w-5 -scale-x-100" />
+                    ارسال الرسالة
+                  </>
+                )}
+              </button>
+            </form>
+          </Reveal>
         </div>
       )}
-
-      <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.6s ease-out forwards;
-        }
-      `}</style>
     </div>
   );
 }

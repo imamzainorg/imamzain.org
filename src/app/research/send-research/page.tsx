@@ -1,6 +1,10 @@
 // app/research/send-research/page.tsx
 import type { Metadata } from "next"
 import Breadcrumbs from "@/components/breadcrumb"
+import { solidButton } from "@/components/brand"
+import { Reveal } from "@/components/motion"
+import PageHeader from "@/components/page-header"
+import { arabicNumber } from "@/lib/format"
 import { ArrowDownToLine } from "lucide-react"
 import Link from "next/link"
 import { ReactNode } from "react"
@@ -36,6 +40,9 @@ export const metadata: Metadata = {
 	},
 }
 
+const intro =
+	"دليل تقديم البحوث والكتب إلى مؤسسة الإمام زين العابدين عليه السلام: الضوابط العامة والمواصفات الفنية وشروط النشر والملكية الفكرية والتحكيم وطرق الإرسال."
+
 interface StepSectionProps {
 	step: number
 	title: string
@@ -45,35 +52,32 @@ interface StepSectionProps {
 
 const StepSection = ({ step, title, children, Boarded }: StepSectionProps) => {
 	return (
-		<div
-			className={`relative pr-16 pb-16 ${
-				!!Boarded &&
-				"border-r-secondary dark:border-r-Muharram_secondary border-r-4"
-			}`}
-		>
-			<div
-				className="absolute -top-8 -right-12 w-24 h-24 border-secondary  dark:border-Muharram_secondary
-			 border-4 rounded-full bg-white flex justify-center items-center"
+		<li className="relative pr-20 pb-16 last:pb-0">
+			{!!Boarded && (
+				<span aria-hidden className="absolute bottom-0 right-7 top-16 w-0.5 bg-secondary/40 dark:bg-Muharram_secondary/40" />
+			)}
+			<span
+				aria-hidden
+				className="absolute right-0 top-0 flex h-14 w-14 items-center justify-center rounded-full border-2 border-secondary bg-primary text-2xl font-bold text-white dark:border-Muharram_secondary dark:bg-Muharram_primary"
 			>
-				<div className="w-20 h-20 rounded-full bg-primary dark:bg-Muharram_primary flex justify-center items-center">
-					<div className="text-3xl text-white pt-3">{step}</div>
-				</div>
-			</div>
+				{arabicNumber(step)}
+			</span>
 
-			<div>
-				<h2 className="text-primary dark:text-Muharram_primary text-4xl font-bold">
+			<Reveal y={24}>
+				<h2 className="pt-1 text-3xl font-bold text-primary dark:text-Muharram_primary md:text-4xl">
 					{title}
 				</h2>
-				<div className="pr-10 pt-10 text-xl text-gray-800 leading-relaxed pl-5">
+				<div className="pt-8 text-lg leading-loose text-gray-800 md:text-xl md:leading-loose">
 					{children}
 				</div>
-			</div>
-		</div>
+			</Reveal>
+		</li>
 	)
 }
+
 export default function Page() {
 	return (
-		<div className="container">
+		<div className="container pb-12">
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
@@ -82,11 +86,9 @@ export default function Page() {
 				]}
 			/>
 
-			<h1 className="text-primary dark:text-Muharram_primary text-4xl font-bold text-center mt-10">
-				آلية تقديم البحوث
-			</h1>
+			<PageHeader title="آلية تقديم البحوث" text={intro} />
 
-			<div className="pt-20 pr-20  ">
+			<ol className="mt-20 max-w-5xl">
 				<StepSection step={1} title="الضوابط العامة" Boarded>
 					<ul className="list-arabic-indic space-y-2 ">
 						<li>
@@ -129,9 +131,9 @@ export default function Page() {
 				<StepSection step={2} title="المواصفات الفنية للبحث " Boarded>
 					<div className="text-right text-gray-800 leading-relaxed  ">
 						<div>
-							<h2 className="font-bold text-2xl">
+							<h3 className="font-bold text-2xl">
 								تقسيم الأبحاث:
-							</h2>
+							</h3>
 							<ul className="list-arabic-indic pr-6 space-y-2">
 								<li>
 									إذا كان حجم الكتاب أقل من 300 صفحة، يقسم إلى
@@ -158,9 +160,9 @@ export default function Page() {
 						</div>
 
 						<div>
-							<h2 className="font-bold text-2xl">
+							<h3 className="font-bold text-2xl">
 								مواصفات الصفحة:
-							</h2>
+							</h3>
 							<ol className="list-arabic-indic list-inside space-y-3 text-right">
 								<li>
 									يُكتب البحث أو الكتاب بقطع{" "}
@@ -202,7 +204,7 @@ export default function Page() {
 						</div>
 
 						<div>
-							<h2 className="font-bold text-2xl">الاقتباس:</h2>
+							<h3 className="font-bold text-2xl">الاقتباس:</h3>
 							<ul className="list-arabic-indic pr-6 space-y-2">
 								<li>من القرآن: توضع الآية بين قوسين مزهرية.</li>
 								<li>من الروايات: يُذكر اسم الراوي والمصدر.</li>
@@ -296,14 +298,14 @@ export default function Page() {
 							</strong>{" "}
 							عن محتوى البحث.
 						</p>
-						<div className="flex w-full justify-start items-center pt-14">
+						<div className="flex w-full justify-start items-center pt-10">
 							<Link
 								download
 								href={"/research/تعهد الباحث.pdf"}
-								className="px-6 py-4 text-white text-nowrap flex gap-5 mx-10 text-xl bg-primary rounded-2xl hover:bg-primary/95 dark:bg-Muharram_primary dark:hover:bg-Muharram_primary/95"
+								className={solidButton}
 							>
-								<p>تحميل فورمة الأقرار</p>
-								<ArrowDownToLine strokeWidth={1} />
+								تحميل فورمة الأقرار
+								<ArrowDownToLine strokeWidth={1.5} />
 							</Link>
 						</div>
 					</>
@@ -320,7 +322,7 @@ export default function Page() {
 						</p>
 					</div>
 				</StepSection>
-			</div>
+			</ol>
 		</div>
 	)
 }

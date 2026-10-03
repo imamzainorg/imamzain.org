@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { motion } from "framer-motion"
 import { PlayCircle } from "lucide-react"
+import { shieldPanel, whiteButton } from "@/components/brand"
+import { Reveal } from "@/components/motion"
 import { STORAGE_KEYS, participateHref } from "../storage"
 import ParticipationForm from "./participation-form"
 
@@ -51,36 +52,27 @@ export default function ParticipationSection() {
 
 function ResumePrompt({ attemptId }: { attemptId: string }) {
 	return (
-		<div className="min-h-screen px-4 py-8 lg:py-16">
-			<div className="max-w-2xl mx-auto">
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					className="bg-white/80 backdrop-blur-sm rounded-2xl lg:rounded-3xl shadow-xl border border-slate-200/60 p-6 lg:p-10 space-y-6 lg:space-y-8 text-center"
-				>
-					<div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mx-auto shadow-lg">
-						<PlayCircle className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
-					</div>
+		<div className="container py-8 lg:py-16">
+			<Reveal y={24}>
+				<div className={`${shieldPanel} mx-auto max-w-2xl space-y-8 p-8 text-center md:p-12`}>
+					<span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-secondary text-secondary dark:border-white/60 dark:text-white">
+						<PlayCircle className="h-8 w-8" strokeWidth={1.5} aria-hidden />
+					</span>
 
-					<div className="space-y-3 lg:space-y-4">
-						<h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-slate-800">
-							لديك مشاركة غير مكتملة
-						</h2>
-						<p className="text-slate-600 text-base lg:text-lg">
+					<div className="space-y-3">
+						<h2 className="text-2xl font-extrabold md:text-3xl">لديك مشاركة غير مكتملة</h2>
+						<p className="text-lg leading-loose text-white/80">
 							يمكنك متابعة المسابقة من حيث توقفت دون الحاجة إلى
 							إدخال معلوماتك مرة أخرى.
 						</p>
 					</div>
 
-					<Link
-						href={participateHref(attemptId)}
-						className="inline-flex items-center justify-center gap-2 w-full py-4 lg:py-5 rounded-xl lg:rounded-2xl font-bold text-lg lg:text-xl bg-gradient-to-r from-primary to-secondary text-white shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all"
-					>
-						<PlayCircle className="w-5 h-5 lg:w-6 lg:h-6" />
+					<Link href={participateHref(attemptId)} className={`${whiteButton} w-full !py-4 text-xl`}>
+						<PlayCircle className="h-6 w-6" />
 						أكمل المسابقة
 					</Link>
-				</motion.div>
-			</div>
+				</div>
+			</Reveal>
 		</div>
 	)
 }

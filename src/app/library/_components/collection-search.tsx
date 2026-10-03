@@ -238,7 +238,7 @@ export default function CollectionSearch({
 						if (searchTerm) setIsOpen(true)
 					}}
 					placeholder="ابحث في جميع المحتوى..."
-					className="w-full pr-12 pl-12 py-3.5 border-2 border-gray-200 dark:border-Muharram_primary/50 rounded-2xl bg-white dark:bg-Muharram_secondary/15 text-gray-900 dark:text-Muharram_primary placeholder:text-gray-400 focus:ring-0 focus:border-primary dark:focus:border-Muharram_primary transition-all shadow-sm hover:shadow-md focus:shadow-lg"
+					className="w-full rounded-xl border-2 border-primary/25 bg-white py-3.5 pl-12 pr-12 text-lg text-gray-900 transition-colors placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-0 dark:border-Muharram_primary/25 dark:focus:border-Muharram_primary"
 				/>
 				{searchTerm && (
 					<button
@@ -260,7 +260,7 @@ export default function CollectionSearch({
 						className="fixed inset-0 z-40"
 						onClick={() => setIsOpen(false)}
 					/>
-					<div className="absolute top-full mt-3 w-full bg-white dark:bg-zinc-800 rounded-2xl shadow-2xl border-2 border-gray-100 dark:border-zinc-700 max-h-[32rem] overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+					<div className="absolute top-full z-50 mt-3 max-h-[32rem] w-full animate-in overflow-hidden rounded-3xl border-2 border-primary/20 bg-white shadow-2xl duration-200 fade-in slide-in-from-top-2 dark:border-Muharram_primary/20">
 						{isSearching ? (
 							<div className="p-8 flex items-center justify-center">
 								<div className="flex flex-col items-center gap-3">
@@ -296,7 +296,7 @@ export default function CollectionSearch({
 							</div>
 						) : (
 							<>
-								<div className="px-5 py-3 border-b border-gray-100 dark:border-zinc-700 bg-gray-50 dark:bg-zinc-900/50">
+								<div className="border-b border-secondary/30 bg-primary/5 px-5 py-3 dark:bg-Muharram_primary/5">
 									<p className="text-sm font-medium text-gray-700 dark:text-gray-300">
 										{searchResults.length}{" "}
 										{searchResults.length === 1
@@ -316,11 +316,11 @@ export default function CollectionSearch({
 											onClick={() =>
 												handleResultClick(result)
 											}
-											className="w-full text-right p-5 hover:bg-gradient-to-r hover:from-primary/5 hover:to-transparent dark:hover:from-Muharram_primary/5 transition-all group"
+											className="group w-full p-5 text-right transition-colors hover:bg-primary/5 dark:hover:bg-Muharram_primary/5"
 										>
 											<div className="flex items-start gap-3">
-												<div className="flex-shrink-0 w-8 h-8 mt-0.5 rounded-lg bg-primary/10 dark:bg-Muharram_primary/10 flex items-center justify-center group-hover:bg-primary/20 dark:group-hover:bg-Muharram_primary/20 transition-colors">
-													<span className="text-sm font-bold text-primary dark:text-Muharram_primary">
+												<div className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border-2 border-secondary dark:border-Muharram_secondary">
+													<span className="text-sm font-bold text-secondary_dark dark:text-Muharram_secondary">
 														{result.subjectId}
 													</span>
 												</div>

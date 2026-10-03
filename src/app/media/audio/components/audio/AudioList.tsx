@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useCallback, useRef, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import {
   ChevronDown,
   Clock,
@@ -14,7 +15,7 @@ import type { AudioItemLight } from "@/types/audio";
 import type { BreakpointKey } from "../../hooks/useWaveform";
 import { Button } from "@/components/button";
 import AudioCard from "./AudioCard";
-import AudioPagination from "./AudioPagination";
+import Pagination from "@/components/pagination";
 import { AudioSearch, AudioFilter } from "./AudioFilters";
 import { DurationFilter } from "./DurationFilter";
 
@@ -55,7 +56,41 @@ export default function AudioList({
     0, 120,
   ]);
   const [sortFilter, setSortFilter] = useState("");
+  // A shared link (?id=X) opens on the page that holds that recording and highlights it for a
+  // few seconds. The search params can arrive after the first render (the page is static), so
+  // this adjusts state while rendering the first time an id shows up rather than in an initializer.
+  const sharedId = Number(useSearchParams().get("id"));
   const [currentPage, setCurrentPage] = useState(1);
+  const [highlightId, setHighlightId] = useState<number | null>(null);
+  const [handledId, setHandledId] = useState<number | null>(null);
+  const sharedIndex = Number.isFinite(sharedId) ? items.findIndex((item) => item.id === sharedId) : -1;
+  if (sharedIndex >= 0 && handledId !== sharedId) {
+    setHandledId(sharedId);
+    setHighlightId(sharedId);
+    setCurrentPage(Math.floor(sharedIndex / ITEMS_PER_PAGE) + 1);
+  }
+  useEffect(() => {
+    if (highlightId === null) return;
+    // The page is still laying out when the link opens, so keep trying until the card has a size.
+    let tries = 0;
+    let fade: ReturnType<typeof setTimeout> | undefined;
+    const scroll = setInterval(() => {
+      const card = document.getElementById(`audio-card-${highlightId}`);
+      if (card && card.getBoundingClientRect().height > 0) {
+        card.scrollIntoView({ behavior: "smooth", block: "center" });
+        clearInterval(scroll);
+        // The highlight counts down from the moment the reader can actually see it.
+        fade = setTimeout(() => setHighlightId(null), 10000);
+      } else if (++tries > 60) {
+        clearInterval(scroll);
+        setHighlightId(null);
+      }
+    }, 250);
+    return () => {
+      clearInterval(scroll);
+      clearTimeout(fade);
+    };
+  }, [highlightId]);
   const [isSpeakerDropdownOpen, setIsSpeakerDropdownOpen] = useState(false);
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false); // ← جديد
 
@@ -368,7 +403,7 @@ const handleSpeakerSelect = useCallback((speaker: string) => {
     <div>
       <div className="flex flex-col lg:flex-row gap-6">
         {/* ── Sidebar (desktop only) ── */}
-        <aside className="hidden lg:block bg-secondary/10 dark:bg-Muharram_secondary/10 sticky top-28 self-start rounded-2xl p-4 lg:p-5 border border-slate-200/70 dark:border-white/10 shadow-sm w-72 xl:w-80 2xl:w-96 h-fit">
+        <aside className="hidden h-fit w-72 self-start rounded-[28px] border border-primary/30 p-5 dark:border-Muharram_primary/30 lg:sticky lg:top-32 lg:block xl:w-80 2xl:w-96">
           <div
             ref={filtersContainerRef}
             className="overflow-y-auto max-h-[calc(100vh-220px)] pb-2 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-slate-300 dark:scrollbar-thumb-slate-600"
@@ -407,12 +442,13 @@ const handleSpeakerSelect = useCallback((speaker: string) => {
               </button>
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 gap-3">
+            <div className="grid gap-5 md:grid-cols-2">
               {paginated.map((item) => (
                 <AudioCard
                   key={item.id}
                   item={item}
                   isActive={activeId === item.id}
+                  isShared={highlightId === item.id}
                   isPlaying={activeId === item.id && isPlaying}
                   currentTime={currentTimes[item.id] ?? 0}
                   duration={item.durationSeconds ?? 0}
@@ -429,16 +465,12 @@ const handleSpeakerSelect = useCallback((speaker: string) => {
       </div>
 
       {/* Pagination */}
-      <AudioPagination
-        currentPage={currentPage}
+      <Pagination
+        className="mt-14"
+        page={currentPage}
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
-      {totalPages > 1 && (
-        <p className="text-center text-xs text-slate-400 mt-4">
-          الصفحة {currentPage} من {totalPages}
-        </p>
-      )}
 
       {/* ── Mobile FAB زر الفلترة ── */}
       {!isMobileFiltersOpen && (

@@ -1,4 +1,5 @@
 import type { AudioItem, AudioItemLight } from "@/types/audio";
+import { Suspense } from "react";
 import audioData from "@/data/AudioItemAnalyzed.json";
 import AudioPageClient from "./components/AudioPageClient";
 
@@ -16,5 +17,10 @@ function stripPeaks(item: AudioItem): AudioItemLight {
 export default function Page() {
   const items: AudioItemLight[] = (audioData as AudioItem[]).map(stripPeaks);
 
-  return <AudioPageClient items={items} />;
+  // The list reads ?id= (a shared recording), which needs a Suspense boundary in a static export.
+  return (
+    <Suspense>
+      <AudioPageClient items={items} />
+    </Suspense>
+  );
 }

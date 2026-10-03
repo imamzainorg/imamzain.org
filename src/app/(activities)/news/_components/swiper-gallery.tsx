@@ -60,7 +60,7 @@ export default function SwiperGallery({ images }: SwiperGalleryProps) {
 			>
 				{images.map((image) => (
 					<SwiperSlide key={image.id} className="h-auto">
-						<div className="aspect-[4/3] w-full overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+						<div className="aspect-[4/3] w-full overflow-hidden rounded-3xl bg-primary/10 dark:bg-Muharram_primary/10">
 							<ImageView
 								images={images}
 								src={image.path}
@@ -90,15 +90,33 @@ export default function SwiperGallery({ images }: SwiperGalleryProps) {
 				.custom-pagination .swiper-pagination-bullet {
 					width: 12px;
 					height: 12px;
-					background: #cbd5e1;
+					background: #bb966166;
 					opacity: 1;
 					margin: 0 6px;
 					transition: all 0.3s ease;
 				}
 
 				.custom-pagination .swiper-pagination-bullet-active {
-					background: var(--primary-color, #3b82f6);
+					background: #006654;
 					transform: scale(1.2);
+				}
+
+				.dark .custom-pagination .swiper-pagination-bullet {
+					background: #a4323266;
+				}
+
+				.dark .custom-pagination .swiper-pagination-bullet-active {
+					background: #231f20;
+				}
+
+				.mySwiper .swiper-button-next,
+				.mySwiper .swiper-button-prev {
+					color: #006654;
+				}
+
+				.dark .mySwiper .swiper-button-next,
+				.dark .mySwiper .swiper-button-prev {
+					color: #231f20;
 				}
 
 				@media (max-width: 768px) {

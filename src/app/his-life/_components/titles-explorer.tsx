@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { cn } from "@/lib/utils"
 import type { Title } from "../_data/biography"
-import { MoreLink } from "./brand"
+import { MoreLink } from "@/components/brand"
 
 // Plain CSS transitions on purpose: a framer-motion `layoutId` underline here kept the
 // whole page stuck in app/template.tsx's fade-out when navigating back to /his-life.

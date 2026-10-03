@@ -1,22 +1,29 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import Breadcrumbs from "@/components/breadcrumb";
 import {
   BookOpen,
   Calendar,
+  Clock,
   Download,
   Globe,
-  LucideIcon,
   Palette,
   Star,
-  AlertCircle,
-  CheckCircle2,
   Trophy,
-  Clock,
   Users,
-  FileText,
+  type LucideIcon,
 } from "lucide-react";
+import Breadcrumbs from "@/components/breadcrumb";
+import { SectionTitle, photoFrame, shieldPanel, solidButton } from "@/components/brand";
+import { Reveal } from "@/components/motion";
+import {
+  ClosedNotice,
+  ContestBadge,
+  Feature,
+  IconRing,
+  Note,
+  Rule,
+} from "../components/contest-ui";
 
 export const metadata: Metadata = {
   title: "مسابقة قبسات من حياة الإمام السجاد الثقافية - الحلقة الأولى",
@@ -53,368 +60,232 @@ export const metadata: Metadata = {
   },
 };
 
-function GradientCard({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`relative overflow-hidden rounded-2xl bg-gradient-to-br from-white via-slate-50 to-slate-100 border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-500 ${className}`}
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-60"></div>
-      <div className="relative">{children}</div>
-    </div>
-  );
-}
+const features: { icon: LucideIcon; title: string; description: string }[] = [
+  {
+    icon: Star,
+    title: "إبراز التراث الإسلامي",
+    description: "أطلقنا هذه المسابقة لإبراز تراث الإمام زين العابدين (ع) من خلال جماليات الخط العربي، باعتباره وعاءً للمعرفة وجزءاً من الهوية الإسلامية."
+  },
+  {
+    icon: BookOpen,
+    title: "إحياء النصوص التربوية",
+    description: "تهدف المسابقة إلى إحياء نصوص الإمام الأخلاقية والتربوية بخط جميل، وتحفيز الخطاطين لفهم معانيها العميقة."
+  },
+  {
+    icon: Palette,
+    title: "استلهام الروح النورانية",
+    description: "ندعو المبدعين لاستلهام روح هذا التراث النوراني، والتعبير عنه بريشة الخط العربي، ليكون هذا الجهد امتداداً لرسالة الإمام في نشر القيم والمعرفة."
+  }
+];
 
-function FeatureHighlight({
-  icon: Icon,
-  title,
-  description,
-}: {
-  icon: React.ElementType;
-  title: string;
-  description: string;
-}) {
-  return (
-    <div className="group flex items-start gap-6 p-2">
-      <div className="flex-shrink-0">
-        <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
-          <div className="relative bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-            <Icon
-              className="w-3 sm:w-4 lg:w-5 h-3 sm:h-4 lg:h-5 text-white"
-              strokeWidth={1.5}
-            />
-          </div>
-        </div>
-      </div>
-      <div className="flex-1 space-y-2">
-        <h3 className="font-bold text-slate-800 text-note">{title}</h3>
-        <p className="text-slate-600 leading-relaxed text-subtitle">
-          {description}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function ModernBadge({
-  icon: Icon,
-  text,
-  important = false,
-  color = "default",
-}: {
+const ruleGroups: {
   icon: LucideIcon;
-  text: string;
-  important?: boolean;
-  color?: "default" | "ended";
-}) {
-  return (
-    <div
-      className={`inline-flex text-subtitle items-center gap-3 border px-6 py-3 rounded-2xl font-semibold shadow-sm ${
-        color === "ended"
-          ? "bg-gradient-to-r from-rose-50 to-red-50 border-rose-200 text-rose-800"
-          : important
-            ? "bg-gradient-to-r from-emerald-50 to-teal-50 border-emerald-200 text-emerald-800"
-            : "bg-gradient-to-r from-slate-50 to-slate-100 border-slate-200 text-slate-800"
-      }`}
-    >
-      <Icon className="w-5 h-5" strokeWidth={2} />
-      {text}
-    </div>
-  );
-}
-
-function RuleItem({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="flex items-start gap-4">
-      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-      <p className="text-slate-700 text-base lg:text-lg leading-relaxed">
-        {children}
-      </p>
-    </div>
-  );
-}
-
-function ImportantNote({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="flex items-start gap-4 bg-amber-50 border border-amber-200 rounded-xl p-4">
-      <AlertCircle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-1" />
-      <p className="text-amber-900 text-base lg:text-lg leading-relaxed font-medium">
-        {children}
-      </p>
-    </div>
-  );
-}
+  title: string;
+  items: { kind: "rule" | "note"; text: string }[];
+}[] = [
+  {
+    icon: BookOpen,
+    title: "مصدر الأسئلة",
+    items: [
+      {
+        kind: "rule",
+        text: "تعد المسابقة حصرية بكتاب \"قبسات من حياة الإمام زين العابدين (عليه السلام) - الحلقة الأولى\""
+      },
+      {
+        kind: "rule",
+        text: "تستخرج جميع الأسئلة وأجوبتها من محتوى الكتاب حصراً"
+      },
+      {
+        kind: "note",
+        text: "يشترط على المشارك قراءة الكتاب قراءة دقيقة، وأن تكون الإجابة من الكتاب حصراً"
+      }
+    ]
+  },
+  {
+    icon: Clock,
+    title: "المدة الزمنية",
+    items: [
+      {
+        kind: "rule",
+        text: "تنشر أسئلة المسابقة عبر الروابط الرسمية لمؤسسة الإمام زين العابدين (عليه السلام) للبحوث والدراسات"
+      },
+      {
+        kind: "rule",
+        text: "مدة المسابقة: خمسة عشر (15) يوماً فقط من تاريخ الإعلان"
+      },
+      {
+        kind: "note",
+        text: "تقدم الإجابات ضمن المدة الزمنية المحددة، ولا تقبل المشاركات بعد انتهاء فترة الخمسة عشر يوماً"
+      }
+    ]
+  },
+  {
+    icon: Users,
+    title: "متطلبات المشاركة",
+    items: [
+      {
+        kind: "rule",
+        text: "يجب الإجابة عن جميع أسئلة المسابقة كاملة"
+      },
+      {
+        kind: "rule",
+        text: "تستبعد المشاركات الناقصة أو غير المطابقة"
+      },
+      {
+        kind: "note",
+        text: "لا يجوز شرعاً الاستعانة بالذكاء الاصطناعي أو بأي وسيلة أخرى"
+      }
+    ]
+  },
+  {
+    icon: Star,
+    title: "معايير التقييم",
+    items: [
+      {
+        kind: "rule",
+        text: "تقيّم المشاركات وفق الدقة والوضوح ومطابقة الجواب لمضمون الكتاب"
+      },
+      {
+        kind: "rule",
+        text: "في حال تساوي الدرجات بين أكثر من مشارك، يعتمد معيار إضافي أو تجرى قرعة لتحديد الفائزين"
+      },
+      {
+        kind: "rule",
+        text: "قرار لجنة التحكيم نهائي ولا يقبل الاعتراض"
+      }
+    ]
+  },
+  {
+    icon: Trophy,
+    title: "الجوائز",
+    items: [
+      {
+        kind: "rule",
+        text: "تمنح مكافآت تشجيعية قيمة للعشرة الأوائل من المشاركين"
+      },
+      {
+        kind: "rule",
+        text: "يتم تحديد الفائزين وفق تقييم لجنة التحكيم"
+      },
+      {
+        kind: "rule",
+        text: "يعلن عن أسماء الفائزين عبر المنصات الرسمية للمؤسسة"
+      }
+    ]
+  }
+];
 
 export default function Page() {
   return (
-    <main className="container">
-      {/* Breadcrumbs */}
-      <div className="px-4 sm:px-6 lg:px-8 pt-8">
-        <Breadcrumbs
-          links={[
-            { name: "الصفحة الرئيسية", url: "/" },
-            { name: "المسابقات", url: "/contests" },
-            {
-              name: "مسابقة قبسات من حياة الإمام السجاد (عليه السلام)",
-              url: "#",
-            },
-          ]}
-        />
-      </div>
-      <div className="px-4 sm:px-6 lg:px-8 pb-10 pt-2">
-        <div className="max-w-7xl mx-auto">
-          <div className="relative overflow-hidden rounded-[2rem] border border-rose-200/80 bg-gradient-to-r from-rose-50 via-white to-red-50 px-5 py-5 shadow-[0_22px_55px_-28px_rgba(244,63,94,0.45)] sm:px-8">
-            <div className="absolute -top-10 -right-8 h-28 w-28 rounded-full bg-rose-200/25 blur-2xl" />
-            <div className="absolute -bottom-10 -left-8 h-28 w-28 rounded-full bg-rose-200/20 blur-2xl" />
+    <div className="container pb-12">
+      <Breadcrumbs
+        links={[
+          { name: "الصفحة الرئيسية", url: "/" },
+          { name: "المسابقات", url: "/contests" },
+          {
+            name: "مسابقة قبسات من حياة الإمام السجاد (عليه السلام)",
+            url: "#",
+          },
+        ]}
+      />
 
-            <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-center gap-4">
-                <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-rose-200 bg-white shadow-sm">
-                  <div className="absolute inset-0 rounded-full bg-rose-300/20 blur-md animate-pulse" />
-                  <CheckCircle2
-                    className="relative h-8 w-8 text-rose-500/80"
-                    strokeWidth={1.6}
-                  />
-                </div>
+      <ClosedNotice />
 
-                <div className="text-right">
-                  <h2 className="text-2xl font-bold text-rose-700/90 sm:text-3xl">
-                    انتهت المسابقة
-                  </h2>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 rounded-full border border-rose-100 bg-white/70 px-4 py-2 shadow-sm sm:justify-self-end">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-rose-400/40 animate-ping" />
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-rose-400/70" />
-                </span>
-                <p className="text-sm text-slate-600 sm:text-base">
-                  انتهت فترة المشاركة، وشكرًا لجميع المشاركين
-                </p>
-              </div>
-            </div>
+      {/* Hero */}
+      <section className="grid items-center gap-14 lg:grid-cols-[3fr_2fr] lg:gap-20">
+        <Reveal x={60} y={0}>
+          <div className="flex flex-wrap gap-3">
+            <ContestBadge icon={Globe} text="مسابقة محلية للجامعات" />
+            <ContestBadge
+              icon={Calendar}
+              text="إبتدأت في 2025/4/11 وإنتهت في 2026/3/5"
+              strong
+            />
           </div>
-        </div>
-      </div>
-      {/* Hero Section */}
-      <section className="px-4 sm:px-6 lg:px-8 py-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="space-y-6 my-2">
-            <div className="flex gap-4 ">
-              <ModernBadge icon={Globe} text="مسابقة محلية للجامعات" />
-              <ModernBadge
-                icon={Calendar}
-                text="إبتدأت في 2025/4/11 وإنتهت في 2026/3/5"
-                color="ended"
-              />
-            </div>
 
-            <div className="space-y-6">
-              <h1 className="text-4xl lg:text-6xl font-bold text-slate-800 leading-tight">
-                قبسات من حياة الإمام السجاد (عليه السلام)
-                <span className="block text-primary">الحلقة الاولى</span>
-                <span className="block text-2xl lg:text-4xl text-slate-600 mt-2">
-                  الإمام زين العابدين علي بن الحسين عليه السلام منار الحق
-                </span>
-              </h1>
-            </div>
+          <h1 className="mt-6 text-primary dark:text-Muharram_primary">
+            <span className="block text-3xl font-extrabold leading-snug md:text-5xl md:leading-snug">
+              قبسات من حياة الإمام السجاد (عليه السلام)
+            </span>
+            <span className="mt-2 block text-2xl font-bold text-secondary_dark dark:text-Muharram_secondary md:text-4xl">
+              الحلقة الاولى
+            </span>
+            <span className="mt-3 block text-xl font-semibold leading-snug text-gray-700 md:text-2xl md:leading-snug">
+              الإمام زين العابدين علي بن الحسين عليه السلام منار الحق
+            </span>
+          </h1>
+
+          <div className="mt-10 space-y-8">
+            {features.map((feature) => (
+              <Feature key={feature.title} {...feature} />
+            ))}
           </div>
-          <div className="grid sm:grid-cols-2 gap-16 items-center">
-            {/* Content */}
-            <div className="space-y-2 sm:space-y-10">
-              {/* Features */}
-              <div className="lg:space-y-6">
-                <FeatureHighlight
-                  icon={Star}
-                  title="إبراز التراث الإسلامي"
-                  description="أطلقنا هذه المسابقة لإبراز تراث الإمام زين العابدين (ع) من خلال جماليات الخط العربي، باعتباره وعاءً للمعرفة وجزءاً من الهوية الإسلامية."
-                />
-                <FeatureHighlight
-                  icon={BookOpen}
-                  title="إحياء النصوص التربوية"
-                  description="تهدف المسابقة إلى إحياء نصوص الإمام الأخلاقية والتربوية بخط جميل، وتحفيز الخطاطين لفهم معانيها العميقة."
-                />
-                <FeatureHighlight
-                  icon={Palette}
-                  title="استلهام الروح النورانية"
-                  description="ندعو المبدعين لاستلهام روح هذا التراث النوراني، والتعبير عنه بريشة الخط العربي، ليكون هذا الجهد امتداداً لرسالة الإمام في نشر القيم والمعرفة."
-                />
-              </div>
 
-              {/* Download Section */}
-              <GradientCard className="p-6 text-center">
-                <div className="space-y-4 text-subtitle">
-                  <p className="text-slate-600  font-medium">
-                    يمكنكم تنزيل ملف المسابقة الكامل من خلال الضغط على الرابط
-                    أدناه
-                  </p>
-                  <Link
-                    download
-                    href="/contests/qatuf-sajjadiyya-cultural-competition/contest-book.pdf"
-                    className=" group inline-flex items-center gap-3 text-primary hover:text-secondary font-semibold transition-colors duration-300"
-                  >
-                    <Download className="w-4 lg:w-5 h-4 lg:h-5 group-hover:scale-110 transition-transform duration-300" />
-                    تنزيل ملف المسابقة الكامل
-                  </Link>
-                </div>
-              </GradientCard>
-            </div>
-
-            {/* Image */}
-            <div className="relative order-first sm:order-last">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-3xl" />
-              <div className="relative">
-                <GradientCard className="p-6">
-                  <Image
-                    src="/contests/qatuf-sajjadiyya-cultural-competition/landing.jpg"
-                    alt="لوكو مسابقة قبسات من حياة الإمام السجاد (عليه السلام)"
-                    width={800}
-                    height={800}
-                    className="w-full rounded-2xl shadow-2xl sm:aspect-[1/2] lg:aspect-auto object-cover"
-                    priority
-                  />
-                </GradientCard>
-              </div>
-            </div>
+          <div className="mt-10">
+            <p className="text-lg leading-loose text-gray-600">يمكنكم تنزيل ملف المسابقة الكامل من خلال الضغط على الرابط أدناه</p>
+            <Link
+              download
+              href="/contests/qatuf-sajjadiyya-cultural-competition/contest-book.pdf"
+              className={`${solidButton} mt-4`}
+            >
+              <Download className="h-5 w-5" />
+              تنزيل ملف المسابقة الكامل
+            </Link>
           </div>
-        </div>
+        </Reveal>
+
+        <Reveal x={-60} y={0} delay={0.2}>
+          <div className={`${photoFrame} mx-2 shadow-xl`}>
+            <Image
+              src="/contests/qatuf-sajjadiyya-cultural-competition/landing.jpg"
+              alt="لوكو مسابقة قبسات من حياة الإمام السجاد (عليه السلام)"
+              width={800}
+              height={800}
+              priority
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="h-auto w-full"
+            />
+          </div>
+        </Reveal>
       </section>
 
-      {/* Rules and Instructions Section */}
-      <section className="px-4 sm:px-6 lg:px-8 py-16">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center space-y-4 mb-12">
-            <div className="inline-flex items-center gap-3 bg-primary/10 border border-primary/20 px-6 py-3 rounded-2xl">
-              <FileText className="w-5 h-5 text-primary" />
-              <span className="text-primary font-bold text-lg">
-                شروط وضوابط المسابقة
-              </span>
-            </div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-slate-800">
-              اقرأ الشروط بعناية قبل المشاركة
-            </h2>
-          </div>
+      {/* Rules and instructions */}
+      <section className="pt-28">
+        <p className="mb-3 font-semibold text-secondary_dark dark:text-Muharram_secondary">
+          شروط وضوابط المسابقة
+        </p>
+        <SectionTitle title="اقرأ الشروط بعناية قبل المشاركة" className="mb-14" />
 
-          <div className="space-y-8">
-            {/* Contest Scope */}
-            <GradientCard className="p-6 lg:p-8">
-              <div className="flex items-start gap-4 mb-6">
-                <BookOpen className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                <h3 className="text-xl lg:text-2xl font-bold text-slate-800">
-                  مصدر الأسئلة
+        <div className="space-y-16">
+          {ruleGroups.map((group) => (
+            <Reveal key={group.title} y={24}>
+              <div className="flex items-center gap-5">
+                <IconRing icon={group.icon} />
+                <h3 className="text-2xl font-bold text-primary dark:text-Muharram_primary md:text-3xl">
+                  {group.title}
                 </h3>
               </div>
-              <div className="space-y-4">
-                <RuleItem>
-                  تعد المسابقة حصرية بكتاب &quot;قبسات من حياة الإمام زين
-                  العابدين (عليه السلام) - الحلقة الأولى&quot;
-                </RuleItem>
-                <RuleItem>
-                  تستخرج جميع الأسئلة وأجوبتها من محتوى الكتاب حصراً
-                </RuleItem>
-                <ImportantNote>
-                  يشترط على المشارك قراءة الكتاب قراءة دقيقة، وأن تكون الإجابة
-                  من الكتاب حصراً
-                </ImportantNote>
+              <div className="mt-6 space-y-5 md:pr-[4.75rem]">
+                {group.items.map((item) =>
+                  item.kind === "note" ? (
+                    <Note key={item.text}>{item.text}</Note>
+                  ) : (
+                    <Rule key={item.text}>{item.text}</Rule>
+                  ),
+                )}
               </div>
-            </GradientCard>
-
-            {/* Time and Duration */}
-            <GradientCard className="p-6 lg:p-8">
-              <div className="flex items-start gap-4 mb-6">
-                <Clock className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                <h3 className="text-xl lg:text-2xl font-bold text-slate-800">
-                  المدة الزمنية
-                </h3>
-              </div>
-              <div className="space-y-4">
-                <RuleItem>
-                  تنشر أسئلة المسابقة عبر الروابط الرسمية لمؤسسة الإمام زين
-                  العابدين (عليه السلام) للبحوث والدراسات
-                </RuleItem>
-                <RuleItem>
-                  مدة المسابقة: خمسة عشر (15) يوماً فقط من تاريخ الإعلان
-                </RuleItem>
-                <ImportantNote>
-                  تقدم الإجابات ضمن المدة الزمنية المحددة، ولا تقبل المشاركات
-                  بعد انتهاء فترة الخمسة عشر يوماً
-                </ImportantNote>
-              </div>
-            </GradientCard>
-
-            {/* Participation Requirements */}
-            <GradientCard className="p-6 lg:p-8">
-              <div className="flex items-start gap-4 mb-6">
-                <Users className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                <h3 className="text-xl lg:text-2xl font-bold text-slate-800">
-                  متطلبات المشاركة
-                </h3>
-              </div>
-              <div className="space-y-4">
-                <RuleItem>يجب الإجابة عن جميع أسئلة المسابقة كاملة</RuleItem>
-                <RuleItem>تستبعد المشاركات الناقصة أو غير المطابقة</RuleItem>
-                <ImportantNote>
-                  لا يجوز شرعاً الاستعانة بالذكاء الاصطناعي أو بأي وسيلة أخرى
-                </ImportantNote>
-              </div>
-            </GradientCard>
-
-            {/* Evaluation Criteria */}
-            <GradientCard className="p-6 lg:p-8">
-              <div className="flex items-start gap-4 mb-6">
-                <Star className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                <h3 className="text-xl lg:text-2xl font-bold text-slate-800">
-                  معايير التقييم
-                </h3>
-              </div>
-              <div className="space-y-4">
-                <RuleItem>
-                  تقيّم المشاركات وفق الدقة والوضوح ومطابقة الجواب لمضمون الكتاب
-                </RuleItem>
-                <RuleItem>
-                  في حال تساوي الدرجات بين أكثر من مشارك، يعتمد معيار إضافي أو
-                  تجرى قرعة لتحديد الفائزين
-                </RuleItem>
-                <RuleItem>قرار لجنة التحكيم نهائي ولا يقبل الاعتراض</RuleItem>
-              </div>
-            </GradientCard>
-
-            {/* Prizes */}
-            <GradientCard className="p-6 lg:p-8">
-              <div className="flex items-start gap-4 mb-6">
-                <Trophy className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                <h3 className="text-xl lg:text-2xl font-bold text-slate-800">
-                  الجوائز
-                </h3>
-              </div>
-              <div className="space-y-4">
-                <RuleItem>
-                  تمنح مكافآت تشجيعية قيمة للعشرة الأوائل من المشاركين
-                </RuleItem>
-                <RuleItem>يتم تحديد الفائزين وفق تقييم لجنة التحكيم</RuleItem>
-                <RuleItem>
-                  يعلن عن أسماء الفائزين عبر المنصات الرسمية للمؤسسة
-                </RuleItem>
-              </div>
-            </GradientCard>
-
-            {/* Final Note */}
-            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 border-2 border-primary/30 rounded-2xl p-6 lg:p-8 text-center">
-              <p className="text-lg lg:text-xl font-bold text-slate-800">
-                المشاركة في المسابقة تعني الاطلاع على الشروط والموافقة عليها
-                كاملة
-              </p>
-            </div>
-          </div>
+            </Reveal>
+          ))}
         </div>
+
+        <Reveal className="mt-20">
+          <div className={`${shieldPanel} p-8 text-center md:p-10`}>
+            <p className="text-xl font-bold leading-loose md:text-2xl md:leading-loose">
+              المشاركة في المسابقة تعني الاطلاع على الشروط والموافقة عليها كاملة
+            </p>
+          </div>
+        </Reveal>
       </section>
-    </main>
+    </div>
   );
 }

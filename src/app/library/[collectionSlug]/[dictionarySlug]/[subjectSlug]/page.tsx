@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import {
   getSubject,
@@ -8,6 +9,7 @@ import { notFound } from "next/navigation";
 import SubjectView from "@/app/library/_components/subject-view";
 import SubjectNavigation from "@/app/library/_components/subject-navigation";
 import { collections } from "@/app/library/_config/collections";
+import { SectionTitle } from "@/components/brand";
 
 export const dynamicParams = false;
 
@@ -21,6 +23,25 @@ export function generateStaticParams() {
       })),
     ),
   );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ collectionSlug: string; dictionarySlug: string; subjectSlug: string }>;
+}): Promise<Metadata> {
+  const { collectionSlug, dictionarySlug, subjectSlug } = await params;
+  const subject = getSubject(collectionSlug, dictionarySlug, subjectSlug);
+  const collection = collections[collectionSlug];
+  if (!subject || !collection) return {};
+  const title = `${subject.title} - ${collection.title}`;
+  const url = `/library/${collectionSlug}/${dictionarySlug}/${subjectSlug}`;
+  return {
+    title,
+    alternates: { canonical: url },
+    openGraph: { type: "article", title, url },
+    twitter: { card: "summary_large_image", title },
+  };
 }
 
 export default async function SubjectPage({
@@ -45,13 +66,7 @@ export default async function SubjectPage({
 
   return (
     <>
-      <div className="w-full text-center">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-Muharram_primary mb-3">
-          {subject.title}
-        </h1>
-      </div>
-
-      <div className="w-1/2 h-0.5 mx-auto bg-gradient-to-l from-transparent via-primary/40 dark:via-Muharram_primary/40 to-transparent" />
+      <SectionTitle as="h1" title={subject.title} className="mb-10" />
 
       {/* Suspense boundary lets SubjectView read ?highlight= via
 			    useSearchParams while the page stays statically prerendered. */}

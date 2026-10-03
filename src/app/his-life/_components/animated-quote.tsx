@@ -1,6 +1,6 @@
 "use client"
 
-import { useShown } from "./motion"
+import { useShown } from "@/components/motion"
 
 // Reveals a quotation word by word when it scrolls into view.
 export default function AnimatedQuote({ text, className }: { text: string; className?: string }) {

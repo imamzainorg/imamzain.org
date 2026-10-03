@@ -40,7 +40,10 @@ export const ToolButtons = memo(function ToolButtons({
   const [downloading, setDownloading] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const url = item.audio;
+  // Share the recording's place on our own page (the list opens on it and highlights it), so the
+  // link brings people to the site. Downloads still use the file itself.
+  const fileUrl = item.audio;
+  const url = `https://imamzain.org/media/audio?id=${item.id}`;
   const title = item.title;
 
   // ─── Download ───────────────────────────────
@@ -52,7 +55,7 @@ export const ToolButtons = memo(function ToolButtons({
         title.replace(/[^\u0600-\u06FFa-zA-Z0-9 ]/g, "").replace(/\s+/g, "-") ||
         "audio";
 
-      const apiUrl = `/api/download?url=${encodeURIComponent(url)}&name=${encodeURIComponent(fileName)}`;
+      const apiUrl = `/api/download?url=${encodeURIComponent(fileUrl)}&name=${encodeURIComponent(fileName)}`;
 
       const res = await fetch(apiUrl);
       if (!res.ok) throw new Error();
@@ -73,7 +76,7 @@ export const ToolButtons = memo(function ToolButtons({
     } finally {
       setDownloading(false);
     }
-  }, [url, title]);
+  }, [fileUrl, title]);
 
   // ─── Share helpers ─────────────────────────
   const copyLink = useCallback(async () => {

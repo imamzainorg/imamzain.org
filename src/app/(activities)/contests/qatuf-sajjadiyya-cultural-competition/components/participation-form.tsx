@@ -1,11 +1,26 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { useCallback, useState } from "react"
+import { useCallback, useId, useState } from "react"
 import { User, Phone, Mail } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useRouter } from "next/navigation"
+import { shieldPanel, whiteButton } from "@/components/brand"
+import { Reveal } from "@/components/motion"
 import { participateHref } from "../storage"
+
+// White fields on the green shield, as on the contact form.
+const field =
+	"w-full rounded-xl bg-white px-4 py-3 text-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary dark:focus:ring-Muharram_secondary"
+
+const labelClass = "flex items-center gap-2 font-semibold"
+
+const typeButton = (active: boolean) =>
+	cn(
+		"flex items-center justify-center gap-3 rounded-xl border-2 px-4 py-3 text-lg font-semibold transition-colors",
+		active
+			? "border-white bg-white text-primary dark:text-Muharram_primary"
+			: "border-white/40 text-white hover:border-white",
+	)
 
 type UserInfo = {
 	name: string
@@ -15,6 +30,8 @@ type UserInfo = {
 
 export default function ParticipationForm() {
 	const router = useRouter()
+	const nameId = useId()
+	const contactId = useId()
 	const [userInfo, setUserInfo] = useState<UserInfo>({
 		name: "",
 		contact: "",
@@ -94,34 +111,29 @@ export default function ParticipationForm() {
 		}
 	}, [userInfo, router])
 
+	const canStart = Boolean(userInfo.name.trim() && userInfo.contact.trim()) && !isSubmitting
+
 	return (
-		<div className="min-h-screen px-4 py-8 lg:py-16">
-			<div className="max-w-2xl mx-auto">
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					className="bg-white/80 backdrop-blur-sm rounded-2xl lg:rounded-3xl shadow-xl border border-slate-200/60 p-6 lg:p-10 space-y-6 lg:space-y-8"
-				>
-					<div className="text-center space-y-3 lg:space-y-4">
-						<div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mx-auto shadow-lg">
-							<User className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
-						</div>
-						<h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-slate-800">
-							معلومات المشارك
-						</h2>
-						<p className="text-slate-600 text-base lg:text-lg">
-							يرجى إدخال معلوماتك للمشاركة في المسابقة
-						</p>
+		<div className="container py-8 lg:py-16">
+			<Reveal y={24}>
+				<div className={`${shieldPanel} mx-auto max-w-2xl space-y-8 p-8 md:p-12`}>
+					<div className="space-y-3 text-center">
+						<span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-secondary text-secondary dark:border-white/60 dark:text-white">
+							<User className="h-8 w-8" strokeWidth={1.5} aria-hidden />
+						</span>
+						<h2 className="text-2xl font-extrabold md:text-3xl">معلومات المشارك</h2>
+						<p className="text-lg text-white/80">يرجى إدخال معلوماتك للمشاركة في المسابقة</p>
 					</div>
 
-					<div className="space-y-5 lg:space-y-6">
+					<div className="space-y-6">
 						{/* Full Name */}
-						<div className="space-y-2 lg:space-y-3">
-							<label className="text-sm lg:text-base font-semibold text-slate-700 flex items-center gap-2">
-								<User className="w-4 h-4 lg:w-5 lg:h-5 text-primary" />
+						<div className="space-y-2">
+							<label htmlFor={nameId} className={labelClass}>
+								<User className="h-5 w-5 text-secondary dark:text-white" />
 								الاسم الكامل
 							</label>
 							<input
+								id={nameId}
 								type="text"
 								value={userInfo.name}
 								onChange={(e) => {
@@ -131,20 +143,19 @@ export default function ParticipationForm() {
 										name: e.target.value,
 									}))
 								}}
-								className="w-full px-4 lg:px-5 py-3 lg:py-4 text-base lg:text-lg border-2 border-slate-200 rounded-xl lg:rounded-2xl focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+								className={field}
 								placeholder="أدخل اسمك الكامل"
 								required
 							/>
 						</div>
 
 						{/* Contact Type Selector */}
-						<div className="space-y-2 lg:space-y-3">
-							<label className="text-sm lg:text-base font-semibold text-slate-700">
-								طريقة التواصل
-							</label>
-							<div className="grid grid-cols-2 gap-3 lg:gap-4">
+						<div className="space-y-2">
+							<p className="font-semibold">طريقة التواصل</p>
+							<div className="grid grid-cols-2 gap-3">
 								<button
 									type="button"
+									aria-pressed={userInfo.contactType === "phone"}
 									onClick={() =>
 										setUserInfo((prev) => ({
 											...prev,
@@ -152,18 +163,14 @@ export default function ParticipationForm() {
 											contact: "",
 										}))
 									}
-									className={cn(
-										"px-4 lg:px-6 py-3 lg:py-4 text-base lg:text-lg rounded-xl lg:rounded-2xl border-2 font-semibold transition-all flex items-center justify-center gap-2 lg:gap-3",
-										userInfo.contactType === "phone"
-											? "border-primary bg-primary/10 text-primary shadow-md scale-105"
-											: "border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50",
-									)}
+									className={typeButton(userInfo.contactType === "phone")}
 								>
-									<Phone className="w-4 h-4 lg:w-5 lg:h-5" />
+									<Phone className="h-5 w-5" />
 									رقم الهاتف
 								</button>
 								<button
 									type="button"
+									aria-pressed={userInfo.contactType === "email"}
 									onClick={() =>
 										setUserInfo((prev) => ({
 											...prev,
@@ -171,37 +178,27 @@ export default function ParticipationForm() {
 											contact: "",
 										}))
 									}
-									className={cn(
-										"px-4 lg:px-6 py-3 lg:py-4 text-base lg:text-lg rounded-xl lg:rounded-2xl border-2 font-semibold transition-all flex items-center justify-center gap-2 lg:gap-3",
-										userInfo.contactType === "email"
-											? "border-primary bg-primary/10 text-primary shadow-md scale-105"
-											: "border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50",
-									)}
+									className={typeButton(userInfo.contactType === "email")}
 								>
-									<Mail className="w-4 h-4 lg:w-5 lg:h-5" />
+									<Mail className="h-5 w-5" />
 									البريد الإلكتروني
 								</button>
 							</div>
 						</div>
 
 						{/* Contact Input */}
-						<div className="space-y-2 lg:space-y-3">
-							<label className="text-sm lg:text-base font-semibold text-slate-700 flex items-center gap-2">
+						<div className="space-y-2">
+							<label htmlFor={contactId} className={labelClass}>
 								{userInfo.contactType === "phone" ? (
-									<Phone className="w-4 h-4 lg:w-5 lg:h-5 text-primary" />
+									<Phone className="h-5 w-5 text-secondary dark:text-white" />
 								) : (
-									<Mail className="w-4 h-4 lg:w-5 lg:h-5 text-primary" />
+									<Mail className="h-5 w-5 text-secondary dark:text-white" />
 								)}
-								{userInfo.contactType === "phone"
-									? "رقم الهاتف"
-									: "البريد الإلكتروني"}
+								{userInfo.contactType === "phone" ? "رقم الهاتف" : "البريد الإلكتروني"}
 							</label>
 							<input
-								type={
-									userInfo.contactType === "phone"
-										? "tel"
-										: "email"
-								}
+								id={contactId}
+								type={userInfo.contactType === "phone" ? "tel" : "email"}
 								value={userInfo.contact}
 								onChange={(e) => {
 									setErrorMessage("")
@@ -210,42 +207,29 @@ export default function ParticipationForm() {
 										contact: e.target.value,
 									}))
 								}}
-								className="w-full px-4 lg:px-5 py-3 lg:py-4 text-base lg:text-lg border-2 border-slate-200 rounded-xl lg:rounded-2xl focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
-								placeholder={
-									userInfo.contactType === "phone"
-										? "07XXXXXXXXX"
-										: "example@email.com"
-								}
+								className={field}
+								placeholder={userInfo.contactType === "phone" ? "07XXXXXXXXX" : "example@email.com"}
 								required
 							/>
 						</div>
 					</div>
+
 					{errorMessage && (
-						<p className="text-red-500 text-sm lg:text-base mt-2 font-semibold">
+						<p role="alert" className="font-semibold text-red-200">
 							{errorMessage}
 						</p>
 					)}
 
 					<button
+						type="button"
 						onClick={handleStartQuiz}
-						disabled={
-							!userInfo.name.trim() ||
-							!userInfo.contact.trim() ||
-							isSubmitting
-						}
-						className={cn(
-							"w-full py-4 lg:py-5 rounded-xl lg:rounded-2xl font-bold text-lg lg:text-xl transition-all shadow-lg",
-							userInfo.name.trim() &&
-								userInfo.contact.trim() &&
-								!isSubmitting
-								? "bg-gradient-to-r from-primary to-secondary text-white hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
-								: "bg-slate-200 text-slate-400 cursor-not-allowed",
-						)}
+						disabled={!canStart}
+						className={`${whiteButton} w-full !py-4 text-xl`}
 					>
 						{isSubmitting ? "جارٍ التحقق..." : "ابدأ المسابقة"}
 					</button>
-				</motion.div>
-			</div>
+				</div>
+			</Reveal>
 		</div>
 	)
 }

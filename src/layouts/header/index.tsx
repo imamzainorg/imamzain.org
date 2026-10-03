@@ -12,6 +12,7 @@ import {
 	Sun,
 	XIcon,
 	Youtube,
+	ChevronDown,
 } from "lucide-react"
 import {
 	TelegramIcon,
@@ -19,76 +20,16 @@ import {
 	WhatsAppIcon,
 	XIcon as TwitterX,
 } from "@/components/brand-icons"
-import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import useWindowEvents from "@/hooks/window-events"
 import TopBar from "@/layouts/header/top-bar"
 import { LogoRotate } from "@/layouts/header/logo-rotate"
+import { DesktopNav } from "@/layouts/header/mega-menu"
+import { activeSubHref, navLinks } from "@/layouts/header/nav-data"
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement>>
-
-const links = [
-	{
-		label: "الإمام زين العابدين",
-		href: "/his-life",
-	},
-	{
-		label: "حول المؤسسة",
-		subLinks: [
-			{ label: "من نحن", href: "/about" },
-			{ label: "رؤية واهداف المؤسسة", href: "/about/vision-and-goals" },
-		],
-	},
-	{
-		label: "الإصدارات",
-		href: "/publications",
-	},
-	{
-		label: "المكتبة ",
-		subLinks: [
-			{ label: "المكتبة التخصصية", href: "/library" },
-			{
-				label: "الصحيفة السجادية",
-				href: "/library/al-sahifa/al-sahifa-al-sajjadiya-index",
-			},
-			{
-				label: "رسالة الحقوق",
-				href: "/library/risalat-al-huqoq/introduction",
-			},
-			{
-				label: "بوابة البحث العلمي",
-				href: "/research",
-			},
-		],
-	},
-	{
-		label: "النشاطات",
-		subLinks: [
-			{ label: "الاخبار", href: "/news" },
-			{ label: "ملتقى البقيع", href: "/baqi-gathering" },
-			{ label: "المسابقات", href: "/contests" },
-		],
-	},
-	{
-		label: "الخدمات",
-		subLinks: [
-			{ label: "اتصل بنا", href: "/services" },
-			{ label: "الزيارة بالإنابة", href: "/visitation" },
-			{ label: "نقاط البيع المباشر", href: "/services/stores" },
-			{ label: "التطبيقات", href: "/applications" },
-		],
-	},
-	{
-		label: "الوسائط",
-		subLinks: [
-			{ label: "المرئيات", href: "/media/videos" },
-			{ label: "معرض الصور", href: "/media/images" },
-			{ label: "الصوتيات", href: "/media/audio" },
-		],
-	},
-]
 
 const socials: { href: string; Icon: IconComponent }[] = [
 	{ href: "https://telegram.me/imamzainorg", Icon: TelegramIcon },
@@ -211,7 +152,7 @@ export default function Header() {
 
 				{/* Navbar */}
 				<div
-					className={`w-full z-9999 rounded-b-[2rem] transition-colors duration-300 ease-in-out ${
+					className={`relative w-full rounded-b-[2rem] transition-colors duration-300 ease-in-out ${
 						isScrolled || (path !== "/" && path !== "/media/videos")
 							? `bg-primary dark:bg-Muharram_primary ${
 									isMenuVisible ? "" : "shadow-2xl"
@@ -230,69 +171,8 @@ export default function Header() {
 							/>
 						</Link>
 
-						{/* Desktop Navigation */}
-
-						<nav className="max-lg:hidden flex    items-center">
-							{links.map((link, index) => {
-								const hasSubLinks =
-									link.subLinks && link.subLinks.length > 0
-
-								return (
-									<div
-										key={index}
-										className="relative group py-2 px-3 cursor-pointer transition"
-									>
-										<div
-											className={`absolute rounded-full -bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 w-4/5 bg-white transition-transform duration-300 ease-in-out ${
-												link.href &&
-												path.includes(link.href)
-													? "scale-100"
-													: "scale-0 group-hover:scale-100"
-											}`}
-										/>
-
-										<Link
-											href={link.href || "#"}
-											className="flex items-center gap-2 text-sm xl:text-base text-white hover:text-gray-200 transition"
-										>
-											<Image
-												src="/shapes/nav-menu-icon.svg"
-												width={8}
-												height={8}
-												alt="icon"
-												className="w-1.5 h-auto"
-											/>
-											<p className=" text-subtitle">
-												{link.label}
-											</p>
-											{hasSubLinks && (
-												<span className="ml-1 text-white"></span> // سهم صغير ▼
-											)}
-										</Link>
-
-										{hasSubLinks && (
-											<div className="absolute top-full right-0 min-w-56 transform scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 z-50">
-												<div className="bg-white shadow-xl rounded-xl py-4 px-4 space-y-2">
-													{link.subLinks.map(
-														(subLink, subIndex) => (
-															<Link
-																key={subIndex}
-																href={
-																	subLink.href
-																}
-																className="block px-2 py-2 rounded-md text-subtitle text-gray-800 hover:bg-gray-100 transition"
-															>
-																{subLink.label}
-															</Link>
-														),
-													)}
-												</div>
-											</div>
-										)}
-									</div>
-								)
-							})}
-						</nav>
+						{/* Desktop Navigation: the mega menu */}
+						<DesktopNav />
 
 						{/* Controls */}
 						<div className="flex flex-row-reverse gap-4 items-center">
@@ -357,70 +237,73 @@ export default function Header() {
 					isMenuVisible ? "translate-x-0" : "-translate-x-full"
 				}`}
 			>
-				<div className="flex flex-col justify-center gap-6 items-center mt-10 h-2/3 px-4">
-					{links.map((link, index) => {
-						const hasSubLinks =
-							link.subLinks && link.subLinks.length > 0
+				<ul className="flex-1 overflow-y-auto px-6 pb-4 pt-24">
+					{navLinks.map((link, index) => {
+						const subLinks = link.subLinks
 						const isOpen = expandedIndex === index
+						const rowClass =
+							"flex w-full items-center justify-between gap-3 py-3.5 text-xl font-semibold text-white"
+						const current = activeSubHref(link, path)
 
 						return (
-							<div key={index} className="w-full">
-								<div className="flex items-center justify-between">
-									{/* If there's an href, make the parent clickable */}
-									{link.href ? (
-										<Link
-											href={link.href}
-											onClick={() =>
-												setIsMenuVisible(false)
-											}
-											className="text-xl text-white hover:text-gray-200 transition"
-										>
-											{link.label}
-										</Link>
-									) : (
-										<span className="text-xl text-white">
+							<li key={link.label} className="border-b border-dashed border-white/25 last:border-b-0">
+								{subLinks ? (
+									<button
+										type="button"
+										aria-expanded={isOpen}
+										onClick={() => handleExpand(index)}
+										className={rowClass}
+									>
+										<span className="flex items-center gap-3">
+											{link.Icon && <link.Icon aria-hidden className="size-5 text-secondary" />}
 											{link.label}
 										</span>
-									)}
+										<ChevronDown
+											aria-hidden
+											className={`size-5 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+										/>
+									</button>
+								) : (
+									<Link href={link.href ?? "#"} onClick={() => setIsMenuVisible(false)} className={rowClass}>
+										<span className="flex items-center gap-3">
+											{link.Icon && <link.Icon aria-hidden className="size-5 text-secondary" />}
+											{link.label}
+										</span>
+									</Link>
+								)}
 
-									{/* Show expand toggle if subLinks exist */}
-									{hasSubLinks && (
-										<button
-											onClick={() => handleExpand(index)}
-											className="text-xl text-white ml-4"
-										>
-											{isOpen ? "-" : "+"}
-										</button>
-									)}
-								</div>
-
-								{/* Mobile Submenu */}
-								{hasSubLinks && (
+								{/* Sub links: the row grows from zero height instead of jumping. */}
+								{subLinks && (
 									<div
-										className={`overflow-hidden transition-all ${
-											isOpen ? "max-h-96 mt-2" : "max-h-0"
+										className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+											isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
 										}`}
 									>
-										{link.subLinks.map(
-											(subLink, subIndex) => (
-												<Link
-													key={subIndex}
-													href={subLink.href}
-													onClick={() =>
-														setIsMenuVisible(false)
-													}
-													className="block pl-6 py-2 text-white/90 hover:text-gray-200"
-												>
-													{subLink.label}
-												</Link>
-											),
-										)}
+										<div className="overflow-hidden">
+											<ul className="space-y-1 pb-3">
+												{subLinks.map((subLink) => (
+													<li key={subLink.href}>
+														<Link
+															href={subLink.href}
+															onClick={() => setIsMenuVisible(false)}
+															tabIndex={isOpen ? 0 : -1}
+															className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-lg transition hover:bg-white/10 ${
+																subLink.href === current ? "bg-white/10 text-white" : "text-white/85"
+															}`}
+														>
+															<subLink.Icon aria-hidden className="size-5 shrink-0 text-secondary" />
+															{subLink.label}
+														</Link>
+													</li>
+												))}
+											</ul>
+										</div>
 									</div>
 								)}
-							</div>
+							</li>
 						)
 					})}
-				</div>
+				</ul>
 
 				{/* Socials and Footer */}
 				<div className="w-full flex flex-col text-center">

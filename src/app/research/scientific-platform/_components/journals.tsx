@@ -12,7 +12,7 @@ import {
   type CardData,
 } from "./shared/research-card";
 import { ResearchTable, type TableRow } from "./shared/research-table";
-import { SwiperPagination } from "./shared/swiper-pagination";
+import Pagination from "@/components/pagination";
 
 import { Journals } from "@/types/journals";
 
@@ -384,11 +384,12 @@ function JournalsContent({ data }: { data: Journals[] }) {
             )}
 
             {totalPages > 1 && (
-              <SwiperPagination
-                currentPage={page}
-                totalPages={totalPages}
-                onPageChange={paginate}
-              />
+              <Pagination
+              className="mt-14"
+              page={page}
+              totalPages={totalPages}
+              onPageChange={paginate}
+            />
             )}
           </main>
         </div>

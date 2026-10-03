@@ -6,8 +6,8 @@ import { motion, useScroll, useSpring } from "framer-motion"
 import { MapPin } from "lucide-react"
 import { cn } from "@/lib/utils"
 import type { Era } from "../_data/biography"
-import { MoreLink } from "./brand"
-import { Reveal, useShown } from "./motion"
+import { MoreLink } from "@/components/brand"
+import { Reveal, useShown } from "@/components/motion"
 
 function Year({ era, className }: { era: Era; className?: string }) {
 	return (
@@ -45,7 +45,7 @@ function Node() {
 			ref={ref}
 			aria-hidden
 			style={{ transform: `${shown ? "scale(1)" : "scale(0)"}`, transition: "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)" }}
-			className="absolute right-[3px] top-4 h-5 w-5 rounded-full border-[3px] border-primary bg-yellow-50 motion-reduce:!transform-none dark:border-Muharram_primary md:right-[calc(50%-10px)]"
+			className="absolute right-[3px] top-4 h-5 w-5 rounded-full border-[3px] border-primary bg-[var(--page-bg)] motion-reduce:!transform-none dark:border-Muharram_primary md:right-[calc(50%-10px)]"
 		/>
 	)
 }
