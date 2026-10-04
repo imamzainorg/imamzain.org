@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ChevronRight, ChevronLeft } from "lucide-react";
+import { toArabicDigits } from "./arabic-digits";
 
 type SubjectNavigationProps = {
   collectionSlug: string;
@@ -7,6 +8,19 @@ type SubjectNavigationProps = {
   currentSubjectSlug: string;
   allSubjects: Array<{ slug: string; title: string; id: string }>;
 };
+
+const linkClass =
+  "group flex min-h-12 min-w-0 max-w-full items-center gap-2 rounded-lg px-2 py-2 transition-colors hover:bg-black/[0.03] dark:hover:bg-white/[0.04] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary/70 dark:focus-visible:outline-Muharram_primary/70";
+
+const arrowClass =
+  "h-5 w-5 shrink-0 text-gray-400 transition-colors group-hover:text-primary dark:text-gray-500 dark:group-hover:text-Muharram_primary";
+
+const labelClass =
+  "text-[0.8rem] text-gray-500 transition-colors group-hover:text-primary dark:text-gray-400 dark:group-hover:text-Muharram_primary";
+
+// على الأجهزة التي تدعم التمرير يظهر العنوان عند hover/focus، وعلى اللمس يظهر دائمًا
+const titleClass =
+  "line-clamp-1 text-sm font-medium text-gray-900 transition-opacity duration-200 dark:text-gray-100 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-focus-visible:opacity-100";
 
 export default function SubjectNavigation({
   collectionSlug,
@@ -26,61 +40,51 @@ export default function SubjectNavigation({
   if (!prevSubject && !nextSubject) return null;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-12 pt-8 border-t-2 border-gray-100 dark:border-zinc-700">
-      {prevSubject ? (
-        <Link
-          href={`/library/${collectionSlug}/${dictionarySlug}/${prevSubject.slug}`}
-          className="group relative overflow-hidden flex items-center gap-4 p-5 rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-Muharram_secondary/30 dark:to-Muharram_secondary/60 border-2 border-gray-100 dark:border-zinc-700 hover:border-primary dark:hover:border-Muharram_primary hover:shadow-lg transition-all"
+    // pb-24: مساحة تمنع عنصر التحكم العائم من تغطية الروابط عند نهاية الصفحة
+    <nav
+      aria-label="التنقل بين المواضيع"
+      className="mx-auto w-full max-w-3xl pb-24"
+    >
+      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 border-t border-gray-200/80 pt-4 dark:border-zinc-700/70">
+        {prevSubject ? (
+          <Link
+            href={`/library/${collectionSlug}/${dictionarySlug}/${prevSubject.slug}`}
+            aria-label={`الموضوع السابق: ${prevSubject.title}`}
+            className={`${linkClass} justify-self-start`}
+          >
+            <ChevronRight aria-hidden="true" className={arrowClass} />
+            <span className="min-w-0 text-right">
+              <span className={`block ${labelClass}`}>السابق</span>
+              <span className={`block ${titleClass}`}>{prevSubject.title}</span>
+            </span>
+          </Link>
+        ) : (
+          <span />
+        )}
+
+        <span
+          aria-hidden="true"
+          className="text-xs tabular-nums text-gray-400 dark:text-gray-500"
         >
-          <div className="absolute inset-0 bg-gradient-to-l from-primary/5 to-transparent dark:from-Muharram_primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+          {toArabicDigits(currentIndex + 1)} / {toArabicDigits(allSubjects.length)}
+        </span>
 
-          <div className="relative flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 dark:bg-Muharram_primary/10 group-hover:bg-primary/20 dark:group-hover:bg-Muharram_primary/20 flex items-center justify-center transition-colors">
-            <ChevronRight className="w-6 h-6 text-primary dark:text-Muharram_primary" />
-          </div>
-
-          <div className="relative flex-1 text-right min-w-0">
-            <div className="text-xs font-medium text-gray-500 dark:text-black mb-1">
-              الموضوع السابق
-            </div>
-            <div className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-Muharram_primary transition-colors truncate">
-              {prevSubject.title}
-            </div>
-            <div className="text-xs text-gray-500 dark:text-black mt-1">
-              رقم {prevSubject.id}
-            </div>
-          </div>
-        </Link>
-      ) : (
-        <div />
-      )}
-
-      {/* Next Subject */}
-      {nextSubject ? (
-        <Link
-          href={`/library/${collectionSlug}/${dictionarySlug}/${nextSubject.slug}`}
-          className="group relative overflow-hidden flex items-center gap-4 p-5 rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-Muharram_secondary/30 dark:to-Muharram_secondary/60 border-2 border-gray-100 dark:border-zinc-700 hover:border-primary dark:hover:border-Muharram_primary hover:shadow-lg transition-all"
-        >
-          <div className="absolute inset-0 bg-gradient-to-l from-primary/5 to-transparent dark:from-Muharram_primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-
-          <div className="relative flex-1 text-left min-w-0">
-            <div className="text-xs font-medium text-gray-500 dark:text-black mb-1">
-              الموضوع التالي
-            </div>
-            <div className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-Muharram_primary transition-colors truncate">
-              {nextSubject.title}
-            </div>
-            <div className="text-xs text-gray-500 dark:text-black mt-1">
-              رقم {nextSubject.id}
-            </div>
-          </div>
-
-          <div className="relative flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 dark:bg-Muharram_primary/10 group-hover:bg-primary/20 dark:group-hover:bg-Muharram_primary/20 flex items-center justify-center transition-colors">
-            <ChevronLeft className="w-6 h-6 text-primary dark:text-Muharram_primary" />
-          </div>
-        </Link>
-      ) : (
-        <div />
-      )}
-    </div>
+        {nextSubject ? (
+          <Link
+            href={`/library/${collectionSlug}/${dictionarySlug}/${nextSubject.slug}`}
+            aria-label={`الموضوع التالي: ${nextSubject.title}`}
+            className={`${linkClass} justify-self-end`}
+          >
+            <span className="min-w-0 text-left">
+              <span className={`block ${labelClass}`}>التالي</span>
+              <span className={`block ${titleClass}`}>{nextSubject.title}</span>
+            </span>
+            <ChevronLeft aria-hidden="true" className={arrowClass} />
+          </Link>
+        ) : (
+          <span />
+        )}
+      </div>
+    </nav>
   );
 }
