@@ -525,7 +525,7 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
         {/* Lightbox */}
         {lightboxOpen && selectedImage && (
           <div
-            className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 px-4 pb-6 pt-28 backdrop-blur-md animate-fade-in"
+            className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 p-4 md:p-8 backdrop-blur-md animate-fade-in"
             onClick={(e) => e.target === e.currentTarget && closeLightbox()}
           >
             <div className="flex h-full max-h-[52rem] w-full max-w-7xl flex-col gap-4">
