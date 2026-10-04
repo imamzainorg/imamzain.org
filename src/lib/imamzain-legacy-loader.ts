@@ -11,6 +11,28 @@ import type {
 const alSahifa = alSahifaData as Dictionary[]
 const risalatAlHuqoq = risalatData as Dictionary[]
 
+const primaryDictionaryOrder: Record<string, string[]> = {
+	"al-sahifa": [
+		"al-sahifa-al-sajjadiya-index",
+		"appendix-by-al-hurr-al-amili",
+		 "supplications-of-newborns",
+		"imam-monologues",
+		"daily-supplications",
+	],
+}
+
+function orderDictionaries(legacySlug: string, dictionaries: Dictionary[]) {
+	const order = primaryDictionaryOrder[legacySlug]
+	if (!order) return dictionaries
+
+	const positions = new Map(order.map((slug, index) => [slug, index]))
+	return [...dictionaries].sort(
+		(a, b) =>
+			(positions.get(a.slug) ?? order.length) -
+			(positions.get(b.slug) ?? order.length),
+	)
+}
+
 const legacies = [
 	{ slug: "al-sahifa", title: "الصحيفة السجادية", dictionaries: alSahifa },
 	{
@@ -27,7 +49,10 @@ function getLegacy(slug: string) {
 export function getDictionaries(legacySlug: string) {
 	const legacy = getLegacy(legacySlug)
 	if (!legacy) return []
-	return legacy.dictionaries.map((d) => ({ slug: d.slug, title: d.title }))
+	return orderDictionaries(legacySlug, legacy.dictionaries).map((d) => ({
+		slug: d.slug,
+		title: d.title,
+	}))
 }
 
 export function getDictionary(legacySlug: string, dictionarySlug: string) {
@@ -71,7 +96,7 @@ export function getNavDictionaries(
 ): NavDictionary[] {
 	const legacy = getLegacy(legacySlug)
 	if (!legacy) return []
-	return legacy.dictionaries.map((dictionary) => ({
+	return orderDictionaries(legacySlug, legacy.dictionaries).map((dictionary) => ({
 		id: dictionary.id,
 		title: dictionary.title,
 		slug: dictionary.slug,
