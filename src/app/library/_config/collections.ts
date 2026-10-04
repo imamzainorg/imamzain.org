@@ -71,14 +71,6 @@ export const collections: Record<string, CollectionConfig> = {
 						title: "ما ألحقه السيد محسن الأمين العاملي",
 						url: "/library/al-sahifa/appendix-by-muhsin-al-ameen-al-amili",
 					},
-					{
-						title: "مناجيات الإمام",
-						url: "/library/al-sahifa/imam-monologues",
-					},
-					{
-						title: "أدعية أيام الاسبوع",
-						url: "/library/al-sahifa/daily-supplications",
-					},
 				],
 			},
 		],
