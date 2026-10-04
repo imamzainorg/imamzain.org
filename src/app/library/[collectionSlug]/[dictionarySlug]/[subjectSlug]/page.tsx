@@ -55,10 +55,16 @@ export default async function SubjectPage({
 
       {/* Suspense boundary lets SubjectView read ?highlight= via
 			    useSearchParams while the page stays statically prerendered. */}
-      <Suspense fallback={null}>
-        <SubjectView subject={subject}  />
-      </Suspense>
-
+<Suspense
+  fallback={
+    <div
+      aria-hidden="true"
+      className="mx-auto h-72 w-full max-w-3xl rounded-2xl bg-gray-100/60 dark:bg-zinc-900/40"
+    />
+  }
+>
+  <SubjectView subject={subject} />
+</Suspense>
       <SubjectNavigation
         collectionSlug={collectionSlug}
         dictionarySlug={dictionarySlug}
