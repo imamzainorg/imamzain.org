@@ -120,7 +120,162 @@ html.dark {
 .arabic-list li::marker {
 	content: counter(arabic-counter, arabic-indic) "-";
 }
+/* ═══════════════════════════════════════════════════════════
+   Letter Halo — الهالة على الحروف نفسها (text-shadow)
+   ═══════════════════════════════════════════════════════════ */
 
+.iz-word-in {
+  position: relative;
+  display: inline;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+
+  /* ── خلفية خضراء: همسة خفيفة ── */
+  background-color: color-mix(in oklab, #006654 2%, transparent);
+
+  /* ── الهالة على الحروف: طبقتان متوازنتان ── */
+  text-shadow:
+
+    0 0 10px color-mix(in oklab, #006654 14%, transparent);
+
+  padding: 0.02em 0.08em;
+  margin: -0.01em -0.05em;
+  border-radius: 2px;
+
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+
+  transition:
+    background-color 220ms ease,
+    text-shadow 220ms ease;
+}
+
+/* الوضع الليلي */
+.dark .iz-word-in {
+  background-color: color-mix(in oklab, #00876e 5%, transparent);
+  text-shadow:
+    0 0 5px color-mix(in oklab, #00876e 50%, transparent),
+    0 0 12px color-mix(in oklab, #00876e 22%, transparent);
+}
+
+/* ── hover: الهالة تتّضح ── */
+.iz-word-in:hover,
+.iz-word-in:focus-visible {
+  background-color: color-mix(in oklab, #006654 7%, transparent);
+  text-shadow:
+    0 0 5px color-mix(in oklab, #006654 60%, transparent),
+    0 0 14px color-mix(in oklab, #006654 28%, transparent);
+}
+
+.dark .iz-word-in:hover,
+.dark .iz-word-in:focus-visible {
+  background-color: color-mix(in oklab, #00876e 9%, transparent);
+  text-shadow:
+    0 0 6px color-mix(in oklab, #00876e 70%, transparent),
+    0 0 16px color-mix(in oklab, #00876e 32%, transparent);
+}
+
+/* ── عند فتح الشرح: الذهبي ── */
+.iz-word-in[data-open="true"] {
+  background-color: color-mix(in oklab, #bb9661 6%, transparent);
+  text-shadow:
+    0 0 5px color-mix(in oklab, #bb9661 60%, transparent),
+    0 0 14px color-mix(in oklab, #bb9661 28%, transparent);
+}
+
+.dark .iz-word-in[data-open="true"] {
+  background-color: color-mix(in oklab, #d4b483 8%, transparent);
+  text-shadow:
+    0 0 6px color-mix(in oklab, #d4b483 70%, transparent),
+    0 0 16px color-mix(in oklab, #d4b483 32%, transparent);
+}
+
+/* ── حلقة تركيز ── */
+.iz-word-in:focus-visible {
+  outline: 2px solid #006654;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+.dark .iz-word-in:focus-visible {
+  outline-color: #00876e;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   الفاصل بين الجملتين المشروحتين المتتاليتين
+   ═══════════════════════════════════════════════════════════ */
+
+.iz-word-in + .iz-word-in::before {
+  content: "✦";
+  display: inline-block;
+  margin-inline: 0.28em;
+  color: #bb9661;
+  font-size: 0.42em;
+  vertical-align: middle;
+  opacity: 0.45;
+
+  /* الهالة على الفاصل أيضًا */
+  text-shadow: 0 0 4px color-mix(in oklab, #bb9661 40%, transparent);
+
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.iz-word-in + .iz-word-in:hover::before,
+.iz-word-in + .iz-word-in:focus-visible::before {
+  opacity: 0.75;
+  transform: scale(1.1);
+}
+
+.dark .iz-word-in + .iz-word-in::before {
+  color: #d4b483;
+  opacity: 0.5;
+  text-shadow: 0 0 5px color-mix(in oklab, #d4b483 45%, transparent);
+}
+.dark .iz-word-in + .iz-word-in:hover::before,
+.dark .iz-word-in + .iz-word-in:focus-visible::before {
+  opacity: 0.8;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   احترام تقليل الحركة
+   ═══════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .iz-word-in,
+  .iz-word-in + .iz-word-in::before {
+    transition: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   بطاقة المعاينة
+   ═══════════════════════════════════════════════════════════ */
+
+@keyframes explanation-preview-in {
+  0% {
+    opacity: 0;
+    transform: translateY(4px) scale(0.97);
+    filter: blur(2px);
+  }
+  60% { filter: blur(0); }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.explanation-preview-enter {
+  animation: explanation-preview-in 180ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .explanation-preview-enter {
+    animation: none;
+  }
+}
 @keyframes float {
 	0% {
 		transform: translateY(0px);
