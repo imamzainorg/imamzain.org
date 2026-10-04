@@ -12,6 +12,12 @@ import {
 } from "lucide-react";
 import { NavDictionary, NavSubject } from "@/types/imamzain-legacy";
 
+const alwaysVisibleChildSlugs = new Set([
+  "supplications-of-newborns",
+  "imam-monologues",
+  "daily-supplications",
+]);
+
 type DictionaryNavProps = {
   dictionaries: NavDictionary[];
   collectionSlug: string;
@@ -51,7 +57,10 @@ export default function DictionaryNav({
           return res.json();
         })
         .then((subjects: NavSubject[]) => {
-          setFetchedSubjects((prev) => ({ ...prev, [dictionarySlug]: subjects }));
+          setFetchedSubjects((prev) => ({
+            ...prev,
+            [dictionarySlug]: subjects,
+          }));
         })
         .catch(() => {
           // Leave it unfetched; the collapse/expand toggle below retries on
@@ -108,6 +117,12 @@ export default function DictionaryNav({
   };
 
   const downloadInfo = getDownloadInfo(collectionSlug);
+  const topLevelDictionaries = dictionaries.filter(
+    (dictionary) => !alwaysVisibleChildSlugs.has(dictionary.slug),
+  );
+  const alwaysVisibleChildren = dictionaries.filter((dictionary) =>
+    alwaysVisibleChildSlugs.has(dictionary.slug),
+  );
 
   return (
     <div className="bg-white dark:bg-Muharram_secondary/10 shadow-lg border border-gray-100 dark:border-zinc-700 rounded-2xl overflow-hidden flex flex-col max-h-full">
@@ -124,7 +139,7 @@ export default function DictionaryNav({
           e.stopPropagation();
         }}
       >
-        {dictionaries.map((dict) => {
+        {topLevelDictionaries.map((dict) => {
           const isExpanded = expandedDicts.has(dict.slug);
           const isActive = dict.slug === activeDictionarySlug;
           const subjects =
@@ -179,6 +194,37 @@ export default function DictionaryNav({
                 </Link>
               </div>
 
+              {dict.slug === "appendix-by-al-hurr-al-amili" && (
+                <div className="mr-9 mt-1 space-y-0.5 border-r border-gray-200 pr-2 dark:border-zinc-700">
+                  {alwaysVisibleChildren.map((child) => {
+                    const childPath = `/library/${collectionSlug}/${child.slug}`;
+                    const isActiveChild =
+                      pathname === childPath ||
+                      pathname.startsWith(`${childPath}/`);
+
+                    return (
+                      <Link
+                        key={child.slug}
+                        href={childPath}
+                        className={`flex items-center gap-2.5 px-3 py-2 rounded-lg transition-all text-sm ${
+                          isActiveChild
+                            ? "bg-primary/10 dark:bg-Muharram_secondary/15 text-primary dark:text-Muharram_primary font-medium"
+                            : "hover:bg-gray-50 dark:hover:bg-Muharram_secondary/15 text-gray-600 dark:text-Muharram_primary"
+                        }`}
+                      >
+                        <BookOpen className="w-3.5 h-3.5 flex-shrink-0 text-gray-400" />
+                        <span className="flex-1 text-xs md:text-sm leading-tight">
+                          {child.title}
+                        </span>
+                        <span className="text-xs text-gray-400">
+                          {child.subjectCount.toLocaleString("ar-EG")}
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+
               {/* Subjects List */}
               {isLoadingSubjects && (
                 <div className="mr-9 mt-1 flex items-center gap-2 px-3 py-2 text-sm text-gray-400">
@@ -189,7 +235,7 @@ export default function DictionaryNav({
 
               {isExpanded && subjects && (
                 <div className="mr-9 mt-1 space-y-0.5 animate-in slide-in-from-top-2 duration-200">
-                  {subjects.map((subject: NavSubject) => {
+                  {subjects.map((subject: NavSubject, index) => {
                     const subjectPath = `/library/${collectionSlug}/${dict.slug}/${subject.slug}`;
                     const isActiveSubject =
                       pathname === subjectPath ||
@@ -232,7 +278,7 @@ export default function DictionaryNav({
                               : "text-gray-400 dark:text-Muharram_primary"
                           }`}
                         >
-                          {subject.id}
+                          {(index + 1).toLocaleString("ar-EG")}
                         </span>
                       </Link>
                     );
