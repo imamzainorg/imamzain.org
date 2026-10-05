@@ -1,34 +1,6 @@
 import type { Explanation } from "@/types/imamzain-legacy";
-
-/**
- * Characters stripped only for MATCHING purposes — never for display.
- * Same tashkil range already used elsewhere in the app (subject-view's old
- * highlightContent, collection-search's highlightText), plus tatweel
- * (\u0640), which is purely a justification character with no meaning.
- * Deliberately does NOT fold hamza forms or alef/ya variants: that would
- * risk linking an explanation to a *different* word that merely looks
- * similar once stripped.
- */
-const DIACRITIC_CHAR_RE = /[\u064B-\u065F\u0670\u0640]/;
-const DIACRITICS_GLOBAL_RE = /[\u064B-\u065F\u0670\u0640]/g;
-
-export function normalizeArabic(text: string): string {
-  return text.replace(DIACRITICS_GLOBAL_RE, "");
-}
-
-/** Maps every index of the normalized string back to the original string. */
-function buildIndexMap(original: string): number[] {
-  const map: number[] = [];
-  let ni = 0;
-  for (let i = 0; i < original.length; i++) {
-    if (!DIACRITIC_CHAR_RE.test(original[i])) {
-      map[ni] = i;
-      ni++;
-    }
-  }
-  map[ni] = original.length;
-  return map;
-}
+import { buildIndexMap, normalizeArabic } from "../_lib/arabic-text";
+import { hasText } from "../_lib/explanation-utils";
 
 export type TextSegment =
   | { type: "text"; key: string; content: string }
@@ -57,10 +29,6 @@ export type SegmentResult = {
   warnings: ExplanationMatchWarning[];
 };
 
-function isNonEmpty(value: string | undefined | null): value is string {
-  return typeof value === "string" && value.trim().length > 0;
-}
-
 function findOccurrences(
   normalizedContent: string,
   normalizedNeedle: string,
@@ -78,24 +46,16 @@ function findOccurrences(
 }
 
 /**
- * Turns `content` + `explanations` into an ordered list of text and
- * explanation segments, ready for React rendering — no HTML strings, no
- * DOM. `content` itself is never altered; only sliced.
+ * Turns `content` + `explanations` into ordered text/explanation segments for
+ * React rendering. `content` is only sliced, never altered.
  *
- * Rules (see the accompanying report for the full rationale):
- * - An explanation only becomes inline when it has both a non-empty
- *   `text` and a non-empty `content`.
- * - No `occurrence` → the explanation applies to every occurrence of
- *   `text` in the phrase (never guesses a single "first match").
- * - `occurrence` set → only that 1-based occurrence is used.
- * - Overlapping matches from different explanations: the longer span
- *   wins; a span exactly equal to another is merged (multiple
- *   explanations for the same word).
- * - Anything that can't be safely placed inline (text not found,
- *   occurrence out of range, or lost to a longer overlapping match) is
- *   reported in `warnings` and left out of `inlineExplanationIds`, so the
- *   caller can still show it in a fallback list — no explanation is ever
- *   silently dropped.
+ * - An explanation goes inline only with a non-empty `text` and `content`.
+ * - No `occurrence` → applies to every occurrence of `text` (never guesses "the first").
+ * - `occurrence` set → only that 1-based occurrence.
+ * - Overlaps: the longer span wins; identical spans merge (several authors, one word).
+ * - Anything that can't be placed inline (not found, occurrence out of range, or
+ *   lost to a longer span) is reported in `warnings` and left out of
+ *   `inlineExplanationIds`, so the caller can still list it below the text.
  */
 export function buildExplanationSegments(
   phraseId: string,
@@ -105,7 +65,7 @@ export function buildExplanationSegments(
   const warnings: ExplanationMatchWarning[] = [];
 
   const candidates = (explanations ?? []).filter(
-    (e) => isNonEmpty(e.content) && isNonEmpty(e.text),
+    (e) => hasText(e.content) && hasText(e.text),
   );
 
   const empty: SegmentResult = {

@@ -1,6 +1,6 @@
 import { copyFileSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
-import { normalizeArabic } from "../src/app/library/_config/explanation-segments";
+import { normalizeArabic } from "../src/app/library/_lib/arabic-text";
 
 type Explanation = {
   id?: number;

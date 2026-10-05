@@ -1,14 +1,38 @@
-import { normalizeArabic } from "../_config/explanation-segments";
+import { Fragment, createElement } from "react";
+import {
+  HTMLElement as ParsedElement,
+  TextNode,
+  parse,
+} from "node-html-parser";
 
-const DIACRITIC_CHAR_RE = /[\u064B-\u065F\u0670\u0640]/;
+import { buildIndexMap, normalizeArabic } from "../_lib/arabic-text";
+
+const ALLOWED_HTML_TAGS = new Set([
+  "blockquote",
+  "br",
+  "em",
+  "hr",
+  "i",
+  "li",
+  "ol",
+  "p",
+  "small",
+  "strong",
+  "sub",
+  "sup",
+  "u",
+  "ul",
+]);
+
+type ParsedNode = ParsedElement | TextNode;
+
+const isParsedNode = (node: unknown): node is ParsedNode =>
+  node instanceof ParsedElement || node instanceof TextNode;
 
 /**
- * Splits `text` into React nodes, wrapping every diacritic-insensitive
- * match of `term` in <mark>. Pure React output — no `document`, no
- * `dangerouslySetInnerHTML` — so it's safe to call during SSR and never
- * causes a hydration mismatch: it simply renders the plain text until
- * `term` is available (which happens client-side, after ?highlight= is
- * read via useSearchParams), same as before.
+ * Wraps every diacritic-insensitive match of `term` in <mark>.
+ * Pure React output (no `document`, no `dangerouslySetInnerHTML`), so it is safe
+ * during SSR: it renders plain text until `term` arrives client-side.
  */
 export function highlightPlain(
   text: string,
@@ -23,16 +47,7 @@ export function highlightPlain(
 
   const lowerText = text.toLowerCase();
   const normalizedText = normalizeArabic(lowerText);
-
-  const indexMap: number[] = [];
-  let ni = 0;
-  for (let i = 0; i < lowerText.length; i++) {
-    if (!DIACRITIC_CHAR_RE.test(lowerText[i])) {
-      indexMap[ni] = i;
-      ni++;
-    }
-  }
-  indexMap[ni] = lowerText.length;
+  const indexMap = buildIndexMap(lowerText);
 
   const parts: React.ReactNode[] = [];
   let lastIndex = 0;
@@ -62,4 +77,42 @@ export function highlightPlain(
 
   if (lastIndex < text.length) parts.push(text.slice(lastIndex));
   return parts.length > 0 ? <>{parts}</> : text;
+}
+
+function renderHtmlNode(
+  node: ParsedNode,
+  term: string | undefined,
+  key: string,
+): React.ReactNode {
+  if (node instanceof TextNode) {
+    return (
+      <Fragment key={key}>{highlightPlain(node.text, term, key)}</Fragment>
+    );
+  }
+
+  const tagName = node.tagName.toLowerCase();
+  const children = node.childNodes.map((child, index) =>
+    isParsedNode(child) ? renderHtmlNode(child, term, `${key}-${index}`) : null,
+  );
+
+  if (!ALLOWED_HTML_TAGS.has(tagName)) {
+    return <Fragment key={key}>{children}</Fragment>;
+  }
+  if (tagName === "br" || tagName === "hr") {
+    return createElement(tagName, { key });
+  }
+  return createElement(tagName, { key }, children);
+}
+
+export function highlightHtml(
+  html: string,
+  term: string | undefined,
+  keyPrefix: string,
+): React.ReactNode {
+  const root = parse(html);
+  return root.childNodes.map((node, index) =>
+    isParsedNode(node)
+      ? renderHtmlNode(node, term, `${keyPrefix}-${index}`)
+      : null,
+  );
 }

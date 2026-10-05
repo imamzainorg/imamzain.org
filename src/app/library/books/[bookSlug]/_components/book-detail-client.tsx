@@ -2,75 +2,59 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Breadcrumbs from "@/components/breadcrumb";
-import { Book } from "@/types/book";
-import BooklibraryCard from "@/app/library/_components/book-library-card";
-import BookCard from "@/components/book-card";
 import { ArrowRight } from "lucide-react";
+import Breadcrumbs from "@/components/breadcrumb";
+import BookCard from "@/components/book-card";
+import type { Book } from "@/types/book";
+import BookLibraryCard from "@/app/library/_components/book-library-card";
+import { libraryPath } from "@/app/library/_config/paths";
+import {
+  popToPreviousBook,
+  readSavedLibraryPosition,
+  recordBookVisit,
+} from "@/app/library/_lib/book-navigation";
 
-interface Props {
+type BookDetailClientProps = {
   book: Book;
   seriesParts: Book[];
   showcaseBooks: Book[];
-}
+};
 
-const BOOK_STACK_KEY = "bookNavigationStack";
-
-function getBookPath(slug: string) {
-  return `/library/books/${slug}`;
-}
+const SCROLL_RESTORE_DELAY_MS = 150;
 
 export default function BookDetailClient({
   book,
   seriesParts,
   showcaseBooks,
-}: Props) {
+}: BookDetailClientProps) {
   const router = useRouter();
 
   useEffect(() => {
-    const currentPath = getBookPath(book.slug);
-    const raw = sessionStorage.getItem(BOOK_STACK_KEY);
-    const stack: string[] = raw ? JSON.parse(raw) : [];
-
-    if (stack[stack.length - 1] !== currentPath) {
-      stack.push(currentPath);
-      sessionStorage.setItem(BOOK_STACK_KEY, JSON.stringify(stack));
-    }
+    recordBookVisit(libraryPath("books", book.slug));
   }, [book.slug]);
 
-  const handleBackToLibrary = () => {
-    const raw = sessionStorage.getItem(BOOK_STACK_KEY);
-    const stack: string[] = raw ? JSON.parse(raw) : [];
-
-    stack.pop();
-    sessionStorage.setItem(BOOK_STACK_KEY, JSON.stringify(stack));
-
-    const previousBookPath = stack.length > 0 ? stack[stack.length - 1] : null;
-
+  // الرجوع: إلى الكتاب السابق إن جاء القارئ من كتاب آخر، وإلا إلى موضع القائمة المحفوظ
+  function handleBackToLibrary() {
+    const previousBookPath = popToPreviousBook();
     if (previousBookPath) {
       router.push(previousBookPath);
       return;
     }
 
-    const savedPosition = sessionStorage.getItem("libraryScrollPosition");
-    const savedURL = sessionStorage.getItem("lastLibraryURL");
-    const fallbackURL = "/library";
-
-    if (savedURL) {
-      router.push(savedURL);
-      if (savedPosition) {
-        setTimeout(() => {
-          window.scrollTo({
-            top: parseInt(savedPosition),
-            behavior: "instant",
-          });
-        }, 150);
-      }
+    const saved = readSavedLibraryPosition();
+    if (!saved) {
+      router.push("/library");
       return;
     }
 
-    router.push(fallbackURL);
-  };
+    router.push(saved.path);
+    if (saved.scrollY !== null) {
+      setTimeout(
+        () => window.scrollTo({ top: saved.scrollY ?? 0, behavior: "instant" }),
+        SCROLL_RESTORE_DELAY_MS,
+      );
+    }
+  }
 
   return (
     <div className="space-y-10 my-8">
@@ -98,12 +82,7 @@ export default function BookDetailClient({
 
       <div className="bg-secondary md:container dark:bg-Muharram_primary/20 bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
         {showcaseBooks.map((item) => (
-          <BooklibraryCard
-            key={item.id}
-            route="/library/books"
-            publication={item}
-            downloadable
-          />
+          <BookLibraryCard key={item.id} route="/library/books" publication={item} />
         ))}
       </div>
     </div>

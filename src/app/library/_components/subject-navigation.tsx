@@ -1,12 +1,14 @@
 import Link from "next/link";
-import { ChevronRight, ChevronLeft } from "lucide-react";
-import { toArabicDigits } from "./arabic-digits";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import type { NavSubject } from "@/types/imamzain-legacy";
+import { libraryPath } from "../_config/paths";
+import { toArabicDigits } from "../_lib/arabic-text";
 
 type SubjectNavigationProps = {
   collectionSlug: string;
   dictionarySlug: string;
   currentSubjectSlug: string;
-  allSubjects: Array<{ slug: string; title: string; id: string }>;
+  allSubjects: NavSubject[];
 };
 
 const linkClass =
@@ -28,16 +30,14 @@ export default function SubjectNavigation({
   currentSubjectSlug,
   allSubjects,
 }: SubjectNavigationProps) {
-  const currentIndex = allSubjects.findIndex(
-    (s) => s.slug === currentSubjectSlug,
-  );
-  const prevSubject = currentIndex > 0 ? allSubjects[currentIndex - 1] : null;
-  const nextSubject =
-    currentIndex < allSubjects.length - 1
-      ? allSubjects[currentIndex + 1]
-      : null;
+  const currentIndex = allSubjects.findIndex((s) => s.slug === currentSubjectSlug);
+  const previous = currentIndex > 0 ? allSubjects[currentIndex - 1] : null;
+  const next = currentIndex < allSubjects.length - 1 ? allSubjects[currentIndex + 1] : null;
 
-  if (!prevSubject && !nextSubject) return null;
+  if (!previous && !next) return null;
+
+  const hrefTo = (subject: NavSubject) =>
+    libraryPath(collectionSlug, dictionarySlug, subject.slug);
 
   return (
     // pb-24: مساحة تمنع عنصر التحكم العائم من تغطية الروابط عند نهاية الصفحة
@@ -46,16 +46,16 @@ export default function SubjectNavigation({
       className="mx-auto w-full max-w-3xl pb-24"
     >
       <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 border-t border-gray-200/80 pt-4 dark:border-zinc-700/70">
-        {prevSubject ? (
+        {previous ? (
           <Link
-            href={`/library/${collectionSlug}/${dictionarySlug}/${prevSubject.slug}`}
-            aria-label={`الموضوع السابق: ${prevSubject.title}`}
+            href={hrefTo(previous)}
+            aria-label={`الموضوع السابق: ${previous.title}`}
             className={`${linkClass} justify-self-start`}
           >
             <ChevronRight aria-hidden="true" className={arrowClass} />
             <span className="min-w-0 text-right">
               <span className={`block ${labelClass}`}>السابق</span>
-              <span className={`block ${titleClass}`}>{prevSubject.title}</span>
+              <span className={`block ${titleClass}`}>{previous.title}</span>
             </span>
           </Link>
         ) : (
@@ -69,15 +69,15 @@ export default function SubjectNavigation({
           {toArabicDigits(currentIndex + 1)} / {toArabicDigits(allSubjects.length)}
         </span>
 
-        {nextSubject ? (
+        {next ? (
           <Link
-            href={`/library/${collectionSlug}/${dictionarySlug}/${nextSubject.slug}`}
-            aria-label={`الموضوع التالي: ${nextSubject.title}`}
+            href={hrefTo(next)}
+            aria-label={`الموضوع التالي: ${next.title}`}
             className={`${linkClass} justify-self-end`}
           >
             <span className="min-w-0 text-left">
               <span className={`block ${labelClass}`}>التالي</span>
-              <span className={`block ${titleClass}`}>{nextSubject.title}</span>
+              <span className={`block ${titleClass}`}>{next.title}</span>
             </span>
             <ChevronLeft aria-hidden="true" className={arrowClass} />
           </Link>
