@@ -174,7 +174,7 @@ export default async function Page() {
 			<section id="stories" className="container scroll-mt-32 pt-28">
 				<SectionTitle
 					title="مشاهد من حياته"
-					text="مقتطفات من الروايات كما وردت في المصادر. اسحب لتتصفحها، ولكل مشهد رابط إلى روايته الكاملة بسندها."
+					text="مشهد واحد من كل رواية كما وردت في المصادر، وما انتهى بنقاط فتتمته في الرواية الكاملة بسندها. اسحب لتتصفحها."
 				/>
 				<Stories stories={stories} />
 			</section>
