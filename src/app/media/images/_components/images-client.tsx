@@ -9,20 +9,20 @@ import ImageView from "@/components/image-view";
 import Image from "next/image";
 import Dropdown from "@/components/dropdown";
 import { Gallery } from "@/types/gallery";
-import { Loader2 } from "lucide-react";
 import {
-  FiFilter,
-  FiArrowDown,
-  FiChevronDown,
-  FiChevronUp,
-  FiX,
-  FiSearch,
-  FiCalendar,
-  FiMapPin,
-  FiCamera,
-  FiChevronLeft,
-  FiChevronRight,
-} from "react-icons/fi";
+  ArrowDown,
+  Calendar,
+  Camera,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  ChevronUp,
+  Filter,
+  Loader2,
+  MapPin,
+  Search,
+  X,
+} from "lucide-react";
 
 const lightboxControl =
   "grid size-12 shrink-0 place-items-center rounded-full border-2 border-white/25 bg-white/10 text-white transition hover:border-secondary hover:bg-secondary";
@@ -306,7 +306,7 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
             {/* Search */}
             <div className="relative w-full flex-1">
               {corpusReady ? (
-                <FiSearch
+                <Search
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-secondary"
                   size={20}
                 />
@@ -341,9 +341,9 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
                 }`}
                 onClick={() => setIsFilterOpen(!isFilterOpen)}
               >
-                <FiFilter />
+                <Filter size="1em" />
                 <span>الفلاتر</span>
-                {isFilterOpen ? <FiChevronUp /> : <FiChevronDown />}
+                {isFilterOpen ? <ChevronUp size="1em" /> : <ChevronDown size="1em" />}
               </button>
 
               <Dropdown
@@ -351,7 +351,7 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
                 variant="dark"
                 value={sortBy}
                 onChange={setSortBy}
-                icon={<FiArrowDown />}
+                icon={<ArrowDown />}
                 className="min-w-44"
                 options={[
                   { value: "newest", label: "الأحدث أولاً" },
@@ -363,7 +363,7 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
 
           {/* Filters panel */}
           {isFilterOpen && (
-            <div className="mt-6 border-t border-white/10 pt-6 animate-slide-down">
+            <div className="mt-6 border-t border-white/10 pt-6">
               <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-secondary">
                 التصنيفات
                 {!corpusReady && (
@@ -537,7 +537,7 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
                   className={lightboxControl}
                   onClick={closeLightbox}
                 >
-                  <FiX size={22} />
+                  <X size={22} />
                 </button>
               </div>
 
@@ -551,7 +551,7 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
                       className={`${lightboxControl} max-md:hidden`}
                       onClick={() => navigateImage("prev")}
                     >
-                      <FiChevronRight size={24} />
+                      <ChevronRight size={24} />
                     </button>
                     <div className="flex h-full min-w-0 flex-1 items-center justify-center rounded-3xl bg-black/30 p-3">
                       <Image
@@ -570,7 +570,7 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
                       className={`${lightboxControl} max-md:hidden`}
                       onClick={() => navigateImage("next")}
                     >
-                      <FiChevronLeft size={24} />
+                      <ChevronLeft size={24} />
                     </button>
                   </div>
 
@@ -612,9 +612,9 @@ function GalleryClient({ initialImages }: { initialImages: Gallery[] }) {
 
                   <dl className="mt-6 space-y-4 border-t border-white/15 pt-6">
                     {[
-                      { label: "التاريخ", value: selectedImage.date, Icon: FiCalendar },
-                      { label: "المكان", value: selectedImage.location, Icon: FiMapPin },
-                      { label: "المصور", value: selectedImage.photographer, Icon: FiCamera },
+                      { label: "التاريخ", value: selectedImage.date, Icon: Calendar },
+                      { label: "المكان", value: selectedImage.location, Icon: MapPin },
+                      { label: "المصور", value: selectedImage.photographer, Icon: Camera },
                     ]
                       .filter((row) => row.value)
                       .map(({ label, value, Icon }) => (

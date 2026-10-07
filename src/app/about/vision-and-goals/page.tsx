@@ -41,7 +41,6 @@ export const metadata: Metadata = {
 type Section = {
 	id: string
 	title: string
-	isList?: boolean
 	content: string[]
 }
 
@@ -79,7 +78,6 @@ const sections: Section[] = [
 	{
 		id: "axes",
 		title: "محاور عمل المؤسسة",
-		isList: true,
 		content: [
 			"حياة الامام زين العابدين (عليه السلام ) وتراثه الروائي والقرآني والعقائدي تحقيقا وتأليفاً.",
 			"الاهتمام البالغ بالصحيفة السجادية ورسالة الحقوق-على وجه الخصوص-وكل إثره(عليه السلام) بحثاً ودراسةً وتفعيلها اجتماعياً وأكاديمياً.",

@@ -37,15 +37,10 @@ export default {
 			screens: {
 				xxs: "280px",
 				xs: "500px",
-				s: "380px",
-				xmd: "900px",
-				
 			},
 
 			fontSize: {
 				subtitle: ["clamp(12px, 2vw, 20px)", "1"], // عنوان صغير فرعي
-				note: ["clamp(14px, 1.5vw, 26px)", "0.5"], // نص ثانوي
-				body: ["clamp(16px, 2.4vw, 30px)", "1.6"], // نص أساسي
 				title: ["clamp(20px, 4.3vw, 48px)", "1.1"], // عنوان صفحة رئيسي
 				hero: ["clamp(32px, 6vw, 80px)", "1.1"], // الهيرو - رسمي وأنيق قيد العمل
 			},
@@ -64,48 +59,9 @@ export default {
 						transform: "translateY(0)",
 					},
 				},
-				fadeInDown: {
-					"0%": {
-						opacity: "0",
-						transform: "translateY(-20px)",
-					},
-					"100%": {
-						opacity: "1",
-						transform: "translateY(0)",
-					},
-				},
-				slideInRight: {
-					"0%": {
-						opacity: "0",
-						transform: "translateX(100px)",
-					},
-					"100%": {
-						opacity: "1",
-						transform: "translateX(0)",
-					},
-				},
-				slideInLeft: {
-					"0%": {
-						opacity: "0",
-						transform: "translateX(-100px)",
-					},
-					"100%": {
-						opacity: "1",
-						transform: "translateX(0)",
-					},
-				},
-				zoomIn: {
-					"0%": {
-						transform: "scale(1)",
-					},
-					"100%": {
-						transform: "scale(1.1)",
-					},
-				},
 			},
 			animation: {
 				"fade-in-up": "fadeInUp 0.5s ease-in-out",
-				"fade-in-down": "fadeInDown 0.5s ease-in-out",
 			},
 			colors: {
 				primary: "#006654",
@@ -115,7 +71,6 @@ export default {
 				secondary_dark: "#8a6a36",
 				Muharram_primary: "#231F20",
 				Muharram_secondary: "#a43232",
-				"dark-background": "rgb(37,52,63)",
 			},
 			listStyleType: {
 				"arabic-indic": "arabic-indic",

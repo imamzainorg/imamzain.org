@@ -2,10 +2,7 @@
 
 import Dropdown from "@/components/dropdown";
 import { useCallback, useRef } from "react";
-import {
-  Search, X,
-  Clock3, FolderOpen, ArrowDownUp,
-} from "lucide-react";
+import { Search, X } from "lucide-react";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -21,20 +18,6 @@ interface FilterProps {
   value: string;
   onChange: (v: string) => void;
   icon?: React.ReactNode;
-}
-
-interface ResultsBarProps {
-  total: number;
-  filtered: number;
-  hasFilters: boolean;
-  onClear: () => void;
-}
-
-interface AdvancedFiltersProps {
-  category: string; setCategory: (v: string) => void; categories: string[];
-  duration: string; setDuration: (v: string) => void;
-  sort: string;     setSort: (v: string) => void;
-  hasFilters: boolean; onClear: () => void;
 }
 
 // ─── Components ──────────────────────────────────────────────────────────────
@@ -83,60 +66,5 @@ export function AudioFilter({ label, options, value, onChange, icon }: FilterPro
       className="w-full"
       options={[{ value: "", label: label ?? "اختر..." }, ...options.map((o) => ({ value: o, label: o }))]}
     />
-  );
-}
-
-export function ResultsBar({ total, filtered, hasFilters, onClear }: ResultsBarProps) {
-  return (
-    <div className="flex items-center justify-between text-sm text-slate-500 py-1">
-      <span>
-        {hasFilters ? (
-          <><span className="font-semibold text-primary">{filtered}</span> من <span className="font-semibold">{total}</span> نتيجة</>
-        ) : (
-          <><span className="font-semibold text-slate-700">{total}</span> ملف صوتي</>
-        )}
-      </span>
-      {hasFilters && (
-        <button onClick={onClear} className="text-xs text-primary hover:underline">مسح الفلاتر</button>
-      )}
-    </div>
-  );
-}
-
-export function AdvancedFilters({
-  category, setCategory, categories,
-  duration, setDuration,
-  sort, setSort,
-  hasFilters, onClear,
-}: AdvancedFiltersProps) {
-  const filters = [
-    {
-      label: "التصنيف", value: category, onChange: setCategory,
-      options: categories,
-      icon: <FolderOpen className="w-4 h-4 text-primary" />,
-    },
-    {
-      label: "مدة الصوت", value: duration, onChange: setDuration,
-      options: ["أقل من 10 دقائق", "10 - 30 دقيقة", "30 - 60 دقيقة", "أكثر من ساعة"],
-      icon: <Clock3 className="w-4 h-4 text-primary" />,
-    },
-    {
-      label: "الترتيب", value: sort, onChange: setSort,
-      options: ["الأحدث", "الأقدم", "الأطول", "الأقصر", "الأكبر حجماً", "الأصغر حجماً"],
-      icon: <ArrowDownUp className="w-4 h-4 text-primary" />,
-    },
-  ];
-
-  return (
-    <div className="flex flex-wrap gap-3 items-center">
-      {filters.map((f) => (
-        <AudioFilter key={f.label} {...f} />
-      ))}
-      {hasFilters && (
-        <button onClick={onClear} className="flex items-center gap-1.5 text-xs font-medium text-primary hover:text-red-500 transition-colors">
-          <X className="w-3.5 h-3.5" /> مسح الفلاتر
-        </button>
-      )}
-    </div>
   );
 }

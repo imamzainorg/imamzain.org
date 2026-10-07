@@ -14,7 +14,7 @@ import { Book } from "@/types/book";
 import { Post } from "@/types/post";
 import { YouTubePlaylist } from "@/types/youtube-data";
 import hadiths from "@/data/hadiths.json";
-import { getGallerySectionData } from "./_components/gallery-data";
+import { getSliderImages } from "./_components/gallery-data";
 
 import dynamic from "next/dynamic";
 
@@ -144,7 +144,6 @@ export default async function Page() {
   const books = await dataFetcher<Book[]>("books.json");
   const posts = await dataFetcher<Post[]>("posts.json");
   const playlists = await dataFetcher<YouTubePlaylist[]>("youtube.json");
-  const { sliderImages, categoryImages } = getGallerySectionData();
 
   // Select Proper Hadith Based on Date
   const today = new Date();
@@ -192,12 +191,8 @@ export default async function Page() {
       <VisitationSignup />
       <Publications publications={homePublications(books)} />
       <Application />
-      <GallerySection
-        sliderImages={sliderImages}
-        categoryImages={categoryImages}
-      />
+      <GallerySection sliderImages={getSliderImages()} />
       <Videos playlists={homePlaylists(playlists)} />
-      {/* <Live /> */}
     </div>
   );
 }

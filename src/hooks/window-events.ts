@@ -1,18 +1,23 @@
-// hooks/useWindowEvents.ts
-import { useState, useEffect, useRef } from "react";
-import { useMediaQuery } from 'react-responsive';
-// interface ScreenSize {
-//     width: number;
-//     height: number;
-// }
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+
+const SMALL_SCREEN = "(max-width: 1023px)";
+
+const subscribeToScreenSize = (onChange: () => void) => {
+    const query = window.matchMedia(SMALL_SCREEN);
+    query.addEventListener("change", onChange);
+    return () => query.removeEventListener("change", onChange);
+};
 
 export default function useWindowEvents() {
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
     const [isScrollDown, setIsScrollDown] = useState<boolean>(true);
-    // const [screenSize, setScreenSize] = useState<ScreenSize>({ width: window.innerWidth, height: window.innerHeight });
     const prevScrollY = useRef<number>(0);
 
-    const isSmallScreen = useMediaQuery({ maxWidth: 1023 });
+    const isSmallScreen = useSyncExternalStore(
+        subscribeToScreenSize,
+        () => window.matchMedia(SMALL_SCREEN).matches,
+        () => false,
+    );
 
     useEffect(() => {
         let frame = 0;
@@ -42,10 +47,5 @@ export default function useWindowEvents() {
         };
     }, []);
 
-    return {
-        isScrolled,
-        isScrollDown,
-        // screenSize,
-        isSmallScreen
-    };
+    return { isScrolled, isScrollDown, isSmallScreen };
 }

@@ -1,11 +1,3 @@
-export type Legacy = {
-  id: number;
-  title: string;
-  slug: string;
-  dictionaries: Dictionary[];
-
-};
-
 type Dictionary = {
   id: number;
   title: string;

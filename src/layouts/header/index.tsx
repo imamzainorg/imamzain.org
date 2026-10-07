@@ -176,19 +176,6 @@ export default function Header() {
 
 						{/* Controls */}
 						<div className="flex flex-row-reverse gap-4 items-center">
-							{/* Desktop theme toggle */}
-							{/*      <button
-                onClick={toggleTheme}
-                className={`hidden lg:flex p-1.5 rounded-full transition ${
-                  isScrolled || path !== "/"
-                    ? "bg-secondary dark:bg-Muharram_secondary text-white"
-                    : "bg-white text-primary dark:text-Muharram_primary"
-                }`}
-                title="تبديل الثيم"
-              >
-                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-              </button>*/}
-
 							{/* Mobile Hamburger Icon */}
 							<div className="lg:hidden flex flex-row-reverse items-center gap-2">
 								<button

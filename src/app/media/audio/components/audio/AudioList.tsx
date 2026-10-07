@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import type { AudioItemLight } from "@/types/audio";
 import type { BreakpointKey } from "../../hooks/useWaveform";
-import { Button } from "@/components/button";
+import { outlineButton } from "@/components/brand";
 import AudioCard from "./AudioCard";
 import Pagination from "@/components/pagination";
 import { AudioSearch, AudioFilter } from "./AudioFilters";
@@ -114,15 +114,6 @@ export default function AudioList({
     );
   }, [allSpeakers, speakerSearch]);
 
-  {
-    /*   const categories = useMemo(() => {
-    const valid = items
-      .map((i) => i.category)
-      .filter((c): c is string[] => Array.isArray(c) && c.length > 0);
-    return [...new Set(valid.flat())].sort((a, b) => a.localeCompare(b));
-  }, [items]);*/
-  }
-
   const maxAvailableDuration = useMemo(() => {
     const maxSeconds = Math.max(...items.map((i) => i.durationSeconds ?? 0));
     return Math.ceil(maxSeconds / 60);
@@ -165,10 +156,6 @@ export default function AudioList({
   // ─── Handlers ─────────────────────────────────────────────────────────────
 // ✅ بعد
 const resetPage = useCallback(() => setCurrentPage(1), []);
-    /*   const handleCategoryFilter = useCallback((v: string) => {
-    setCategoryFilter(v);
-    resetPage();
-  }, []);*/
 const handleSearch = useCallback((v: string) => {
   setSearch(v);
   resetPage();
@@ -315,20 +302,6 @@ const handleSpeakerSelect = useCallback((speaker: string) => {
         )}
       </div>
 
-      {/* Category */}
-      {/* 
-      <div>
-        <label className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
-          <FolderOpen className="w-4 h-4 text-primary" /> الموضوع
-        </label>
-        <AudioFilter
-          options={categories}
-          value={categoryFilter}
-          onChange={handleCategoryFilter}
-        />
-      </div>
-*/}
-
       {/* Sort */}
       <div>
         <label className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-black mb-1.5">
@@ -387,13 +360,9 @@ const handleSpeakerSelect = useCallback((speaker: string) => {
 
       {/* Clear */}
       <div className="pt-2 border-t border-slate-200/70 dark:border-white/10">
-        <Button
-          variant="outline"
-          className="w-full hover:bg-red-50 hover:text-red-600 hover:border-red-500"
-          onClick={handleClearFilters}
-        >
+        <button type="button" className={`${outlineButton} w-full`} onClick={handleClearFilters}>
           إعادة تعيين الفلاتر
-        </Button>
+        </button>
       </div>
     </div>
   );

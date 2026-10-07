@@ -2,7 +2,7 @@
 
 import { Autocomplete, AutocompleteItem, type AutocompleteProps } from "@heroui/react"
 import { Globe } from "lucide-react"
-import React, { useState } from "react"
+import { useState } from "react"
 import countries from "i18n-iso-countries"
 import ar from "i18n-iso-countries/langs/ar.json"
 import { Key } from "@react-types/shared"

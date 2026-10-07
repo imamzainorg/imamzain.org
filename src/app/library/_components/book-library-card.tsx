@@ -15,7 +15,6 @@ export default function BooklibraryCard({
   as: Heading = "h3",
 }: {
   publication: Book;
-  downloadable?: boolean;
   route?: string;
   priority?: boolean;
   // The heading level of the title: h2 when the list sits directly under the page title.
