@@ -9,7 +9,6 @@
  * prebuilt JSON under /api (library-search-index, gallery-index, …) lives.
  */
 import { contact } from "./routes/contact"
-import { contestStart, contestSubmit } from "./routes/contests"
 import { download } from "./routes/download"
 import { hijriDate } from "./routes/hijri-date"
 import { newsletterSubscribe, newsletterUnsubscribe } from "./routes/newsletter"
@@ -26,8 +25,6 @@ type Method = "GET" | "POST"
 // Keep in sync with assets.run_worker_first in wrangler.jsonc.
 const ROUTES: Record<string, Partial<Record<Method, Handler>>> = {
 	"/api/contact": { POST: contact },
-	"/api/contests/qatuf-sajjadiyya/start": { POST: contestStart },
-	"/api/contests/qatuf-sajjadiyya/submit": { POST: contestSubmit },
 	"/api/download": { GET: download },
 	"/api/hijri-date": { GET: hijriDate },
 	"/api/newsletter/subscribe": { POST: newsletterSubscribe },

@@ -19,7 +19,7 @@ import {
 import Breadcrumbs from "@/components/breadcrumb"
 import { SectionTitle, outlineButton, photoFrame, solidButton } from "@/components/brand"
 import { Reveal } from "@/components/motion"
-import { ApplyStepper } from "../components/applicationSteps"
+import { ContestRules } from "../components/contest-rules"
 import { ClosedNotice, ContestBadge, Feature, IconRing, Note } from "../components/contest-ui"
 
 // Types
@@ -320,10 +320,6 @@ export default function Page() {
 								أهداف المسابقة
 								<ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
 							</Link>
-							<Link href="/contests/khat/#registration" className={outlineButton}>
-								التسجيل في المسابقة
-								<ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-							</Link>
 						</div>
 
 						<div className="mt-10 border-t border-secondary/30 pt-6">
@@ -406,10 +402,10 @@ export default function Page() {
 					</div>
 				</section>
 
-				{/* Application steps */}
-				<section id="registration" className="scroll-mt-32 pt-28">
-					<SectionTitle title="خطوات الاشتراك في المسابقة" className="mb-12" />
-					<ApplyStepper />
+				{/* Conditions */}
+				<section className="pt-28">
+					<SectionTitle title="شروط المسابقة" className="mb-12" />
+					<ContestRules />
 				</section>
 
 				{/* Prizes */}

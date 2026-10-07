@@ -80,20 +80,6 @@ export function Feature({
 	)
 }
 
-// An outlined box for grouped details.
-export function Panel({ children, className }: { children: React.ReactNode; className?: string }) {
-	return (
-		<div
-			className={cn(
-				"rounded-[28px] border-2 border-primary/15 bg-white/60 dark:border-Muharram_primary/20",
-				className,
-			)}
-		>
-			{children}
-		</div>
-	)
-}
-
 // One condition of the contest, with a tick.
 export function Rule({ children }: { children: React.ReactNode }) {
 	return (
