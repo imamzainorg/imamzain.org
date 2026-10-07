@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { FaFilePdf } from "react-icons/fa";
+import { PdfIcon } from "@/components/brand-icons";
 
 export interface TableRow {
   id: string;
@@ -175,7 +175,7 @@ export function ResearchTable({
                         disabled:opacity-40 disabled:cursor-not-allowed
                       "
                       >
-                        <FaFilePdf size={11} />
+                        <PdfIcon width={11} height={11} />
                         PDF
                       </button>
                     </td>
