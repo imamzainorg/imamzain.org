@@ -4,7 +4,6 @@ import type { ComponentType, SVGProps } from "react"
 
 import Image from "next/image"
 import { motion, useReducedMotion, type Variants } from "framer-motion"
-import { track } from "@vercel/analytics"
 import {
 	FaYoutube,
 	FaInstagram,
@@ -131,10 +130,6 @@ const contacts: {
 		external: true,
 	},
 ]
-
-function onLinkClick(label: string) {
-	track("link_click", { label })
-}
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
 	return (
@@ -267,7 +262,6 @@ export default function LinksContent() {
 								href={app.href}
 								target="_blank"
 								rel="noopener noreferrer"
-								onClick={() => onLinkClick(app.label)}
 								className="group flex items-center gap-3.5 rounded-2xl bg-gradient-to-l from-[#00564a] to-primary p-3.5 text-white shadow-custom outline-none ring-1 ring-secondary/40 transition focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-[#FBFAF6]"
 							>
 								<span
@@ -306,7 +300,6 @@ export default function LinksContent() {
 						href="https://imamzain.org"
 						target="_blank"
 						rel="noopener noreferrer"
-						onClick={() => onLinkClick("الموقع الإلكتروني")}
 						className="group mt-3 flex items-center gap-3 rounded-2xl border-2 border-primary/15 bg-white p-3.5 text-primary shadow-custom outline-none transition hover:border-primary hover:bg-primary hover:text-white focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-[#FBFAF6]"
 					>
 						<span
@@ -349,7 +342,6 @@ export default function LinksContent() {
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label={s.aria}
-								onClick={() => onLinkClick(s.aria)}
 								className="group flex aspect-square min-w-0 flex-col items-center justify-center gap-1.5 rounded-2xl border border-black/[0.06] bg-white shadow-sm outline-none transition hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-[#FBFAF6]"
 							>
 								<s.Icon
@@ -381,7 +373,6 @@ export default function LinksContent() {
 								whileTap={tap}
 								href={c.href}
 								aria-label={c.aria}
-								onClick={() => onLinkClick(c.aria)}
 								{...(c.external
 									? { target: "_blank", rel: "noopener noreferrer" }
 									: {})}

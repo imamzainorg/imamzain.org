@@ -1,0 +1,98 @@
+name: Deploy
+
+# Every merge to main ships to imamzain.org, safely:
+#   1. build, and stop if the output breaks a Cloudflare free-plan limit;
+#   2. upload the new version WITHOUT making it live, and smoke-test it on
+#      its own preview URL;
+#   3. only then make it live, and smoke-test imamzain.org itself;
+#   4. if imamzain.org fails that check, roll back to the previous version.
+# A failure at any step leaves the live site on the last good version.
+#
+# Needs the repository (or organization) secret CLOUDFLARE_API_TOKEN, created
+# from Cloudflare's "Edit Cloudflare Workers" token template.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  CLOUDFLARE_ACCOUNT_ID: 634ab7e4417267177c5057798e20265f
+  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+  SITE_URL: https://imamzain.org
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.1
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build
+        run: bun run build
+
+      - name: Check Cloudflare free-plan limits
+        run: node scripts/check-cloudflare-limits.mjs
+
+      - name: Upload the new version (not live yet)
+        id: upload
+        env:
+          WRANGLER_OUTPUT_FILE_PATH: ${{ runner.temp }}/wrangler-upload.json
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::error::The CLOUDFLARE_API_TOKEN secret is not set; see CONTRIBUTING.md, Hosting."
+            exit 1
+          fi
+          subject=$(git log -1 --format=%s)
+          bunx wrangler versions upload --tag "${GITHUB_SHA::7}" --message "${subject:0:100}"
+          version_id=$(jq -r 'select(.type == "version-upload") | .version_id' "$WRANGLER_OUTPUT_FILE_PATH")
+          preview_url=$(jq -r 'select(.type == "version-upload") | .preview_url // empty' "$WRANGLER_OUTPUT_FILE_PATH")
+          if [ -z "$version_id" ] || [ -z "$preview_url" ]; then
+            echo "::error::wrangler did not report a version ID and preview URL"
+            exit 1
+          fi
+          echo "version_id=$version_id" >> "$GITHUB_OUTPUT"
+          echo "preview_url=$preview_url" >> "$GITHUB_OUTPUT"
+
+      - name: Test the new version on its preview URL
+        run: node scripts/smoke-test.mjs "${{ steps.upload.outputs.preview_url }}"
+
+      - name: Remember the live version
+        id: live
+        run: |
+          version_id=$(bunx wrangler deployments status --json | jq -r '.versions | max_by(.percentage) | .version_id // empty')
+          echo "version_id=$version_id" >> "$GITHUB_OUTPUT"
+
+      - name: Go live
+        run: bunx wrangler versions deploy "${{ steps.upload.outputs.version_id }}@100%" --yes --message "Deploy ${GITHUB_SHA::7}"
+
+      - name: Test imamzain.org
+        id: verify
+        run: node scripts/smoke-test.mjs "$SITE_URL" --live
+
+      - name: Roll back to the previous version
+        if: failure() && steps.verify.outcome == 'failure' && steps.live.outputs.version_id != ''
+        run: |
+          bunx wrangler rollback "${{ steps.live.outputs.version_id }}" --yes --message "Automatic rollback: $SITE_URL failed its check after deploying ${GITHUB_SHA::7}"
+          echo "::error::$SITE_URL failed after going live, so it was rolled back to ${{ steps.live.outputs.version_id }}."

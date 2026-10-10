@@ -216,7 +216,7 @@ export default async function Page() {
                 ctaLinks={[
                   {
                     label: "حياته الكريمة",
-                    href: "/his-life/birth-and-mother",
+                    href: "/his-life",
                   },
                   {
                     label: "تراث الإمام",

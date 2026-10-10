@@ -9,6 +9,8 @@ import type { Research } from "@/types/research"
 // visitor's active tab resolves to "conferences" (landing on
 // ?type=conferences, or switching tabs client-side), instead of shipping
 // research.json unconditionally alongside the default student-research tab.
+export const dynamic = "force-static"
+
 export async function GET() {
 	return NextResponse.json(researchData as Research[], {
 		headers: {
