@@ -134,12 +134,12 @@ html.dark {
   cursor: pointer;
 
   /* ── خلفية خضراء: همسة خفيفة ── */
-  background-color: color-mix(in oklab, #006654 2%, transparent);
+  background-color: color-mix(in oklab, #006654 1%, transparent);
 
   /* ── الهالة على الحروف: طبقتان متوازنتان ── */
   text-shadow:
 
-    0 0 10px color-mix(in oklab, #006654 14%, transparent);
+    0 0 10px color-mix(in oklab, #006654 45%, transparent);
 
   padding: 0.02em 0.08em;
   margin: -0.01em -0.05em;
