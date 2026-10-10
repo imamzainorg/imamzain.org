@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { FaFilePdf } from "react-icons/fa";
+import { PdfIcon } from "@/components/brand-icons";
 
 export interface TableRow {
   id: string;
@@ -33,17 +33,17 @@ export function ResearchTable({
   showCategory = false,
 }: ResearchTableProps) {
   return (
-    <div className="overflow-hidden rounded-2xl  border border-gray-100 dark:border-gray-800 dark:bg-Muharram_secondary/15">
+    <div className="overflow-hidden rounded-3xl border-2 border-primary/15 bg-white dark:border-white/10 dark:bg-Muharram_secondary/15">
       {/* حاوية تمرير أفقي للموبايل */}
       <div className="overflow-x-auto touch-pan-x ">
         <table className="min-w-[1100px] w-full table-fixed text-sm">
           <thead>
             <tr
               className="
-              bg-gray-50/80 dark:bg-Muharram_primary
-              text-black dark:text-white
-              text-xs md:text-sm lg:text-ellipsis font-semibold uppercase tracking-wide
-              border-b border-gray-100 dark:border-gray-800
+              bg-primary/5 dark:bg-Muharram_primary
+              text-primary dark:text-white
+              text-sm md:text-base font-bold
+              border-b border-secondary/40
             "
             >
               <th className="px-4 py-3 text-center w-14">ت</th>
@@ -60,7 +60,7 @@ export function ResearchTable({
             </tr>
           </thead>
 
-          <tbody className=" text-xs md:text-sm lg:text-base bg-white/30   backdrop-blur-xs">
+          <tbody className="text-sm md:text-base">
             <AnimatePresence>
               {rows.map((row, idx) => {
                 const isHighlighted = highlightId === row.id;
@@ -79,8 +79,8 @@ export function ResearchTable({
                     onDoubleClick={() => onRowDoubleClick?.(row.pdfUrl)}
                     className={`cursor-pointer transition-colors  duration-150 ${
                       isHighlighted
-                        ? "bg-primary/20  "
-                        : "hover:bg-primary/10 dark:hover:bg-Muharram_secondary/30 "
+                        ? "bg-primary/10"
+                        : "border-b border-secondary/20 hover:bg-primary/5 dark:hover:bg-Muharram_secondary/30"
                     }`}
                   >
                     {/* الترقيم */}
@@ -175,7 +175,7 @@ export function ResearchTable({
                         disabled:opacity-40 disabled:cursor-not-allowed
                       "
                       >
-                        <FaFilePdf size={11} />
+                        <PdfIcon width={11} height={11} />
                         PDF
                       </button>
                     </td>

@@ -1,16 +1,14 @@
 import Link from "next/link";
-import Image from "next/image";
-import Newsletter from "./_components/newsletter";
-import SectionTitle from "@/components/section";
+import type { Metadata } from "next";
+import { ArrowLeft } from "lucide-react";
 import Breadcrumbs from "@/components/breadcrumb";
-import PostCard from "./_components/news-card";
-import MeetingsCarousel, {
-  type MeetingSlide,
-} from "./_components/MeetingsCarousel";
+import { MoreLink, SectionTitle, outlineButton } from "@/components/brand";
+import DarkBand from "@/components/dark-band";
+import PageHeader from "@/components/page-header";
+import { LatestPosts, PostRow, PostTile } from "@/components/post-cards";
 import { dataFetcher } from "@/lib/dataFetcher";
 import { Post } from "@/types/post";
-import { ChevronRightArrowIcon } from "@/assets/icons/reusable";
-import type { Metadata } from "next";
+import Newsletter from "./_components/newsletter";
 
 export const metadata: Metadata = {
   title: "الأخبار والأنشطة",
@@ -49,10 +47,16 @@ export const metadata: Metadata = {
   },
 };
 
+
+const intro =
+  "تابعوا آخر أخبار وأنشطة مؤسسة الإمام زين العابدين عليه السلام: المجالس الحسينية والفعاليات والنشاطات الثقافية والإصدارات وأخبار العتبة الحسينية المقدسة.";
+
+const archiveLink = (
+  <MoreLink href="/news/archives">عرض الأرشيف</MoreLink>
+);
+
 export default async function Page() {
   const data = await dataFetcher<Post[]>("posts.json");
-
-  // Foundation-specific content (your institution)
 
   const activities = data.filter((post) => post.category === "نشاطات");
   const events = data.filter((post) => post.category === "فعاليات");
@@ -61,188 +65,97 @@ export default async function Page() {
     (post) => post.category === "العتبة الحسينية",
   );
 
-  // Last 3 مجالس posts in display order — MeetingsCarousel used to compute
-  // this itself from the full 85-post catalog (including every post's HTML
-  // content and attachments), which meant the whole catalog was serialized
-  // into this page just to show 3 items.
-  const latestMeetings: MeetingSlide[] = majalis
-    .slice(-3)
-    .reverse()
-    .map(({ id, slug, image, title, summary, date }) => ({
-      id,
-      slug,
-      image,
-      title,
-      summary,
-      date,
-    }));
-
-  // Latest from foundation activities (prioritizing your content)
-  const latestFoundationContent = [
-    ...activities,
-    ...events,
-    ...imamHussainPosts,
-    ...majalis,
-  ]
+  // Latest from the foundation's own activities first, then the rest.
+  const latest = [...activities, ...events, ...imamHussainPosts, ...majalis]
     .sort((a, b) => b.id - a.id)
     .slice(0, 4);
 
+  const latestMeetings = majalis.slice(-3).reverse();
+  const shrineNews = [...imamHussainPosts].sort((a, b) => b.id - a.id).slice(0, 6);
+
   return (
-    <div className="container mx-auto px-4">
-      {/* Breadcrumbs & Archive Link */}
-      <div className="flex flex-row justify-between items-start md:items-end mt-8">
+    <div className={shrineNews.length > 0 ? "-mb-24" : "pb-12"}>
+      <div className="container">
         <Breadcrumbs
           links={[
             { name: "الصفحة الرئيسية", url: "/" },
             { name: "الأخبار", url: "#" },
           ]}
         />
-      </div>
 
-      {/* Latest Foundation Activities */}
-      {latestFoundationContent.length > 0 && (
-        <div className="flex flex-col lg:flex-row gap-y-8 lg:gap-x-16 mt-6">
-          {/* الخبر الرئيسي */}
-          <Link
-            href={`/news/${latestFoundationContent[0].slug}`}
-            key={latestFoundationContent[0].id}
-            className="lg:w-7/12 space-y-6"
-          >
-            <div className="relative">
-              <div
-                className="absolute w-7 h-7 -bottom-2.5 right-6 
-      bg-[url('/shapes/newsIndicator.svg')] 
-      dark:bg-[url('/shapes/newsIndicator_Muharram.svg')] 
-      rotate-180 bg-no-repeat z-10"
-              ></div>
-              <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900">
-                <Image
-                  src={latestFoundationContent[0].image || "/default-image.jpg"}
-                  alt={latestFoundationContent[0].slug}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                  priority
-                   unoptimized
-                />
-              </div>
-            </div>
-            <div className="space-y-2">
-              <h2 className="font-bold line-clamp-1 lg:line-clamp-none leading-7 md:leading-8 text-body md:text-note">
-                {latestFoundationContent[0].title}
-              </h2>
-              <p className="font-light line-clamp-2 text-subtitle leading-6 xl:leading-9">
-                {latestFoundationContent[0].summary}
-              </p>
-              <p className="font-extralight text-sm lg:text-subtitle">
-                {latestFoundationContent[0].date}
-              </p>
-            </div>
-          </Link>
+        <PageHeader
+          title="الأخبار والأنشطة"
+          text={intro}
+          actions={
+            <Link href="/news/archives" className={outlineButton}>
+              أرشيف الأخبار
+              <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+            </Link>
+          }
+        />
 
-          {/* آخر الأنشطة + زر الأرشيف */}
-          <div className="lg:w-4/12 space-y-6">
-            <h2 className="text-primary dark:text-Muharram_primary font-bold text-center lg:text-left p-4 text-body">
-              آخر أنشطة المؤسسة
-            </h2>
-            <div className="grid lg:grid-rows-3 gap-4">
-              {latestFoundationContent.slice(1).map((post) => (
-                <PostCard key={post.id} {...post} />
+        <section className="pt-20">
+          <LatestPosts posts={latest} priority />
+        </section>
+
+        {activities.length > 0 && (
+          <section className="pt-28">
+            <SectionTitle title="الأنشطة" className="mb-10" action={archiveLink} />
+            <ul className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+              {activities.slice(0, 6).map((post) => (
+                <li key={post.id}>
+                  <PostTile post={post} />
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <section className="pt-28">
+          <SectionTitle title="فعاليات" className="mb-10" />
+          <div className="grid gap-12 lg:grid-cols-[3fr_2fr] lg:gap-16">
+            <div>
+              {events.map((post) => (
+                <PostRow key={post.id} post={post} />
               ))}
             </div>
-
-            {/* زر أرشيف الأخبار */}
-            <Link
-              href="/news/archives"
-              className="flex items-center justify-between w-full py-3 px-6 rounded-xl border-2 border-primary
-    dark:border-Muharram_primary text-primary dark:text-Muharram_primary font-semibold text-subtitle
-    hover:bg-primary hover:text-white dark:hover:bg-Muharram_primary dark:hover:text-white
-    transition-all duration-300"
-            >
-              أرشيف الأخبار
-              <ChevronRightArrowIcon
-                className="rotate-180 hover:translate-x-1 transition-all duration-300 w-5 h-5"
-                strokeWidth={1.5}
-              />
-            </Link>
-          </div>
-        </div>
-      )}
-
-      {/* Academic Activities Highlights */}
-      <div className="mt-12">
-        <SectionTitle title="الأنشطة" />
-        <div className="grid  mt-4">
-          {/* Conferences */}
-          {activities.length > 0 && (
-            <div className="space-y-4">
-              <div className="space-y-3 grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4">
-                {activities.slice(0, 6).map((post) => (
-                  <PostCard key={post.id} {...post} />
-                ))}
-              </div>
+            <div className="lg:sticky lg:top-32 lg:self-start">
+              <Newsletter />
             </div>
-          )}
-        </div>
-      </div>
-
-      {/* Most Read Section */}
-      <div className="space-y-5 mt-12">
-        <SectionTitle title="فعاليات" />
-        <div className="w-full flex flex-col lg:flex-row items-center gap-8 lg:gap-20">
-          <div className="w-full lg:w-7/12 grid grid-cols-1 gap-4">
-            {events.map((post) => (
-              <PostCard key={post.id} {...post} />
-            ))}
           </div>
-          <div className="w-full lg:w-5/12 flex flex-col items-center lg:items-start">
-            <Newsletter />
-          </div>
-        </div>
+        </section>
+
+        {latestMeetings.length > 0 && (
+          <section className="pt-28">
+            <SectionTitle title="مجالس" className="mb-10" action={archiveLink} />
+            <ul className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+              {latestMeetings.map((post) => (
+                <li key={post.id}>
+                  <PostTile post={post} />
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </div>
 
-      {/* Meetings Section */}
-      <div className="mt-12">
-        <SectionTitle title="مجالس" />
-        <MeetingsCarousel meetingsData={latestMeetings} />
-      </div>
-
-      {/* اخبار العتبة الحسينية المقدسة - Repositioned and Resized */}
-      <div className="mt-12 bg-gray-50 dark:bg-gray-800 rounded-xl p-4 md:p-6">
-        <SectionTitle title="اخبار العتبة الحسينية المقدسة" />
-        <p className="text-note text-gray-600 dark:text-gray-400 mt-2 mb-4 md:mb-6">
-          أخبار مختارة من أنشطة المؤسسة الأم والعتبة المقدسة
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-          {[...imamHussainPosts]
-            .sort((a, b) => b.id - a.id)
-            .slice(0, 6)
-            .map((post) => (
-              <Link href={`/news/${post.slug}`} key={post.id} className="block">
-                <div className="rounded-lg overflow-hidden bg-white dark:bg-gray-700 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="relative w-full h-32 sm:h-36 md:h-40">
-                    <Image
-                      src={post.image || "/default-image.jpg"}
-                      alt={post.summary}
-                      width={400}
-                      height={200}
-                       unoptimized
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-2 md:p-3">
-                    <h3 className="text-subtitle leading-4 md:leading-6 xl:leading-7  font-semibold text-gray-900 dark:text-white line-clamp-2 mb-1 md:mb-2">
-                      {post.title}
-                    </h3>
-                    <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-300 line-clamp-2">
-                      {post.summary}
-                    </p>
-                  </div>
-                </div>
-              </Link>
+      {shrineNews.length > 0 && (
+        <DarkBand className="mt-28">
+          <SectionTitle
+            light
+            title="اخبار العتبة الحسينية المقدسة"
+            text="أخبار مختارة من أنشطة المؤسسة الأم والعتبة المقدسة"
+            className="mb-10"
+          />
+          <ul className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+            {shrineNews.map((post) => (
+              <li key={post.id}>
+                <PostTile post={post} tone="light" />
+              </li>
             ))}
-        </div>
-      </div>
+          </ul>
+        </DarkBand>
+      )}
     </div>
   );
 }

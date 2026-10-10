@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* The page canvas every route sits on: a soft off-white under the site pattern.
+   One variable so the whole site can be re-toned in a single place. Set on :root because
+   HeroUI's base styles paint :root, which a bare `html` selector would lose to. */
+:root {
+	--page-bg: #fdfdfc;
+	background-color: var(--page-bg);
+}
+
 html {
 	@apply m-0 p-0 w-full;
 	transition:
@@ -10,14 +18,71 @@ html {
 }
 
 html.dark {
-	background-color: white !important;
+	background-color: var(--page-bg) !important;
 	color: inherit !important;
 }
-
 .image-mask {
 	mask-repeat: no-repeat;
 	mask-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA0ODAuMzYgODQxLjg5Ij4KICA8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjkuMi4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogMi4xLjAgQnVpbGQgMjIpICAtLT4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLnN0MCB7CiAgICAgICAgZmlsbDogIzAwNjY1NDsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPHBhdGggY2xhc3M9InN0MCIgZD0iTS4zMyw1ODcuNDZoLjFjMC00OS42Mi43MS0zMDIuOS0uMTktMzUyLjUxLTEuMDItNTYsMjMuNjEtMTAwLjk4LDY0Ljk3LTEzMy45NSw0MS41Ni0zMy4xNCw4OC45OC01OC44NywxMzMuMjYtODguNjgsMjUuNDctMTcuMTUsNDkuMTItMTUuOTQsNzQuMTYuODQsNTAuNjksMzMuOTcsMTAzLjIyLDY1LjM0LDE1Mi41OCwxMDEuMTIsMzUuNjUsMjUuODQsNTMuNzUsNjUuMjEsNTQuNDUsMTA4LjgyLDEuNjksMTA0Ljk1LjIsNDEzLjU4Ljc2LDUxOC41NS4xNiwyOS4yMS0xMS43Myw0NS41LTQwLjcyLDUyLjcyLTQwLjYxLDEwLjEyLTgwLDI1LjM0LTEyMC43OCwzNC40Ni0zMi45OSw3LjM4LTY4LjYyLDE2LjkyLTEwMC42OSwxMS40NC01OS43NS0xMC4yMS0xMTcuNDItMzIuMDItMTc2LjYyLTQ2LjI3QzguOTMsNzg2LjEzLS42NSw3NjcuMDcuMDMsNzM2LjMyYzEuMTEtNDkuNi4zLTk5LjI0LjMtMTQ4Ljg2WiIvPgo8L3N2Zz4=);
 }
+/* Mega menu: the panel eases down from the bar, then its cards rise in one after another. */
+@keyframes mega-in {
+	from {
+		opacity: 0;
+		transform: translateY(-10px) scale(0.985);
+	}
+}
+@keyframes mega-item-in {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+}
+.mega-panel {
+	transform-origin: top center;
+	animation: mega-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mega-item {
+	animation: mega-item-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+/* Page transition. A thin bar (route-progress.tsx) runs along the top while the next page loads,
+   and the new page fades in quickly. The fade only plays after the first navigation
+   (html[data-nav]), so a fresh load never starts invisible. */
+.route-progress {
+	opacity: 0;
+	transform: scaleX(0);
+	transform-origin: right;
+}
+.route-progress[data-phase="loading"] {
+	opacity: 1;
+	transform: scaleX(0.85);
+	transition: transform 6s cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+.route-progress[data-phase="done"] {
+	opacity: 0;
+	transform: scaleX(1);
+	transition:
+		transform 0.2s ease-out,
+		opacity 0.3s ease 0.2s;
+}
+@keyframes page-fade {
+	from {
+		opacity: 0;
+	}
+}
+html[data-nav] .page-enter {
+	animation: page-fade 0.18s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.mega-panel,
+	.mega-item,
+	html[data-nav] .page-enter {
+		animation: none;
+	}
+}
+
 .scrollbar-hide {
 	-ms-overflow-style: none;
 	scrollbar-width: none;
@@ -26,42 +91,111 @@ html.dark {
 .scrollbar-hide::-webkit-scrollbar {
 	display: none;
 }
+/* Dropdown panels (the shared Dropdown, react-select and the HeroUI country list) */
+@keyframes dropdown-in {
+	from {
+		opacity: 0;
+		transform: translateY(-6px) scale(0.98);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.dropdown-panel {
+	animation: dropdown-in 0.16s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.dropdown-panel {
+		animation: none;
+	}
+}
+
+/* react-select, themed like the shared Dropdown. */
 .react-select__control {
 	border-radius: 0.75rem !important;
-	border-color: #e5e7eb !important;
+	border-width: 2px !important;
+	border-color: rgb(0 102 84 / 0.25) !important;
 	min-height: 48px !important;
+	box-shadow: none !important;
+	cursor: pointer !important;
+}
+
+.react-select__control:hover {
+	border-color: #006654 !important;
 }
 
 .react-select__control--is-focused {
-	border-color: #2b994f !important;
-	box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2) !important;
+	border-color: #006654 !important;
+}
+
+.react-select__placeholder {
+	color: #6b7280 !important;
+	font-weight: 600;
+}
+
+.react-select__single-value {
+	font-weight: 600;
+}
+
+.react-select__indicator-separator {
+	display: none !important;
+}
+
+.react-select__dropdown-indicator {
+	color: #bb9661 !important;
+}
+
+.dark .react-select__control {
+	border-color: rgb(35 31 32 / 0.25) !important;
+}
+
+.dark .react-select__control:hover,
+.dark .react-select__control--is-focused {
+	border-color: #231f20 !important;
 }
 
 .react-select__menu {
 	z-index: 9999 !important;
+	margin-top: 8px !important;
+	padding: 0.375rem;
+	border: 1px solid rgb(0 102 84 / 0.1);
+	border-radius: 1rem !important;
+	box-shadow: 0 25px 50px -12px rgb(0 102 84 / 0.2) !important;
+	overflow: hidden;
+	animation: dropdown-in 0.16s ease-out;
 }
 
-.hero-mask {
-	position: absolute;
-	top: -50%;
-	mask-repeat: no-repeat;
-	height: 150vh;
-	width: 100%;
-	mask-size: cover;
-	mask-image: url("/shapes/hero-bound_Muharram.svg");
-}
-.button-mask {
-	position: absolute;
-	top: -50%;
-	mask-repeat: no-repeat;
-	height: 150vh;
-	width: 100%;
-	mask-size: cover;
-	mask-image: url("/shapes/button-bg.svg");
+.react-select__menu-list {
+	padding: 0 !important;
 }
 
-.section-container {
-	@apply w-11/12 mx-auto;
+.react-select__option {
+	border-radius: 0.75rem;
+	padding: 0.625rem 0.875rem !important;
+	font-weight: 500;
+	cursor: pointer !important;
+}
+
+.react-select__option--is-focused {
+	background-color: rgb(0 102 84 / 0.08) !important;
+}
+
+.react-select__option--is-selected {
+	background-color: rgb(0 102 84 / 0.12) !important;
+	color: #006654 !important;
+	font-weight: 700;
+}
+
+.dark .react-select__option--is-focused {
+	background-color: rgb(35 31 32 / 0.08) !important;
+}
+
+.dark .react-select__option--is-selected {
+	background-color: rgb(35 31 32 / 0.14) !important;
+	color: #231f20 !important;
 }
 
 .container {
@@ -70,14 +204,6 @@ html.dark {
 
 .bg-pattern {
 	@apply bg-[url('/shapes/bg.svg')] bg-[length:500px] lg:bg-[length:50%] bg-repeat;
-}
-
-.tooltip {
-	@apply invisible absolute rounded-xl shadow-lg p-1 bg-white text-[var(--color-primary)] -mt-8;
-}
-
-.has-tooltip:hover .tooltip {
-	@apply visible z-50 text-[var(--color-secondary)];
 }
 
 .swiper-button-next,
@@ -98,19 +224,6 @@ html.dark {
 	counter-reset: arabic-counter;
 	padding-right: 1rem;
 }
-.custom-gradient {
-	transition: background 0.5s ease-in-out;
-}
-
-.dark .custom-gradient {
-	background: linear-gradient(
-		0deg,
-		rgba(128, 0, 32, 1) 0%,
-		rgba(128, 0, 32, 1) 0%,
-		rgba(128, 0, 32, 0) 50%
-	) !important;
-}
-
 .arabic-list li {
 	counter-increment: arabic-counter;
 	position: relative;
@@ -340,4 +453,76 @@ html.dark {
 .dark .stories-swiper {
 	--swiper-scrollbar-bg-color: theme("colors.Muharram_primary / 12%");
 	--swiper-scrollbar-drag-bg-color: theme("colors.Muharram_secondary");
+}
+
+/* News article bodies are CMS HTML. Many were written against an old template that wrapped them
+   in Tailwind class names (a gray lead box, a blue closing note, a left border that lands on the
+   wrong side in RTL). Tailwind never scans src/data, so those classes only work by accident; the
+   article styles itself here instead, and the legacy callouts are matched by their class names. */
+.news-body {
+	@apply text-lg leading-loose text-gray-800 md:text-xl md:leading-[2.1];
+}
+.news-body :is(div, main, p) {
+	font-size: inherit;
+	line-height: inherit;
+	font-weight: inherit;
+	color: inherit;
+}
+.news-body :is(p, div, main, ul, ol) + :is(p, div, main, ul, ol, h2, h3) {
+	@apply mt-6;
+}
+.news-body :is(h2, h3) {
+	@apply mb-3 mt-10 text-2xl font-bold leading-snug text-primary dark:text-Muharram_primary;
+}
+.news-body strong {
+	@apply font-bold text-primary dark:text-Muharram_primary;
+}
+.news-body ul {
+	@apply list-disc space-y-2 pr-8;
+}
+.news-body ol {
+	@apply list-decimal space-y-2 pr-8;
+}
+.news-body a {
+	@apply font-semibold text-primary underline underline-offset-4 dark:text-Muharram_primary;
+}
+.news-body div[class*="border-l-4"] {
+	@apply border-secondary pr-6 text-xl font-semibold text-gray-900 dark:border-Muharram_secondary md:text-2xl md:leading-[2];
+	background: none;
+	border-left-width: 0;
+	border-right-width: 4px;
+	border-radius: 0;
+	padding-block: 0;
+	padding-left: 0;
+	margin-bottom: 0;
+}
+.news-body div[class*="bg-blue-50"],
+.news-body div[class*="bg-green"] {
+	@apply border-secondary/60 pr-5 text-gray-700 dark:border-Muharram_secondary/60;
+	background: none;
+	border-width: 0;
+	border-right-width: 3px;
+	border-radius: 0;
+	padding-block: 0;
+	padding-left: 0;
+	font-style: normal;
+	font-weight: inherit;
+}
+
+/* Lenis (smooth scrolling) */
+html.lenis,
+html.lenis body {
+	height: auto;
+}
+
+.lenis.lenis-smooth {
+	scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+	overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+	overflow: clip;
 }

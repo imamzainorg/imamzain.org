@@ -1,20 +1,25 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import BookPanel from "@/components/book-panel";
+import { SectionTitle, outlineButton, solidButton } from "@/components/brand";
+import ImamBand from "./_components/imam-band";
 import Posts from "./_components/posts";
 import Publications from "./_components/publications";
-import Services from "./_components/services";
+import VisitationSignup from "@/components/visitation-signup";
 import TopImage from "./_components/top-image";
+import Vision from "./_components/vision";
 import { dataFetcher } from "@/lib/dataFetcher";
 import { Book } from "@/types/book";
 import { Post } from "@/types/post";
 import { YouTubePlaylist } from "@/types/youtube-data";
 import hadiths from "@/data/hadiths.json";
-import { getGallerySectionData } from "./_components/gallery-data";
-import AnimatedTextSection from "@/components/animated-text";
+import { getSliderImages } from "./_components/gallery-data";
 
 import dynamic from "next/dynamic";
 
 const GallerySection = dynamic(() => import("./_components/gallery"), {
-  loading: () => <div className="h-96 animate-pulse bg-gray-200" />,
+  loading: () => <div className="mt-24 h-96 animate-pulse bg-[#101c1a]/90 dark:bg-[#171314]/90" />,
 });
 
 const Videos = dynamic(() => import("./_components/videos"));
@@ -139,7 +144,6 @@ export default async function Page() {
   const books = await dataFetcher<Book[]>("books.json");
   const posts = await dataFetcher<Post[]>("posts.json");
   const playlists = await dataFetcher<YouTubePlaylist[]>("youtube.json");
-  const { sliderImages, categoryImages } = getGallerySectionData();
 
   // Select Proper Hadith Based on Date
   const today = new Date();
@@ -148,7 +152,7 @@ export default async function Page() {
   const currentHadith = hadiths[currentHadithIndex];
 
   return (
-    <div className="">
+    <div>
       <h1 className="sr-only">
         مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات
       </h1>
@@ -158,115 +162,37 @@ export default async function Page() {
         currentHadith={currentHadith}
       />
 
-      <div className="container  ">
-        <AnimatedTextSection
-          title="رؤية المؤسسة"
-          text="
-					انطلاقاً من العمق الديني والعلمي والإجتماعي لأهل بيت النبوة
-					وأنوار الهداية الإلهية (عليهم السلام جميعاً) ، وسعياً الى
-					تعريف المجتمع الإنساني بمآثر العترة الطاهرة لنبي الرحمة (صلى
-					الله عليه وعليهم أجمعين) ، وإظهاراً لمظلومية الأئمة الطاهرين
-					وخصوصاً أئمة البقيع (عليهم السلام)، وما مورس في حقهم من
-					إجحاف وتنكر وتغييب والحال أنهم أهل المدينة وسادتها وهم ورثة
-					جدهم النبي الاكرم نسباً وعلماً ومكانةً وسؤدداً فلقد اهتم
-					المؤمنون جزاهم الله خيراً قديماً وحديثاً بمحاولات كثيرة لنشر
-					فكر أئمة البقيع وفقههم والعمل على إلفات الأنظار الى سمو
-					مرتبتهم (عليهم السلام) وجلالة قدرهم في الإسلام فجزى الله
-					العاملين كل خير."
-          ctaLinks={[
-            {
-              label: "رؤية المؤسسة",
-              href: "/about/vision-and-goals#vision",
-            },
-            {
-              label: "رسالة المؤسسة",
-              href: "/about/vision-and-goals#message",
-            },
-          ]}
-        />
-      </div>
+      <Vision text="انطلاقاً من العمق الديني والعلمي والإجتماعي لأهل بيت النبوة وأنوار الهداية الإلهية (عليهم السلام جميعاً) ، وسعياً الى تعريف المجتمع الإنساني بمآثر العترة الطاهرة لنبي الرحمة (صلى الله عليه وعليهم أجمعين) ، وإظهاراً لمظلومية الأئمة الطاهرين وخصوصاً أئمة البقيع (عليهم السلام)، وما مورس في حقهم من إجحاف وتنكر وتغييب والحال أنهم أهل المدينة وسادتها وهم ورثة جدهم النبي الاكرم نسباً وعلماً ومكانةً وسؤدداً فلقد اهتم المؤمنون جزاهم الله خيراً قديماً وحديثاً بمحاولات كثيرة لنشر فكر أئمة البقيع وفقههم والعمل على إلفات الأنظار الى سمو مرتبتهم (عليهم السلام) وجلالة قدرهم في الإسلام فجزى الله العاملين كل خير." />
+
       <Posts newsPosts={posts.slice(0, HOME_POSTS_COUNT)} />
 
-      <div className="pt-20">
-        <div
-          className="bg-cover bg-top bg-no-repeat"
-          style={{
-            backgroundImage: "url('/images/albaqi.jpg') ",
+      <ImamBand text='الإمام علي بن الحسين (عليه السلام) هو الإمام الرابع من سلسلة الأئمة الأطهار (عليهم السلام) من آل بيت النبي (صلى الله عليه وآله)، أطل على هذه الدنيا في اليوم الخامس من شهر شعبان من سنة 37 أو 38 للهجرة وجه نَوْرَانِيٌّ هادئْ ، يحمل سماتٍ من نور الله ، وملامح ضاربةٌ في العراقة من أبيه الحسين إلى جده إبراهيم « عليهم السلام » ، ومن أمه شاه زنان بنت يزدجرد إلى أعلى أعراق الفرس وقدم الإسلام الأصيل للأمة، مقابل الإسلام الأموي المشوه وعاصر خلال حياته عدداً من الخلفاء الأمويين، أولهم "يزيد بن معاوية" لعنة الله عليه، وآخرهم "الوليد بن عبد الملك بن مروان" ورحل عن هذه الدنيا في سنة 95 للهجرة بعد حياة حافلة بالبذل والعطاء في سبيل إعلاء شأن الرسالة وخدمة الأمة الإسلامية.' />
+
+      <section className="container pt-24">
+        <SectionTitle title="رسالة الحقوق" />
+        <BookPanel text="رسالة الحقوق منظومة حقوقية دونها الامام زين العابدين ع قبل اربعة عشر قرنا ... تمتاز عن غيرها : بالشمولية لجميع الحقوق التي جاء بها الاسلام ابتداء من نفس الإنسان وجوارحه وعلاقته بخالقه ثم تتوسع شاملة لجميع علاقاته مع ارحامه وجيرانه واصدقائه لتشمل خارطة العلاقات الاجتماعة جميعاً. ان مادتها مستمدة من الوحي اذ الامام هو حجة الله تعالى وترجمان وحيه. تمتاز بالثبات وعدم طرو التغير عليها كما في بقية المدونات الحقوقية الوضعية منطلقة من ملاك الحق المشرع بمقتضى الحكمة الإلهية بعيداً عن الاهواء والرغبات الشخصية او العرقية او الطائفية ومحققة للعدالة الإجتماعية وموجدة للتوازن بين جميع مكونات المجتمع الانساني بالغة به حد الامن والسلم المجتمعي والحياة الكريمة لو تمت مراعاتها وتطبيقها." spine={["رسالة", "الحقوق"]}
+          quote={{
+            text: "فَأَمّا حَقّ اللهِ الْأَكْبَرُ فَإِنّكَ تَعْبُدُهُ لَا تُشْرِكُ بِهِ شَيْئاً فَإِذَا فَعَلْتَ ذَلِكَ بِإِخْلَاصٍ جَعَلَ لَكَ عَلَى نَفْسِهِ أَنْ يَكْفِيَكَ أَمْرَ الدّنْيَا وَ الآْخِرَةِ وَ يَحْفَظَ لَكَ مَا تُحِبّ مِنْهَا.",
+            title: "حق الله الأكبر",
+            source: "رسالة الحقوق",
+            href: "/library/risalat-al-huqoq/the-rights-of-god/the-greatest-right-of-god",
           }}
         >
-          <div className="bg-secondary/25 dark:bg-Muharram_secondary/25 backdrop-blur-sm text-white py-20">
-            <div className="container">
-              <AnimatedTextSection
-                title="الإمام زين العابدين (عليه السلام)"
-                text='
-							الإمام علي بن الحسين (عليه السلام) هو الإمام الرابع
-							من سلسلة الأئمة الأطهار (عليهم السلام) من آل بيت
-							النبي (صلى الله عليه وآله)، أطل على هذه الدنيا في
-							اليوم الخامس من شهر شعبان من سنة 37 أو 38 للهجرة وجه
-							نَوْرَانِيٌّ هادئْ ، يحمل سماتٍ من نور الله ، وملامح
-							ضاربةٌ في العراقة من أبيه الحسين إلى جده إبراهيم «
-							عليهم السلام » ، ومن أمه شاه زنان بنت يزدجرد إلى
-							أعلى أعراق الفرس وقدم الإسلام الأصيل للأمة، مقابل
-							الإسلام الأموي المشوه وعاصر خلال حياته عدداً من
-							الخلفاء الأمويين، أولهم "يزيد بن معاوية"
-							لعنة الله عليه، وآخرهم "الوليد بن عبد الملك بن
-							مروان" ورحل عن هذه الدنيا في سنة 95 للهجرة بعد
-							حياة حافلة بالبذل والعطاء في سبيل إعلاء شأن الرسالة
-							وخدمة الأمة الإسلامية.'
-                ctaLinks={[
-                  {
-                    label: "حياته الكريمة",
-                    href: "/his-life",
-                  },
-                  {
-                    label: "تراث الإمام",
-                    href: "/library",
-                  },
-                ]}
-                textClassName="leading-7 md:leading-9 lg:leading-10"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+          <Link href="/library/risalat-al-huqoq/introduction" className={solidButton}>
+            قراءة رسالة الحقوق
+          </Link>
+          <Link href="/library?category=رسالة الحقوق" className={outlineButton}>
+            شروح رسالة الحقوق
+            <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+          </Link>
+        </BookPanel>
+      </section>
 
-      <div className="container">
-        <AnimatedTextSection
-          title="رسالة الحقوق"
-          text="
-					رسالة الحقوق منظومة حقوقية دونها الامام زين العابدين ع قبل
-					اربعة عشر قرنا ... تمتاز عن غيرها : بالشمولية لجميع الحقوق
-					التي جاء بها الاسلام ابتداء من نفس الإنسان وجوارحه وعلاقته
-					بخالقه ثم تتوسع شاملة لجميع علاقاته مع ارحامه وجيرانه
-					واصدقائه لتشمل خارطة العلاقات الاجتماعة جميعاً. ان مادتها
-					مستمدة من الوحي اذ الامام هو حجة الله تعالى وترجمان وحيه.
-					تمتاز بالثبات وعدم طرو التغير عليها كما في بقية المدونات
-					الحقوقية الوضعية منطلقة من ملاك الحق المشرع بمقتضى الحكمة
-					الإلهية بعيداً عن الاهواء والرغبات الشخصية او العرقية او
-					الطائفية ومحققة للعدالة الإجتماعية وموجدة للتوازن بين جميع
-					مكونات المجتمع الانساني بالغة به حد الامن والسلم المجتمعي
-					والحياة الكريمة لو تمت مراعاتها وتطبيقها."
-          ctaLinks={[
-            {
-              label: "شروح رسالة الحقوق",
-              href: "/library?category=رسالة الحقوق",
-            },
-            {
-              label: "قراءة رسالة الحقوق",
-              href: "/library/risalat-al-huqoq/introduction",
-            },
-          ]}
-        />
-      </div>
-      <Services />
+      <VisitationSignup />
       <Publications publications={homePublications(books)} />
       <Application />
-      <GallerySection
-        sliderImages={sliderImages}
-        categoryImages={categoryImages}
-      />
+      <GallerySection sliderImages={getSliderImages()} />
       <Videos playlists={homePlaylists(playlists)} />
-      {/* <Live /> */}
     </div>
   );
 }

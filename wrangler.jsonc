@@ -22,8 +22,6 @@
 		// /api, is answered from out/ without invoking the Worker.
 		"run_worker_first": [
 			"/api/contact",
-			"/api/contests/qatuf-sajjadiyya/start",
-			"/api/contests/qatuf-sajjadiyya/submit",
 			"/api/download",
 			"/api/hijri-date",
 			"/api/newsletter/subscribe",
