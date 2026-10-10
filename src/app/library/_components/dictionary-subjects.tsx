@@ -1,21 +1,22 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { NavSubject } from "@/types/imamzain-legacy";
+import { libraryPath } from "../_config/paths";
 
-interface Subject {
-  id: string;
-  title: string;
-  slug: string;
-}
-
-interface DictionarySubjectsProps {
-  subjects: Subject[];
+type DictionarySubjectsProps = {
+  subjects: NavSubject[];
   collectionSlug: string;
   dictionarySlug: string;
   dictionaryTitle: string;
-}
+};
+
+const SCROLL_KEY = "dictionary-scroll-top";
+
+const activeClass =
+  "bg-primary/10 opacity-100 text-emerald-700 dark:bg-emerald-400/20 dark:border-emerald-400 dark:text-emerald-300";
 
 export default function DictionarySubjects({
   subjects,
@@ -24,60 +25,47 @@ export default function DictionarySubjects({
   dictionaryTitle,
 }: DictionarySubjectsProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
-
+  const dragStartRef = useRef({ y: 0, scrollTop: 0 });
   const [isDragging, setIsDragging] = useState(false);
-  const [startY, setStartY] = useState(0);
-  const [scrollTop, setScrollTop] = useState(0);
-
   const pathname = usePathname();
 
-  const activeClasses =
-    "bg-primary/10 opacity-100 text-emerald-700 dark:bg-emerald-400/20 dark:border-emerald-400 dark:text-emerald-300";
-
-  // ===== حفظ مكان السكرول =====
-  const handleClick = () => {
-    if (scrollRef.current) {
-      sessionStorage.setItem(
-        "dictionary-scroll-top",
-        scrollRef.current.scrollTop.toString()
-      );
-    }
-  };
-
-  // ===== استرجاع مكان السكرول =====
   useEffect(() => {
-    const savedScroll = sessionStorage.getItem("dictionary-scroll-top");
+    const savedScroll = sessionStorage.getItem(SCROLL_KEY);
     if (savedScroll && scrollRef.current) {
       scrollRef.current.scrollTop = Number(savedScroll);
     }
   }, []);
 
-  // ===== سحب بالماوس =====
-  const onMouseDown = (e: React.MouseEvent) => {
+  function saveScrollPosition() {
+    if (scrollRef.current) {
+      sessionStorage.setItem(SCROLL_KEY, String(scrollRef.current.scrollTop));
+    }
+  }
+
+  function startDragging(e: React.MouseEvent) {
     setIsDragging(true);
-    setStartY(e.clientY);
-    if (scrollRef.current) setScrollTop(scrollRef.current.scrollTop);
-  };
+    dragStartRef.current = {
+      y: e.clientY,
+      scrollTop: scrollRef.current?.scrollTop ?? 0,
+    };
+  }
 
-  const onMouseMove = (e: React.MouseEvent) => {
+  function drag(e: React.MouseEvent) {
     if (!isDragging || !scrollRef.current) return;
-    const dy = e.clientY - startY;
-    scrollRef.current.scrollTop = scrollTop - dy;
-  };
+    scrollRef.current.scrollTop =
+      dragStartRef.current.scrollTop - (e.clientY - dragStartRef.current.y);
+  }
 
-  const onMouseUp = () => setIsDragging(false);
-  const onMouseLeave = () => setIsDragging(false);
-
-  const onWheel = (e: React.WheelEvent) => {
-    if (!scrollRef.current) return;
+  // عند بلوغ طرف القائمة تنتقل العجلة إلى الصفحة، وإلا تبقى داخل القائمة
+  function handleWheel(e: React.WheelEvent) {
     const el = scrollRef.current;
+    if (!el) return;
+
     const atTop = el.scrollTop === 0 && e.deltaY < 0;
     const atBottom =
       el.scrollTop + el.clientHeight >= el.scrollHeight && e.deltaY > 0;
-
-    if (atTop || atBottom) return;
-    e.stopPropagation();
-  };
+    if (!atTop && !atBottom) e.stopPropagation();
+  }
 
   return (
     <div
@@ -85,11 +73,11 @@ export default function DictionarySubjects({
       className={`flex-1 overflow-y-auto max-h-[60vh] ${
         isDragging ? "cursor-grabbing" : "cursor-grab"
       }`}
-      onMouseDown={onMouseDown}
-      onMouseMove={onMouseMove}
-      onMouseUp={onMouseUp}
-      onMouseLeave={onMouseLeave}
-      onWheel={onWheel}
+      onMouseDown={startDragging}
+      onMouseMove={drag}
+      onMouseUp={() => setIsDragging(false)}
+      onMouseLeave={() => setIsDragging(false)}
+      onWheel={handleWheel}
     >
       <div className="bg-white dark:bg-zinc-900 border border-primary/20 rounded-2xl p-4 shadow-sm">
         <h3 className="font-semibold text-subtitle text-center text-gray-700 dark:text-gray-200 mb-3">
@@ -103,14 +91,10 @@ export default function DictionarySubjects({
             return (
               <Link
                 key={subject.id}
-                href={`/library/${collectionSlug}/${dictionarySlug}/${subject.slug}`}
-                onClick={handleClick}
+                href={libraryPath(collectionSlug, dictionarySlug, subject.slug)}
+                onClick={saveScrollPosition}
                 className={`group flex items-center justify-between rounded-lg border px-3 py-2 transition
-                  ${
-                    isActive
-                      ? activeClasses
-                      : "border-primary/15 hover:border-primary/60"
-                  }
+                  ${isActive ? activeClass : "border-primary/15 hover:border-primary/60"}
                 `}
               >
                 <span
@@ -123,7 +107,9 @@ export default function DictionarySubjects({
                   {subject.title}
                 </span>
 
-                <span className="text-xs border-2 border-primary/30 rounded-full p-1 leading-5 text-gray-500">{subject.id}</span>
+                <span className="text-xs border-2 border-primary/30 rounded-full p-1 leading-5 text-gray-500">
+                  {subject.id}
+                </span>
               </Link>
             );
           })}

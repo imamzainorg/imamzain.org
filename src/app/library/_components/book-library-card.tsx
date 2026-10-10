@@ -1,21 +1,24 @@
 "use client";
 
-import { Book } from "@/types/book";
 import Image from "next/image";
 import Link from "next/link";
+import type { Book } from "@/types/book";
+import { rememberLibraryPosition } from "../_lib/book-navigation";
 
-const BOOK_STACK_KEY = "bookNavigationStack";
+type BookLibraryCardProps = {
+  publication: Book;
+  route?: string;
+  priority?: boolean;
+};
 
-export default function BooklibraryCard({
+const LIBRARY_LIST_PATH = /^\/library\/?$/;
+const BOOKS_ROUTE = "/library/books";
+
+export default function BookLibraryCard({
   publication,
   route = "",
   priority = false,
-}: {
-  publication: Book;
-  downloadable?: boolean;
-  route?: string;
-  priority?: boolean;
-}) {
+}: BookLibraryCardProps) {
   const printHouse = publication.printHouse || "غير محدد";
   const author = Array.isArray(publication.author)
     ? publication.author.join("، ")
@@ -23,21 +26,15 @@ export default function BooklibraryCard({
 
   const normalizedRoute = route.replace(/\/+$/, "");
 
-  const handleClick = () => {
-    if (typeof window === "undefined") return;
-
-    const currentPath = window.location.pathname;
-    const isLibraryListPage = /^\/library\/?$/.test(currentPath);
-    const isLibraryBookRoute = normalizedRoute === "/library/books";
-    if (isLibraryListPage && isLibraryBookRoute) {
-      sessionStorage.setItem("lastLibraryURL", window.location.href);
-      sessionStorage.setItem(
-        "libraryScrollPosition",
-        window.scrollY.toString(),
-      );
-      sessionStorage.setItem(BOOK_STACK_KEY, JSON.stringify([]));
+  // من قائمة المكتبة فقط: نحفظ موضع القائمة ليعود إليه زر «العودة»
+  function handleClick() {
+    if (
+      normalizedRoute === BOOKS_ROUTE &&
+      LIBRARY_LIST_PATH.test(window.location.pathname)
+    ) {
+      rememberLibraryPosition();
     }
-  };
+  }
 
   return (
     <Link
@@ -46,7 +43,6 @@ export default function BooklibraryCard({
       className="flex items-center gap-4 py-4 lg:py-6 group"
       prefetch={false}
     >
-      {/* غلاف الكتاب */}
       <div className="relative w-1/3 p-4 flex-shrink-0 flex justify-center items-center bg-[url('/shapes/book-bg.svg')] dark:bg-[url('/shapes/book-bg_Muharram.svg')] bg-no-repeat bg-center bg-contain min-h-[120px]">
         {publication.image ? (
           <div className="relative w-20 h-28 xl:w-24 xl:h-32">
@@ -57,8 +53,7 @@ export default function BooklibraryCard({
               className="object-contain rounded-sm"
               alt={`غلاف كتاب ${publication.title}`}
               priority={priority}
-              loading={priority ? "eager" : "lazy"}
-              unoptimized={publication.image?.startsWith("http")}
+              unoptimized={publication.image.startsWith("http")}
             />
           </div>
         ) : (
@@ -70,7 +65,6 @@ export default function BooklibraryCard({
         )}
       </div>
 
-      {/* تفاصيل الكتاب */}
       <div className="w-2/3 flex flex-col gap-2 py-2">
         <h2 className="text-primary dark:text-Muharram_primary font-bold text-subtitle leading-snug line-clamp-2">
           {publication.title}

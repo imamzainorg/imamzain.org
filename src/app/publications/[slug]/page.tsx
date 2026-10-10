@@ -81,7 +81,6 @@ export default async function Page({
               route="/publications"
               key={libraryBook.id}
               publication={libraryBook}
-              downloadable
             />
           ))}
         </div>

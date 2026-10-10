@@ -1,18 +1,14 @@
 "use client";
 
-import { X, Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 
 type SearchInputProps = {
   value: string;
-  onChange: (val: string) => void;
+  onChange: (value: string) => void;
   onClear?: () => void;
 };
 
-export default function SearchInput({
-  value,
-  onChange,
-  onClear,
-}: SearchInputProps) {
+export default function SearchInput({ value, onChange, onClear }: SearchInputProps) {
   return (
     <div className="relative p-2  mx-auto container group mb-4">
       <Search
@@ -28,6 +24,7 @@ export default function SearchInput({
       {value && (
         <button
           onClick={onClear}
+          aria-label="مسح البحث"
           className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
         >
           <X size={18} />

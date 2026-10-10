@@ -1,11 +1,10 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { Pause, Play, RotateCcw, RotateCw } from "lucide-react";
-import { useCallback, useEffect, useRef, useState } from "react";
 
 type SubjectAudioPlayerProps = {
   src: string;
-  title?: string;
 };
 
 const PLAYBACK_RATES = [1, 1.25, 1.5, 2] as const;
@@ -13,34 +12,42 @@ type PlaybackRate = (typeof PLAYBACK_RATES)[number];
 
 const SKIP_SECONDS = 10;
 
-const formatTime = (seconds: number): string => {
+const pad = (value: number) => String(value).padStart(2, "0");
+
+function formatTime(seconds: number): string {
   if (!Number.isFinite(seconds) || seconds < 0) return "00:00";
 
-  const totalSeconds = Math.floor(seconds);
-  const hours = Math.floor(totalSeconds / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
-  const secs = totalSeconds % 60;
+  const total = Math.floor(seconds);
+  const hours = Math.floor(total / 3600);
+  const minutes = Math.floor((total % 3600) / 60);
+  const secs = total % 60;
 
-  if (hours > 0) {
-    return `${hours}:${minutes.toString().padStart(2, "0")}:${secs
-      .toString()
-      .padStart(2, "0")}`;
-  }
+  return hours > 0
+    ? `${hours}:${pad(minutes)}:${pad(secs)}`
+    : `${pad(minutes)}:${pad(secs)}`;
+}
 
-  return `${minutes.toString().padStart(2, "0")}:${secs
-    .toString()
-    .padStart(2, "0")}`;
-};
+const skipButtonClass =
+  "p-1.5 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-zinc-700 transition-colors";
+
+const rangeInputClass = [
+  "relative w-full h-4 appearance-none bg-transparent cursor-pointer disabled:cursor-not-allowed",
+  "[&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3",
+  "[&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-primary",
+  "dark:[&::-webkit-slider-thumb]:bg-Muharram_primary [&::-webkit-slider-thumb]:mt-0",
+  "[&::-moz-range-thumb]:w-3 [&::-moz-range-thumb]:h-3 [&::-moz-range-thumb]:rounded-full",
+  "[&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:bg-primary",
+  "dark:[&::-moz-range-thumb]:bg-Muharram_primary",
+].join(" ");
 
 export default function SubjectAudioPlayer({ src }: SubjectAudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
+  const isSeekingRef = useRef(false);
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-
   const [playbackRate, setPlaybackRate] = useState<PlaybackRate>(1);
-  const [isSeeking, setIsSeeking] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isRateMenuOpen, setIsRateMenuOpen] = useState(false);
 
@@ -53,80 +60,67 @@ export default function SubjectAudioPlayer({ src }: SubjectAudioPlayerProps) {
       setIsLoaded(true);
     };
     const handleTimeUpdate = () => {
-      if (!isSeeking) setCurrentTime(audio.currentTime);
+      if (!isSeekingRef.current) setCurrentTime(audio.currentTime);
     };
     const handlePlay = () => setIsPlaying(true);
-    const handlePause = () => setIsPlaying(false);
-    const handleEnded = () => setIsPlaying(false);
+    const handleStop = () => setIsPlaying(false);
 
     audio.addEventListener("loadedmetadata", handleLoadedMetadata);
     audio.addEventListener("timeupdate", handleTimeUpdate);
     audio.addEventListener("play", handlePlay);
-    audio.addEventListener("pause", handlePause);
-    audio.addEventListener("ended", handleEnded);
+    audio.addEventListener("pause", handleStop);
+    audio.addEventListener("ended", handleStop);
+
+    // قد تكتمل الميتاداتا قبل أن تُركَّب المستمعات (قبل الـ hydration)
+    if (audio.readyState >= HTMLMediaElement.HAVE_METADATA) handleLoadedMetadata();
 
     return () => {
       audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
       audio.removeEventListener("timeupdate", handleTimeUpdate);
       audio.removeEventListener("play", handlePlay);
-      audio.removeEventListener("pause", handlePause);
-      audio.removeEventListener("ended", handleEnded);
+      audio.removeEventListener("pause", handleStop);
+      audio.removeEventListener("ended", handleStop);
     };
-  }, [isSeeking]);
+  }, []);
 
-  const togglePlay = useCallback(() => {
+  function togglePlay() {
     const audio = audioRef.current;
     if (!audio) return;
 
-    if (audio.paused) {
-      void audio.play();
-    } else {
-      audio.pause();
-    }
-  }, []);
+    if (audio.paused) void audio.play();
+    else audio.pause();
+  }
 
-  const handleSeek = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      const value = Number(event.target.value);
-      setCurrentTime(value);
+  function seekTo(value: number) {
+    setCurrentTime(value);
+    if (audioRef.current) audioRef.current.currentTime = value;
+  }
 
-      const audio = audioRef.current;
-      if (audio) audio.currentTime = value;
-    },
-    [],
-  );
-
-  const handleSeekStart = useCallback(() => setIsSeeking(true), []);
-  const handleSeekEnd = useCallback(() => setIsSeeking(false), []);
-
-  const skip = useCallback((amount: number) => {
+  function skip(seconds: number) {
     const audio = audioRef.current;
     if (!audio) return;
+    seekTo(Math.min(Math.max(audio.currentTime + seconds, 0), audio.duration || 0));
+  }
 
-    const nextTime = Math.min(
-      Math.max(audio.currentTime + amount, 0),
-      audio.duration || 0,
-    );
-    audio.currentTime = nextTime;
-    setCurrentTime(nextTime);
-  }, []);
-
-  const handleRateSelect = useCallback((rate: PlaybackRate) => {
+  function selectRate(rate: PlaybackRate) {
     setPlaybackRate(rate);
     setIsRateMenuOpen(false);
-
-    const audio = audioRef.current;
-    if (audio) audio.playbackRate = rate;
-  }, []);
+    if (audioRef.current) audioRef.current.playbackRate = rate;
+  }
 
   const progressPercent = duration > 0 ? (currentTime / duration) * 100 : 0;
+  const startSeeking = () => {
+    isSeekingRef.current = true;
+  };
+  const endSeeking = () => {
+    isSeekingRef.current = false;
+  };
 
   return (
     <div className="w-full py-2 border-b border-gray-100 dark:border-zinc-700">
       <audio ref={audioRef} src={src} preload="metadata" />
 
       <div className="flex items-center gap-3">
-        {/* Volume + speed (right side) */}
         <div className="flex items-center gap-2 shrink-0">
           <div className="relative">
             <button
@@ -145,7 +139,7 @@ export default function SubjectAudioPlayer({ src }: SubjectAudioPlayerProps) {
                   <button
                     key={rate}
                     type="button"
-                    onClick={() => handleRateSelect(rate)}
+                    onClick={() => selectRate(rate)}
                     className={`block w-full px-4 py-1.5 text-xs text-center tabular-nums transition-colors ${
                       rate === playbackRate
                         ? "bg-primary/10 dark:bg-Muharram_primary/20 text-primary dark:text-Muharram_primary font-medium"
@@ -160,7 +154,6 @@ export default function SubjectAudioPlayer({ src }: SubjectAudioPlayerProps) {
           </div>
         </div>
 
-        {/* Progress bar */}
         <div className="flex-1 flex items-center gap-2">
           <span className="text-xs tabular-nums text-gray-400 dark:text-gray-500 w-10 text-center shrink-0">
             {formatTime(currentTime)}
@@ -182,28 +175,15 @@ export default function SubjectAudioPlayer({ src }: SubjectAudioPlayerProps) {
               max={duration || 0}
               step={0.1}
               value={currentTime}
-              onChange={handleSeek}
-              onMouseDown={handleSeekStart}
-              onMouseUp={handleSeekEnd}
-              onTouchStart={handleSeekStart}
-              onTouchEnd={handleSeekEnd}
+              onChange={(e) => seekTo(Number(e.target.value))}
+              onMouseDown={startSeeking}
+              onMouseUp={endSeeking}
+              onTouchStart={startSeeking}
+              onTouchEnd={endSeeking}
               disabled={!isLoaded}
               aria-label="شريط التقدم"
               dir="ltr"
-              className="relative w-full h-4 appearance-none bg-transparent cursor-pointer disabled:cursor-not-allowed
-								[&::-webkit-slider-thumb]:appearance-none
-								[&::-webkit-slider-thumb]:w-3
-								[&::-webkit-slider-thumb]:h-3
-								[&::-webkit-slider-thumb]:rounded-full
-								[&::-webkit-slider-thumb]:bg-primary
-								dark:[&::-webkit-slider-thumb]:bg-Muharram_primary
-								[&::-webkit-slider-thumb]:mt-0
-								[&::-moz-range-thumb]:w-3
-								[&::-moz-range-thumb]:h-3
-								[&::-moz-range-thumb]:rounded-full
-								[&::-moz-range-thumb]:border-0
-								[&::-moz-range-thumb]:bg-primary
-								dark:[&::-moz-range-thumb]:bg-Muharram_primary"
+              className={rangeInputClass}
             />
           </div>
 
@@ -212,13 +192,12 @@ export default function SubjectAudioPlayer({ src }: SubjectAudioPlayerProps) {
           </span>
         </div>
 
-        {/* Playback controls (left side) */}
         <div className="flex items-center gap-1 shrink-0">
           <button
             type="button"
             onClick={() => skip(SKIP_SECONDS)}
             aria-label="تقديم 10 ثوانٍ"
-            className="p-1.5 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-zinc-700 transition-colors"
+            className={skipButtonClass}
           >
             <RotateCw className="w-4 h-4" />
           </button>
@@ -241,7 +220,7 @@ export default function SubjectAudioPlayer({ src }: SubjectAudioPlayerProps) {
             type="button"
             onClick={() => skip(-SKIP_SECONDS)}
             aria-label="رجوع 10 ثوانٍ"
-            className="p-1.5 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-zinc-700 transition-colors"
+            className={skipButtonClass}
           >
             <RotateCcw className="w-4 h-4" />
           </button>
