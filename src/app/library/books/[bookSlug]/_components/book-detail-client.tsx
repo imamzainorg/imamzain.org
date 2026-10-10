@@ -2,79 +2,62 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Breadcrumbs from "@/components/breadcrumb";
-import { SectionTitle, outlineButton } from "@/components/brand";
-import { Book } from "@/types/book";
-import BooklibraryCard from "@/app/library/_components/book-library-card";
-import BookCard from "@/components/book-card";
 import { ArrowRight } from "lucide-react";
+import Breadcrumbs from "@/components/breadcrumb";
+import BookCard from "@/components/book-card";
+import type { Book } from "@/types/book";
+import BookLibraryCard from "@/app/library/_components/book-library-card";
+import { libraryPath } from "@/app/library/_config/paths";
+import {
+  popToPreviousBook,
+  readSavedLibraryPosition,
+  recordBookVisit,
+} from "@/app/library/_lib/book-navigation";
 
-interface Props {
+type BookDetailClientProps = {
   book: Book;
   seriesParts: Book[];
   showcaseBooks: Book[];
-}
+};
 
-const BOOK_STACK_KEY = "bookNavigationStack";
-
-function getBookPath(slug: string) {
-  return `/library/books/${slug}`;
-}
+const SCROLL_RESTORE_DELAY_MS = 150;
 
 export default function BookDetailClient({
   book,
   seriesParts,
   showcaseBooks,
-}: Props) {
+}: BookDetailClientProps) {
   const router = useRouter();
 
   useEffect(() => {
-    const currentPath = getBookPath(book.slug);
-    const raw = sessionStorage.getItem(BOOK_STACK_KEY);
-    const stack: string[] = raw ? JSON.parse(raw) : [];
-
-    if (stack[stack.length - 1] !== currentPath) {
-      stack.push(currentPath);
-      sessionStorage.setItem(BOOK_STACK_KEY, JSON.stringify(stack));
-    }
+    recordBookVisit(libraryPath("books", book.slug));
   }, [book.slug]);
 
-  const handleBackToLibrary = () => {
-    const raw = sessionStorage.getItem(BOOK_STACK_KEY);
-    const stack: string[] = raw ? JSON.parse(raw) : [];
-
-    stack.pop();
-    sessionStorage.setItem(BOOK_STACK_KEY, JSON.stringify(stack));
-
-    const previousBookPath = stack.length > 0 ? stack[stack.length - 1] : null;
-
+  // الرجوع: إلى الكتاب السابق إن جاء القارئ من كتاب آخر، وإلا إلى موضع القائمة المحفوظ
+  function handleBackToLibrary() {
+    const previousBookPath = popToPreviousBook();
     if (previousBookPath) {
       router.push(previousBookPath);
       return;
     }
 
-    const savedPosition = sessionStorage.getItem("libraryScrollPosition");
-    const savedURL = sessionStorage.getItem("lastLibraryURL");
-    const fallbackURL = "/library";
-
-    if (savedURL) {
-      router.push(savedURL);
-      if (savedPosition) {
-        setTimeout(() => {
-          window.scrollTo({
-            top: parseInt(savedPosition),
-            behavior: "instant",
-          });
-        }, 150);
-      }
+    const saved = readSavedLibraryPosition();
+    if (!saved) {
+      router.push("/library");
       return;
     }
 
-    router.push(fallbackURL);
-  };
+    router.push(saved.path);
+    if (saved.scrollY !== null) {
+      setTimeout(
+        () => window.scrollTo({ top: saved.scrollY ?? 0, behavior: "instant" }),
+        SCROLL_RESTORE_DELAY_MS,
+      );
+    }
+  }
 
   return (
-    <div className="container pb-12">
+    <div className="space-y-10 my-8">
       <Breadcrumbs
         links={[
           { name: "الرئيسية", url: "/" },
@@ -82,28 +65,26 @@ export default function BookDetailClient({
           { name: book.title, url: "#" },
         ]}
       />
-
-      <button
-        type="button"
-        onClick={handleBackToLibrary}
-        className={`${outlineButton} mb-12 !px-4 !py-2`}
-      >
-        <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-        العودة الى الصفحة السابقة
-      </button>
-
+      <div className="container mx-auto px-4">
+        <button
+          onClick={handleBackToLibrary}
+          className="flex items-center gap-2 bg-primary p-2 rounded-xl  hover:bg-primary/90 text-white hover:text-primary-dark transition-colors group mb-4"
+        >
+          <ArrowRight className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+          <span className="font-medium  ">العودة الى الصفحة السابقة</span>
+        </button>
+      </div>
       <BookCard key={book.id} publication={book} seriesParts={seriesParts} />
 
-      <section className="pt-28">
-        <SectionTitle title="كتب ذات صلة" className="mb-12" />
-        <ul className="grid grid-cols-2 gap-x-6 gap-y-14 md:grid-cols-4">
-          {showcaseBooks.map((item) => (
-            <li key={item.id}>
-              <BooklibraryCard route="/library/books" publication={item} />
-            </li>
-          ))}
-        </ul>
-      </section>
+      <h2 className="text-center font-semibold border-t border-b p-4 sm:text-2xl xl:text-4xl">
+        كتب ذات صلة
+      </h2>
+
+      <div className="bg-secondary md:container dark:bg-Muharram_primary/20 bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
+        {showcaseBooks.map((item) => (
+          <BookLibraryCard key={item.id} route="/library/books" publication={item} />
+        ))}
+      </div>
     </div>
   );
 }

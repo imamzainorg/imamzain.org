@@ -1,11 +1,19 @@
-type Dictionary = {
+export type Legacy = {
+  id: number;
+  title: string;
+  slug: string;
+  dictionaries: Dictionary[];
+
+};
+
+export type Dictionary = {
   id: number;
   title: string;
   slug: string;
   subjects: Subject[];
 };
 
-type Subject = {
+export type Subject = {
   id: string;
   title: string;
   slug: string;
@@ -14,16 +22,31 @@ type Subject = {
   phrases: Phrase[];
 };
 
-type Phrase = {
+export type Phrase = {
   id: string;
   content: string;
   explanations: Explanation[];
 };
 
-type Explanation = {
+export type Explanation = {
   id: number;
   author: string;
   content: string;
+  /**
+   * The exact word or phrase inside the parent Phrase.content that this
+   * explanation is about. Optional so legacy entries (which only ever
+   * rendered below the phrase, with no positional link into the text)
+   * keep working unchanged.
+   */
+  text?: string;
+  /**
+   * When `text` repeats more than once inside `content`, this restricts
+   * the explanation to one specific 1-based occurrence instead of every
+   * occurrence. Omit it when the explanation applies to every occurrence
+   * of `text` in the phrase (the default, and the safe choice — it never
+   * produces a link to the wrong instance of a repeated word).
+   */
+  occurrence?: number;
 };
 
 export type Margins = {

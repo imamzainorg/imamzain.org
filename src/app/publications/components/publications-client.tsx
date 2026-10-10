@@ -119,7 +119,7 @@ export default function PublicationsClient({
 						<ul className="grid grid-cols-2 gap-x-6 gap-y-14 md:grid-cols-3 lg:grid-cols-4">
 							{currentPublications.map((publication) => (
 								<li key={publication.id}>
-									<BooklibraryCard route="/publications" publication={publication} as="h2" />
+									<BooklibraryCard route="/publications" publication={publication} />
 								</li>
 							))}
 						</ul>

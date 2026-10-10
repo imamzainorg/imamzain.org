@@ -1,85 +1,88 @@
 "use client";
 
-import { Book } from "@/types/book";
 import Image from "next/image";
 import Link from "next/link";
+import type { Book } from "@/types/book";
+import { rememberLibraryPosition } from "../_lib/book-navigation";
 
-const BOOK_STACK_KEY = "bookNavigationStack";
-
-// A book as a cover standing on the page with its title, author and size beneath. Used by every
-// list of books (publications, the library, related books, the home page shelf).
-export default function BooklibraryCard({
-  publication,
-  route = "",
-  priority = false,
-  as: Heading = "h3",
-}: {
+type BookLibraryCardProps = {
   publication: Book;
   route?: string;
   priority?: boolean;
-  // The heading level of the title: h2 when the list sits directly under the page title.
-  as?: "h2" | "h3";
-}) {
+};
+
+const LIBRARY_LIST_PATH = /^\/library\/?$/;
+const BOOKS_ROUTE = "/library/books";
+
+export default function BookLibraryCard({
+  publication,
+  route = "",
+  priority = false,
+}: BookLibraryCardProps) {
+  const printHouse = publication.printHouse || "غير محدد";
   const author = Array.isArray(publication.author)
     ? publication.author.join("، ")
     : publication.author?.trim() || "";
 
   const normalizedRoute = route.replace(/\/+$/, "");
 
-  const handleClick = () => {
-    if (typeof window === "undefined") return;
-
-    const currentPath = window.location.pathname;
-    const isLibraryListPage = /^\/library\/?$/.test(currentPath);
-    const isLibraryBookRoute = normalizedRoute === "/library/books";
-    if (isLibraryListPage && isLibraryBookRoute) {
-      sessionStorage.setItem("lastLibraryURL", window.location.href);
-      sessionStorage.setItem(
-        "libraryScrollPosition",
-        window.scrollY.toString(),
-      );
-      sessionStorage.setItem(BOOK_STACK_KEY, JSON.stringify([]));
+  // من قائمة المكتبة فقط: نحفظ موضع القائمة ليعود إليه زر «العودة»
+  function handleClick() {
+    if (
+      normalizedRoute === BOOKS_ROUTE &&
+      LIBRARY_LIST_PATH.test(window.location.pathname)
+    ) {
+      rememberLibraryPosition();
     }
-  };
-
-  const parts = publication.parts > 1 ? ` · ${publication.parts} أجزاء` : "";
+  }
 
   return (
     <Link
       href={`${normalizedRoute}/${publication.slug}`}
       onClick={handleClick}
-      className="group block text-center"
+      className="flex items-center gap-4 py-4 lg:py-6 group"
       prefetch={false}
     >
-      <div className="relative mx-auto aspect-[3/4] w-full max-w-[11rem]">
+      <div className="relative w-1/3 p-4 flex-shrink-0 flex justify-center items-center bg-[url('/shapes/book-bg.svg')] dark:bg-[url('/shapes/book-bg_Muharram.svg')] bg-no-repeat bg-center bg-contain min-h-[120px]">
         {publication.image ? (
-          <Image
-            src={publication.image}
-            fill
-            sizes="176px"
-            className="object-contain object-bottom drop-shadow-[0_14px_16px_rgba(0,0,0,0.28)] transition-transform duration-300 group-hover:-translate-y-2"
-            alt={`غلاف كتاب ${publication.title}`}
-            priority={priority}
-            loading={priority ? "eager" : "lazy"}
-          />
+          <div className="relative w-20 h-28 xl:w-24 xl:h-32">
+            <Image
+              src={publication.image}
+              fill
+              sizes="(max-width: 768px) 80px, 96px"
+              className="object-contain rounded-sm"
+              alt={`غلاف كتاب ${publication.title}`}
+              priority={priority}
+              unoptimized={publication.image.startsWith("http")}
+            />
+          </div>
         ) : (
-          <div className="flex h-full w-full items-center justify-center rounded-xl border-2 border-dashed border-gray-300 bg-gray-100">
-            <span className="px-2 text-sm text-gray-500">لا يوجد غلاف</span>
+          <div className="bg-gray-200 border-2 border-dashed rounded-xl w-20 h-28 flex items-center justify-center">
+            <span className="text-xs text-gray-500 text-center px-1">
+              لا يوجد غلاف
+            </span>
           </div>
         )}
       </div>
 
-      <Heading className="mt-5 line-clamp-2 text-lg font-bold leading-7 text-gray-900 transition-colors group-hover:text-primary dark:group-hover:text-Muharram_primary">
-        {publication.title}
-      </Heading>
-      {author && (
-        <p className="mt-1 line-clamp-1 text-sm font-semibold text-secondary_dark dark:text-Muharram_secondary">
+      <div className="w-2/3 flex flex-col gap-2 py-2">
+        <h2 className="text-primary dark:text-Muharram_primary font-bold text-subtitle leading-snug line-clamp-2">
+          {publication.title}
+        </h2>
+        <span className="min-h-5 text-sm font-medium text-gray-700 line-clamp-1">
           {author}
-        </p>
-      )}
-      <p className="mt-1 text-sm text-gray-500">
-        {publication.pages} صفحة{parts}
-      </p>
+        </span>
+        <span className="text-sm font-light text-gray-500">
+          الناشر: {printHouse}
+        </span>
+        <span className="text-sm lg:hidden xl:block font-light text-gray-500">
+          عدد الأجزاء: {publication.parts || 1}
+        </span>
+        <div className="flex justify-between w-11/12 text-xs xl:text-sm font-light text-gray-500">
+          <span>{publication.pages} صفحة</span>
+          <span>{publication.views} مشاهدة</span>
+        </div>
+      </div>
     </Link>
   );
 }

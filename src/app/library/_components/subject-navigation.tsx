@@ -1,17 +1,29 @@
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const card =
-  "group flex items-center gap-4 rounded-2xl border-2 border-primary/20 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-primary hover:shadow-lg dark:border-Muharram_primary/25 dark:hover:border-Muharram_primary";
-const tile =
-  "grid size-12 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white dark:bg-Muharram_primary/10 dark:text-Muharram_primary dark:group-hover:bg-Muharram_primary";
+import type { NavSubject } from "@/types/imamzain-legacy";
+import { libraryPath } from "../_config/paths";
+import { toArabicDigits } from "../_lib/arabic-text";
 
 type SubjectNavigationProps = {
   collectionSlug: string;
   dictionarySlug: string;
   currentSubjectSlug: string;
-  allSubjects: Array<{ slug: string; title: string; id: string }>;
+  allSubjects: NavSubject[];
 };
+
+const ruleClass = "h-px flex-1 bg-gray-300 dark:bg-zinc-600";
+
+const linkClass =
+  "group flex min-h-16 min-w-0 flex-col justify-center gap-1.5 rounded-lg border border-gray-200 px-4 py-3 transition-colors hover:border-primary/50 hover:bg-primary/[0.04] dark:border-zinc-700 dark:hover:border-Muharram_primary/50 dark:hover:bg-Muharram_primary/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary/70 dark:focus-visible:outline-Muharram_primary/70";
+
+const labelRowClass =
+  "flex items-center gap-1.5 text-sm font-medium text-primary dark:text-Muharram_primary";
+
+const arrowClass =
+  "h-5 w-5 shrink-0 transition-transform motion-reduce:transition-none";
+
+const titleClass =
+  "line-clamp-2 text-base font-semibold leading-relaxed text-gray-900 dark:text-gray-50";
 
 export default function SubjectNavigation({
   collectionSlug,
@@ -19,65 +31,68 @@ export default function SubjectNavigation({
   currentSubjectSlug,
   allSubjects,
 }: SubjectNavigationProps) {
-  const currentIndex = allSubjects.findIndex(
-    (s) => s.slug === currentSubjectSlug,
-  );
-  const prevSubject = currentIndex > 0 ? allSubjects[currentIndex - 1] : null;
-  const nextSubject =
-    currentIndex < allSubjects.length - 1
-      ? allSubjects[currentIndex + 1]
-      : null;
+  const currentIndex = allSubjects.findIndex((s) => s.slug === currentSubjectSlug);
+  const previous = currentIndex > 0 ? allSubjects[currentIndex - 1] : null;
+  const next = currentIndex < allSubjects.length - 1 ? allSubjects[currentIndex + 1] : null;
 
-  if (!prevSubject && !nextSubject) return null;
+  if (!previous && !next) return null;
+
+  const hrefTo = (subject: NavSubject) =>
+    libraryPath(collectionSlug, dictionarySlug, subject.slug);
 
   return (
+    // pb-24: مساحة تمنع عنصر التحكم العائم من تغطية الروابط عند نهاية الصفحة
     <nav
       aria-label="التنقل بين المواضيع"
-      className="mt-16 grid grid-cols-1 gap-4 border-t-2 border-dashed border-secondary/40 pt-8 dark:border-Muharram_secondary/40 md:grid-cols-2"
+      className="mx-auto w-full max-w-3xl pb-24"
     >
-      {prevSubject ? (
-        <Link
-          href={`/library/${collectionSlug}/${dictionarySlug}/${prevSubject.slug}`}
-          className={card}
-        >
-          <span className={tile}>
-            <ChevronRight className="size-6" />
-          </span>
-          <div className="min-w-0 flex-1 text-right">
-            <div className="mb-1 text-sm font-semibold text-secondary_dark dark:text-Muharram_secondary">
-              الموضوع السابق
-            </div>
-            <div className="line-clamp-2 text-lg font-bold leading-8 text-gray-900 transition-colors group-hover:text-primary dark:text-white dark:group-hover:text-Muharram_primary">
-              {prevSubject.title}
-            </div>
-            <div className="mt-0.5 text-sm text-gray-500">رقم {prevSubject.id}</div>
-          </div>
-        </Link>
-      ) : (
-        <div />
-      )}
+      <div aria-hidden="true" className="flex items-center gap-4">
+        <span className={ruleClass} />
+        <span className="text-sm font-medium tabular-nums text-gray-600 dark:text-gray-300">
+          {toArabicDigits(currentIndex + 1)} / {toArabicDigits(allSubjects.length)}
+        </span>
+        <span className={ruleClass} />
+      </div>
 
-      {nextSubject ? (
-        <Link
-          href={`/library/${collectionSlug}/${dictionarySlug}/${nextSubject.slug}`}
-          className={card}
-        >
-          <div className="min-w-0 flex-1 text-right">
-            <div className="mb-1 text-sm font-semibold text-secondary_dark dark:text-Muharram_secondary">
-              الموضوع التالي
-            </div>
-            <div className="line-clamp-2 text-lg font-bold leading-8 text-gray-900 transition-colors group-hover:text-primary dark:text-white dark:group-hover:text-Muharram_primary">
-              {nextSubject.title}
-            </div>
-            <div className="mt-0.5 text-sm text-gray-500">رقم {nextSubject.id}</div>
-          </div>
-          <span className={tile}>
-            <ChevronLeft className="size-6" />
-          </span>
-        </Link>
-      ) : (
-        <div />
-      )}
+      <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        {previous ? (
+          <Link
+            href={hrefTo(previous)}
+            aria-label={`الموضوع السابق: ${previous.title}`}
+            className={`${linkClass} items-start text-right`}
+          >
+            <span className={labelRowClass}>
+              <ChevronRight
+                aria-hidden="true"
+                className={`${arrowClass} motion-safe:group-hover:translate-x-0.5`}
+              />
+              السابق
+            </span>
+            <span className={titleClass}>{previous.title}</span>
+          </Link>
+        ) : (
+          <span className="hidden sm:block" />
+        )}
+
+        {next ? (
+          <Link
+            href={hrefTo(next)}
+            aria-label={`الموضوع التالي: ${next.title}`}
+            className={`${linkClass} items-end text-left sm:col-start-2`}
+          >
+            <span className={labelRowClass}>
+              التالي
+              <ChevronLeft
+                aria-hidden="true"
+                className={`${arrowClass} motion-safe:group-hover:-translate-x-0.5`}
+              />
+            </span>
+            <span className={titleClass}>{next.title}</span>
+          </Link>
+        ) : (
+          <span className="hidden sm:block" />
+        )}
+      </div>
     </nav>
   );
 }

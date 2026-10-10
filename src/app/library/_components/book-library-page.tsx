@@ -1,243 +1,154 @@
 "use client";
 
-import Dropdown from "@/components/dropdown";
-import { useMemo, useCallback, useState, useEffect, useRef } from "react";
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import { ArrowUpDown } from "lucide-react";
-
-import { Book } from "@/types/book";
-
-import BooklibraryCard from "./book-library-card";
-import FilterSidebar from "./FilterSidebar";
+import { useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { ArrowUpDown, BookOpen } from "lucide-react";
 import Breadcrumbs from "@/components/breadcrumb";
-import { outlineButton } from "@/components/brand";
-import PageHeader from "@/components/page-header";
-import Pagination from "@/components/pagination";
-import SearchField from "@/components/search-field";
+import SectionTitle from "@/components/section";
+import type { Book } from "@/types/book";
+import {
+  getBookFilterOptions,
+  getVisibleBooks,
+  parseBookFilters,
+} from "../_lib/book-filters";
+import BookLibraryCard from "./book-library-card";
+import FilterSidebar from "./filter-sidebar";
+import Pagination from "./pagination";
+import SearchInput from "./search-input";
 
-const PER_PAGE = 8;
-
-const toArray = (val?: string | string[]): string[] =>
-  !val ? [] : Array.isArray(val) ? val : [val];
-
-const getYear = (date?: string): string =>
-  date ? new Date(date).getFullYear().toString() : "";
+const BOOKS_PER_PAGE = 8;
+const SEARCH_DEBOUNCE_MS = 250;
+const PRIORITY_CARD_COUNT = 4;
 
 export default function BookLibraryPage({ books }: { books: Book[] }) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
 
-  const filters = useMemo(
-    () => ({
-      query: searchParams.get("q") || "",
-      author: searchParams.get("author") || "",
-      publisher: searchParams.get("publisher") || "",
-      category: searchParams.get("category") || "",
-      conferences: searchParams.get("conferences") || "",
-      sort: searchParams.get("sort") || "latest",
-      page: Math.max(1, Number(searchParams.get("page")) || 1),
-    }),
-    [searchParams]
-  );
-
+  const filters = useMemo(() => parseBookFilters(searchParams), [searchParams]);
   const [localSearch, setLocalSearch] = useState(filters.query);
-  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const allBooks = books;
-
-  const filterOptions = useMemo(() => {
-    const authors = new Set<string>();
-    const publishers = new Set<string>();
-    const years = new Set<string>();
-    const categories = new Set<string>();
-    const conferences = new Set<string>();
-
-    allBooks.forEach((book) => {
-      toArray(book.author).forEach((a) => authors.add(a));
-      if (book.printHouse) publishers.add(book.printHouse);
-      if (book.printDate) years.add(getYear(book.printDate));
-      toArray(book.category).forEach((c) => categories.add(c));
-      toArray(book.Conferences).forEach((c) => conferences.add(c));
-    });
-
-    return {
-      authors: Array.from(authors).sort(),
-      publishers: Array.from(publishers).sort(),
-      years: Array.from(years).sort().reverse(),
-      categories: Array.from(categories).sort(),
-      conferences: Array.from(conferences).sort(),
-    };
-  }, [allBooks]);
-
-  const filteredBooks = useMemo(() => {
-    const result = allBooks.filter((book) => {
-      if (filters.query) {
-        const searchContent = [book.title, ...toArray(book.author), book.printHouse]
-          .join(" ")
-          .toLowerCase();
-        if (!searchContent.includes(filters.query.toLowerCase())) return false;
-      }
-      if (
-        filters.author &&
-        !toArray(book.author).some(
-          (a) => a.toLowerCase() === filters.author.toLowerCase()
-        )
-      )
-        return false;
-      if (filters.publisher && book.printHouse !== filters.publisher) return false;
-      if (
-        filters.category &&
-        !toArray(book.category).some(
-          (c) => c.toLowerCase() === filters.category.toLowerCase()
-        )
-      )
-        return false;
-      if (
-        filters.conferences &&
-        !toArray(book.Conferences).some(
-          (c) => c.toLowerCase() === filters.conferences.toLowerCase()
-        )
-      )
-        return false;
-      if (!(book.partNumber === 1 || !book.totalParts)) return false;
-      return true;
-    });
-
-    return result.sort((a, b) => {
-      if (filters.sort === "common") return (b.views || 0) - (a.views || 0);
-      const timeA = a.printDate ? new Date(a.printDate).getTime() : 0;
-      const timeB = b.printDate ? new Date(b.printDate).getTime() : 0;
-      return timeB - timeA;
-    });
-  }, [allBooks, filters]);
-
-  const totalPages = Math.ceil(filteredBooks.length / PER_PAGE);
-
-  const paginatedBooks = useMemo(() => {
-    const start = (filters.page - 1) * PER_PAGE;
-    return filteredBooks.slice(start, start + PER_PAGE);
-  }, [filteredBooks, filters.page]);
-
-  const updateParams = useCallback(
-    (updates: Record<string, string | number | null>) => {
-      const params = new URLSearchParams(searchParams.toString());
-      Object.entries(updates).forEach(([key, value]) => {
-        if (value === null || value === "") params.delete(key);
-        else params.set(key, String(value));
-      });
-      if (!Object.prototype.hasOwnProperty.call(updates, "page")) {
-        params.set("page", "1");
-      }
-      router.push(`${pathname}?${params.toString()}`, { scroll: false });
-    },
-    [searchParams, pathname, router]
+  const filterOptions = useMemo(() => getBookFilterOptions(books), [books]);
+  const visibleBooks = useMemo(
+    () => getVisibleBooks(books, filters),
+    [books, filters],
   );
 
-  const handlePageChange = useCallback(
-    (p: number) => updateParams({ page: p }),
-    [updateParams]
-  );
+  const totalPages = Math.ceil(visibleBooks.length / BOOKS_PER_PAGE);
+  const pageStart = (filters.page - 1) * BOOKS_PER_PAGE;
+  const pageBooks = visibleBooks.slice(pageStart, pageStart + BOOKS_PER_PAGE);
 
-  const resetFilters = useCallback(() => {
+  // أي تغيير يعيد الصفحة إلى الأولى ما لم يُحدَّد رقم الصفحة صراحةً
+  function updateParams(updates: Record<string, string | number | null>) {
+    const params = new URLSearchParams(searchParams.toString());
+    for (const [key, value] of Object.entries(updates)) {
+      if (value === null || value === "") params.delete(key);
+      else params.set(key, String(value));
+    }
+    if (!("page" in updates)) params.set("page", "1");
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+  }
+
+  function resetFilters() {
     setLocalSearch("");
     router.push(pathname, { scroll: false });
-  }, [pathname, router]);
+  }
 
-  // Debounced search — faster (250ms instead of 400ms)
+  // يجب أن يعمل عند الكتابة فقط: إضافة filters.query إلى المصفوفة تجعله يُعيد
+  // دفع نص قديم إلى الـ URL بعد الرجوع في المتصفح.
   useEffect(() => {
-    if (debounceRef.current) clearTimeout(debounceRef.current);
-    debounceRef.current = setTimeout(() => {
-      if (localSearch !== filters.query) {
-        updateParams({ q: localSearch });
-      }
-    }, 250);
-    return () => {
-      if (debounceRef.current) clearTimeout(debounceRef.current);
-    };
+    const timer = setTimeout(() => {
+      if (localSearch !== filters.query) updateParams({ q: localSearch });
+    }, SEARCH_DEBOUNCE_MS);
+    return () => clearTimeout(timer);
   }, [localSearch]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="container min-h-screen pb-12" dir="rtl">
-      <Breadcrumbs
-        links={[
-          { name: "الصفحة الرئيسية", url: "/" },
-          { name: "المكتبة التخصصية", url: "/library" },
-          { name: "قائمة الكتب", url: "#" },
-        ]}
-      />
-
-      <PageHeader title="قائمة الكتب" text="اكتشف مجموعتنا المتنوعة من الكتب" />
-
-      <div className="mt-16 lg:grid lg:grid-cols-[18rem_1fr] lg:gap-12 xl:grid-cols-[20rem_1fr] xl:gap-16">
-        <FilterSidebar
-          filters={filterOptions}
-          author={filters.author}
-          setAuthor={(val) => updateParams({ author: val })}
-          publisher={filters.publisher}
-          setPublisher={(val) => updateParams({ publisher: val })}
-          category={filters.category}
-          setCategory={(val) => updateParams({ category: val })}
-          conferences={filters.conferences}
-          setConferences={(val) => updateParams({ conferences: val })}
-          reset={resetFilters}
+    <div className="min-h-screen mx-auto px-4 gap-6" dir="rtl">
+      <div className="mb-6">
+        <Breadcrumbs
+          links={[
+            { name: "الصفحة الرئيسية", url: "/" },
+            { name: "المكتبة التخصصية", url: "/library" },
+            { name: "قائمة الكتب", url: "#" },
+          ]}
         />
+      </div>
 
-        <main className="min-w-0">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center">
-            <SearchField
-              className="md:flex-1"
-              label="البحث في الكتب"
-              placeholder="ابحث عن كتاب، مؤلف، دار نشر..."
-              value={localSearch}
-              onChange={setLocalSearch}
-              onClear={resetFilters}
-            />
-            <Dropdown
-              label="ترتيب الكتب"
-              value={filters.sort}
-              onChange={(sort) => updateParams({ sort })}
-              icon={<ArrowUpDown />}
-              className="md:w-52"
-              options={[
-                { value: "latest", label: "الأحدث" },
-                { value: "common", label: "الأكثر مشاهدة" },
-              ]}
-            />
+      <div className="mb-8 rounded-2xl dark:bg-gradient-to-l dark:from-Muharram_secondary/10 dark:to-transparent bg-gradient-to-l from-primary/10 to-transparent p-6">
+        <div className="flex flex-col md:flex-row md:justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="p-3 bg-primary/20 dark:bg-Muharram_primary/20 rounded-xl">
+              <BookOpen className="w-6 h-6 text-primary dark:text-Muharram_primary" />
+            </div>
+            <div>
+              <SectionTitle title="قائمة الكتب" />
+              <p className="text-gray-600 mt-1">اكتشف مجموعتنا المتنوعة من الكتب</p>
+            </div>
           </div>
+          <div className="relative">
+            <select
+              value={filters.sort}
+              onChange={(e) => updateParams({ sort: e.target.value })}
+              className="appearance-none bg-white border rounded-xl px-4 py-2.5 pr-10 focus:ring-2 focus:ring-primary/20 outline-none transition-all cursor-pointer"
+            >
+              <option value="latest">الأحدث</option>
+              <option value="common">الأكثر مشاهدة</option>
+            </select>
+            <ArrowUpDown className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
+          </div>
+        </div>
+      </div>
 
-          <p className="mt-6 font-semibold text-gray-600">
-            {filteredBooks.length} كتاب
-          </p>
+      <div className="flex flex-col lg:flex-row gap-6">
+        <div>
+          <FilterSidebar
+            options={filterOptions}
+            values={filters}
+            onChange={(key, value) => updateParams({ [key]: value })}
+            reset={resetFilters}
+          />
+        </div>
 
-          {paginatedBooks.length > 0 ? (
-            <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-14 md:grid-cols-3">
-              {paginatedBooks.map((book, index) => (
-                <li key={book.id}>
-                  <BooklibraryCard
-                    publication={book}
-                    route="/library/books"
-                    priority={index < 4} // أول 4 كتب تُحمَّل بأولوية
-                    as="h2"
-                  />
-                </li>
+        <main className="flex-1 space-y-6">
+          <SearchInput
+            value={localSearch}
+            onChange={setLocalSearch}
+            onClear={resetFilters}
+          />
+
+          {pageBooks.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {pageBooks.map((book, index) => (
+                <BookLibraryCard
+                  key={book.id}
+                  publication={book}
+                  route="/library/books"
+                  priority={index < PRIORITY_CARD_COUNT}
+                />
               ))}
-            </ul>
+            </div>
           ) : (
-            <div className="flex flex-col items-center py-24 text-center">
-              <p className="text-2xl font-bold text-gray-800">لا توجد نتائج تطابق بحثك</p>
-              <button type="button" onClick={resetFilters} className={`${outlineButton} mt-6`}>
+            <div className="text-center py-20 bg-white rounded-2xl border border-dashed border-gray-300 shadow-sm">
+              <p className="text-gray-500 text-lg font-medium">
+                لا توجد نتائج تطابق بحثك
+              </p>
+              <button
+                onClick={resetFilters}
+                className="mt-4 text-primary font-semibold hover:underline"
+              >
                 إعادة ضبط الفلاتر
               </button>
             </div>
           )}
 
-          <Pagination
-            className="mt-16"
-            page={filters.page}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-          />
+          {totalPages > 1 && (
+            <Pagination
+              page={filters.page}
+              totalPages={totalPages}
+              onPageChange={(page) => updateParams({ page })}
+            />
+          )}
         </main>
       </div>
     </div>
