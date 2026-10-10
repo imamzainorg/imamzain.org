@@ -11,18 +11,19 @@ type SubjectNavigationProps = {
   allSubjects: NavSubject[];
 };
 
+const ruleClass = "h-px flex-1 bg-gray-300 dark:bg-zinc-600";
+
 const linkClass =
-  "group flex min-h-12 min-w-0 max-w-full items-center gap-2 rounded-lg px-2 py-2 transition-colors hover:bg-black/[0.03] dark:hover:bg-white/[0.04] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary/70 dark:focus-visible:outline-Muharram_primary/70";
+  "group flex min-h-16 min-w-0 flex-col justify-center gap-1.5 rounded-lg border border-gray-200 px-4 py-3 transition-colors hover:border-primary/50 hover:bg-primary/[0.04] dark:border-zinc-700 dark:hover:border-Muharram_primary/50 dark:hover:bg-Muharram_primary/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary/70 dark:focus-visible:outline-Muharram_primary/70";
+
+const labelRowClass =
+  "flex items-center gap-1.5 text-sm font-medium text-primary dark:text-Muharram_primary";
 
 const arrowClass =
-  "h-5 w-5 shrink-0 text-gray-400 transition-colors group-hover:text-primary dark:text-gray-500 dark:group-hover:text-Muharram_primary";
+  "h-5 w-5 shrink-0 transition-transform motion-reduce:transition-none";
 
-const labelClass =
-  "text-[0.8rem] text-gray-500 transition-colors group-hover:text-primary dark:text-gray-400 dark:group-hover:text-Muharram_primary";
-
-// على الأجهزة التي تدعم التمرير يظهر العنوان عند hover/focus، وعلى اللمس يظهر دائمًا
 const titleClass =
-  "line-clamp-1 text-sm font-medium text-gray-900 transition-opacity duration-200 dark:text-gray-100 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-focus-visible:opacity-100";
+  "line-clamp-2 text-base font-semibold leading-relaxed text-gray-900 dark:text-gray-50";
 
 export default function SubjectNavigation({
   collectionSlug,
@@ -45,44 +46,51 @@ export default function SubjectNavigation({
       aria-label="التنقل بين المواضيع"
       className="mx-auto w-full max-w-3xl pb-24"
     >
-      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 border-t border-gray-200/80 pt-4 dark:border-zinc-700/70">
+      <div aria-hidden="true" className="flex items-center gap-4">
+        <span className={ruleClass} />
+        <span className="text-sm font-medium tabular-nums text-gray-600 dark:text-gray-300">
+          {toArabicDigits(currentIndex + 1)} / {toArabicDigits(allSubjects.length)}
+        </span>
+        <span className={ruleClass} />
+      </div>
+
+      <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
         {previous ? (
           <Link
             href={hrefTo(previous)}
             aria-label={`الموضوع السابق: ${previous.title}`}
-            className={`${linkClass} justify-self-start`}
+            className={`${linkClass} items-start text-right`}
           >
-            <ChevronRight aria-hidden="true" className={arrowClass} />
-            <span className="min-w-0 text-right">
-              <span className={`block ${labelClass}`}>السابق</span>
-              <span className={`block ${titleClass}`}>{previous.title}</span>
+            <span className={labelRowClass}>
+              <ChevronRight
+                aria-hidden="true"
+                className={`${arrowClass} motion-safe:group-hover:translate-x-0.5`}
+              />
+              السابق
             </span>
+            <span className={titleClass}>{previous.title}</span>
           </Link>
         ) : (
-          <span />
+          <span className="hidden sm:block" />
         )}
-
-        <span
-          aria-hidden="true"
-          className="text-xs tabular-nums text-gray-400 dark:text-gray-500"
-        >
-          {toArabicDigits(currentIndex + 1)} / {toArabicDigits(allSubjects.length)}
-        </span>
 
         {next ? (
           <Link
             href={hrefTo(next)}
             aria-label={`الموضوع التالي: ${next.title}`}
-            className={`${linkClass} justify-self-end`}
+            className={`${linkClass} items-end text-left sm:col-start-2`}
           >
-            <span className="min-w-0 text-left">
-              <span className={`block ${labelClass}`}>التالي</span>
-              <span className={`block ${titleClass}`}>{next.title}</span>
+            <span className={labelRowClass}>
+              التالي
+              <ChevronLeft
+                aria-hidden="true"
+                className={`${arrowClass} motion-safe:group-hover:-translate-x-0.5`}
+              />
             </span>
-            <ChevronLeft aria-hidden="true" className={arrowClass} />
+            <span className={titleClass}>{next.title}</span>
           </Link>
         ) : (
-          <span />
+          <span className="hidden sm:block" />
         )}
       </div>
     </nav>
