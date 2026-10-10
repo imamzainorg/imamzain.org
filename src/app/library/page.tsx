@@ -4,6 +4,10 @@ import booksData from "@/data/books.json";
 import type { Book } from "@/types/book";
 import BookLibraryPage from "./_components/book-library-page";
 
+const SHARE_TITLE = "المكتبة التخصصية لكتب الإمام زين العابدين عليه السلام";
+const SHARE_DESCRIPTION =
+  "قائمة كتب الإمام زين العابدين عليه السلام: شروح الصحيفة السجادية ورسالة الحقوق وما كُتب عن الإمام السجاد، مع البحث والفرز للقراءة والتحميل.";
+
 export const metadata: Metadata = {
   title: "المكتبة التخصصية لكتب الإمام زين العابدين",
   description:
@@ -20,17 +24,15 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/library" },
   openGraph: {
-    title: "المكتبة التخصصية لكتب الإمام زين العابدين عليه السلام",
-    description:
-      "قائمة كتب الإمام زين العابدين عليه السلام: شروح الصحيفة السجادية ورسالة الحقوق وما كُتب عن الإمام السجاد، مع البحث والفرز للقراءة والتحميل.",
+    title: SHARE_TITLE,
+    description: SHARE_DESCRIPTION,
     url: "/library",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "المكتبة التخصصية لكتب الإمام زين العابدين عليه السلام",
-    description:
-      "قائمة كتب الإمام زين العابدين عليه السلام: شروح الصحيفة السجادية ورسالة الحقوق وما كُتب عن الإمام السجاد، مع البحث والفرز للقراءة والتحميل.",
+    title: SHARE_TITLE,
+    description: SHARE_DESCRIPTION,
   },
 };
 

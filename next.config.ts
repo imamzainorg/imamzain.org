@@ -1,57 +1,33 @@
 import type { NextConfig } from "next"
+import { PHASE_DEVELOPMENT_SERVER } from "next/constants"
 
-const nextConfig: NextConfig = {
-	allowedDevOrigins: ["192.168.47.12"],
-	images: {
-		// Images are transformed by Cloudflare on cdn.imamzain.org, not by
-		// Vercel's optimizer; the loader owns sizing, quality and format.
-		loader: "custom",
-		loaderFile: "./src/lib/cf-image-loader.ts",
-	},
-	async rewrites() {
-		return [
-			{
-				source: "/home",
-				destination: "/",
+// Production builds are a static export (out/) served by Cloudflare Workers
+// Static Assets; see wrangler.jsonc. The endpoints that need a server (forms,
+// downloads, the Hijri date) live in worker/, and URL redirects live in
+// public/_redirects, since a static export can't run next.config redirects.
+export default function config(phase: string): NextConfig {
+	const isDev = phase === PHASE_DEVELOPMENT_SERVER
+
+	return {
+		output: isDev ? undefined : "export",
+		allowedDevOrigins: ["192.168.47.12"],
+		images: {
+			// Images are transformed by Cloudflare on cdn.imamzain.org, not by
+			// Next's optimizer; the loader owns sizing, quality and format.
+			loader: "custom",
+			loaderFile: "./src/lib/cf-image-loader.ts",
+		},
+		// In `next dev`, API paths with no route handler here are the worker/
+		// endpoints: forward them to `wrangler dev` (bun run dev:worker).
+		...(isDev && {
+			async rewrites() {
+				return [
+					{
+						source: "/api/:path*",
+						destination: "http://localhost:8787/api/:path*",
+					},
+				]
 			},
-		]
-	},
-	async redirects() {
-		return [
-			{
-				source: "/application",
-				destination: "/applications",
-				permanent: true,
-			},
-			// Each app now lives on its own subdomain — send the old dedicated
-			// in-site pages to the standalone sites.
-			{
-				source: "/applications/anwar-sajjadyia",
-				destination: "https://anwar.imamzain.org",
-				permanent: true,
-			},
-			{
-				source: "/applications/maarif-al-sajjad",
-				destination: "https://maarif.imamzain.org",
-				permanent: true,
-			},
-			{
-				source: "/applications/maarif-al-sajjad/privacy-policy",
-				destination: "https://maarif.imamzain.org/privacy-policy",
-				permanent: true,
-			},
-			{
-				source: "/library/al-sahifa",
-				destination: "/library/al-sahifa/al-sahifa-al-sajjadiya-index",
-				permanent: true,
-			},
-			{
-				source: "/library/risalat-al-huqoq",
-				destination: "/library/risalat-al-huqoq/introduction",
-				permanent: true,
-			},
-		]
-	},
+		}),
+	}
 }
-
-export default nextConfig
