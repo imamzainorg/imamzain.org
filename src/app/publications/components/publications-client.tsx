@@ -9,7 +9,7 @@ import PageHeader from "@/components/page-header"
 import Pagination from "@/components/pagination"
 import SearchField from "@/components/search-field"
 import { Book } from "@/types/book"
-import BooklibraryCard from "../../library/_components/book-library-card"
+import BookTile from "@/components/book-tile"
 
 const itemsPerPage = 12
 
@@ -119,7 +119,7 @@ export default function PublicationsClient({
 						<ul className="grid grid-cols-2 gap-x-6 gap-y-14 md:grid-cols-3 lg:grid-cols-4">
 							{currentPublications.map((publication) => (
 								<li key={publication.id}>
-									<BooklibraryCard route="/publications" publication={publication} />
+									<BookTile route="/publications" publication={publication} as="h2" />
 								</li>
 							))}
 						</ul>

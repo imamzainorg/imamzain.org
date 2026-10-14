@@ -1,6 +1,6 @@
 import { MoreLink, SectionTitle } from "@/components/brand"
 import { Reveal } from "@/components/motion"
-import BooklibraryCard from "@/app/library/_components/book-library-card"
+import BookTile from "@/components/book-tile"
 import type { Book } from "@/types/book"
 
 // Always two full rows. The grid has 2, 3, 4 or 5 columns depending on width, so showing
@@ -26,7 +26,7 @@ export default function Publications({ publications }: { publications: Book[] })
 				{publications.map((book, i) => (
 					<li key={book.id} className={visibility(i)}>
 						<Reveal y={30} delay={(i % 5) * 0.08}>
-							<BooklibraryCard route="/publications" publication={book} />
+							<BookTile route="/publications" publication={book} />
 						</Reveal>
 					</li>
 				))}

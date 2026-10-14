@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 import Breadcrumbs from "@/components/breadcrumb";
 import BookCard from "@/components/book-card";
 import type { Book } from "@/types/book";
-import BookLibraryCard from "@/app/library/_components/book-library-card";
+import BookCarousel from "@/components/book-carousel";
 import { libraryPath } from "@/app/library/_config/paths";
 import {
   popToPreviousBook,
@@ -74,16 +74,12 @@ export default function BookDetailClient({
           <span className="font-medium  ">العودة الى الصفحة السابقة</span>
         </button>
       </div>
-      <BookCard key={book.id} publication={book} seriesParts={seriesParts} />
+      <div className="container">
+        <BookCard key={book.id} publication={book} seriesParts={seriesParts} />
+      </div>
 
-      <h2 className="text-center font-semibold border-t border-b p-4 sm:text-2xl xl:text-4xl">
-        كتب ذات صلة
-      </h2>
-
-      <div className="bg-secondary md:container dark:bg-Muharram_primary/20 bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
-        {showcaseBooks.map((item) => (
-          <BookLibraryCard key={item.id} route="/library/books" publication={item} />
-        ))}
+      <div className="container pt-10">
+        <BookCarousel title="كتب ذات صلة" books={showcaseBooks} route="/library/books" />
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ArrowUpDown, BookOpen } from "lucide-react";
 import Breadcrumbs from "@/components/breadcrumb";
 import SectionTitle from "@/components/section";
+import Dropdown from "@/components/dropdown";
 import type { Book } from "@/types/book";
 import {
   getBookFilterOptions,
@@ -86,17 +87,17 @@ export default function BookLibraryPage({ books }: { books: Book[] }) {
               <p className="text-gray-600 mt-1">اكتشف مجموعتنا المتنوعة من الكتب</p>
             </div>
           </div>
-          <div className="relative">
-            <select
-              value={filters.sort}
-              onChange={(e) => updateParams({ sort: e.target.value })}
-              className="appearance-none bg-white border rounded-xl px-4 py-2.5 pr-10 focus:ring-2 focus:ring-primary/20 outline-none transition-all cursor-pointer"
-            >
-              <option value="latest">الأحدث</option>
-              <option value="common">الأكثر مشاهدة</option>
-            </select>
-            <ArrowUpDown className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
-          </div>
+          <Dropdown
+            label="الترتيب"
+            value={filters.sort}
+            onChange={(sort) => updateParams({ sort })}
+            icon={<ArrowUpDown />}
+            className="min-w-44"
+            options={[
+              { value: "latest", label: "الأحدث" },
+              { value: "common", label: "الأكثر مشاهدة" },
+            ]}
+          />
         </div>
       </div>
 
