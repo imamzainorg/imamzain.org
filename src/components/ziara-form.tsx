@@ -1,13 +1,23 @@
 "use client"
 
-import { PersonIcon, MobileIcon } from "@/assets/icons/reusable"
+import { PersonIcon } from "@/assets/icons/reusable"
 import { CheckCircle2, Loader2 } from "lucide-react"
 import { Input } from "@heroui/react"
 import { motion } from "framer-motion"
 import { useState } from "react"
-import CountriesDropdown from "./countries-input"
+import PhoneInput from "./phone-input"
+import {
+	DEFAULT_COUNTRY,
+	exampleNational,
+	formatNational,
+	latinDigits,
+	splitInternational,
+	toE164,
+	type CountryCode,
+} from "@/lib/phone"
 
-type Errors = { name?: string; phone?: string; country?: string; form?: string }
+
+type Errors = { name?: string; phone?: string; form?: string }
 
 // White fields, so they read clearly on the green shield.
 const inputClassNames = {
@@ -45,8 +55,19 @@ const ZiaraForm = () => {
 	const [formData, setFormData] = useState({
 		visitorName: "",
 		visitorPhone: "",
-		visitorCountry: "" as string | number | null,
+		visitorCountry: DEFAULT_COUNTRY as CountryCode,
 	})
+
+	// The number is typed without its code: the country supplies it. A number typed or pasted
+	// with +964... or 00964... switches the country and drops the prefix.
+	const changePhone = (text: string) => {
+		const detected = splitInternational(text, formData.visitorCountry)
+		if (detected) {
+			setFormData({ ...formData, visitorCountry: detected.country, visitorPhone: detected.national })
+		} else {
+			setFormData({ ...formData, visitorPhone: latinDigits(text) })
+		}
+	}
 
 	const validate = () => {
 		const next: Errors = {}
@@ -57,18 +78,9 @@ const ZiaraForm = () => {
 
 		if (!formData.visitorPhone) {
 			next.phone = "الرجاء إدخال رقم الهاتف"
-		} else {
-			const normalizedPhone = formData.visitorPhone
-				.replace(/[\s()-]/g, "")
-				.replace(/^00/, "+")
-			if (!/^\+[1-9]\d{1,14}$/.test(normalizedPhone)) {
-				next.phone =
-					"الرجاء إدخال رقم هاتف دولي يبدأ برمز الدولة، مثال: ‎+9647801234567"
-			}
-		}
-
-		if (!formData.visitorCountry) {
-			next.country = "الرجاء اختيار الدولة"
+		} else if (!toE164(formData.visitorPhone, formData.visitorCountry)) {
+			const example = exampleNational(formData.visitorCountry)
+			next.phone = `الرقم غير صحيح لهذه الدولة${example ? `، مثال: ${example}` : ""}`
 		}
 
 		setErrors(next)
@@ -83,7 +95,11 @@ const ZiaraForm = () => {
 			const response = await fetch("/api/proxy-visit", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify(formData),
+				body: JSON.stringify({
+					visitorName: formData.visitorName,
+					visitorPhone: toE164(formData.visitorPhone, formData.visitorCountry),
+					visitorCountry: formData.visitorCountry,
+				}),
 			})
 
 			if (response.ok) {
@@ -147,35 +163,20 @@ const ZiaraForm = () => {
 
 			<div>
 				<Label required>رقم الهاتف</Label>
-				<Input
-					size="lg"
-					aria-label="رقم الهاتف"
-					name="visitorPhone"
-					placeholder="‎+9647801234567"
-					description="اكتب الرقم مع رمز الدولة، ويبدأ بعلامة +"
+				<PhoneInput
+					country={formData.visitorCountry}
+					onCountryChange={(visitorCountry) => setFormData({ ...formData, visitorCountry })}
 					value={formData.visitorPhone}
-					onChange={(e) => setFormData({ ...formData, visitorPhone: e.target.value })}
-					classNames={{ ...inputClassNames, description: "text-white/70" }}
-					isInvalid={Boolean(errors.phone)}
-					startContent={
-						<>
-							<MobileIcon stroke="#bb9661" fill="none" strokeWidth={1.5} className="dark:hidden" />
-							<MobileIcon stroke="#a43232" fill="none" strokeWidth={1.5} className="hidden dark:block" />
-						</>
-					}
-					type="tel"
-					inputMode="tel"
+					onValueChange={changePhone}
+					onBlur={() => {
+						if (formData.visitorPhone && toE164(formData.visitorPhone, formData.visitorCountry)) {
+							setFormData({ ...formData, visitorPhone: formatNational(formData.visitorPhone, formData.visitorCountry) })
+						}
+					}}
+					placeholder={exampleNational(formData.visitorCountry)}
+					invalid={Boolean(errors.phone)}
 				/>
 				<FieldError>{errors.phone}</FieldError>
-			</div>
-
-			<div>
-				<Label required>الدولة</Label>
-				<CountriesDropdown
-					inputProps={{ classNames: inputClassNames }}
-					onCountryChange={(e) => setFormData({ ...formData, visitorCountry: e })}
-				/>
-				<FieldError>{errors.country}</FieldError>
 			</div>
 
 			{errors.form && (
