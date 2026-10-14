@@ -11,7 +11,7 @@
 import { contact } from "./routes/contact"
 import { download } from "./routes/download"
 import { hijriDate } from "./routes/hijri-date"
-import { newsletterSubscribe, newsletterUnsubscribe } from "./routes/newsletter"
+import { newsletterConfirm, newsletterSubscribe, newsletterUnsubscribe } from "./routes/newsletter"
 import { proxyVisit } from "./routes/proxy-visit"
 
 type Handler = (
@@ -27,6 +27,7 @@ const ROUTES: Record<string, Partial<Record<Method, Handler>>> = {
 	"/api/contact": { POST: contact },
 	"/api/download": { GET: download },
 	"/api/hijri-date": { GET: hijriDate },
+	"/api/newsletter/confirm": { POST: newsletterConfirm },
 	"/api/newsletter/subscribe": { POST: newsletterSubscribe },
 	"/api/newsletter/unsubscribe": { POST: newsletterUnsubscribe },
 	"/api/proxy-visit": { POST: proxyVisit },

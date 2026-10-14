@@ -24,6 +24,7 @@
 			"/api/contact",
 			"/api/download",
 			"/api/hijri-date",
+			"/api/newsletter/confirm",
 			"/api/newsletter/subscribe",
 			"/api/newsletter/unsubscribe",
 			"/api/proxy-visit"

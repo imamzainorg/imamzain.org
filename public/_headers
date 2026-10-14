@@ -12,6 +12,12 @@
   Content-Type: application/json
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
+# The newsletter confirm and unsubscribe pages carry a credential in their URL: keep them out of
+# search results and never send the URL on as a Referer.
+/newsletter/*
+  X-Robots-Tag: noindex
+  Referrer-Policy: no-referrer
+
 # Keep the *.workers.dev copies of the site out of search results.
 https://:worker.:subdomain.workers.dev/*
   X-Robots-Tag: noindex

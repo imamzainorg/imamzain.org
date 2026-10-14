@@ -119,7 +119,7 @@ export default async function Page() {
                 <PostRow key={post.id} post={post} />
               ))}
             </div>
-            <div className="lg:sticky lg:top-32 lg:self-start">
+            <div id="newsletter" className="scroll-mt-32 lg:sticky lg:top-32 lg:self-start">
               <Newsletter />
             </div>
           </div>

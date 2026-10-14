@@ -70,37 +70,47 @@ export async function newsletterSubscribe(
 	}
 }
 
-export async function newsletterUnsubscribe(
-	request: Request,
-	env: Env,
-): Promise<Response> {
-	try {
-		const body: NewsletterBody = await request.json()
-		const { subscriberEmail } = body
+const TOKEN = /^[0-9a-f]{64}$/i
 
-		if (!subscriberEmail || !/\S+@\S+\.\S+/.test(subscriberEmail)) {
-			return Response.json({ error: "Invalid email format" }, { status: 400 })
+// Relays the pair from an e-mailed newsletter link (confirm or unsubscribe) to the API and hands
+// back its status and JSON (200 done or already done, 401 bad link, 400 validation, 429 rate
+// limit), so the page can tell them apart. The email and token are never logged: they are the
+// whole credential. Responses are never cached.
+function relayLink(action: "confirm" | "unsubscribe") {
+	return async (request: Request, env: Env): Promise<Response> => {
+		const headers = { "Cache-Control": "no-store", "Referrer-Policy": "no-referrer" }
+		const invalid = () =>
+			Response.json({ success: false, message: "Validation failed" }, { status: 400, headers })
+
+		let email: unknown
+		let token: unknown
+		try {
+			;({ email, token } = (await request.json()) as { email?: unknown; token?: unknown })
+		} catch {
+			return invalid()
 		}
+		if (!isValidEmail(email) || typeof token !== "string" || !TOKEN.test(token)) return invalid()
 
-		const response = await fetch(
-			`${env.API_URL}/api/v1/newsletter/unsubscribe`,
-			{
+		try {
+			// The API rejects unknown keys, so only these two are sent.
+			const response = await fetch(`${env.API_URL}/api/v1/newsletter/${action}`, {
 				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({ subscriberEmail }),
-			},
-		)
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ email, token }),
+			})
+			log("INFO", `Newsletter ${action}: backend responded`, response.status)
 
-		if (!response.ok) {
-			throw new Error("Backend API request failed")
+			const data = await response.json().catch(() => null)
+			return Response.json(data ?? { success: false, message: "Unexpected response" }, {
+				status: response.status,
+				headers,
+			})
+		} catch {
+			log("ERROR", `Newsletter ${action}: backend unreachable`)
+			return Response.json({ success: false, message: "Service unavailable" }, { status: 502, headers })
 		}
-
-		const data = await response.json()
-		return Response.json(data, { status: 200 })
-	} catch (error) {
-		console.error("Newsletter Unsubscribe Error:", error)
-		return Response.json({ error: "Failed to unsubscribe" }, { status: 500 })
 	}
 }
+
+export const newsletterConfirm = relayLink("confirm")
+export const newsletterUnsubscribe = relayLink("unsubscribe")
