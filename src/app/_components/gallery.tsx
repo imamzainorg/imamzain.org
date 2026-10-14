@@ -41,9 +41,9 @@ export default function GallerySection({ sliderImages }: { sliderImages: Gallery
 						<Reveal y={20} delay={i * 0.06}>
 							<Link
 								href={`/media/images?category=${encodeURIComponent(name)}`}
-								className="group flex items-center gap-3 rounded-2xl border-2 border-white/20 bg-white/5 py-2.5 pl-6 pr-2.5 transition duration-300 hover:-translate-y-1 hover:border-secondary hover:bg-white/10 dark:hover:border-Muharram_secondary"
+								className="group flex items-center gap-3 rounded-2xl border-2 border-white/20 bg-white/5 py-2.5 pl-6 pr-2.5 transition duration-300 hover:-translate-y-1 hover:border-primary hover:bg-white/10 dark:hover:border-white/60"
 							>
-								<span className="grid size-12 place-items-center rounded-xl bg-secondary text-white transition duration-300 group-hover:-rotate-6 group-hover:scale-110 dark:bg-Muharram_secondary">
+								<span className="grid size-12 place-items-center rounded-xl bg-primary text-white ring-1 ring-white/20 transition duration-300 group-hover:-rotate-6 group-hover:scale-110 dark:bg-white/15">
 									<Icon className="size-6" strokeWidth={1.8} />
 								</span>
 								<span>
