@@ -7,7 +7,11 @@ import { Attachment } from "@/types/attachments"
 
 import { Swiper as SwiperComponent, SwiperSlide } from "swiper/react"
 import { Swiper } from "swiper/types"
-import { Navigation, Thumbs } from "swiper/modules"
+import { Keyboard, Thumbs } from "swiper/modules"
+import { ChevronLeft, ChevronRight, X } from "lucide-react"
+
+const controlClass =
+	"grid size-12 shrink-0 place-items-center rounded-full border-2 border-white/25 bg-white/10 text-white transition hover:border-secondary hover:bg-secondary"
 
 interface ImageViewProps {
 	images?: Attachment[]
@@ -24,6 +28,7 @@ export default function ImageView({
 }: ImageViewProps) {
 	const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure()
 	const [activeIndex, setActiveIndex] = useState(0)
+	const [mainSwiper, setMainSwiper] = useState<Swiper | null>(null)
 	const [thumbsSwiper, setThumbsSwiper] = useState<Swiper | null>(null)
 
 	const handleOpen = () => {
@@ -58,7 +63,7 @@ export default function ImageView({
 
 			<Modal
 				backdrop="opaque"
-				className="bg-transparent   border-0 shadow-none"
+				classNames={{ backdrop: "bg-[#0b1412]/95 backdrop-blur-sm", base: "m-2 bg-transparent shadow-none sm:m-4" }}
 				hideCloseButton
 				isOpen={isOpen}
 				onOpenChange={onOpenChange}
@@ -67,47 +72,60 @@ export default function ImageView({
 			>
 				<ModalContent className="border-0 shadow-none">
 					<ModalBody className="p-0 gap-0">
-						<div className="w-full h-[80vh] flex flex-col justify-center items-center">
-							{/* Main Swiper */}
-							<SwiperComponent
-								initialSlide={activeIndex}
-								loop={true}
-								navigation
-								className="w-full h-[75%] mb-6"
-								thumbs={{
-									swiper:
-										thumbsSwiper && !thumbsSwiper.destroyed
-											? thumbsSwiper
-											: null,
-								}}
-								modules={[Navigation, Thumbs]}
-								onSlideChange={(swiper) => {
-									const realIndex = swiper.realIndex
-									setActiveIndex(realIndex)
+						<div className="flex h-[88vh] w-full flex-col gap-3 text-white">
+							{/* Top bar: position and close */}
+							<div className="flex items-center justify-between">
+								<span className="rounded-full bg-white/10 px-4 py-1.5 text-sm font-semibold tabular-nums" dir="ltr">
+									{activeIndex + 1} / {images?.length ?? 0}
+								</span>
+								<button type="button" onClick={onClose} aria-label="إغلاق" className={controlClass}>
+									<X className="size-5" />
+								</button>
+							</div>
 
-									if (
-										thumbsSwiper &&
-										!thumbsSwiper.destroyed
-									) {
-										thumbsSwiper.slideToLoop(realIndex, 300)
-									}
-								}}
-							>
-								{images?.map((image, index) => (
-									<SwiperSlide key={index}>
-										<Image
-											src={image.path}
-											alt={`Image-${index}`}
-											width={1600}
-											height={1067}
-											unoptimized
-											className="object-contain w-full h-full "
-										/>
-									</SwiperSlide>
-								))}
-							</SwiperComponent>
+							{/* The arrows sit beside the photo, never on top of it */}
+							<div className="flex min-h-0 flex-1 items-center gap-3 md:gap-5">
+								<button type="button" onClick={() => mainSwiper?.slidePrev()} aria-label="الصورة السابقة" className={`${controlClass} max-md:hidden`}>
+									<ChevronRight className="size-6" />
+								</button>
+								<SwiperComponent
+									initialSlide={activeIndex}
+									loop={true}
+									keyboard={{ enabled: true }}
+									spaceBetween={24}
+									className="h-full min-w-0 flex-1"
+									onSwiper={setMainSwiper}
+									thumbs={{
+										swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+									}}
+									modules={[Keyboard, Thumbs]}
+									onSlideChange={(swiper) => {
+										const realIndex = swiper.realIndex
+										setActiveIndex(realIndex)
+										if (thumbsSwiper && !thumbsSwiper.destroyed) {
+											thumbsSwiper.slideToLoop(realIndex, 300)
+										}
+									}}
+								>
+									{images?.map((image, index) => (
+										<SwiperSlide key={index} className="!flex items-center justify-center">
+											<Image
+												src={image.path}
+												alt={`Image-${index}`}
+												width={1600}
+												height={1067}
+												unoptimized
+												className="h-full w-full rounded-2xl object-contain"
+											/>
+										</SwiperSlide>
+									))}
+								</SwiperComponent>
+								<button type="button" onClick={() => mainSwiper?.slideNext()} aria-label="الصورة التالية" className={`${controlClass} max-md:hidden`}>
+									<ChevronLeft className="size-6" />
+								</button>
+							</div>
 
-							{/* Thumbnails Swiper */}
+							{/* Thumbnails */}
 							<SwiperComponent
 								onSwiper={setThumbsSwiper}
 								watchSlidesProgress
@@ -115,13 +133,12 @@ export default function ImageView({
 								loop={true}
 								spaceBetween={10}
 								breakpoints={{
-									320: { slidesPerView: 3 },
-									640: { slidesPerView: 4 },
-									768: { slidesPerView: 5 },
-									1024: { slidesPerView: 6 },
+									320: { slidesPerView: 4 },
+									640: { slidesPerView: 6 },
+									1024: { slidesPerView: 9 },
 								}}
 								modules={[Thumbs]}
-								className="w-full bg-opacity-50  bg-black  max-w-5xl h-[90px] pt-4 px-2"
+								className="h-16 w-full shrink-0 md:h-20"
 							>
 								{images?.map((image, index) => (
 									<SwiperSlide key={index}>
@@ -131,10 +148,10 @@ export default function ImageView({
 											width={120}
 											height={80}
 											unoptimized
-											className={`object-cover w-full hover:cursor-pointer h-full rounded-md border-2 transition-all duration-200 ${
+											className={`h-full w-full cursor-pointer rounded-xl border-2 object-cover transition-all duration-200 ${
 												index === activeIndex
-													? "border-primary scale-105"
-													: "border-transparent"
+													? "border-secondary opacity-100"
+													: "border-transparent opacity-50 hover:opacity-80"
 											}`}
 										/>
 									</SwiperSlide>

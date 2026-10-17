@@ -1,23 +1,30 @@
 import type { Metadata } from "next";
-import Breadcrumbs from "@/components/breadcrumb";
 import Image from "next/image";
 import Link from "next/link";
-import { researchAxes } from "./data/researchAxes";
-import { rules } from "./data/rules";
-import { criteria } from "./data/criteria";
 import {
   Award,
   BadgeDollarSign,
   BookCheck,
-  ScrollText,
+  Mail,
   ShieldCheck,
-  Star,
-  CheckCircle2,
   Users,
-  BookOpen,
-  Crown,
+  type LucideIcon,
 } from "lucide-react";
-import { EmailIcon } from "@/assets/icons/reusable";
+import Breadcrumbs from "@/components/breadcrumb";
+import {
+  SectionTitle,
+  TitleIcon,
+  leadText,
+  photoFrame,
+  shieldPanel,
+} from "@/components/brand";
+import DarkBand from "@/components/dark-band";
+import { Reveal } from "@/components/motion";
+import { arabicNumber } from "@/lib/format";
+import { ClosedNotice } from "../components/contest-ui";
+import { researchAxes } from "./data/researchAxes";
+import { rules } from "./data/rules";
+import { criteria } from "./data/criteria";
 
 export const metadata: Metadata = {
   title: "مسابقة الكتاب",
@@ -51,11 +58,48 @@ export const metadata: Metadata = {
   },
 };
 
+const vision =
+  "إحياء تراث الامام زين العابدين (عليه السلام) عبر حث الباحثين على انتاج دراسات رصينة تواكب متطلبات العصر وتبرز ابعاد شخصيته الفكرية والروحية والاجتماعية";
+
+const goals = [
+  "تقديم انتاج علمي مؤصل عن تراث الامام عليه السلام",
+  "تشجيع الباحثين والمفكرين على الغوص في شخصية الامام عليه السلام وموروثه العلمي",
+  "اثراء المكتبة الاسلامية بكتاب متميز من حيث المنهج والمحتوى",
+  "ربط الاجيال المعاصرة بالقيم العبادية والاجتماعية والفكرية في مدرسة الامام (عليه السلام)",
+];
+
+const prizes: { icon: LucideIcon; title: string; text: string }[] = [
+  { icon: BadgeDollarSign, title: "الجائزة الأولى", text: "يتم اختيار (3) فائزين ويخصص لكل منهم جائزة بمقدار (2,000,000) دينار عراقي." },
+  { icon: Award, title: "جائزة التميز", text: "يضاف للكتاب المتميز هدية قدرها (500,000) دينار عراقي." },
+  { icon: BookCheck, title: "النشر والطباعة", text: "يتم طبع ونشر الكتب المقبولة على نفقة المؤسسة وتكون حقوق الطبع محفوظة للمؤسسة." },
+  { icon: ShieldCheck, title: "التكريم الرسمي", text: "تزويد المشاركين المقبولين والفائزين بما يؤيد ذلك رسمياً." },
+];
+
+// Numbered lines with a gold numeral and a dashed rule, like the biography's source list.
+function NumberedList({ items, columns }: { items: string[]; columns?: boolean }) {
+  return (
+    <ol className={columns ? "grid gap-x-14 md:grid-cols-2" : "max-w-4xl"}>
+      {items.map((item, i) => (
+        <li
+          key={item}
+          className="flex items-start gap-4 border-b border-dashed border-secondary/40 py-5"
+        >
+          <span className="w-9 shrink-0 text-2xl font-bold text-secondary dark:text-Muharram_secondary">
+            {arabicNumber(i + 1)}
+          </span>
+          <span className="text-lg leading-loose text-gray-800 md:text-xl md:leading-loose">
+            {item}
+          </span>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
 export default function Page() {
   return (
-    <div className="min-h-screen backdrop-blur-[0.5px]">
-      {/* Breadcrumbs */}
-      <div className="px-4 sm:px-6 lg:px-8 pt-6">
+    <div className="pb-12">
+      <div className="container">
         <Breadcrumbs
           links={[
             { name: "الصفحة الرئيسية", url: "/" },
@@ -63,386 +107,119 @@ export default function Page() {
             { name: "مسابقة كتاب", url: "#" },
           ]}
         />
-      </div>
-      <div className="px-4 sm:px-6 lg:px-8 pb-10 pt-2">
-        <div className="max-w-7xl mx-auto">
-          <div className="relative overflow-hidden rounded-[2rem] border border-rose-200/80 bg-gradient-to-r from-rose-50 via-white to-red-50 px-5 py-5 shadow-[0_22px_55px_-28px_rgba(244,63,94,0.45)] sm:px-8">
-            <div className="absolute -top-10 -right-8 h-28 w-28 rounded-full bg-rose-200/25 blur-2xl" />
-            <div className="absolute -bottom-10 -left-8 h-28 w-28 rounded-full bg-rose-200/20 blur-2xl" />
 
-            <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-center gap-4">
-                <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-rose-200 bg-white shadow-sm">
-                  <div className="absolute inset-0 rounded-full bg-rose-300/20 blur-md animate-pulse" />
-                  <CheckCircle2 className="relative h-8 w-8 text-rose-500/80" strokeWidth={1.6} />
-                </div>
+        <ClosedNotice />
 
-                <div className="text-right">
-                  <h2 className="text-2xl font-bold text-rose-700/90 sm:text-3xl">
-                    انتهت المسابقة
-                  </h2>
-                </div>
-              </div>
+        {/* Hero */}
+        <section className="grid items-center gap-14 lg:grid-cols-[3fr_2fr] lg:gap-20">
+          <Reveal x={60} y={0}>
+            <h1 className="text-4xl font-extrabold leading-snug text-primary dark:text-Muharram_primary md:text-6xl md:leading-snug">
+              مسابقة الكتاب
+            </h1>
 
-              <div className="flex items-center gap-3 rounded-full border border-rose-100 bg-white/70 px-4 py-2 shadow-sm sm:justify-self-end">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-rose-400/40 animate-ping" />
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-rose-400/70" />
-                </span>
-                <p className="text-sm text-slate-600 sm:text-base">
-                  انتهت فترة المشاركة، وشكرًا لجميع المشاركين
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Hero Section */}
-      <div className="px-4 sm:px-6 lg:px-8 py-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            <div className="w-full lg:w-1/2 space-y-8 tracking-tight">
-              {/* Badge */}
-            {/* Competition Status */}
-
-
-              <h1 className="text-title font-bold text-gray-900 text-right leading-tight">
-                مسابقة الكتاب
-              </h1>
-
-              <div className="rounded-2xl p-6 sm:p-8 ">
-                <div className="space-y-6 text-justify leading-relaxed text-base sm:text-lg text-gray-700">
-                  <div className="flex  items-start gap-3">
-                    <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <Star className="w-3 h-3 text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-bold text-note text-primary mb-3">الرؤية:</p>
-                      <p className="mr-4 text-subtitle leading-4 lg:leading-7">
-                        إحياء تراث الامام زين العابدين (عليه السلام) عبر حث
-                        الباحثين على انتاج دراسات رصينة تواكب متطلبات العصر
-                        وتبرز ابعاد شخصيته الفكرية والروحية والاجتماعية
-                      </p>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                        <BookOpen className="w-3 h-3 text-note text-green-600" />
-                      </div>
-                      <p className="font-bold text-green-900 text-note">الاهداف:</p>
-                    </div>
-                    <ol className="list-arabic-indic text-subtitle leading-4 lg:leading-7 mr-12 space-y-3 ">
-                      <li className="hover:text-secondary cursor-cell transition-colors">
-                        تقديم انتاج علمي مؤصل عن تراث الامام عليه السلام
-                      </li>
-                      <li className="hover:text-secondary cursor-cell transition-colors">
-                        تشجيع الباحثين والمفكرين على الغوص في شخصية الامام عليه
-                        السلام وموروثه العلمي
-                      </li>
-                      <li className="hover:text-secondary cursor-cell transition-colors">
-                        اثراء المكتبة الاسلامية بكتاب متميز من حيث المنهج
-                        والمحتوى
-                      </li>
-                      <li className="hover:text-secondary cursor-cell transition-colors">
-                        ربط الاجيال المعاصرة بالقيم العبادية والاجتماعية
-                        والفكرية في مدرسة الامام (عليه السلام)
-                      </li>
-                    </ol>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="w-full lg:w-1/2 flex justify-center sm:translate-y-16">
-              <div className="relative group">
-                <div className="absolute -inset-4 bg-slate-300 rounded-3xl blur opacity-25"></div>
-                <div className="relative bg-white rounded-2xl p-3 shadow-2xl">
-                  <Image
-                    className="w-full rounded-xl"
-                    src={"/contests/kitab/hero.jpg"}
-                    alt="لوكو مسابقة الكتاب"
-                    width={600}
-                    height={600}
-                    priority
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-      {/* Prizes Section */}
-      <div className="px-4 sm:px-6 lg:px-8 py-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-title font-bold text-gray-900 mb-4">
-              المحفزات والجوائز
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-primary/80 mx-auto rounded-full"></div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="group relative bg-gradient-to-b from-white to-gray-50 cursor-pointer rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-primary/20 overflow-hidden">
-              <div className="absolute top-4 right-4 w-8 h-8 border border-primary rounded-full flex items-center justify-center">
-                <Crown className="w-4 h-4 text-primary" />
-              </div>
-              <div className="relative z-10 flex flex-col items-center text-center space-y-4">
-                <div className="p-4 bg-gradient-to-br from-primary/10 to-primary/20 rounded-full group-hover:scale-110 transition-transform duration-300">
-                  <BadgeDollarSign
-                    className="w-12 h-12 text-primary"
-                    strokeWidth={1}
-                  />
-                </div>
-                <h3 className="font-bold text-primary text-note">
-                  الجائزة الأولى
-                </h3>
-                <p className="text-gray-700 leading-relaxed text-subtitle">
-                  يتم اختيار (3) فائزين ويخصص لكل منهم جائزة بمقدار (2,000,000)
-                  دينار عراقي.
-                </p>
-              </div>
-              <div className="absolute -bottom-12 -right-12 w-24 h-24 bg-primary/5 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
-            </div>
-
-            <div className="group relative bg-gradient-to-b from-white to-gray-50 cursor-pointer rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-primary/20 overflow-hidden">
-              <div className="absolute top-4 right-4 w-8 h-8 border border-primary rounded-full flex items-center justify-center">
-                <Star className="w-4 h-4 text-primary" />
-              </div>
-              <div className="relative z-10 flex flex-col items-center text-center space-y-4">
-                <div className="p-4 bg-gradient-to-br from-primary/10 to-primary/20 rounded-full group-hover:scale-110 transition-transform duration-300">
-                  <Award className="w-12 h-12 text-primary" strokeWidth={1} />
-                </div>
-                <h3 className="font-bold text-primary text-note">جائزة التميز</h3>
-                <p className="text-gray-700 text-subtitle leading-relaxed">
-                  يضاف للكتاب المتميز هدية قدرها (500,000) دينار عراقي.
-                </p>
-              </div>
-              <div className="absolute -top-12 -left-12 w-24 h-24 bg-primary/5 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
-            </div>
-
-            <div className="group relative bg-gradient-to-b from-white to-gray-50 cursor-pointer rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-primary/20 overflow-hidden">
-              <div className="absolute top-4 right-4 w-8 h-8 border border-primary rounded-full flex items-center justify-center">
-                <BookOpen className="w-4 h-4 text-primary" />
-              </div>
-              <div className="relative z-10 flex flex-col items-center text-center space-y-4">
-                <div className="p-4 bg-gradient-to-br from-primary/10 to-primary/20 rounded-full group-hover:scale-110 transition-transform duration-300">
-                  <BookCheck
-                    className="w-12 h-12 text-primary"
-                    strokeWidth={1}
-                  />
-                </div>
-                <h3 className="font-bold text-primary text-note">
-                  النشر والطباعة
-                </h3>
-                <p className="text-gray-700 text-subtitle leading-relaxed">
-                  يتم طبع ونشر الكتب المقبولة على نفقة المؤسسة وتكون حقوق الطبع
-                  محفوظة للمؤسسة.
-                </p>
-              </div>
-              <div className="absolute -bottom-12 -left-12 w-24 h-24 bg-primary/5 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
-            </div>
-
-            <div className="group relative bg-gradient-to-b from-white to-gray-50 cursor-pointer rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-primary/20 overflow-hidden">
-              <div className="absolute top-4 right-4 w-8 h-8 border border-primary rounded-full flex items-center justify-center">
-                <Users className="w-4 h-4 text-green-800" />
-              </div>
-              <div className="relative z-10 flex flex-col items-center text-center space-y-4">
-                <div className="p-4 bg-gradient-to-br from-primary/10 to-primary/20 rounded-full group-hover:scale-110 transition-transform duration-300">
-                  <ShieldCheck
-                    className="w-12 h-12 text-primary"
-                    strokeWidth={1}
-                  />
-                </div>
-                <h3 className="font-bold text-green-800 text-note">
-                  التكريم الرسمي
-                </h3>
-                <p className="text-gray-700 text-subtitle leading-relaxed">
-                  تزويد المشاركين المقبولين والفائزين بما يؤيد ذلك رسمياً.
-                </p>
-              </div>
-              <div className="absolute -top-12 -right-12 w-24 h-24 bg-primary/5 rounded-full group-hover:scale-150 transition-transform duration-500"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Research Axes Section */}
-      <div className="px-4 sm:px-6 lg:px-8 py-16 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-title font-bold text-gray-900 mb-4">
-              محاور الكتابة
-            </h2>
-            <p className="text-gray-600 text-note max-w-2xl mx-auto">
-              اختر المحور الذي يناسب اختصاصك وابدأ رحلتك البحثية
-            </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-primary/80 mx-auto rounded-full mt-4"></div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {researchAxes.map((axes) => (
-              <div
-                key={axes.title}
-                className="group bg-gradient-to-b from-white to-gray-50 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 overflow-hidden"
-              >
-                <div className="relative z-10 text-right">
-                  <div className="flex items-center justify-start gap-4 mb-4">
-                    <div
-                      className={`w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/20`}
-                    >
-                      {/* الصورة في الوضع العادي (Light) */}
-                      <Image
-                        src="/shapes/book_icon.svg"
-                        width={24}
-                        height={24}
-                        alt="pointer"
-                        className="rotate-90 w-6 h-6 object-contain dark:hidden"
-                      />
-
-                      {/* الصورة في الوضع الداكن (Dark) */}
-                      <Image
-                        src="/shapes/book_icon_Muharram.svg"
-                        width={24}
-                        height={24}
-                        alt="pointer-dark"
-                        className="rotate-90 w-6 h-6 object-contain hidden dark:block"
-                      />
-                    </div>
-                    <h3 className="text-subtitle font-bold text-gray-900 group-hover:text-primary transition-colors">
-                      {axes.title}
-                    </h3>
-                  </div>
-
-                    <div className="bg-gradient-to-b text-subtitle from-gray-50 to-white rounded-xl p-4 border border-gray-200">
-                      <p className="text-gray-600 leading-relaxed">
-                        {axes.keywords.map((keyword, keyIndex) => (
-                          <span
-                            key={keyword}
-                            className="inline-block hover:text-secondary transition-colors duration-300 px-1 py-0.5 rounded"
-                          >
-                            {keyword}
-                            {keyIndex < axes.keywords.length - 1 && (
-                              <span className="text-gray-400 mx-1">،</span>
-                            )}
-                          </span>
-                        ))}
-                      </p>
-                    </div>
-                </div>
-               </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Evaluation Criteria Section */}
-      <div className="px-4 sm:px-6 lg:px-8 py-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-title font-bold text-gray-900 mb-4">
-              آلية التحكيم
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-primary/80 mx-auto rounded-full"></div>
-          </div>
-
-          <div className="bg-gradient-to-r from-white/20 to-white/10 rounded-2xl p-8 mb-8 border border-primary/20">
-            <div className="flex items-center justify-center gap-4 mb-4 bg-white/40">
-              <Users className="w-8 h-8 text-primary" />
-              <h3 className="text-body font-bold text-primary">
-                اللجنة العلمية
-              </h3>
-            </div>
-            <p className="text-center text-secondary text-note font-semibold">
-              تضم أساتذة متخصصة علوم القرآن، التاريخ، الفلسفة، واللغة.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {criteria.map((criterion, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-4 bg-gray-50/80 rounded-xl p-6 hover:bg-secondary/15 cursor-pointer hover:shadow-md transition-all duration-300 group"
-              >
-                <div className="p-3 bg-white rounded-full shadow-sm group-hover:shadow-md transition-shadow">
-                  <ScrollText className="text-primary w-6 h-6" />
-                </div>
-                <span className="text-gray-700 group-hover:text-primary transition-colors text-subtitle">
-                  {criterion}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Rules Section */}
-      <div className="px-4 sm:px-6 lg:px-8 py-16 bg-gradient-to-b from-white to-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-title font-bold text-gray-900 mb-4">
-              شروط المشاركة
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-primary/80 mx-auto rounded-full"></div>
-          </div>
-
-          <div className="rounded-2xl text-subtitle p-8 shadow-lg border border-primary/20 bg-gradient-to-b from-white to-gray-50">
-            <ol className="list-arabic-indic text-right space-y-4 pr-8">
-              {rules.map((rule, index) => (
-                <li
-                  key={index}
-                  className="leading-relaxed text-gray-700 text-base sm:text-lg cursor-pointer p-3 hover:bg-primary/10 hover:font-semibold rounded-lg transition-all duration-300 border-b border-gray-200 last:border-b-0"
-                >
-                  {rule}
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
-      </div>
-
-      {/* Submission Section */}
-      <div className="px-4 sm:px-6 lg:px-8 py-16">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-br from-white to-primary/5 rounded-3xl p-8 sm:p-12 shadow-2xl border border-primary/20 relative overflow-hidden">
-            <div className="absolute -top-32 -right-32 w-64 h-64 bg-primary/5 rounded-full"></div>
-            <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-secondary/5 rounded-full"></div>
-
-            <div className="relative z-10">
-              <h2 className="text-title font-bold text-gray-900 mb-6">
-                آلية التقديم
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-primary/35 to-primary/80 mx-auto rounded-full mb-8"></div>
-
-              <p className="text-gray-600 text-note leading-relaxed mb-8 max-w-2xl mx-auto">
-                يمكنكم الانضمام إلى المسابقة من خلال تقديم عملكم عبر البريد
-                الإلكتروني
+            <div className="mt-8">
+              <p className="flex items-center gap-2 text-xl font-bold text-secondary_dark dark:text-Muharram_secondary">
+                <TitleIcon className="w-3" />
+                الرؤية
               </p>
-
-              <div className="inline-block">
-                <Link
-                  href="mailto:kitab@imamzain.org"
-                  className="group inline-flex items-center gap-4 bg-gradient-to-l from-secondary to-primary text-white px-8 py-4 rounded-2xl font-semibold text-note hover:shadow-xl transition-all duration-300 hover:-translate-y-1 shadow-md"
-                >
-                  <div className="p-2 bg-white/20 rounded-full group-hover:bg-white/30 transition-colors">
-                    <EmailIcon
-                      className="w-6 h-6"
-                      fill="#ffffff"
-                      stroke="#ffffff"
-                    />
-                  </div>
-                  <span>kitab@imamzain.org</span>
-                </Link>
-              </div>
-
-      
+              <p className={`mt-3 ${leadText}`}>{vision}</p>
             </div>
+
+            <div className="mt-8">
+              <p className="flex items-center gap-2 text-xl font-bold text-secondary_dark dark:text-Muharram_secondary">
+                <TitleIcon className="w-3" />
+                الاهداف
+              </p>
+              <NumberedList items={goals} />
+            </div>
+          </Reveal>
+
+          <Reveal x={-60} y={0} delay={0.2}>
+            <div className={`${photoFrame} mx-2 shadow-xl`}>
+              <Image
+                src="/contests/kitab/hero.jpg"
+                alt="لوكو مسابقة الكتاب"
+                width={600}
+                height={600}
+                priority
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="h-auto w-full"
+              />
+            </div>
+          </Reveal>
+        </section>
+
+      </div>
+
+      {/* Prizes */}
+      <DarkBand className="mt-28">
+        <SectionTitle light title="المحفزات والجوائز" />
+        <ul className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+          {prizes.map(({ icon: Icon, title, text }, i) => (
+            <li key={title}>
+              <Reveal y={30} delay={i * 0.1}>
+                <Icon className="h-12 w-12 text-secondary" strokeWidth={1.2} aria-hidden />
+                <h3 className="mt-5 text-xl font-bold text-white">{title}</h3>
+                <p className="mt-3 text-lg leading-loose text-white/70">{text}</p>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
+      </DarkBand>
+
+      <div className="container">
+        {/* Research axes */}
+        <section className="pt-28">
+          <SectionTitle title="محاور الكتابة" text="اختر المحور الذي يناسب اختصاصك وابدأ رحلتك البحثية" />
+          <div className="grid gap-x-14 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+            {researchAxes.map((axis, i) => (
+              <Reveal key={axis.title} y={24} delay={(i % 3) * 0.1}>
+                <h3 className="flex items-center gap-3 text-xl font-bold leading-8 text-primary dark:text-Muharram_primary">
+                  <TitleIcon className="w-2.5 shrink-0" />
+                  {axis.title}
+                </h3>
+                <p className="mt-3 border-t border-dashed border-secondary/40 pt-3 text-lg leading-loose text-gray-600">
+                  {axis.keywords.join("، ")}
+                </p>
+              </Reveal>
+            ))}
           </div>
-        </div>
+        </section>
+
+        {/* Judging */}
+        <section className="pt-28">
+          <SectionTitle title="آلية التحكيم" />
+          <Reveal>
+            <div className={`${shieldPanel} mb-10 flex flex-col gap-4 p-8 md:flex-row md:items-center md:gap-8 md:p-10`}>
+              <span className="flex items-center gap-3 text-2xl font-extrabold">
+                <Users className="h-8 w-8 text-secondary dark:text-white" strokeWidth={1.5} />
+                اللجنة العلمية
+              </span>
+              <p className="text-lg leading-loose text-white/85 md:text-xl md:leading-loose">
+                تضم أساتذة متخصصة علوم القرآن، التاريخ، الفلسفة، واللغة.
+              </p>
+            </div>
+          </Reveal>
+          <NumberedList items={criteria} columns />
+        </section>
+
+        {/* Rules */}
+        <section className="pt-28">
+          <SectionTitle title="شروط المشاركة" />
+          <NumberedList items={rules} />
+        </section>
+
+        {/* Submission */}
+        <section className="pt-28">
+        <SectionTitle title="آلية التقديم" text="يمكنكم الانضمام إلى المسابقة من خلال تقديم عملكم عبر البريد الإلكتروني" />
+        <Link
+          href="mailto:kitab@imamzain.org"
+          className="inline-flex items-center gap-4 rounded-xl border-2 border-primary bg-primary px-8 py-4 text-xl font-semibold text-white transition-colors hover:bg-primary/90 dark:border-Muharram_primary dark:bg-Muharram_primary"
+        >
+          <Mail className="h-6 w-6" />
+          <span dir="ltr">kitab@imamzain.org</span>
+        </Link>
+        </section>
       </div>
     </div>
   );

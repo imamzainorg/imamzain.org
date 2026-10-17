@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 import journalsData from "@/data/journals.json"
-import type { Journals } from "@/types/journals"
+import type { TranslatedResearch } from "@/types/translated-research"
 
 // Prerendered to a static JSON file at build time (no dynamic APIs are used
 // here, and this route has no dynamic segments), so it is served from the
@@ -12,7 +12,7 @@ import type { Journals } from "@/types/journals"
 export const dynamic = "force-static"
 
 export async function GET() {
-	return NextResponse.json(journalsData as Journals[], {
+	return NextResponse.json(journalsData as TranslatedResearch[], {
 		headers: {
 			"Cache-Control": "public, max-age=3600, stale-while-revalidate=86400",
 		},

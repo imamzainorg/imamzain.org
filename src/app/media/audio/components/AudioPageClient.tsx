@@ -105,20 +105,17 @@ const handleSeek = useCallback(
   }, []);
 
   return (
-    <main className="pb-16" dir="rtl">
-      <div className="container mx-auto  px-4 pt-5">
-        {/* Breadcrumbs */}
-        <div className="pb-4">
-          <Breadcrumbs
-            links={[
-              { name: "الرئيسية", url: "/" },
-              { name: "المكتبة الصوتية", url: "/audio" },
-            ]}
-          />
-        </div>
+    <div className="pb-12" dir="rtl">
+      <div className="container">
+        <Breadcrumbs
+          links={[
+            { name: "الرئيسية", url: "/" },
+            { name: "المكتبة الصوتية", url: "/media/audio" },
+          ]}
+        />
 
         {/* Hero */}
-     <AudioHero  />
+        <AudioHero />
 
         {/* List with search, filter, pagination */}
         <AudioList
@@ -133,7 +130,7 @@ const handleSeek = useCallback(
           setCanvasRef={setCanvasRef}
         />
       </div>
-    </main>
+    </div>
   );
 }
 export default function AudioPageClient({ items }: { items: AudioItemLight[] }) {

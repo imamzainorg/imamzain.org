@@ -1,8 +1,9 @@
 import Breadcrumbs from "@/components/breadcrumb";
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { Book } from "@/types/book";
 import { dataFetcher } from "@/lib/dataFetcher";
-import BooklibraryCard from "../../library/_components/book-library-card";
+import BookCarousel from "@/components/book-carousel";
 import BookCard from "@/components/book-card";
 
 export const dynamicParams = false;
@@ -19,6 +20,21 @@ function getRandomItems<T>(array: T[], count: number) {
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
   return shuffled.slice(0, count);
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const book = (await dataFetcher<Book[]>("books.json")).find((item) => item.slug === slug);
+  if (!book) return {};
+  const description = book.description || `${book.title}${book.author ? " - " + book.author : ""}`;
+  const url = `/publications/${book.slug}`;
+  return {
+    title: book.title,
+    description,
+    alternates: { canonical: url },
+    openGraph: { type: "book", title: book.title, description, url, images: [book.image] },
+    twitter: { card: "summary_large_image", title: book.title, description, images: [book.image] },
+  };
 }
 
 export default async function Page({
@@ -38,19 +54,14 @@ export default async function Page({
     return redirect("/404");
   }
 
-  // كتب ذات صلة
-  const relatedBooks = publications
-    .filter((book) => book.slug !== publication.slug)
-    .slice(0, 2);
-
-  // كتب عشوائية
-  const remainingBooks = publications.filter(
-    (book) =>
-      book.slug !== publication.slug &&
-      !relatedBooks.some((b) => b.slug === book.slug),
-  );
-
-  const randomBooks = getRandomItems(remainingBooks, 2); // الآن هذا آمن
+  // Related books: same category first, then the rest, in a random order. Other parts of the
+  // book's own series are already on the page.
+  const others = getRandomItems(
+    publications.filter((book) => book.slug !== publication.slug && (!publication.series || book.series !== publication.series)),
+    publications.length,
+  )
+  const shared = (book: Book) => book.category?.some((name) => publication.category?.includes(name)) ?? false
+  const relatedBooks = [...others.filter(shared), ...others.filter((book) => !shared(book))].slice(0, 12)
 
   // Other parts of the same series, including this one — the only thing
   // BookCard needs from the full catalog.
@@ -59,7 +70,7 @@ export default async function Page({
     : [];
 
   return (
-    <div className="md:container space-y-16 my-12 max-w-screen-xl mx-auto px-4">
+    <div className="container pb-12">
       <Breadcrumbs
         links={[
           { name: "الرئيسية", url: "/" },
@@ -70,20 +81,8 @@ export default async function Page({
 
       <BookCard publication={publication} seriesParts={seriesParts} />
 
-      {/* كتب ذات صلة */}
-      <div className="smart-library">
-        <h2 className="text-center font-semibold border-t border-b p-4 sm:text-2xl xl:text-4xl">
-          كتب ذات صلة
-        </h2>
-        <div className="bg-secondary dark:bg-Muharram_primary bg-opacity-10 dark:bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
-          {[...relatedBooks, ...randomBooks].map((libraryBook) => (
-            <BooklibraryCard
-              route="/publications"
-              key={libraryBook.id}
-              publication={libraryBook}
-            />
-          ))}
-        </div>
+      <div className="pt-24">
+        <BookCarousel title="كتب ذات صلة" books={relatedBooks} route="/publications" />
       </div>
     </div>
   );

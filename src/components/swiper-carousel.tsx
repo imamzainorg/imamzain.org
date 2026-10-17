@@ -53,6 +53,7 @@ const SwiperCarousel = memo(({ images }: { images: Attachment[] }) => {
           stretch: 0,
           depth: 300,
           modifier: 1,
+          slideShadows: false,
         }}
         autoplay={{
           delay: 3000,

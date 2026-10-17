@@ -1,246 +1,191 @@
 "use client";
 
-import { useRouter, usePathname } from "next/navigation";
-import { DownloadIcon } from "@/assets/icons/reusable";
-import { Book } from "@/types/book";
+import { usePathname, useRouter } from "next/navigation";
+import { ArrowLeft, ArrowRight, Download, Share2, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/button";
 import { toast } from "sonner";
-import NewsShare from "@/components/news-share";
-import {
-  ShoppingCartIcon,
-  BookOpen,
-  Languages,
-  FileText,
-  CalendarIcon,
-  Printer,
-  Users,
-} from "lucide-react";
+import { Book } from "@/types/book";
+import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/motion";
+import Dropdown from "@/components/dropdown";
 
-// ── encode روابط الصور ──
-const encodeImageUrl = (url: string): string => {
-  if (!url) return "";
-  try {
-    const urlObj = new URL(url);
-    urlObj.pathname = urlObj.pathname
-      .split("/")
-      .map((segment) => encodeURIComponent(decodeURIComponent(segment)))
-      .join("/");
-    return urlObj.toString();
-  } catch {
-    return encodeURI(url);
-  }
-};
+const smallButton =
+  "inline-flex items-center justify-center gap-2 rounded-xl border-2 px-4 py-2 text-sm font-semibold transition-colors";
+const solid = `${smallButton} border-primary bg-primary text-white hover:bg-primary/90 dark:border-Muharram_primary dark:bg-Muharram_primary`;
+const outline = `${smallButton} border-primary/30 text-primary hover:border-primary hover:bg-primary hover:text-white dark:border-Muharram_primary/40 dark:text-Muharram_primary dark:hover:bg-Muharram_primary dark:hover:text-white`;
 
+const ORDINALS = ["الأول", "الثاني", "الثالث", "الرابع", "الخامس", "السادس", "السابع", "الثامن", "التاسع", "العاشر", "الحادي عشر", "الثاني عشر", "الثالث عشر", "الرابع عشر", "الخامس عشر", "السادس عشر", "السابع عشر", "الثامن عشر", "التاسع عشر", "العشرون"];
+const partName = (n: number) => `الجزء ${ORDINALS[n - 1] ?? n}`;
+
+// A previous/next arrow; a dimmed one stands in at either end of the series.
+function PartArrow({ target, base, label, Icon }: { target?: Book; base: string; label: string; Icon: typeof ArrowLeft }) {
+  return target ? (
+    <Link href={`${base}/${target.slug}`} aria-label={label} title={label} className={cn(outline, "h-9 px-3")}>
+      <Icon className="h-4 w-4" />
+    </Link>
+  ) : (
+    <span aria-hidden className={cn(smallButton, "h-9 border-gray-200 px-3 text-gray-300")}>
+      <Icon className="h-4 w-4" />
+    </span>
+  );
+}
+
+// The book page: title, the part it is, the numbers a reader looks for first, small actions, and
+// a one-line way to move between the parts of its series.
 export default function BookCard({
   publication,
   seriesParts,
 }: {
   publication: Book;
-  // Only the other books sharing publication.series (including this one),
-  // not the whole catalog — this used to be filtered here from a
-  // `publications: Book[]` prop holding every book, which meant every
-  // book/publication detail page shipped all ~138 books to the client just
-  // to find the handful in the same series.
+  // Only the books sharing publication.series (including this one), not the whole catalog, so
+  // the detail page does not ship every book to the client.
   seriesParts: Book[];
 }) {
-  const router = useRouter();
   const pathname = usePathname();
+  const router = useRouter();
 
-  const imageUrl = publication.image
-    ? encodeImageUrl(publication.image)
-    : "/placeholder-book.png"; // ✅ صورة بديلة بدل string فارغ
+  // The image loader encodes CDN paths itself; encoding here too would break them.
+  const imageUrl = publication.image || "/images/placeholder.jpg";
+
+  // The data holds some languages as a list although the type says string.
+  const language = Array.isArray(publication.language)
+    ? (publication.language as string[]).join("، ")
+    : publication.language;
+
+  const stats = [
+    { label: "صفحة", value: publication.pages },
+    { label: publication.parts > 1 ? "أجزاء" : "جزء", value: publication.parts },
+    { label: "سنة الطبع", value: publication.printDate },
+    { label: "اللغة", value: language },
+  ].filter((stat) => stat.value);
+
+  const details = [
+    { label: "المطبعة", value: publication.printHouse },
+    { label: "أسماء أخرى", value: publication.otherNames?.join("، ") },
+  ].filter((detail) => detail.value);
+
+  const parts = [...seriesParts].sort((a, b) => a.partNumber - b.partNumber);
+  const current = parts.findIndex((part) => part.slug === publication.slug);
+  const base = pathname.substring(0, pathname.lastIndexOf("/"));
 
   return (
-    <div className="space-y-16 my-12 max-w-screen-xl mx-auto px-4">
-      <div className="relative rounded-3xl shadow-2xl border border-gray-200 bg-gradient-to-tr from-white via-secondary/10 to-secondary/30 dark:via-Muharram_secondary/10 dark:to-Muharram_secondary/30 overflow-hidden">
-        {/* أجزاء السلسلة */}
-        {seriesParts.length > 1 && (
-          <div className="px-6 md:px-10 py-6">
-            <h3 className="text-xl font-bold mb-4 text-gray-800 text-center">
-              أجزاء السلسلة
-            </h3>
-
-            <div className="flex flex-wrap gap-3 justify-center">
-              {seriesParts.map((part, index) => (
-                <button
-                  key={part.id}
-                  onClick={() => {
-                    const base = pathname.substring(
-                      0,
-                      pathname.lastIndexOf("/"),
-                    );
-                    router.push(`${base}/${part.slug}`);
-                  }}
-                  className={`px-5 py-2 rounded-full border-2 transition-all text-sm font-medium
-                    ${
-                      part.slug === publication.slug
-                        ? "bg-primary text-white border-primary dark:bg-Muharram_primary dark:border-Muharram_primary shadow-md"
-                        : "border-white text-gray-700 hover:bg-gray-100 hover:border-gray-400"
-                    }
-                  `}
+    <div>
+      <div className="grid items-start gap-10 lg:grid-cols-[1fr_18rem] lg:gap-16">
+        <Reveal x={60} y={0} className="min-w-0">
+          {publication.category?.length ? (
+            <ul className="mb-4 flex flex-wrap gap-2">
+              {publication.category.map((name) => (
+                <li
+                  key={name}
+                  className="rounded-full bg-primary/[0.07] px-3 py-1 text-sm font-semibold text-primary dark:bg-white/10 dark:text-white"
                 >
-                  الجزء {index + 1}
-                </button>
+                  {name}
+                </li>
               ))}
-            </div>
+            </ul>
+          ) : null}
 
-            <div className="w-full h-[0.5px] mt-5 bg-gradient-to-r from-transparent via-primary dark:via-Muharram_primary dark:to-transparent to-transparent" />
+          <h1 className="text-3xl font-extrabold leading-snug text-primary dark:text-Muharram_primary md:text-4xl md:leading-snug">
+            {publication.title}
+          </h1>
+          {publication.author && (
+            <p className="mt-3 text-lg text-gray-600">
+              تأليف: <span className="font-bold text-gray-900">{publication.author}</span>
+            </p>
+          )}
+
+          {current >= 0 && parts.length > 1 && (
+            <p className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
+              <span className="rounded-lg bg-secondary/20 px-3 py-1 text-lg font-extrabold text-secondary_dark dark:bg-Muharram_secondary/20 dark:text-Muharram_secondary">
+                {partName(current + 1)}
+              </span>
+              <span className="text-gray-600">من {parts.length} أجزاء في سلسلة «{publication.series}»</span>
+            </p>
+          )}
+
+          <div className="mt-6 flex flex-wrap items-center gap-2">
+            {publication.pdf ? (
+              <Link href={publication.pdf} target="_blank" rel="noopener noreferrer" className={solid}>
+                <Download className="h-4 w-4" />
+                تنزيل الكتاب
+              </Link>
+            ) : (
+              <span className={cn(smallButton, "cursor-not-allowed border-gray-300 bg-gray-100 text-gray-500")}>
+                الكتاب غير متوفر
+              </span>
+            )}
+            {publication.category?.includes("الإصدارات") && (
+              <Link href="/services/stores" className={outline}>
+                <ShoppingCart className="h-4 w-4" />
+                أماكن البيع
+              </Link>
+            )}
+            <button
+              type="button"
+              aria-label="نسخ رابط الصفحة"
+              title="نسخ الرابط"
+              onClick={() => {
+                navigator.clipboard.writeText(window.location.href);
+                toast("تم نسخ الرابط في الحافظة");
+              }}
+              className={cn(outline, "px-3")}
+            >
+              <Share2 className="h-4 w-4" />
+            </button>
           </div>
-        )}
 
-        {/* معلومات الكتاب */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-stretch p-6 md:p-10 gap-8">
-          <div className="w-full lg:w-1/3 flex justify-center relative group">
-            <div className="relative w-full max-w-xs aspect-[3/4] lg:aspect-auto lg:h-full rounded-xl overflow-hidden bg-transparent">
-              <Image
-                src={imageUrl}
-                fill
-                sizes="(max-width: 1024px) 100vw, 320px"
-                alt={publication.title}
-                className="object-contain transition-transform"
-                priority
-                unoptimized
+          {current >= 0 && parts.length > 1 && (
+            <nav aria-label="أجزاء السلسلة" className="mt-3 flex items-center gap-2">
+              <PartArrow target={parts[current - 1]} base={base} label="الجزء السابق" Icon={ArrowRight} />
+              <Dropdown
+                compact
+                label="الانتقال إلى جزء آخر"
+                className="w-44"
+                value={publication.slug}
+                onChange={(slug) => router.push(`${base}/${slug}`)}
+                options={parts.map((part, index) => ({ value: part.slug, label: partName(index + 1) }))}
               />
-            </div>
+              <PartArrow target={parts[current + 1]} base={base} label="الجزء التالي" Icon={ArrowLeft} />
+            </nav>
+          )}
+
+          {stats.length > 0 && (
+            <dl className="mt-8 grid grid-cols-2 divide-primary/10 overflow-hidden rounded-3xl border border-primary/10 bg-white/70 dark:divide-white/10 dark:border-white/10 dark:bg-white/[0.04] sm:grid-cols-4 sm:divide-x sm:divide-x-reverse">
+              {stats.map(({ label, value }) => (
+                <div key={label} className="px-4 py-4 text-center">
+                  <dd className="text-2xl font-extrabold text-primary dark:text-white">{value}</dd>
+                  <dt className="mt-1 text-sm font-semibold text-secondary_dark dark:text-white/60">{label}</dt>
+                </div>
+              ))}
+            </dl>
+          )}
+
+          {details.length > 0 && (
+            <dl className="mt-5 space-y-2 text-base leading-7">
+              {details.map(({ label, value }) => (
+                <div key={label} className="flex flex-wrap gap-x-3">
+                  <dt className="font-semibold text-secondary_dark dark:text-Muharram_secondary">{label}:</dt>
+                  <dd className="text-gray-800 dark:text-white/85">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
+        </Reveal>
+
+        <Reveal x={-60} y={0} delay={0.15} className="order-first lg:order-none">
+          <div className="relative mx-auto aspect-[3/4] w-full max-w-[12rem] lg:max-w-[16rem]">
+            <Image
+              src={imageUrl}
+              fill
+              sizes="256px"
+              alt={publication.title}
+              className="object-contain drop-shadow-[0_22px_24px_rgba(0,0,0,0.35)]"
+              priority
+            />
           </div>
-
-          <div className="w-full lg:w-2/3 space-y-6 text-center lg:text-right">
-            <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-                {publication.title}
-              </h1>
-              {publication.author && (
-                <p className="text-xl text-gray-600 mt-2">
-                  تأليف:{" "}
-                  <span className="font-medium">{publication.author}</span>
-                </p>
-              )}
-            </div>
-
-            {/* الأزرار */}
-            <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4">
-              {publication.pdf ? (
-                <Link
-                  href={publication.pdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-emerald-700 hover:from-primary/90 hover:to-emerald-700/90 dark:from-Muharram_primary dark:to-Muharram_primary/70 dark:hover:to-Muharram_primary/20 transition-all text-white font-medium px-6 py-3 rounded-full shadow-md hover:shadow-lg"
-                >
-                  <DownloadIcon fill="#ffffff" />
-                  تنزيل الكتاب
-                </Link>
-              ) : (
-                <span className="inline-flex items-center gap-2 bg-gray-400 dark:bg-gray-600 text-white font-medium px-6 py-3 rounded-full shadow-md cursor-not-allowed">
-                  الكتاب غير متوفر
-                </span>
-              )}
-
-              <Button
-                onClick={() => {
-                  if (typeof window !== "undefined") {
-                    navigator.clipboard.writeText(window.location.href);
-                    toast("تم نسخ الرابط في الحافظة");
-                  }
-                }}
-                variant="outline"
-                className="inline-flex p-6 text-md items-center gap-2 bg-white border border-primary text-primary hover:bg-primary/10 dark:border-Muharram_primary dark:text-Muharram_primary dark:hover:bg-Muharram_primary/10 transition-all font-medium rounded-full shadow-sm"
-              >
-                <NewsShare iconSize={20} />
-                مشاركة
-              </Button>
-
-              {publication.category?.includes("publications") && (
-                <Link
-                  href={`/services/stores`}
-                  className="inline-flex items-center gap-2 bg-white border border-primary text-primary hover:bg-primary/10 dark:border-Muharram_primary dark:text-Muharram_primary dark:hover:bg-Muharram_primary/10 transition-all font-medium px-6 py-3 rounded-full shadow-sm"
-                >
-                  <ShoppingCartIcon className="w-5 h-5" />
-                  اماكن البيع المباشر
-                </Link>
-              )}
-            </div>
-
-            {/* التفاصيل */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6">
-              <Detail
-                label="عدد الصفحات"
-                icon={
-                  <BookOpen className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-                }
-                value={publication.pages ?? "غير محدد"} // ✅ fallback
-              />
-              <Detail
-                label="عدد الأجزاء"
-                icon={
-                  <FileText className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-                }
-                value={publication.parts ?? "غير محدد"} // ✅ fallback
-              />
-              <Detail
-                label="تاريخ الطبع"
-                icon={
-                  <CalendarIcon className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-                }
-                value={publication.printDate ?? "غير محدد"} // ✅ fallback
-              />
-              <Detail
-                label="اللغة"
-                icon={
-                  <Languages className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-                }
-                value={publication.language ?? "غير محدد"} // ✅ fallback
-              />
-              <Detail
-                label="المطبعة"
-                icon={
-                  <Printer className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-                }
-                value={publication.printHouse ?? "غير محدد"} // ✅ fallback
-              />
-              <Detail
-                label="أخرى"
-                icon={
-                  <Users className="w-5 h-5 text-primary dark:text-Muharram_primary" />
-                }
-                value={
-                  publication.otherNames?.length
-                    ? publication.otherNames.join(", ") // ✅ مصحح
-                    : "لا يوجد"
-                }
-              />
-            </div>
-          </div>
-        </div>
+        </Reveal>
       </div>
-    </div>
-  );
-}
-
-function Detail({
-  label,
-  value,
-  icon,
-  english = false,
-}: {
-  label: string;
-  value: string | number;
-  icon?: React.ReactNode;
-  english?: boolean;
-}) {
-  return (
-    <div className="bg-gray-50 p-3 rounded-lg flex flex-col items-center lg:items-start">
-      <div className="flex items-center gap-2 text-gray-700">
-        {icon}
-        <span className="font-medium">{label}</span>
-      </div>
-      <span
-        dir={english ? "ltr" : "rtl"}
-        className={`text-gray-500 mt-1 ${english ? "text-left" : ""}`}
-      >
-        {value}
-      </span>
     </div>
   );
 }

@@ -1,8 +1,8 @@
 "use client"
 
-import { Autocomplete, AutocompleteItem } from "@heroui/react"
+import { Autocomplete, AutocompleteItem, type AutocompleteProps } from "@heroui/react"
 import { Globe } from "lucide-react"
-import React, { useState } from "react"
+import { useState } from "react"
 import countries from "i18n-iso-countries"
 import ar from "i18n-iso-countries/langs/ar.json"
 import { Key } from "@react-types/shared"
@@ -12,9 +12,11 @@ countries.registerLocale(ar)
 
 const CountriesDropdown = ({
 	className,
+	inputProps,
 	onCountryChange,
 }: {
 	className?: string
+	inputProps?: AutocompleteProps["inputProps"]
 	onCountryChange?: (key: Key | null) => void
 }) => {
 	const countryNamesInArabic = countries.getNames("ar", {
@@ -60,6 +62,12 @@ const CountriesDropdown = ({
 			}
 			className={`w-full country-autocomplete ${className ?? ""}`}
 			placeholder="البلد"
+			inputProps={inputProps}
+			listboxProps={{
+				itemClasses: {
+					base: "rounded-xl px-3.5 py-2.5 text-base font-medium text-gray-900 data-[hover=true]:bg-primary/10 data-[focus-visible=true]:bg-primary/10 data-[selected=true]:font-bold data-[selected=true]:text-primary",
+				},
+			}}
 			size="lg"
 			value={selectedCountry}
 			onSelectionChange={(key) => handleCountryChange(key)}
