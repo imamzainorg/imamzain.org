@@ -173,8 +173,8 @@ export default function BookCard({
           )}
         </Reveal>
 
-        <Reveal x={-60} y={0} delay={0.15}>
-          <div className="relative mx-auto aspect-[3/4] w-full max-w-[16rem]">
+        <Reveal x={-60} y={0} delay={0.15} className="order-first lg:order-none">
+          <div className="relative mx-auto aspect-[3/4] w-full max-w-[12rem] lg:max-w-[16rem]">
             <Image
               src={imageUrl}
               fill
