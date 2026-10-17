@@ -1,12 +1,13 @@
 "use client"
 
 import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState, type ReactNode } from "react"
+import { createPortal } from "react-dom"
 import { Check, ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 type DropdownOption = { value: string; label: string }
 
-type Variant = "light" | "dark" | "glass"
+type Variant = "light" | "dark"
 
 const triggerStyles: Record<Variant, string> = {
 	// On the white canvas.
@@ -14,15 +15,11 @@ const triggerStyles: Record<Variant, string> = {
 		"border-primary/25 bg-white text-gray-900 hover:border-primary data-[open=true]:border-primary dark:border-Muharram_primary/25 dark:hover:border-Muharram_primary dark:data-[open=true]:border-Muharram_primary",
 	// On the dark bands.
 	dark: "border-white/20 bg-white/5 text-white hover:border-white/60 data-[open=true]:border-secondary dark:data-[open=true]:border-Muharram_secondary",
-	// On the green footer and header.
-	glass:
-		"border-white/25 bg-white/10 text-white hover:border-white hover:bg-white hover:text-primary data-[open=true]:border-white data-[open=true]:bg-white data-[open=true]:text-primary",
 }
 
 const iconStyles: Record<Variant, string> = {
 	light: "text-secondary_dark dark:text-Muharram_secondary",
 	dark: "text-secondary dark:text-Muharram_secondary",
-	glass: "",
 }
 
 const PANEL_MAX = 288
@@ -86,7 +83,7 @@ export default function Dropdown({
 	useEffect(() => {
 		if (!open) return
 		const onDown = (e: MouseEvent) => {
-			if (!root.current?.contains(e.target as Node)) close()
+			if (!root.current?.contains(e.target as Node) && !panel.current?.contains(e.target as Node)) close()
 		}
 		const onScroll = (e: Event) => {
 			if (!panel.current?.contains(e.target as Node)) close()
@@ -173,7 +170,8 @@ export default function Dropdown({
 				/>
 			</button>
 
-			{open && pos && (
+			{/* In a portal, so a transformed ancestor (the sliding header) cannot move a fixed panel. */}
+			{open && pos && createPortal(
 				<ul
 					ref={panel}
 					id={`${id}-list`}
@@ -206,7 +204,8 @@ export default function Dropdown({
 							</li>
 						)
 					})}
-				</ul>
+				</ul>,
+				document.body,
 			)}
 		</div>
 	)

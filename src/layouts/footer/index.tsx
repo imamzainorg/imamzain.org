@@ -4,7 +4,6 @@ import Link from "next/link"
 import { Facebook, Instagram, Youtube } from "lucide-react"
 import { TitleIcon } from "@/components/brand"
 import { TelegramIcon, TikTokIcon, XIcon } from "@/components/brand-icons"
-import DropdownLang from "@/layouts/dropdown-lang"
 import { navLinks } from "@/layouts/header/nav-data"
 import { BackToTop } from "@/layouts/footer/back-to-top"
 
@@ -105,10 +104,7 @@ export default function Footer() {
 					<p className="text-center text-sm text-white/50">
 						جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه السلام) &copy; {new Date().getFullYear()}
 					</p>
-					<div className="flex items-center gap-4">
-						<DropdownLang broad />
-						<BackToTop />
-					</div>
+					<BackToTop />
 				</div>
 			</div>
 		</footer>

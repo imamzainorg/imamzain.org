@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useSyncExternalStore } from "react"
+import { useState, useEffect } from "react"
 import type { ComponentType, SVGProps } from "react"
 import {
 	Facebook,
@@ -8,8 +8,6 @@ import {
 	Mail,
 	MapPin,
 	MenuIcon,
-	Moon,
-	Sun,
 	XIcon,
 	Youtube,
 	ChevronDown,
@@ -25,6 +23,7 @@ import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import useWindowEvents from "@/hooks/window-events"
 import TopBar from "@/layouts/header/top-bar"
+import ThemeToggle from "@/layouts/header/theme-toggle"
 import { LogoRotate } from "@/layouts/header/logo-rotate"
 import { DesktopNav } from "@/layouts/header/mega-menu"
 import { activeSubHref, navLinks } from "@/layouts/header/nav-data"
@@ -52,35 +51,9 @@ const navbarVariants = {
 		transition: { duration: 0.3, delay: 0 },
 	},
 	hidden: {
-		y: -32,
+		y: -40,
 		transition: { duration: 0.3, delay: 0 },
 	},
-}
-
-// ---- Theme sync (localStorage <-> React) via useSyncExternalStore ----
-type Theme = "light" | "dark"
-
-let themeListeners: Array<() => void> = []
-
-function getThemeSnapshot(): Theme {
-	if (typeof window === "undefined") return "light"
-	return (localStorage.getItem("theme") as Theme) ?? "light"
-}
-
-function getServerThemeSnapshot(): Theme {
-	return "light"
-}
-
-function subscribeToTheme(callback: () => void) {
-	themeListeners.push(callback)
-	return () => {
-		themeListeners = themeListeners.filter((l) => l !== callback)
-	}
-}
-
-function setStoredTheme(theme: Theme) {
-	localStorage.setItem("theme", theme)
-	themeListeners.forEach((listener) => listener())
 }
 
 export default function Header() {
@@ -110,23 +83,6 @@ export default function Header() {
 		setExpandedIndex((prev) => (prev === index ? null : index))
 	}
 
-	// نقرأ/نشترك بقيمة الثيم من localStorage عبر useSyncExternalStore
-	// (يرجع "light" بالسيرفر دايماً لتفادي hydration mismatch)
-	const theme = useSyncExternalStore(
-		subscribeToTheme,
-		getThemeSnapshot,
-		getServerThemeSnapshot,
-	)
-
-	useEffect(() => {
-		document.documentElement.classList.toggle("dark", theme === "dark")
-	}, [theme])
-
-	const toggleTheme = () => {
-		const next = theme === "dark" ? "light" : "dark"
-		setStoredTheme(next)
-	}
-
 	return (
 		<motion.div className="text-white">
 			{/* Header */}
@@ -141,9 +97,11 @@ export default function Header() {
 							: "hidden"
 				}
 				className={`fixed top-0 left-0 w-full h-fit flex flex-col justify-between lg:justify-around items-center z-50 text-white transition-all duration-300 ${
-					isScrolled || path !== "/"
-						? "rounded-b-2xl "
-						: "bg-gradient-to-b from-black/70 to-transparent"
+					isScrolled || (path !== "/" && path !== "/media/videos")
+							? `rounded-b-[2rem] bg-primary dark:bg-Muharram_primary ${isMenuVisible ? "" : "shadow-2xl"}`
+							: path === "/"
+								? "bg-gradient-to-b from-black/70 to-transparent"
+								: ""
 				}`}
 			>
 				{/* Top Bar */}
@@ -151,15 +109,7 @@ export default function Header() {
 				<TopBar />
 
 				{/* Navbar */}
-				<div
-					className={`relative w-full rounded-b-[2rem] transition-colors duration-300 ease-in-out ${
-						isScrolled || (path !== "/" && path !== "/media/videos")
-							? `bg-primary dark:bg-Muharram_primary ${
-									isMenuVisible ? "" : "shadow-2xl"
-								}`
-							: ""
-					}`}
-				>
+				<div className="relative w-full">
 					<div className="lg:container w-full mx-auto pl-4 pr-4 flex justify-between items-center gap-4">
 						<Link href="/">
 							<LogoRotate
@@ -194,24 +144,13 @@ export default function Header() {
 									)}
 								</button>
 
-								<button
-									onClick={(e) => {
-										e.stopPropagation()
-										toggleTheme()
-									}}
-									className={`p-1.5 rounded-full transition ${
-										isScrolled || path !== "/"
-											? "bg-secondary dark:bg-Muharram_secondary text-white"
-											: "bg-white text-primary dark:text-Muharram_primary"
-									}`}
-									title="تبديل الثيم"
-								>
-									{theme === "dark" ? (
-										<Sun size={16} />
-									) : (
-										<Moon size={16} />
-									)}
-								</button>
+									<ThemeToggle
+										className={
+											isScrolled || path !== "/"
+												? "bg-secondary dark:bg-Muharram_secondary text-white"
+												: "bg-white text-primary dark:text-Muharram_primary"
+										}
+									/>
 							</div>
 						</div>
 					</div>
