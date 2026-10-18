@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -31,8 +31,39 @@ const PINNED_CHILD_SLUGS = new Set([
   "daily-supplications",
 ]);
 
+// يُطبَّق قبل الرسم في المتصفح (فلا يظهر قفز)، ويتجنّب التحذير على السيرفر
+const useIsoLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
+/**
+ * ذاكرة على مستوى الـ module: تبقى حتى لو أُعيد تركيب الشريط الجانبي عند
+ * الانتقال بين الأدعية (وهذا هو سبب رجوع السكرول للأعلى).
+ * - scrollTop: موضع سكرول القائمة
+ * - expanded: الأقسام التي فتحها المستخدم
+ * - subjects: موضوعات الأقسام (الواصلة من الصفحة أو المجلوبة)، حتى يعود
+ *   ارتفاع القائمة كما كان قبل استرجاع السكرول
+ */
+const navMemory = {
+  scrollTop: new Map<string, number>(),
+  expanded: new Map<string, Set<string>>(),
+  subjects: new Map<string, Record<string, NavSubject[]>>(),
+};
+
 const isActivePath = (pathname: string, path: string) =>
   pathname === path || pathname.startsWith(`${path}/`);
+
+// إذا كان الدعاء المفتوح تابعًا لأحد الأقسام المثبّتة، نفتح القسم الأب الذي يحتويه
+const expandTargetFor = (slug: string) =>
+  PINNED_CHILD_SLUGS.has(slug) ? PINNED_PARENT_SLUG : slug;
+
+function pickSubjects(
+  d: NavDictionary,
+  fetched: Record<string, NavSubject[]>,
+  collectionSlug: string,
+): NavSubject[] | undefined {
+  if (d.subjects.length > 0) return d.subjects;
+  return fetched[d.slug] ?? navMemory.subjects.get(collectionSlug)?.[d.slug];
+}
 
 /**
  * The page ships only the active dictionary's subjects; the others arrive with
@@ -42,33 +73,59 @@ const isActivePath = (pathname: string, path: string) =>
  * first one's spinner.
  */
 function useLazySubjects(collectionSlug: string) {
-  const [fetchedSubjects, setFetchedSubjects] = useState<Record<string, NavSubject[]>>({});
+  const [fetchedSubjects, setFetchedSubjects] = useState<
+    Record<string, NavSubject[]>
+  >(() => navMemory.subjects.get(collectionSlug) ?? {});
   const [loadingSlugs, setLoadingSlugs] = useState<Set<string>>(new Set());
+  // سبب الفشل لكل قسم (يظهر للمستخدم مع زر إعادة المحاولة)
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  function loadSubjects(dictionarySlug: string) {
-    setLoadingSlugs((prev) => new Set(prev).add(dictionarySlug));
+  function loadSubjects(dictionary: NavDictionary) {
+    const slug = dictionary.slug;
+    setLoadingSlugs((prev) => new Set(prev).add(slug));
+    setErrors((prev) => {
+      if (!(slug in prev)) return prev;
+      const rest = { ...prev };
+      delete rest[slug];
+      return rest;
+    });
 
-    fetch(`/api/library-nav/${collectionSlug}/${dictionarySlug}`)
+    fetch(`/api/library-nav/${collectionSlug}/${slug}`)
       .then((res) => {
-        if (!res.ok) throw new Error(String(res.status));
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
       })
-      .then((subjects: NavSubject[]) =>
-        setFetchedSubjects((prev) => ({ ...prev, [dictionarySlug]: subjects })),
-      )
-      .catch(() => {
-        // يبقى غير محمَّل، فتعيد المحاولة نقرة الطي/الفتح التالية
+      .then((subjects: unknown) => {
+        if (!Array.isArray(subjects)) throw new Error("الاستجابة ليست قائمة");
+        const list = subjects as NavSubject[];
+        // القسم يقول إن فيه موضوعات لكن الـ API رجّع قائمة فارغة: نعدّه خطأ
+        if (list.length === 0 && dictionary.subjectCount > 0) {
+          throw new Error("الـ API رجّع قائمة فارغة");
+        }
+        if (list.length > 0) {
+          navMemory.subjects.set(collectionSlug, {
+            ...(navMemory.subjects.get(collectionSlug) ?? {}),
+            [slug]: list,
+          });
+        }
+        setFetchedSubjects((prev) => ({ ...prev, [slug]: list }));
       })
+      .catch((err: unknown) =>
+        setErrors((prev) => ({
+          ...prev,
+          [slug]: err instanceof Error ? err.message : "خطأ غير معروف",
+        })),
+      )
       .finally(() =>
         setLoadingSlugs((prev) => {
           const next = new Set(prev);
-          next.delete(dictionarySlug);
+          next.delete(slug);
           return next;
         }),
       );
   }
 
-  return { fetchedSubjects, loadingSlugs, loadSubjects };
+  return { fetchedSubjects, loadingSlugs, errors, loadSubjects };
 }
 
 export default function DictionaryNav({
@@ -79,11 +136,78 @@ export default function DictionaryNav({
   pdfDownload,
 }: DictionaryNavProps) {
   const pathname = usePathname();
-  const [expandedSlugs, setExpandedSlugs] = useState(
-    () => new Set([activeDictionarySlug]),
-  );
-  const { fetchedSubjects, loadingSlugs, loadSubjects } =
+  const navRef = useRef<HTMLElement>(null);
+  const restoringRef = useRef(false);
+
+  // نستعيد الأقسام المفتوحة سابقًا، لكن فقط التي نملك موضوعاتها الآن،
+  // كي لا يظهر قسم مفتوح وفارغ بعد إعادة التركيب.
+  const [expandedSlugs, setExpandedSlugs] = useState(() => {
+    const saved = navMemory.expanded.get(collectionSlug);
+    const cached = navMemory.subjects.get(collectionSlug);
+    const initial = new Set([expandTargetFor(activeDictionarySlug)]);
+    if (saved) {
+      for (const d of dictionaries) {
+        if (saved.has(d.slug) && (d.subjects.length > 0 || cached?.[d.slug])) {
+          initial.add(d.slug);
+        }
+      }
+    }
+    return initial;
+  });
+  const { fetchedSubjects, loadingSlugs, errors, loadSubjects } =
     useLazySubjects(collectionSlug);
+
+  // إذا تغيّر القسم النشط دون إعادة تركيب، نفتحه (ضبط الحالة أثناء الرسم)
+  const [prevActiveSlug, setPrevActiveSlug] = useState(activeDictionarySlug);
+  if (prevActiveSlug !== activeDictionarySlug) {
+    setPrevActiveSlug(activeDictionarySlug);
+    const target = expandTargetFor(activeDictionarySlug);
+    if (!expandedSlugs.has(target)) {
+      setExpandedSlugs(new Set(expandedSlugs).add(target));
+    }
+  }
+
+  // نحفظ الموضوعات الواصلة من الصفحة، فتبقى متاحة بعد الانتقال لقسم آخر
+  useEffect(() => {
+    const next = { ...(navMemory.subjects.get(collectionSlug) ?? {}) };
+    let changed = false;
+    for (const d of dictionaries) {
+      if (d.subjects.length > 0 && next[d.slug] !== d.subjects) {
+        next[d.slug] = d.subjects;
+        changed = true;
+      }
+    }
+    if (changed) navMemory.subjects.set(collectionSlug, next);
+  }, [dictionaries, collectionSlug]);
+
+  // استرجاع موضع السكرول عند التركيب (قبل الرسم). إن لم يوجد موضع محفوظ
+  // نُظهر الدعاء النشط في منتصف القائمة. نُعيد التطبيق في الإطار التالي لأن
+  // الارتفاع قد يستقر بعد الرسم الأول، ونتجاهل أحداث scroll أثناء ذلك.
+  useIsoLayoutEffect(() => {
+    const el = navRef.current;
+    if (!el) return;
+
+    const saved = navMemory.scrollTop.get(collectionSlug);
+    if (saved !== undefined) {
+      restoringRef.current = true;
+      el.scrollTop = saved;
+      const id = requestAnimationFrame(() => {
+        el.scrollTop = saved;
+        restoringRef.current = false;
+      });
+      return () => {
+        cancelAnimationFrame(id);
+        restoringRef.current = false;
+      };
+    }
+
+    const item = el.querySelector('[aria-current="page"]');
+    if (item) {
+      const delta =
+        item.getBoundingClientRect().top - el.getBoundingClientRect().top;
+      el.scrollTop += delta - el.clientHeight / 2;
+    }
+  }, [collectionSlug]);
 
   const topLevelDictionaries = dictionaries.filter(
     (dictionary) => !PINNED_CHILD_SLUGS.has(dictionary.slug),
@@ -99,14 +223,15 @@ export default function DictionaryNav({
       const next = new Set(prev);
       if (willExpand) next.add(dictionary.slug);
       else next.delete(dictionary.slug);
+      navMemory.expanded.set(collectionSlug, next);
       return next;
     });
 
     const needsFetch =
       dictionary.subjects.length === 0 &&
       dictionary.subjectCount > 0 &&
-      !fetchedSubjects[dictionary.slug];
-    if (willExpand && needsFetch) loadSubjects(dictionary.slug);
+      !pickSubjects(dictionary, fetchedSubjects, collectionSlug);
+    if (willExpand && needsFetch) loadSubjects(dictionary);
   }
 
   return (
@@ -119,16 +244,22 @@ export default function DictionaryNav({
       </div>
 
       <nav
+        ref={navRef}
+        onScroll={(e) => {
+          if (restoringRef.current) return;
+          navMemory.scrollTop.set(collectionSlug, e.currentTarget.scrollTop);
+        }}
         className="flex-1 overflow-y-auto p-3 space-y-1.5 overscroll-contain"
         onWheel={(e) => e.stopPropagation()}
       >
         {topLevelDictionaries.map((dictionary) => {
           const isExpanded = expandedSlugs.has(dictionary.slug);
           const isActive = dictionary.slug === activeDictionarySlug;
-          const subjects =
-            dictionary.subjects.length > 0
-              ? dictionary.subjects
-              : fetchedSubjects[dictionary.slug];
+          const subjects = pickSubjects(
+            dictionary,
+            fetchedSubjects,
+            collectionSlug,
+          );
           const isLoading =
             isExpanded && !subjects && loadingSlugs.has(dictionary.slug);
 
@@ -154,12 +285,27 @@ export default function DictionaryNav({
                 />
               </div>
 
-              {dictionary.slug === PINNED_PARENT_SLUG && (
+              {dictionary.slug === PINNED_PARENT_SLUG && isExpanded && (
                 <PinnedChildren
                   dictionaries={pinnedChildren}
                   collectionSlug={collectionSlug}
                   pathname={pathname}
                 />
+              )}
+
+              {isExpanded && !subjects && errors[dictionary.slug] && (
+                <div className="mr-9 mt-1 px-3 py-2 text-sm text-red-500">
+                  <p>تعذّر تحميل الموضوعات</p>
+                  <p className="text-xs opacity-70" dir="ltr">
+                    {errors[dictionary.slug]}
+                  </p>
+                  <button
+                    onClick={() => loadSubjects(dictionary)}
+                    className="mt-1 underline"
+                  >
+                    إعادة المحاولة
+                  </button>
+                </div>
               )}
 
               {isLoading && (
@@ -169,14 +315,18 @@ export default function DictionaryNav({
                 </div>
               )}
 
-              {isExpanded && subjects && (
+              {isExpanded && subjects && subjects.length > 0 && (
                 <div className="mr-9 mt-1 space-y-0.5 animate-in slide-in-from-top-2 duration-200">
                   {subjects.map((subject, index) => (
                     <SubjectLink
                       key={subject.slug}
                       subject={subject}
                       position={index + 1}
-                      href={libraryPath(collectionSlug, dictionary.slug, subject.slug)}
+                      href={libraryPath(
+                        collectionSlug,
+                        dictionary.slug,
+                        subject.slug,
+                      )}
                       pathname={pathname}
                     />
                   ))}
@@ -289,6 +439,8 @@ function SubjectLink({
   return (
     <Link
       href={href}
+      scroll={false}
+      aria-current={isActive ? "page" : undefined}
       className={`flex items-center gap-2.5 px-3 py-2 rounded-lg transition-all text-sm group ${
         isActive
           ? "bg-primary/10 dark:bg-Muharram_secondary/15  text-primary dark:text-Muharram_primary font-medium shadow-sm"
