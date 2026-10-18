@@ -11,7 +11,7 @@ import "swiper/css/scrollbar"
 import { cn } from "@/lib/utils"
 import { arabicNumber } from "../_lib/anchors"
 import { storyThemes, type Story, type StoryTheme } from "../_data/biography"
-import { MoreLink, TitleIcon } from "./brand"
+import { MoreLink, TitleIcon } from "@/components/brand"
 
 const navButton =
 	"flex h-11 w-11 items-center justify-center rounded-full border-2 border-primary text-primary transition-colors hover:bg-primary hover:text-white dark:border-Muharram_primary dark:text-Muharram_primary dark:hover:bg-Muharram_primary dark:hover:text-white"

@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 import Breadcrumbs from "@/components/breadcrumb";
 import BookCard from "@/components/book-card";
 import type { Book } from "@/types/book";
-import BookLibraryCard from "@/app/library/_components/book-library-card";
+import BookCarousel from "@/components/book-carousel";
 import { libraryPath } from "@/app/library/_config/paths";
 import {
   popToPreviousBook,
@@ -57,33 +57,31 @@ export default function BookDetailClient({
   }
 
   return (
-    <div className="space-y-10 my-8">
-      <Breadcrumbs
-        links={[
-          { name: "الرئيسية", url: "/" },
-          { name: "المكتبة التخصصية", url: "/library" },
-          { name: book.title, url: "#" },
-        ]}
-      />
-      <div className="container mx-auto px-4">
+    <div className="space-y-10 pb-8">
+      <div className="container flex items-end justify-between gap-4">
+        <Breadcrumbs
+          links={[
+            { name: "الرئيسية", url: "/" },
+            { name: "المكتبة التخصصية", url: "/library" },
+            { name: book.title, url: "#" },
+          ]}
+        />
         <button
+          type="button"
           onClick={handleBackToLibrary}
-          className="flex items-center gap-2 bg-primary p-2 rounded-xl  hover:bg-primary/90 text-white hover:text-primary-dark transition-colors group mb-4"
+          className="group mb-5 inline-flex shrink-0 items-center gap-2 rounded-full border border-primary/25 px-4 py-1.5 text-sm font-semibold text-primary transition-colors hover:border-primary hover:bg-primary/[0.06] dark:border-Muharram_primary/30 dark:text-Muharram_primary lg:mb-6"
         >
-          <ArrowRight className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-          <span className="font-medium  ">العودة الى الصفحة السابقة</span>
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          <span className="max-sm:hidden">العودة إلى الصفحة السابقة</span>
+          <span className="sm:hidden">رجوع</span>
         </button>
       </div>
-      <BookCard key={book.id} publication={book} seriesParts={seriesParts} />
+      <div className="container">
+        <BookCard key={book.id} publication={book} seriesParts={seriesParts} />
+      </div>
 
-      <h2 className="text-center font-semibold border-t border-b p-4 sm:text-2xl xl:text-4xl">
-        كتب ذات صلة
-      </h2>
-
-      <div className="bg-secondary md:container dark:bg-Muharram_primary/20 bg-opacity-10 rounded-xl grid grid-cols-1 lg:grid-cols-2 p-2 lg:px-8">
-        {showcaseBooks.map((item) => (
-          <BookLibraryCard key={item.id} route="/library/books" publication={item} />
-        ))}
+      <div className="container pt-10">
+        <BookCarousel title="كتب ذات صلة" books={showcaseBooks} route="/library/books" />
       </div>
     </div>
   );

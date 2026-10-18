@@ -2,9 +2,10 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { ArrowUpDown, BookOpen } from "lucide-react";
+import { ArrowUpDown } from "lucide-react";
 import Breadcrumbs from "@/components/breadcrumb";
-import SectionTitle from "@/components/section";
+import { SectionTitle } from "@/components/brand";
+import Dropdown from "@/components/dropdown";
 import type { Book } from "@/types/book";
 import {
   getBookFilterOptions,
@@ -75,29 +76,26 @@ export default function BookLibraryPage({ books }: { books: Book[] }) {
         />
       </div>
 
-      <div className="mb-8 rounded-2xl dark:bg-gradient-to-l dark:from-Muharram_secondary/10 dark:to-transparent bg-gradient-to-l from-primary/10 to-transparent p-6">
-        <div className="flex flex-col md:flex-row md:justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="p-3 bg-primary/20 dark:bg-Muharram_primary/20 rounded-xl">
-              <BookOpen className="w-6 h-6 text-primary dark:text-Muharram_primary" />
-            </div>
-            <div>
-              <SectionTitle title="قائمة الكتب" />
-              <p className="text-gray-600 mt-1">اكتشف مجموعتنا المتنوعة من الكتب</p>
-            </div>
-          </div>
-          <div className="relative">
-            <select
+      <div>
+        <SectionTitle
+          as="h1"
+          title="قائمة الكتب"
+          text="اكتشف مجموعتنا المتنوعة من الكتب"
+          className="mb-10"
+          action={
+            <Dropdown
+              label="الترتيب"
               value={filters.sort}
-              onChange={(e) => updateParams({ sort: e.target.value })}
-              className="appearance-none bg-white border rounded-xl px-4 py-2.5 pr-10 focus:ring-2 focus:ring-primary/20 outline-none transition-all cursor-pointer"
-            >
-              <option value="latest">الأحدث</option>
-              <option value="common">الأكثر مشاهدة</option>
-            </select>
-            <ArrowUpDown className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
-          </div>
-        </div>
+              onChange={(sort) => updateParams({ sort })}
+              icon={<ArrowUpDown />}
+              className="min-w-44"
+              options={[
+                { value: "latest", label: "الأحدث" },
+                { value: "common", label: "الأكثر مشاهدة" },
+              ]}
+            />
+          }
+        />
       </div>
 
       <div className="flex flex-col lg:flex-row gap-6">

@@ -188,6 +188,23 @@ Before requesting review:
 
 ---
 
+## Testing policy
+
+Tests exist to say something true about the system, not to raise a coverage number. If following these rules produces more tests than the old habit did, ignore the rules: the goal is fewer, more meaningful tests.
+
+1. Test externally observable behavior, not implementation details.
+2. Prioritize business rules, security boundaries, data transformations, authorization, and failure modes.
+3. Do not write tests solely to increase coverage.
+4. Do not test trivial getters, setters, constants, types, or framework behavior.
+5. Do not test private or internal functions directly unless they hold substantial independent logic.
+6. Prefer a small number of high-value tests over exhaustive permutations.
+7. For each feature, cover the primary successful path, the important boundary cases, and the important failure and security cases.
+8. Avoid tests whose only purpose is checking that a mock was called, unless that interaction is itself part of the contract.
+9. If behavior is obvious from the implementation and has no meaningful regression risk, don't add a test merely because it is testable.
+10. Before adding a test, ask what regression it would catch. If there is no meaningful answer, don't write it.
+
+---
+
 ## Anti-patterns — don't do these
 
 Drawn from real history on this repo. Each one cost someone time.

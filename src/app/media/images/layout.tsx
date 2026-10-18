@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import DarkPage from "@/components/dark-page"
 
 export const metadata: Metadata = {
 	title: "معرض الصور",
@@ -41,5 +42,5 @@ export default function MediaImagesLayout({
 }: Readonly<{
 	children: React.ReactNode
 }>) {
-	return <>{children}</>
+	return <DarkPage>{children}</DarkPage>
 }

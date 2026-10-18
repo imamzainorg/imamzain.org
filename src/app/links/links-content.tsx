@@ -5,21 +5,18 @@ import type { ComponentType, SVGProps } from "react"
 import Image from "next/image"
 import { motion, useReducedMotion, type Variants } from "framer-motion"
 import {
-	FaYoutube,
-	FaInstagram,
-	FaFacebookF,
-	FaGlobe,
-	FaEnvelope,
-	FaPhone,
-	FaLocationDot,
-	FaChevronLeft,
-} from "react-icons/fa6"
-
-import {
-	XIcon,
-	TikTokIcon,
+	ChevronLeftIcon,
+	EnvelopeIcon,
+	FacebookIcon,
+	GlobeIcon,
+	InstagramIcon,
+	LocationIcon,
+	PhoneIcon,
 	TelegramIcon,
+	TikTokIcon,
 	WhatsAppIcon,
+	XIcon,
+	YouTubeIcon,
 } from "@/components/brand-icons"
 
 type IconType = ComponentType<SVGProps<SVGSVGElement>>
@@ -56,14 +53,14 @@ const socials: {
 		label: "يوتيوب",
 		aria: "يوتيوب",
 		href: "https://www.youtube.com/@imamzainorg",
-		Icon: FaYoutube,
+		Icon: YouTubeIcon,
 		color: "#FF0000",
 	},
 	{
 		label: "إنستغرام",
 		aria: "إنستغرام",
 		href: "https://www.instagram.com/imamzainorg",
-		Icon: FaInstagram,
+		Icon: InstagramIcon,
 		color: "#E4405F",
 	},
 	{
@@ -77,7 +74,7 @@ const socials: {
 		label: "فيسبوك",
 		aria: "فيسبوك",
 		href: "https://www.facebook.com/imamzainorg",
-		Icon: FaFacebookF,
+		Icon: FacebookIcon,
 		color: "#1877F2",
 	},
 	{
@@ -114,19 +111,19 @@ const contacts: {
 		label: "راسلنا",
 		aria: "البريد الإلكتروني",
 		href: "mailto:info@imamzain.org",
-		Icon: FaEnvelope,
+		Icon: EnvelopeIcon,
 	},
 	{
 		label: "اتصل بنا",
 		aria: "الهاتف",
 		href: "tel:+9647782943996",
-		Icon: FaPhone,
+		Icon: PhoneIcon,
 	},
 	{
 		label: "الخريطة",
 		aria: "الموقع الجغرافي",
 		href: "https://maps.app.goo.gl/cCoveq63ZgwJDZyGA",
-		Icon: FaLocationDot,
+		Icon: LocationIcon,
 		external: true,
 	},
 ]
@@ -284,7 +281,7 @@ export default function LinksContent() {
 										حمّل التطبيق الآن
 									</span>
 								</span>
-								<FaChevronLeft
+								<ChevronLeftIcon
 									aria-hidden="true"
 									className="h-4 w-4 shrink-0 text-secondary transition-transform duration-300 group-hover:-translate-x-1"
 								/>
@@ -306,7 +303,7 @@ export default function LinksContent() {
 							aria-hidden="true"
 							className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-white/20 group-hover:text-white"
 						>
-							<FaGlobe className="h-5 w-5" />
+							<GlobeIcon className="h-5 w-5" />
 						</span>
 						<span className="flex-1 text-right">
 							<span className="block text-sm font-bold">الموقع الإلكتروني</span>
@@ -317,7 +314,7 @@ export default function LinksContent() {
 								imamzain.org
 							</span>
 						</span>
-						<FaChevronLeft
+						<ChevronLeftIcon
 							aria-hidden="true"
 							className="h-4 w-4 shrink-0 text-secondary transition-transform duration-300 group-hover:-translate-x-1 group-hover:text-white"
 						/>

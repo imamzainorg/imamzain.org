@@ -1,3 +1,5 @@
+import { arabicNumber } from "@/lib/format"
+
 // Section anchors are the heading text itself (diacritics and punctuation
 // dropped), e.g. /his-life/al-muakf#موقفه-مع-الغزالة, so a link keeps working
 // when other sections are added or reordered. Numbered narrations use #n-<number>.
@@ -14,7 +16,7 @@ export function chapterHref(slug: string, anchor?: string | number) {
 	return `/his-life/${slug}#${id}`
 }
 
-export const arabicNumber = (n: number) => n.toLocaleString("ar-EG")
+export { arabicNumber }
 
 export function readingTimeLabel(minutes: number) {
 	if (minutes <= 1) return "دقيقة قراءة"

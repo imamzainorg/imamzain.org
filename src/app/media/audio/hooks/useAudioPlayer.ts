@@ -4,13 +4,6 @@
 import { useRef, useState, useCallback, useEffect } from "react";
 import type { AudioItemLight } from "@/types/audio";
 
-export interface AudioPlayerState {
-  activeId: number | null;
-  isPlaying: boolean;
-  currentTimes: Record<number, number>;
-  volumes: Record<number, number>;
-}
-
 export function useAudioPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const rafRef = useRef<number>(0);
