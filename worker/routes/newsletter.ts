@@ -1,73 +1,34 @@
+import { isValidEmail } from "../../src/lib/form-rules"
+import { callApi, readJson, relayForm } from "../lib/api"
 import { log } from "../lib/logger"
-import { isValidEmail } from "../lib/validators"
 
 interface NewsletterBody {
 	subscriberEmail?: string
 }
 
-interface BackendResponse {
-	error?: string
-	message?: string
-}
-
-export async function newsletterSubscribe(
-	request: Request,
-	env: Env,
-): Promise<Response> {
+export async function newsletterSubscribe(request: Request, env: Env): Promise<Response> {
+	let body: NewsletterBody
 	try {
-		const body: NewsletterBody = await request.json()
-		const { subscriberEmail } = body
-
-		if (!isValidEmail(subscriberEmail)) {
-			log("WARN", "Newsletter subscription: invalid email format")
-			return Response.json({ error: "Invalid email format" }, { status: 400 })
-		}
-
-		const apiUrl = `${env.API_URL}/api/v1/newsletter/subscribe`
-		log("INFO", "Sending newsletter subscription to backend")
-
-		const response = await fetch(apiUrl, {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			// Backend SubscribeDto expects `email`, not `subscriberEmail`.
-			body: JSON.stringify({ email: subscriberEmail }),
-		})
-
-		log("INFO", "Backend response status:", response.status)
-
-		const rawText = await response.text()
-		let data: BackendResponse
-
-		try {
-			data = JSON.parse(rawText)
-		} catch {
-			log("ERROR", "Failed to parse backend response JSON:", rawText)
-			throw new Error("Invalid JSON response from backend")
-		}
-
-		if (!response.ok) {
-			log("ERROR", "Backend responded with error:", data)
-			return Response.json(
-				{ error: data.error || "Backend API request failed" },
-				{ status: response.status },
-			)
-		}
-
-		log("INFO", "Newsletter subscription succeeded")
-		return Response.json(data, { status: 200 })
-	} catch (error: unknown) {
-		if (error instanceof Error) {
-			log("ERROR", "Newsletter Subscribe Error:", {
-				name: error.name,
-				message: error.message,
-				stack: error.stack,
-			})
-		} else {
-			log("ERROR", "Unknown error:", error)
-		}
-
-		return Response.json({ error: "Failed to subscribe" }, { status: 500 })
+		body = await request.json()
+	} catch {
+		return Response.json({ error: "Invalid request body" }, { status: 400 })
 	}
+	const subscriberEmail = body?.subscriberEmail
+
+	if (!isValidEmail(subscriberEmail)) {
+		log("WARN", "Newsletter subscription: invalid email format")
+		return Response.json({ error: "Invalid email format" }, { status: 400 })
+	}
+
+	// Backend SubscribeDto expects `email`, not `subscriberEmail`.
+	return relayForm(
+		env,
+		request,
+		"/api/v1/newsletter/subscribe",
+		{ email: subscriberEmail },
+		"Newsletter subscribe",
+		"Failed to subscribe",
+	)
 }
 
 const TOKEN = /^[0-9a-f]{64}$/i
@@ -93,20 +54,20 @@ function relayLink(action: "confirm" | "unsubscribe") {
 
 		try {
 			// The API rejects unknown keys, so only these two are sent.
-			const response = await fetch(`${env.API_URL}/api/v1/newsletter/${action}`, {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ email, token }),
-			})
+			const response = await callApi(env, request, `/api/v1/newsletter/${action}`, { email, token })
 			log("INFO", `Newsletter ${action}: backend responded`, response.status)
 
-			const data = await response.json().catch(() => null)
-			return Response.json(data ?? { success: false, message: "Unexpected response" }, {
-				status: response.status,
-				headers,
-			})
-		} catch {
-			log("ERROR", `Newsletter ${action}: backend unreachable`)
+			const data = await readJson<unknown>(response, `Newsletter ${action}`)
+			// A 2xx that is not JSON is not a confirmation: never let the page read it as one.
+			if (data === null) {
+				return Response.json(
+					{ success: false, message: "Unexpected response" },
+					{ status: response.ok ? 502 : response.status, headers },
+				)
+			}
+			return Response.json(data, { status: response.status, headers })
+		} catch (error) {
+			log("ERROR", `Newsletter ${action}: API binding call threw`, error instanceof Error ? error.message : String(error))
 			return Response.json({ success: false, message: "Service unavailable" }, { status: 502, headers })
 		}
 	}

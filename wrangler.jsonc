@@ -30,12 +30,14 @@
 			"/api/proxy-visit"
 		]
 	},
-	// Not secrets: the public backend base URL and the CDN the download helper
-	// may redirect to.
+	// Not secrets: the CDN the download helper may redirect to.
 	"vars": {
-		"API_URL": "https://api.imamzain.org",
 		"ALLOWED_HOSTNAME": "cdn.imamzain.org"
 	},
+	// The backend API is its own Worker. A fetch() to api.imamzain.org from this
+	// Worker would not run that Worker (same-zone fetches skip Worker routes) and
+	// would reach the old origin, so worker/ calls it through this binding.
+	"services": [{ "binding": "API", "service": "imamzain-api" }],
 	"observability": {
 		"enabled": true
 	}

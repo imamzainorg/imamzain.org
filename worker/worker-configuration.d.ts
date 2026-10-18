@@ -3,8 +3,8 @@
 // Runtime types generated with workerd@1.20260921.1 2026-09-01 
 interface __BaseEnv_Env {
 	ASSETS: Fetcher;
-	API_URL: "https://api.imamzain.org";
 	ALLOWED_HOSTNAME: "cdn.imamzain.org";
+	API: Fetcher /* imamzain-api */;
 }
 declare namespace Cloudflare {
 	interface GlobalProps {
@@ -17,7 +17,7 @@ type StringifyValues<EnvType extends Record<string, unknown>> = {
 	[Binding in keyof EnvType]: EnvType[Binding] extends string ? EnvType[Binding] : string;
 };
 declare namespace NodeJS {
-	interface ProcessEnv extends StringifyValues<Pick<Cloudflare.Env, "API_URL" | "ALLOWED_HOSTNAME">> {}
+	interface ProcessEnv extends StringifyValues<Pick<Cloudflare.Env, "ALLOWED_HOSTNAME">> {}
 }
 
 // Begin runtime types

@@ -7,6 +7,17 @@ import { outlinePanel, shieldPanel, solidButton } from "@/components/brand";
 import CountriesDropdown from "@/components/countries-input";
 import { Reveal } from "@/components/motion";
 import PageHeader from "@/components/page-header";
+import {
+  MESSAGE_MAX,
+  MESSAGE_MIN,
+  NAME_MAX,
+  NAME_MIN,
+  isValidEmail,
+  isValidMessage,
+  isValidName,
+  submitErrorMessage,
+} from "@/lib/form-rules";
+import { useSingleFlight } from "@/lib/use-single-flight";
 
 const intro =
   "تواصل مع مؤسسة الإمام زين العابدين عليه السلام في النجف الأشرف عبر العنوان والبريد والهاتف وساعات العمل، أو أرسل رسالتك مباشرة عبر نموذج التواصل.";
@@ -80,8 +91,8 @@ export default function Page() {
     country: "",
     message: "",
   });
-  const [errors, setErrors] = useState<{ email?: string; message?: string; form?: string }>({});
-  const [sending, setSending] = useState<boolean>(false);
+  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string; form?: string }>({});
+  const [sending, runOnce] = useSingleFlight();
   const [submitted, setSubmitted] = useState<boolean>(false);
 
   const handleChange = (
@@ -91,43 +102,37 @@ export default function Page() {
     setFormData((prev: FormData) => ({ ...prev, [name]: value }));
   };
 
-  const isValidEmail = (email: string): boolean => {
-    return /\S+@\S+\.\S+/.test(email);
-  };
-
-  const isValidMessage = (message: string): boolean => {
-    return message.length > 10 && message.length < 2000;
-  };
-
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const next: typeof errors = {};
 
-    if (!isValidEmail(formData.email)) next.email = "يرجى إدخال بريد إلكتروني صالح";
-    if (!isValidMessage(formData.message)) next.message = "يجب ان يكون طول الرسالة بين 10 و2000 حرف";
+    if (!isValidName(formData.name)) next.name = `يرجى إدخال اسمك (من ${NAME_MIN} إلى ${NAME_MAX} حرفاً)`;
+    if (!isValidEmail(formData.email.trim())) next.email = "يرجى إدخال بريد إلكتروني صالح";
+    if (!isValidMessage(formData.message)) next.message = `يجب ان يكون طول الرسالة بين ${MESSAGE_MIN} و${MESSAGE_MAX} حرف`;
     setErrors(next);
-    if (next.email || next.message) return;
+    if (next.name || next.email || next.message) return;
 
-    setSending(true);
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-        }),
-      });
+    return runOnce(async () => {
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...formData,
+            name: formData.name.trim(),
+            email: formData.email.trim(),
+          }),
+        });
 
-      if (response.ok) {
-        setSubmitted(true);
-      } else {
-        setErrors({ form: "حدث خطأ أثناء إرسال الرسالة" });
+        if (response.ok) {
+          setSubmitted(true);
+        } else {
+          setErrors({ form: submitErrorMessage(response.status, "حدث خطأ أثناء إرسال الرسالة") });
+        }
+      } catch {
+        setErrors({ form: "تعذر الاتصال بالخادم، حاول مرة أخرى" });
       }
-    } catch {
-      setErrors({ form: "تعذر الاتصال بالخادم، حاول مرة أخرى" });
-    } finally {
-      setSending(false);
-    }
+    });
   };
 
   return (
@@ -221,15 +226,17 @@ export default function Page() {
                 </p>
               )}
 
-              <Field id="contact-name" label="الاسم" hint="اختياري" Icon={UserRound}>
+              <Field id="contact-name" label="الاسم" required error={errors.name} Icon={UserRound}>
                 <input
                   id="contact-name"
                   name="name"
                   autoComplete="name"
                   placeholder="اسمك الثلاثي"
+                  maxLength={NAME_MAX}
                   value={formData.name}
                   onChange={handleChange}
-                  className={`${fieldClass} pr-12`}
+                  aria-invalid={Boolean(errors.name)}
+                  className={`${fieldClass} pr-12 ${errors.name ? invalidClass : ""}`}
                 />
               </Field>
 
@@ -272,14 +279,14 @@ export default function Page() {
                   name="message"
                   placeholder="اكتب رسالتك هنا"
                   rows={5}
-                  maxLength={2000}
+                  maxLength={MESSAGE_MAX}
                   value={formData.message}
                   onChange={handleChange}
                   aria-invalid={Boolean(errors.message)}
                   className={`${fieldClass} min-h-36 resize-y py-4 pr-12 ${errors.message ? invalidClass : ""}`}
                 />
                 <span className="mt-1 block text-left text-sm text-gray-500" dir="ltr">
-                  {formData.message.length} / 2000
+                  {formData.message.length} / {MESSAGE_MAX}
                 </span>
               </Field>
 
