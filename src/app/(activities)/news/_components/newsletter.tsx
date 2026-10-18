@@ -4,45 +4,49 @@ import { useState } from "react"
 import { toast } from "sonner"
 import { CheckCircle2 } from "lucide-react"
 import { shieldPanel, whiteButton } from "@/components/brand"
+import { isValidEmail, submitErrorMessage } from "@/lib/form-rules"
+import { useSingleFlight } from "@/lib/use-single-flight"
 
 // The newsletter sign-up as a green shield. Used on /news and beside every article.
 export default function NewsletterSection() {
 	const [subscriberEmail, setSubscriberEmail] = useState("")
-	const [isSubmitting, setIsSubmitting] = useState(false)
+	const [isSubmitting, runOnce] = useSingleFlight()
 	const [sent, setSent] = useState(false)
 	const [errorMsg, setErrorMsg] = useState("")
 
-	const handleSubmit = async (event: React.FormEvent) => {
+	const handleSubmit = (event: React.FormEvent) => {
 		event.preventDefault()
 
-		setIsSubmitting(true)
+		const address = subscriberEmail.trim()
+		if (!isValidEmail(address)) {
+			setErrorMsg("يرجى إدخال بريد إلكتروني صالح")
+			return
+		}
 		setErrorMsg("")
 
-		try {
-			const response = await fetch("/api/newsletter/subscribe", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ subscriberEmail }),
-			})
-
-			const data = await response.json().catch(() => ({}))
-
-			if (response.ok) {
-				toast("شكراً لاشتراكك في صحيفتنا الاخبارية", {
-					description: subscriberEmail,
+		return runOnce(async () => {
+			try {
+				const response = await fetch("/api/newsletter/subscribe", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ subscriberEmail: address }),
 				})
 
-				setSubscriberEmail("")
-				setSent(true)
-				return
-			}
+				if (response.ok) {
+					toast("شكراً لاشتراكك في صحيفتنا الاخبارية", {
+						description: address,
+					})
 
-			setErrorMsg(data?.message || "حدثت مشكلة في اضافة البريد الالكتروني")
-		} catch {
-			setErrorMsg("حدث خطأ عند محاولة الاضافة، حاول مرة أخرى")
-		} finally {
-			setIsSubmitting(false)
-		}
+					setSubscriberEmail("")
+					setSent(true)
+					return
+				}
+
+				setErrorMsg(submitErrorMessage(response.status, "حدثت مشكلة في اضافة البريد الالكتروني"))
+			} catch {
+				setErrorMsg("حدث خطأ عند محاولة الاضافة، حاول مرة أخرى")
+			}
+		})
 	}
 
 	return (

@@ -5,6 +5,8 @@ import { CheckCircle2, Loader2 } from "lucide-react"
 import { Input } from "@heroui/react"
 import { motion } from "framer-motion"
 import { useState } from "react"
+import { submitErrorMessage } from "@/lib/form-rules"
+import { useSingleFlight } from "@/lib/use-single-flight"
 import PhoneInput from "./phone-input"
 import {
 	DEFAULT_COUNTRY,
@@ -50,7 +52,7 @@ function FieldError({ children }: { children?: string }) {
 
 const ZiaraForm = () => {
 	const [sent, setSent] = useState<boolean>(false)
-	const [sending, setSending] = useState<boolean>(false)
+	const [sending, runOnce] = useSingleFlight()
 	const [errors, setErrors] = useState<Errors>({})
 	const [formData, setFormData] = useState({
 		visitorName: "",
@@ -72,7 +74,7 @@ const ZiaraForm = () => {
 	const validate = () => {
 		const next: Errors = {}
 
-		if (!formData.visitorName) {
+		if (!formData.visitorName.trim()) {
 			next.name = "الرجاء إدخال اسم الزائر"
 		}
 
@@ -87,33 +89,30 @@ const ZiaraForm = () => {
 		return Object.keys(next).length === 0
 	}
 
-	const handleSubmit = async () => {
+	const handleSubmit = () => {
 		if (!validate()) return
 
-		setSending(true)
-		try {
-			const response = await fetch("/api/proxy-visit", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({
-					visitorName: formData.visitorName,
-					visitorPhone: toE164(formData.visitorPhone, formData.visitorCountry),
-					visitorCountry: formData.visitorCountry,
-				}),
-			})
+		return runOnce(async () => {
+			try {
+				const response = await fetch("/api/proxy-visit", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({
+						visitorName: formData.visitorName.trim(),
+						visitorPhone: toE164(formData.visitorPhone, formData.visitorCountry),
+						visitorCountry: formData.visitorCountry,
+					}),
+				})
 
-			if (response.ok) {
-				setSent(true)
-			} else {
-				setErrors({ form: "فشل في إرسال الطلب" })
+				if (response.ok) {
+					setSent(true)
+				} else {
+					setErrors({ form: submitErrorMessage(response.status, "فشل في إرسال الطلب") })
+				}
+			} catch {
+				setErrors({ form: "تعذر الاتصال بالخادم، تحقق من الاتصال وحاول مرة أخرى" })
 			}
-		} catch (error) {
-			setErrors({
-				form: error instanceof Error ? error.message : "خطأ غير معروف",
-			})
-		} finally {
-			setSending(false)
-		}
+		})
 	}
 
 	if (sent) {
