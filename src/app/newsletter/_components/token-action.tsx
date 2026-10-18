@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useSyncExternalStore } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 import { CheckCircle2, Clock, Loader2, Mail, MailMinus, TriangleAlert, WifiOff } from "lucide-react"
@@ -25,7 +25,7 @@ const ACTIONS = {
 	confirm: {
 		endpoint: "/api/newsletter/confirm",
 		ReadyIcon: Mail,
-		crumbParent: { ar: "الأخبار", en: "News", url: "/news" },
+		crumbParent: { name: "الأخبار", url: "/news" },
 		invalidHref: "/news#newsletter",
 		doneHref: "/news",
 		ar: {
@@ -49,36 +49,11 @@ const ACTIONS = {
 				button: "إعادة المحاولة",
 			},
 		},
-		en: {
-			crumb: "Confirm subscription",
-			ready: {
-				title: "Confirm your newsletter subscription",
-				body: "Press the button to confirm this address for the foundation's newsletter. You are not subscribed until you do.",
-				button: "Confirm subscription",
-				busy: "Confirming...",
-			},
-			done: {
-				title: "Your subscription is confirmed",
-				body: "Thank you. You will receive the foundation's newsletter at this address.",
-				link: "Browse the news",
-			},
-			invalid: {
-				title: "This link is invalid or has expired",
-				body: "It may be old or replaced by a newer one. Subscribe again to get a new confirmation e-mail.",
-				link: "Subscribe to the newsletter",
-			},
-			rateLimited: { title: "Too many attempts", body: "Please try again in a few minutes.", button: "Try again" },
-			failed: {
-				title: "The confirmation did not go through",
-				body: "Something went wrong on our side. You are not subscribed yet, so please try again in a moment.",
-				button: "Try again",
-			},
-		},
 	},
 	unsubscribe: {
 		endpoint: "/api/newsletter/unsubscribe",
 		ReadyIcon: MailMinus,
-		crumbParent: { ar: "النشرة البريدية", en: "Newsletter", url: "/news#newsletter" },
+		crumbParent: { name: "النشرة البريدية", url: "/news#newsletter" },
 		invalidHref: "/services",
 		doneHref: "/",
 		ar: {
@@ -106,42 +81,7 @@ const ACTIONS = {
 				button: "إعادة المحاولة",
 			},
 		},
-		en: {
-			crumb: "Unsubscribe",
-			ready: {
-				title: "Unsubscribe from the newsletter",
-				body: "This address will be removed from the foundation's newsletter list and will stop receiving its messages.",
-				button: "Unsubscribe",
-				busy: "Unsubscribing...",
-			},
-			done: {
-				title: "You have been unsubscribed",
-				body: "You will no longer receive the newsletter. Thank you for your time with us.",
-				link: "Back to the home page",
-			},
-			invalid: {
-				title: "This link isn't valid",
-				body: "We could not verify the link. Write to info@imamzain.org or through the contact page and we will remove your address.",
-				link: "Contact us",
-			},
-			rateLimited: { title: "Too many attempts", body: "Please try again in a few minutes.", button: "Try again" },
-			failed: {
-				title: "The unsubscribe did not go through",
-				body: "Something went wrong on our side. You are not unsubscribed yet, so please try again in a moment.",
-				button: "Try again",
-			},
-		},
 	},
-}
-
-// Arabic unless the visitor picked English in the language switcher. The browser's own language is
-// not used: many Arabic readers have English phones.
-const chosenEnglish = () => {
-	try {
-		return localStorage.getItem("preferred-language") === "en"
-	} catch {
-		return false
-	}
 }
 
 const EMAIL = /^[^\s@]{1,64}@[^\s@]+\.[^\s@]+$/
@@ -152,9 +92,7 @@ const TOKEN = /^[0-9a-f]{64}$/i
 export default function TokenAction({ action }: { action: keyof typeof ACTIONS }) {
 	const config = ACTIONS[action]
 	const params = useSearchParams()
-	const english = useSyncExternalStore(() => () => {}, chosenEnglish, () => false)
-	const lang = english ? "en" : "ar"
-	const t: Words = config[lang]
+	const t: Words = config.ar
 
 	const email = params.get("email")?.trim() ?? ""
 	const token = params.get("token")?.trim() ?? ""
@@ -196,13 +134,13 @@ export default function TokenAction({ action }: { action: keyof typeof ACTIONS }
 		<div className="container pb-24">
 			<Breadcrumbs
 				links={[
-					{ name: lang === "en" ? "Home" : "الصفحة الرئيسية", url: "/" },
-					{ name: config.crumbParent[lang], url: config.crumbParent.url },
+					{ name: "الصفحة الرئيسية", url: "/" },
+					{ name: config.crumbParent.name, url: config.crumbParent.url },
 					{ name: t.crumb, url: "#" },
 				]}
 			/>
 
-			<div dir={english ? "ltr" : "rtl"} className={cn(infoPanel, "mx-auto mt-6 max-w-2xl p-8 text-center md:p-14")}>
+			<div className={cn(infoPanel, "mx-auto mt-6 max-w-2xl p-8 text-center md:p-14")}>
 				<span className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border-2 border-secondary text-secondary_dark dark:border-Muharram_secondary dark:text-Muharram_secondary">
 					<Icon className="h-9 w-9" strokeWidth={1.5} aria-hidden />
 				</span>
