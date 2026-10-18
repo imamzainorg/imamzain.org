@@ -1,16 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Pause, Play, RotateCcw, RotateCw } from "lucide-react";
+import { Loader2, Pause, Play } from "lucide-react";
 
 type SubjectAudioPlayerProps = {
   src: string;
+  /** يُستدعى عند تغيّر حالة التشغيل، ليعرف الشريط الخارجي أن الصوت يعمل. */
+  onPlayingChange?: (isPlaying: boolean) => void;
 };
 
 const PLAYBACK_RATES = [1, 1.25, 1.5, 2] as const;
 type PlaybackRate = (typeof PLAYBACK_RATES)[number];
-
-const SKIP_SECONDS = 10;
 
 const pad = (value: number) => String(value).padStart(2, "0");
 
@@ -27,68 +27,114 @@ function formatTime(seconds: number): string {
     : `${pad(minutes)}:${pad(secs)}`;
 }
 
-const skipButtonClass =
-  "p-1.5 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-zinc-700 transition-colors";
+const focusRingClass =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary/70 dark:focus-visible:outline-Muharram_primary/70";
 
-const rangeInputClass = [
-  "relative w-full h-4 appearance-none bg-transparent cursor-pointer disabled:cursor-not-allowed",
-  "[&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3",
-  "[&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-primary",
-  "dark:[&::-webkit-slider-thumb]:bg-Muharram_primary [&::-webkit-slider-thumb]:mt-0",
-  "[&::-moz-range-thumb]:w-3 [&::-moz-range-thumb]:h-3 [&::-moz-range-thumb]:rounded-full",
-  "[&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:bg-primary",
-  "dark:[&::-moz-range-thumb]:bg-Muharram_primary",
-].join(" ");
-
-export default function SubjectAudioPlayer({ src }: SubjectAudioPlayerProps) {
+export default function SubjectAudioPlayer({
+  src,
+  onPlayingChange,
+}: SubjectAudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const isSeekingRef = useRef(false);
 
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isBuffering, setIsBuffering] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [playbackRate, setPlaybackRate] = useState<PlaybackRate>(1);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isRateMenuOpen, setIsRateMenuOpen] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
+    setIsLoaded(false);
+    setHasError(false);
+    setIsPlaying(false);
+    setIsBuffering(false);
+    setCurrentTime(0);
+    setDuration(0);
+
     const handleLoadedMetadata = () => {
       setDuration(audio.duration);
       setIsLoaded(true);
+      setHasError(false);
     };
     const handleTimeUpdate = () => {
       if (!isSeekingRef.current) setCurrentTime(audio.currentTime);
     };
     const handlePlay = () => setIsPlaying(true);
     const handleStop = () => setIsPlaying(false);
+    const handleWaiting = () => setIsBuffering(true);
+    const handleReady = () => setIsBuffering(false);
+    const handleError = () => {
+      setHasError(true);
+      setIsPlaying(false);
+      setIsBuffering(false);
+    };
 
     audio.addEventListener("loadedmetadata", handleLoadedMetadata);
+    audio.addEventListener("durationchange", handleLoadedMetadata);
     audio.addEventListener("timeupdate", handleTimeUpdate);
     audio.addEventListener("play", handlePlay);
     audio.addEventListener("pause", handleStop);
     audio.addEventListener("ended", handleStop);
+    audio.addEventListener("waiting", handleWaiting);
+    audio.addEventListener("playing", handleReady);
+    audio.addEventListener("canplay", handleReady);
+    audio.addEventListener("error", handleError);
 
     // قد تكتمل الميتاداتا قبل أن تُركَّب المستمعات (قبل الـ hydration)
     if (audio.readyState >= HTMLMediaElement.HAVE_METADATA) handleLoadedMetadata();
+    if (audio.error) handleError();
 
     return () => {
       audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
+      audio.removeEventListener("durationchange", handleLoadedMetadata);
       audio.removeEventListener("timeupdate", handleTimeUpdate);
       audio.removeEventListener("play", handlePlay);
       audio.removeEventListener("pause", handleStop);
       audio.removeEventListener("ended", handleStop);
+      audio.removeEventListener("waiting", handleWaiting);
+      audio.removeEventListener("playing", handleReady);
+      audio.removeEventListener("canplay", handleReady);
+      audio.removeEventListener("error", handleError);
     };
-  }, []);
+  }, [src]);
 
-  function togglePlay() {
+  useEffect(() => {
+    onPlayingChange?.(isPlaying);
+  }, [isPlaying, onPlayingChange]);
+
+  // السرعة تعود للافتراضية عند تحميل مصدر جديد، فنثبّتها هنا
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.defaultPlaybackRate = playbackRate;
+    audio.playbackRate = playbackRate;
+  }, [playbackRate, src]);
+
+  async function togglePlay() {
     const audio = audioRef.current;
     if (!audio) return;
 
-    if (audio.paused) void audio.play();
-    else audio.pause();
+    if (!audio.paused) {
+      audio.pause();
+      return;
+    }
+
+    try {
+      await audio.play();
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      setHasError(true);
+    }
+  }
+
+  function retry() {
+    setHasError(false);
+    audioRef.current?.load();
   }
 
   function seekTo(value: number) {
@@ -96,19 +142,11 @@ export default function SubjectAudioPlayer({ src }: SubjectAudioPlayerProps) {
     if (audioRef.current) audioRef.current.currentTime = value;
   }
 
-  function skip(seconds: number) {
-    const audio = audioRef.current;
-    if (!audio) return;
-    seekTo(Math.min(Math.max(audio.currentTime + seconds, 0), audio.duration || 0));
+  function cycleRate() {
+    const index = PLAYBACK_RATES.indexOf(playbackRate);
+    setPlaybackRate(PLAYBACK_RATES[(index + 1) % PLAYBACK_RATES.length]);
   }
 
-  function selectRate(rate: PlaybackRate) {
-    setPlaybackRate(rate);
-    setIsRateMenuOpen(false);
-    if (audioRef.current) audioRef.current.playbackRate = rate;
-  }
-
-  const progressPercent = duration > 0 ? (currentTime / duration) * 100 : 0;
   const startSeeking = () => {
     isSeekingRef.current = true;
   };
@@ -116,116 +154,105 @@ export default function SubjectAudioPlayer({ src }: SubjectAudioPlayerProps) {
     isSeekingRef.current = false;
   };
 
+  const progress = duration > 0 ? Math.min(currentTime / duration, 1) : 0;
+  const isBusy = (!isLoaded && !hasError) || (isPlaying && isBuffering);
+
   return (
-    <div className="w-full py-2 border-b border-gray-100 dark:border-zinc-700">
+    // LTR ليتقدّم الصوت من اليسار إلى اليمين كما يتوقع المستمع
+    <div dir="ltr" className="flex w-full items-center gap-2.5">
       <audio ref={audioRef} src={src} preload="metadata" />
 
-      <div className="flex items-center gap-3">
-        <div className="flex items-center gap-2 shrink-0">
-          <div className="relative">
-            <button
-              type="button"
-              onClick={() => setIsRateMenuOpen((open) => !open)}
-              aria-label="سرعة التشغيل"
-              aria-expanded={isRateMenuOpen}
-              className="px-2 py-1 rounded-md text-xs font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-zinc-700 transition-colors tabular-nums"
-            >
-              {playbackRate}x
-            </button>
+      <button
+        type="button"
+        onClick={() => void togglePlay()}
+        disabled={!isLoaded}
+        aria-label={isPlaying ? "إيقاف مؤقت" : "تشغيل"}
+        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-white transition-transform duration-200 hover:opacity-90 active:scale-90 disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none motion-reduce:active:scale-100 dark:bg-Muharram_primary dark:text-Muharram_secondary ${focusRingClass}`}
+      >
+        {isBusy ? (
+          <Loader2 className="h-4 w-4 animate-spin motion-reduce:animate-none" aria-hidden="true" />
+        ) : isPlaying ? (
+          <Pause className="h-4 w-4" fill="currentColor" aria-hidden="true" />
+        ) : (
+          <Play className="h-4 w-4" fill="currentColor" aria-hidden="true" />
+        )}
+      </button>
 
-            {isRateMenuOpen && (
-              <div className="absolute bottom-full mb-2 left-0 z-10 rounded-lg border  border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 shadow-md overflow-hidden">
-                {PLAYBACK_RATES.map((rate) => (
-                  <button
-                    key={rate}
-                    type="button"
-                    onClick={() => selectRate(rate)}
-                    className={`block w-full px-4 py-1.5 text-xs text-center tabular-nums transition-colors ${
-                      rate === playbackRate
-                        ? "bg-primary/10 dark:bg-Muharram_primary/20 text-primary dark:text-Muharram_primary font-medium"
-                        : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-zinc-700"
-                    }`}
-                  >
-                    {rate}x
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+      {hasError ? (
+        <div
+          className="flex min-w-0 flex-1 items-center gap-2 text-xs text-red-600 dark:text-red-400"
+          dir="rtl"
+          role="alert"
+        >
+          <span className="truncate">تعذّر تحميل الصوت</span>
+          <button
+            type="button"
+            onClick={retry}
+            className={`shrink-0 rounded font-semibold underline underline-offset-2 ${focusRingClass}`}
+          >
+            إعادة المحاولة
+          </button>
         </div>
-
-        <div className="flex-1 flex items-center gap-2">
-          <span className="text-xs tabular-nums text-gray-400 dark:text-gray-500 w-10 text-center shrink-0">
+      ) : (
+        <>
+          <span className="w-9 shrink-0 text-center text-[0.7rem] tabular-nums text-gray-500 dark:text-gray-400">
             {formatTime(currentTime)}
           </span>
 
-          <div className="relative flex-1 flex items-center h-4">
-            <div
-              className="absolute inset-x-0 h-1 rounded-full bg-gray-200 dark:bg-zinc-700"
-              aria-hidden="true"
-            />
-            <div
-              className="absolute left-0 h-1 rounded-full bg-primary dark:bg-Muharram_primary pointer-events-none"
-              style={{ width: `${progressPercent}%` }}
-              aria-hidden="true"
-            />
+          <div className="relative flex h-5 min-w-0 flex-1 items-center">
             <input
               type="range"
               min={0}
               max={duration || 0}
-              step={0.1}
-              value={currentTime}
+              step={1}
+              value={Math.min(currentTime, duration || 0)}
               onChange={(e) => seekTo(Number(e.target.value))}
-              onMouseDown={startSeeking}
-              onMouseUp={endSeeking}
-              onTouchStart={startSeeking}
-              onTouchEnd={endSeeking}
+              onPointerDown={startSeeking}
+              onPointerUp={endSeeking}
+              onPointerCancel={endSeeking}
+              onBlur={endSeeking}
               disabled={!isLoaded}
               aria-label="شريط التقدم"
-              dir="ltr"
-              className={rangeInputClass}
+              aria-valuetext={`${formatTime(currentTime)} من ${formatTime(duration)}`}
+              className="peer absolute inset-0 z-10 h-full w-full cursor-pointer appearance-none bg-transparent opacity-0 disabled:cursor-not-allowed [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:appearance-none"
             />
+            <div className="pointer-events-none absolute inset-x-2 h-1 rounded-full bg-gray-200 dark:bg-zinc-700">
+              <div
+                className="h-full rounded-full bg-primary transition-[width] duration-200 ease-linear motion-reduce:transition-none dark:bg-Muharram_primary"
+                style={{ width: `${progress * 100}%` }}
+              />
+            </div>
+            <div
+              aria-hidden="true"
+              className={`pointer-events-none absolute inset-x-2 h-0 peer-focus-visible:[&>span]:ring-4 peer-focus-visible:[&>span]:ring-primary/30 dark:peer-focus-visible:[&>span]:ring-Muharram_primary/40 ${
+                isLoaded ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <span
+                className="absolute top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary transition-[left] duration-200 ease-linear motion-reduce:transition-none dark:bg-Muharram_primary"
+                style={{ left: `${progress * 100}%` }}
+              />
+            </div>
           </div>
 
-          <span className="text-xs tabular-nums text-gray-400 dark:text-gray-500 w-10 text-center shrink-0">
+          <span className="w-9 shrink-0 text-center text-[0.7rem] tabular-nums text-gray-500 dark:text-gray-400">
             {formatTime(duration)}
           </span>
-        </div>
+        </>
+      )}
 
-        <div className="flex items-center gap-1 shrink-0">
-          <button
-            type="button"
-            onClick={() => skip(SKIP_SECONDS)}
-            aria-label="تقديم 10 ثوانٍ"
-            className={skipButtonClass}
-          >
-            <RotateCw className="w-4 h-4" />
-          </button>
-
-          <button
-            type="button"
-            onClick={togglePlay}
-            disabled={!isLoaded}
-            aria-label={isPlaying ? "إيقاف" : "تشغيل"}
-            className="p-2 xl:p-3 rounded-full bg-primary dark:bg-Muharram_primary text-white dark:text-Muharram_secondary hover:opacity-90 disabled:opacity-50 transition-opacity"
-          >
-            {isPlaying ? (
-              <Pause className="w-4 h-4 xl:w-6 xl:h-6" fill="currentColor" />
-            ) : (
-              <Play className="w-4 h-4 xl:w-6 xl:h-6" fill="currentColor" />
-            )}
-          </button>
-
-          <button
-            type="button"
-            onClick={() => skip(-SKIP_SECONDS)}
-            aria-label="رجوع 10 ثوانٍ"
-            className={skipButtonClass}
-          >
-            <RotateCcw className="w-4 h-4" />
-          </button>
-        </div>
-      </div>
+      <button
+        type="button"
+        onClick={cycleRate}
+        aria-label={`سرعة التشغيل ${playbackRate}x، اضغط لتغييرها`}
+        className={`h-7 w-10 shrink-0 rounded-full text-[0.7rem] font-semibold tabular-nums ring-1 transition-colors motion-reduce:transition-none ${focusRingClass} ${
+          playbackRate !== 1
+            ? "text-primary ring-primary/30 dark:text-Muharram_primary dark:ring-Muharram_primary/30"
+            : "text-gray-500 ring-gray-200 hover:text-primary dark:text-gray-400 dark:ring-zinc-700 dark:hover:text-Muharram_primary"
+        }`}
+      >
+        {playbackRate}x
+      </button>
     </div>
   );
 }
