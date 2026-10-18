@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import {
@@ -5,6 +6,8 @@ import {
   getFullDictionaries,
   getSubject,
 } from "@/lib/imamzain-legacy-loader";
+import { SectionTitle } from "@/components/brand";
+import { libraryPath } from "@/app/library/_config/paths";
 import SubjectNavigation from "@/app/library/_components/subject-navigation";
 import SubjectView from "@/app/library/_components/subject-view";
 import { collections } from "@/app/library/_config/collections";
@@ -21,6 +24,38 @@ export function generateStaticParams() {
       })),
     ),
   );
+}
+
+const plainText = (html: string) => html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{
+    collectionSlug: string;
+    dictionarySlug: string;
+    subjectSlug: string;
+  }>;
+}): Promise<Metadata> {
+  const { collectionSlug, dictionarySlug, subjectSlug } = await params;
+  const config = collections[collectionSlug];
+  const dictionary = getDictionary(collectionSlug, dictionarySlug);
+  const subject = getSubject(collectionSlug, dictionarySlug, subjectSlug);
+  if (!config || !dictionary || !subject) return {};
+
+  const opening = plainText(subject.phrases[0]?.content ?? "").slice(0, 150);
+  const description = opening
+    ? `${subject.title}، ${dictionary.title}: ${opening}...`
+    : `${subject.title} من ${dictionary.title} في ${config.title} للإمام زين العابدين عليه السلام.`;
+  const title = `${subject.title} | ${config.title}`;
+  const url = libraryPath(collectionSlug, dictionarySlug, subjectSlug);
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: { type: "article", title, description, url, images: ["/og/default.jpg"] },
+    twitter: { card: "summary_large_image", title, description, images: ["/og/default.jpg"] },
+  };
 }
 
 export default async function SubjectPage({
@@ -43,13 +78,7 @@ export default async function SubjectPage({
 
   return (
     <>
-      <div className="w-full text-center">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-Muharram_primary mb-3">
-          {subject.title}
-        </h1>
-      </div>
-
-      <div className="w-1/2 h-0.5 mx-auto bg-gradient-to-l from-transparent via-primary/40 dark:via-Muharram_primary/40 to-transparent" />
+      <SectionTitle as="h1" title={subject.title} text={dictionary?.title} className="mb-0" />
 
       {/* SubjectView يقرأ ?highlight= عبر useSearchParams، والـ Suspense يُبقي الصفحة مُولَّدة ثابتة */}
       <Suspense

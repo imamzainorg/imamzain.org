@@ -1,7 +1,7 @@
 import type { Book } from "@/types/book";
 
-const RELATED_COUNT = 2;
-const RANDOM_COUNT = 2;
+const RELATED_COUNT = 6;
+const RANDOM_COUNT = 6;
 
 // القيم الفارغة لا تُعدّ تطابقًا بين كتابين
 const sameText = (a?: unknown, b?: unknown) =>
@@ -31,7 +31,8 @@ function shuffle<T>(items: T[]): T[] {
 
 /** The most related books first, then random ones to fill the showcase. */
 export function getShowcaseBooks(book: Book, books: Book[]): Book[] {
-  const others = books.filter((item) => item.id !== book.id);
+  // The other parts of the same series are one tap away on the page itself.
+  const others = books.filter((item) => item.id !== book.id && (!book.series || item.series !== book.series));
 
   const related = others
     .map((item) => ({ item, score: relatednessScore(item, book) }))

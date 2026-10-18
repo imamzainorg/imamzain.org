@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import Section from "@/components/section"
+import { SectionTitle } from "@/components/brand"
 import Breadcrumbs from "@/components/breadcrumb"
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 
 export default function PresidentGoals() {
 	return (
-		<>
+		<div className="container pb-12">
 			<Breadcrumbs
 				links={[
 					{ name: "الصفحة الرئيسية", url: "/" },
@@ -53,13 +53,13 @@ export default function PresidentGoals() {
 				]}
 			/>
 			{/* كلمة رئيس المؤسسة - First large text block */}
-			<div className="my-6 sm:my-8 lg:my-10">
-				<div className="scroll-mt-64" id="president-message">
-					<Section title="كلمة رئيس المؤسسة" />
+			<div className="mt-6">
+				<div className="scroll-mt-32" id="president-message">
+					<SectionTitle title="كلمة رئيس المؤسسة" className="mb-8" />
 				</div>
 
-				<div className="mt-6 p-6">
-					<div className="prose prose-lg max-w-none text-justify leading-relaxed">
+				<div>
+					<div className="max-w-4xl space-y-6 text-xl leading-[2.1] text-gray-800 md:text-[1.35rem] md:leading-[2.2]">
 						<p className="text-center font-semibold">
 							بسم الله الرحمن الرحيم
 						</p>
@@ -141,10 +141,10 @@ export default function PresidentGoals() {
 			</div>
 
 			{/* أهداف المسابقة - Second large text block */}
-			<div className="scroll-mt-64" id="goals">
-				<Section title="أهداف المسابقة" />
-				<div className="mt-6 p-6">
-					<div className="prose prose-lg max-w-none text-right">
+			<div className="mt-24 scroll-mt-32" id="goals">
+				<SectionTitle title="أهداف المسابقة" className="mb-8" />
+				<div>
+					<div className="max-w-4xl text-xl leading-[2.1] text-gray-800 md:text-[1.35rem] md:leading-[2.2]">
 						<ol className=" arabic-list mr-6 space-y-4">
 							<li>
 								إحياء تراث الثقلين من القرآن الكريم وعترة النبي
@@ -180,6 +180,6 @@ export default function PresidentGoals() {
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }

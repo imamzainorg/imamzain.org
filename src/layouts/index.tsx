@@ -11,7 +11,11 @@ export default function Layouts({ children }: { children: React.ReactNode }) {
 				Skip to content
 			</a>
 			<Header />
-			<main id="main" className="pb-16 min-h-screen">
+			{/* Sections slide in from the side (Reveal), so until they appear they sit past the screen
+			    edge and would widen the page on phones. `clip` rather than `hidden`: it makes no scroll
+			    container, so the sticky sidebars keep working. It sits on <main>, not <body>: a body
+			    value is handed up to the viewport, which does not stop a phone from zooming out. */}
+			<main id="main" className="pb-16 min-h-screen overflow-x-clip">
 				{children}
 			</main>
 			<Footer />

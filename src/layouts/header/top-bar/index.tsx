@@ -1,284 +1,72 @@
-"use client";
-import React, {
-  useEffect,
-  useState,
-  useRef,
-  useSyncExternalStore,
-} from "react";
-import Link from "next/link";
-import {
-  Calendar,
-  Facebook,
-  Globe,
-  Instagram,
-  Sun,
-  Moon,
-  Youtube,
-} from "lucide-react";
-import { TelegramIcon, TikTokIcon, XIcon } from "@/components/brand-icons";
-import { usePathname } from "next/navigation";
-import useWindowEvents from "@/hooks/window-events";
-import { useLanguages } from "@/context/language-context";
+"use client"
 
-type Theme = "dark" | "light";
+import { useEffect, useState } from "react"
+import Link from "next/link"
+import { Calendar, Facebook, Instagram, Youtube } from "lucide-react"
+import { TelegramIcon, TikTokIcon, XIcon } from "@/components/brand-icons"
+import ThemeToggle from "@/layouts/header/theme-toggle"
+import DailyHadith from "@/layouts/header/top-bar/daily-hadith"
 
-// مخزن بسيط خارج الكومبوننت — يُنشأ مرة واحدة فقط لكل التطبيق
-const themeListeners = new Set<() => void>();
-let currentTheme: Theme = "light";
+const socials = [
+	{ label: "إنستغرام", href: "https://www.instagram.com/imamzainorg/", Icon: Instagram },
+	{ label: "تيك توك", href: "https://www.tiktok.com/@imamzainorg", Icon: TikTokIcon },
+	{ label: "فيسبوك", href: "https://www.facebook.com/@imamzainorg", Icon: Facebook },
+	{ label: "إكس", href: "https://twitter.com/imamzainorg", Icon: XIcon },
+	{ label: "يوتيوب", href: "https://www.youtube.com/@imamzainorg", Icon: Youtube },
+	{ label: "تلغرام", href: "https://t.me/imamzainorg", Icon: TelegramIcon },
+]
 
-function subscribeTheme(callback: () => void) {
-  themeListeners.add(callback);
-  return () => themeListeners.delete(callback);
-}
-function getThemeSnapshot(): Theme {
-  return currentTheme;
-}
-function getServerThemeSnapshot(): Theme {
-  return "light"; // الافتراضي عند أول تحميل
-}
-function setGlobalTheme(theme: Theme) {
-  currentTheme = theme;
-  if (typeof window !== "undefined") {
-    localStorage.setItem("theme", theme);
-    document.documentElement.classList.remove("light", "dark");
-    document.documentElement.classList.add(theme);
-  }
-  themeListeners.forEach((cb) => cb());
-}
+// Today's date in words, used while the Hijri date loads and if it cannot be fetched.
+const gregorianToday = () =>
+	new Intl.DateTimeFormat("ar", { day: "numeric", month: "long", weekday: "long", year: "numeric" }).format(new Date())
 
+// The strip above the navigation: today's Hijri date at the start, the day's hadith in the middle,
+// then the social accounts and the theme switch. It shares the header's green, set a
+// shade apart by a hairline, so the two read as one piece. The header slides it away on scroll,
+// which is why its height is fixed at the 40px the header hides it by.
 export default function TopBar() {
-  const [hijriDate, setHijriDate] = useState("");
-  const [error, setError] = useState<string | null>(null);
+	const [hijriDate, setHijriDate] = useState("")
 
-  const path = usePathname();
-  const { isScrolled } = useWindowEvents();
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const { setLanguage, languages } = useLanguages();
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+	useEffect(() => {
+		fetch("/api/hijri-date")
+			.then((res) => res.json())
+			.then((data) => setHijriDate(data.hijriDate ? data.hijriDate.split("||")[0] : gregorianToday()))
+			.catch(() => setHijriDate(gregorianToday()))
+	}, [])
 
-  // قراءة الثيم بأمان تام من ناحية الـ hydration، بدون useState/useEffect يدوي
-  const theme = useSyncExternalStore(
-    subscribeTheme,
-    getThemeSnapshot,
-    getServerThemeSnapshot,
-  );
+	return (
+		<div className="relative z-20 w-full border-b border-white/10 max-lg:hidden">
+			<div className="container flex h-10 items-center justify-between gap-6 text-sm text-white/90">
+				<p className="flex items-center gap-2 font-medium">
+					<Calendar aria-hidden className="size-4 text-secondary dark:text-white/70" />
+					<span suppressHydrationWarning>{hijriDate || " "}</span>
+				</p>
 
-  // مزامنة القيمة الحقيقية المحفوظة مرة واحدة بعد التحميل
-  useEffect(() => {
-    const saved = localStorage.getItem("theme");
+				<DailyHadith />
 
-    if (saved === "dark") {
-      setGlobalTheme("dark");
-    } else {
-      setGlobalTheme("light");
-    }
-  }, []);
+				<div className="flex items-center gap-1.5">
+					<ul className="flex items-center gap-0.5">
+						{socials.map(({ label, href, Icon }) => (
+							<li key={href}>
+								<Link
+									href={href}
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label={label}
+									title={label}
+									className="grid size-8 place-items-center rounded-full text-white/75 transition-colors hover:bg-white/15 hover:text-white"
+								>
+									<Icon className="size-4" />
+								</Link>
+							</li>
+						))}
+					</ul>
 
-  const toggleTheme = () => {
-    setGlobalTheme(theme === "dark" ? "light" : "dark");
-  };
+					<span aria-hidden className="mx-2 h-4 w-px bg-white/20" />
 
-  useEffect(() => {
-    fetch("/api/hijri-date")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.hijriDate) {
-          setHijriDate(data.hijriDate);
-        } else {
-          setError("تعذر استخراج التاريخ الهجري");
-        }
-      })
-      .catch(() => {
-        setError("فشل الاتصال بالخادم");
-      });
-  }, []);
-
-  const handleLanguageChange = (language: string) => {
-    setLanguage(language);
-    setIsOpen(false);
-  };
-
-  const closeMenu = () => setIsOpen(false);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (!(event.target as HTMLElement).closest(".dropdown-lang")) {
-        closeMenu();
-      }
-    };
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
-
-  return (
-    <>
-      <div
-        className={`w-full transition-all duration-300 max-lg:hidden ${
-          isScrolled || path !== "/" ? "bg-white" : ""
-        }`}
-      >
-        <div className="container">
-          <div className="flex justify-between items-center py-1">
-            {/* التاريخ الهجري */}
-            <div className="flex items-center gap-2">
-              <Calendar
-                className={`w-4 h-4 mt-1 transition-colors duration-300 ${
-                  theme === "dark"
-                    ? isScrolled || path !== "/"
-                      ? "text-[#a53232]"
-                      : "text-white"
-                    : "text-[#bb9661]"
-                }`}
-              />
-              <p>
-                <span
-                  className={`text-base p-0 mt-1 transition-colors duration-300 ${
-                    theme === "dark"
-                      ? isScrolled || path !== "/"
-                        ? "text-[#a53232]"
-                        : "text-white"
-                      : "text-[#bb9661]"
-                  }`}
-                >
-                  {hijriDate
-                    ? hijriDate.split("||")[0]
-                    : error
-                      ? new Intl.DateTimeFormat("ar", {
-                          day: "numeric",
-                          month: "long",
-                          weekday: "long",
-                          year: "numeric",
-                        }).format(new Date())
-                      : "جاري تحميل التاريخ..."}
-                </span>
-              </p>
-            </div>
-
-            <div className="flex justify-between items-center gap-5">
-              {[
-                {
-                  href: "https://www.instagram.com/imamzainorg/",
-                  Icon: Instagram,
-                  hoverColor: "dark:hover:text-[#E1306C] hover:text-[#E1306C]",
-                },
-                {
-                  href: "https://www.tiktok.com/@imamzainorg",
-                  Icon: TikTokIcon,
-                  hoverColor: "dark:hover:text-black hover:text-black",
-                },
-                {
-                  href: "https://www.facebook.com/@imamzainorg",
-                  Icon: Facebook,
-                  hoverColor: "dark:hover:text-[#1877F2] hover:text-[#1877F2]",
-                },
-                {
-                  href: "https://twitter.com/imamzainorg",
-                  Icon: XIcon,
-                  hoverColor: "dark:hover:text-black hover:text-black",
-                },
-                {
-                  href: "https://www.youtube.com/@imamzainorg",
-                  Icon: Youtube,
-                  hoverColor: "dark:hover:text-[#FF0000] hover:text-[#FF0000]",
-                },
-                {
-                  href: "https://t.me/imamzainorg",
-                  Icon: TelegramIcon,
-                  hoverColor: "dark:hover:text-[#0088cc] hover:text-[#0088cc]",
-                },
-              ].map((social, index) => (
-                <Link
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`hover:scale-105 transition-transform h-5 p-0 m-0
-                    ${
-                      isScrolled || path !== "/"
-                        ? "text-primary dark:text-[#681717]"
-                        : "text-white"
-                    }
-                    ${social.hoverColor}
-                  `}
-                >
-                  <social.Icon className="w-4 h-4" />
-                </Link>
-              ))}
-
-              {/* زر تغيير الثيم */}
-              <button
-                onClick={toggleTheme}
-                className={`p-1.5 rounded-full transition ${
-                  isScrolled || path !== "/"
-                    ? "bg-secondary dark:bg-Muharram_secondary text-white"
-                    : "bg-white text-primary dark:text-Muharram_primary"
-                }`}
-                title="تبديل الثيم"
-              >
-                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-              </button>
-
-              {/* قائمة اختيار اللغة */}
-              <div
-                className="relative cursor-pointer py-1 dropdown-lang"
-                onMouseEnter={() => {
-                  clearTimeout(timeoutRef.current!);
-                  setIsOpen(true);
-                }}
-                onMouseLeave={() => {
-                  timeoutRef.current = setTimeout(() => {
-                    setIsOpen(false);
-                  }, 200);
-                }}
-              >
-                <button className="flex items-center justify-between rounded-full bg-none ho">
-                  <Globe
-                    className={`w-4 h-4 ${
-                      isScrolled || path !== "/"
-                        ? "text-primary dark:text-Muharram_primary"
-                        : "text-white"
-                    }`}
-                  />
-                </button>
-                {isOpen && (
-                  <div className="absolute top-5 -right-8 bg-white rounded-lg w-fit z-50 flex flex-col text-gray-800 shadow-xl translate-y-2 animate-dropdown transition-all duration-300">
-                    {languages.map((language, index) => (
-                      <div
-                        key={index}
-                        className="w-full h-full"
-                        onClick={() => handleLanguageChange(language.code)}
-                      >
-                        <p className="font-semibold text-gray-500 text-sm w-full h-full rounded-lg cursor-pointer px-4 py-2 hover:bg-gray-300">
-                          {language.name}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* أنميشن القائمة المنسدلة */}
-      <style jsx>{`
-        @keyframes dropdown {
-          0% {
-            opacity: 0;
-            transform: translateY(-10px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-dropdown {
-          animation: dropdown 0.3s ease-out;
-        }
-      `}</style>
-    </>
-  );
+					<ThemeToggle className="bg-white/15 text-white hover:bg-secondary dark:hover:bg-Muharram_secondary" />
+				</div>
+			</div>
+		</div>
+	)
 }

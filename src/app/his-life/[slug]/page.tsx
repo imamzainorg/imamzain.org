@@ -4,8 +4,8 @@ import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowRight, BookOpen } from "lucide-react"
 import Breadcrumbs from "@/components/breadcrumb"
 import { cn } from "@/lib/utils"
-import { SectionTitle, TitleIcon } from "../_components/brand"
-import { ReadingProgress, Reveal } from "../_components/motion"
+import { SectionTitle, TitleIcon, pagerLink } from "@/components/brand"
+import { ReadingProgress, Reveal } from "@/components/motion"
 import { arabicNumber, readingTimeLabel } from "../_lib/anchors"
 import { getChapters, type Chapter, type Section } from "../_lib/chapters"
 
@@ -32,8 +32,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const divider = "my-10 h-px bg-gradient-to-l from-transparent via-secondary/50 to-transparent"
-const pagerLink =
-	"group flex flex-1 flex-col gap-1 rounded-xl border-2 border-primary/25 p-5 transition-colors hover:border-primary dark:border-Muharram_primary/25 dark:hover:border-Muharram_primary"
 
 // Every chapter, with the current one's sections listed under it.
 function ChapterNav({ chapters, current, sections }: { chapters: Chapter[]; current: string; sections: Section[] }) {

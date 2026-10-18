@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { SectionTitle } from "@/components/brand";
 import { getDictionaries, getDictionary } from "@/lib/imamzain-legacy-loader";
 import { collections } from "@/app/library/_config/collections";
 import { libraryPath } from "@/app/library/_config/paths";
@@ -15,6 +17,28 @@ export function generateStaticParams() {
   );
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ collectionSlug: string; dictionarySlug: string }>;
+}): Promise<Metadata> {
+  const { collectionSlug, dictionarySlug } = await params;
+  const config = collections[collectionSlug];
+  const dictionary = getDictionary(collectionSlug, dictionarySlug);
+  if (!config || !dictionary) return {};
+
+  const title = `${dictionary.title} | ${config.title}`;
+  const description = `${dictionary.title} من ${config.title} للإمام زين العابدين عليه السلام، ${dictionary.subjects.length} موضوعاً للقراءة والاستماع.`;
+  const url = libraryPath(collectionSlug, dictionarySlug);
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: { type: "website", title, description, url, images: ["/og/default.jpg"] },
+    twitter: { card: "summary_large_image", title, description, images: ["/og/default.jpg"] },
+  };
+}
+
 export default async function Page({
   params,
 }: {
@@ -24,7 +48,16 @@ export default async function Page({
   const dictionary = getDictionary(collectionSlug, dictionarySlug);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+    <>
+      {dictionary && (
+        <SectionTitle
+          as="h1"
+          title={dictionary.title}
+          text={`${collections[collectionSlug]?.title}: ${dictionary.subjects.length} موضوعاً`}
+          className="mb-0"
+        />
+      )}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
       {dictionary?.subjects.map((subject, index) => (
         <Link
           key={subject.id}
@@ -46,6 +79,7 @@ export default async function Page({
           </span>
         </Link>
       ))}
-    </div>
+      </div>
+    </>
   );
 }

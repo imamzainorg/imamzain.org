@@ -1,27 +1,26 @@
-"use client"
-import Breadcrumbs from "@/components/breadcrumb"
 import Image from "next/image"
 import Link from "next/link"
-import { ApplyStepper } from "../components/applicationSteps"
-import React, { useState, useEffect } from "react"
-
 import {
+	ArrowLeft,
+	Award,
+	BadgeDollarSign,
+	BookOpen,
+	Calendar,
 	Calendar1,
 	CalendarX,
-	Award,
-	Trophy,
 	Crown,
-	Star,
-	BadgeDollarSign,
-	Palette,
-	BookOpen,
-	LucideIcon,
 	Download,
-	ArrowLeft,
-	CheckCircle2,
-	Calendar,
 	Globe,
+	Palette,
+	Star,
+	Trophy,
+	type LucideIcon,
 } from "lucide-react"
+import Breadcrumbs from "@/components/breadcrumb"
+import { SectionTitle, outlineButton, photoFrame, solidButton } from "@/components/brand"
+import { Reveal } from "@/components/motion"
+import { ContestRules } from "../components/contest-rules"
+import { ClosedNotice, ContestBadge, Feature, IconRing, Note } from "../components/contest-ui"
 
 // Types
 interface CalligraphyType {
@@ -217,337 +216,58 @@ const PERSONNEL: PersonnelSection[] = [
 	},
 ]
 
-// Modern Components
-function GradientCard({
-	children,
-	className = "",
-}: {
-	children: React.ReactNode
-	className?: string
-}) {
+
+function PrizeTable() {
+	const head = ["نوع الخط", "المركز الأول", "المركز الثاني", "المركز الثالث"]
+	const cell = "px-4 py-5 text-lg md:text-xl"
 	return (
-		<div
-			className={`relative overflow-hidden rounded-2xl bg-gradient-to-br from-white via-slate-50 to-slate-100 border border-slate-200/60 shadow-lg hover:shadow-xl transition-all duration-500 ${className}`}
-		>
-			<div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-60"></div>
-			<div className="relative">{children}</div>
-		</div>
-	)
-}
-
-function IconWrapper({
-	icon: Icon,
-	size = "md",
-}: {
-	icon: LucideIcon
-	size?: "sm" | "md" | "lg"
-}) {
-	const sizeClasses = {
-		sm: "w-4 h-4",
-		md: "w-6 h-6",
-		lg: "w-8 h-8",
-	}
-
-	return (
-		<div className="relative">
-			<div className="absolute inset-0 bg-primary/20 rounded-full blur-sm"></div>
-			<div className="relative bg-gradient-to-br from-primary to-primary/80 rounded-full p-3 shadow-lg">
-				<Icon
-					className={`${sizeClasses[size]} text-white`}
-					strokeWidth={1.5}
-				/>
-			</div>
-		</div>
-	)
-}
-
-function ModernBadge({
-	icon: Icon,
-	text,
-	important,
-}: {
-	icon: LucideIcon
-	text: string
-	important?: boolean
-}) {
-	return (
-		<div
-			className={`inline-flex text-subtitle items-center gap-3 border px-6 py-3 rounded-2xl  font-semibold shadow-sm ${important ? "bg-gradient-to-r from-emerald-50 to-teal-50 border-emerald-200 text-emerald-800" : "bg-gradient-to-r from-slate-50 to-slate-100 border-slate-200 text-slate-800"}`}
-		>
-			<Icon className="w-5 h-5" strokeWidth={2} />
-			{text}
-		</div>
-	)
-}
-
-function FeatureHighlight({
-	icon: Icon,
-	title,
-	description,
-}: {
-	icon: LucideIcon
-	title: string
-	description: string
-}) {
-	return (
-		<div className="group flex items-start gap-6 p-2 fsp-6">
-			<div className="flex-shrink-0">
-				<div className="relative">
-					<div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
-					<div className="relative bg-gradient-to-br from-primary to-secondary rounded-2xl p-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-						<Icon
-							className="w-3 sm:w-4 lg:w-5 h-3 sm:h-4 lg:h-5 text-white"
-							strokeWidth={1.5}
-						/>
-					</div>
-				</div>
-			</div>
-			<div className="flex-1 space-y-2">
-				<h3 className="font-bold text-slate-800 text-note">{title}</h3>
-				<p className="text-slate-600 leading-relaxed text-subtitle">
-					{description}
-				</p>
-			</div>
-		</div>
-	)
-}
-
-function CalligraphyCard({
-	type,
-	index,
-}: {
-	type: CalligraphyType
-	index: number
-}) {
-	const isEven = index % 2 === 0
-
-	return (
-		<div className="group relative">
-			<GradientCard
-				className={`p-8 hover:-translate-y-2 transition-all duration-500 ${isEven ? "lg:mr-8" : "lg:ml-8"}`}
-			>
-				<div className="space-y-8">
-					{/* Header */}
-					<div className="flex items-center gap-4">
-						<IconWrapper icon={Palette} />
-						<div>
-							<h3 className="text-body font-bold text-slate-800 mb-1">
-								{type.name}
-							</h3>
-							<div className="flex items-center gap-2 text-subtitle text-slate-500">
-								<span>قياس القلم:</span>
-								<span className="font-semibold text-subtile text-primary">
-									{type.penSize}
-								</span>
-							</div>
-						</div>
-					</div>
-
-					{/* Text Content */}
-					<div className="relative">
-						<div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-white rounded-2xl shadow-inner"></div>
-						<div className="relative p-8 rounded-2xl border border-slate-200/50">
-							<p
-								className={`text-note leading-loose text-slate-700 whitespace-pre-line text-center`}
-								style={{ fontFamily: "inherit" }}
-							>
-								{type.text}
-							</p>
-						</div>
-					</div>
-
-					{/* Requirements */}
-					<div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-cyan-50 rounded-2xl p-6 border-l-4 border-primary">
-						<div className="flex items-start text-subtitle gap-4">
-							<div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-								<Star
-									className="w-4 h-4 text-primary"
-									strokeWidth={2}
-								/>
-							</div>
-							<p className="text-slate-700 leading-relaxed">
-								{type.requirement}
-							</p>
-						</div>
-					</div>
-				</div>
-			</GradientCard>
-		</div>
-	)
-}
-
-function TimelineCard({ event }: { event: TimelineEvent }) {
-	const isDeadline = event.type === "deadline"
-
-	return (
-		<GradientCard className="p-8 hover:scale-105 transition-all duration-500 cursor-pointer">
-			<div className="text-center space-y-6">
-				<div
-					className={`mx-auto w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-gradient-to-br ${
-						isDeadline
-							? "from-orange-500 to-red-500"
-							: "from-emerald-500 to-teal-500"
-					} shadow-lg flex items-center justify-center`}
-				>
-					<event.icon
-						className="w-8 sm:w-10 h-8 sm:h-10 text-white"
-						strokeWidth={1.5}
-					/>
-				</div>
-
-				<div className="space-y-3 text-note leading-4 lg:leading-7">
-					<h3 className="  font-bold text-slate-800">
-						{event.title}
-					</h3>
-					<div className="inline-block bg-gradient-to-r from-slate-100 to-slate-50 rounded-full px-4 sm:px-6 py-2 border border-slate-200">
-						<p className=" font-bold text-slate-700">
-							{event.date}
-						</p>
-					</div>
-				</div>
-			</div>
-		</GradientCard>
-	)
-}
-
-function PersonCard({ person }: { person: Person }) {
-	return (
-		<div className="group text-center space-y-4">
-			<div className="relative mx-auto w-24 h-24 sm:w-28 sm:h-28">
-				<div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-full blur-lg group-hover:blur-xl transition-all duration-300"></div>
-				<div className="relative">
-					<Image
-						src={person.image}
-						alt={person.name}
-						width={112}
-						height={112}
-						className="w-full h-full object-cover border-4 border-white shadow-xl group-hover:scale-110 transition-transform duration-300"
-					/>
-				</div>
-			</div>
-			<div className="space-y-1v text-subtitle">
-				<h4 className="font-semibold mb-2 text-slate-800 group-hover:text-primary transition-colors duration-300">
-					{person.name}
-				</h4>
-				{person.subtitle && (
-					<p className=" text-slate-500 text-subtitle	">
-						{person.subtitle}
-					</p>
-				)}
-			</div>
-		</div>
-	)
-}
-
-function ModernTable() {
-	return (
-		<GradientCard className="overflow-hidden">
+		<div className="overflow-hidden rounded-[28px] border-2 border-primary/20 bg-white/60 dark:border-Muharram_primary/30">
 			<div className="overflow-x-auto">
-				<table className="w-full text-center">
+				<table className="w-full min-w-[640px] text-center">
 					<thead>
-						<tr className="bg-gradient-to-r from-primary text-subtitle to-secondary text-white">
-							<th className="py-4 sm:py-6 px-3 sm:px-8 font-bold ">
-								نوع الخط
-							</th>
-							<th className="py-4 sm:py-6 px-3 sm:px-8 font-bold ">
-								المركز الأول
-							</th>
-							<th className="py-4 sm:py-6 px-3 sm:px-8 font-bold ">
-								المركز الثاني
-							</th>
-							<th className="py-4 sm:py-6 px-3 sm:px-8 font-bold ">
-								المركز الثالث
-							</th>
+						<tr className="bg-primary text-lg text-white dark:bg-Muharram_primary">
+							{head.map((label) => (
+								<th key={label} className="px-4 py-5 font-bold">
+									{label}
+								</th>
+							))}
 						</tr>
 					</thead>
 					<tbody>
-						{prizeCategories.map((prize, index) => (
-							<tr
-								key={prize}
-								className={`border-b border-slate-200 ${
-									index % 2 === 0
-										? "bg-white/50"
-										: "bg-slate-50/50"
-								} hover:bg-primary/5 transition-colors duration-300`}
-							>
-								<td className="py-4 sm:py-6 px-3 sm:px-8 font-semibold text-slate-700 text-subtitle">
-									{prize}
+						{prizeCategories.map((prize) => (
+							<tr key={prize} className="border-b border-secondary/30 last:border-0">
+								<td className={`${cell} font-bold text-primary dark:text-Muharram_primary`}>{prize}</td>
+								<td className={cell}>
+									<span className="inline-flex items-center justify-center gap-2 font-bold text-gray-900">
+										<Crown className="h-5 w-5 text-secondary" />
+										{prizeValues.first}
+									</span>
 								</td>
-								<td className="py-4 sm:py-6 px-3 sm:px-8 text-xs sm:text-sm lg:text-lg">
-									<div className="flex items-center justify-center gap-3">
-										<Crown className="w-5 h-5 text-yellow-500" />
-										<span className="font-bold text-slate-800">
-											{prizeValues.first}
-										</span>
-									</div>
+								<td className={cell}>
+									<span className="inline-flex items-center justify-center gap-2 font-bold text-gray-900">
+										<Award className="h-5 w-5 text-secondary" />
+										{prizeValues.second}
+									</span>
 								</td>
-								<td className="py-4 sm:py-6 px-3 sm:px-8 text-xs sm:text-sm lg:text-lg">
-									<div className="flex items-center justify-center gap-3">
-										<Award className="w-5 h-5 text-slate-400" />
-										<span className="font-bold text-slate-800">
-											{prizeValues.second}
-										</span>
-									</div>
-								</td>
-								<td className="py-4 sm:py-6 px-3 sm:px-8 text-xs sm:text-sm lg:text-lg">
-									<div className="flex items-center justify-center gap-3">
-										<Trophy className="w-5 h-5 text-orange-500" />
-										<span className="font-bold text-slate-800">
-											{prizeValues.third}
-										</span>
-									</div>
+								<td className={cell}>
+									<span className="inline-flex items-center justify-center gap-2 font-bold text-gray-900">
+										<Trophy className="h-5 w-5 text-secondary" />
+										{prizeValues.third}
+									</span>
 								</td>
 							</tr>
 						))}
 					</tbody>
 				</table>
 			</div>
-		</GradientCard>
+		</div>
 	)
 }
 
 export default function Page() {
-	const [timeLeft, setTimeLeft] = useState({
-		days: 0,
-		hours: 0,
-		minutes: 0,
-		seconds: 0,
-	})
-
-	useEffect(() => {
-		const targetDate = new Date("2026-03-05T23:59:59").getTime()
-
-		const interval = setInterval(() => {
-			const now = new Date().getTime()
-			const diff = targetDate - now
-
-			if (diff <= 0) {
-				clearInterval(interval)
-				setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
-			} else {
-				setTimeLeft({
-					days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-					hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-					minutes: Math.floor((diff / 1000 / 60) % 60),
-					seconds: Math.floor((diff / 1000) % 60),
-				})
-			}
-		}, 1000)
-
-		return () => clearInterval(interval)
-	}, [])
-
-	const units = [
-		{ label: "ثواني", value: timeLeft.seconds },
-		{ label: "دقائق", value: timeLeft.minutes },
-		{ label: "ساعات", value: timeLeft.hours },
-		{ label: "أيام", value: timeLeft.days },
-	]
-
 	return (
-		<div className="min-h-screen">
-			{/* Breadcrumbs */}
-			<div className="px-4 sm:px-6 lg:px-8 pt-8">
+		<div className="pb-12">
+			<div className="container">
 				<Breadcrumbs
 					links={[
 						{ name: "الصفحة الرئيسية", url: "/" },
@@ -558,322 +278,190 @@ export default function Page() {
 						},
 					]}
 				/>
-			</div>
-         <div className="px-4 sm:px-6 lg:px-8 pb-10 pt-2">
-        <div className="max-w-7xl mx-auto">
-          <div className="relative overflow-hidden rounded-[2rem] border border-rose-200/80 bg-gradient-to-r from-rose-50 via-white to-red-50 px-5 py-5 shadow-[0_22px_55px_-28px_rgba(244,63,94,0.45)] sm:px-8">
-            <div className="absolute -top-10 -right-8 h-28 w-28 rounded-full bg-rose-200/25 blur-2xl" />
-            <div className="absolute -bottom-10 -left-8 h-28 w-28 rounded-full bg-rose-200/20 blur-2xl" />
 
-            <div className="relative flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-center gap-4">
-                <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-rose-200 bg-white shadow-sm">
-                  <div className="absolute inset-0 rounded-full bg-rose-300/20 blur-md animate-pulse" />
-                  <CheckCircle2 className="relative h-8 w-8 text-rose-500/80" strokeWidth={1.6} />
-                </div>
+				<ClosedNotice />
 
-                <div className="text-right">
-                  <h2 className="text-2xl font-bold text-rose-700/90 sm:text-3xl">
-                    انتهت المسابقة
-                  </h2>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 rounded-full border border-rose-100 bg-white/70 px-4 py-2 shadow-sm sm:justify-self-end">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-rose-400/40 animate-ping" />
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-rose-400/70" />
-                </span>
-                <p className="text-sm text-slate-600 sm:text-base">
-                  انتهت فترة المشاركة، وشكرًا لجميع المشاركين
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-			{/* Hero Section - Completely Redesigned */}
-			<section className="px-4 sm:px-6 lg:px-8 py-16">
-				<div className="max-w-7xl mx-auto">
-					<div className="space-y-6 my-2">
-						<div className="flex gap-4 ">
-							<ModernBadge
-								icon={Globe}
-								text="مسابقة دولية محكمة"
-							/>
-							<ModernBadge
+				{/* Hero */}
+				<section className="grid items-center gap-14 lg:grid-cols-[3fr_2fr] lg:gap-20">
+					<Reveal x={60} y={0}>
+						<div className="flex flex-wrap gap-3">
+							<ContestBadge icon={Globe} text="مسابقة دولية محكمة" />
+							<ContestBadge
 								icon={Calendar}
 								text="إبتدأت في 2025/4/11 وإنتهت  في 2026/3/5"
-								important
+								strong
 							/>
 						</div>
 
-						<div className="space-y-6">
-							<h1 className="text-4xl lg:text-6xl font-bold text-slate-800 leading-tight">
+						<h1 className="mt-6 text-primary dark:text-Muharram_primary">
+							<span className="block text-3xl font-extrabold leading-snug md:text-5xl md:leading-snug">
 								مسابقة الإمام زين العابدين (عليه السلام)
-								<span className="block text-primary mt-2">
-									الدولية الأولى
-								</span>
-								<span className="block text-2xl lg:text-4xl text-slate-600 mt-2">
-									في الخط العربي
-								</span>
-							</h1>
-						</div>
-					</div>
-					<div className="grid sm:grid-cols-2 gap-16 items-center">
-						{/* Content */}
-						<div className="space-y-2 sm:space-y-10">
-							{/* Features */}
-							<div className="lg:space-y-6">
-								<FeatureHighlight
-									icon={Star}
-									title="إبراز التراث الإسلامي"
-									description="أطلقنا هذه المسابقة لإبراز تراث الإمام زين العابدين (ع) من خلال جماليات الخط العربي، باعتباره وعاءً للمعرفة وجزءاً من الهوية الإسلامية."
-								/>
-								<FeatureHighlight
-									icon={BookOpen}
-									title="إحياء النصوص التربوية"
-									description="تهدف المسابقة إلى إحياء نصوص الإمام الأخلاقية والتربوية بخط جميل، وتحفيز الخطاطين لفهم معانيها العميقة."
-								/>
-								<FeatureHighlight
-									icon={Palette}
-									title="استلهام الروح النورانية"
-									description="ندعو المبدعين لاستلهام روح هذا التراث النوراني، والتعبير عنه بريشة الخط العربي، ليكون هذا الجهد امتداداً لرسالة الإمام في نشر القيم والمعرفة."
-								/>
-							</div>
+							</span>
+							<span className="mt-2 block text-2xl font-bold text-secondary_dark dark:text-Muharram_secondary md:text-4xl">
+								الدولية الأولى
+							</span>
+							<span className="mt-3 block text-xl font-semibold text-gray-700 md:text-3xl">
+								في الخط العربي
+							</span>
+						</h1>
 
-							{/* Action Buttons */}
-							<div className="flex lgw-1/2 flex-col text-subtitle lg:flex-row gap-4">
-								<Link
-									href="/contests/khat/president-goals/#president-message"
-									className="group  inline-flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white py-2 sm:py-6 px-3 sm:px-8 rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-								>
-									كلمة رئيس المؤسسة
-									<ArrowLeft className="w-4 lg:w-5 h-4 lg:h-5 group-hover:translate-x-1 transition-transform duration-300" />
-								</Link>
-								<Link
-									href="/contests/khat/president-goals/#goals"
-									className="group inline-flex items-center justify-center gap-3 border-2 border-primary text-primary hover:bg-primary hover:text-white px-2 sm:px-4 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-2xl font-semibold transition-all duration-300"
-								>
-									أهداف المسابقة
-									<ArrowLeft className="w-4 lg:w-5 h-4 lg:h-5 group-hover:translate-x-1 transition-transform duration-300" />
-								</Link>
-								<Link
-									href="/contests/khat/#registration"
-									className="group inline-flex items-center justify-center gap-3 border-2 border-primary text-primary hover:bg-primary hover:text-white px-2 sm:px-4 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-2xl font-semibold transition-all duration-300"
-								>
-									التسجيل في المسابقة
-									<ArrowLeft className="w-4 lg:w-5 h-4 lg:h-5 group-hover:translate-x-1 transition-transform duration-300" />
-								</Link>
-							</div>
-
-							{/* Download Section */}
-							<GradientCard className="p-6 text-center">
-								<div className="space-y-4 text-subtitle">
-									<p className="text-slate-600  font-medium">
-										يمكنكم تنزيل ملف المسابقة الكامل من خلال
-										الضغط على الرابط أدناه
-									</p>
-									<Link
-										download
-										href="/contests/khat/contest.pdf"
-										className=" group inline-flex items-center gap-3 text-primary hover:text-secondary font-semibold transition-colors duration-300"
-									>
-										<Download className="w-4 lg:w-5 h-4 lg:h-5 group-hover:scale-110 transition-transform duration-300" />
-										تنزيل ملف المسابقة الكامل
-									</Link>
-								</div>
-							</GradientCard>
+						<div className="mt-10 space-y-8">
+							<Feature icon={Star} title="إبراز التراث الإسلامي" description="أطلقنا هذه المسابقة لإبراز تراث الإمام زين العابدين (ع) من خلال جماليات الخط العربي، باعتباره وعاءً للمعرفة وجزءاً من الهوية الإسلامية." />
+							<Feature icon={BookOpen} title="إحياء النصوص التربوية" description="تهدف المسابقة إلى إحياء نصوص الإمام الأخلاقية والتربوية بخط جميل، وتحفيز الخطاطين لفهم معانيها العميقة." />
+							<Feature icon={Palette} title="استلهام الروح النورانية" description="ندعو المبدعين لاستلهام روح هذا التراث النوراني، والتعبير عنه بريشة الخط العربي، ليكون هذا الجهد امتداداً لرسالة الإمام في نشر القيم والمعرفة." />
 						</div>
 
-						{/* Image */}
-						<div className="relative order-first sm:order-last">
-							<div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-3xl" />
-							<div className="relative">
-								<GradientCard className="p-6">
-									<Image
-										src="/contests/khat/landing.jpg"
-										alt="لوكو مسابقة الخط"
-										width={600}
-										height={600}
-										className="w-full rounded-2xl shadow-2xl sm:aspect-[1/2] lg:aspect-auto object-cover"
-										priority
-									/>
-								</GradientCard>
-							</div>
+						<div className="mt-10 flex flex-wrap gap-3">
+							<Link href="/contests/khat/president-goals/#president-message" className={solidButton}>
+								كلمة رئيس المؤسسة
+								<ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+							</Link>
+							<Link href="/contests/khat/president-goals/#goals" className={outlineButton}>
+								أهداف المسابقة
+								<ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+							</Link>
 						</div>
-					</div>
-				</div>
-			</section>
 
-			{/* Timeline Section - Modern Design */}
-			<section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-				<div className="max-w-6xl mx-auto">
-					<div className="text-center mb-10 sm:mb-16">
-						<h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-4 sm:mb-6">
-							فترة المشاركة
-						</h2>
-						<div className="w-24 sm:w-32 h-1 sm:h-1.5 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6"></div>
-
-						{/* العداد */}
-						<div className="flex justify-center gap-4 flex-wrap">
-							{units.map((unit, idx) => (
-								<div
-									key={idx}
-									className="flex flex-col items-center justify-center bg-gradient-to-tr from-primary/20 to-secondary/20 dark:from-Muharram_primary/20 dark:to-Muharram_secondary/20 text-primary dark:text-Muharram_primary px-4 py-3 rounded-xl shadow-md min-w-[70px]"
-								>
-									<div className="text-xl sm:text-2xl font-bold">
-										{unit.value.toString().padStart(2, "0")}
-									</div>
-									<div className="text-xs font-bold sm:text-sm text-gray-600 dark:text-gray-300 mt-1">
-										{unit.label}
-									</div>
-								</div>
-							))}
+						<div className="mt-10 border-t border-secondary/30 pt-6">
+							<p className="text-lg leading-loose text-gray-600">يمكنكم تنزيل ملف المسابقة الكامل من خلال الضغط على الرابط أدناه</p>
+							<Link
+								download
+								href="/contests/khat/contest.pdf"
+								className="group mt-2 inline-flex items-center gap-3 text-lg font-bold text-primary hover:underline dark:text-Muharram_primary"
+							>
+								<Download className="h-5 w-5" />
+								تنزيل ملف المسابقة الكامل
+							</Link>
 						</div>
-					</div>
+					</Reveal>
 
-					<div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
-						{TIMELINE_EVENTS.map((event, index) => (
-							<TimelineCard key={index} event={event} />
-						))}
-					</div>
-				</div>
-			</section>
-
-			{/* Calligraphy Types - Redesigned */}
-			<section
-				className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20"
-				id="calligraphy-types"
-			>
-				<div className="max-w-7xl mx-auto">
-					<div className="text-center mb-10 sm:mb-16">
-						<h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-4 sm:mb-6">
-							أنواع الخطوط
-						</h2>
-						<div className="w-24 sm:w-32 h-1 sm:h-1.5 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6 sm:mb-8"></div>
-
-						<GradientCard className="p-6 sm:p-8 max-w-4xl mx-auto">
-							<div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
-								<IconWrapper icon={BookOpen} />
-								<p className="text-note	 text-slate-700 leading-relaxed text-center sm:text-right">
-									نرجو من كل المتسابقين اختيار الخط والنص وحسب
-									التوجيهات المذكورة أسفل كل خط
-								</p>
-							</div>
-						</GradientCard>
-					</div>
-
-					<div className="space-y-8 sm:space-y-12">
-						{CALLIGRAPHY_TYPES.map((type, index) => (
-							<CalligraphyCard
-								key={type.id}
-								type={type}
-								index={index}
+					<Reveal x={-60} y={0} delay={0.2}>
+						<div className={`${photoFrame} mx-2 shadow-xl`}>
+							<Image
+								src="/contests/khat/landing.jpg"
+								alt="لوكو مسابقة الخط"
+								width={600}
+								height={600}
+								priority
+								sizes="(max-width: 1024px) 100vw, 40vw"
+								className="h-auto w-full"
 							/>
-						))}
-					</div>
-				</div>
-			</section>
+						</div>
+					</Reveal>
+				</section>
 
-			{/* Application Steps */}
-			<section
-				className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-100 to-white"
-				id="apply"
-			>
-				<div className="max-w-7xl min-h-[200px] mx-auto">
-					<div className="text-center mb-10 sm:mb-16">
-						<h2
-							className="text-body font-bold text-slate-800 mb-4 sm:mb-6"
-							id="registration"
-						>
-							خطوات الاشتراك في المسابقة
-						</h2>
-						<div className="w-24 sm:w-32 h-1 sm:h-1.5 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
-					</div>
-					<ApplyStepper />
-				</div>
-			</section>
-
-			{/* Prizes Section - Modern Table */}
-			<section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-				<div className="max-w-7xl mx-auto">
-					<div className="text-center mb-10 sm:mb-16">
-						<h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-4 sm:mb-6">
-							الجوائز والمحفزات
-						</h2>
-						<div className="w-24 sm:w-32 h-1 sm:h-1.5 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
-					</div>
-
-					<div className="space-y-6 sm:space-y-8">
-						<ModernTable />
-
-						{/* Additional Prize Info */}
-						<div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-							<GradientCard className="p-6 sm:p-8">
-								<div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
-									<IconWrapper icon={BadgeDollarSign} />
-									<div className="text-center sm:text-right">
-										<h3 className="text-subtitle font-bold text-slate-800 mb-3 sm:mb-4">
-											جوائز تقديرية إضافية
-										</h3>
-										<p className="text-slate-600 text-subtitle leading-relaxed">
-											وسيتم منح خمس جوائز تقديرية كل منها
-											بقدر ٢٥٠,٠٠٠ د.ع لكل نوع من الأنواع
-											الخمسة لأفضل المتسابقين الذين يلون
-											الفائزين الثلاثة الأوائل.
+				{/* Timeline */}
+				<section className="pt-28">
+					<SectionTitle title="فترة المشاركة" className="mb-12" />
+					<div className="grid gap-10 sm:grid-cols-2">
+						{TIMELINE_EVENTS.map((event) => (
+							<Reveal key={event.title} y={24}>
+								<div className="flex items-center gap-5">
+									<IconRing icon={event.icon} />
+									<div>
+										<p className="text-lg font-semibold text-gray-600">{event.title}</p>
+										<p className="mt-1 text-3xl font-bold text-secondary dark:text-Muharram_secondary md:text-4xl">
+											{event.date}
 										</p>
 									</div>
 								</div>
-							</GradientCard>
+							</Reveal>
+						))}
+					</div>
+				</section>
 
-							<GradientCard className="p-6 sm:p-8">
-								<div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-4 sm:p-6 border-l-4 border-amber-400">
-									<h4 className="font-bold text-amber-800 mb-2 sm:mb-3 text-subtitle">
-										ملاحظة مهمة:
-									</h4>
-									<p className="text-amber-700 text-subtitle leading-relaxed">
-										تصرف الجوائز بالدينار العراقي وتحول قيمة
-										الجائزة بالنسبة للفائزين الأجانب إلى
-										العملات المتداولة وحسب سعر الصرف في
-										وقته.
+				{/* Calligraphy types */}
+				<section id="calligraphy-types" className="scroll-mt-32 pt-28">
+					<SectionTitle
+						title="أنواع الخطوط"
+						text="نرجو من كل المتسابقين اختيار الخط والنص وحسب التوجيهات المذكورة أسفل كل خط"
+						className="mb-14"
+					/>
+
+					<div className="space-y-20">
+						{CALLIGRAPHY_TYPES.map((type) => (
+							<Reveal key={type.id} y={24}>
+								<div className="flex flex-wrap items-baseline justify-between gap-3">
+									<h3 className="text-3xl font-bold text-primary dark:text-Muharram_primary md:text-4xl">
+										{type.name}
+									</h3>
+									<p className="font-semibold text-secondary_dark dark:text-Muharram_secondary">
+										قياس القلم: <span className="text-primary dark:text-Muharram_primary">{type.penSize}</span>
 									</p>
 								</div>
-							</GradientCard>
+								<div className="mt-6 rounded-[40px] border border-primary/30 px-6 py-10 text-center shadow-lg shadow-primary/10 dark:border-Muharram_primary/30 md:px-14">
+									<p className="whitespace-pre-line text-xl leading-[2.4] text-gray-800 md:text-2xl md:leading-[2.4]">
+										{type.text}
+									</p>
+								</div>
+								<div className="mt-6">
+									<Note>{type.requirement}</Note>
+								</div>
+							</Reveal>
+						))}
+					</div>
+				</section>
+
+				{/* Conditions */}
+				<section className="pt-28">
+					<SectionTitle title="شروط المسابقة" className="mb-12" />
+					<ContestRules />
+				</section>
+
+				{/* Prizes */}
+				<section className="pt-28">
+					<SectionTitle title="الجوائز والمحفزات" className="mb-12" />
+					<PrizeTable />
+
+					<div className="mt-14 grid gap-12 md:grid-cols-2">
+						<div className="flex items-start gap-5">
+							<IconRing icon={BadgeDollarSign} />
+							<div>
+								<h3 className="text-xl font-bold text-primary dark:text-Muharram_primary">
+									جوائز تقديرية إضافية
+								</h3>
+								<p className="mt-2 text-lg leading-loose text-gray-700">وسيتم منح خمس جوائز تقديرية كل منها بقدر ٢٥٠,٠٠٠ د.ع لكل نوع من الأنواع الخمسة لأفضل المتسابقين الذين يلون الفائزين الثلاثة الأوائل.</p>
+							</div>
+						</div>
+						<div>
+							<p className="mb-3 text-lg font-bold text-secondary_dark dark:text-Muharram_secondary">
+								ملاحظة مهمة
+							</p>
+							<Note>تصرف الجوائز بالدينار العراقي وتحول قيمة الجائزة بالنسبة للفائزين الأجانب إلى العملات المتداولة وحسب سعر الصرف في وقته.</Note>
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
 
-			{/* Personnel Section - Modern Grid */}
-			<section className="px-4 sm:px-6 lg:px-8 py-20">
-				<div className="max-w-7xl mx-auto">
+				{/* Personnel */}
+				<section className="pt-28">
 					{PERSONNEL.map((section, sectionIndex) => (
-						<div
-							key={section.label}
-							className={`${sectionIndex > 0 ? "mt-20" : ""}`}
-						>
-							<div className="text-center mb-12">
-								<h2 className="text-3xl font-bold text-slate-800 mb-6">
-									{section.label}
-								</h2>
-								<div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
-							</div>
-
-							<GradientCard className="p-12">
-								<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 place-content-center">
-									{section.persons.map((person) => (
-										<PersonCard
-											key={person.name}
-											person={person}
-										/>
-									))}
-								</div>
-							</GradientCard>
+						<div key={section.label} className={sectionIndex > 0 ? "mt-24" : ""}>
+							<SectionTitle title={section.label} className="mb-12" />
+							<ul className="grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 lg:grid-cols-5">
+								{section.persons.map((person, i) => (
+									<li key={person.name}>
+										<Reveal y={24} delay={(i % 5) * 0.08} className="text-center">
+											<Image
+												src={person.image}
+												alt={person.name}
+												width={112}
+												height={112}
+												className="mx-auto h-28 w-28 rounded-full border-2 border-secondary object-cover p-1 dark:border-Muharram_secondary"
+											/>
+											<h4 className="mt-4 text-lg font-bold text-primary dark:text-Muharram_primary">
+												{person.name}
+											</h4>
+											{person.subtitle && (
+												<p className="mt-1 text-gray-600">{person.subtitle}</p>
+											)}
+										</Reveal>
+									</li>
+								))}
+							</ul>
 						</div>
 					))}
-				</div>
-			</section>
+				</section>
+			</div>
 		</div>
 	)
 }

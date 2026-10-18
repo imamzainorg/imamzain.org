@@ -1,4 +1,5 @@
 import Breadcrumbs from "@/components/breadcrumb";
+import PageHeader from "@/components/page-header";
 import { Post } from "@/types/post";
 import { dataFetcher } from "@/lib/dataFetcher";
 import ArchivesClient from "./_components/archives-client";
@@ -40,11 +41,14 @@ export const metadata: Metadata = {
   },
 };
 
+const intro =
+  "أرشيف أخبار مؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات: تصفّح جميع النشاطات والفعاليات والمجالس وأخبار العتبة الحسينية مرتّبة حسب التصنيف.";
+
 export default async function Page() {
   const posts = await dataFetcher<Post[]>("posts.json");
 
   return (
-    <div className="">
+    <div className="container pb-12">
       <Breadcrumbs
         links={[
           { name: "الصفحة الرئيسية", url: "/" },
@@ -52,6 +56,7 @@ export default async function Page() {
           { name: "ارشيف الأخبار", url: "/news/archives" },
         ]}
       />
+      <PageHeader title="أرشيف الأخبار" text={intro} />
       <ArchivesClient posts={posts} />
     </div>
   );
