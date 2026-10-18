@@ -9,9 +9,8 @@ import { toArabicDigits } from "../_lib/arabic-text";
 import { setExplanationMode } from "../_lib/explanation-store";
 import { hasContent } from "../_lib/explanation-utils";
 import ExplanationDialog from "./explanation-dialog";
-import ExplanationModeToggle from "./explanation-mode-toggle";
 import PhraseContent from "./phrase-content";
-import SubjectAudioPlayer from "./subject-audio-player";
+import SubjectModeBar from "./subject-mode-bar";
 import { highlightHtml } from "./text-highlight";
 
 const HIGHLIGHT_SCROLL_DELAY_MS = 300;
@@ -80,7 +79,7 @@ export default function SubjectView({ subject }: { subject: Subject }) {
       window.clearTimeout(scrollTimer);
       window.clearTimeout(pulseTimer);
     };
-  }, [highlightTerm]);
+  }, [highlightTerm, subject.id]);
 
   return (
     <>
@@ -106,8 +105,6 @@ export default function SubjectView({ subject }: { subject: Subject }) {
             />
           )}
 
-          {subject.audio && <SubjectAudioPlayer src={subject.audio} />}
-
           {subject.phrases?.map((phrase) => (
             <PhraseContent
               key={phrase.id}
@@ -131,7 +128,10 @@ export default function SubjectView({ subject }: { subject: Subject }) {
       </div>
 
       <ExplanationDialog />
-      <ExplanationModeToggle count={explanationsCount} />
+      <SubjectModeBar
+        audioSrc={subject.audio || undefined}
+        explanationsCount={explanationsCount}
+      />
     </>
   );
 }
