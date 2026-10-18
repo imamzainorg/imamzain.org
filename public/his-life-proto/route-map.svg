@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" fill="none" font-family="Tahoma, Arial, sans-serif">
+	<!-- Placeholder: a schematic map of the captivity route, positions approximate. -->
+	<rect width="800" height="600" fill="#f5efe3"/>
+	<!-- sea on the west -->
+	<path d="M0 0 H120 C110 60 130 110 112 170 C100 210 70 240 40 270 C20 290 10 300 0 304 Z" fill="#006654" fill-opacity="0.1"/>
+	<path d="M120 0 C110 60 130 110 112 170 C100 210 70 240 40 270" stroke="#006654" stroke-width="3" opacity="0.5"/>
+	<!-- the Euphrates -->
+	<path d="M300 40 C360 70 420 100 470 120 C520 140 560 160 600 200 C640 240 690 270 760 300" stroke="#006654" stroke-width="4" opacity="0.35" stroke-linecap="round"/>
+	<!-- desert grid -->
+	<g stroke="#bb9661" stroke-width="1.5" opacity="0.35">
+		<path d="M0 150 H800 M0 300 H800 M0 450 H800 M200 0 V600 M400 0 V600 M600 0 V600"/>
+	</g>
+	<!-- route: Karbala, Kufa, Sham, Medina -->
+	<path d="M560 170 C570 190 580 200 576 214 C520 230 360 210 250 160 C220 145 200 140 190 132 C230 250 280 360 340 440" stroke="#006654" stroke-width="5" stroke-dasharray="12 10" stroke-linecap="round"/>
+	<!-- stops -->
+	<g stroke="#006654" stroke-width="4" fill="#f5efe3">
+		<circle cx="560" cy="170" r="11"/>
+		<circle cx="576" cy="214" r="11"/>
+		<circle cx="190" cy="132" r="11"/>
+		<circle cx="340" cy="440" r="14" fill="#bb9661"/>
+	</g>
+	<g fill="#006654" font-size="26" font-weight="700" text-anchor="middle">
+		<text x="610" y="160">كربلاء</text>
+		<text x="636" y="230">الكوفة</text>
+		<text x="200" y="104">الشام</text>
+		<text x="340" y="486">المدينة</text>
+	</g>
+	<!-- compass -->
+	<g transform="translate(700 500)" stroke="#bb9661" stroke-width="3" stroke-linejoin="round">
+		<circle r="40" opacity="0.6"/>
+		<path d="M0 -52 L10 0 L0 52 L-10 0 Z" fill="#bb9661" fill-opacity="0.4"/>
+		<path d="M-52 0 L0 10 L52 0 L0 -10 Z" opacity="0.6"/>
+	</g>
+</svg>

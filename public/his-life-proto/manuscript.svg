@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" fill="none">
+	<!-- Placeholder: an open manuscript with ruled lines and an illuminated header. -->
+	<rect width="800" height="600" fill="#f5efe3"/>
+	<g stroke="#006654" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+		<!-- two pages -->
+		<path d="M400 120 C340 96 220 92 140 110 V500 C220 482 340 486 400 510 Z" fill="#ffffff" fill-opacity="0.7"/>
+		<path d="M400 120 C460 96 580 92 660 110 V500 C580 482 460 486 400 510 Z" fill="#ffffff" fill-opacity="0.7"/>
+		<path d="M400 120 V510"/>
+	</g>
+	<!-- illuminated headers -->
+	<g stroke="#bb9661" stroke-width="4" stroke-linejoin="round">
+		<rect x="190" y="140" width="170" height="44" rx="10" fill="#bb9661" fill-opacity="0.3"/>
+		<rect x="440" y="140" width="170" height="44" rx="10" fill="#bb9661" fill-opacity="0.3"/>
+		<circle cx="160" cy="300" r="10" fill="#bb9661"/>
+		<circle cx="640" cy="300" r="10" fill="#bb9661"/>
+	</g>
+	<!-- lines of text, written right to left -->
+	<g stroke="#006654" stroke-width="4" stroke-linecap="round" opacity="0.7">
+		<path d="M360 220 H190 M360 252 H210 M360 284 H190 M360 316 H230 M360 348 H190 M360 380 H200 M360 412 H190 M360 444 H260"/>
+		<path d="M610 220 H440 M610 252 H460 M610 284 H440 M610 316 H480 M610 348 H440 M610 380 H450 M610 412 H440 M610 444 H520"/>
+	</g>
+</svg>

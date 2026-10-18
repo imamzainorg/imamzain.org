@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" fill="none">
+	<!-- Placeholder: a line of laden camels crossing dunes, no riders. -->
+	<rect width="800" height="600" fill="#f5efe3"/>
+	<circle cx="170" cy="150" r="54" fill="#bb9661" opacity="0.25"/>
+	<!-- dunes -->
+	<path d="M0 470 C140 420 260 430 400 460 C540 490 660 440 800 420 V600 H0 Z" fill="#bb9661" fill-opacity="0.18"/>
+	<path d="M0 520 C180 490 320 500 460 520 C600 540 700 510 800 500 V600 H0 Z" fill="#bb9661" fill-opacity="0.22"/>
+	<defs>
+		<!-- one camel with a pack, facing left -->
+		<g id="camel" stroke="#006654" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+			<path d="M0 0 C6 -22 20 -40 34 -42 C40 -42 44 -36 42 -28 L56 -28 C64 -58 92 -62 104 -40 C114 -60 140 -54 146 -30 C152 -14 150 0 140 6 L140 52 M126 8 L124 52 M60 8 L58 52 M48 4 L44 52 M140 6 C110 14 76 14 48 4 L36 -20" fill="#006654" fill-opacity="0.12"/>
+			<path d="M0 0 L-8 -4 M150 -20 C160 -12 162 4 158 18"/>
+			<path d="M78 -52 H124 L118 -70 H84 Z" fill="#bb9661" fill-opacity="0.5" stroke="#bb9661"/>
+		</g>
+	</defs>
+	<use href="#camel" transform="translate(150 400)"/>
+	<use href="#camel" transform="translate(340 410) scale(0.9)"/>
+	<use href="#camel" transform="translate(510 420) scale(0.8)"/>
+	<!-- lead rope -->
+	<path d="M290 404 C300 420 330 420 340 410 M470 416 C480 428 500 428 510 420" stroke="#006654" stroke-width="3" stroke-dasharray="4 6"/>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" fill="none">
+	<!-- Placeholder: a mihrab niche with a hanging lamp, flat line art. -->
+	<rect width="800" height="600" fill="#f5efe3"/>
+	<g stroke="#006654" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+		<!-- outer frame -->
+		<rect x="230" y="70" width="340" height="470" fill="#006654" fill-opacity="0.05"/>
+		<!-- outer arch -->
+		<path d="M270 540 V260 C270 170 340 120 400 96 C460 120 530 170 530 260 V540" fill="#006654" fill-opacity="0.1"/>
+		<!-- inner niche -->
+		<path d="M320 540 V280 C320 215 365 180 400 162 C435 180 480 215 480 280 V540" fill="#f5efe3"/>
+		<!-- floor -->
+		<path d="M200 540 H600"/>
+		<!-- columns -->
+		<path d="M282 300 H308 M492 300 H518"/>
+	</g>
+	<!-- gold border pattern -->
+	<g stroke="#bb9661" stroke-width="4" stroke-linecap="round">
+		<path d="M250 90 H550 M250 90 V520 M550 90 V520" stroke-dasharray="2 16"/>
+		<!-- lamp chain and lamp -->
+		<path d="M400 162 V250"/>
+		<path d="M372 262 H428 L414 300 H386 Z" fill="#bb9661" fill-opacity="0.35" stroke-linejoin="round"/>
+		<path d="M386 300 L392 316 H408 L414 300"/>
+	</g>
+	<!-- eight-point star in the niche -->
+	<g transform="translate(400 420)" stroke="#006654" stroke-width="4" stroke-linejoin="round">
+		<rect x="-34" y="-34" width="68" height="68"/>
+		<rect x="-34" y="-34" width="68" height="68" transform="rotate(45)"/>
+		<circle r="10" fill="#bb9661" stroke="none"/>
+	</g>
+</svg>

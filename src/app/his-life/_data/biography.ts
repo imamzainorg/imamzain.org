@@ -45,6 +45,8 @@ export type Era = {
 	route?: string[]
 	quote?: Excerpt
 	events?: { text: string; href: string }[]
+	// Takes the year's place on the other side of the line; the year then sits above the text.
+	image?: { src: string; alt: string; caption: string; kind: "photo" | "illustration" | "map" }
 	link: { label: string; href: string }
 }
 
@@ -59,6 +61,12 @@ export const eras: Era[] = [
 		aside: [
 			{ text: "ولد علي في المدينة في المسجد في بيت فاطمة (عليها السلام) سنة ثمان وثلاثين من الهجرة قبل وفاة جدّه أمير المؤمنين (عليه السلام) فأقام مع جده سنتين ومع عمّه الحسن عشر سنين وبعد وفاة عمّه مع أبيه عشر سنين", source: "دلائل الامامة، ص191" },
 		],
+		image: {
+			src: "/his-life-proto/dome.svg",
+			alt: "رسم مؤقت لقبة ومئذنة",
+			caption: "المدينة المنورة، حيث وُلد (صورة مؤقتة)",
+			kind: "photo",
+		},
 		link: { label: "ولادته ووالدته", href: chapterHref(BIRTH) },
 	},
 	{
@@ -85,6 +93,12 @@ export const eras: Era[] = [
 			{ text: "ثم أمره يزيد بالشخوص إلى المدينة مع النسوة من أهله وسائر بني عمه فانصرف بهم .", source: "مقاتل الطالبيين، 80" },
 		],
 		route: ["كربلاء", "الكوفة", "الشام", "المدينة"],
+		image: {
+			src: "/his-life-proto/route-map.svg",
+			alt: "خريطة تقريبية لطريق السبي من كربلاء إلى الكوفة ثم الشام ثم المدينة",
+			caption: "طريق السبي: كربلاء، الكوفة، الشام، ثم المدينة (خريطة مؤقتة)",
+			kind: "map",
+		},
 		link: { label: "الخطب", href: chapterHref(SERMONS) },
 	},
 	{
@@ -102,6 +116,12 @@ export const eras: Era[] = [
 			"موقفه مع فقراء المدينة",
 			"موقفه من الثورات في عصره",
 		].map((heading) => ({ text: heading, href: chapterHref(STANCES, heading) })),
+		image: {
+			src: "/his-life-proto/mihrab.svg",
+			alt: "رسم مؤقت لمحراب يتدلى فيه قنديل",
+			caption: "محراب العبادة (رسم مؤقت)",
+			kind: "illustration",
+		},
 		link: { label: "الأدلة على امامته", href: chapterHref(IMAMATE) },
 	},
 	{

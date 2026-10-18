@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" fill="none">
+	<!-- Placeholder: a hanging lantern, flat line art. -->
+	<rect width="800" height="600" fill="#f5efe3"/>
+	<circle cx="400" cy="330" r="150" fill="#bb9661" opacity="0.14"/>
+	<g stroke="#006654" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+		<!-- chain -->
+		<path d="M400 0 V110"/>
+		<circle cx="400" cy="122" r="12"/>
+		<!-- cap -->
+		<path d="M350 190 C350 160 380 140 400 134 C420 140 450 160 450 190 Z" fill="#006654" fill-opacity="0.16"/>
+		<path d="M330 190 H470"/>
+		<!-- body -->
+		<path d="M340 190 L320 300 L340 410 H460 L480 300 L460 190" fill="#006654" fill-opacity="0.06"/>
+		<path d="M400 190 V410 M340 190 L360 300 L340 410 M460 190 L440 300 L460 410"/>
+		<path d="M320 300 H480"/>
+		<!-- base -->
+		<path d="M330 410 H470 L450 440 H350 Z" fill="#006654" fill-opacity="0.16"/>
+		<path d="M380 440 L390 470 H410 L420 440"/>
+	</g>
+	<!-- flame -->
+	<path d="M400 330 C380 300 392 276 400 258 C408 276 420 300 400 330 Z" fill="#bb9661"/>
+	<g stroke="#bb9661" stroke-width="4" stroke-linecap="round">
+		<path d="M260 300 H230 M570 300 H540 M300 200 L280 180 M500 200 L520 180 M300 400 L280 420 M500 400 L520 420"/>
+	</g>
+</svg>
