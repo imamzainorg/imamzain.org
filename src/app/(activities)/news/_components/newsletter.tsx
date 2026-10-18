@@ -1,17 +1,21 @@
 "use client"
 
 import { useState } from "react"
-import { toast } from "sonner"
-import { CheckCircle2 } from "lucide-react"
+import { MailCheck } from "lucide-react"
 import { shieldPanel, whiteButton } from "@/components/brand"
 import { isValidEmail, submitErrorMessage } from "@/lib/form-rules"
 import { useSingleFlight } from "@/lib/use-single-flight"
 
 // The newsletter sign-up as a green shield. Used on /news and beside every article.
+//
+// Signing up is double opt-in: the API only e-mails a confirmation link, and it answers the same
+// way for a new address, an address already on the list and one that asked a minute ago, so the
+// site cannot tell them apart and must not claim "subscribed". After sending, the panel says what
+// happens next and offers a way back to the form instead of replacing it for good.
 export default function NewsletterSection() {
 	const [subscriberEmail, setSubscriberEmail] = useState("")
 	const [isSubmitting, runOnce] = useSingleFlight()
-	const [sent, setSent] = useState(false)
+	const [sentTo, setSentTo] = useState<string | null>(null)
 	const [errorMsg, setErrorMsg] = useState("")
 
 	const handleSubmit = (event: React.FormEvent) => {
@@ -33,12 +37,8 @@ export default function NewsletterSection() {
 				})
 
 				if (response.ok) {
-					toast("شكراً لاشتراكك في صحيفتنا الاخبارية", {
-						description: address,
-					})
-
 					setSubscriberEmail("")
-					setSent(true)
+					setSentTo(address)
 					return
 				}
 
@@ -56,10 +56,29 @@ export default function NewsletterSection() {
 				className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-[40px] bg-[url('/shapes/bg.svg')] bg-[length:320px] opacity-[0.07]"
 			/>
 
-			{sent ? (
-				<div className="flex flex-col items-center gap-5 py-6 text-center">
-					<CheckCircle2 className="h-16 w-16 text-secondary dark:text-white" />
-					<p className="text-xl font-bold leading-loose">تم الاشتراك بنجاح في النشرة البريدية</p>
+			{sentTo ? (
+				<div role="status" className="flex flex-col items-center gap-4 py-2 text-center">
+					<span className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-secondary text-secondary dark:border-white dark:text-white">
+						<MailCheck className="h-8 w-8" strokeWidth={1.6} aria-hidden />
+					</span>
+					<h3 className="text-2xl font-extrabold">تفقّد بريدك الآن</h3>
+					<p className="text-lg leading-loose text-white/85">
+						أرسلنا رسالة تأكيد إلى
+						<span dir="ltr" className="mx-auto mt-2 block w-fit max-w-full break-all rounded-xl bg-white/10 px-4 py-1.5 font-semibold text-white">
+							{sentTo}
+						</span>
+					</p>
+					<p className="text-base leading-loose text-white/75">
+						افتح الرسالة واضغط على زر التأكيد لإكمال الاشتراك. إن كنت مشتركاً بالفعل فلا حاجة لأي خطوة أخرى. وإن لم تصلك
+						الرسالة فتفقّد البريد غير المرغوب، أو حاول مجدداً بعد ١٥ دقيقة.
+					</p>
+					<button
+						type="button"
+						onClick={() => setSentTo(null)}
+						className="mt-1 rounded-full px-4 py-2 text-base font-semibold text-white underline decoration-white/40 underline-offset-4 transition-colors hover:decoration-white"
+					>
+						استخدام بريد آخر
+					</button>
 				</div>
 			) : (
 				<>
