@@ -61,7 +61,7 @@ export default function SeekBar({
 	const shade = (at: number) => (at <= progress ? shades.played : at <= Math.max(buffered, progress) ? shades.loaded : shades.rest)
 
 	return (
-		<div dir="ltr" className={cn("relative", bars ? "h-12" : "h-3", className)}>
+		<div dir="ltr" className={cn("relative h-12", className)}>
 			{bars ? (
 				<div aria-hidden className="flex h-full items-center gap-[2px]">
 					{bars.map((peak, i) => (

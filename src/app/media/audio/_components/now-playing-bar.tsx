@@ -30,13 +30,12 @@ function SkipButton({ seconds, onClick }: { seconds: number; onClick: () => void
 	)
 }
 
-// The player's small form: it rises from the foot of the screen once a recording is loaded and
-// the stage at the top of the page has scrolled away, so the list can be searched, filtered and
-// paged without losing the controls. It carries the header's green, rounded the other way, and
-// pressing the title goes back up to the stage.
-export default function NowPlayingBar({ player, show, onLocate }: { player: AudioPlayer; show: boolean; onLocate: () => void }) {
+// The player: it rises from the foot of the screen once a recording is loaded and stays, so the
+// list can be searched, filtered and paged without losing the controls. It carries the header's
+// green, rounded the other way, and pressing the title scrolls to the recording in the list.
+export default function NowPlayingBar({ player, onLocate }: { player: AudioPlayer; onLocate: () => void }) {
 	const { state } = player
-	const item = show ? state.item : null
+	const item = state.item
 	const visible = item !== null
 
 	// Room under the page so the bar never covers the end of it.
@@ -71,6 +70,7 @@ export default function NowPlayingBar({ player, show, onLocate }: { player: Audi
 							duration={duration}
 							buffered={state.buffered}
 							onSeek={player.seek}
+							className="h-3"
 						/>
 
 						<div className="mt-2 flex items-center gap-2 sm:gap-4">
@@ -90,7 +90,7 @@ export default function NowPlayingBar({ player, show, onLocate }: { player: Audi
 								<button
 									type="button"
 									onClick={onLocate}
-									title="العودة إلى المشغل"
+									title="عرض التسجيل في القائمة"
 									className="block max-w-full truncate text-start font-bold underline-offset-4 hover:underline"
 								>
 									{item.title}
