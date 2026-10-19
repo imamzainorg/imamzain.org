@@ -42,19 +42,7 @@ export function parseArabicDate(date: string): number {
 	return timestamp
 }
 
-export function sortGroupsByLatest(groups: YouTubeGroup[]): YouTubeGroup[] {
-	return [...groups].sort((a, b) => {
-		const dateA = Math.max(
-			...a.videos.map((video) => parseArabicDate(video.date)),
-			0,
-		)
-		const dateB = Math.max(
-			...b.videos.map((video) => parseArabicDate(video.date)),
-			0,
-		)
-		return dateB - dateA
-	})
-}
+
 
 type FlatVideo = {
 	video: YouTubeVideo
