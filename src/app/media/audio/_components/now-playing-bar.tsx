@@ -23,7 +23,7 @@ function SkipButton({ seconds, onClick }: { seconds: number; onClick: () => void
 			className={`${roundButton} relative max-sm:hidden`}
 		>
 			<Icon className="size-6" strokeWidth={1.6} />
-			<span aria-hidden className="absolute text-[9px] font-bold">
+			<span aria-hidden className="absolute inset-0 grid translate-y-px place-items-center text-[9px] font-bold leading-none">
 				{Math.abs(seconds)}
 			</span>
 		</button>

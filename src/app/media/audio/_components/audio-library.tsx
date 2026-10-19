@@ -16,7 +16,7 @@ import AudioCard from "./audio-card"
 import AudioHero from "./audio-hero"
 import NowPlayingBar from "./now-playing-bar"
 
-const PER_PAGE = 10
+const PER_PAGE = 12
 
 const minutesOf = (item: AudioItemLight) => (item.durationSeconds ?? 0) / 60
 
@@ -229,9 +229,9 @@ export default function AudioLibrary({ items }: { items: AudioItemLight[] }) {
 								</button>
 							</div>
 						) : (
-							<ul className="space-y-5">
+							<ul className="grid gap-3.5 md:grid-cols-2">
 								{shown.map((item) => (
-									<li key={item.id}>
+									<li key={item.id} className="min-w-0">
 										<AudioCard
 											item={item}
 											player={item.id === activeId ? state : null}
