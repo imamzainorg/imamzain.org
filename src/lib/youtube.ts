@@ -21,28 +21,28 @@ export function findGroupBySlug(
 	return groups.find((g) => g.videos.some((v) => v.slug === slug))
 }
 
-// يحول التاريخ العربي "15‏/07‏/2026" إلى timestamp قابل للمقارنة،
+// يحول التاريخين "15‏/07‏/2026" و"2026-07-15" إلى timestamp قابل للمقارنة،
 // متجاهلاً محارف الاتجاه الخفية (RLM/LRM) اللي يضيفها المتصفح أحيانًا
 export function parseArabicDate(date: string): number {
-	const cleaned = date.replace(/[^\d/]/g, "")
-	const [day, month, year] = cleaned.split("/").map(Number)
+	const cleaned = date.replace(/[^\d/-]/g, "")
+	const isoDate = cleaned.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/)
+	const [year, month, day] = isoDate
+		? isoDate.slice(1).map(Number)
+		: cleaned.split("/").map(Number).reverse()
 	if (!day || !month || !year) return 0
-	return new Date(year, month - 1, day).getTime()
+	const timestamp = new Date(year, month - 1, day).getTime()
+	const parsed = new Date(timestamp)
+	if (
+		parsed.getFullYear() !== year ||
+		parsed.getMonth() !== month - 1 ||
+		parsed.getDate() !== day
+	) {
+		return 0
+	}
+	return timestamp
 }
 
-export function sortGroupsByLatest(groups: YouTubeGroup[]): YouTubeGroup[] {
-	return [...groups].sort((a, b) => {
-		const dateA = Math.max(
-			...a.videos.map((video) => parseArabicDate(video.date)),
-			0,
-		)
-		const dateB = Math.max(
-			...b.videos.map((video) => parseArabicDate(video.date)),
-			0,
-		)
-		return dateB - dateA
-	})
-}
+
 
 type FlatVideo = {
 	video: YouTubeVideo
