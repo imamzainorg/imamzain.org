@@ -1,3 +1,7 @@
+import { isValidEmail, isValidMessage, isValidName } from "../../src/lib/form-rules"
+import { relayForm } from "../lib/api"
+import { log } from "../lib/logger"
+
 interface ContactFormBody {
 	name?: string
 	email?: string
@@ -6,87 +10,38 @@ interface ContactFormBody {
 }
 
 export async function contact(request: Request, env: Env): Promise<Response> {
+	let body: ContactFormBody
 	try {
-		const body: ContactFormBody = await request.json()
-		const { name, email, country, message } = body
-
-		// Validate required fields
-		if (!name || !email || !message) {
-			console.warn("Validation failed: Missing fields", {
-				name,
-				email,
-				message,
-			})
-			return Response.json(
-				{ error: "Missing required fields" },
-				{ status: 400 },
-			)
-		}
-
-		// Validate email format
-		const emailRegex = /\S+@\S+\.\S+/
-		if (!emailRegex.test(email)) {
-			console.warn("Validation failed: Invalid email format", { email })
-			return Response.json({ error: "Invalid email format" }, { status: 400 })
-		}
-
-		const apiUrl = `${env.API_URL}/api/v1/forms/contact`
-		console.log("Sending request to backend API:", apiUrl)
-
-		const response = await fetch(apiUrl, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			// Backend CreateContactDto rejects unknown fields (forbidNonWhitelisted),
-			// so no `recipient` — the admin recipient is fixed server-side (EMAIL_TO).
-			// `country` must be an ISO 3166-1 alpha-2 code; omit it entirely when
-			// empty, since the optional validator still rejects "".
-			body: JSON.stringify({
-				name,
-				email,
-				message,
-				...(country ? { country: String(country).toUpperCase() } : {}),
-			}),
-		})
-
-		console.log("Backend response status:", response.status)
-
-		const rawText = await response.text()
-		let data: { error?: string } | unknown
-
-		try {
-			data = JSON.parse(rawText)
-		} catch {
-			console.error("Failed to parse backend response JSON:", rawText)
-			throw new Error("Invalid JSON response from backend")
-		}
-
-		if (!response.ok) {
-			console.error("Backend responded with error:", data)
-			return Response.json(
-				{
-					error:
-						(data as { error?: string })?.error ||
-						"Backend API request failed",
-				},
-				{ status: response.status },
-			)
-		}
-
-		console.log("Backend success response:", data)
-		return Response.json(data, { status: 200 })
-	} catch (error: unknown) {
-		if (error instanceof Error) {
-			console.error("🔥 Contact API Error:", {
-				name: error.name,
-				message: error.message,
-				stack: error.stack,
-			})
-		} else {
-			console.error("Unknown error:", error)
-		}
-
-		return Response.json({ error: "Failed to send message" }, { status: 500 })
+		body = await request.json()
+	} catch {
+		return Response.json({ error: "Invalid request body" }, { status: 400 })
 	}
+	const { name, email, country, message } = body ?? {}
+
+	if (!name || !email || !message) {
+		log("WARN", "Contact: missing required fields")
+		return Response.json({ error: "Missing required fields" }, { status: 400 })
+	}
+
+	// The API rejects what these rules reject, so refuse it here and say which field.
+	if (!isValidName(name)) return Response.json({ error: "Invalid name" }, { status: 400 })
+	if (!isValidEmail(email)) return Response.json({ error: "Invalid email format" }, { status: 400 })
+	if (!isValidMessage(message)) return Response.json({ error: "Invalid message length" }, { status: 400 })
+
+	// Backend CreateContactDto rejects unknown fields (forbidNonWhitelisted), so no `recipient`:
+	// the admin recipient is fixed server-side (EMAIL_TO). `country` must be an ISO 3166-1
+	// alpha-2 code; omit it entirely when empty, since the optional validator still rejects "".
+	return relayForm(
+		env,
+		request,
+		"/api/v1/forms/contact",
+		{
+			name: name.trim(),
+			email,
+			message,
+			...(country ? { country: String(country).toUpperCase() } : {}),
+		},
+		"Contact",
+		"Failed to send message",
+	)
 }
