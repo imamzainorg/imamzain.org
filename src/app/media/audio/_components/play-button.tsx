@@ -16,7 +16,7 @@ export default function PlayButton({
 	onClick: () => void
 	// What is being played, for screen readers.
 	title: string
-	variant?: "solid" | "white"
+	variant?: "solid" | "white" | "gold"
 	className?: string
 }) {
 	const label =
@@ -36,10 +36,12 @@ export default function PlayButton({
 			title={label}
 			className={cn(
 				"relative grid size-14 shrink-0 place-items-center rounded-full transition-[transform,background-color] duration-200 active:scale-95",
-				variant === "solid"
-					? "bg-primary text-white shadow-lg shadow-primary/25 hover:bg-primary/90 dark:bg-Muharram_primary dark:shadow-none"
-					: "bg-white text-primary hover:bg-white/90 dark:text-Muharram_primary",
-				status === "error" && variant === "solid" && "bg-red-600 hover:bg-red-600/90 dark:bg-red-700",
+				variant === "solid" &&
+					"bg-primary text-white shadow-lg shadow-primary/25 hover:bg-primary/90 dark:bg-Muharram_primary dark:shadow-none",
+				variant === "white" && "bg-white text-primary hover:bg-white/90 dark:text-Muharram_primary",
+				variant === "gold" &&
+					"bg-secondary text-white shadow-[0_0_40px_rgba(187,150,97,0.45)] hover:brightness-110 dark:bg-Muharram_secondary dark:shadow-[0_0_40px_rgba(164,50,50,0.45)]",
+				status === "error" && variant !== "white" && "bg-red-600 hover:bg-red-600/90 dark:bg-red-700",
 				className,
 			)}
 		>
@@ -48,7 +50,7 @@ export default function PlayButton({
 					aria-hidden
 					className={cn(
 						"absolute inset-0 animate-ping rounded-full opacity-20",
-						variant === "solid" ? "bg-primary dark:bg-Muharram_primary" : "bg-white",
+						variant === "white" ? "bg-white" : variant === "gold" ? "bg-secondary dark:bg-Muharram_secondary" : "bg-primary dark:bg-Muharram_primary",
 					)}
 				/>
 			)}
