@@ -12,11 +12,14 @@ export function FilterPanel({
 	children,
 	onReset,
 	columns = "sm:grid-cols-2 lg:grid-cols-1",
+	raised,
 }: {
 	children: ReactNode
 	onReset: () => void
 	// Grid columns of the fields (Tailwind classes), for panels laid out in a row.
 	columns?: string
+	// Lift the phone button clear of a player fixed to the foot of the screen.
+	raised?: boolean
 }) {
 	const [open, setOpen] = useState(false)
 
@@ -25,7 +28,10 @@ export function FilterPanel({
 			<button
 				type="button"
 				onClick={() => setOpen(true)}
-				className="fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full bg-primary px-5 py-3 font-semibold text-white shadow-lg dark:bg-Muharram_primary lg:hidden"
+				className={cn(
+					"fixed right-5 z-50 flex items-center gap-2 rounded-full bg-primary px-5 py-3 font-semibold text-white shadow-lg transition-[bottom] dark:bg-Muharram_primary lg:hidden",
+					raised ? "bottom-28" : "bottom-5",
+				)}
 			>
 				<SlidersHorizontal className="h-5 w-5" />
 				فلترة

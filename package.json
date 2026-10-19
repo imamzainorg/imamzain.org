@@ -30,7 +30,6 @@
     "music-metadata": "^11.12.3",
     "next": "^16.0.10",
     "node-html-parser": "^9.0.4",
-    "qrcode.react": "^4.2.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-select": "^5.10.2",
