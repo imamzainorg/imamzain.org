@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { dataFetcher } from "@/lib/dataFetcher";
 import type { YouTubeGroup } from "@/types/youtube-data";
-import { sortGroupsByLatest } from "@/lib/youtube";
+import { flattenLatestVideos } from "@/lib/youtube";
 import VideosBrowser from "./_components/videos-browser";
 
 export const revalidate = 300;
@@ -43,21 +43,18 @@ export default async function VideosPage() {
   const groups = await dataFetcher<YouTubeGroup[]>("youtube.json");
 
   // المعرض الداخلي يعرض المجموعات المعلّمة "internal" أو "both" فقط.
-  const galleryGroups = sortGroupsByLatest(
-    groups.filter(
-      (g) =>
-        (g.displayLocation === "internal" || g.displayLocation === "both") &&
-        g.videos.length > 0,
-    ),
+  const galleryGroups = groups.filter(
+    (g) =>
+      (g.displayLocation === "internal" || g.displayLocation === "both") &&
+      g.videos.length > 0,
   );
-
-  const initialGroup = galleryGroups[0] ?? null;
+  const latestVideo = flattenLatestVideos(galleryGroups)[0]?.video;
 
   return (
     <VideosBrowser
-      key={initialGroup?.videos[0]?.slug ?? "root"}
+      key={latestVideo?.slug ?? "root"}
       groups={galleryGroups}
-      initialVideoSlug={initialGroup?.videos[0]?.slug}
+      initialVideoSlug={latestVideo?.slug}
     />
   );
 }

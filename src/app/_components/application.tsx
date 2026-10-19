@@ -61,15 +61,15 @@ export default function Application() {
 						<Image
 							src="/applications/anwar-sajjadyia/01.png"
 							alt=""
-							width={217}
-							height={464}
+							width={440}
+							height={930}
 							className="absolute bottom-6 left-0 w-[11.5rem] -rotate-6 drop-shadow-2xl"
 						/>
 						<Image
 							src="/applications/anwar-sajjadyia/02.png"
 							alt="شاشة من تطبيق أنوار سجادية"
-							width={221}
-							height={464}
+							width={440}
+							height={930}
 							className="absolute bottom-0 left-36 w-[13rem] rotate-3 drop-shadow-2xl"
 						/>
 					</Link>
