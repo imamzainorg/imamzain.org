@@ -1,57 +1,30 @@
-# Imam Zain Website
+# imamzain.org
 
-Welcome to the Imam Zain Website project. This README will guide you through the setup and usage of the project.
+The public website of the **Imam Zayn al-Abidin (as) Foundation** — the
+foundation's home on the web, presenting the life and heritage of Imam Zayn
+al-Abidin, ʿAli ibn al-Husayn as-Sajjad (عليه السلام), alongside the
+foundation's publications, media, research, and services.
 
-## Table of Contents
+## What visitors find here
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- **His Life** — a biography of the Master of Prostrators (peace be upon him).
+- **Digital library & publications** — browsable books and academic research
+  with search, filtering, and downloads.
+- **Media** — photo gallery and audio recitations.
+- **Activities & news** — the foundation's posts, events, and the Baqi gathering.
+- **Services & applications** — including proxy-visitation (نيابة الزيارة)
+  requests and other foundation services.
+- **Newsletter & contact forms** with a public links hub.
 
-## Introduction
+The site is fully multilingual and localized, with SEO (sitemap, structured
+metadata) built in.
 
-The Imam Zain Website is a web application designed to provide information and resources about Imam Zain. It is built using modern web technologies.
+## Scope & architecture
 
-## Features
-
-- Responsive design
-- User-friendly interface
-- Informative content about Imam Zain
-- Easy navigation
-
-## Installation
-
-To get a local copy up and running, follow these steps:
-
-1. Clone the repository:
-    ```sh
-    git clone https://github.com/your-username/imamzain.org.git
-    ```
-2. Navigate to the project directory:
-    ```sh
-    cd imamzain.org
-    ```
-3. Install dependencies:
-    ```sh
-    npm install
-    ```
-
-## Usage
-
-To start the development server, run:
-```sh
-npm run dev
-```
-
-Open your browser and visit `http://localhost:3000` to view the website.
-
-## Contributing
-
-Contributions are welcome! Please read the [contributing guidelines](CONTRIBUTING.md) for more information.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+- Built with **Next.js** (App Router) and **React**, styled with **Tailwind CSS**
+  and **HeroUI**, with motion via **Framer Motion** and smooth scrolling via
+  **Lenis**.
+- Deployed on **Cloudflare Workers** (via Wrangler/OpenNext).
+- Consumes the foundation's [ImamZain API](https://github.com/imamzainorg/api.imamzain.org)
+  for all content, and is administered through the
+  [CMS](https://github.com/imamzainorg/cms.imamzain.org).
