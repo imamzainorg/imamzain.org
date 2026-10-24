@@ -5,8 +5,8 @@ import type { AudioItem } from "@/types/audio"
 // Prerendered to a static JSON file per item at build time (no dynamic APIs
 // are used here), so it is served from the CDN edge like any other static
 // asset: no serverless invocation and no origin transfer per request.
-// useWaveform fetches this only when a given item's canvas actually mounts
-// and needs to draw its waveform, instead of every item's peaks array
+// The audio page fetches this only for the recording being played, to draw
+// its waveform seek bar, instead of every item's peaks array
 // shipping eagerly in the audio list page's RSC payload.
 export const dynamic = "force-static"
 export const dynamicParams = false
