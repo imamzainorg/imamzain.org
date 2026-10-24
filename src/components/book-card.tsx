@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { ArrowLeft, ArrowRight, Download, Share2, ShoppingCart } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, Download, Share2, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { toast } from "sonner";
@@ -106,10 +106,24 @@ export default function BookCard({
 
           <div className="mt-6 flex flex-wrap items-center gap-2">
             {publication.pdf ? (
-              <Link href={publication.pdf} target="_blank" rel="noopener noreferrer" className={solid}>
-                <Download className="h-4 w-4" />
-                تنزيل الكتاب
-              </Link>
+              <>
+                <a
+                  href={`/api/download?url=${encodeURIComponent(publication.pdf)}`}
+                  className={solid}
+                >
+                  <Download className="h-4 w-4" />
+                  تنزيل الكتاب
+                </a>
+                <Link
+                  href={`/api/download?url=${encodeURIComponent(publication.pdf)}&mode=inline`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={outline}
+                >
+                  <BookOpen className="h-4 w-4" />
+                  قراءة الكتاب
+                </Link>
+              </>
             ) : (
               <span className={cn(smallButton, "cursor-not-allowed border-gray-300 bg-gray-100 text-gray-500")}>
                 الكتاب غير متوفر
