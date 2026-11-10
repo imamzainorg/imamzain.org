@@ -3,6 +3,7 @@
 // the answer is cached at the edge and in the browser for an hour: the source
 // is fetched at most hourly per Cloudflare location instead of per visitor.
 const SOURCE = "https://www.sistani.org/"
+const ALTERNATE_SOURCE = "https://www.sistani.org//"
 const CACHE_SECONDS = 3600
 
 export async function hijriDate(
@@ -19,12 +20,15 @@ export async function hijriDate(
 	}
 
 	try {
-		let hijriDate = await fetchHijriDate(SOURCE, false)
+		let hijriDate = await fetchHijriDate(SOURCE)
 		if (hijriDate !== null && !isToday(hijriDate)) {
 			console.warn(`Stale Hijri date from source: ${hijriDate}`)
-			// sistani.org answers 404 to any query string, so the retry asks
-			// for a fresh copy with headers instead of a cache-busting URL.
-			hijriDate = await fetchHijriDate(SOURCE, true)
+			// sistani.org is behind Cloudflare, and a Cloudflare location can keep
+			// serving its cached copy of "/" for days (Sofia served Sunday's on
+			// Tuesday). Request headers cannot bypass that cache and the site
+			// answers 404 to any query string, but "//" is the same page under a
+			// different cache key.
+			hijriDate = await fetchHijriDate(ALTERNATE_SOURCE)
 		}
 
 		if (hijriDate === null) {
@@ -47,11 +51,10 @@ export async function hijriDate(
 	}
 }
 
-async function fetchHijriDate(url: string, fresh: boolean): Promise<string | null> {
+async function fetchHijriDate(url: string): Promise<string | null> {
 	const response = await fetch(url, {
 		headers: {
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-			...(fresh && { "Cache-Control": "no-cache", Pragma: "no-cache" }),
 		},
 		cf: { cacheTtl: 0 },
 	})
