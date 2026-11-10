@@ -19,11 +19,12 @@ export async function hijriDate(
 	}
 
 	try {
-		// The second attempt adds a throwaway query so that a stale copy held
-		// between us and the source (or by the source itself) is bypassed.
-		let hijriDate = await fetchHijriDate(SOURCE)
+		let hijriDate = await fetchHijriDate(SOURCE, false)
 		if (hijriDate !== null && !isToday(hijriDate)) {
-			hijriDate = await fetchHijriDate(`${SOURCE}?t=${Date.now()}`)
+			console.warn(`Stale Hijri date from source: ${hijriDate}`)
+			// sistani.org answers 404 to any query string, so the retry asks
+			// for a fresh copy with headers instead of a cache-busting URL.
+			hijriDate = await fetchHijriDate(SOURCE, true)
 		}
 
 		if (hijriDate === null) {
@@ -46,16 +47,19 @@ export async function hijriDate(
 	}
 }
 
-async function fetchHijriDate(url: string): Promise<string | null> {
+async function fetchHijriDate(url: string, fresh: boolean): Promise<string | null> {
 	const response = await fetch(url, {
 		headers: {
 			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+			...(fresh && { "Cache-Control": "no-cache", Pragma: "no-cache" }),
 		},
 		cf: { cacheTtl: 0 },
 	})
 
 	if (!response.ok) {
-		throw new Error(`HTTP error! status: ${response.status}`)
+		throw new Error(
+			`HTTP error! status: ${response.status} (cf-cache-status: ${response.headers.get("cf-cache-status")}, age: ${response.headers.get("age")})`,
+		)
 	}
 
 	const rawText = elementText(await response.text(), "home-date")
