@@ -47,11 +47,14 @@ export async function relayForm(
 		return Response.json({ error: failure }, { status: 500 })
 	}
 
-	const data = await readJson<{ error?: string }>(response, what)
+	const data = await readJson<{ error?: string; errors?: unknown }>(response, what)
 	if (data === null) return Response.json({ error: failure }, { status: 500 })
 
 	if (!response.ok) {
-		log("ERROR", `${what}: backend answered`, response.status, data.error ?? "")
+		// On a 400 the API lists which rule each field broke ("visitor_name must be ..."); those
+		// messages name fields and limits, never the submitted values, so they are safe to log.
+		const reasons = Array.isArray(data.errors) ? data.errors.filter((e) => typeof e === "string").join("; ") : ""
+		log("ERROR", `${what}: backend answered`, response.status, data.error ?? "", reasons)
 		return Response.json({ error: data.error || "Backend API request failed" }, { status: response.status })
 	}
 
