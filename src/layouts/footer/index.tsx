@@ -2,10 +2,10 @@ import type { ComponentType, SVGProps } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Facebook, Instagram, Youtube } from "lucide-react"
-import { TitleIcon } from "@/components/brand"
 import { TelegramIcon, TikTokIcon, XIcon } from "@/components/brand-icons"
 import { navLinks } from "@/layouts/header/nav-data"
 import { BackToTop } from "@/layouts/footer/back-to-top"
+import { FooterColumn } from "@/layouts/footer/footer-column"
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement>>
 
@@ -41,22 +41,27 @@ const socials: { href: string; label: string; Icon: IconComponent; hover: string
 
 export default function Footer() {
 	return (
-		<footer className="relative overflow-hidden rounded-t-[2.5rem] bg-primary text-white dark:bg-Muharram_primary">
-			<div aria-hidden className="absolute inset-0 bg-[url('/shapes/bg.svg')] bg-[length:500px] opacity-[0.04]" />
+		<footer className="relative overflow-hidden rounded-t-3xl bg-primary text-white dark:bg-Muharram_primary md:rounded-t-[2.5rem]">
+			<div aria-hidden className="absolute inset-0 bg-[url('/shapes/bg.svg')] bg-[length:320px] opacity-[0.04] md:bg-[length:500px]" />
 			{/* A gold hairline along the top edge. */}
-			<div aria-hidden className="absolute inset-x-12 top-0 h-px bg-gradient-to-l from-transparent via-secondary/70 to-transparent dark:via-Muharram_secondary/70" />
+			<div aria-hidden className="absolute inset-x-6 top-0 h-px bg-gradient-to-l from-transparent via-secondary/70 to-transparent dark:via-Muharram_secondary/70 md:inset-x-12" />
 
-			<div className="container relative pb-8 pt-14 md:pt-16">
-				<div className="grid gap-12 lg:grid-cols-[18rem_1fr] lg:gap-16">
-					{/* Brand */}
-					<div>
-						<Link href="/" aria-label="الصفحة الرئيسية">
-							<Image src="/images/logo-vertical-white.svg" alt="مؤسسة الإمام زين العابدين" width={200} height={160} className="h-auto w-40" />
+			{/* The bottom padding keeps the last row clear of the home indicator on phones. */}
+			<div className="container relative pb-[max(2rem,env(safe-area-inset-bottom))] pt-10 sm:pt-12 md:pt-16">
+				<div className="grid gap-8 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-16">
+					{/* Brand: centred below lg, start-aligned beside the links from lg. */}
+					<div className="flex flex-col items-center text-center lg:items-start lg:text-start">
+						<Link
+							href="/"
+							aria-label="الصفحة الرئيسية"
+							className="inline-block rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+						>
+							<Image src="/images/logo-vertical-white.svg" alt="مؤسسة الإمام زين العابدين" width={200} height={160} className="h-auto w-32 sm:w-36 md:w-40" />
 						</Link>
-						<p className="mt-5 max-w-xs leading-8 text-white/65">
+						<p className="mt-4 max-w-sm text-balance leading-8 text-white/70 md:mt-5 lg:max-w-xs">
 							مؤسسة قائمة لإحياء تراث ونشر تعاليم الإمام علي بن الحسين السجاد (عليه السلام).
 						</p>
-						<ul className="mt-6 flex flex-wrap gap-2.5">
+						<ul className="mt-6 flex flex-wrap justify-center gap-2.5 lg:justify-start">
 							{socials.map(({ href, label, Icon, hover }) => (
 								<li key={href}>
 									<a
@@ -64,7 +69,7 @@ export default function Footer() {
 										target="_blank"
 										rel="noopener noreferrer"
 										aria-label={label}
-										className={`grid size-11 place-items-center rounded-xl border-2 border-white/20 text-white transition duration-300 hover:-translate-y-1 hover:border-white hover:bg-white ${hover}`}
+										className={`grid size-11 place-items-center rounded-xl border-2 border-white/20 text-white transition duration-300 hover:-translate-y-1 hover:border-white hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${hover}`}
 									>
 										<Icon className="size-5" />
 									</a>
@@ -73,35 +78,20 @@ export default function Footer() {
 						</ul>
 					</div>
 
-					{/* Link columns */}
-					<nav aria-label="روابط الموقع" className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 xl:grid-cols-6">
+					{/* Link groups: accordion on phones, 3 columns on tablets, then as many as fit beside the brand. */}
+					<nav
+						aria-label="روابط الموقع"
+						className="grid grid-cols-1 border-t border-white/15 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-9 sm:border-0 lg:grid-cols-[repeat(auto-fit,minmax(9.5rem,1fr))]"
+					>
 						{columns.map((col) => (
-							<div key={col.label}>
-								<h3 className="flex items-center gap-2 text-lg font-bold">
-									<TitleIcon className="w-2.5" />
-									{col.label}
-								</h3>
-								<ul className="mt-4 space-y-1">
-									{col.links.map((link) => (
-										<li key={link.href}>
-											<Link
-												href={link.href}
-												className="group/link inline-flex items-center gap-2 py-1 text-white/70 transition-colors hover:text-white"
-											>
-												<span aria-hidden className="h-px w-0 bg-secondary transition-all duration-300 group-hover/link:w-3 dark:bg-Muharram_secondary" />
-												{link.label}
-											</Link>
-										</li>
-									))}
-								</ul>
-							</div>
+							<FooterColumn key={col.label} label={col.label} links={col.links} />
 						))}
 					</nav>
 				</div>
 
 				{/* Bottom bar */}
-				<div className="mt-14 flex flex-col items-center justify-between gap-5 border-t border-dashed border-white/20 pt-6 sm:flex-row">
-					<p className="text-center text-sm text-white/50">
+				<div className="mt-8 flex flex-col-reverse items-center justify-between gap-5 border-t border-dashed border-white/20 pt-6 sm:flex-row md:mt-14">
+					<p className="text-balance text-center text-xs text-white/60 sm:text-start sm:text-sm">
 						جميع الحقوق محفوظة لمؤسسة الإمام زين العابدين (عليه السلام) &copy; {new Date().getFullYear()}
 					</p>
 					<BackToTop />

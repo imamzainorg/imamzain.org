@@ -12,7 +12,7 @@ export default function Vision({ text }: { text: string }) {
 				<Reveal x={60} y={0}>
 					<SectionTitle title="رؤية المؤسسة" className="mb-6" />
 					<p className={leadText}>{text}</p>
-					<div className="mt-8 flex flex-wrap gap-3">
+					<div className="mt-8 flex justify-center flex-wrap gap-3">
 						<Link href="/about/vision-and-goals#vision" className={solidButton}>
 							<span className="h-2 w-2 rounded-full bg-secondary dark:bg-Muharram_secondary" />
 							رؤية المؤسسة
