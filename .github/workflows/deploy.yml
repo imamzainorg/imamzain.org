@@ -8,6 +8,11 @@ name: Deploy
 #   4. if imamzain.org fails that check, roll back to the previous version.
 # A failure at any step leaves the live site on the last good version.
 #
+# The API also starts it (repository_dispatch "content-changed") after every
+# content edit in the CMS, so the static pages pick up the change. The
+# concurrency group below keeps one deploy running and one waiting, so a
+# burst of edits ends in at most two deploys.
+#
 # Needs the repository (or organization) secret CLOUDFLARE_API_TOKEN, created
 # from Cloudflare's "Edit Cloudflare Workers" token template.
 
@@ -15,6 +20,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  repository_dispatch:
+    types: [content-changed]
 
 concurrency:
   group: deploy-production
