@@ -28,10 +28,10 @@ export default function BookPanel({
 			<div
 				className={`${outlinePanel} relative p-8 md:p-12 ${quote ? "grid items-center gap-10 lg:grid-cols-[1fr_22rem] lg:gap-14" : "lg:pl-80"}`}
 			>
-				<div>
+				<div className="">
 					{title && <h4 className="text-3xl font-bold text-primary dark:text-Muharram_primary">{title}</h4>}
 					<p className={`${title ? "mt-4" : ""} max-w-2xl text-lg leading-loose text-gray-700`}>{text}</p>
-					{children && <div className="mt-6 flex flex-wrap gap-3">{children}</div>}
+					{children && <div className="mt-6 flex flex-wrap gap-3 lg:justify-start justify-center">{children}</div>}
 				</div>
 
 				{quote ? (
