@@ -55,12 +55,12 @@ export default function Posts({ newsPosts }: { newsPosts: Post[] }) {
 										aria-hidden
 										className="absolute inset-0 bg-gradient-to-t from-[#101c1a] via-[#101c1a]/55 to-transparent dark:from-[#171314] dark:via-[#171314]/55"
 									/>
-									<div className="absolute inset-x-0 bottom-0 p-6 md:p-7">
+									<div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 md:p-7">
 										<time className="flex items-center gap-2 text-sm font-semibold text-secondary dark:text-white/70">
 											<TitleIcon className="w-2.5" />
 											{formatDate(post.date)}
 										</time>
-										<h3 className="mt-2 line-clamp-3 text-xl font-bold leading-snug text-white md:text-2xl">
+										<h3 className="mt-2 line-clamp-2 text-base font-bold leading-snug text-white sm:line-clamp-3 lg:text-2xl">
 											{post.title}
 										</h3>
 										{/* The summary and the link only make room for themselves on the open card. */}
@@ -71,8 +71,8 @@ export default function Posts({ newsPosts }: { newsPosts: Post[] }) {
 											)}
 										>
 											<div className="overflow-hidden">
-												<p className="mt-3 line-clamp-2 leading-7 text-white/75">{post.summary}</p>
-												<span className="mt-4 inline-flex items-center gap-2 font-semibold text-secondary dark:text-white">
+												<p className="mt-2 line-clamp-1 text-sm leading-6 text-white/75 sm:mt-3 sm:line-clamp-2 lg:text-base lg:leading-7">{post.summary}</p>
+												<span className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-secondary sm:mt-4 lg:text-base dark:text-white">
 													قراءة الخبر
 													<ArrowLeft className="size-4 transition-transform duration-300 group-hover:-translate-x-1" />
 												</span>
