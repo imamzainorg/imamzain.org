@@ -120,7 +120,7 @@ export default function About() {
 			</section>
 
 			<section className="pt-28">
-				<SectionTitle title="موقع المؤسسة" text="النجف الأشرف-ملحق شارع الروان" className="mb-8" />
+				<SectionTitle title="موقع المؤسسة" text="النجف الأشرف/حي النفط - شارع كربلاء" className="mb-8" />
 				<Reveal>
 					<div className={`${outlinePanel} overflow-hidden`}>
 						<iframe

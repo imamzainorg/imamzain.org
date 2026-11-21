@@ -55,7 +55,6 @@ export default function BookCard({
 
   const stats = [
     { label: "صفحة", value: publication.pages },
-    { label: publication.parts > 1 ? "أجزاء" : "جزء", value: publication.parts },
     { label: "سنة الطبع", value: publication.printDate },
     { label: "اللغة", value: language },
   ].filter((stat) => stat.value);
@@ -165,7 +164,7 @@ export default function BookCard({
           )}
 
           {stats.length > 0 && (
-            <dl className="mt-8 grid grid-cols-2 divide-primary/10 overflow-hidden rounded-3xl border border-primary/10 bg-white/70 dark:divide-white/10 dark:border-white/10 dark:bg-white/[0.04] sm:grid-cols-4 sm:divide-x sm:divide-x-reverse">
+            <dl className="mt-8 grid grid-cols-2 divide-primary/10 overflow-hidden rounded-3xl border border-primary/10 bg-white/70 dark:divide-white/10 dark:border-white/10 dark:bg-white/[0.04] sm:grid-cols-3 sm:divide-x sm:divide-x-reverse">
               {stats.map(({ label, value }) => (
                 <div key={label} className="px-4 py-4 text-center">
                   <dd className="text-2xl font-extrabold text-primary dark:text-white">{value}</dd>

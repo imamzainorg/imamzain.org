@@ -22,7 +22,7 @@ export default function ImamBand({ text }: { text: string }) {
 						<Reveal>
 							<SectionTitle light title="الإمام زين العابدين (عليه السلام)" className="mb-8" />
 							<p className="text-lg leading-loose text-white/85 md:text-xl md:leading-loose">{text}</p>
-							<div className="mt-10 flex flex-wrap gap-3">
+							<div className="mt-10 flex justify-center  flex-wrap gap-3">
 								<Link href="/his-life" className={whiteButton}>
 									حياته الكريمة
 								</Link>
