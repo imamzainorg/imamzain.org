@@ -37,7 +37,7 @@ export default function Application() {
 					<p className="mt-4 max-w-xl text-lg leading-loose text-white/80">
 						اكتشف عالم الإمام زين العابدين من خلال تطبيق شامل يحتوي على الأدعية، الزيارات، والنصوص المقدسة
 					</p>
-					<div className="mt-8 flex flex-wrap items-center gap-4">
+					<div className="mt-8 flex flex-wrap  items-center justify-center gap-4">
 						{stores.map((store) => (
 							<Link
 								key={store.src}

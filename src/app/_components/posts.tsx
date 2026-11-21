@@ -71,7 +71,7 @@ export default function Posts({ newsPosts }: { newsPosts: Post[] }) {
 											)}
 										>
 											<div className="overflow-hidden">
-												<p className="mt-2 line-clamp-1 text-sm leading-6 text-white/75 sm:mt-3 sm:line-clamp-2 lg:text-base lg:leading-7">{post.summary}</p>
+												<p className="mt-2 line-clamp-1 text-sm leading-4 text-white/75 sm:mt-3 lg:line-clamp-2 lg:text-base lg:leading-7">{post.summary}</p>
 												<span className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-secondary sm:mt-4 lg:text-base dark:text-white">
 													قراءة الخبر
 													<ArrowLeft className="size-4 transition-transform duration-300 group-hover:-translate-x-1" />
