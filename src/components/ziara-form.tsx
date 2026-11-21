@@ -5,7 +5,7 @@ import { CheckCircle2, Loader2 } from "lucide-react"
 import { Input } from "@heroui/react"
 import { motion } from "framer-motion"
 import { useState } from "react"
-import { submitErrorMessage } from "@/lib/form-rules"
+import { NAME_MAX, NAME_MIN, submitErrorMessage } from "@/lib/form-rules"
 import { useSingleFlight } from "@/lib/use-single-flight"
 import PhoneInput from "./phone-input"
 import {
@@ -74,8 +74,15 @@ const ZiaraForm = () => {
 	const validate = () => {
 		const next: Errors = {}
 
-		if (!formData.visitorName.trim()) {
+		// The API takes 2 to 100 characters, so a name it would reject is caught here, where the
+		// visitor is told why. Several names typed in one field is the usual way past 100.
+		const name = formData.visitorName.trim()
+		if (!name) {
 			next.name = "الرجاء إدخال اسم الزائر"
+		} else if (name.length < NAME_MIN) {
+			next.name = `الاسم قصير جداً، اكتب ${NAME_MIN} أحرف على الأقل`
+		} else if (name.length > NAME_MAX) {
+			next.name = `الاسم طويل (${name.length} حرفاً، والحد ${NAME_MAX}). اكتب اسماً واحداً في كل طلب، ثم سجّل الأسماء الأخرى كلاً على حدة`
 		}
 
 		if (!formData.visitorPhone) {

@@ -3,6 +3,7 @@
 // the answer is cached at the edge and in the browser for an hour: the source
 // is fetched at most hourly per Cloudflare location instead of per visitor.
 const SOURCE = "https://www.sistani.org/"
+const ALTERNATE_SOURCE = "https://www.sistani.org//"
 const CACHE_SECONDS = 3600
 
 export async function hijriDate(
@@ -12,39 +13,31 @@ export async function hijriDate(
 ): Promise<Response> {
 	const cacheKey = new Request(new URL("/api/hijri-date", request.url))
 	const cached = await caches.default.match(cacheKey)
-	if (cached) return cached
+	// A cached answer from an earlier day is wrong however young its headers
+	// say it is, so it is only served while its weekday is still today's.
+	if (cached && isToday((await cached.clone().json<{ hijriDate: string }>()).hijriDate)) {
+		return cached
+	}
 
 	try {
-		// 1. Fetch the HTML content
-		const response = await fetch(SOURCE, {
-			headers: {
-				"User-Agent":
-					"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-			},
-		})
-
-		if (!response.ok) {
-			throw new Error(`HTTP error! status: ${response.status}`)
+		let hijriDate = await fetchHijriDate(SOURCE)
+		if (hijriDate !== null && !isToday(hijriDate)) {
+			console.warn(`Stale Hijri date from source: ${hijriDate}`)
+			// sistani.org is behind Cloudflare, and a Cloudflare location can keep
+			// serving its cached copy of "/" for days (Sofia served Sunday's on
+			// Tuesday). Request headers cannot bypass that cache and the site
+			// answers 404 to any query string, but "//" is the same page under a
+			// different cache key.
+			hijriDate = await fetchHijriDate(ALTERNATE_SOURCE)
 		}
 
-		const html = await response.text()
-
-		// 2. Extract the date
-		const rawText = elementText(html, "home-date")
-
-		if (rawText === null) {
+		if (hijriDate === null) {
 			return Response.json({ error: "Date element not found" }, { status: 404 })
 		}
-
-		// 3. Clean the date: the source reads "الثلاثاء ١٠- ربيع الآخر - ١٤٤٨هـ";
-		// move the first dash to after the weekday: "الثلاثاء - ١٠ ربيع الآخر - ١٤٤٨هـ".
-		let hijriDate = rawText.trim().split("||")[0].trim()
-
-		let index = hijriDate.indexOf("-")
-		hijriDate = hijriDate.substring(0, index) + hijriDate.substring(index + 1)
-
-		index = hijriDate.indexOf(" ")
-		hijriDate = hijriDate.substring(0, index) + " -" + hijriDate.substring(index)
+		// Better no date (the header falls back to the Gregorian one) than yesterday's.
+		if (!isToday(hijriDate)) {
+			return Response.json({ error: "Source date is stale" }, { status: 503 })
+		}
 
 		const result = Response.json(
 			{ hijriDate },
@@ -56,6 +49,59 @@ export async function hijriDate(
 		console.error("Error fetching Hijri date:", error)
 		return Response.json({ error: "Failed to retrieve date" }, { status: 500 })
 	}
+}
+
+async function fetchHijriDate(url: string): Promise<string | null> {
+	const response = await fetch(url, {
+		headers: {
+			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+		},
+		cf: { cacheTtl: 0 },
+	})
+
+	if (!response.ok) {
+		throw new Error(
+			`HTTP error! status: ${response.status} (cf-cache-status: ${response.headers.get("cf-cache-status")}, age: ${response.headers.get("age")})`,
+		)
+	}
+
+	const rawText = elementText(await response.text(), "home-date")
+	if (rawText === null) return null
+
+	// The source reads "الثلاثاء ١٠- ربيع الآخر - ١٤٤٨هـ"; move the first dash
+	// to after the weekday: "الثلاثاء - ١٠ ربيع الآخر - ١٤٤٨هـ".
+	let hijriDate = rawText.trim().split("||")[0].trim()
+
+	let index = hijriDate.indexOf("-")
+	hijriDate = hijriDate.substring(0, index) + hijriDate.substring(index + 1)
+
+	index = hijriDate.indexOf(" ")
+	return hijriDate.substring(0, index) + " -" + hijriDate.substring(index)
+}
+
+const WEEKDAYS: Record<string, string> = {
+	Sunday: "الاحد",
+	Monday: "الاثنين",
+	Tuesday: "الثلاثاء",
+	Wednesday: "الاربعاء",
+	Thursday: "الخميس",
+	Friday: "الجمعه",
+	Saturday: "السبت",
+}
+
+// The date opens with its weekday, so a copy that is a day or more old is
+// caught by comparing it with today's weekday in Najaf.
+function isToday(hijriDate: string): boolean {
+	const today = new Intl.DateTimeFormat("en-US", {
+		weekday: "long",
+		timeZone: "Asia/Baghdad",
+	}).format(new Date())
+	return normalizeArabic(hijriDate).startsWith(WEEKDAYS[today])
+}
+
+// Fold the spelling variants of the same word (hamza forms, alef maqsura, ta marbuta).
+function normalizeArabic(text: string): string {
+	return text.replace(/[أإآ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه").trim()
 }
 
 /**
@@ -92,7 +138,7 @@ const NAMED_ENTITIES: Record<string, string> = {
 	gt: ">",
 	quot: '"',
 	apos: "'",
-	nbsp: " ",
+	nbsp: " ",
 }
 
 function decodeEntities(text: string): string {
