@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 		url: "/media/images",
 		type: "website",
 		images: [
-			"https://cdn.imamzain.org/news/imam-zain-alabideen-mu2tamar-elmi-rabe3-samarra.jpg",
+			"https://cdn.imamzain.org/media/c0de9879-216c-4be5-8359-83231e618e19.jpg",
 		],
 	},
 	twitter: {
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 		description:
 			"معرض صور المؤسسة: نشاطات وندوات ومناسبات ومسابقات وأخبار موثقة بالصور من النجف وكربلاء وسامراء.",
 		images: [
-			"https://cdn.imamzain.org/news/imam-zain-alabideen-mu2tamar-elmi-rabe3-samarra.jpg",
+			"https://cdn.imamzain.org/media/c0de9879-216c-4be5-8359-83231e618e19.jpg",
 		],
 	},
 }

@@ -28,14 +28,14 @@ export const metadata: Metadata = {
       "قوائم تشغيل مرئية تضم مجالس العزاء الحسينية وشروح الأدعية السجادية والملتقيات والبرامج العلمية لمؤسسة الإمام زين العابدين عليه السلام للبحوث والدراسات.",
     url: "/media/videos",
     type: "website",
-    images: ["https://cdn.imamzain.org/news/img.png"],
+    images: ["https://cdn.imamzain.org/media/b4217467-76f6-4a45-85c5-1dd057423640.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "معرض المرئيات والفيديو | مؤسسة الإمام زين العابدين عليه السلام",
     description:
       "قوائم تشغيل مرئية تضم مجالس العزاء الحسينية وشروح الأدعية السجادية والملتقيات والبرامج العلمية لمؤسسة الإمام زين العابدين عليه السلام.",
-    images: ["https://cdn.imamzain.org/news/img.png"],
+    images: ["https://cdn.imamzain.org/media/b4217467-76f6-4a45-85c5-1dd057423640.png"],
   },
 };
 
