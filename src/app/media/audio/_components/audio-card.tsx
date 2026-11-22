@@ -16,13 +16,13 @@ import SeekBar from "./seek-bar"
 const iconButton =
 	"grid size-8 place-items-center rounded-full text-gray-400 transition-colors hover:bg-primary/10 hover:text-primary dark:hover:bg-Muharram_primary/10 dark:hover:text-Muharram_primary"
 
-// Download (the CDN sends the file as an attachment, so the browser saves it with its own
-// progress) and share.
+// Download (through /api/download, which re-serves the file as an attachment under its readable
+// name: the CDN stores each recording under a UUID key with an inline Content-Disposition) and share.
 function Actions({ item, className }: { item: AudioItemLight; className?: string }) {
 	const size = item.sizeMB ? ` (${item.sizeMB.toFixed(1)} ميغابايت)` : ""
 	return (
 		<div className={cn("flex shrink-0", className)}>
-			<a href={item.audio} download className={iconButton} aria-label={`تحميل التسجيل${size}`} title={`تحميل${size}`}>
+			<a href={`/api/download?url=${encodeURIComponent(item.audio)}&name=${encodeURIComponent(`${item.title}.mp3`)}`} download className={iconButton} aria-label={`تحميل التسجيل${size}`} title={`تحميل${size}`}>
 				<Download className="size-4" />
 			</a>
 			<button type="button" onClick={() => shareRecording(item)} className={iconButton} aria-label="مشاركة التسجيل" title="مشاركة">

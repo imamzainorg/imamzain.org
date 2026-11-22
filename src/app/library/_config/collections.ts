@@ -26,7 +26,7 @@ export const collections: Record<string, CollectionConfig> = {
       "مجموعة من الأدعية والمناجيات للإمام زين العابدين، تجسد أسمى معاني الإيمان والخشوع.",
     category: "al-sahifa",
     readPath: "/library/al-sahifa/al-sahifa-al-sajjadiya-index",
-    pdfDownload: "https://cdn.imamzain.org/books/الصحيفة رقعي.pdf",
+    pdfDownload: "https://cdn.imamzain.org/books/pdf/3873ecd4-6f67-47c6-972d-edf206e6feee.pdf",
     defaultDictionary: "al-sahifa-al-sajjadiya-index",
     additionalSections: [
       {
