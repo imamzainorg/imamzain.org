@@ -42,6 +42,12 @@ const dryRun = process.argv.includes("--dry-run");
 
 function contentDispositionFor(key: string): string | undefined {
   const basename = key.split("/").pop() ?? key;
+  // UUID keys (the standardized layout) carry their readable name in their own
+  // Content-Disposition; deriving one from the key would overwrite it with
+  // "<uuid>.pdf".
+  if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\./.test(basename)) {
+    return undefined;
+  }
   const extension = basename.split(".").pop()?.toLowerCase() ?? "";
   if (basename === extension || !ATTACHMENT_EXTENSIONS.has(extension)) {
     return undefined;
