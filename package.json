@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "dev:worker": "wrangler dev",
-    "build": "next build && node scripts/flatten-export-segments.mjs",
+    "content": "bun scripts/fetch-content.ts",
+    "build": "bun scripts/fetch-content.ts && next build && node scripts/flatten-export-segments.mjs",
     "preview": "bun run build && wrangler dev",
     "deploy": "bun run build && wrangler deploy",
     "cf-typegen": "wrangler types worker/worker-configuration.d.ts",

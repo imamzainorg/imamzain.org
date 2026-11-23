@@ -12,6 +12,8 @@ export type Book = {
 	views: number
 	image: string
 	pdf: string
+	// "app": the PDF is for the mobile app only, and the API gives the website no link to it.
+	pdfAccess: "public" | "app" | null
 	partNumber: number
 	totalParts: number
 	series: string

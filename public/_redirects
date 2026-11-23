@@ -13,4 +13,7 @@
 /contests/qatuf-sajjadiyya-cultural-competition/participate /contests/qatuf-sajjadiyya-cultural-competition 308
 
 /library/al-sahifa /library/al-sahifa/al-sahifa-al-sajjadiya-index 308
+
+# Split into two volumes in the CMS (2026-10-31); the old page was the whole book.
+/library/books/risalat--al-huquq-imam-zain-al-abidin /library/books/sharh-risalat-al-huquq-al-qabanji-part-1 308
 /library/risalat-al-huqoq /library/risalat-al-huqoq/introduction 308

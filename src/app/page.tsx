@@ -13,7 +13,6 @@ import { dataFetcher } from "@/lib/dataFetcher";
 import { Book } from "@/types/book";
 import { Post } from "@/types/post";
 import { YouTubePlaylist } from "@/types/youtube-data";
-import hadiths from "@/data/hadiths.json";
 import { getSliderImages } from "./_components/gallery-data";
 
 import dynamic from "next/dynamic";
@@ -145,12 +144,6 @@ export default async function Page() {
   const posts = await dataFetcher<Post[]>("posts.json");
   const playlists = await dataFetcher<YouTubePlaylist[]>("youtube.json");
 
-  // Select Proper Hadith Based on Date
-  const today = new Date();
-  const dayOfMonth = today.getDate();
-  const currentHadithIndex = (dayOfMonth - 1) % hadiths.length;
-  const currentHadith = hadiths[currentHadithIndex];
-
   return (
     <div>
       <h1 className="sr-only">
@@ -159,7 +152,6 @@ export default async function Page() {
       <TopImage
         desktopImages={desktopImages}
         mobileImages={mobileImages}
-        currentHadith={currentHadith}
       />
 
       <Vision text="انطلاقاً من العمق الديني والعلمي والإجتماعي لأهل بيت النبوة وأنوار الهداية الإلهية (عليهم السلام جميعاً) ، وسعياً الى تعريف المجتمع الإنساني بمآثر العترة الطاهرة لنبي الرحمة (صلى الله عليه وعليهم أجمعين) ، وإظهاراً لمظلومية الأئمة الطاهرين وخصوصاً أئمة البقيع (عليهم السلام)، وما مورس في حقهم من إجحاف وتنكر وتغييب والحال أنهم أهل المدينة وسادتها وهم ورثة جدهم النبي الاكرم نسباً وعلماً ومكانةً وسؤدداً فلقد اهتم المؤمنون جزاهم الله خيراً قديماً وحديثاً بمحاولات كثيرة لنشر فكر أئمة البقيع وفقههم والعمل على إلفات الأنظار الى سمو مرتبتهم (عليهم السلام) وجلالة قدرهم في الإسلام فجزى الله العاملين كل خير." />

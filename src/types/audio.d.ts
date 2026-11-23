@@ -7,6 +7,8 @@ export type AudioItem = {
   durationSeconds?: number;
   sizeMB?: number;
   peaks?: number[];
+  // Every old numeric id of this recording, when there is more than one (shared links use them).
+  legacyIds?: number[];
 };
 
 // What actually crosses the server -> client prop boundary for the audio
