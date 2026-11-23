@@ -1,5 +1,7 @@
 export type AudioItem = {
   id: number;
+  // The recording's id on the API, used to load its waveform.
+  apiId: string;
   title: string;
   speaker: string;
   audio: string;
@@ -7,6 +9,8 @@ export type AudioItem = {
   durationSeconds?: number;
   sizeMB?: number;
   peaks?: number[];
+  // Every old numeric id of this recording, when there is more than one (shared links use them).
+  legacyIds?: number[];
 };
 
 // What actually crosses the server -> client prop boundary for the audio

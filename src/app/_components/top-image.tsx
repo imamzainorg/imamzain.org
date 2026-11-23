@@ -2,12 +2,13 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { useDailyHadith } from "@/lib/use-daily-hadith";
 import { motion, AnimatePresence } from "framer-motion";
 
 const HadithDisplay = ({
   hadith,
 }: {
-  hadith: { id: number; content: string };
+  hadith: { content: string };
 }) => (
   <motion.div
     key={hadith.content}
@@ -33,15 +34,11 @@ const HadithDisplay = ({
 export default function TopImage({
   desktopImages,
   mobileImages,
-  currentHadith,
 }: {
   desktopImages: string[];
   mobileImages: string[];
-  currentHadith: {
-    id: number;
-    content: string;
-  };
 }) {
+  const currentHadith = useDailyHadith();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [prevImageIndex, setPrevImageIndex] = useState(0);
   const [images, setImages] = useState(desktopImages);
@@ -116,7 +113,7 @@ export default function TopImage({
         {/* Hadith display - only shown when albaqi.jpg is displayed */}
         <div className="absolute flex flex-col justify-center gap-4 items-center bottom-0 right-0 w-full h-1/2 z-30">
           <AnimatePresence mode="wait">
-            {showHadith && <HadithDisplay hadith={currentHadith} />}
+            {showHadith && currentHadith && <HadithDisplay hadith={currentHadith} />}
           </AnimatePresence>
         </div>
 

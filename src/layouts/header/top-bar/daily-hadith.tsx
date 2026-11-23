@@ -1,20 +1,14 @@
 "use client"
 
-import { useEffect, useRef, useState, useSyncExternalStore } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Quote } from "lucide-react"
-import hadiths from "@/data/hadiths.json"
-
-const noSubscription = () => () => {}
+import { useDailyHadith } from "@/lib/use-daily-hadith"
 
 // The saying of the day, one line in the top bar. Tapping it opens the whole text. It rotates by
-// day of the month like the home page's, and it is chosen in the browser: the site is built once
-// and served for days, so a build-time pick would stay on one hadith.
+// Hijri date from the API, and it is loaded in the browser: the site is built once and served for
+// days, so a build-time pick would stay on one hadith.
 export default function DailyHadith() {
-	const index = useSyncExternalStore(
-		noSubscription,
-		() => (new Date().getDate() - 1) % hadiths.length,
-		() => -1,
-	)
+	const hadith = useDailyHadith()
 	const [open, setOpen] = useState(false)
 	const root = useRef<HTMLDivElement>(null)
 
@@ -35,8 +29,8 @@ export default function DailyHadith() {
 		}
 	}, [open])
 
-	if (index < 0) return null
-	const { content } = hadiths[index]
+	if (!hadith) return null
+	const { content } = hadith
 
 	return (
 		<div ref={root} className="relative flex min-w-0 flex-1 justify-center max-xl:hidden">

@@ -127,10 +127,10 @@ export default function AudioLibrary({ items }: { items: AudioItemLight[] }) {
 	const [handledShare, setHandledShare] = useState<number | null>(null)
 	if (sharedId && handledShare !== sharedId) {
 		setHandledShare(sharedId)
-		const index = items.findIndex((item) => item.id === sharedId)
+		const index = items.findIndex((item) => item.id === sharedId || item.legacyIds?.includes(sharedId))
 		if (index >= 0) {
 			setPage(Math.floor(index / PER_PAGE) + 1)
-			setHighlight(sharedId)
+			setHighlight(items[index].id)
 		}
 	}
 

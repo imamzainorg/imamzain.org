@@ -123,6 +123,10 @@ export default function BookCard({
                   قراءة الكتاب
                 </Link>
               </>
+            ) : publication.pdfAccess === "app" ? (
+              <Link href="/applications" className={cn(smallButton, "border-gray-300 bg-gray-100 text-gray-600")}>
+                متوفر في تطبيق المؤسسة
+              </Link>
             ) : (
               <span className={cn(smallButton, "cursor-not-allowed border-gray-300 bg-gray-100 text-gray-500")}>
                 الكتاب غير متوفر
