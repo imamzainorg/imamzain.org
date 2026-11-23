@@ -148,7 +148,8 @@ async function books() {
 			// "app": the PDF is for the mobile app only, and the API sends the website no link to it.
 			pdfAccess: b.pdf_access ?? null,
 			// One series name for every volume: the site groups volumes by it.
-			series: parent ? (pt.title ?? "").trim() : (t.series ?? ""),
+			// Left out for standalone books: the pages treat a missing series as "not in a series".
+			...(parent ? { series: (pt.title ?? "").trim() } : t.series?.trim() ? { series: t.series } : {}),
 			partNumber: b.part_number ?? 1,
 			totalParts: totalParts ?? b.parts_total ?? 1,
 			category: [owner.category_id, ...(owner.extra_category_ids ?? [])]
@@ -165,7 +166,8 @@ async function books() {
 		if (parts) rows.push(...parts.map((part) => row(part, b, parts.length)))
 		else rows.push(row(b))
 	}
-	await write("books.json", rows.map((r, i) => ({ id: i + 1, ...r })))
+	// Numbered in reverse, so the pages' "higher id first" sort shows the API's (the CMS's) order.
+	await write("books.json", rows.map((r, i) => ({ id: rows.length - i, ...r })))
 }
 
 async function gallery() {
