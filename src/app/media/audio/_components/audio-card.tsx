@@ -58,7 +58,7 @@ const AudioCard = memo(function AudioCard({
 	onSpeaker: (speaker: string) => void
 }) {
 	const active = player !== null
-	const peaks = usePeaks(item.id)
+	const peaks = usePeaks(item.apiId)
 	const duration = (active && player.duration) || item.durationSeconds || 0
 	const time = active ? player.time : resumeAt
 	return (

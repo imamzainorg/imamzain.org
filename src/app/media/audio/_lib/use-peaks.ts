@@ -4,20 +4,21 @@ import { useEffect, useState } from "react"
 
 // The waveform of one recording (300 loudness samples, 0 to 1), fetched when it is first opened
 // and kept for the visit. The list never loads them: only the recording being played shows one.
-const cache = new Map<number, number[]>()
+const cache = new Map<string, number[]>()
 
-export function usePeaks(id: number | null): number[] | null {
-	const [loaded, setLoaded] = useState<{ id: number; peaks: number[] } | null>(null)
+export function usePeaks(id: string | null): number[] | null {
+	const [loaded, setLoaded] = useState<{ id: string; peaks: number[] } | null>(null)
 
 	useEffect(() => {
 		if (id === null || cache.has(id)) return
 		let live = true
-		fetch(`/api/audio-peaks/${id}`)
-			.then((response) => (response.ok ? (response.json() as Promise<{ peaks?: number[] }>) : null))
-			.then((data) => {
-				if (!data?.peaks?.length) return
-				cache.set(id, data.peaks)
-				if (live) setLoaded({ id, peaks: data.peaks })
+		fetch(`https://api.imamzain.org/api/v1/audios/${id}`)
+			.then((response) => (response.ok ? (response.json() as Promise<{ data?: { peaks?: number[] } }>) : null))
+			.then((body) => {
+				const peaks = body?.data?.peaks
+				if (!peaks?.length) return
+				cache.set(id, peaks)
+				if (live) setLoaded({ id, peaks })
 			})
 			.catch(() => {
 				// No waveform: the seek bar falls back to a plain track.

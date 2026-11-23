@@ -1,5 +1,7 @@
 export type AudioItem = {
   id: number;
+  // The recording's id on the API, used to load its waveform.
+  apiId: string;
   title: string;
   speaker: string;
   audio: string;

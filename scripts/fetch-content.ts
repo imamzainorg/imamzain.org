@@ -16,6 +16,17 @@ const API = (process.env.API_URL ?? "https://api.imamzain.org/api/v1").replace(/
 const OUT = path.join(process.cwd(), "src", "data")
 const PAGE_SIZE = 100 // the API's maximum
 const CONCURRENCY = 6
+// The API allows 200 requests a minute from one address; stay under it (about 260 requests a build).
+const MIN_GAP_MS = 400
+
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
+let nextSlot = 0
+async function pace() {
+	const now = Date.now()
+	const wait = Math.max(0, nextSlot - now)
+	nextSlot = Math.max(now, nextSlot) + MIN_GAP_MS
+	if (wait) await sleep(wait)
+}
 
 // The API JSON is read loosely here; the pages type-check the files this script writes.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -25,19 +36,25 @@ type Json = Record<string, any>
 async function get<T = any>(route: string): Promise<T> {
 	const url = `${API}${route}`
 	for (let attempt = 1; ; attempt++) {
+		await pace()
 		try {
 			// Never send the mobile app's User-Agent: the API would then hand out app-only PDF links.
 			const res = await fetch(url, { headers: { "Accept-Language": "ar", "User-Agent": "imamzain.org-build" } })
 			const body = (await res.json().catch(() => null)) as Json | null
 			if (res.ok && body?.success) return body.data as T
 			// Rate limits and server errors are worth a retry; anything else is a real error.
-			if (attempt >= 4 || (res.status !== 429 && res.status < 500)) {
+			if (attempt >= 6 || (res.status !== 429 && res.status < 500)) {
 				throw new Error(`${res.status} ${body?.code ?? ""} ${body?.error ?? ""}`.trim())
 			}
+			// The API's limits are per minute: after a 429, wait for the window to pass.
+			if (res.status === 429) {
+				await sleep(Number(res.headers.get("retry-after")) * 1000 || 30_000)
+				continue
+			}
 		} catch (err) {
-			if (attempt >= 4) throw new Error(`GET ${url} failed: ${(err as Error).message}`)
+			if (attempt >= 6) throw new Error(`GET ${url} failed: ${(err as Error).message}`)
 		}
-		await new Promise((r) => setTimeout(r, 1000 * 2 ** attempt))
+		await sleep(1000 * 2 ** attempt)
 	}
 }
 
@@ -187,13 +204,15 @@ async function gallery() {
 }
 
 async function audios() {
-	const list = (await getAll("/audios")).sort(byCreated)
-	const details = await mapLimit(list, (a) => get(`/audios/${a.id}`))
+	// The list has everything but the waveform, which the page loads from the API for the
+	// recording being played (src/app/media/audio/_lib/use-peaks.ts).
+	const details = (await getAll("/audios")).sort(byCreated)
 	// The old numeric ids are in shared links (/media/audio?id=N), so they are kept. Audios added in
 	// the CMS have none and are numbered after the last one, in the order they were added.
 	let nextId = Math.max(0, ...details.flatMap((a) => a.legacy_ids ?? [])) + 1
 	const rows = details.map((a) => ({
 		id: a.legacy_ids?.[0] ?? nextId++,
+		apiId: a.id,
 		// Two old ids that were the same recording: links to either one still open it.
 		...(a.legacy_ids?.length > 1 ? { legacyIds: a.legacy_ids } : {}),
 		title: a.translation?.title ?? "",
@@ -202,7 +221,6 @@ async function audios() {
 		...(a.pdf_url ? { pdf: a.pdf_url } : {}),
 		durationSeconds: a.duration_seconds ?? undefined,
 		sizeMB: a.size_mb ?? undefined,
-		peaks: a.peaks ?? [],
 	}))
 	await write("AudioItemAnalyzed.json", rows.sort((a, b) => a.id - b.id))
 }
