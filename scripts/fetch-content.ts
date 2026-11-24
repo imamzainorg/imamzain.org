@@ -321,7 +321,24 @@ async function stores() {
 	)
 }
 
+// The homepage's video block (featured first, then the newest long-form videos, one per series) and
+// the shorts rail on /media/videos. The rail is awaiting the owner's approval, so a failed request
+// there leaves it empty instead of stopping the build.
+async function videoFeeds() {
+	await write("home-videos.json", (await get<{ videos: Json[] }>("/homepage")).videos)
+	let shorts: Json[] = []
+	try {
+		shorts = (await get<{ items: Json[] }>("/videos?kind=short&limit=30")).items
+	} catch (err) {
+		console.warn(`shorts: ${(err as Error).message}`)
+	}
+	await write(
+		"shorts.json",
+		shorts.map((s) => ({ videoId: s.video_id, title: s.title, thumbnail: s.thumbnail_url, date: s.published_at })),
+	)
+}
+
 await mkdir(OUT, { recursive: true })
 const started = Date.now()
-await Promise.all([posts(), books(), gallery(), audios(), papers(), staticPages(), stores()])
+await Promise.all([posts(), books(), gallery(), audios(), papers(), staticPages(), stores(), videoFeeds()])
 console.log(`Content fetched from ${API} in ${((Date.now() - started) / 1000).toFixed(1)}s`)
