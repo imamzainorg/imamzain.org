@@ -27,10 +27,18 @@ async function get<T>(route: string): Promise<T> {
 	for (let attempt = 1; ; attempt++) {
 		try {
 			const res = await fetch(url, { headers: { "Accept-Language": "ar", "User-Agent": "imamzain.org-build" } })
-			const body = await res.json().catch(() => null)
+			const text = await res.text()
+			const body = (() => {
+				try {
+					return JSON.parse(text)
+				} catch {
+					return null
+				}
+			})()
 			if (res.ok && body?.success) return body.data as T
 			if (attempt >= 4 || (res.status !== 429 && res.status < 500)) {
-				throw new Error(`${res.status} ${body?.code ?? ""} ${body?.error ?? ""}`.trim())
+				const detail = body ? `${body.code ?? ""} ${body.error ?? ""}` : text.slice(0, 200)
+				throw new Error(`${res.status} ${detail} cf-mitigated=${res.headers.get("cf-mitigated") ?? ""}`.trim())
 			}
 		} catch (err) {
 			if (attempt >= 4) throw new Error(`GET ${url} failed: ${(err as Error).message}`)
