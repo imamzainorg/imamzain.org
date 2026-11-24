@@ -3,6 +3,7 @@ import { dataFetcher } from "@/lib/dataFetcher";
 import type { YouTubeGroup } from "@/types/youtube-data";
 import { flattenLatestVideos } from "@/lib/youtube";
 import VideosBrowser from "./_components/videos-browser";
+import ShortsRail from "./_components/shorts-rail";
 
 export const revalidate = 300;
 
@@ -51,10 +52,14 @@ export default async function VideosPage() {
   const latestVideo = flattenLatestVideos(galleryGroups)[0]?.video;
 
   return (
-    <VideosBrowser
-      key={latestVideo?.slug ?? "root"}
-      groups={galleryGroups}
-      initialVideoSlug={latestVideo?.slug}
-    />
+    <>
+      <VideosBrowser
+        key={latestVideo?.slug ?? "root"}
+        groups={galleryGroups}
+        initialVideoSlug={latestVideo?.slug}
+      />
+      {/* Shorts rail, awaiting the owner's approval: the switch is in shorts-rail.tsx. */}
+      <ShortsRail />
+    </>
   );
 }

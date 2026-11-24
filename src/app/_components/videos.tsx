@@ -5,20 +5,12 @@ import Image from "next/image"
 import { Play, X } from "lucide-react"
 import { MoreLink, SectionTitle } from "@/components/brand"
 import { Reveal } from "@/components/motion"
+import { formatDate } from "@/lib/format"
 import { cn } from "@/lib/utils"
-import { thumbnailUrl } from "@/lib/youtube"
+import type { HomeVideo } from "@/lib/video-feed"
 
-// Slimmed to the one video this component ever reads (playlist.videos[0])
-// and the fields it renders; the server page filters and slices
-// youtube.json down to this shape before passing it in.
-type HomeVideo = Pick<
-	import("@/types/youtube-data").YouTubeVideo,
-	"title" | "desc" | "date" | "thumbnail" | "url"
->
-
-type HomePlaylist = {
-	videos: HomeVideo[] // always exactly one entry: the playlist's first video
-}
+// The fields the tiles render; the API's GET /homepage already sends the right videos, in order.
+type Tile = Pick<HomeVideo, "title" | "url" | "thumbnail" | "date">
 
 // Seven tiles on desktop (one large, six small), four on tablets, two on phones.
 function tileVisibility(index: number) {
@@ -27,7 +19,7 @@ function tileVisibility(index: number) {
 	return "hidden lg:block"
 }
 
-export default function Videos({ playlists }: { playlists: HomePlaylist[] }) {
+export default function Videos({ videos }: { videos: Tile[] }) {
 	const [videoId, setVideoId] = useState<string | null>(null)
 
 	useEffect(() => {
@@ -46,8 +38,7 @@ export default function Videos({ playlists }: { playlists: HomePlaylist[] }) {
 			/>
 
 			<ul className="grid auto-rows-[15rem] grid-cols-1 gap-5 sm:grid-cols-2 md:auto-rows-[17rem] lg:auto-rows-[12rem] lg:grid-cols-5 xl:auto-rows-[13rem]">
-				{playlists.map((playlist, index) => {
-					const video = playlist.videos[0]
+				{videos.map((video, index) => {
 					const large = index === 0
 					return (
 						<li
@@ -62,7 +53,7 @@ export default function Videos({ playlists }: { playlists: HomePlaylist[] }) {
 									className="group relative block h-full w-full overflow-hidden rounded-3xl bg-primary/10 text-right dark:bg-Muharram_primary/10"
 								>
 									<Image
-										src={thumbnailUrl(video.thumbnail)}
+										src={video.thumbnail}
 										alt=""
 										fill
 										sizes={large ? "(max-width: 1024px) 100vw, 40vw" : "(max-width: 1024px) 50vw, 20vw"}
@@ -91,7 +82,7 @@ export default function Videos({ playlists }: { playlists: HomePlaylist[] }) {
 										>
 											{video.title}
 										</span>
-										<span className="mt-1 block text-sm text-white/70">{video.date}</span>
+										<span className="mt-1 block text-sm text-white/70">{formatDate(video.date.slice(0, 10))}</span>
 									</span>
 								</button>
 							</Reveal>

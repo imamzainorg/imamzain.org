@@ -12,7 +12,7 @@ import Vision from "./_components/vision";
 import { dataFetcher } from "@/lib/dataFetcher";
 import { Book } from "@/types/book";
 import { Post } from "@/types/post";
-import { YouTubePlaylist } from "@/types/youtube-data";
+import { getHomeVideos } from "@/lib/video-feed";
 import { getSliderImages } from "./_components/gallery-data";
 
 import dynamic from "next/dynamic";
@@ -95,7 +95,6 @@ const mobileImages = [
 // ever shown.
 const HOME_POSTS_COUNT = 4;
 const HOME_PUBLICATIONS_COUNT = 10;
-const HOME_PLAYLISTS_COUNT = 7;
 
 function homePublications(books: Book[]): Book[] {
   // Mirrors the filter/sort/dedupe Publications previously ran client-side
@@ -114,35 +113,10 @@ function homePublications(books: Book[]): Book[] {
     .slice(0, HOME_PUBLICATIONS_COUNT);
 }
 
-function homePlaylists(playlists: YouTubePlaylist[]) {
-  // Videos only ever reads playlist.videos[0] and displayLocation, so the
-  // rest of each playlist's videos never needs to leave the server.
-  return playlists
-    .filter(
-      (playlist) =>
-        playlist.displayLocation === "both" && playlist.videos.length > 0,
-    )
-    .slice(0, HOME_PLAYLISTS_COUNT)
-    .map((playlist) => {
-      const [firstVideo] = playlist.videos;
-      return {
-        videos: [
-          {
-            title: firstVideo.title,
-            desc: firstVideo.desc,
-            date: firstVideo.date,
-            thumbnail: firstVideo.thumbnail,
-            url: firstVideo.url,
-          },
-        ],
-      };
-    });
-}
-
 export default async function Page() {
   const books = await dataFetcher<Book[]>("books.json");
   const posts = await dataFetcher<Post[]>("posts.json");
-  const playlists = await dataFetcher<YouTubePlaylist[]>("youtube.json");
+  const videos = await getHomeVideos();
 
   return (
     <div>
@@ -186,7 +160,7 @@ export default async function Page() {
       <Publications publications={homePublications(books)} />
       <Application />
       <GallerySection sliderImages={getSliderImages()} />
-      <Videos playlists={homePlaylists(playlists)} />
+      <Videos videos={videos} />
     </div>
   );
 }
