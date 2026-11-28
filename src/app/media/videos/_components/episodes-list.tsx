@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useRef, useState, useEffect, useMemo } from "react";
 import { ChevronLeft, ChevronRight, Play, ListOrdered } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,18 +12,28 @@ import type SwiperCore from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
 
-import type { YouTubeVideo } from "@/types/youtube-data";
-import { thumbnailUrl, parseArabicDate } from "@/lib/youtube";
+import { thumbnailUrl } from "@/lib/youtube";
 
+export type Episode = {
+  slug: string;
+  title: string;
+  thumbnail: string;
+};
+
+// حلقات السلسلة بترتيب قائمة التشغيل على يوتيوب. كل حلقة صفحة مستقلة
+// (/media/videos/{slug})، فالاختيار هو تنقل عادي بين صفحات.
 export default function EpisodesList({
-  videos,
+  episodes,
   currentSlug,
-  onSelect,
+  seriesTitle,
+  seriesHref,
 }: {
-  videos: YouTubeVideo[];
+  episodes: Episode[];
   currentSlug: string;
-  onSelect: (slug: string) => void;
+  seriesTitle: string;
+  seriesHref: string;
 }) {
+  const router = useRouter();
   const swiperRef = useRef<SwiperCore | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -34,17 +45,15 @@ export default function EpisodesList({
   const [activeIndex, setActiveIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
-  // ترتيب الفيديوهات (الأقدم أولاً) حسب تاريخ كل حلقة
-  const sortedVideos = useMemo(() => {
-    return [...videos].sort(
-      (a, b) => parseArabicDate(a.date) - parseArabicDate(b.date),
-    );
-  }, [videos]);
-
   // إيجاد index الحلقة الحالية
   const currentIndex = useMemo(() => {
-    return sortedVideos.findIndex((v) => v.slug === currentSlug);
-  }, [sortedVideos, currentSlug]);
+    return episodes.findIndex((v) => v.slug === currentSlug);
+  }, [episodes, currentSlug]);
+
+  const nextEpisode =
+    currentIndex >= 0 && currentIndex < episodes.length - 1
+      ? episodes[currentIndex + 1]
+      : undefined;
 
   // مزامنة حالة الحواف
   const syncEdge = (swiper: SwiperCore) => {
@@ -55,7 +64,7 @@ export default function EpisodesList({
     setActiveIndex(swiper.activeIndex);
   };
 
-  // التحكم في التحميل
+  // تأخير بسيط قبل إظهار السلايدر حتى ينتهي ضبط الأبعاد
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 300);
     return () => clearTimeout(timer);
@@ -64,12 +73,13 @@ export default function EpisodesList({
   // اختصارات لوحة المفاتيح
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // منع التصفح إذا كان التركيز داخل حقل إدخال أو زر (الأزرار تملك
-      // تفعيل Enter/Space خاص بيها، فلا داعي لتكرار المعالجة هنا)
+      // منع التصفح إذا كان التركيز داخل حقل إدخال أو زر أو رابط (هذي العناصر
+      // تملك تفعيل Enter/Space خاص بيها، فلا داعي لتكرار المعالجة هنا)
       if (
         e.target instanceof HTMLInputElement ||
         e.target instanceof HTMLTextAreaElement ||
-        e.target instanceof HTMLButtonElement
+        e.target instanceof HTMLButtonElement ||
+        e.target instanceof HTMLAnchorElement
       ) {
         return;
       }
@@ -81,20 +91,20 @@ export default function EpisodesList({
         e.preventDefault();
         swiperRef.current?.slidePrev();
       } else if (e.key === "Enter") {
-        // تشغيل الحلقة الظاهرة حالياً في السلايدر (نفس إطار المرجع
+        // فتح الحلقة الظاهرة حالياً في السلايدر (نفس إطار المرجع
         // اللي تشتغل عليه مفاتيح الأسهم)، وليس الحلقة قيد التشغيل
-        if (activeIndex >= 0 && activeIndex < sortedVideos.length) {
-          onSelect(sortedVideos[activeIndex].slug);
+        if (activeIndex >= 0 && activeIndex < episodes.length) {
+          router.push(`/media/videos/${episodes[activeIndex].slug}`);
         }
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [edge, activeIndex, sortedVideos, onSelect]);
+  }, [edge, activeIndex, episodes, router]);
 
   // إذا كانت السلسلة تحتوي على حلقة واحدة فقط
-  if (videos.length <= 1) return null;
+  if (episodes.length <= 1) return null;
 
   // عرض Skeleton أثناء التحميل
   if (isLoading) {
@@ -139,26 +149,26 @@ export default function EpisodesList({
               >
                 الحلقات في هذه السلسلة
               </h2>
+              <Link
+                href={seriesHref}
+                className="text-xs text-slate-400 transition hover:text-secondary"
+              >
+                {seriesTitle}
+              </Link>
             </div>
           </div>
         </div>
 
         <div className="flex items-center gap-3">
           {/* زر تشغيل التالي */}
-          {currentIndex < sortedVideos.length - 1 && (
-            <button
-              type="button"
-              onClick={() => {
-                const nextIndex = currentIndex + 1;
-                if (nextIndex < sortedVideos.length) {
-                  onSelect(sortedVideos[nextIndex].slug);
-                }
-              }}
+          {nextEpisode && (
+            <Link
+              href={`/media/videos/${nextEpisode.slug}`}
               className="hidden items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.035] px-3 py-1.5 text-subtitle font-medium text-slate-400 transition-all hover:border-secondary/30 hover:bg-secondary/10 hover:text-secondary sm:flex"
               aria-label="تشغيل الحلقة التالية"
             >
               التالي
-            </button>
+            </Link>
           )}
         </div>
       </div>
@@ -230,27 +240,14 @@ export default function EpisodesList({
             1280: { slidesPerView: 4.35 },
           }}
         >
-          {sortedVideos.map((video, index) => {
+          {episodes.map((video, index) => {
             const isActive = video.slug === currentSlug;
 
             return (
               <SwiperSlide key={video.slug}>
                 <Link
                   href={`/media/videos/${video.slug}`}
-                  onClick={(event) => {
-                    if (
-                      event.metaKey ||
-                      event.ctrlKey ||
-                      event.shiftKey ||
-                      event.altKey
-                    ) {
-                      return;
-                    }
-                    event.preventDefault();
-                    onSelect(video.slug);
-                  }}
                   aria-current={isActive ? "true" : undefined}
-                  aria-pressed={isActive}
                   aria-label={`الحلقة ${index + 1}: ${video.title}`}
                   className={`
                     group relative block w-full
@@ -413,18 +410,10 @@ export default function EpisodesList({
 
       {/* ==================== Pagination Dots ==================== */}
       <div className="mt-4 flex justify-center gap-1.5">
-        {sortedVideos.map((video, i) => (
+        {episodes.map((video, i) => (
           <button
             key={video.slug}
-            onClick={() => {
-              // التمرير للحلقة المحددة
-              const index = sortedVideos.findIndex(
-                (v) => v.slug === video.slug,
-              );
-              if (index !== -1) {
-                swiperRef.current?.slideTo(index);
-              }
-            }}
+            onClick={() => swiperRef.current?.slideTo(i)}
             className={`
               h-1.5 rounded-full transition-all duration-300
               ${

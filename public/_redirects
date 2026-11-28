@@ -17,3 +17,25 @@
 # Split into two volumes in the CMS (2026-10-31); the old page was the whole book.
 /library/books/risalat--al-huquq-imam-zain-al-abidin /library/books/sharh-risalat-al-huquq-al-qabanji-part-1 308
 /library/risalat-al-huqoq /library/risalat-al-huqoq/introduction 308
+
+# Video pages that no longer exist. The 14 Abu Hamza episodes of 1439 and 1440 were unlisted on YouTube,
+# and the site shows only what the channel lists publicly, so they go to the video gallery.
+/media/videos/Duaa-Abi-Hamza-Al-Thumali-Sayyid-Ahmad-Al-Safi-1439-1 /media/videos 308
+/media/videos/Duaa-Abi-Hamza-Al-Thumali-Sayyid-Ahmad-Al-Safi-1439-2 /media/videos 308
+/media/videos/Duaa-Abi-Hamza-Al-Thumali-Sayyid-Ahmad-Al-Safi-1439-3 /media/videos 308
+/media/videos/Duaa-Abi-Hamza-Al-Thumali-Sayyid-Ahmad-Al-Safi-1439-4 /media/videos 308
+/media/videos/Duaa-Abi-Hamza-Al-Thumali-Sayyid-Ahmad-Al-Safi-1 /media/videos 308
+/media/videos/Duaa-Abi-Hamza-Al-Thumali-Sayyid-Ahmad-Al-Safi-2 /media/videos 308
+/media/videos/Duaa-Abi-Hamza-Al-Thumali-Sayyid-Ahmad-Al-Safi-3 /media/videos 308
+/media/videos/Duaa-Abi-Hamza-Al-Thumali-Sayyid-Ahmad-Al-Safi-4 /media/videos 308
+/media/videos/Duaa-Abi-Hamza-Al-Thumali-Sayyid-Ahmad-Al-Safi-5 /media/videos 308
+/media/videos/Duaa-Abi-Hamza-Al-Thumali-Sayyid-Ahmad-Al-Safi-6 /media/videos 308
+/media/videos/Duaa-Abi-Hamza-Al-Thumali-Sayyid-Ahmad-Al-Safi-7 /media/videos 308
+/media/videos/Duaa-Abi-Hamza-Al-Thumali-Sayyid-Ahmad-Al-Safi-8 /media/videos 308
+/media/videos/Duaa-Abi-Hamza-Al-Thumali-Sayyid-Ahmad-Al-Safi-9 /media/videos 308
+/media/videos/Duaa-Abi-Hamza-Al-Thumali-Sayyid-Ahmad-Al-Safi-10 /media/videos 308
+
+# Two entries of the old list that pointed at a video another entry already covers: the second slug
+# of one video, and a video whose YouTube id had been cut short (MKnohtN8, now tD-MKnohtN8).
+/media/videos/hadm-qubur-albaqi-alhadath-walhadeeth /media/videos/hadm-qubur-albaqi-almanashiya-alfikriya-waltadaei-alijtimaia 308
+/media/videos/al-sheikh-bashir-al-hasnawi-al-ishroun-min-shahr-muharram-al-haram /media/videos/tD-MKnohtN8 308

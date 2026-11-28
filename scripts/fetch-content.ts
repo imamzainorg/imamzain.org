@@ -6,8 +6,8 @@
 // A failed request fails the run, and so the build: the deploy then stops and the live site stays on
 // its last good version, rather than shipping a site with half its content missing.
 //
-// Not covered here: youtube.json (the videos still need a curation layer on the API) and
-// imamzain-legacy/ (al-Sahifa and Risalat al-Huquq live in this repo by design).
+// Not covered here: youtube.json (only the home page still reads it, until its video block moves to
+// videos.json) and imamzain-legacy/ (al-Sahifa and Risalat al-Huquq live in this repo by design).
 
 import { mkdir, writeFile } from "node:fs/promises"
 import path from "node:path"
@@ -16,7 +16,7 @@ const API = (process.env.API_URL ?? "https://api.imamzain.org/api/v1").replace(/
 const OUT = path.join(process.cwd(), "src", "data")
 const PAGE_SIZE = 100 // the API's maximum
 const CONCURRENCY = 6
-// The API allows 200 requests a minute from one address; stay under it (about 260 requests a build).
+// The API allows 200 requests a minute from one address; stay under it (about 290 requests a build).
 const MIN_GAP_MS = 400
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
@@ -321,7 +321,53 @@ async function stores() {
 	)
 }
 
+async function videos() {
+	// The public list never holds a hidden video or a live broadcast. Shorts are in it, marked by `kind`.
+	const [list, featured, series] = await Promise.all([
+		getAll("/videos"),
+		getAll("/videos?featured=true"),
+		get<Json[]>("/videos/series"),
+	])
+	const featuredOrder = new Map(featured.map((v, i) => [v.slug as string, i]))
+	const rows = list.map((v) => ({
+		slug: v.slug,
+		videoId: v.video_id,
+		kind: v.kind,
+		title: v.title ?? "",
+		description: v.description ?? "",
+		thumbnail: v.thumbnail_url ?? "",
+		date: day(v.published_at),
+		publishedAt: v.published_at ?? "",
+		duration: v.duration ?? "",
+		views: v.view_count ?? null,
+		featured: Boolean(v.is_featured),
+		featuredOrder: featuredOrder.get(v.slug) ?? null,
+		speaker: v.speaker?.name ?? null,
+		series: (v.series ?? []).map((s: Json) => ({ slug: s.slug, title: s.title })),
+	}))
+	await write("videos.json", rows)
+
+	// The list does not carry a video's place in a playlist: each series' detail gives its episodes
+	// in YouTube's order, which the site follows.
+	const known = new Set(rows.map((v) => v.slug))
+	const details = await mapLimit(series, (s) => get(`/videos/series/${encodeURIComponent(s.slug)}`))
+	await write(
+		"video-series.json",
+		details.map((s) => ({
+			slug: s.slug,
+			title: s.title ?? "",
+			description: s.description ?? "",
+			thumbnail: s.thumbnail_url ?? "",
+			section: s.section ?? null,
+			speaker: s.speaker?.name ?? null,
+			videoCount: s.video_count ?? s.videos.length,
+			latestDate: day(s.latest_published_at),
+			videos: (s.videos as Json[]).map((v) => v.slug as string).filter((slug) => known.has(slug)),
+		})),
+	)
+}
+
 await mkdir(OUT, { recursive: true })
 const started = Date.now()
-await Promise.all([posts(), books(), gallery(), audios(), papers(), staticPages(), stores()])
+await Promise.all([posts(), books(), gallery(), audios(), papers(), staticPages(), stores(), videos()])
 console.log(`Content fetched from ${API} in ${((Date.now() - started) / 1000).toFixed(1)}s`)
