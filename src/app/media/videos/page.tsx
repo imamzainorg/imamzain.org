@@ -3,6 +3,7 @@ import { formatDate } from "@/lib/format";
 import { getSeries, getVideos, pickHero } from "@/lib/videos";
 import AllVideos from "./_components/all-videos";
 import SeriesSections from "./_components/series-sections";
+import ShortsRail from "./_components/shorts-rail";
 import VideoView from "./_components/video-view";
 
 export const metadata: Metadata = {
@@ -63,6 +64,9 @@ export default async function VideosPage() {
           }))}
         />
       </div>
+
+      {/* Shorts rail, awaiting the owner's approval: the switch is in shorts-rail.tsx. */}
+      <ShortsRail />
 
       {series.length > 0 && (
         <div className="mt-16">

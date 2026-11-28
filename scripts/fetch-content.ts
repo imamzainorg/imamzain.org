@@ -6,8 +6,7 @@
 // A failed request fails the run, and so the build: the deploy then stops and the live site stays on
 // its last good version, rather than shipping a site with half its content missing.
 //
-// Not covered here: youtube.json (only the home page still reads it, until its video block moves to
-// videos.json) and imamzain-legacy/ (al-Sahifa and Risalat al-Huquq live in this repo by design).
+// Not covered here: imamzain-legacy/ (al-Sahifa and Risalat al-Huquq live in this repo by design).
 
 import { mkdir, writeFile } from "node:fs/promises"
 import path from "node:path"
@@ -321,6 +320,23 @@ async function stores() {
 	)
 }
 
+// The homepage's video block (featured first, then the newest long-form videos, one per series) and
+// the shorts rail on /media/videos. The rail is awaiting the owner's approval, so a failed request
+// there leaves it empty instead of stopping the build.
+async function videoFeeds() {
+	await write("home-videos.json", (await get<{ videos: Json[] }>("/homepage")).videos)
+	let shorts: Json[] = []
+	try {
+		shorts = (await get<{ items: Json[] }>("/videos?kind=short&limit=30")).items
+	} catch (err) {
+		console.warn(`shorts: ${(err as Error).message}`)
+	}
+	await write(
+		"shorts.json",
+		shorts.map((s) => ({ videoId: s.video_id, title: s.title, thumbnail: s.thumbnail_url, date: s.published_at })),
+	)
+}
+
 async function videos() {
 	// The public list never holds a hidden video or a live broadcast. Shorts are in it, marked by `kind`.
 	const [list, featured, series] = await Promise.all([
@@ -369,5 +385,5 @@ async function videos() {
 
 await mkdir(OUT, { recursive: true })
 const started = Date.now()
-await Promise.all([posts(), books(), gallery(), audios(), papers(), staticPages(), stores(), videos()])
+await Promise.all([posts(), books(), gallery(), audios(), papers(), staticPages(), stores(), videoFeeds(), videos()])
 console.log(`Content fetched from ${API} in ${((Date.now() - started) / 1000).toFixed(1)}s`)
