@@ -6,6 +6,7 @@ import imamzainLifeData from "@/data/imamzain.json" with  { type: "json" }
 import alSahifaData from "@/data/imamzain-legacy/al-sahifa.json" with { type: "json" }
 import risalatAlHuqoqData from "@/data/imamzain-legacy/risalat-al-huqoq.json" with  { type: "json" }
 
+import { getSeries, getVideos } from "@/lib/videos"
 import { Post } from "@/types/post"
 import { Book } from "@/types/book"
 import { imamzainLife } from "@/types/imamzain-life"
@@ -77,6 +78,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
 		createSitemapEntry("/media/images", new Date(), "weekly", 0.6),
 		createSitemapEntry("/media/videos", new Date(), "weekly", 0.7),
+		createSitemapEntry("/media/videos/series", new Date(), "weekly", 0.6),
 
 		createSitemapEntry("/publications", new Date(), "weekly", 0.8),
 
@@ -164,10 +166,33 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			),
 		)
 
+	// The pages the API's videos and series have: shorts have none, and neither do hidden videos.
+	const [videos, videoSeries] = await Promise.all([getVideos(), getSeries()])
+
+	const videoRoutes: MetadataRoute.Sitemap = videos.map((video) =>
+		createSitemapEntry(
+			`/media/videos/${video.slug}`,
+			video.publishedAt ? new Date(video.publishedAt) : new Date(),
+			"monthly",
+			0.5,
+		),
+	)
+
+	const videoSeriesRoutes: MetadataRoute.Sitemap = videoSeries.map((series) =>
+		createSitemapEntry(
+			`/media/videos/series/${series.slug}`,
+			series.latestDate ? new Date(series.latestDate) : new Date(),
+			"weekly",
+			0.6,
+		),
+	)
+
 	return [
 		...staticRoutes,
 		...newsRoutes,
 		...bookRoutes,
+		...videoRoutes,
+		...videoSeriesRoutes,
 		...imamLifeRoutes,
 		...risalatHuqoqRoutes,
 		...alSahifaRoutes,

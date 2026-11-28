@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { dataFetcher } from "@/lib/dataFetcher";
-import type { YouTubeGroup } from "@/types/youtube-data";
-import { flattenLatestVideos } from "@/lib/youtube";
-import VideosBrowser from "./_components/videos-browser";
+import { formatDate } from "@/lib/format";
+import { getSeries, getVideos, pickHero } from "@/lib/videos";
+import AllVideos from "./_components/all-videos";
+import SeriesSections from "./_components/series-sections";
 import ShortsRail from "./_components/shorts-rail";
-
-export const revalidate = 300;
+import VideoView from "./_components/video-view";
 
 export const metadata: Metadata = {
   title: "معرض المرئيات والفيديو",
@@ -41,25 +40,39 @@ export const metadata: Metadata = {
 };
 
 export default async function VideosPage() {
-  const groups = await dataFetcher<YouTubeGroup[]>("youtube.json");
+  const [videos, series] = await Promise.all([getVideos(), getSeries()]);
+  const hero = pickHero(videos);
 
-  // المعرض الداخلي يعرض المجموعات المعلّمة "internal" أو "both" فقط.
-  const galleryGroups = groups.filter(
-    (g) =>
-      (g.displayLocation === "internal" || g.displayLocation === "both") &&
-      g.videos.length > 0,
-  );
-  const latestVideo = flattenLatestVideos(galleryGroups)[0]?.video;
+  if (!hero) {
+    return (
+      <div className="container py-20 text-center text-white">
+        لا توجد فيديوهات متاحة حاليًا.
+      </div>
+    );
+  }
 
   return (
-    <>
-      <VideosBrowser
-        key={latestVideo?.slug ?? "root"}
-        groups={galleryGroups}
-        initialVideoSlug={latestVideo?.slug}
-      />
+    <VideoView video={hero} videos={videos} series={series} isHub>
+      <div className="mt-12">
+        <h2 className="text-white font-bold text-lg mb-4">كل الفيديوهات</h2>
+        <AllVideos
+          videos={videos.map(({ slug, title, thumbnail, date }) => ({
+            slug,
+            title,
+            thumbnail,
+            dateLabel: formatDate(date),
+          }))}
+        />
+      </div>
+
       {/* Shorts rail, awaiting the owner's approval: the switch is in shorts-rail.tsx. */}
       <ShortsRail />
-    </>
+
+      {series.length > 0 && (
+        <div className="mt-16">
+          <SeriesSections series={series} limit={5} />
+        </div>
+      )}
+    </VideoView>
   );
 }

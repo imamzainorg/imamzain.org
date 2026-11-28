@@ -30,7 +30,7 @@ export default function ShortsRailClient({ shorts }: { shorts: Short[] }) {
 	}
 
 	return (
-		<section className="container pb-8" aria-labelledby="shorts-title">
+		<section className="mt-16" aria-labelledby="shorts-title">
 			<SectionTitle
 				id="shorts-title"
 				light
